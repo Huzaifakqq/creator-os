@@ -89,3 +89,6 @@ flutter run
 ## License
 
 Private - All rights reserved.
+
+### Author
+**Huzaifa Kashif** — [GitHub](https://github.com/Huzaifakqq)
