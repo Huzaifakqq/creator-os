@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Affiliate &amp; Referral Engine Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms & Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-primary-fixed": "#001a42",
+            "on-secondary-fixed": "#23005c",
+            "surface-tint": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-on-surface": "#303036",
+            "inverse-surface": "#e4e1e9",
+            "error-container": "#93000a",
+            "outline": "#8c909f",
+            "secondary": "#d0bcff",
+            "surface-container": "#1f1f25",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "surface-container-highest": "#35343a",
+            "on-primary-container": "#00285d",
+            "tertiary": "#4edea3",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary": "#003824",
+            "on-error": "#690005",
+            "on-surface-variant": "#c2c6d6",
+            "on-tertiary-container": "#00311f",
+            "surface-variant": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary": "#002e6a",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-dim": "#131318",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "surface-bright": "#39383e",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#c4abff",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: 'liga';
+    }
+
+    /* Subtle custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    
+    .glow-primary {
+      box-shadow: 0 0 20px -3px rgba(77, 142, 255, 0.35);
+    }
+    .glow-emerald {
+      box-shadow: 0 0 16px -2px rgba(16, 185, 129, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary selection:text-on-primary-fixed min-h-screen font-body-md text-body-md flex">
+<!-- ========================================================================= -->
+<!-- 1. SHARED COMPONENT: SideNavBar (desktop_persistent)                      -->
+<!-- ========================================================================= -->
+<aside class="fixed left-0 top-0 bottom-0 z-30 flex flex-col justify-between p-4 w-64 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant">
+<div class="flex flex-col gap-6">
+<!-- Brand & Workspace Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-on-primary font-bold shadow-inner">
+<span class="material-symbols-outlined text-white" data-icon="hub">hub</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface flex items-center gap-1.5">
+<span>Creator OS</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant truncate">Affiliates &amp; Referrals</span>
+</div>
+</div>
+<!-- Studio Tenant Switcher Badge -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container border border-outline-variant/60 hover:border-outline transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></div>
+<div class="flex flex-col truncate">
+<span class="text-label-md font-label-md font-semibold text-on-surface truncate">Acme Media Studio</span>
+<span class="text-label-sm font-label-sm text-primary">Enterprise Tier</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-body-md" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Main Navigation Menu (Active: Partner Roster / Affiliates) -->
+<nav class="flex flex-col gap-1">
+<!-- Overview -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Overview</span>
+</a>
+<!-- Partner Roster (ACTIVE TAB) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-highest dark:bg-surface-container-highest text-primary dark:text-primary font-medium border-l-2 border-primary active:scale-[0.98] shadow-sm" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="handshake" data-weight="fill" style="font-variation-settings: 'FILL' 1;">handshake</span>
+<span class="text-label-md font-label-md font-semibold text-primary">Partner Roster</span>
+<span class="ml-auto px-1.5 py-0.5 rounded text-[10px] font-bold bg-primary/20 text-primary border border-primary/30">142</span>
+</a>
+<!-- Link Studio -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<span class="text-label-md font-label-md">Link Studio</span>
+</a>
+<!-- Tiers & Rates -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="military_tech">military_tech</span>
+<span class="text-label-md font-label-md">Tiers &amp; Rates</span>
+</a>
+<!-- Conversion Ledger -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-md font-label-md">Conversion Ledger</span>
+</a>
+<!-- Payouts -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-label-md font-label-md">Payouts</span>
+</a>
+</nav>
+<!-- Quick Action CTA -->
+<div class="pt-2">
+<button class="w-full py-2.5 px-3 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-on-surface font-label-md flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] group">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform" data-icon="person_add">person_add</span>
+<span>Invite Partner</span>
+</button>
+</div>
+</div>
+<!-- Footer Utility Links -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/60 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-body-md" data-icon="tune">tune</span>
+<span class="text-label-md font-label-md">Engine Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-body-md" data-icon="menu_book">menu_book</span>
+<span class="text-label-md font-label-md">Documentation</span>
+</a>
+<!-- Current System Status Indicator -->
+<div class="mt-2 px-3 py-2 rounded bg-surface-container-lowest flex items-center gap-2 border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Stripe Connect: Syncing</span>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN SHELL WRAPPER (Offset by Left SideBar width: ml-64)                  -->
+<!-- ========================================================================= -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 pb-16">
+<!-- ======================================================================= -->
+<!-- 2. SHARED COMPONENT: TopNavBar (utility_header)                         -->
+<!-- ======================================================================= -->
+<header class="sticky top-0 z-20 flex justify-between items-center h-14 px-6 w-full bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant backdrop-blur-md bg-opacity-95">
+<!-- Breadcrumb & Status Pill -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer">Creator OS</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Monetization</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium">Affiliate &amp; Referral Engine</span>
+</div>
+<!-- Live Status Pill -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-tertiary-container/20 border border-tertiary/40">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="text-label-sm font-label-sm font-semibold text-tertiary">Referral Engine Active • 99.9% Attribution Accuracy</span>
+</div>
+</div>
+<!-- Center / Right Utility Cluster -->
+<div class="flex items-center gap-3">
+<!-- Quick Search with Command K -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-body-md pointer-events-none" data-icon="search">search</span>
+<input class="w-64 pl-8 pr-12 py-1.5 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface placeholder:text-on-surface-variant/60 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Search partners, links, tags..." type="text"/>
+<kbd class="absolute right-2 px-1.5 py-0.5 text-[10px] font-semibold text-on-surface-variant bg-surface-container-highest rounded border border-outline-variant/60">⌘K</kbd>
+</div>
+<!-- Secondary Action: Export Ledger -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface text-label-md font-label-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-body-md" data-icon="download">download</span>
+<span>Export Ledger</span>
+</button>
+<!-- Primary Action: Invite Affiliate -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-white text-label-md font-label-md font-semibold glow-primary transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-body-md" data-icon="add">add</span>
+<span>Create Campaign</span>
+</button>
+<!-- Divider -->
+<div class="h-5 w-px bg-outline-variant"></div>
+<!-- Trailing Icon Actions -->
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Documentation &amp; Help">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-2 pl-2">
+<div class="relative w-8 h-8 rounded-full ring-2 ring-outline-variant overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A striking portrait of a sophisticated modern digital creator and media studio administrator, lit with gentle cinematic rim-lighting featuring subtle cobalt blue and deep violet ambient tones. The subject exhibits focused, calm executive energy against a minimalist obsidian background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV7Zy_scpS9k1alAcrATjlYQE62NYcJOrz8jyTHNr-oSu6pdC52qnsHn-4LMPgvsl9yuyEGFdgLE0umwew9N0EzVMD_ZtyYQT1E8hp7fjTu9fs5TIzdC92JwWOwtmhXFiD44Gz_HpLZMWkU08NFqpOU2QSNBhcKxL7O9ICZCI4Gh0_9au3uTPsOJdahL47KJhFCdzVypkZ---azaC-tAUYcnm0Zf2-0stnN8UooV2Ppzthlf-eBfwKRQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- MAIN WORKSPACE CANVAS                                                   -->
+<!-- ======================================================================= -->
+<main class="px-8 pt-6 flex flex-col gap-6 max-w-[1440px] w-full">
+<!-- ===================================================================== -->
+<!-- SECTION 2: EXECUTIVE TELEMETRY STRIP (4 Metric Bento Cards)           -->
+<!-- ===================================================================== -->
+<section class="grid grid-cols-4 gap-4">
+<!-- Metric Card 1: Revenue -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant hover:border-outline transition-all duration-200 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-primary-container/10 rounded-full blur-2xl group-hover:bg-primary-container/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Total Referred Revenue (30d)</span>
+<span class="p-1.5 rounded-md bg-tertiary/10 text-tertiary material-symbols-outlined text-body-md" data-icon="trending_up">trending_up</span>
+</div>
+<div class="flex items-baseline gap-3">
+<h3 class="text-headline-xl font-headline-xl font-bold text-on-surface tracking-tight">$94,320</h3>
+<span class="text-label-sm font-label-sm font-semibold text-tertiary bg-tertiary-container/20 px-1.5 py-0.5 rounded border border-tertiary/30">+26.8% MoM</span>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>$312,400 All-time attributed</span>
+<!-- Micro Sparkline SVG -->
+<svg class="w-20 h-5 text-tertiary stroke-current fill-none stroke-[2]" viewbox="0 0 80 20">
+<path d="M0 16 L12 14 L24 18 L36 10 L48 12 L60 4 L72 7 L80 1"></path>
+</svg>
+</div>
+</div>
+<!-- Metric Card 2: Active Affiliates -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant hover:border-outline transition-all duration-200 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-secondary-container/10 rounded-full blur-2xl group-hover:bg-secondary-container/20 transition-all"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Active Affiliates &amp; Promoters</span>
+<span class="p-1.5 rounded-md bg-secondary/10 text-secondary material-symbols-outlined text-body-md" data-icon="group">group</span>
+</div>
+<div class="flex items-baseline gap-3">
+<h3 class="text-headline-xl font-headline-xl font-bold text-on-surface tracking-tight">142</h3>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium">Partners</span>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span><strong class="text-on-surface">18 new</strong> this month</span>
+<span class="text-tertiary font-medium">84% active rate</span>
+</div>
+</div>
+<!-- Metric Card 3: Commission Payouts (Pending) -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant hover:border-outline transition-all duration-200 relative overflow-hidden group">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Commission Payouts (Pending)</span>
+<span class="p-1.5 rounded-md bg-primary/10 text-primary material-symbols-outlined text-body-md" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+<div class="flex items-baseline gap-3">
+<h3 class="text-headline-xl font-headline-xl font-bold text-primary tracking-tight">$18,864</h3>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant border border-outline-variant/60">20% blended</span>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Due Nov 1 via Stripe Connect
+            </span>
+<span class="text-label-sm text-primary underline cursor-pointer">Preview Batch</span>
+</div>
+</div>
+<!-- Metric Card 4: Top Conversion Channel -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant hover:border-outline transition-all duration-200 relative overflow-hidden group">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Top Conversion Channel</span>
+<span class="p-1.5 rounded-md bg-tertiary/10 text-tertiary material-symbols-outlined text-body-md" data-icon="smart_display">smart_display</span>
+</div>
+<div class="flex items-baseline gap-2">
+<h3 class="text-headline-md font-headline-md font-bold text-on-surface truncate">YouTube Teardowns</h3>
+</div>
+<div class="mt-3 pt-3 border-t border-outline-variant/40 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>48.5% share ($45,800)</span>
+<span class="text-tertiary font-semibold">4.2x ROI</span>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 3: SECONDARY TOOLBAR & TIER FILTERS                           -->
+<!-- ===================================================================== -->
+<section class="flex items-center justify-between gap-4 p-2.5 rounded-xl bg-surface border border-outline-variant">
+<!-- Tier Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto">
+<button class="px-3 py-1.5 rounded-full text-label-md font-label-md font-semibold bg-primary text-on-primary shadow-sm flex items-center gap-1.5">
+<span>All Partners</span>
+<span class="px-1.5 py-0.2 rounded-full bg-on-primary/20 text-on-primary text-[10px]">142</span>
+</button>
+<button class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>VIP Tier [30%]</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px]">24</span>
+</button>
+<button class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span>Pro Promoters [20%]</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px]">68</span>
+</button>
+<button class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>Standard [10%]</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px]">50</span>
+</button>
+<button class="px-3 py-1.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Pending Approval</span>
+<span class="px-1.5 py-0.2 rounded-full bg-tertiary-container/30 text-tertiary text-[10px] font-bold">4</span>
+</button>
+</div>
+<!-- Quick Search & Batch Controls -->
+<div class="flex items-center gap-2">
+<!-- In-table Search -->
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-body-md pointer-events-none" data-icon="filter_list">filter_list</span>
+<input class="w-48 pl-8 pr-3 py-1 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface placeholder:text-on-surface-variant/60 focus:w-60 focus:border-primary transition-all outline-none" placeholder="Filter by name or handle..." type="text"/>
+</div>
+<!-- Batch Action CTA -->
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-md bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant text-on-surface text-label-md font-label-md transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-body-md" data-icon="credit_card">credit_card</span>
+<span>Batch Payout via Stripe</span>
+</button>
+<button class="p-1.5 rounded-md bg-surface-container border border-outline-variant hover:border-primary text-on-surface-variant hover:text-on-surface transition-colors" title="Program Settings">
+<span class="material-symbols-outlined text-body-md" data-icon="tune">tune</span>
+</button>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 4: TWO-COLUMN MAIN CONTENT (68% / 32%)                        -->
+<!-- ===================================================================== -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- =================================================================== -->
+<!-- LEFT COLUMN: PARTNER ROSTER & LIVE CONVERSION LEDGER (8 cols ~ 68%) -->
+<!-- =================================================================== -->
+<div class="col-span-8 flex flex-col gap-6">
+<!-- Partner Roster Table Card -->
+<div class="rounded-xl bg-surface border border-outline-variant overflow-hidden shadow-lg">
+<!-- Table Header Bar -->
+<div class="p-4 border-b border-outline-variant flex items-center justify-between bg-surface-container-low/60">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Top Performing Affiliates</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Sorted by revenue generated</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-1">
+<span>View All 142 Partners</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Table Matrix -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-lowest/50 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4">Affiliate &amp; Handle</th>
+<th class="py-3 px-4">Tier &amp; Rate</th>
+<th class="py-3 px-3 text-right">Subs</th>
+<th class="py-3 px-4 text-right">Revenue</th>
+<th class="py-3 px-4 text-right">Unpaid Balance</th>
+<th class="py-3 px-4 text-center">Referral Link</th>
+<th class="py-3 px-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/50 text-body-sm font-body-sm">
+<!-- Partner 1: Alex Vance -->
+<tr class="hover:bg-surface-container-high/40 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary">
+                          AV
+                        </div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Alex Vance</span>
+<span class="text-on-surface-variant text-[11px]">@alexv • DevPulse</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary/10 text-secondary border border-secondary/30">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                        VIP (30% Lifetime)
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-right font-medium text-on-surface">84</td>
+<td class="py-3.5 px-4 text-right font-semibold text-tertiary">$28,400</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary">$8,520</td>
+<td class="py-3.5 px-4 text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container border border-outline-variant text-[11px] font-mono text-on-surface-variant hover:text-primary transition-colors" title="Click to copy link">
+<span>creatoros.io/ref/alexv</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+                          Breakdown
+                        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container hover:brightness-110 text-white text-label-sm font-label-sm font-medium transition-all shadow-sm">
+                          Pay
+                        </button>
+</div>
+</td>
+</tr>
+<!-- Partner 2: Elena Rostova -->
+<tr class="hover:bg-surface-container-high/40 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-secondary">
+                          ER
+                        </div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Elena Rostova</span>
+<span class="text-on-surface-variant text-[11px]">@erostova • NeuralFlow</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary/10 text-secondary border border-secondary/30">
+<span class="material-symbols-outlined text-[13px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                        VIP (30%)
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-right font-medium text-on-surface">62</td>
+<td class="py-3.5 px-4 text-right font-semibold text-tertiary">$21,700</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary">$6,510</td>
+<td class="py-3.5 px-4 text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container border border-outline-variant text-[11px] font-mono text-on-surface-variant hover:text-primary transition-colors" title="Click to copy link">
+<span>creatoros.io/ref/neuralflow</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+                          Breakdown
+                        </button>
+<button class="px-2.5 py-1 rounded bg-primary-container hover:brightness-110 text-white text-label-sm font-label-sm font-medium transition-all shadow-sm">
+                          Pay
+                        </button>
+</div>
+</td>
+</tr>
+<!-- Partner 3: Marcus Kane -->
+<tr class="hover:bg-surface-container-high/40 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-primary">
+                          MK
+                        </div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Marcus Kane</span>
+<span class="text-on-surface-variant text-[11px]">@mkane • Synthetix</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+<span class="material-symbols-outlined text-[13px]" data-icon="bolt">bolt</span>
+                        Pro Promoter (20%)
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-right font-medium text-on-surface">41</td>
+<td class="py-3.5 px-4 text-right font-semibold text-tertiary">$14,350</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary">$2,870</td>
+<td class="py-3.5 px-4 text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container border border-outline-variant text-[11px] font-mono text-on-surface-variant hover:text-primary transition-colors" title="Click to copy link">
+<span>creatoros.io/ref/mkane</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+                          Breakdown
+                        </button>
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm transition-all">
+                          Pay
+                        </button>
+</div>
+</td>
+</tr>
+<!-- Partner 4: David Finch -->
+<tr class="hover:bg-surface-container-high/40 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-outline">
+                          DF
+                        </div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">David Finch</span>
+<span class="text-on-surface-variant text-[11px]">@dfinch • Principal Arch</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+<span class="material-symbols-outlined text-[13px]" data-icon="bolt">bolt</span>
+                        Pro Promoter (20%)
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-right font-medium text-on-surface">29</td>
+<td class="py-3.5 px-4 text-right font-semibold text-tertiary">$9,800</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary">$1,960</td>
+<td class="py-3.5 px-4 text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container border border-outline-variant text-[11px] font-mono text-on-surface-variant hover:text-primary transition-colors" title="Click to copy link">
+<span>creatoros.io/ref/dfinch</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+                          Breakdown
+                        </button>
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm transition-all">
+                          Pay
+                        </button>
+</div>
+</td>
+</tr>
+<!-- Partner 5: Sarah Lin -->
+<tr class="hover:bg-surface-container-high/40 transition-colors group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-outline">
+                          SL
+                        </div>
+<div class="flex flex-col">
+<span class="font-semibold text-on-surface group-hover:text-primary transition-colors">Sarah Lin</span>
+<span class="text-on-surface-variant text-[11px]">@sarahlin • Tech Reviewer</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant border border-outline-variant">
+<span class="material-symbols-outlined text-[13px]" data-icon="shield">shield</span>
+                        Standard (10%)
+                      </span>
+</td>
+<td class="py-3.5 px-3 text-right font-medium text-on-surface">18</td>
+<td class="py-3.5 px-4 text-right font-semibold text-tertiary">$4,200</td>
+<td class="py-3.5 px-4 text-right font-bold text-primary">$420</td>
+<td class="py-3.5 px-4 text-center">
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container-low hover:bg-surface-container border border-outline-variant text-[11px] font-mono text-on-surface-variant hover:text-primary transition-colors" title="Click to copy link">
+<span>creatoros.io/ref/sarahtech</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+                          Breakdown
+                        </button>
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm transition-all">
+                          Pay
+                        </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Sub-Footer summary -->
+<div class="p-3 bg-surface-container-low/40 border-t border-outline-variant flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant px-4">
+<span>Showing 5 of 142 Active Verified Creators</span>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm">Total Unpaid Queue: <strong class="text-primary font-semibold">$20,280.00</strong></span>
+<button class="text-label-sm text-primary hover:underline">Batch Settle All</button>
+</div>
+</div>
+</div>
+<!-- Real-Time Conversion Live Ticker / Ledger Card -->
+<div class="rounded-xl bg-surface border border-outline-variant p-4">
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="text-headline-sm font-headline-sm font-semibold text-on-surface">Live Attribution Feed</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Real-time webhook sync</span>
+</div>
+<!-- Ticker Rows -->
+<div class="flex flex-col gap-2.5">
+<!-- Ledger Event 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 hover:border-outline transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-tertiary-container/20 text-tertiary flex items-center justify-center font-semibold text-label-sm">
+                    2m
+                  </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<strong class="text-on-surface font-semibold text-body-sm">Alex Vance referral</strong>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant text-body-sm">Annual Pro Subscription ($290)</span>
+</div>
+<span class="text-[11px] font-mono text-on-surface-variant">Attribution Hash: 0x89f...2d14 • Source: YouTube Bio</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-mono font-bold text-label-sm">
+                    +$87.00
+                  </span>
+<span class="material-symbols-outlined text-tertiary text-body-sm" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Ledger Event 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 hover:border-outline transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-container/20 text-secondary flex items-center justify-center font-semibold text-label-sm">
+                    14m
+                  </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<strong class="text-on-surface font-semibold text-body-sm">Elena Rostova referral</strong>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant text-body-sm">Cohort 4 Seat ($2,000)</span>
+</div>
+<span class="text-[11px] font-mono text-on-surface-variant">Attribution Hash: 0x47e...a91c • Source: Substack Newsletter</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-mono font-bold text-label-sm">
+                    +$600.00
+                  </span>
+<span class="material-symbols-outlined text-tertiary text-body-sm" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Ledger Event 3 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 hover:border-outline transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary-container/20 text-primary flex items-center justify-center font-semibold text-label-sm">
+                    41m
+                  </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<strong class="text-on-surface font-semibold text-body-sm">Marcus Kane referral</strong>
+<span class="text-outline-variant">•</span>
+<span class="text-on-surface-variant text-body-sm">Commerce Suite Bundle ($149)</span>
+</div>
+<span class="text-[11px] font-mono text-on-surface-variant">Attribution Hash: 0x11c...7e02 • Source: X Tweet</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary font-mono font-bold text-label-sm">
+                    +$29.80
+                  </span>
+<span class="material-symbols-outlined text-tertiary text-body-sm" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- RIGHT COLUMN: STUDIO, LINK BUILDER & GUARDRAILS (4 cols ~ 32%)     -->
+<!-- =================================================================== -->
+<div class="col-span-4 flex flex-col gap-6">
+<!-- Link Studio & Shortener Card -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant shadow-lg relative">
+<div class="flex items-center justify-between pb-3 mb-4 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Referral Studio</h3>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-primary/10 text-primary border border-primary/20">Link Generator</span>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Target Landing Page -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Target Landing Page</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-on-surface-variant text-body-md" data-icon="language">language</span>
+<input class="w-full pl-8 pr-3 py-1.5 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="creatoros.io/pro-builder"/>
+</div>
+</div>
+<!-- Partner Slug Assignment -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-sm font-label-sm text-on-surface-variant">Affiliate Partner Slug</label>
+<select class="w-full px-3 py-1.5 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>Alex Vance (alexv)</option>
+<option>Elena Rostova (neuralflow)</option>
+<option>Marcus Kane (mkane)</option>
+<option>David Finch (dfinch)</option>
+<option>Sarah Lin (sarahtech)</option>
+</select>
+</div>
+<!-- Custom UTM Tagging -->
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-label-sm text-on-surface-variant">UTM Source</label>
+<input class="w-full px-2.5 py-1 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary outline-none" type="text" value="youtube"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="text-[11px] font-label-sm text-on-surface-variant">UTM Campaign</label>
+<input class="w-full px-2.5 py-1 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary outline-none" type="text" value="blackfriday"/>
+</div>
+</div>
+<!-- Generated Link Preview Box -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/80 flex flex-col gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Generated Attribution Endpoint</span>
+<div class="p-2 rounded bg-surface-container-high font-mono text-[11px] text-primary truncate border border-outline-variant/40 select-all">
+                  creatoros.io/ref/alexv?utm_src=youtube&amp;cmp=bf
+                </div>
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 py-1.5 px-3 rounded bg-primary text-on-primary text-label-md font-label-md font-semibold hover:brightness-110 flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-body-md" data-icon="link">link</span>
+<span>Copy Secure Link</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-on-surface transition-colors" title="View QR Code">
+<span class="material-symbols-outlined text-body-md" data-icon="qr_code_2">qr_code_2</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Commission Tiers Summary Widget -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant shadow-lg flex flex-col gap-4">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="military_tech">military_tech</span>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Commission Tiers</h3>
+</div>
+<span class="text-label-sm text-primary font-medium">3 Active Tiers</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- Tier 1 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-outline text-label-sm shrink-0 mt-0.5">
+                  1
+                </div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Standard</span>
+<span class="text-label-sm font-bold text-on-surface-variant">10% One-time</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Applied to first transactional checkout. Default tier for new affiliates.</p>
+</div>
+</div>
+<!-- Tier 2 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-label-sm shrink-0 mt-0.5">
+                  2
+                </div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-primary">Pro Promoter</span>
+<span class="text-label-sm font-bold text-primary">20% Recurring</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Recurring for 12 months. Requires minimum 10 successful monthly conversions.</p>
+</div>
+</div>
+<!-- Tier 3 -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-secondary/40 flex items-start gap-3 relative overflow-hidden">
+<div class="absolute right-0 top-0 px-2 py-0.5 rounded-bl bg-secondary/20 text-secondary text-[10px] font-bold">Top Performing</div>
+<div class="w-7 h-7 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-label-sm shrink-0 mt-0.5">
+                  3
+                </div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-secondary">VIP Ambassador</span>
+<span class="text-label-sm font-bold text-secondary">30% Lifetime</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Lifetime recurring payout + co-branded landing page portal &amp; priority support.</p>
+</div>
+</div>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-primary text-label-md font-label-md font-semibold transition-colors flex items-center justify-center gap-1.5">
+<span>Configure Tiers &amp; Rules</span>
+<span class="material-symbols-outlined text-body-md" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Fraud & Attribution Guardrails Card -->
+<div class="p-5 rounded-xl bg-surface border border-outline-variant shadow-lg flex flex-col gap-3.5">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" data-icon="security">security</span>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Fraud &amp; Attribution</h3>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<div class="flex flex-col gap-2.5 text-body-sm font-body-sm">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/40">
+<span class="text-on-surface-variant">Self-referral protection:</span>
+<span class="text-tertiary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check">check</span>
+                  Enabled (IP/Card Fingerprint)
+                </span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/40">
+<span class="text-on-surface-variant">Cookie Life / Window:</span>
+<span class="text-on-surface font-semibold">60 Days (First-click)</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/40">
+<span class="text-on-surface-variant">Minimum Payout:</span>
+<span class="text-on-surface font-semibold">$50.00 USD</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/40">
+<span class="text-on-surface-variant">Next Auto Payout Batch:</span>
+<span class="text-primary font-semibold">In 4 days (Nov 1, 2025)</span>
+</div>
+</div>
+<div class="pt-2 text-[11px] text-on-surface-variant flex items-center gap-1.5 justify-center">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="lock">lock</span>
+<span>Encrypted audit ledger backed by Stripe Express Payout Rails</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

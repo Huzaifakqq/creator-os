@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — NextSaaS AI Boilerplate &amp; Production Starter</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container": "#1f1f25",
+            "surface-container-low": "#1b1b20",
+            "on-background": "#e4e1e9",
+            "on-primary-fixed-variant": "#004395",
+            "background": "#131318",
+            "tertiary": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-error": "#690005",
+            "inverse-surface": "#e4e1e9",
+            "error-container": "#93000a",
+            "tertiary-container": "#00a572",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "surface-bright": "#39383e",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed": "#e9ddff",
+            "on-surface": "#e4e1e9",
+            "surface-container-high": "#2a292f",
+            "surface-variant": "#35343a",
+            "on-primary": "#002e6a",
+            "on-secondary": "#3c0091",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754",
+            "surface-dim": "#131318",
+            "on-tertiary-container": "#00311f",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-fixed": "#23005c",
+            "primary-container": "#4d8eff",
+            "surface": "#131318",
+            "inverse-primary": "#005ac2",
+            "on-tertiary": "#003824",
+            "secondary-container": "#571bc1",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "inverse-on-surface": "#303036",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-tint": "#adc6ff",
+            "surface-container-highest": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .electric-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .electric-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .electric-glow-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+    }
+    .thin-border {
+      border-color: #1E1E2E;
+    }
+    /* Material icon helper */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased flex min-h-screen">
+<!-- LEFT SIDEBAR COMPONENT (Anchored from Shared Components JSON) -->
+<aside class="fixed top-0 left-0 h-screen w-64 border-r border-outline-variant/30 flex flex-col justify-between bg-surface z-30">
+<div class="w-64 h-full flex flex-col justify-between py-4 px-3">
+<!-- Workspace Brand Anchor -->
+<div>
+<div class="flex items-center gap-3 px-3 py-2 mb-4">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary font-bold text-lg shadow-inner">
+<span class="material-symbols-outlined text-primary">layers</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-snug">Obsidian Studio</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Enterprise Tier</span>
+</div>
+</div>
+<!-- Primary CTA from JSON -->
+<button class="w-full flex items-center justify-center gap-2 mb-6 py-2.5 px-4 rounded-lg electric-gradient text-white font-label-lg text-label-lg font-medium electric-glow electric-glow-btn transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Create Asset</span>
+</button>
+<!-- Navigation Tabs: Exact JSON labels & icons, Semantic Match: 'Marketplace' is Active -->
+<nav class="space-y-1">
+<!-- Tab 1: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-lg text-label-lg">Dashboard</span>
+</a>
+<!-- Tab 2: Studio -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_videocam</span>
+<span class="font-label-lg text-label-lg">Studio</span>
+</a>
+<!-- Tab 3: Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="font-label-lg text-label-lg">Analytics</span>
+</a>
+<!-- Tab 4: Marketplace (ACTIVE - Mandated by Prompt Context & JSON) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-medium border-l-2 border-primary active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary">storefront</span>
+<span class="font-label-lg text-label-lg text-primary font-medium">Marketplace</span>
+</a>
+<!-- Tab 5: Audience -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="font-label-lg text-label-lg">Audience</span>
+</a>
+<!-- Tab 6: Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-lg text-label-lg">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer navigation from JSON -->
+<div class="border-t border-outline-variant/30 pt-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span class="font-label-lg text-label-lg">Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="font-label-lg text-label-lg">Log out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN CANVAS CONTAINER (Offset by SideNavBar width 256px) -->
+<div class="flex-1 ml-64 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- TOP NAVBAR COMPONENT (Anchored from Shared Components JSON) -->
+<header class="flex justify-between items-center w-full px-6 h-14 sticky top-0 z-40 backdrop-blur-md bg-surface-container-low/95 border-b border-outline-variant/30 shadow-sm">
+<!-- Left side: Product Name & Search Bar on Left -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Creator OS</span>
+</div>
+<!-- Search Input -->
+<div class="relative w-80">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-8 pl-9 pr-4 rounded-md bg-[#12121A] border border-[#1E1E2E] text-on-surface placeholder:text-outline/70 text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search boilerplates, templates, UI kits..." type="text"/>
+</div>
+</div>
+<!-- Right side: Contextual Secondary Action, Primary Action & Icons -->
+<div class="flex items-center gap-3">
+<!-- Back to Marketplace context link -->
+<a class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface text-label-md font-label-md hover:bg-surface-container-high/60 transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Back to Marketplace</span>
+</a>
+<!-- Share Listing button -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface hover:border-primary text-label-md font-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">share</span>
+<span>Share Listing</span>
+</button>
+<!-- Trailing primary action from JSON -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg electric-gradient text-white text-label-md font-label-md electric-glow-btn transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">publish</span>
+<span>Publish Product</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-1"></div>
+<!-- Trailing icon actions: notifications, tune -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-low"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<!-- User profile Avatar: Huzaifa Khan -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/30">
+<img class="w-8 h-8 rounded-full border border-outline-variant/60 object-cover" data-alt="A polished headshot portrait of software founder Huzaifa Khan against a dark moody obsidian backdrop with subtle rim lighting in soft neon electric indigo tones, capturing a confident, modern tech creator presence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0UrO-FtXqwpccQ1WSIoo8ZyGnVukv9uwIj9lhJTKXpOfljeHcaW4vkpqoYJKKZk0X3_13FyYFVTzjzBBbIu3ivEucQzhDizY12V8PEv0ofkG342dg6jyzFaQFl-D3iigLs7MzfDjZhMGl7GpsUTVvYNqLm7cMsVT3m0K_blNEy21XKVq5utcNC1iUpkKCVkFpZK6V2zCd5xzpEBMJnhyarP_OjEkx6Q8lR1ulEKF8Q2kHapnaHFRGVg"/>
+</div>
+</div>
+</header>
+<!-- CONTENT WRAPPER -->
+<main class="max-w-[1440px] w-full mx-auto px-8 py-6">
+<!-- BREADCRUMBS -->
+<nav class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant mb-4">
+<a class="hover:text-primary transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Full-Stack SaaS Boilerplates</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-medium">NextSaaS AI Boilerplate</span>
+</nav>
+<!-- PRODUCT HEADER TITLE & ATTRIBUTION SECTION -->
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
+<div class="space-y-2.5">
+<!-- Title -->
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-semibold">
+            NextSaaS AI Boilerplate &amp; Production Starter
+          </h1>
+<!-- Badges cluster -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary font-medium">
+<span class="material-symbols-outlined fill text-[14px] text-primary">verified</span>
+              Staff Pick
+            </span>
+<span class="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-label-sm font-label-sm bg-tertiary/10 border border-tertiary/30 text-tertiary font-medium">
+<span class="material-symbols-outlined text-[14px] text-tertiary">security</span>
+              Verified Code Audit
+            </span>
+<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-label-sm font-label-sm bg-[#181824] border border-[#1E1E2E] text-on-surface-variant">
+              Next.js 14 App Router
+            </span>
+<span class="inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-label-sm font-label-sm bg-[#181824] border border-[#1E1E2E] text-on-surface-variant font-mono">
+              v2.4.1
+            </span>
+</div>
+<!-- Creator attribution bar -->
+<div class="flex items-center gap-3 pt-1">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest flex items-center justify-center text-primary text-xs font-bold border border-[#1E1E2E]">
+                DP
+              </div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+                By <span class="text-on-surface font-medium">DevPulse Studio</span>
+</span>
+</div>
+<span class="text-outline-variant">•</span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-secondary-container/30 border border-secondary-container/50 text-secondary font-medium">
+              Top 1% Seller
+            </span>
+<span class="text-outline-variant">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">14.2k total sales</span>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm font-medium text-tertiary-fixed-dim">
+<span class="material-symbols-outlined fill text-[15px] text-tertiary">star</span>
+<span>4.9</span>
+<span class="text-on-surface-variant font-normal">(128 reviews)</span>
+</div>
+<span class="text-outline-variant">•</span>
+<button class="px-2.5 py-1 rounded-md text-label-sm font-label-sm text-on-surface hover:text-primary bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 transition-colors">
+              + Follow Creator
+            </button>
+</div>
+</div>
+<!-- Quick Top Stats Card -->
+<div class="flex items-center gap-4 bg-[#12121A] border border-[#1E1E2E] px-4 py-3 rounded-xl">
+<div class="text-center px-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">1,840+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Active Installs</div>
+</div>
+<div class="w-px h-8 bg-[#1E1E2E]"></div>
+<div class="text-center px-2">
+<div class="font-headline-sm text-headline-sm font-bold text-tertiary">99.8%</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Satisfaction</div>
+</div>
+</div>
+</div>
+<!-- TWO-COLUMN LAYOUT: 65% Detail / 35% Purchase Box -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- ================= LEFT COLUMN: 65% DETAIL (8 cols) ================= -->
+<section class="lg:col-span-8 space-y-8">
+<!-- Interactive Media Showcase: 16:9 Banner + Carousel Thumbnails -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-3 space-y-3">
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1E1E2E] bg-surface-container-lowest group">
+<img class="w-full h-full object-cover" data-alt="A dark-mode analytics and AI SaaS interface dashboard with glowing modular cards, deep navy violet charts, fluid data visualizations, and minimalist translucent control panels designed for modern web engineering teams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPe2fdt90VADCMWc0CBuGKV26aCGYtaw6RSJKiDotJ6SX7__x2epQpVIWm20g9P7wb--RqVf-hiV3OICX9VVyz6TGtNzJAOiUQ2hHtOyZE_ramELoGDxAfMZPKe2VRsXMql4O8pGrpkQlxOyzDsb5eCSTp5nGr03wu7wNMJ72akByY3XjUfMaMtckIehUUZfdCJV7oPsk-9fDu9zdJx0JehhTB49LYb3VW8CIf68Vzc73R-ohC9Wy4Xg"/>
+<!-- Floating Preview Overlay tag -->
+<div class="absolute top-4 left-4 flex items-center gap-2 bg-[#12121A]/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>Live Interactive Sandbox v2.4</span>
+</div>
+<!-- Zoom / Expand Action -->
+<button class="absolute top-4 right-4 w-8 h-8 rounded-lg bg-[#12121A]/80 backdrop-blur-md border border-white/10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+<!-- Carousel Thumbnails -->
+<div class="grid grid-cols-5 gap-2.5 pt-1">
+<button class="relative rounded-lg overflow-hidden border-2 border-primary aspect-[16/10] bg-[#181824] transition-all">
+<img class="w-full h-full object-cover opacity-90" data-alt="High tech software control board preview displaying sleek dark obsidian layouts, rich linear metric tables, and purple neon indicators for next generation SaaS deployment setups." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6sA3ca5TKN-kHi4iSpw1ecaB2UDD5n4iZC9rw1HWPqoc4-mNtCM96gw2ZDhJ6Ta-Mx_UW4w_1oguLbXiCnBJIbKBiJnMwIjKr5GHG8v_2qa-vJa8IU3efwl-8IYS_DKe6I-VLTn2U_l-t19VTcNDRBepgzvPtXrP8pSIRYJtnZ3gal3_kSaP5WqC4q040GzlQPhCsSWgf5uspbhwG98DfPAnbj6oM7chRi6zipc79OD1TqOKsc14X9Q"/>
+<span class="absolute inset-x-0 bottom-0 py-0.5 bg-black/70 text-[10px] font-label-sm font-medium text-center text-white truncate block">Dashboard Preview</span>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-[#1E1E2E] hover:border-outline aspect-[16/10] bg-[#181824] opacity-75 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="Futuristic user authentication interface screen with glassmorphic modal cards, dual-factor authentication keys, and seamless dark obsidian gradient backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtd5XKqfkLxVJqVL08LHe0lSQvf6Q-0SjPWynIKjuT_5nPPtG892DF-xYBGiInj_UWlt4sprnW44Edr_zi5ZHCT2Yjk27bGJ0cEv7sYRn_gdIXjgIj-Q1p4FNtP33L4zD2rM-G03ujh5yXLpenxQJ8OcEYZwzEjgfFkGkszcKXTtNOr_vJumrXf0iX03TI5WAs83gmibQQRZ01qfIeEzZqNCh9hcqeO2lLWMjXf3iUI1wL5fH8ftVdIQ"/>
+<span class="absolute inset-x-0 bottom-0 py-0.5 bg-black/70 text-[10px] font-label-sm font-medium text-center text-white truncate block">Auth Flow</span>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-[#1E1E2E] hover:border-outline aspect-[16/10] bg-[#181824] opacity-75 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="Payment processing checkout integration dashboard showing Stripe webhook logs, recurring subscription events, and currency breakdown graphs against sleek deep indigo cards." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdDD8bEPR7oEULTc7-E78U-HBiIO-RJAWSy78V9cFoVSrL8KK4O18TAPC-Eb_ZT5wIjh8hV2O1fszz5Hv-5x5V0aks10u7tYhwLPivoDdcbqfzCpjgBEEcG0V6QmE1YXWHSGUde7V3zovSpmHUeK14gQF_kGn5ikkYWxfukt8deQWHeND1xOsc8K-iFsaF_VoyKlBjVWvuoDpWc5EflpePOUS1yDKEyZPYyomNuuIrs_-OOk3lo8K-NA"/>
+<span class="absolute inset-x-0 bottom-0 py-0.5 bg-black/70 text-[10px] font-label-sm font-medium text-center text-white truncate block">Stripe Webhooks</span>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-[#1E1E2E] hover:border-outline aspect-[16/10] bg-[#181824] opacity-75 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="Conversational AI chatbot widget interface featuring real time streaming typography tokens, dark rounded message bubbles, and glowing violet state pills." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT0NIAcAl_2uxuYWInOjhXO0kiCMGcDpDaebY84PoN72eB3b3Xo_U1Fu0eE6sr5QglbnHe-7GaIGk-vvBgaphDy_9wn2fpWE-kw0EiK9SboGfJb6vQ09mpdqtNR2cIL0Rj0W9LvHPl50Em_Hrb20axg3NQI5d2FnrspkoYesrR4DJgjp3xZA5cnJRNWIQj_2P0F_wizjUYgNvHFxZG8uBXg7vdyZCJeukxjwPUlBIhHN3h5WiWhAUq_A"/>
+<span class="absolute inset-x-0 bottom-0 py-0.5 bg-black/70 text-[10px] font-label-sm font-medium text-center text-white truncate block">AI Chatbot UI</span>
+</button>
+<button class="relative rounded-lg overflow-hidden border border-[#1E1E2E] hover:border-outline aspect-[16/10] bg-[#181824] opacity-75 hover:opacity-100 transition-all">
+<img class="w-full h-full object-cover" data-alt="Visual relational entity schema diagrams showing connected database models, Neon serverless architecture nodes, and data flow pipelines in modern cyber aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQdC-lJRbi_a6TKtNSmoTK1DLJK5ZwLZoCPmNxo2A2EMJHWjrJolB4PVN6b8tEHJv2a6-pVWCupWDmUWoVZnHYd8XdgOnTJ4JKK7bL9zpT8HkK5GeAndkHNdeHoZWrx2IJnzoke7pxKtxMfRY4B0V6jQ00ufx63L4FMEMjdbhszRjEpks0jdX_9KRpw0S9cWXsaRFYzjDHKFUOQRa1aOisha9c97YvJ5auSLjPeAXJGnTHNFgEr1m-LQ"/>
+<span class="absolute inset-x-0 bottom-0 py-0.5 bg-black/70 text-[10px] font-label-sm font-medium text-center text-white truncate block">Database Schema</span>
+</button>
+</div>
+</div>
+<!-- Live Interactive Demo Action Banner -->
+<div class="bg-gradient-to-r from-surface-container-high/60 via-surface-container/60 to-surface-container-high/60 border border-[#1E1E2E] p-4 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">rocket_launch</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium">Test Drive Full Staging Environment</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant font-mono">sandbox.nextsaas.dev • Credentials pre-loaded</div>
+</div>
+</div>
+<a class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-primary text-label-lg font-label-lg font-medium transition-all duration-150" href="https://sandbox.nextsaas.dev" target="_blank">
+<span>Open Interactive Staging Demo</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+<!-- Overview & Description: Bento Architecture Highlights -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 space-y-6">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Architecture &amp; Core Highlights</h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+                NextSaaS AI is engineered for mission-critical software production. It strips away weeks of tedious boilerplate setup—letting you launch your multi-tenant AI products, recurring billing engines, and edge APIs within hours instead of months.
+              </p>
+</div>
+<!-- Bento feature grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Feature 1 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 transition-colors space-y-2">
+<div class="w-8 h-8 rounded-md bg-primary/15 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">database</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-medium">Multi-tenant Postgres &amp; Neon DB</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Row-level tenancy security with Prisma ORM migrations, instant branching, connection pooling, and optimized cold start times.
+                </p>
+</div>
+<!-- Feature 2 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 transition-colors space-y-2">
+<div class="w-8 h-8 rounded-md bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-medium">Stripe Connect &amp; Webhook Engine</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Turnkey recurring subscription tiers, checkout sessions, custom invoice customer portals, and battle-tested idempotency keys.
+                </p>
+</div>
+<!-- Feature 3 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 transition-colors space-y-2">
+<div class="w-8 h-8 rounded-md bg-tertiary/15 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">palette</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-medium">Tailwind CSS &amp; Studio Design Tokens</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Pre-configured dark/light theme switcher with 40+ accessible studio-grade components, command bars, and reactive charts.
+                </p>
+</div>
+<!-- Feature 4 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 transition-colors space-y-2">
+<div class="w-8 h-8 rounded-md bg-primary/15 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">forward_to_inbox</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-medium">Resend Workflows &amp; React Email</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  Automated onboarding sequences, magic links, transactional receipts, and churn prevention notification templates.
+                </p>
+</div>
+</div>
+<!-- Vercel One-Click Deploy highlight banner -->
+<div class="p-4 rounded-lg bg-gradient-to-r from-surface-container-high via-[#12121A] to-surface-container-high border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[24px]">cloud_upload</span>
+<div>
+<div class="text-label-lg font-label-lg text-on-surface font-medium">Vercel 1-Click Zero-Config Deployment</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Pre-configured edge headers, analytics telemetry, and automated environmental secrets ingestion.</div>
+</div>
+</div>
+<span class="px-3 py-1 text-label-sm font-label-sm font-mono rounded bg-surface-container-highest text-primary">Deploy Script Included</span>
+</div>
+</div>
+<!-- Technical Specifications Grid -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-4">Technical Specifications</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="p-3 bg-[#181824] border border-[#1E1E2E] rounded-lg">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1">Framework</div>
+<div class="text-body-md font-body-md font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                  Next.js 14.2 (App Router)
+                </div>
+</div>
+<div class="p-3 bg-[#181824] border border-[#1E1E2E] rounded-lg">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1">Database / ORM</div>
+<div class="text-body-md font-body-md font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  PostgreSQL / Prisma
+                </div>
+</div>
+<div class="p-3 bg-[#181824] border border-[#1E1E2E] rounded-lg">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1">Styling Engine</div>
+<div class="text-body-md font-body-md font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                  Tailwind CSS v3.4
+                </div>
+</div>
+<div class="p-3 bg-[#181824] border border-[#1E1E2E] rounded-lg">
+<div class="text-label-sm font-label-sm text-on-surface-variant mb-1">Last Update</div>
+<div class="text-body-md font-body-md font-medium text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+                  3 days ago (v2.4.1)
+                </div>
+</div>
+</div>
+</div>
+<!-- What's Included Section -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 space-y-4">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">What's Included in the Bundle</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-primary text-[20px]">code</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">Source code GitHub repository access</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-secondary text-[20px]">design_services</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">Figma master design system file (120+ components)</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-tertiary text-[20px]">inventory_2</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">Production Docker &amp; CI/CD pipeline setup</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-primary text-[20px]">update</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">12 months free major feature updates</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] md:col-span-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">forum</span>
+<span class="text-body-md font-body-md text-on-surface font-medium">Private Discord community role &amp; direct maintainer office hours</span>
+</div>
+</div>
+</div>
+<!-- Customer Reviews & Ratings Section Preview -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Customer Reviews &amp; Ratings</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Validated purchasers who deployed to production</p>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface hover:text-primary text-label-md font-label-md font-medium transition-colors">
+                Write a Review
+              </button>
+</div>
+<!-- Rating Breakdown Bar Chart -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] items-center">
+<div class="md:col-span-4 text-center border-b md:border-b-0 md:border-r border-[#1E1E2E] pb-4 md:pb-0 md:pr-4">
+<div class="font-display-lg text-display-lg text-on-surface font-bold">4.9</div>
+<div class="flex justify-center gap-1 my-1 text-tertiary">
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+<span class="material-symbols-outlined fill text-[18px]">star</span>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Based on 128 verified ratings</div>
+</div>
+<!-- Bar Distribution -->
+<div class="md:col-span-8 space-y-2">
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="w-12 text-on-surface-variant text-right">5 stars</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full electric-gradient rounded-full" style="width: 92%;"></div>
+</div>
+<span class="w-8 text-on-surface text-right font-medium">92%</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="w-12 text-on-surface-variant text-right">4 stars</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full electric-gradient rounded-full" style="width: 6%;"></div>
+</div>
+<span class="w-8 text-on-surface text-right font-medium">6%</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="w-12 text-on-surface-variant text-right">3 stars</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full electric-gradient rounded-full" style="width: 2%;"></div>
+</div>
+<span class="w-8 text-on-surface text-right font-medium">2%</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="w-12 text-on-surface-variant text-right">2 stars</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 0%;"></div>
+</div>
+<span class="w-8 text-on-surface-variant text-right">0%</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="w-12 text-on-surface-variant text-right">1 star</span>
+<div class="flex-1 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-outline rounded-full" style="width: 0%;"></div>
+</div>
+<span class="w-8 text-on-surface-variant text-right">0%</span>
+</div>
+</div>
+</div>
+<!-- Two Detailed Verified Reviews -->
+<div class="space-y-4">
+<!-- Review 1 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs">
+                      MK
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Marcus Kane</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined fill text-[12px]">verified</span> Verified Buyer
+                        </span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">CTO at Synthetix Labs</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                  "Saved our engineering squad at least 160 hours of plumbing work. The multi-tenant Postgres schema and Stripe webhook handling are rock-solid and enterprise-grade. We deployed to production on Vercel with zero modifications."
+                </p>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Reviewed on May 12, 2024 • Purchased Extended Agency License</div>
+</div>
+<!-- Review 2 -->
+<div class="p-4 rounded-lg bg-[#181824] border border-[#1E1E2E] space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-xs">
+                      SL
+                    </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Sarah Lin</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary border border-tertiary/20">
+<span class="material-symbols-outlined fill text-[12px]">verified</span> Verified Buyer
+                        </span>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Solo AI Founder</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+<span class="material-symbols-outlined fill text-[16px]">star</span>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface leading-relaxed">
+                  "The cleanest code architecture in the Creator OS marketplace. The TypeScript types are bulletproof and the Figma design tokens match the Tailwind classes 1-to-1. DevPulse support in Discord answered my question within 15 minutes."
+                </p>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Reviewed on April 28, 2024 • Purchased Standard Commercial License</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ================= RIGHT STICKY COLUMN: 35% PURCHASE BOX (4 cols) ================= -->
+<aside class="lg:col-span-4 sticky top-20 space-y-6">
+<!-- Main Purchase Box -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-2xl space-y-6">
+<!-- Header & Currency Badge -->
+<div class="flex items-center justify-between pb-3 border-b border-[#1E1E2E]">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Select License Tier</span>
+<span class="text-label-sm font-label-sm text-tertiary font-mono bg-tertiary/10 border border-tertiary/20 px-2 py-0.5 rounded">USD Currency</span>
+</div>
+<!-- Radio License Options -->
+<div class="space-y-3">
+<!-- Option 1: Standard Commercial -->
+<label class="block p-4 rounded-xl border border-[#1E1E2E] hover:border-outline-variant bg-[#181824] cursor-pointer transition-all">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<input class="w-4 h-4 text-primary bg-[#12121A] border-[#1E1E2E] focus:ring-0 focus:ring-offset-0" name="license_tier" type="radio"/>
+<div>
+<div class="text-label-lg font-label-lg font-semibold text-on-surface">Standard Commercial</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Single end product / 1 SaaS app</div>
+</div>
+</div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">$149</div>
+</div>
+<div class="mt-2 pl-7 text-[11px] font-label-sm text-outline">
+                  Lifetime code updates • Community Discord support
+                </div>
+</label>
+<!-- Option 2: Extended Agency (SELECTED AS PER PROMPT) -->
+<label class="block p-4 rounded-xl border-2 border-primary bg-primary/5 cursor-pointer relative shadow-lg">
+<div class="absolute -top-2.5 right-4 bg-gradient-to-r from-primary-container to-secondary text-[10px] font-label-sm font-bold text-on-primary-container uppercase px-2 py-0.5 rounded-full tracking-wider">
+                  Recommended for Teams
+                </div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 text-primary bg-[#12121A] border-[#1E1E2E] focus:ring-0 focus:ring-offset-0" name="license_tier" type="radio"/>
+<div>
+<div class="text-label-lg font-label-lg font-semibold text-primary">Extended Agency License</div>
+<div class="text-body-sm font-body-sm text-on-surface">Unlimited client &amp; commercial projects</div>
+</div>
+</div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">$399</div>
+</div>
+<div class="mt-2 pl-7 text-[11px] font-label-sm text-on-surface-variant flex flex-col gap-1">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[14px]">check_circle</span> Unlimited commercial deployments
+                  </span>
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-[14px]">check_circle</span> Priority 1-on-1 direct maintainer support
+                  </span>
+</div>
+</label>
+</div>
+<!-- Primary Action Button: Electric Blue-to-Purple Gradient -->
+<button class="w-full py-3.5 px-4 rounded-lg electric-gradient text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 electric-glow electric-glow-btn transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">shopping_cart_checkout</span>
+<span>Purchase &amp; Instant Install ($399)</span>
+</button>
+<!-- Secondary Action Buttons: Add to Cart & Save to Wishlist -->
+<div class="grid grid-cols-2 gap-3">
+<button class="py-2.5 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-on-surface hover:text-white text-label-md font-label-md font-medium flex items-center justify-center gap-1.5 transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+<button class="py-2.5 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-on-surface hover:text-white text-label-md font-label-md font-medium flex items-center justify-center gap-1.5 transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+<span>Save to Wishlist</span>
+</button>
+</div>
+<!-- Security & Guarantee Badges -->
+<div class="pt-4 border-t border-[#1E1E2E] space-y-2.5">
+<div class="flex items-center gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
+<span>Instant GitHub repository invite &amp; ZIP access</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified_user</span>
+<span>30-day no-questions-asked money-back guarantee</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]">bug_report</span>
+<span>Verified Clean Code (0 vulnerabilities audited)</span>
+</div>
+<div class="flex items-center gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+<span>Stripe Secure 256-bit SSL encrypted checkout</span>
+</div>
+</div>
+</div>
+<!-- Creator Guarantee & Direct Support Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 space-y-3">
+<div class="flex items-center gap-3">
+<img class="w-11 h-11 rounded-full border border-primary/40 object-cover" data-alt="Portrait avatar of a senior lead software architect wearing modern spectacles in a clean tech environment with subtle atmospheric obsidian lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYI2ZBy01ffnGCdZTNYdps3AtzZhlfLYs-NRVZbqmUqbj0kU4CPkvLcwScIPcYeBbvQsDUZ_rArdqQvLDSwQY6bL6Y6915j-RvGWEoUwNxCTsbL83jv60AvMin42BMW4dknRlzZ4JFdJ2eiLaxnmpYys0HPhyHEpEnCj2QmqDXq79Xi-D-mlCtuFKVBej4-c1zXFiExzWFCifFYJuYnN-zdad9jhDrk4TGeeAjCHPhjOxCxIAw83iq1A"/>
+<div>
+<div class="text-label-lg font-label-lg font-semibold text-on-surface">Alex Vance</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Lead Architect @ DevPulse Studio</div>
+</div>
+</div>
+<div class="p-3 bg-[#181824] border border-[#1E1E2E] rounded-lg text-body-sm font-body-sm text-on-surface-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Direct Slack / Discord Support</span>
+</div>
+<span class="text-on-surface font-medium">Typical reply: &lt; 2 hrs</span>
+</div>
+</div>
+<!-- Affiliate Program Banner -->
+<div class="bg-gradient-to-br from-surface-container-high/80 to-surface-container/80 border border-primary/30 rounded-xl p-5 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-semibold uppercase tracking-wider text-primary">Affiliate Program</span>
+<span class="material-symbols-outlined text-primary text-[20px]">monetization_on</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface">Earn 30% ($119.70/sale)</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                Recommend NextSaaS AI to your developer audience, YouTube channel, or newsletter.
+              </p>
+</div>
+<button class="w-full py-2 px-3 rounded-lg bg-[#181824] hover:bg-surface-container-highest border border-primary/40 text-primary hover:text-white text-label-md font-label-md font-medium transition-colors">
+              Get Affiliate Link
+            </button>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</body></html>

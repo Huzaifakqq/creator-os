@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>M14.4 Mobile Product Analytics &amp; Performance Comparison - Creator OS</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#571bc1",
+            "surface-tint": "#adc6ff",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed": "#6ffbbe",
+            "background": "#131318",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "on-tertiary-container": "#00311f",
+            "surface-bright": "#39383e",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "primary-fixed-dim": "#adc6ff",
+            "error-container": "#93000a",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .gradient-primary {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px -3px rgba(59, 130, 246, 0.35);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary/20">
+<!-- Mobile Screen Container: 375px nominal wrapper -->
+<div class="w-full max-w-[375px] min-h-screen bg-[#0A0A0F] border-x border-outline-variant/20 relative flex flex-col pb-24 shadow-2xl">
+<!-- TopAppBar Component (from Shared Components JSON) -->
+<header class="sticky top-0 w-full z-40 bg-surface-container-lowest/90 backdrop-blur-md flex justify-between items-center h-14 px-margin-sm shadow-sm">
+<div class="flex items-center gap-2">
+<button aria-label="Go Back" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Creator OS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-none -mt-1">Analytics</span>
+</div>
+</div>
+<!-- Action Chips & Filter icon -->
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="font-label-md text-label-md">Last 30 Days</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+<button aria-label="Filter Options" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-sm pt-3 space-y-4">
+<!-- Product Comparison Switcher Banner -->
+<section class="rounded-xl p-3 bg-[#12121A] border border-outline-variant/30 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Comparative Mode</span>
+<span class="flex items-center gap-1 text-[11px] font-label-sm text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Live Sync
+          </span>
+</div>
+<!-- Comparison Slot Pills -->
+<div class="grid grid-cols-[1fr,auto,1fr] items-center gap-1.5 bg-[#0e0e13] p-1.5 rounded-lg border border-outline-variant/20">
+<!-- Product A -->
+<div class="flex items-center gap-2 p-1.5 rounded-md bg-surface-container/60 border border-primary/30 min-w-0">
+<div class="w-2.5 h-2.5 rounded-full bg-[#3B82F6] flex-shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Cinematic Lighting</p>
+<p class="text-[10px] font-body-sm text-on-surface-variant leading-tight">Masterclass</p>
+</div>
+</div>
+<!-- VS Badge -->
+<div class="w-6 h-6 rounded-full bg-[#181824] border border-outline-variant/40 flex items-center justify-center text-[10px] font-bold text-on-surface-variant">
+            vs
+          </div>
+<!-- Product B -->
+<div class="flex items-center gap-2 p-1.5 rounded-md bg-surface-container/60 border border-secondary/30 min-w-0">
+<div class="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] flex-shrink-0 shadow-[0_0_8px_rgba(139,92,246,0.6)]"></div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Pro LUTs 2026</p>
+<p class="text-[10px] font-body-sm text-on-surface-variant leading-tight">Bundle Suite</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary KPI Grid (2x2) -->
+<section class="grid grid-cols-2 gap-2.5">
+<!-- KPI 1: Revenue -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col justify-between hover:border-primary/40 transition-colors duration-150">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Total Revenue</span>
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$68,420</div>
+<div class="flex items-center gap-1 mt-1 text-[11px] font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+18.4%</span>
+<span class="text-on-surface-variant text-[10px]">vs prev</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Units Sold -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col justify-between hover:border-primary/40 transition-colors duration-150">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Units Sold</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">shopping_bag</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">482 <span class="text-xs font-normal text-on-surface-variant">units</span></div>
+<div class="flex items-center gap-1 mt-1 text-[11px] font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+12.0%</span>
+<span class="text-on-surface-variant text-[10px]">volume</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Avg Order Value -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col justify-between hover:border-primary/40 transition-colors duration-150">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Avg Order Value</span>
+<span class="material-symbols-outlined text-surface-tint text-[18px]">receipt_long</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$141.95</div>
+<div class="flex items-center gap-1 mt-1 text-[11px] font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[14px]">arrow_upward</span>
+<span class="text-tertiary">+$8.40</span>
+<span class="text-[10px]">basket</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Refund Rate -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col justify-between hover:border-primary/40 transition-colors duration-150">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-md text-label-md">Refund Rate</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">verified</span>
+</div>
+<div class="mt-2">
+<div class="font-headline-sm text-headline-sm font-bold text-tertiary tracking-tight">0.8%</div>
+<div class="flex items-center gap-1 mt-1 text-[10px] font-label-sm text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Target &lt; 2.0%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Comparative Visual Performance Chart -->
+<section class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3.5 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Revenue Trajectory</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Daily gross intake comparison</p>
+</div>
+<div class="flex items-center gap-1 bg-[#181824] px-2 py-1 rounded-md border border-outline-variant/30 text-[10px] font-label-sm text-on-surface-variant">
+<span>Daily</span>
+<span class="material-symbols-outlined text-[12px]">expand_more</span>
+</div>
+</div>
+<!-- Chart Container with SVG Multi-line Comparison -->
+<div class="relative w-full h-44 pt-2">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
+<div class="border-b border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-b border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-b border-dashed border-outline-variant w-full h-0"></div>
+<div class="border-b border-dashed border-outline-variant w-full h-0"></div>
+</div>
+<svg class="w-full h-full overflow-visible" fill="none" viewbox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Product A Gradient Fill -->
+<lineargradient gradientunits="userSpaceOnUse" id="gradProductA" x1="0" x2="0" y1="0" y2="150">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.32"></stop>
+<stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient gradientunits="userSpaceOnUse" id="lineGradA" x1="0" x2="320" y1="0" y2="0">
+<stop offset="0%" stop-color="#3B82F6"></stop>
+<stop offset="100%" stop-color="#60A5FA"></stop>
+</lineargradient>
+</defs>
+<!-- Area fill Product A -->
+<path d="M0 110 C40 105, 70 85, 110 70 C150 55, 190 65, 230 35 C270 15, 290 28, 320 18 L320 150 L0 150 Z" fill="url(#gradProductA)"></path>
+<!-- Product B (Dashed Line) -->
+<path d="M0 130 C45 125, 75 110, 115 105 C155 100, 195 80, 235 75 C275 70, 295 60, 320 50" stroke="#8B5CF6" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path>
+<!-- Product A (Solid Gradient Line) -->
+<path d="M0 110 C40 105, 70 85, 110 70 C150 55, 190 65, 230 35 C270 15, 290 28, 320 18" stroke="url(#lineGradA)" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Highlight Peak Dot Product A -->
+<circle class="shadow-sm" cx="230" cy="35" fill="#3B82F6" r="4.5" stroke="#0A0A0F" stroke-width="2"></circle>
+<circle cx="320" cy="18" fill="#60A5FA" r="4" stroke="#0A0A0F" stroke-width="1.5"></circle>
+<!-- Highlight Peak Dot Product B -->
+<circle cx="235" cy="75" fill="#8B5CF6" r="3.5" stroke="#0A0A0F" stroke-width="1.5"></circle>
+</svg>
+<!-- Day Labels -->
+<div class="flex justify-between text-[10px] font-label-sm text-outline mt-1.5 px-0.5">
+<span>May 01</span>
+<span>May 08</span>
+<span>May 15</span>
+<span>May 22</span>
+<span>Today</span>
+</div>
+</div>
+<!-- Legend tags with color indicators -->
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/20">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#3B82F6] shadow-[0_0_6px_rgba(59,130,246,0.6)]"></span>
+<span class="font-label-md text-label-md text-on-surface">Lighting Masterclass</span>
+<span class="text-xs font-bold text-primary ml-1">$44.2k</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] border border-dashed border-secondary"></span>
+<span class="font-label-md text-label-md text-on-surface">LUTs Bundle</span>
+<span class="text-xs font-bold text-secondary ml-1">$24.2k</span>
+</div>
+</div>
+</section>
+<!-- Comparative Metric Breakdown Cards -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Funnel &amp; Quality Signals</h3>
+<span class="font-label-sm text-label-sm text-primary">Benchmark</span>
+</div>
+<!-- Metric 1: Conversion Rate -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-md text-label-md text-on-surface-variant">Conversion Rate</span>
+<div class="flex items-center gap-3 font-label-sm text-label-sm">
+<span class="text-[#3B82F6] font-semibold">5.4%</span>
+<span class="text-outline text-[10px]">vs</span>
+<span class="text-[#8B5CF6] font-semibold">3.1%</span>
+</div>
+</div>
+<!-- Comparative Progress Bars -->
+<div class="space-y-1">
+<div class="w-full bg-[#181824] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#3B82F6] h-1.5 rounded-full" style="width: 72%"></div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#8B5CF6] h-1.5 rounded-full opacity-80" style="width: 42%"></div>
+</div>
+</div>
+</div>
+<!-- Metric 2: Cart-to-Purchase -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-md text-label-md text-on-surface-variant">Cart-to-Purchase Rate</span>
+<div class="flex items-center gap-3 font-label-sm text-label-sm">
+<span class="text-[#3B82F6] font-semibold">42.0%</span>
+<span class="text-outline text-[10px]">vs</span>
+<span class="text-[#8B5CF6] font-semibold">28.0%</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-[#181824] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#3B82F6] h-1.5 rounded-full" style="width: 60%"></div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#8B5CF6] h-1.5 rounded-full opacity-80" style="width: 40%"></div>
+</div>
+</div>
+</div>
+<!-- Metric 3: Customer Satisfaction -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3">
+<div class="flex justify-between items-center">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block">Customer Rating</span>
+<span class="text-[11px] font-body-sm text-outline">Verified buyer score</span>
+</div>
+<div class="flex items-center gap-4 text-right">
+<div>
+<div class="flex items-center text-xs font-semibold text-[#3B82F6]">
+<span>4.9</span>
+<span class="material-symbols-outlined text-[13px] ml-0.5" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">184 rev</span>
+</div>
+<span class="text-outline text-[10px]">vs</span>
+<div>
+<div class="flex items-center text-xs font-semibold text-[#8B5CF6]">
+<span>4.7</span>
+<span class="material-symbols-outlined text-[13px] ml-0.5" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[10px] font-label-sm text-on-surface-variant">92 rev</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Top Traffic & Referral Channels Section -->
+<section class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3.5 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Top Traffic Channels</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gross attributable breakdown</p>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">hub</span>
+</div>
+<div class="space-y-2.5">
+<!-- Channel 1: YouTube -->
+<div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-error/20 text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">smart_display</span>
+</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">YouTube Masterclass</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$32,840</span>
+<span class="font-label-sm text-label-sm text-primary ml-1.5">48%</span>
+</div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1 overflow-hidden">
+<div class="gradient-primary h-1 rounded-full" style="width: 48%"></div>
+</div>
+</div>
+<!-- Channel 2: Email Sequences -->
+<div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">mark_email_read</span>
+</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Email Sequences</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$21,890</span>
+<span class="font-label-sm text-label-sm text-primary ml-1.5">32%</span>
+</div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1 overflow-hidden">
+<div class="gradient-primary h-1 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<!-- Channel 3: Instagram Link-in-bio -->
+<div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-secondary-container/30 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">photo_camera</span>
+</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Instagram Link-in-bio</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$9,580</span>
+<span class="font-label-sm text-label-sm text-primary ml-1.5">14%</span>
+</div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1 overflow-hidden">
+<div class="gradient-primary h-1 rounded-full" style="width: 14%"></div>
+</div>
+</div>
+<!-- Channel 4: Direct & Affiliates -->
+<div class="p-2 rounded-lg bg-surface-container/40 border border-outline-variant/20 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-md bg-tertiary-container/30 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">share</span>
+</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Direct &amp; Affiliates</span>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md font-semibold text-on-surface">$4,110</span>
+<span class="font-label-sm text-label-sm text-primary ml-1.5">6%</span>
+</div>
+</div>
+<div class="w-full bg-[#181824] rounded-full h-1 overflow-hidden">
+<div class="gradient-primary h-1 rounded-full" style="width: 6%"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Export / Share Trigger Button -->
+<section class="pt-1 pb-4">
+<button class="w-full h-10 rounded-lg gradient-primary glow-primary text-white font-label-lg text-label-lg flex items-center justify-center gap-2 hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]">ios_share</span>
+<span>Export Comparative Dossier</span>
+</button>
+</section>
+</main>
+<!-- BottomNavBar Component (from Shared Components JSON with semantic mapping) -->
+<!-- Destination count: 4, labels: ["Overview", "Products", "Billing", "Settings"] -->
+<!-- Current intent: Product Analytics screen maps semantically to "Products" destination -->
+<nav class="fixed bottom-0 left-0 right-0 max-w-[375px] mx-auto z-50 flex justify-around items-center h-16 bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
+<!-- Tab 1: Overview -->
+<a aria-label="Overview" class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Overview</span>
+</a>
+<!-- Tab 2: Products (ACTIVE - represents the Product Analytics sub-realm) -->
+<a aria-label="Products" class="flex flex-col items-center justify-center text-primary font-medium gap-1 hover:text-primary transition-colors duration-150 active:scale-95 relative" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-sm text-label-sm font-semibold">Products</span>
+<span class="absolute -bottom-1.5 w-1 h-1 rounded-full bg-primary"></span>
+</a>
+<!-- Tab 3: Billing -->
+<a aria-label="Billing" class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-sm text-label-sm">Billing</span>
+</a>
+<!-- Tab 4: Settings -->
+<a aria-label="Settings" class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

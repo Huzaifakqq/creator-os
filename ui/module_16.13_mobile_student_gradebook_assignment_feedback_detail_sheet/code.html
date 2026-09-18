@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 16.13: Student Gradebook &amp; Assignment Feedback Detail Sheet</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with container queries & forms -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#003824",
+            "tertiary": "#4edea3",
+            "outline": "#8c909f",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab",
+            "secondary": "#d0bcff",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container-lowest": "#0e0e13",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#6ffbbe",
+            "inverse-on-surface": "#303036",
+            "secondary-fixed": "#e9ddff",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-surface-variant": "#c2c6d6",
+            "on-background": "#e4e1e9",
+            "error-container": "#93000a",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed": "#002113",
+            "primary": "#adc6ff",
+            "background": "#131318",
+            "on-secondary-fixed": "#23005c",
+            "on-primary-container": "#00285d",
+            "surface": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "on-secondary": "#3c0091",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-surface": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed": "#001a42",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "secondary-container": "#571bc1",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-surface": "#e4e1e9",
+            "surface-bright": "#39383e",
+            "surface-container-high": "#2a292f",
+            "on-primary": "#002e6a",
+            "tertiary-container": "#00a572"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0e0e13;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+    }
+    .obsidian-glow {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.25);
+    }
+    .emerald-glow {
+      box-shadow: 0 0 20px -4px rgba(78, 222, 163, 0.35);
+    }
+    .audio-bar {
+      transition: height 0.2s ease-in-out;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- 390px Mobile Viewport Canvas Simulator Wrapper -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-2xl border-x border-outline-variant/30">
+<!-- 1. iOS Status Bar -->
+<div class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md px-margin-sm pt-2 pb-1 flex justify-between items-center text-on-surface">
+<span class="font-label-md text-label-md font-semibold tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="sticky top-7 z-40 bg-surface text-primary border-b border-outline-variant/30 h-14 flex items-center justify-between px-margin-sm transition-transform duration-150 ease-out">
+<div class="flex items-center space-x-3">
+<button aria-label="Back" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-semibold text-on-surface leading-tight">Gradebook &amp; Feedback</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant tracking-normal">Cinematography Masterclass 2026</p>
+</div>
+</div>
+<!-- Trailing Action: forum (Links to 1:1 Mentorship thread with instructor) -->
+<button aria-label="1:1 Mentorship Chat" class="relative w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined">forum</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+</header>
+<!-- Scrollable Body Content Canvas -->
+<main class="flex-1 px-margin-sm pt-space-md space-y-space-md">
+<!-- 2. Student Academic Performance Summary Card (Hero HUD) -->
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-space-md relative overflow-hidden obsidian-glow">
+<!-- Subtle Ambient Gradient Backdrop Layer -->
+<div class="absolute -top-16 -right-16 w-36 h-36 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary-container/20 rounded-full blur-xl pointer-events-none"></div>
+<!-- Student Profile Row -->
+<div class="flex items-center justify-between relative z-10">
+<div class="flex items-center space-x-3">
+<div class="relative">
+<div class="w-11 h-11 rounded-full border-2 border-primary/40 bg-surface-container flex items-center justify-center font-headline-sm text-headline-sm text-primary font-bold">
+                MK
+              </div>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-tertiary flex items-center justify-center text-on-tertiary">
+<span class="material-symbols-outlined text-[10px] font-bold">check</span>
+</div>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Marcus Kane</span>
+<span class="bg-primary-container/20 border border-primary/40 text-primary font-label-sm text-label-sm px-1.5 py-0.5 rounded-full">PRO</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Cohort '25 · Advanced Directing</p>
+</div>
+</div>
+<!-- Standing Rank Badge -->
+<div class="text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Cohort Standing</div>
+<div class="font-label-md text-label-md font-semibold text-tertiary flex items-center justify-end space-x-1">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+<span>#2 of 64</span>
+</div>
+</div>
+</div>
+<!-- Core Academic Metric Scoreboard -->
+<div class="mt-space-md grid grid-cols-2 gap-space-sm pt-space-sm border-t border-outline-variant/30 relative z-10">
+<!-- Overall Grade Tile -->
+<div class="bg-surface-container/60 border border-outline-variant/40 rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cumulative Grade</span>
+<div class="flex items-baseline space-x-1.5 mt-0.5">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-surface">94.2%</span>
+<span class="bg-tertiary-container/30 text-tertiary font-label-sm text-label-sm px-1.5 py-0.5 rounded-md font-semibold">A+</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary flex items-center mt-1">
+<span class="material-symbols-outlined text-[13px] mr-1">trending_up</span> Top 3% Cohort
+            </span>
+</div>
+<!-- Progress Tile -->
+<div class="bg-surface-container/60 border border-outline-variant/40 rounded-lg p-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Lab Deliverables</span>
+<div class="flex items-baseline space-x-1.5 mt-0.5">
+<span class="font-headline-xl-mobile text-headline-xl-mobile font-bold text-on-surface">4 / 6</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Graded</span>
+</div>
+<!-- Progress Track -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-primary h-full w-2/3 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Merkle Ledger Cryptographic Verification Footnote -->
+<div class="mt-space-sm flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+<span class="text-on-surface-variant">Merkle Ledger Verified</span>
+</span>
+<span class="font-mono text-outline text-[10px]">#0x8F92...B41A</span>
+</div>
+</section>
+<!-- 3. Filter & Sort Tabs -->
+<section class="flex items-center space-x-2 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-high border border-outline-variant/60 text-on-surface whitespace-nowrap active:scale-95 transition-transform duration-150">
+          All Modules (6)
+        </button>
+<button class="px-3 py-1.5 rounded-full font-label-md text-label-md bg-primary-container/20 border border-primary/50 text-primary whitespace-nowrap active:scale-95 transition-transform duration-150">
+          Graded (4)
+        </button>
+<button class="px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low border border-outline-variant/30 text-on-surface-variant whitespace-nowrap active:scale-95 transition-transform duration-150">
+          Under Review (1)
+        </button>
+<button class="px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container-low border border-outline-variant/30 text-on-surface-variant whitespace-nowrap active:scale-95 transition-transform duration-150">
+          Upcoming (1)
+        </button>
+</section>
+<!-- 4. Graded Modules Roster (List / Accordion) -->
+<section class="space-y-space-sm">
+<!-- Module 1 Card (Collapsed) -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-space-sm flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-tertiary font-bold text-xs">
+              01
+            </div>
+<div>
+<h4 class="font-label-lg text-label-lg font-medium text-on-surface">Anamorphic Aspect Ratios</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lens Distortion Lab · Oct 8</p>
+</div>
+</div>
+<div class="text-right flex items-center space-x-2">
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">98</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/100</span>
+<span class="block font-label-sm text-label-sm text-tertiary">A+</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+<!-- Module 2 Card (Collapsed) -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-space-sm flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-xs">
+              02
+            </div>
+<div>
+<h4 class="font-label-lg text-label-lg font-medium text-on-surface">Low-Key Contrast &amp; Dual Key</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Lighting Ratio Test · Oct 15</p>
+</div>
+</div>
+<div class="text-right flex items-center space-x-2">
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">92</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/100</span>
+<span class="block font-label-sm text-label-sm text-primary">A</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+<!-- Module 3 Card (Collapsed) -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-space-sm flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-xs">
+              03
+            </div>
+<div>
+<h4 class="font-label-lg text-label-lg font-medium text-on-surface">Arri LogC4 Primaries</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Color Gamut Calibration · Oct 22</p>
+</div>
+</div>
+<div class="text-right flex items-center space-x-2">
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">95</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/100</span>
+<span class="block font-label-sm text-label-sm text-primary">A</span>
+</div>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+</div>
+</div>
+<!-- 5. Module 4: Expanded Active Card (Deep Dive Detail Sheet) -->
+<div class="bg-surface-container-low border-2 border-primary/40 rounded-xl p-space-md space-y-space-md obsidian-glow">
+<!-- Module 4 Header -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 bg-primary-container text-on-primary-container rounded font-semibold">MODULE 04 LAB</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1 animate-pulse"></span> Graded 45m ago
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-1">
+                Hands-on Lab: Anamorphic Contrast &amp; Lighting Ratio Test
+              </h3>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">expand_less</span>
+</div>
+</div>
+<!-- Evaluator Row -->
+<div class="flex items-center justify-between p-space-sm bg-surface-container rounded-lg border border-outline-variant/30">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary font-label-md font-bold">
+                SL
+              </div>
+<div>
+<div class="flex items-center space-x-1">
+<span class="font-label-md text-label-md font-medium text-on-surface">Sarah Lin</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block leading-none">Lead DP &amp; Masterclass Instructor</span>
+</div>
+</div>
+<!-- Overall Score Pill -->
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">92 / 100</span>
+<span class="block font-label-sm text-label-sm text-tertiary/90">Passed (Min. 80)</span>
+</div>
+</div>
+<!-- Submission Media Preview Player & Artifacts -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Submission Review Media</span>
+<div class="relative rounded-lg overflow-hidden border border-outline-variant/40 bg-surface-container-lowest">
+<!-- Video Frame Preview Mock -->
+<div class="relative w-full h-44 bg-surface-dim flex items-center justify-center overflow-hidden group">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-300" data-alt="High quality film still cinematic frame showcasing low key dramatic studio lighting with deep shadows, a sharp cyan and amber rim light on an actor in anamorphic format, rich tones of deep dark obsidian and subtle film grain in masterclass grading." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3J5Gh-gbqswnVOluzjZ7HZ_s_Y1KJNb0FmcILBQ1Q_wa_6iBxXz11cIvJL3MQob4B67S8DW1tedRGVJVrFXKFQIk3FLk3oIwW7Xj8vyhkeqGZKdJgasAYytirfOiovCQZjm8VfrRr2VtEZ39_CDurm3c5GZQpkvIogW-eskX-HUmBMD9ekKnnzo8dhkNMbAaf8NgoFkcyFctIzm_hVwUM4Jm53XwZnpKgTg7O6PyIidlAnUU759jomw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/40"></div>
+<!-- Center Play Indicator -->
+<button aria-label="Play submission video" class="absolute w-12 h-12 rounded-full bg-surface-container-highest/80 backdrop-blur-md border border-outline-variant/60 flex items-center justify-center text-on-surface hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px] ml-0.5">play_arrow</span>
+</button>
+<!-- Video Metadata Floating Pill -->
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/40 text-[11px] font-mono text-on-surface">
+                  Scene04_Keylight_Take2.mov
+                </div>
+<div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/40 text-[11px] font-mono text-primary">
+                  ProRes 4444 XQ
+                </div>
+<!-- Timecode Scrubber & Instructor Annotation Bookmarks -->
+<div class="absolute bottom-2 inset-x-2 flex flex-col space-y-1">
+<div class="flex justify-between text-[10px] font-mono text-on-surface-variant">
+<span>0:14 / 1:20</span>
+<span class="text-tertiary">3 Bookmarked Notes</span>
+</div>
+<div class="w-full bg-surface-variant h-1.5 rounded-full relative cursor-pointer">
+<div class="bg-primary h-full w-[25%] rounded-full"></div>
+<!-- Timecode Bookmarks Pins -->
+<div class="absolute top-1/2 -translate-y-1/2 left-[18%] w-2 h-2 rounded-full bg-tertiary ring-2 ring-surface"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[35%] w-2 h-2 rounded-full bg-error ring-2 ring-surface" title="Rim light spill flagged"></div>
+<div class="absolute top-1/2 -translate-y-1/2 left-[48%] w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></div>
+</div>
+</div>
+</div>
+<!-- Timecode Clickable Quick Links -->
+<div class="p-2 bg-surface-container-high/40 flex items-center space-x-2 text-xs overflow-x-auto no-scrollbar">
+<button class="px-2 py-1 rounded bg-surface-container border border-outline-variant/40 text-on-surface flex items-center space-x-1 hover:border-primary">
+<span class="material-symbols-outlined text-[13px] text-tertiary">bookmark</span>
+<span class="font-mono text-[11px]">0:14 Contrast Check</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container border border-error/50 text-error flex items-center space-x-1 hover:bg-error-container/20">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span class="font-mono text-[11px]">0:28 Rim Spill</span>
+</button>
+<button class="px-2 py-1 rounded bg-surface-container border border-outline-variant/40 text-on-surface flex items-center space-x-1 hover:border-primary">
+<span class="material-symbols-outlined text-[13px] text-primary">bookmark</span>
+<span class="font-mono text-[11px]">0:38 Falloff Node</span>
+</button>
+</div>
+</div>
+<!-- Attached 3D LUT Chip -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container border border-outline-variant/30">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">filter_vintage</span>
+<span class="font-mono text-xs text-on-surface truncate max-w-[210px]">Arri_LogC4_SkinTone_Fix_v2.cube</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary flex items-center space-x-0.5 hover:underline">
+<span class="material-symbols-outlined text-[14px]">download</span>
+<span>LUT</span>
+</button>
+</div>
+</div>
+<!-- Evaluation Rubric Breakdown -->
+<div class="space-y-space-sm pt-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Rubric Breakdown</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3 Evaluated Criteria</span>
+</div>
+<!-- Criterion 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Key-to-Fill 4:1 Ratio</span>
+<span class="font-label-md text-label-md font-semibold text-tertiary">35 / 35 Pts</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Evaluated lighting setup contrast. Strong contrast roll-off with measured falloff on key subject.
+              </p>
+<div class="inline-flex items-center space-x-1 bg-tertiary-container/20 text-tertiary px-2 py-0.5 rounded text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">check_circle</span>
+<span>Flawless dynamic ratio achieved</span>
+</div>
+</div>
+<!-- Criterion 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">LogC4 LUT Tone Curve</span>
+<span class="font-label-md text-label-md font-semibold text-primary">32 / 35 Pts</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Assessment of custom transform node and clipping management.
+              </p>
+<div class="inline-flex items-center space-x-1 bg-error-container/30 border border-error/40 text-error px-2 py-0.5 rounded text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">flag</span>
+<span>Flagged @ 0:28 secondary rim spill clip</span>
+</div>
+</div>
+<!-- Criterion 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Pipeline Snippet &amp; DRP</span>
+<span class="font-label-md text-label-md font-semibold text-primary">25 / 30 Pts</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                DaVinci Resolve project structure, naming conventions, and compound nodes.
+              </p>
+<div class="inline-flex items-center space-x-1 bg-primary-container/20 text-primary px-2 py-0.5 rounded text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[12px]">account_tree</span>
+<span>Comprehensive node graph included</span>
+</div>
+</div>
+</div>
+<!-- Instructor Voice Memo Audio Player -->
+<div class="p-space-sm rounded-xl bg-surface-container-high/70 border border-outline-variant/40 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">mic</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Instructor Voice Feedback</span>
+</div>
+<span class="font-mono text-xs text-primary font-semibold">0:54</span>
+</div>
+<!-- Waveform Bar Mock Interactive Display -->
+<div class="flex items-center space-x-2">
+<button class="w-9 h-9 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</button>
+<!-- Waveform visualization bars -->
+<div class="flex-1 flex items-center space-x-1 h-8 px-1">
+<div class="w-1 bg-primary h-3 rounded-full"></div>
+<div class="w-1 bg-primary h-5 rounded-full"></div>
+<div class="w-1 bg-primary h-7 rounded-full"></div>
+<div class="w-1 bg-primary h-4 rounded-full"></div>
+<div class="w-1 bg-primary h-6 rounded-full"></div>
+<div class="w-1 bg-primary h-8 rounded-full"></div>
+<div class="w-1 bg-primary h-5 rounded-full"></div>
+<div class="w-1 bg-primary h-3 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-4 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-6 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-8 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-4 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-6 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-5 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-3 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-5 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-7 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-4 rounded-full"></div>
+<div class="w-1 bg-outline-variant h-2 rounded-full"></div>
+</div>
+</div>
+<!-- Voice Transcript Quote -->
+<div class="p-2 bg-surface rounded-md border border-outline-variant/30 text-xs italic text-on-surface-variant leading-relaxed">
+              "Marcus, fantastic correction on the Arri LogC curve. Watch the spill on the 4000K rim light during the shoulder sweep..."
+            </div>
+</div>
+<!-- Instructor Written Memo & Commendation Tags -->
+<div class="space-y-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Instructor Memo</span>
+<div class="p-space-sm bg-surface-container rounded-lg border border-outline-variant/30 text-body-md text-on-surface leading-relaxed">
+              Great execution on the low-key contrast ratio. The falloff into deep shadows remains clean without introducing digital noise. Keep an eye on secondary rim highlights at 0:28.
+            </div>
+<!-- Feedback Chips -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-tertiary-container/20 border border-tertiary/40 text-tertiary">
+                + Excellent Contrast
+              </span>
+<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-primary-container/20 border border-primary/40 text-primary">
+                + Clean Node Graph
+              </span>
+<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-secondary-container/20 border border-secondary/40 text-secondary">
+                + Followed Guidance
+              </span>
+</div>
+</div>
+<!-- Direct Action Triggers -->
+<div class="space-y-2 pt-space-xs border-t border-outline-variant/30">
+<!-- Primary Action: Chat with Instructor -->
+<button class="w-full h-11 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-semibold flex items-center justify-center space-x-2 shadow-lg hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Reply to Sarah in 1:1 Mentorship</span>
+<span class="w-2 h-2 rounded-full bg-tertiary ring-1 ring-white ml-1"></span>
+</button>
+<!-- Secondary Action: Request Regrade / Submit Revision -->
+<button class="w-full h-10 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-md text-label-md font-medium flex items-center justify-center space-x-1.5 hover:border-primary/60 hover:bg-surface-container-high active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px] text-outline">history</span>
+<span>Request Regrade / Submit Revision (Attempt 2/3)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Up Next Preview Banner -->
+<section class="bg-surface-container-low/60 border border-outline-variant/20 rounded-xl p-space-sm flex items-center justify-between mb-4">
+<div class="flex items-center space-x-2.5">
+<span class="material-symbols-outlined text-outline">lock_clock</span>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-medium block">Module 5: DCI-P3 Mastering</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Unlocks Oct 29 · Lab Assignment</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-outline font-mono">LOCKED</span>
+</section>
+</main>
+<!-- 6. Bottom Navigation Dock (Shared Component Implementation) -->
+<!-- Destination count: 4 | Labels: Curriculum, Grades, Mentorship, Profile -->
+<!-- ACTIVE STATE: Grades is highlighted with style_active_navigation per semantic lock -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] z-50 bg-surface-container-low text-primary flex justify-around items-center px-space-xs py-space-xs border-t border-outline-variant/40 shadow-2xl backdrop-blur-lg">
+<!-- Destination 1: Curriculum -->
+<button aria-label="Curriculum" class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined">school</span>
+<span class="font-label-sm text-label-sm mt-0.5">Curriculum</span>
+</button>
+<!-- Destination 2: Grades (ACTIVE DESTINATION) -->
+<button aria-current="page" aria-label="Grades" class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-space-md py-space-xs shadow-md active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grade</span>
+<span class="font-label-sm text-label-sm font-semibold mt-0.5">Grades</span>
+</button>
+<!-- Destination 3: Mentorship -->
+<button aria-label="Mentorship" class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface active:scale-95 transition-transform duration-150 ease-out">
+<div class="relative">
+<span class="material-symbols-outlined">chat</span>
+<span class="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="font-label-sm text-label-sm mt-0.5">Mentorship</span>
+</button>
+<!-- Destination 4: Profile -->
+<button aria-label="Profile" class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-on-surface active:scale-95 transition-transform duration-150 ease-out">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</button>
+</nav>
+</div>
+</body></html>

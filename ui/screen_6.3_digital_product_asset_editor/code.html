@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Digital Product &amp; Asset Editor</title>
+<!-- Fonts & Material Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface": "#131318",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-tint": "#adc6ff",
+            "secondary": "#d0bcff",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed-variant": "#004395",
+            "error": "#ffb4ab",
+            "surface-variant": "#35343a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "background": "#131318",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#571bc1",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "on-secondary-container": "#c4abff",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "on-primary-container": "#00285d",
+            "on-tertiary-container": "#00311f",
+            "on-secondary": "#3c0091",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "error-container": "#93000a",
+            "surface-container-low": "#1b1b20",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "outline": "#8c909f",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-highest": "#35343a",
+            "surface-dim": "#131318",
+            "surface-bright": "#39383e",
+            "tertiary": "#4edea3"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem"
+          },
+          fontFamily: {
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"]
+          },
+          fontSize: {
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1f1f25;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #35343a;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary/20 selection:text-primary">
+<!-- Side Navigation Bar (from Shared Components JSON) -->
+<aside class="fixed top-0 left-0 h-screen w-64 z-40 border-r border-outline-variant/30 bg-surface-container-lowest">
+<div class="flex flex-col justify-between h-full p-4 w-64">
+<!-- Workspace Brand Anchor -->
+<div>
+<div class="flex items-center gap-3 px-2 py-2 mb-6">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-lg shadow-blue-500/20 text-white font-headline-sm text-headline-sm font-bold">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-tight">Creator OS</span>
+<span class="font-label-sm text-label-sm text-outline tracking-wider">Commerce Suite</span>
+</div>
+</div>
+<!-- Create Button CTA -->
+<button class="w-full mb-6 flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add">add</span>
+<span>New Product</span>
+</button>
+<!-- Navigation Tabs: Exact JSON labels & icons -->
+<nav class="space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Catalog & Inventory (Active: Screen editing Digital Product) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container/15 text-primary border border-primary/30 font-medium active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Catalog &amp; Inventory</span>
+</a>
+<!-- 3. Pricing & Tiers -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Pricing &amp; Tiers</span>
+</a>
+<!-- 4. Subscriptions -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="autorenew">autorenew</span>
+<span class="font-label-md text-label-md">Subscriptions</span>
+</a>
+<!-- 5. Orders & Invoicing -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders &amp; Invoicing</span>
+</a>
+<!-- 6. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+</div>
+<!-- Footer navigation -->
+<div class="pt-4 border-t border-outline-variant/20 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-normal transition-colors hover:bg-surface-container-high/60" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<!-- User Status Module -->
+<div class="flex items-center gap-3 px-3 py-3 mt-3 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-surface-variant border border-outline-variant flex items-center justify-center text-primary font-label-md text-label-md font-bold">
+            JD
+          </div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface truncate">Julian Drake</span>
+<span class="font-body-sm text-body-sm text-outline truncate">Studio Master Tier</span>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-on-surface text-[18px] cursor-pointer" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Primary Main Canvas Wrapper (offset by 256px for the SideNavBar) -->
+<div class="pl-64 flex-1 flex flex-col min-w-0 bg-surface-container-lowest">
+<!-- Top Sticky Header -->
+<header class="sticky top-0 z-30 h-14 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 px-6 flex items-center justify-between">
+<!-- Breadcrumbs & Status -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 font-label-md text-label-md text-outline">
+<span class="hover:text-on-surface cursor-pointer">Commerce</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Products</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-medium">Edit Digital Product</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40 mx-1"></div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+          Draft
+        </span>
+</div>
+<!-- Quick Header Actions -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1 text-on-surface-variant mr-2">
+<button class="p-2 rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Help &amp; Guides">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Page Configuration">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+<button class="h-9 px-4 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium flex items-center gap-2 shadow-[0_0_16px_rgba(59,130,246,0.35)] hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="cloud_upload">cloud_upload</span>
+<span>Save &amp; Publish Product</span>
+</button>
+</div>
+</header>
+<!-- Main Workspace Content Container -->
+<main class="flex-1 p-6 pb-28 max-w-[1380px] w-full mx-auto">
+<!-- Editor Grid Setup: 2-Column Balanced Architecture -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+<!-- LEFT PANEL: Product Information Form (Col 7) -->
+<div class="xl:col-span-7 space-y-6">
+<!-- Core Details Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="edit_note">edit_note</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Product Specification</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Required Fields</span>
+</div>
+<div class="space-y-4">
+<!-- Product Title Input -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5" for="prod-title">
+                  Product Name <span class="text-primary">*</span>
+</label>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-lg px-3.5 py-2 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-150 placeholder-outline/60" id="prod-title" placeholder="e.g. Master Sound Kit 2025" type="text" value="Cinematic DaVinci Resolve Master LUTs &amp; Film Emulation Pack"/>
+</div>
+<!-- Subtitle / Short Description Input -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5" for="prod-subtitle">
+                  Subtitle &amp; Micro-pitch
+                </label>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-lg px-3.5 py-2 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-150 placeholder-outline/60" id="prod-subtitle" placeholder="Crisp one-sentence overview shown on storefront cards" type="text" value="36 Hollywood calibrated 3D LUTs, Kodak 2383 prints, and DCTL film matrices for colorists."/>
+</div>
+<!-- Rich Text Description Editor (TipTap Style) -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">
+                  Detailed Product Description
+                </label>
+<div class="border border-[#1E1E2E] rounded-lg overflow-hidden bg-surface-container-lowest">
+<!-- TipTap Action Toolbar -->
+<div class="flex flex-wrap items-center gap-1 p-2 bg-surface-container-low border-b border-[#1E1E2E]">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Bold" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_bold">format_bold</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Italic" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_italic">format_italic</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Heading 1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_h1">format_h1</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Heading 2" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_h2">format_h2</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Bullet List" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Numbered List" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_list_numbered">format_list_numbered</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Code Block" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="code_blocks">code_blocks</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Blockquote" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="format_quote">format_quote</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="Insert Media Link" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+</button>
+</div>
+<!-- Editor Canvas Content -->
+<div class="p-4 font-body-md text-body-md text-on-surface min-h-[160px] space-y-3 focus:outline-none" contenteditable="true">
+<p>Unlock authentic analog cinematic fidelity inside DaVinci Resolve 18.5+. Engineered by award-winning colorists, this suite faithfully reconstructs historic 35mm photochemical grain profiles and tonal rolloff curves.</p>
+<ul class="list-disc pl-5 space-y-1 text-on-surface-variant">
+<li>Includes 36 Core Rec.709 &amp; ACEScc Compatible .CUBE LUTs</li>
+<li>Custom DCTL Halation and Film Density Shaders</li>
+<li>4K Prores 4444 Real Kodak Vision3 500T Scan Overlays</li>
+</ul>
+</div>
+<!-- Word Count Footbar -->
+<div class="px-4 py-2 border-t border-[#1E1E2E] bg-surface-container-low flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>Markdown &amp; HTML syntax supported</span>
+<span>148 words · 942 characters</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Pricing, Commercials & Sales Tax Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2.5 mb-5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="payments">payments</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Pricing &amp; Currency</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+<!-- Regular Price -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5" for="price-usd">
+                  Product Price (USD)
+                </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline font-medium">
+                    $
+                  </div>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-lg pl-8 pr-12 py-2 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="price-usd" type="text" value="49.00"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-outline text-label-sm font-label-sm">
+                    USD
+                  </div>
+</div>
+</div>
+<!-- Compare-at Price -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1.5" for="compare-price">
+                  Compare-at Price (Strikethrough)
+                </label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-outline font-medium">
+                    $
+                  </div>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-lg pl-8 pr-12 py-2 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" id="compare-price" type="text" value="99.00"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-outline text-label-sm font-label-sm">
+                    USD
+                  </div>
+</div>
+</div>
+</div>
+<!-- Sales Tax Toggle Module -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Automatic Global Sales Tax &amp; VAT</span>
+<span class="font-body-sm text-body-sm text-outline">Calculate, remit, and invoice compliance according to buyer location</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+</div>
+<!-- Cover Art / Thumbnail & Categorization -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex items-center gap-2.5 mb-5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="image">image</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Storefront Cover Media &amp; Tags</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-5 mb-5">
+<!-- Active Cover Preview -->
+<div class="md:col-span-5 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant mb-2">Current Cover Artwork</span>
+<div class="relative group rounded-lg overflow-hidden border border-outline-variant/40 aspect-[4/3] bg-surface-container-low">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A highly detailed cinematic film studio monitor displaying a vibrant color grading waveform parade next to a Moody 35mm film scene of a vintage car at twilight. The ambient atmosphere is bathed in rich cyan and warm amber tones, echoing a professional post-production environment with sleek dark UI elements and studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOK0yzpPhX3v0N-hLqKO_ybIUDAG4XsRUSxk08vhY0oMhOTzQyWM0L_k1P39psNkUOCl_9nXcPtv6J5jeYGVx7lNR0B6UFIjlh2d0VFu0EDuzY1MEJQeuV_2tSKcx0jwBPEHww2Vg4RLMzEKKrNOjjz_MQPCkeqvEzT3WTHJh1r4tMc__Kjgjj9NSa6pTblzt3uXb1FOi0-QDWQEoBgPFSJTxMa_s7EQnJNwg9NUa3nsD54N3tp01yBA"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container-high text-white hover:bg-surface-container" title="Replace Image">
+<span class="material-symbols-outlined text-[18px]" data-icon="sync">sync</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container-high text-error hover:bg-surface-container" title="Remove">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Drag & Drop Upload Zone -->
+<div class="md:col-span-7 flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant mb-2">Upload Alternate Media</span>
+<div class="flex-1 border-2 border-dashed border-outline-variant/40 hover:border-primary/60 rounded-lg p-4 flex flex-col items-center justify-center text-center bg-surface-container-lowest/40 hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 border border-primary/20 flex items-center justify-center text-primary mb-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium">Click to upload or drag &amp; drop</span>
+<span class="font-body-sm text-body-sm text-outline mt-1">Recommended: 1600x1200px WEBP or JPG (max 8MB)</span>
+</div>
+</div>
+</div>
+<!-- Product Category Tags -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">
+                Discovery Tags &amp; Collections
+              </label>
+<div class="flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-md font-label-md bg-primary/10 border border-primary/30 text-primary">
+<span>Color Grading</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white" data-icon="close">close</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-md font-label-md bg-primary/10 border border-primary/30 text-primary">
+<span>DaVinci Resolve</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white" data-icon="close">close</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-md font-label-md bg-primary/10 border border-primary/30 text-primary">
+<span>LUTs</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white" data-icon="close">close</span>
+</span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-md font-label-md bg-primary/10 border border-primary/30 text-primary">
+<span>Post-Production</span>
+<span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-white" data-icon="close">close</span>
+</span>
+<!-- Add Tag Input Button -->
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-md font-label-md bg-surface-container-high border border-outline-variant/40 text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[14px]" data-icon="add">add</span>
+<span>Add Tag</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANEL: Digital Assets & Delivery Engine (Col 5) -->
+<div class="xl:col-span-5 space-y-6">
+<!-- Upload Engine Zone -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="folder_zip">folder_zip</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Deliverable Digital Assets</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Encrypted S3</span>
+</div>
+<!-- Secure Dropzone -->
+<div class="border-2 border-dashed border-outline-variant/40 hover:border-primary/60 rounded-xl p-6 flex flex-col items-center justify-center text-center bg-surface-container-lowest/50 hover:bg-surface-container-low transition-all duration-200 cursor-pointer group">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/10 to-secondary/10 border border-primary/20 flex items-center justify-center text-primary mb-3 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[24px]" data-icon="file_upload">file_upload</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Drag zip, pdf, or raw assets here or browse</h3>
+<p class="font-body-sm text-body-sm text-outline max-w-xs">Supports single files or multi-archive bundles up to 5GB per product vault.</p>
+<button class="mt-4 px-3.5 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-md text-label-md hover:bg-surface-container transition-colors">
+                Choose Local Files
+              </button>
+</div>
+<!-- Attached Files List -->
+<div class="mt-6 space-y-3">
+<div class="flex items-center justify-between text-label-md font-label-md text-on-surface-variant px-1">
+<span>Attached Deliverables (3 items)</span>
+<span class="text-outline">1.94 GB Total</span>
+</div>
+<!-- Item 1: Master_LUT_Bundle_v4.2.zip -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30 hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_zip">folder_zip</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium truncate">Master_LUT_Bundle_v4.2.zip</span>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span>842 MB</span>
+<span>•</span>
+<span class="text-primary font-medium">5 downloads limit</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1.5 hover:text-on-surface hover:bg-surface-container rounded" title="Configure limit">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+</button>
+<button class="p-1.5 hover:text-error hover:bg-surface-container rounded" title="Remove asset">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Installation_Guide_Quickstart.pdf -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30 hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-red-500/10 border border-red-500/20 text-error flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium truncate">Installation_Guide_Quickstart.pdf</span>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span>4.2 MB</span>
+<span>•</span>
+<span class="text-tertiary font-medium">Unlimited downloads</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1.5 hover:text-on-surface hover:bg-surface-container rounded" title="Configure limit">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+</button>
+<button class="p-1.5 hover:text-error hover:bg-surface-container rounded" title="Remove asset">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Bonus_Grain_Overlays_4K.zip -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30 hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded-lg bg-purple-500/10 border border-purple-500/20 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_zip">folder_zip</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface font-medium truncate">Bonus_Grain_Overlays_4K.zip</span>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<span>1.1 GB</span>
+<span>•</span>
+<span class="text-primary font-medium">5 downloads limit</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1.5 hover:text-on-surface hover:bg-surface-container rounded" title="Configure limit">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+</button>
+<button class="p-1.5 hover:text-error hover:bg-surface-container rounded" title="Remove asset">
+<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- DRM, Licensing & Security Settings -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm space-y-6">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="vpn_key">vpn_key</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">License &amp; Fulfillment Security</h2>
+</div>
+<!-- License Key Generator Toggle -->
+<div class="flex items-start justify-between gap-4 p-4 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Automated License Key Minting</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary/30">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Auto-generate unique cryptographically signed license keys upon checkout</p>
+<div class="pt-2 font-label-sm text-label-sm text-primary flex items-center gap-1 cursor-pointer hover:underline">
+<span>Format: CRTR-XXXX-XXXX-XXXX</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="open_in_new">open_in_new</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+<!-- Download Limits -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2">
+                Download Limit Setting
+              </label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 cursor-pointer hover:border-outline-variant">
+<input class="text-primary focus:ring-0 bg-[#12121A] border-[#1E1E2E]" name="download-limit" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Unlimited</span>
+<span class="font-body-sm text-body-sm text-outline">Open customer access</span>
+</div>
+</label>
+<label class="flex items-center gap-3 p-3 rounded-lg bg-primary-container/10 border border-primary/40 cursor-pointer">
+<input checked="" class="text-primary focus:ring-0 bg-[#12121A] border-[#1E1E2E]" name="download-limit" type="radio"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Specific Count</span>
+<span class="font-body-sm text-body-sm text-primary">5 downloads per buyer</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Expiration Limit Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-on-surface font-medium">Download Link Expiration</span>
+<span class="font-body-sm text-body-sm text-outline">Link expires after 30 days</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Sticky Operational Bar -->
+<footer class="fixed bottom-0 right-0 left-64 z-30 bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/30 px-8 py-3.5 flex items-center justify-between">
+<div class="flex items-center gap-3 text-outline font-body-sm text-body-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Autosaved 2 minutes ago to secure Cloud Vault</span>
+</div>
+<div class="flex items-center gap-3">
+<!-- Discard Action -->
+<button class="px-4 py-2 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:bg-surface-container text-on-surface font-label-lg text-label-lg transition-colors">
+          Discard Changes
+        </button>
+<!-- Preview Storefront View -->
+<button class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+<span>Preview Storefront View</span>
+</button>
+<!-- Save Product Primary -->
+<button class="px-6 py-2 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium shadow-[0_0_16px_rgba(59,130,246,0.4)] hover:brightness-110 active:scale-[0.98] transition-all">
+          Save Product
+        </button>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Template Gallery &amp; Marketplace</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "tertiary": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-low": "#1b1b20",
+            "surface-tint": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container-high": "#2a292f",
+            "on-error": "#690005",
+            "primary-container": "#4d8eff",
+            "inverse-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#93000a",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "on-primary-container": "#00285d",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "surface": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-variant": "#35343a",
+            "background": "#131318",
+            "tertiary-container": "#00a572",
+            "primary": "#adc6ff",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-primary": "#005ac2",
+            "on-secondary": "#3c0091",
+            "secondary-fixed": "#e9ddff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0A0A0F;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E1E2E;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #2A2A3E;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-[#0A0A0F] text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-white">
+<!-- ==================== SHARED COMPONENT: SideNavBar ==================== -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline-variant shadow-none">
+<div class="w-64 h-full flex flex-col justify-between p-4 bg-surface dark:bg-surface">
+<!-- Top Branding & Navigation Items -->
+<div class="flex flex-col gap-4 overflow-hidden">
+<!-- Brand Header / Workspace Switcher -->
+<div class="flex items-center justify-between px-2 py-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer border border-transparent hover:border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white font-bold shadow-[0_0_16px_rgba(59,130,246,0.35)]">
+<span class="material-symbols-outlined text-[20px]" data-icon="token">token</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="font-label-md text-label-md text-outline mt-0.5">Acme Studios</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[18px]" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Primary CTA Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-white font-label-md text-label-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:brightness-105 active:scale-[0.98] transition-all duration-150 shadow-[0_0_16px_rgba(59,130,246,0.3)]">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>New Project</span>
+</button>
+<!-- Navigation Scroll Area (15 tabs with Website Builder ACTIVE) -->
+<nav class="flex flex-col gap-1 overflow-y-auto pr-1 custom-scrollbar max-h-[calc(100vh-270px)]">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_shared">folder_shared</span>
+<span class="font-label-md text-label-md">Workspaces</span>
+</a>
+<!-- 3. Website Builder (ACTIVE MATCH) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-medium active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="web" data-weight="fill" style="font-variation-settings: 'FILL' 1;">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+<span class="ml-auto w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#adc6ff]"></span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="developer_mode">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="card_membership">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sports_kabaddi">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contact_page">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Navigation Items -->
+<div class="pt-3 border-t border-outline-variant dark:border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="support">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ==================== SHARED COMPONENT: TopNavBar ==================== -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant dark:border-outline-variant shadow-none">
+<div class="h-14 w-full flex items-center justify-between px-6 pl-70 bg-surface dark:bg-surface">
+<!-- Search on Left -->
+<div class="flex items-center gap-3 w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline" data-icon="search">search</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md pl-9 pr-8 py-1.5 text-on-surface placeholder:text-outline/60 text-body-sm font-body-sm focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Search templates, funnels, components..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 rounded bg-surface-container text-[10px] text-outline border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Trailing Icon Actions & Profile -->
+<div class="flex items-center gap-3">
+<!-- Quick Help Secondary Action -->
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#1E1E2E] bg-[#181824] hover:border-[#3B82F6] hover:bg-[#1E1E2E] text-on-surface-variant hover:text-on-surface transition-colors duration-150 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+<span>Quick Help</span>
+</button>
+<!-- Notifications -->
+<button class="p-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors duration-150 relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#3B82F6]"></span>
+</button>
+<div class="h-5 w-px bg-outline-variant/60"></div>
+<!-- Profile Avatar & Meta -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-on-primary font-bold text-label-sm shadow-sm ring-1 ring-white/10">
+            HK
+          </div>
+<div class="hidden md:flex flex-col text-left">
+<span class="text-body-sm font-medium text-on-surface leading-tight">Huzaifa Khan</span>
+<span class="text-[10px] text-outline leading-tight">Studio Admin</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN CONTENT CANVAS (1440px Workspace) ==================== -->
+<main class="pl-64 min-h-[calc(100vh-3.5rem)] pb-16">
+<div class="max-w-7xl mx-auto px-8 pt-6">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-2 text-body-sm font-body-sm text-outline mb-3">
+<a class="hover:text-on-surface transition-colors" href="#">Website Builder</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Templates</span>
+</nav>
+<!-- Page Header with Hero Action -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-[#1E1E2E]">
+<div class="space-y-1 max-w-2xl">
+<h1 class="text-headline-xl font-headline-xl text-on-surface font-semibold tracking-tight">
+            Website &amp; Funnel Templates
+          </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+            Deploy battle-tested, high-converting creator websites and sales funnels in seconds.
+          </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] hover:bg-[#1E1E2E] text-on-surface font-label-lg text-label-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="auto_awesome">auto_awesome</span>
+<span>AI Layout Generator</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-white font-label-lg text-label-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:brightness-105 transition-all shadow-[0_0_20px_rgba(59,130,246,0.35)] active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]" data-icon="add_circle">add_circle</span>
+<span>Start From Scratch (Blank Canvas)</span>
+</button>
+</div>
+</div>
+<!-- Filter & Search Toolbar -->
+<div class="mt-6 flex flex-col gap-4">
+<!-- Search & Dropdown Filters Bar -->
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+<!-- Template Search Input -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3.5 top-2.5 text-[18px] text-outline" data-icon="filter_list">filter_list</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md pl-10 pr-4 py-2 text-on-surface placeholder:text-outline/60 text-body-md font-body-md focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Search by keywords, tags, or creator niche..." type="text"/>
+</div>
+<!-- Filter Group & Style Dropdown -->
+<div class="flex items-center gap-3 overflow-x-auto pb-1 md:pb-0">
+<!-- Style Tags Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-md bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] text-on-surface text-body-sm font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="palette">palette</span>
+<span>Style: <strong class="text-white font-medium">All Visual Styles</strong></span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<!-- Sort By Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-md bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] text-on-surface text-body-sm font-body-sm transition-colors">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="sort">sort</span>
+<span>Sort: <strong class="text-white font-medium">Trending &amp; Recommended</strong></span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<!-- View Toggle -->
+<div class="flex items-center bg-[#12121A] border border-[#1E1E2E] rounded-md p-1">
+<button class="p-1 rounded bg-[#1E1E2E] text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-1 rounded text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_list">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto py-1 custom-scrollbar">
+<!-- Active Pill -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(59,130,246,0.15)] border border-[rgba(59,130,246,0.4)] text-[#3B82F6] shrink-0 transition-all">
+<span>All Templates</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#3B82F6]/20 font-bold">48</span>
+</button>
+<!-- Inactive Pills -->
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(30,30,46,0.6)] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline-variant shrink-0 transition-all">
+<span>SaaS &amp; Digital Products</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#1E1E2E] text-outline">16</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(30,30,46,0.6)] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline-variant shrink-0 transition-all">
+<span>Course &amp; Cohort Funnels</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#1E1E2E] text-outline">12</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(30,30,46,0.6)] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline-variant shrink-0 transition-all">
+<span>Agency &amp; Portfolio</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#1E1E2E] text-outline">8</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(30,30,46,0.6)] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline-variant shrink-0 transition-all">
+<span>Link-in-Bio &amp; Mobile</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#1E1E2E] text-outline">6</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[rgba(30,30,46,0.6)] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline-variant shrink-0 transition-all">
+<span>Newsletter &amp; Community</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] bg-[#1E1E2E] text-outline">6</span>
+</button>
+</div>
+<!-- Secondary Style Pills -->
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline pt-1">
+<span class="text-on-surface-variant">Popular Styles:</span>
+<a class="px-2.5 py-1 rounded bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] hover:text-white transition-colors" href="#">Modern Dark</a>
+<a class="px-2.5 py-1 rounded bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] hover:text-white transition-colors" href="#">Minimalist</a>
+<a class="px-2.5 py-1 rounded bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] hover:text-white transition-colors" href="#">Bold &amp; High-Contrast</a>
+<a class="px-2.5 py-1 rounded bg-[#12121A] border border-[#1E1E2E] hover:border-[#3B82F6] hover:text-white transition-colors" href="#">Gradient Tech</a>
+</div>
+</div>
+<!-- ==================== 3-COLUMN RESPONSIVE TEMPLATE GRID ==================== -->
+<section class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- CARD 1: Apex Creator Pro -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E]">
+<img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" data-alt="A hyper-modern dark luxury digital marketing website interface mockup with rich obsidian backgrounds, glowing cobalt blue accents, subtle floating analytics glass cards, sleek typography, and high-fidelity product mockup displays." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGfN4ahMZltfJQWZCD21SxrjVYL_iP4RrWvmi6NySsOW6B0OxQqoW2ck8Xgbpgmgzs002yKvw-ELuYTZytEpoNs5YLnBPlh7HdVrHJjaZLlXnTUvNKJ9Mn4I-VboXf-7cVSPeStL-efoIUtDDU2thWU2CPkQX57GOw5CwyZiF9eiTk-pQAaVmtyyT5stlznYS8OTTSljGRrm-H5KRAHkOlJO2tAzJvBdGgA2PzrqRbRcUq0LhXSlsd6g"/>
+<!-- Quick Category Pill Floating -->
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                SaaS &amp; Course
+              </span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-[#3B82F6]/20 border border-[#3B82F6]/40 text-[#3B82F6]">
+                BESTSELLER
+              </span>
+</div>
+<!-- Overlay Actions on Hover -->
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<!-- Author & Rating Meta -->
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-medium">By Creator OS Team</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">4.9</span>
+<span class="text-outline text-body-sm">(1.2k)</span>
+</div>
+</div>
+<!-- Template Title & Desc -->
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                Apex Creator Pro
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                All-in-one dark luxury funnel architecture featuring dynamic hero switchers, interactive video modules, and integrated tiered pricing.
+              </p>
+<!-- Capability Tags -->
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Responsive</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Stripe Checkout</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">AI Lead Magnet</span>
+</div>
+</div>
+<!-- Action Buttons Footer -->
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+<!-- CARD 2: HyperScale SaaS -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E]">
+<img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" data-alt="A modern SaaS software product landing page UI viewport featuring vibrant purple and electric blue radiant lighting gradients, animated metric counter displays, feature tabs, dark glass cards, and crisp vector charts." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjKSzV2mGpXbiOUulIfRDywdRrYirhmlegeS6YVPxnqy-EnwrXeD1izHZo_oPQkkWUzUc4PHZBAKVJK-t4_4finL7rDuuqaEFFC93rp0q7K0IggyYiVwGj7ACp4rm2i3MO687R0i4cUPE6tMniZdi9Kijn7a8BOKXhcbtpY9oumvU2l89P_08aTe60jQYMXnTaNbs8TfNAUdMJercxD3pG4UZRFqwBPwS1gPkak9w6YeQdn7P8lLIHsQ"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                Software &amp; Tools
+              </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-medium">By Creator OS Team</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">5.0</span>
+<span class="text-outline text-body-sm">(840)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                HyperScale SaaS
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                High-converting product landing architecture with real-time metric counter blocks, product teaser tabs, and enterprise trust proof badges.
+              </p>
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Gradient Tech</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Live Metrics</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Feature Tabs</span>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+<!-- CARD 3: Minimal Soloist -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E]">
+<img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" data-alt="A clean minimalist portfolio website interface preview with disciplined typography, asymmetric masonry case study grid layout, subtle monochromatic dark surface blocks, and an elegant email newsletter subscription container." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU5_QjgqmPOK_thijzuSSNcDQuIghwu5I3MPW3iRRRFRYdYLuOkp7cIpNSO1APOpA4LGXyHEQOKsBKLjrwoARtLt1O66cWLBS4yUe4ZzJWVFOcdCp99xkq_IhMW3XsHw4Tw9JEtYaUPubFSEUpnp71_eQWoGTRwZKVk936TcmjCPNKyssr9kapBj9020ZTfmGNc9VJFDjBUIwzDWoOCZArXNDoXj4oOF-8Ybh_DWuxvaQCNxKyAatNwg"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                Portfolio &amp; Blog
+              </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant font-medium">Community Verified</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">4.8</span>
+<span class="text-outline text-body-sm">(615)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                Minimal Soloist
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                Tailored for modern writers, researchers, and solo operators. Features editorial typography, masonry project case studies, and instant Substack sync.
+              </p>
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Editorial Type</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Masonry Works</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Newsletter CMS</span>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+<!-- CARD 4: Velocity Cohort -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E]">
+<img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" data-alt="A cohort-based education course landing page interface preview featuring a cinematic video header mockup, an active registration countdown clock, glowing student alumni badges, and an interactive curriculum week-by-week accordion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDANBApe2YSY-cFnp27dM5NeSOpvHtUuwcfTUkI5P1IUy5D6zyVTLqYt6o-jynlpwA6R4dKWsMoeO8Av0Y0a2-C0z9p3FnATDkPhU4fb5k7WApa4EtjpO5BK2YJetc2b48VfGLFEalML9qz0oSTaMKRjNaca7g3UXN8pqa78hvkKq8KsvQ8o9b-KMcx-43v6XSY_iiendxHq4maxktgEs6TUnLE64Fgmn59wyMHxXe6Am7lOPSJHeIew"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                Cohort Course
+              </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-medium">By Creator OS Team</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">4.9</span>
+<span class="text-outline text-body-sm">(1.5k)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                Velocity Cohort
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                Engineered for masterminds and cohort sprints. Complete with dynamic enrollment countdown timers, guest speaker grids, and module accordions.
+              </p>
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Video Hero</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Countdown Timer</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Curriculum Accordion</span>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+<!-- CARD 5: Quantum Bio-Link -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E] flex items-center justify-center">
+<img class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" data-alt="A smartphone mockup showing a mobile-first link-in-bio website profile with glowing gradient avatars, quick tip jar module, embedded Spotify playlist audio widget, and high-impact social links in an atmospheric studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9hZTTPMqfv-Lv5gVw7-Wz8SS9ijMCSuNEgcV6BY0AvQQaYIwShORejVagmCW8VoDtDOF-HKbiSam5r96pmITIRmCsqOekcr3IQcteGWUbB5tdM5XwDnCnhqS686gTeBtjPldMQK25vd8SwE7UzvL5Iu2raPUiTdXnYAfaFSe39UsR65NNlTWeRepePHc7tlcQJUdOE3TcGYxhrQ9Ql5ERkZ_8JxWmkWyMy10qWojbFoH0TFcQSHQwhA"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                Link-in-Bio
+              </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-on-surface-variant font-medium">Community Verified</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">4.7</span>
+<span class="text-outline text-body-sm">(2.1k)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                Quantum Bio-Link
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                Ultra-fast mobile landing canvas for social platforms with integrated tips, digital asset sales, and instant calendar booking slots.
+              </p>
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Mobile 60fps</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Direct Tipping</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Social Sync</span>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+<!-- CARD 6: Foundry Studio -->
+<div class="group relative flex flex-col rounded-xl bg-[#12121A] border border-[#1E1E2E] hover:border-[#8B5CF6]/50 hover:bg-[#181824] transition-all duration-300 shadow-none hover:shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Preview Viewport -->
+<div class="relative h-56 w-full bg-[#0A0A0F] overflow-hidden border-b border-[#1E1E2E]">
+<img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" data-alt="A creative boutique design agency website presentation with dramatic high contrast editorial layouts, typography anchors, client proof case study showreel, and sleek interactive project cards under moody studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfIoCl6-F8FmepT_aRKHrGfiEjiXQkZV-0lr6O-NGrVM7-6KlfRvtnMx1aQgyFXTBsd0a1WQinKOlk4Iz5YnGZS3OVHETWmXnHc8sc32XOHLdiMY6PULbJOBpJYfFjMizYWxvXasBrqOXUjXunTBCvFMc13fryX97RmpwpN4_iEPrkruqpjq17URjbYiFiwFUGARBWOhrH5Da5ExpM4ftGrqNx-GvVlQahOoGpJZ11EK_ZkXct7QgUcQ"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-1 rounded-full text-[11px] font-medium bg-[#12121A]/90 backdrop-blur-md border border-white/10 text-white shadow-sm">
+                Creative Agency
+              </span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-[#0A0A0F]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-3 p-4">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant hover:border-white transition-all shadow-lg">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Live Demo</span>
+</button>
+</div>
+</div>
+<!-- Card Content Body -->
+<div class="p-5 flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-outline mb-2">
+<span class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-on-surface-variant font-medium">By Creator OS Team</span>
+</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-white font-medium">4.9</span>
+<span class="text-outline text-body-sm">(980)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-white font-semibold group-hover:text-primary transition-colors">
+                Foundry Studio
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 line-clamp-2">
+                Bold, statement-driven digital presence built for design studios, video collectives, and elite marketing agencies with proof reels.
+              </p>
+<div class="flex flex-wrap items-center gap-1.5 mt-3.5">
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Editorial Grid</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Video Reel</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-medium bg-[#181824] border border-[#1E1E2E] text-outline">Client Invoicing</span>
+</div>
+</div>
+<div class="pt-5 mt-4 border-t border-[#1E1E2E] flex items-center gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-md font-label-md text-center transition-colors">
+                Preview Template
+              </button>
+<button class="flex-1 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium text-center hover:brightness-110 active:scale-[0.98] transition-all shadow-[0_0_12px_rgba(59,130,246,0.3)]">
+                Use This Template
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Pagination & Bottom Status Indicator -->
+<div class="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 p-4 rounded-xl bg-[#12121A] border border-[#1E1E2E]">
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-outline">
+<span>Showing <strong class="text-white">1–6</strong> of <strong>48</strong> battle-tested templates</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-[#1E1E2E] bg-[#181824] text-outline hover:text-white hover:border-[#3B82F6] text-body-sm font-body-sm transition-colors disabled:opacity-50" disabled="">
+            Previous
+          </button>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-bold text-label-md">1</button>
+<button class="w-8 h-8 rounded-lg text-outline hover:text-white hover:bg-surface-container font-medium text-label-md transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg text-outline hover:text-white hover:bg-surface-container font-medium text-label-md transition-colors">3</button>
+<span class="text-outline px-1">...</span>
+<button class="w-8 h-8 rounded-lg text-outline hover:text-white hover:bg-surface-container font-medium text-label-md transition-colors">8</button>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-[#1E1E2E] bg-[#181824] text-white hover:border-[#3B82F6] text-body-sm font-body-sm transition-colors">
+            Next
+          </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

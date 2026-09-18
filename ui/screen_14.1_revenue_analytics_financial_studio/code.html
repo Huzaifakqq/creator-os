@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Revenue Analytics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "primary": "#adc6ff",
+            "on-primary": "#002e6a",
+            "inverse-primary": "#005ac2",
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface-variant": "#35343a",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "on-primary-fixed-variant": "#004395",
+            "surface": "#131318",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#00a572",
+            "on-tertiary": "#003824",
+            "error-container": "#93000a",
+            "on-surface-variant": "#c2c6d6",
+            "primary-container": "#4d8eff",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-on-surface": "#303036",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "surface-container-high": "#2a292f",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "secondary-container": "#571bc1",
+            "surface-container-highest": "#35343a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e4e1e9",
+            "error": "#ffb4ab"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem"
+          },
+          fontFamily: {
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
+    }
+    .primary-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- SIDEBAR NAVIGATION (Shared Component: SideNavBar) -->
+<aside class="fixed left-0 top-0 z-50 flex flex-col h-screen w-64 bg-surface-container-low border-r border-outline-variant px-3 py-4 overflow-y-auto custom-scrollbar">
+<!-- Header Brand Info -->
+<div class="flex items-center gap-3 px-3 py-2 mb-4">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-bold text-headline-sm">
+        C
+      </div>
+<div>
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Creator OS</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Enterprise Suite</div>
+</div>
+</div>
+<!-- Navigation Tabs (12 items from JSON) -->
+<nav class="space-y-1 flex-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="web">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<!-- 3. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 4. Courses -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 5. Community -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="forum">forum</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+<!-- 6. CRM -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contacts">contacts</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 7. Email -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 8. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 9. Analytics (ACTIVE SCREEN) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high text-primary font-medium border border-outline-variant shadow-sm transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="monitoring" data-weight="fill" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 10. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 11. Settings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<!-- 12. Admin -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin</span>
+</a>
+</nav>
+<!-- SideNav CTA & Footer Links -->
+<div class="pt-4 border-t border-outline-variant mt-2 space-y-2">
+<button class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-surface-container-high border border-outline-variant hover:border-primary text-on-surface text-label-md font-label-lg transition-all duration-150 ease-out">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="bolt">bolt</span>
+        Upgrade Workspace
+      </button>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="headset_mic">headset_mic</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- MAIN CANVAS WRAPPER (Offset by sidebar width 256px / 16rem) -->
+<div class="ml-64 flex flex-col min-h-screen bg-surface-container-lowest">
+<!-- TOP UTILITY HEADER (Shared Component: TopNavBar with Screen Context Controls) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-6 bg-surface border-b border-outline-variant">
+<!-- Left: Workspace Switcher + Contextual Navigation Links -->
+<div class="flex items-center gap-6">
+<!-- Tenant / Workspace Switcher -->
+<div class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all duration-150">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Apex Studios Pro</span>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Workspace</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-all" href="#">Studio Production</a>
+<a class="font-label-md text-label-md text-primary font-medium border-b-2 border-primary py-4" href="#">Analytics Overview</a>
+</nav>
+</div>
+<!-- Right: Utility Controls (Date Picker, Currency, Export, Actions) -->
+<div class="flex items-center gap-3">
+<!-- Date Range Picker Toggle -->
+<div class="flex items-center bg-surface-container rounded-lg p-0.5 border border-outline-variant">
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md bg-surface-container-high text-primary font-medium">Last 30 Days</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">Quarter-to-date</button>
+<button class="px-2.5 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">Year-to-date</button>
+</div>
+<!-- Currency Switcher -->
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant cursor-pointer text-on-surface font-label-sm text-label-sm">
+<span class="font-semibold text-tertiary">USD ($)</span>
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Export Report Button -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant hover:border-outline text-on-surface font-label-sm text-label-sm transition-all duration-150">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="download">download</span>
+          Export Report
+        </button>
+<!-- System Operational Indicator -->
+<div class="hidden lg:flex items-center gap-1.5 px-2 py-1 rounded-md bg-surface-container border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">System Operational</span>
+</div>
+<!-- Icon Actions & Profile Avatar -->
+<div class="flex items-center gap-1 pl-2 border-l border-outline-variant">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all" title="Tune">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+<div class="ml-2 w-7 h-7 rounded-full bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center text-[11px] font-bold text-on-surface ring-1 ring-outline-variant" title="User profile avatar">
+            JD
+          </div>
+</div>
+</div>
+</header>
+<!-- CONTENT WORKSPACE CANVAS -->
+<main class="flex-1 p-8 space-y-6 max-w-[1440px]">
+<!-- SECTION 1: Header with Live Webhook Sync Badge -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg font-bold tracking-tight text-on-surface">Revenue Analytics</h1>
+<!-- Live Sync Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+              Real-time Webhook Sync Active
+            </div>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md mt-1">
+            Real-time financial performance, recurring revenue velocity, and GMV breakdown
+          </p>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+            Filters (4 active)
+          </button>
+<button class="primary-gradient-btn flex items-center gap-2 px-4 py-2 rounded-lg text-white font-label-lg text-label-lg font-medium transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+            Create New
+          </button>
+</div>
+</div>
+<!-- SECTION 2: Key Metric Stat Cards Row (4 Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Metric 1: MRR -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-5 hover:border-secondary/40 transition-all duration-200">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Monthly Recurring Revenue</span>
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="autorenew">autorenew</span>
+</div>
+<div class="flex items-baseline gap-2">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">$128,450</div>
+<span class="inline-flex items-center text-label-sm font-label-sm text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+              +14.2%
+            </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-outline-variant/60 text-label-sm text-label-sm text-on-surface-variant">
+<span>vs. $112,470 last month</span>
+<span class="text-primary">Target: $140k</span>
+</div>
+</div>
+<!-- Metric 2: ARR -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-5 hover:border-secondary/40 transition-all duration-200">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Annual Run Rate (ARR)</span>
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="calendar_month">calendar_month</span>
+</div>
+<div class="flex items-baseline gap-2">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">$1,541,400</div>
+<span class="inline-flex items-center text-label-sm font-label-sm text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+              +18.6%
+            </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-outline-variant/60 text-label-sm text-label-sm text-on-surface-variant">
+<span>YoY pacing index 1.18x</span>
+<span class="text-tertiary">Runway: Healthy</span>
+</div>
+</div>
+<!-- Metric 3: GMV -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-5 hover:border-secondary/40 transition-all duration-200">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Gross Merchandise Value</span>
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="payments">payments</span>
+</div>
+<div class="flex items-baseline gap-2">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">$342,890</div>
+<span class="inline-flex items-center text-label-sm font-label-sm text-primary font-semibold">
+              All-time
+            </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-outline-variant/60 text-label-sm text-label-sm text-on-surface-variant">
+<span>3,942 total orders processed</span>
+<span class="text-on-surface">99.4% cleared</span>
+</div>
+</div>
+<!-- Metric 4: AOV -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-5 hover:border-secondary/40 transition-all duration-200">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md">Average Order Value (AOV)</span>
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="shopping_basket">shopping_basket</span>
+</div>
+<div class="flex items-baseline gap-2">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">$84.50</div>
+<span class="inline-flex items-center text-label-sm font-label-sm text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+              +5.3%
+            </span>
+</div>
+<div class="flex items-center justify-between mt-3 pt-3 border-t border-outline-variant/60 text-label-sm text-label-sm text-on-surface-variant">
+<span>Upsell bundle attachment 28%</span>
+<span class="text-secondary">+2.1% bump</span>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Main Revenue Trend Chart Section & Forecast -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 space-y-6">
+<!-- Chart Controls Header -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-outline-variant/70">
+<div class="flex items-center gap-2">
+<!-- Metric Dimension Toggles -->
+<div class="flex items-center bg-surface-container rounded-lg p-1 border border-outline-variant">
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md bg-surface-container-high text-primary font-medium">MRR</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">ARR</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">Net Revenue</button>
+</div>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-1 rounded-full bg-gradient-to-r from-primary-container to-secondary-container"></span>
+<span class="text-on-surface">Current Period</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-0.5 border-b border-dashed border-outline"></span>
+<span class="text-on-surface-variant">Previous Period</span>
+</div>
+</div>
+</div>
+<!-- Time Granularity -->
+<div class="flex items-center bg-surface-container rounded-lg p-0.5 border border-outline-variant">
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">Daily</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md bg-surface-container-high text-primary font-medium">Weekly</button>
+<button class="px-3 py-1 text-label-sm font-label-sm rounded-md text-on-surface-variant hover:text-on-surface">Monthly</button>
+</div>
+</div>
+<!-- SVG Line Chart Canvas Area with Dual Curves & Interactive Tooltip -->
+<div class="relative w-full h-72">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-40">
+<div class="border-b border-outline-variant/40 w-full flex justify-between text-[11px] text-outline"><span>$140k</span></div>
+<div class="border-b border-outline-variant/40 w-full flex justify-between text-[11px] text-outline"><span>$120k</span></div>
+<div class="border-b border-outline-variant/40 w-full flex justify-between text-[11px] text-outline"><span>$100k</span></div>
+<div class="border-b border-outline-variant/40 w-full flex justify-between text-[11px] text-outline"><span>$80k</span></div>
+<div class="w-full flex justify-between text-[11px] text-outline"><span>$60k</span></div>
+</div>
+<!-- Dual Curve SVG -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 280">
+<defs>
+<lineargradient id="revenueGlow" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35"></stop>
+<stop offset="60%" stop-color="#8B5CF6" stop-opacity="0.12"></stop>
+<stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"></stop>
+</lineargradient>
+<lineargradient id="lineStroke" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#3B82F6"></stop>
+<stop offset="100%" stop-color="#8B5CF6"></stop>
+</lineargradient>
+</defs>
+<!-- Area Fill -->
+<path d="M 0 220 C 140 210, 240 180, 360 160 C 480 140, 580 150, 700 110 C 820 70, 920 60, 1000 40 L 1000 280 L 0 280 Z" fill="url(#revenueGlow)"></path>
+<!-- Previous Period Curve (Dashed Gray) -->
+<path d="M 0 240 C 150 230, 260 210, 380 200 C 500 190, 620 180, 720 160 C 840 140, 930 130, 1000 115" fill="none" opacity="0.6" stroke="#8c909f" stroke-dasharray="5 5" stroke-width="2"></path>
+<!-- Current Period Curve (Gradient Solid) -->
+<path d="M 0 220 C 140 210, 240 180, 360 160 C 480 140, 580 150, 700 110 C 820 70, 920 60, 1000 40" fill="none" stroke="url(#lineStroke)" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Active Data Marker at x=700 (Today/Anchor) -->
+<line opacity="0.75" stroke="#3B82F6" stroke-dasharray="3 3" stroke-width="1.5" x1="700" x2="700" y1="0" y2="280"></line>
+<circle cx="700" cy="110" fill="#3B82F6" r="6" stroke="#ffffff" stroke-width="2"></circle>
+</svg>
+<!-- Interactive Breakout Floating Tooltip -->
+<div class="absolute left-[62%] top-[18px] -translate-x-1/2 bg-surface-container-high border border-outline-variant rounded-lg p-3 shadow-2xl backdrop-blur-md pointer-events-none z-10 w-64">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant pb-1.5 border-b border-outline-variant">
+<span>Oct 24, 2024 (Today)</span>
+<span class="text-tertiary font-semibold">Active Run</span>
+</div>
+<div class="mt-2 space-y-1 text-label-sm font-label-sm">
+<div class="flex justify-between items-baseline">
+<span class="text-on-surface font-semibold text-headline-sm font-headline-sm">$4,820 today</span>
+<span class="text-tertiary font-medium">+22% spike</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Subscriptions Renewed:</span>
+<span class="text-on-surface font-medium">58 accounts</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Course Sales:</span>
+<span class="text-on-surface font-medium">14 checkout events</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Horizontal X-Axis Timeline Labels -->
+<div class="flex justify-between text-label-sm font-label-sm text-outline px-1">
+<span>Day 1</span>
+<span>Day 5</span>
+<span>Day 10</span>
+<span>Day 15</span>
+<span>Day 20</span>
+<span>Day 25 (Today)</span>
+<span>Day 30</span>
+</div>
+<!-- 3-Month Dotted Line Revenue Forecast Ribbon -->
+<div class="mt-4 p-4 rounded-xl bg-surface-container border border-outline-variant/80 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="insights">insights</span>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">3-Month Revenue Forecast Model</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/30 border border-secondary text-secondary text-[11px] font-semibold">95% Confidence Band</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Predictive growth engine tracks MRR hitting <span class="text-on-surface font-semibold">$165,000</span> by Q1 (+28.4% velocity). Low churn threshold modeler active.
+            </p>
+</div>
+<!-- Scenario Modeler Selector -->
+<div class="flex items-center gap-3 self-end md:self-auto">
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-lg border border-outline-variant text-label-sm font-label-sm text-on-surface">
+<span class="text-on-surface-variant">Scenario:</span>
+<span class="font-semibold text-primary">Bull Case (+22% retention)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="unfold_more">unfold_more</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant hover:border-outline text-on-surface text-label-sm font-label-sm">
+              Adjust Assumptions
+            </button>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Two-Column Breakdown Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Column Left: Top Products by Revenue -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 space-y-5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Top Products by Revenue</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ranked contribution across digital assets &amp; access tiers</p>
+</div>
+<button class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-1">
+              View Catalog <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Products Ranking List with Horizontal Visual Bars -->
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-md bg-surface-container-high text-primary font-bold flex items-center justify-center text-[11px]">1</span>
+<span class="text-on-surface font-medium">Advanced Cinematography Masterclass</span>
+</div>
+<div class="font-semibold text-on-surface">$48,200</div>
+</div>
+<!-- Bar -->
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-full rounded-full" style="width: 100%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>492 enrollments</span>
+<span>37.5% of total catalog</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-md bg-surface-container-high text-on-surface-variant font-bold flex items-center justify-center text-[11px]">2</span>
+<span class="text-on-surface font-medium">DaVinci Resolve Master LUT Pack</span>
+</div>
+<div class="font-semibold text-on-surface">$32,400</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-full rounded-full" style="width: 67%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>1,080 units sold</span>
+<span>25.2% of total catalog</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-md bg-surface-container-high text-on-surface-variant font-bold flex items-center justify-center text-[11px]">3</span>
+<span class="text-on-surface font-medium">Pro Creator VIP Community</span>
+</div>
+<div class="font-semibold text-on-surface">$24,100</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-full rounded-full" style="width: 50%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>312 active monthly recurring</span>
+<span>18.8% of total catalog</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-md bg-surface-container-high text-on-surface-variant font-bold flex items-center justify-center text-[11px]">4</span>
+<span class="text-on-surface font-medium">1-on-1 Studio Mentorship</span>
+</div>
+<div class="font-semibold text-on-surface">$18,600</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-full rounded-full" style="width: 38%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>31 bespoke sessions</span>
+<span>14.5% of total catalog</span>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-md bg-surface-container-high text-on-surface-variant font-bold flex items-center justify-center text-[11px]">5</span>
+<span class="text-on-surface font-medium">Custom App Engine Template</span>
+</div>
+<div class="font-semibold text-on-surface">$9,800</div>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary-container to-secondary-container h-full rounded-full" style="width: 20%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>98 licenses cleared</span>
+<span>7.6% of total catalog</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column Right: Revenue by Channel & Source -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-6 space-y-5">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Revenue by Channel &amp; Source</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Channel attribution, conversion efficiency, and payout splits</p>
+</div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[20px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Stacked Visual Bar -->
+<div class="space-y-2">
+<div class="h-4 w-full rounded-full bg-surface-container-high flex overflow-hidden p-0.5 gap-0.5">
+<div class="bg-primary-container h-full rounded-l-full" style="width: 58%;" title="Direct Sales 58%"></div>
+<div class="bg-secondary-container h-full" style="width: 27%;" title="Marketplace 27%"></div>
+<div class="bg-tertiary-container h-full rounded-r-full" style="width: 15%;" title="Affiliates 15%"></div>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Total Attributed Volume: <strong class="text-on-surface">$342,700</strong></span>
+<span>100% Reconciliation</span>
+</div>
+</div>
+<!-- Channel Deep Dive Cards -->
+<div class="space-y-3 pt-2">
+<!-- Channel 1: Direct -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/70 flex items-center justify-between">
+<div class="flex items-start gap-3">
+<div class="w-3 h-3 rounded-full bg-primary-container mt-1"></div>
+<div>
+<div class="font-label-lg text-label-lg font-medium text-on-surface">Direct Sales</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Creator OS Storefront &amp; Landing Pages</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">$198,800</div>
+<div class="text-label-sm font-label-sm text-tertiary">58% • 4.8% Conv. Rate</div>
+</div>
+</div>
+<!-- Channel 2: Marketplace Discovery -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/70 flex items-center justify-between">
+<div class="flex items-start gap-3">
+<div class="w-3 h-3 rounded-full bg-secondary-container mt-1"></div>
+<div>
+<div class="font-label-lg text-label-lg font-medium text-on-surface">Marketplace Discovery</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Global Directory Search &amp; Algorithm Recommendations</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">$92,500</div>
+<div class="text-label-sm font-label-sm text-secondary">27% • 2.9% Conv. Rate</div>
+</div>
+</div>
+<!-- Channel 3: Affiliate Partner Referrals -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/70 flex items-center justify-between">
+<div class="flex items-start gap-3">
+<div class="w-3 h-3 rounded-full bg-tertiary-container mt-1"></div>
+<div>
+<div class="font-label-lg text-label-lg font-medium text-on-surface">Affiliate Partner Referrals</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">74 active creator ambassadors ($12.8k paid out)</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">$51,400</div>
+<div class="text-label-sm font-label-sm text-tertiary">15% • 8.1% Conv. Rate</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

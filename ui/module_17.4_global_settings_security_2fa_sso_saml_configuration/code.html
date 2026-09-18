@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Module 17.4 Global Settings: Security &amp; SSO</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed-variant": "#004395",
+            "surface-tint": "#adc6ff",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary": "#4edea3",
+            "inverse-primary": "#005ac2",
+            "outline": "#8c909f",
+            "tertiary-container": "#00a572",
+            "surface-container-highest": "#35343a",
+            "on-primary-fixed": "#001a42",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container": "#1f1f25",
+            "background": "#131318",
+            "inverse-on-surface": "#303036",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-bright": "#39383e",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary-container": "#00285d",
+            "on-tertiary-fixed": "#002113",
+            "on-background": "#e4e1e9",
+            "surface-container-high": "#2a292f",
+            "surface-dim": "#131318",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary-container": "#c4abff",
+            "secondary-container": "#571bc1",
+            "secondary": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "surface-variant": "#35343a",
+            "primary": "#adc6ff",
+            "on-primary": "#002e6a",
+            "error": "#ffb4ab",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "outline-variant": "#424754",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "primary-fixed-dim": "#adc6ff",
+            "surface": "#131318",
+            "error-container": "#93000a",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-container": "#00311f",
+            "on-surface-variant": "#c2c6d6",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed": "#23005c"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .primary-btn-glow {
+      box-shadow: 0 0 20px -2px rgba(59, 130, 246, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- Persistent Docked Left Navigation Drawer (Shared Component) -->
+<aside class="flex flex-col justify-between h-full p-space-md z-50 fixed left-0 top-0 w-64 bg-surface-container-lowest border-r border-outline-variant">
+<!-- Workspace Brand & Tenant Section -->
+<div class="space-y-space-md">
+<div class="flex items-center justify-between px-space-xs pb-space-sm border-b border-outline-variant">
+<div class="flex items-center space-x-space-sm">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center text-on-primary font-headline-sm font-bold shadow-sm">
+            C
+          </div>
+<div>
+<div class="text-headline-sm font-headline-sm font-semibold text-on-surface leading-tight">Acme Studios</div>
+<div class="text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>
+              Enterprise Tier
+            </div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1 rounded hover:bg-surface-container">
+<span class="material-symbols-outlined text-sm" data-icon="unfold_more">unfold_more</span>
+</button>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full py-2 px-3 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-left flex items-center justify-between transition-all duration-150 group">
+<span class="text-label-md font-label-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="bolt">bolt</span>
+          Quick Action
+        </span>
+<kbd class="text-[10px] bg-surface-container-highest px-1.5 py-0.5 rounded text-on-surface-variant group-hover:text-primary">⌘K</kbd>
+</button>
+<!-- Primary Navigation Tabs -->
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#dashboard">
+<span class="material-symbols-outlined text-[18px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#media">
+<span class="material-symbols-outlined text-[18px]" data-icon="perm_media">perm_media</span>
+<span>Media Engine</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#analytics">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#monetization">
+<span class="material-symbols-outlined text-[18px]" data-icon="payments">payments</span>
+<span>Monetization</span>
+</a>
+<!-- ACTIVE DESTINATION: Global Settings -->
+<a class="flex items-center gap-3 bg-surface-container-high text-primary font-label-md rounded-lg px-space-md py-space-sm border-l-2 border-primary transition-all duration-150" href="#settings">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Global Settings</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#api">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+<span>API &amp; Webhooks</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface rounded-lg px-space-md py-space-sm transition-all duration-150" href="#compliance">
+<span class="material-symbols-outlined text-[18px]" data-icon="gavel">gavel</span>
+<span>Security &amp; Compliance</span>
+</a>
+</nav>
+</div>
+<!-- Navigation Footer Status & User Profile -->
+<div class="pt-space-md border-t border-outline-variant space-y-3">
+<div class="flex items-center justify-between px-space-sm py-1.5 bg-surface-container rounded-lg border border-outline-variant/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-sm font-label-sm text-on-surface">Operational</span>
+</div>
+<span class="text-[10px] text-outline font-mono">99.98%</span>
+</div>
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-bright flex items-center justify-center border border-outline-variant overflow-hidden">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="account_circle">account_circle</span>
+</div>
+<div>
+<div class="text-label-md font-label-md font-semibold text-on-surface">Huzaifa Khan</div>
+<div class="text-label-sm font-label-sm text-outline">Super Admin</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-base" data-icon="logout">logout</span>
+</button>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Frame (Offset 256px for persistent left sidebar) -->
+<div class="ml-64 flex flex-col min-h-screen bg-background">
+<!-- Top Navigation Utility Bar (Shared Component Anchor) -->
+<header class="flex justify-between items-center h-14 px-gutter w-full sticky top-0 z-40 bg-surface-container-low/80 backdrop-blur-md border-b border-outline-variant shadow-sm">
+<!-- Breadcrumb & Search Bar On Left -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-outline">Creator OS</span>
+<span class="text-outline-variant">/</span>
+<span class="text-outline">Global Settings</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="lock">lock</span>
+            Security &amp; 2FA
+          </span>
+</div>
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-md py-1 pl-8 pr-3 text-body-sm font-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary h-8" placeholder="Search parameters... (⌘K)" type="text"/>
+</div>
+</div>
+<!-- Center & Trailing Actions / Compliance Badges -->
+<div class="flex items-center gap-3">
+<!-- Navigation Links as status indicators -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 border border-tertiary/30 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block animate-pulse"></span>
+            SOC-2 Type II Certified
+          </div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">
+<span class="material-symbols-outlined text-xs" data-icon="shield">shield</span>
+            FIDO2 Strict
+          </div>
+</div>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<!-- Trailing Secondary Action -->
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/40 text-on-surface text-label-md font-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="history">history</span>
+          Audit Ledger
+        </button>
+<!-- Trailing Primary Action -->
+<button class="px-4 py-1.5 rounded-lg bg-gradient-to-r from-blue-500 to-violet-600 hover:from-blue-400 hover:to-violet-500 text-white text-label-md font-label-md font-medium primary-btn-glow transition-all duration-150 active:scale-95 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="save">save</span>
+          Save Policy
+        </button>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1.5 rounded-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors relative">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-low"></span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Sub-Navigation Horizontal Tabs -->
+<div class="bg-surface-container-low border-b border-outline-variant px-gutter">
+<div class="flex items-center space-x-6 overflow-x-auto custom-scrollbar pt-2">
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap" href="#general">General &amp; Profile</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap flex items-center gap-1.5" href="#team">
+          Team &amp; Seats
+          <span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-[10px] text-outline font-mono">12</span>
+</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap" href="#roles">Roles &amp; Permissions</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap" href="#billing">Billing &amp; Plans</a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap" href="#domains">Custom Domains &amp; SSL</a>
+<!-- ACTIVE TAB -->
+<a class="text-primary font-label-md border-b-2 border-primary pb-2.5 whitespace-nowrap font-medium flex items-center gap-1.5" href="#security">
+<span class="material-symbols-outlined text-sm" data-icon="security">security</span>
+          Security &amp; 2FA
+        </a>
+<a class="text-on-surface-variant font-label-md hover:text-on-surface pb-2.5 transition-colors whitespace-nowrap" href="#audit">Audit Ledger</a>
+</div>
+</div>
+<!-- Main Workspace Content Canvas -->
+<main class="flex-1 p-space-xl space-y-space-lg custom-scrollbar">
+<!-- 1. Executive Security Telemetry Strip (4 Top Metric Cards) -->
+<section class="grid grid-cols-4 gap-4">
+<!-- Telemetry Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md relative overflow-hidden group hover:border-outline transition-colors">
+<div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-tertiary to-tertiary-container"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">2FA Enforcement</span>
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">100% Strict Enforced</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">12 of 12 active team members compliant via FIDO2 / TOTP</p>
+<div class="mt-3 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary border border-tertiary/30 text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Strict Mode Active
+            </span>
+</div>
+</div>
+<!-- Telemetry Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md relative overflow-hidden group hover:border-outline transition-colors">
+<div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Enterprise SSO</span>
+<span class="material-symbols-outlined text-primary text-lg" data-icon="hub">hub</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">SAML 2.0 Connected</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Primary IdP: Okta Enterprise Hub</p>
+<div class="mt-3 flex items-center justify-between text-[11px] text-outline">
+<span class="font-mono text-tertiary">16ms assertion latency</span>
+<span class="text-primary font-medium">Status: Active</span>
+</div>
+</div>
+<!-- Telemetry Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md relative overflow-hidden group hover:border-outline transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Active Sessions</span>
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="devices">devices</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">14 Active Sessions</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Across 4 geographical regions • 0 suspicious anomalies</p>
+<div class="mt-3 flex items-center gap-2">
+<div class="flex -space-x-1.5 overflow-hidden">
+<span class="inline-block h-4 w-4 rounded-full ring-1 ring-surface-container-low bg-primary/20 text-[9px] text-center leading-4 font-mono text-primary">US</span>
+<span class="inline-block h-4 w-4 rounded-full ring-1 ring-surface-container-low bg-primary/20 text-[9px] text-center leading-4 font-mono text-primary">UK</span>
+<span class="inline-block h-4 w-4 rounded-full ring-1 ring-surface-container-low bg-primary/20 text-[9px] text-center leading-4 font-mono text-primary">DE</span>
+<span class="inline-block h-4 w-4 rounded-full ring-1 ring-surface-container-low bg-primary/20 text-[9px] text-center leading-4 font-mono text-primary">SG</span>
+</div>
+<span class="text-[11px] text-outline">All certificates verified</span>
+</div>
+</div>
+<!-- Telemetry Card 4 -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md relative overflow-hidden group hover:border-outline transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Hardware Keys</span>
+<span class="material-symbols-outlined text-primary-fixed text-lg" data-icon="key">key</span>
+</div>
+<div class="flex items-baseline gap-2 mb-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">9 FIDO2 WebAuthn Keys</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Yubikey 5C &amp; Apple Touch ID registered</p>
+<div class="mt-3 flex items-center justify-between text-[11px]">
+<span class="text-tertiary flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Passkeys Active
+            </span>
+<span class="text-outline font-mono">WebAuthn L2</span>
+</div>
+</div>
+</section>
+<!-- 2. Two-Column Asymmetric Grid Layout (65% / 35%) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- LEFT COLUMN (65% width: 8 of 12 cols) -->
+<div class="col-span-8 space-y-6">
+<!-- Section A: Single Sign-On (SSO) & SAML 2.0 Configuration -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<!-- Header with Title, Badge, and Global Toggle -->
+<div class="flex items-start justify-between pb-space-sm border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Single Sign-On (SSO) &amp; SAML 2.0</h2>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary font-medium">
+                    Enterprise IdP Bridge
+                  </span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Manage federated identity authentication, assertions, and tenant SAML endpoints.</p>
+</div>
+<!-- Main SSO Enforcement Toggle -->
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-label-sm font-label-sm text-on-surface font-medium">Enforce SAML SSO</div>
+<div class="text-[11px] text-outline">@creatoros.io, @acmestudios.io</div>
+</div>
+<button aria-pressed="true" class="w-11 h-6 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full p-0.5 transition-colors relative flex items-center" type="button">
+<span class="w-5 h-5 rounded-full bg-white transition-transform translate-x-5 shadow-sm"></span>
+</button>
+</div>
+</div>
+<!-- Active Identity Provider Card: Okta -->
+<div class="bg-surface-container border border-outline-variant/80 rounded-lg p-space-md space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="cloud_sync">cloud_sync</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Okta Enterprise SSO</span>
+<span class="px-2 py-0.2 rounded-full text-[11px] font-medium bg-tertiary/15 text-tertiary border border-tertiary/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Active &amp; Connected
+                      </span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">Protocol: SAML 2.0 Identity Federation</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant hover:border-primary text-body-sm font-body-sm text-on-surface transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sync_alt">sync_alt</span>
+                    Test SAML Connection
+                  </button>
+<button class="p-1.5 rounded bg-surface-container-high border border-outline-variant text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- SAML Parameters Matrix -->
+<div class="grid grid-cols-2 gap-3 pt-2 text-body-sm font-body-sm">
+<div class="bg-surface-container-lowest p-2.5 rounded border border-outline-variant/60">
+<span class="text-label-sm font-label-sm text-outline block mb-1">Entity ID (Audience URI)</span>
+<div class="flex items-center justify-between font-mono text-primary text-xs">
+<span class="truncate">https://auth.creatoros.io/saml/metadata</span>
+<button class="text-outline hover:text-primary transition-colors ml-2">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded border border-outline-variant/60">
+<span class="text-label-sm font-label-sm text-outline block mb-1">Single Sign-On ACS URL</span>
+<div class="flex items-center justify-between font-mono text-primary text-xs">
+<span class="truncate">https://auth.creatoros.io/saml/v2/callback</span>
+<button class="text-outline hover:text-primary transition-colors ml-2">
+<span class="material-symbols-outlined text-sm" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded border border-outline-variant/60 col-span-2">
+<div class="flex items-center justify-between mb-1">
+<span class="text-label-sm font-label-sm text-outline">Certificate Fingerprint (SHA-256)</span>
+<span class="text-[11px] text-tertiary">Auto-renews in 240 days</span>
+</div>
+<div class="flex items-center justify-between font-mono text-on-surface-variant text-xs">
+<span class="font-mono">SHA-256: 4F:9A:82:19:D4:66:E8:B2:77:4A:21:00:8C:FE:19:3D</span>
+<div class="flex items-center gap-3 font-body-sm font-normal">
+<button class="text-primary hover:underline text-xs">Regenerate X.509</button>
+<button class="text-outline hover:text-on-surface text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="download">download</span> Download SP Metadata
+                      </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Alternative IdP Providers List -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Alternative Identity Providers</span>
+<div class="grid grid-cols-3 gap-3">
+<div class="p-2.5 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg" data-icon="domain">domain</span>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface">Google Workspace</div>
+<span class="text-[10px] text-tertiary">Configured / Secondary</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-2.5 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="corporate_fare">corporate_fare</span>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface">Entra ID (Azure)</div>
+<span class="text-[10px] text-primary">Ready to Configure</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="p-2.5 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="cloud_queue">cloud_queue</span>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface">JumpCloud</div>
+<span class="text-[10px] text-outline">Available</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- JIT User Provisioning -->
+<div class="p-3 bg-surface-container border border-outline-variant rounded-lg flex items-center justify-between">
+<div class="space-y-0.5">
+<div class="text-label-md font-label-md font-medium text-on-surface">JIT (Just-In-Time) User Provisioning</div>
+<div class="text-body-sm font-body-sm text-outline">Automatically provision team seats on first SSO login with assigned role.</div>
+</div>
+<div class="flex items-center gap-3">
+<select class="bg-surface-container-lowest border border-outline-variant rounded px-2 py-1 text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary">
+<option>Default Role: Editor</option>
+<option>Default Role: Viewer</option>
+<option>Default Role: Administrator</option>
+</select>
+<button aria-pressed="true" class="w-9 h-5 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full p-0.5 transition-colors relative flex items-center" type="button">
+<span class="w-4 h-4 rounded-full bg-white transition-transform translate-x-4 shadow-sm"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section B: Two-Factor Authentication (2FA) & WebAuthn Enforcement -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="flex items-start justify-between pb-space-sm border-b border-outline-variant">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Two-Factor Authentication &amp; WebAuthn</h2>
+<p class="text-body-sm font-body-sm text-outline mt-1">Select mandatory 2FA enforcement policy across all connected team accounts.</p>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary/10 border border-tertiary/30 text-tertiary font-medium">
+                Mandatory Policy
+              </span>
+</div>
+<!-- 2FA Tier Selector Radio Cards -->
+<div class="space-y-2.5">
+<!-- Radio Card 1: Strict Hardware (Selected) -->
+<label class="p-space-md rounded-lg border-2 border-primary bg-surface-container-high/40 block cursor-pointer transition-all">
+<div class="flex items-start gap-3">
+<input checked="" class="mt-1 text-primary focus:ring-primary h-4 w-4 bg-surface-container-lowest border-outline-variant" name="two_factor_tier" type="radio"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Strict Hardware Only (FIDO2 WebAuthn / Passkeys)</span>
+<span class="px-2 py-0.2 rounded text-[10px] font-medium bg-primary/20 text-primary border border-primary/40">Recommended for Enterprise</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Enforces physical hardware security tokens (YubiKey, Apple Touch ID, Windows Hello, Android FIDO). Legacy SMS and email TOTP are strictly denied.</p>
+</div>
+</div>
+</label>
+<!-- Radio Card 2: Standard 2FA -->
+<label class="p-space-md rounded-lg border border-outline-variant bg-surface-container block cursor-pointer hover:border-outline transition-all">
+<div class="flex items-start gap-3">
+<input class="mt-1 text-primary focus:ring-primary h-4 w-4 bg-surface-container-lowest border-outline-variant" name="two_factor_tier" type="radio"/>
+<div class="flex-1">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Standard 2FA (Authenticator App / TOTP + Hardware Keys)</span>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Allows software authenticator apps (Google Authenticator, 1Password, Duo) in addition to physical hardware keys.</p>
+</div>
+</div>
+</label>
+<!-- Radio Card 3: Flexible -->
+<label class="p-space-md rounded-lg border border-outline-variant bg-surface-container block cursor-pointer hover:border-outline transition-all">
+<div class="flex items-start gap-3">
+<input class="mt-1 text-primary focus:ring-primary h-4 w-4 bg-surface-container-lowest border-outline-variant" name="two_factor_tier" type="radio"/>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Flexible Policy (Allow SMS fallback)</span>
+<span class="text-[10px] text-error font-medium">Not Recommended (Vulnerable to SIM swap)</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Permits SMS 6-digit text verification alongside authenticator applications.</p>
+</div>
+</div>
+</label>
+</div>
+<!-- Grace Period Setting -->
+<div class="flex items-center justify-between p-3 bg-surface-container border border-outline-variant rounded-lg">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="schedule">schedule</span>
+<span class="text-body-sm font-body-sm text-on-surface">New member onboarding grace period</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-mono">24 Hours from invitation</span>
+</div>
+<!-- Registered Hardware Keys Ledger -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Registered Hardware Keys Ledger</span>
+<button class="text-primary hover:text-primary-fixed text-label-sm font-label-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="add">add</span> Register New Hardware Key
+                </button>
+</div>
+<div class="border border-outline-variant rounded-lg overflow-hidden divide-y divide-outline-variant">
+<!-- Key Item 1 -->
+<div class="p-3 bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="usb">usb</span>
+</div>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface flex items-center gap-2">
+                        YubiKey 5C NFC
+                        <span class="text-[11px] font-mono text-outline">fido_88291a</span>
+</div>
+<div class="text-body-sm font-body-sm text-outline">Huzaifa Khan • Last active: 2m ago from US (142.250.190.0)</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-tertiary/15 text-tertiary border border-tertiary/30 font-medium">Active</span>
+<button class="text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Key Item 2 -->
+<div class="p-3 bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="fingerprint">fingerprint</span>
+</div>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface flex items-center gap-2">
+                        Apple Secure Enclave (Touch ID)
+                        <span class="text-[11px] font-mono text-outline">fido_3310bc</span>
+</div>
+<div class="text-body-sm font-body-sm text-outline">Sarah Lin • Last active: 1h ago from US (142.250.190.0)</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-tertiary/15 text-tertiary border border-tertiary/30 font-medium">Active</span>
+<button class="text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Key Item 3 -->
+<div class="p-3 bg-surface-container flex items-center justify-between hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="usb">usb</span>
+</div>
+<div>
+<div class="text-label-md font-label-md font-medium text-on-surface flex items-center gap-2">
+                        YubiKey 5Ci
+                        <span class="text-[11px] font-mono text-outline">fido_9912ce</span>
+</div>
+<div class="text-body-sm font-body-sm text-outline">Elena Rostova • Last active: 3h ago from DE (35.240.112.44)</div>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-tertiary/15 text-tertiary border border-tertiary/30 font-medium">Active</span>
+<button class="text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN (35% width: 4 of 12 cols) -->
+<div class="col-span-4 space-y-6">
+<!-- Section C: Session Security & Access Controls -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="pb-space-sm border-b border-outline-variant">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Session &amp; Access Control</h2>
+<p class="text-body-sm font-body-sm text-outline mt-1">Configure session lifetimes, concurrency limits, and CIDR fencing.</p>
+</div>
+<!-- Inactivity Timeout -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface font-medium block">Session Inactivity Timeout</label>
+<select class="w-full bg-surface-container border border-outline-variant rounded-lg p-2 text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary">
+<option>15 Minutes</option>
+<option selected="">30 minutes (Enterprise Default)</option>
+<option>1 Hour</option>
+<option>4 Hours</option>
+</select>
+</div>
+<!-- Absolute Expiration -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container rounded-lg border border-outline-variant/60">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface font-medium block">Absolute Session Expiration</span>
+<span class="text-body-sm font-body-sm text-outline">Force re-authentication after</span>
+</div>
+<span class="font-mono text-primary text-body-sm font-body-sm font-semibold">12 Hours</span>
+</div>
+<!-- Concurrent Session Restriction -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container rounded-lg border border-outline-variant/60">
+<div class="space-y-0.5 pr-2">
+<span class="text-label-sm font-label-sm text-on-surface font-medium block">Concurrent Session Limit</span>
+<span class="text-body-sm font-body-sm text-outline">Max 2 simultaneous sessions per user</span>
+</div>
+<button aria-pressed="true" class="w-9 h-5 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full p-0.5 transition-colors relative flex items-center" type="button">
+<span class="w-4 h-4 rounded-full bg-white transition-transform translate-x-4 shadow-sm"></span>
+</button>
+</div>
+<!-- IP Access Restriction (IP Allowlisting) -->
+<div class="space-y-2 pt-2 border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold block">IP Allowlist (CIDR)</span>
+<span class="text-[11px] text-tertiary">Enforced (3 IP ranges allowed)</span>
+</div>
+<button class="text-primary hover:text-primary-fixed text-label-sm font-label-sm font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs" data-icon="add">add</span> Add CIDR
+                </button>
+</div>
+<!-- CIDR List -->
+<div class="space-y-1.5 font-mono text-xs">
+<div class="flex items-center justify-between p-2 bg-surface-container rounded border border-outline-variant/60">
+<div>
+<span class="text-on-surface block">142.250.190.0/24</span>
+<span class="font-sans text-[10px] text-outline">Office HQ Gateway</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="lock">lock</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container rounded border border-outline-variant/60">
+<div>
+<span class="text-on-surface block">35.240.112.44/32</span>
+<span class="font-sans text-[10px] text-outline">VPN Production Bastion</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="lock">lock</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container rounded border border-outline-variant/60">
+<div>
+<span class="text-on-surface block">185.199.108.0/24</span>
+<span class="font-sans text-[10px] text-outline">London Satellite Studio</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="lock">lock</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section D: Threat Prevention & Emergency Controls -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="pb-space-sm border-b border-outline-variant">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Threat Detection &amp; Defense</h2>
+<p class="text-body-sm font-body-sm text-outline mt-1">Real-time risk scoring and anomalous travel detection.</p>
+</div>
+<!-- Impossible Travel Detection Toggle -->
+<div class="p-3 bg-surface-container rounded-lg border border-outline-variant flex items-start justify-between">
+<div class="space-y-1 pr-2">
+<span class="text-label-md font-label-md font-medium text-on-surface block">Impossible Travel Invalidation</span>
+<p class="text-body-sm font-body-sm text-outline">Automatically invalidate session tokens if authentications occur from disparate geographic coordinates within 1 hour.</p>
+</div>
+<button aria-pressed="true" class="w-9 h-5 bg-gradient-to-r from-blue-500 to-violet-600 rounded-full p-0.5 transition-colors relative flex items-center shrink-0 mt-1" type="button">
+<span class="w-4 h-4 rounded-full bg-white transition-transform translate-x-4 shadow-sm"></span>
+</button>
+</div>
+<!-- Anomaly Alert Dispatch Targets -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Alert Dispatch Channels</span>
+<div class="space-y-1.5 bg-surface-container p-2.5 rounded-lg border border-outline-variant/60">
+<label class="flex items-center gap-2 cursor-pointer text-body-sm font-body-sm text-on-surface">
+<input checked="" class="rounded bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span>Slack: <span class="text-outline font-mono text-xs">#ops-security-alerts</span></span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-body-sm font-body-sm text-on-surface">
+<input checked="" class="rounded bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span>PagerDuty: <span class="text-outline font-mono text-xs">SEV-1 Identity</span></span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer text-body-sm font-body-sm text-on-surface">
+<input checked="" class="rounded bg-surface-container-lowest border-outline-variant text-primary focus:ring-primary h-4 w-4" type="checkbox"/>
+<span>Admin Email Digest</span>
+</label>
+</div>
+</div>
+<!-- Brute Force Lockout Policy -->
+<div class="p-2.5 bg-surface-container rounded-lg border border-outline-variant/60 text-body-sm font-body-sm text-outline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="lock_clock">lock_clock</span>
+<span>Auto-locks account after <strong>5 failed attempts</strong> for 30 minutes.</span>
+</div>
+<!-- Emergency Kill Switch (Red Box) -->
+<div class="p-space-md bg-error-container/20 border border-error/40 rounded-xl space-y-3">
+<div class="flex items-center gap-2 text-error">
+<span class="material-symbols-outlined text-lg" data-icon="warning">warning</span>
+<span class="text-label-md font-label-md font-bold uppercase tracking-wider">Emergency Kill Switch</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Revoke all active session tokens and force immediate SSO re-login for all 12 workspace members.
+              </p>
+<button class="w-full py-2 px-3 rounded-lg bg-error hover:bg-error/90 text-on-error font-label-md font-semibold text-center transition-colors shadow-sm active:scale-98">
+                Revoke All Active Sessions
+              </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Deals &amp; Pipeline</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#d0bcff",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed": "#002113",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "on-primary": "#002e6a",
+            "background": "#131318",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "inverse-primary": "#005ac2",
+            "on-primary-container": "#00285d",
+            "surface-container-highest": "#35343a",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary": "#4edea3",
+            "outline": "#8c909f",
+            "surface-dim": "#131318",
+            "error-container": "#93000a",
+            "on-surface-variant": "#c2c6d6",
+            "on-surface": "#e4e1e9",
+            "on-secondary-container": "#c4abff",
+            "surface-container-low": "#1b1b20",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-fixed": "#001a42",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-variant": "#35343a",
+            "secondary-container": "#571bc1",
+            "primary": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary": "#003824",
+            "on-secondary": "#3c0091",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "surface-container-high": "#2a292f",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed-variant": "#004395",
+            "on-background": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed": "#6ffbbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-lg": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .obsidian-card {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .obsidian-card-interactive:hover {
+      background-color: #181824;
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .gradient-accent {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .gradient-accent-glow {
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.4);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Obsidian Backdrop Glow -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-96 h-64 bg-primary-container/10 blur-[120px] pointer-events-none rounded-full"></div>
+<!-- Shared TopAppBar Component: Mobile Target Structure -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-lowest docked full-width top-0 sticky z-40 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full h-14 px-margin-sm max-w-screen-md mx-auto">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary active:scale-95 transition-transform duration-100 cursor-pointer">hub</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Notifications" class="p-2 text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high rounded-lg active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main View Content Area -->
+<main class="flex-1 w-full max-w-[375px] mx-auto px-margin-sm pb-28 pt-2 flex flex-col space-y-space-md">
+<!-- Title & Action Header Section -->
+<section class="flex flex-col space-y-space-sm pt-1">
+<div class="flex items-center justify-between">
+<div>
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">Deals Pipeline</h1>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Search deals" class="w-8 h-8 rounded-lg flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high border border-outline-variant/30 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+<button aria-label="Filter pipeline" class="w-8 h-8 rounded-lg flex items-center justify-center bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high border border-outline-variant/30 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+<button class="h-8 px-2.5 rounded-lg gradient-accent gradient-accent-glow text-white text-label-md font-label-md flex items-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Deal</span>
+</button>
+</div>
+</div>
+<!-- Financial Pipeline Summary Ticker -->
+<div class="p-2.5 rounded-lg obsidian-card flex items-center justify-between border border-outline-variant/40 bg-[#12121A]">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0">payments</span>
+<span class="text-label-md font-label-md text-on-surface truncate tracking-tight">
+            $148,200 Total Pipeline Value • 24 Active Deals
+          </span>
+</div>
+<div class="flex items-center shrink-0">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+</div>
+</div>
+</section>
+<!-- Stage Carousel / Tab Switcher (Horizontal Pill Tabs) -->
+<section class="w-full overflow-x-auto no-scrollbar -mx-margin-sm px-margin-sm py-1">
+<div class="flex items-center gap-2 w-max">
+<!-- Stage 1: Discovery -->
+<button class="h-9 px-3.5 rounded-full obsidian-card border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md flex items-center gap-1.5 hover:text-on-surface active:scale-95 transition-all">
+<span>Discovery (8)</span>
+<span class="text-outline text-label-sm font-label-sm">• $24k</span>
+</button>
+<!-- Stage 2: Proposal Sent [ACTIVE] -->
+<button class="h-9 px-3.5 rounded-full gradient-accent text-white text-label-md font-label-md flex items-center gap-1.5 shadow-[0_0_16px_rgba(59,130,246,0.35)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">send</span>
+<span class="font-semibold">Proposal Sent (5)</span>
+<span class="text-blue-100 text-label-sm font-label-sm">• $48k</span>
+</button>
+<!-- Stage 3: Negotiation -->
+<button class="h-9 px-3.5 rounded-full obsidian-card border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md flex items-center gap-1.5 hover:text-on-surface active:scale-95 transition-all">
+<span>Negotiation (4)</span>
+<span class="text-outline text-label-sm font-label-sm">• $52k</span>
+</button>
+<!-- Stage 4: Won -->
+<button class="h-9 px-3.5 rounded-full obsidian-card border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md flex items-center gap-1.5 hover:text-on-surface active:scale-95 transition-all">
+<span>Won (7)</span>
+<span class="text-outline text-label-sm font-label-sm">• $24.2k</span>
+</button>
+</div>
+</section>
+<!-- Active Stage Deal Cards (Stacked Vertical Feed) -->
+<section class="flex flex-col space-y-space-md pt-1">
+<!-- Deal Card 1: Paramount Digital -->
+<article class="obsidian-card obsidian-card-interactive rounded-xl p-space-md border border-outline-variant/40 flex flex-col space-y-space-sm transition-all duration-200">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-primary text-label-sm font-label-sm uppercase tracking-wider font-semibold">Priority Contract</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">Paramount Digital — 4K Studio Licensing</h2>
+</div>
+<button aria-label="Card actions" class="text-outline-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">$18,000 <span class="text-body-sm font-body-sm text-outline-variant font-normal">/ yr</span></span>
+<span class="text-label-md font-label-md text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> 85% Win Prob.
+          </span>
+</div>
+<!-- Lead Persona Info -->
+<div class="flex items-center gap-2.5 py-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-label-md font-bold text-primary">
+            MB
+          </div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Marcus Brody</span>
+<span class="text-body-sm font-body-sm text-outline truncate">VP Production</span>
+</div>
+</div>
+<!-- Win Probability Progress Bar -->
+<div class="w-full flex flex-col space-y-1">
+<div class="w-full bg-[#181824] h-1.5 rounded-full overflow-hidden border border-outline-variant/20">
+<div class="gradient-accent h-full rounded-full transition-all duration-500" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Badges & Tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">Enterprise</span>
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">Video Transcode</span>
+</div>
+<!-- Last Activity Tracker / AI Agent Touch -->
+<div class="mt-1 pt-2.5 border-t border-outline-variant/20 flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">smart_toy</span>
+<span class="truncate">Echo-3 sent tailored contract • 2h ago</span>
+</div>
+</article>
+<!-- Deal Card 2: Apex Media -->
+<article class="obsidian-card obsidian-card-interactive rounded-xl p-space-md border border-outline-variant/40 flex flex-col space-y-space-sm transition-all duration-200">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-secondary text-label-sm font-label-sm uppercase tracking-wider font-semibold">Tier 1 Lead</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">Apex Media — Team VIP Seats</h2>
+</div>
+<button aria-label="Card actions" class="text-outline-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">$12,400 <span class="text-body-sm font-body-sm text-outline-variant font-normal">/ yr</span></span>
+<span class="text-label-md font-label-md text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">insights</span> 70% Win Prob.
+          </span>
+</div>
+<!-- Lead Persona Info & Quick Contact Cluster -->
+<div class="flex items-center justify-between py-1">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-label-md font-bold text-secondary">
+              EV
+            </div>
+<div class="flex flex-col truncate">
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Elena Vance</span>
+<span class="text-body-sm font-body-sm text-outline truncate">Operations Lead</span>
+</div>
+</div>
+<!-- Quick Action Icons -->
+<div class="flex items-center gap-1.5 shrink-0">
+<button aria-label="Call Elena Vance" class="w-7 h-7 rounded-lg bg-[#181824] border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[16px]">call</span>
+</button>
+<button aria-label="Message Elena Vance" class="w-7 h-7 rounded-lg bg-[#181824] border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+</button>
+<button aria-label="Email Elena Vance" class="w-7 h-7 rounded-lg bg-[#181824] border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-primary active:scale-95 transition-colors">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+</button>
+</div>
+</div>
+<!-- Win Probability Progress Bar -->
+<div class="w-full flex flex-col space-y-1">
+<div class="w-full bg-[#181824] h-1.5 rounded-full overflow-hidden border border-outline-variant/20">
+<div class="gradient-accent h-full rounded-full transition-all duration-500" style="width: 70%;"></div>
+</div>
+</div>
+<!-- Badges & Tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">Community</span>
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">Annual</span>
+</div>
+</article>
+<!-- Deal Card 3: SoundWave Labs -->
+<article class="obsidian-card obsidian-card-interactive rounded-xl p-space-md border border-outline-variant/40 flex flex-col space-y-space-sm transition-all duration-200">
+<div class="flex items-start justify-between gap-2">
+<div>
+<div class="flex items-center gap-1.5 mb-1">
+<span class="text-outline text-label-sm font-label-sm uppercase tracking-wider font-semibold">Custom Inbound</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">SoundWave Labs — Custom Audio Player Integration</h2>
+</div>
+<button aria-label="Card actions" class="text-outline-variant hover:text-on-surface transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<div class="flex items-baseline justify-between pt-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">$9,800</span>
+<span class="text-label-md font-label-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">hourglass_top</span> 60% Win Prob.
+          </span>
+</div>
+<!-- Lead Persona Info -->
+<div class="flex items-center gap-2.5 py-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center justify-center text-label-md font-bold text-outline">
+            DL
+          </div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-body-md font-body-md text-on-surface font-medium truncate">Devon Lane</span>
+<span class="text-body-sm font-body-sm text-outline truncate">Audio Architect</span>
+</div>
+</div>
+<!-- Win Probability Progress Bar -->
+<div class="w-full flex flex-col space-y-1">
+<div class="w-full bg-[#181824] h-1.5 rounded-full overflow-hidden border border-outline-variant/20">
+<div class="gradient-accent h-full rounded-full transition-all duration-500" style="width: 60%;"></div>
+</div>
+</div>
+<!-- Badges & Tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">Integration</span>
+<span class="rounded-full px-2.5 py-0.5 text-label-sm font-label-sm border border-outline-variant/50 text-on-surface-variant bg-surface-container-lowest">One-off</span>
+</div>
+</article>
+<!-- Bottom Contextual Quick Action Button -->
+<div class="pt-2 pb-6">
+<button class="w-full h-11 rounded-lg obsidian-card hover:bg-[#181824] border border-dashed border-outline-variant/80 text-primary text-label-lg font-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Add New Deal</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Shared BottomNavBar Component (Exact Tokens & Navigation Lock applied) -->
+<!-- Context: Pipeline / CRM screen maps to Pipeline as active destination -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-gutter-sm pb-4 pt-2">
+<div class="fixed bottom-4 left-4 right-4 rounded-xl bg-surface-container-low dark:bg-surface-container-low backdrop-blur-md border border-outline-variant dark:border-outline-variant shadow-2xl dark:shadow-2xl shadow-surface-container-lowest flex justify-around items-center py-1.5 px-1">
+<!-- Tab 1: Dashboard (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-label-sm font-label-sm">Dashboard</span>
+</a>
+<!-- Tab 2: AI Agents (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-label-sm font-label-sm">AI Agents</span>
+</a>
+<!-- Tab 3: CRM (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">contacts</span>
+<span class="text-label-sm font-label-sm">CRM</span>
+</a>
+<!-- Tab 4: Pipeline (ACTIVE: Direct Match for Pipeline screen) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-lg px-3 py-1.5 shadow-[0_0_16px_rgba(59,130,246,0.35)] active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">view_kanban</span>
+<span class="text-label-sm font-label-sm">Pipeline</span>
+</a>
+<!-- Tab 5: Settings (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-2 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-label-sm font-label-sm">Settings</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,76 @@
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+/* CSS Reset + Global Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Your UI colors — exact match from mockup */
+  --bg-primary: #0e0e13;
+  --bg-surface: #131318;
+  --bg-card: #1b1b20;
+  --bg-input: #1f1f25;
+  --bg-elevated: #2a292f;
+  --border: rgba(66, 71, 84, 0.5);
+  --border-light: rgba(66, 71, 84, 0.3);
+
+  --text-primary: #e4e1e9;
+  --text-secondary: #c2c6d6;
+  --text-muted: #8c909f;
+
+  --accent-blue: #adc6ff;
+  --accent-purple: #d0bcff;
+  --primary-container: #4d8eff;
+  --secondary-container: #571bc1;
+  --tertiary: #4edea3;
+  --error: #ffb4ab;
+
+  --gradient-primary: linear-gradient(135deg, #4d8eff, #571bc1);
+  --gradient-primary-hover: linear-gradient(135deg, #5a9aff, #6b2dd4);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+a:hover {
+  color: var(--accent-purple);
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+}

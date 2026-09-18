@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Community Moderation Console &amp; Audit Queue</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "surface": "#131318",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-highest": "#35343a",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary": "#d0bcff",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "background": "#131318",
+            "on-background": "#e4e1e9",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "surface-bright": "#39383e",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-fixed-dim": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed-variant": "#004395",
+            "inverse-on-surface": "#303036",
+            "outline": "#8c909f",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-surface": "#e4e1e9",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Custom subtle glass gradient and accent glows */
+    .glow-accent {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.25);
+    }
+    .glow-danger {
+      box-shadow: 0 0 20px -4px rgba(239, 68, 68, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md min-h-screen flex overflow-x-hidden antialiased selection:bg-primary-container selection:text-on-primary">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (collapsible_drawer, Moderation Active)       -->
+<!-- ========================================================================= -->
+<aside class="fixed left-0 top-0 bottom-0 h-full w-64 flex flex-col justify-between p-space-md z-30 bg-surface-container-low border-r border-outline-variant select-none">
+<!-- Header / Brand Section -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm px-space-xs py-space-xs">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary font-headline-sm text-headline-sm font-bold shadow-inner">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Studio Nexus</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Creator Pro Tier</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-space-xs py-2 px-space-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:brightness-105 active:scale-95 transition-all duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+        Quick Session
+      </button>
+<!-- Main Navigation Tabs -->
+<nav class="flex flex-col gap-1 mt-space-xs">
+<!-- Overview -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#overview">
+<span class="material-symbols-outlined">dashboard</span>
+          Overview
+        </a>
+<!-- Community -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#community">
+<span class="material-symbols-outlined">group</span>
+          Community
+        </a>
+<!-- Moderation (ACTIVE TAB as derived from page context) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container text-primary font-medium border-l-2 border-primary active:scale-98 transition-transform duration-150 font-label-md text-label-md" href="#moderation">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span class="flex-1">Moderation</span>
+<span class="px-1.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">7</span>
+</a>
+<!-- Coaching -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#coaching">
+<span class="material-symbols-outlined">school</span>
+          Coaching
+        </a>
+<!-- Calendar -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#calendar">
+<span class="material-symbols-outlined">calendar_today</span>
+          Calendar
+        </a>
+</nav>
+</div>
+<!-- Footer Tabs Section -->
+<div class="flex flex-col gap-1 border-t border-outline-variant pt-space-md">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#settings">
+<span class="material-symbols-outlined">settings</span>
+        Settings
+      </a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-all duration-150 font-label-md text-label-md" href="#docs">
+<span class="material-symbols-outlined">menu_book</span>
+        Documentation
+      </a>
+<!-- Current Session Host Badge -->
+<div class="mt-space-sm p-space-sm rounded-lg bg-surface-container border border-outline-variant flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover border border-outline" data-alt="Close up digital portrait avatar of a female community manager with sleek cyber headphones and neon blue rim lighting in a moody studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq-IbqfbC381vJ3eXMlCc-PfLlIqA-_mlO4FQy29vmx8ttFQ2Bwa_kMpTt4br0MZPVm5xCzwtznakLhANtkbDI6OyFsS02nevFUEgVRUxxCjtgy1Qw35wrpRiJ6ub3CU6dRQu6nGv0wKIpYTRskYWewjUNCkxaGZ8orqaRh-Ls-mKfqws1rD_RDH5bcCuqDdV608dZlef98BqSlUqfhJqWEVpsavPWqWH-fh_B-FZAMmp-weDQ_Twh8g"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border-2 border-surface-container"></span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Devon Lane</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Lead Trust &amp; Safety</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WRAPPER (Offset by Left SideNav: ml-64)                               -->
+<!-- ========================================================================= -->
+<div class="flex-1 flex flex-col ml-64 min-w-0 bg-surface-container-lowest">
+<!-- ======================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (web_header)                                 -->
+<!-- ======================================================================= -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-space-lg h-14 bg-surface border-b border-outline-variant shadow-sm select-none">
+<!-- Left: Logo & Search / Breadcrumb Context -->
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<!-- Breadcrumbs & Status Indicator -->
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-md text-label-md">
+<span class="text-on-surface-variant">Community</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-medium">Moderation &amp; Safety Console</span>
+</div>
+<div class="ml-space-md hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-tertiary-container/20 border border-tertiary/30 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+          Auto-Mod Engine: Strict Active
+        </div>
+</div>
+<!-- Center / Top Nav Links from Blueprint -->
+<nav class="hidden lg:flex items-center gap-space-lg">
+<a class="text-on-surface-variant font-medium hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 px-2 py-1 rounded" href="#workspaces">Workspaces</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 px-2 py-1 rounded" href="#analytics">Analytics</a>
+<a class="text-on-surface-variant font-medium hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 px-2 py-1 rounded" href="#resources">Resources</a>
+</nav>
+<!-- Right: Action Buttons, Trailing Icons & Avatar -->
+<div class="flex items-center gap-space-sm">
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+          Switch Workspace
+        </button>
+<button class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-medium hover:brightness-105 active:scale-95 transition-all duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">add</span>
+          Create New
+        </button>
+<div class="h-5 w-[1px] bg-outline-variant mx-1"></div>
+<!-- Trailing Icons -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high active:scale-95 transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high active:scale-95 transition-colors duration-150" title="Help">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high active:scale-95 transition-colors duration-150" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<!-- Avatar -->
+<div class="ml-1 pl-1 border-l border-outline-variant">
+<img class="w-8 h-8 rounded-full border border-primary object-cover" data-alt="Studio profile portrait headshot of senior platform administrator with clean dark lighting and indigo highlights against matte dark studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2IS0rpuh8UzLUKmmhJKvtF5ndNwqJn-Wmwj9-r1uK7XNjOyWk4wsCBZLui44jsq04bVK6NQje3eBVqw78B06bEtLYdAJ9U3-mUAqWEgEBh6so8HWU9c3_fzq-VSTINfeStbXWAaP66tvERXkj46M2j6TLbOu6ijsKSQoKQSHrAluw-o3X3lnFN5K4-0jXKE8tDYIx053Cj9UKErr7QF_CovxyZ2DaP5KOxkluQKB0XBY-hsLClXQInQ"/>
+</div>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- CONTENT CANVAS                                                          -->
+<!-- ======================================================================= -->
+<main class="p-space-lg flex flex-col gap-space-lg max-w-[1580px] w-full mx-auto">
+<!-- PAGE HEADER -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Community Moderation &amp; Safety Queue</h1>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant font-label-sm text-label-sm font-semibold">Live Pipeline</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+            Real-time triage of flagged messages, AI toxicity scans, auto-spam filters, and member violation history across all channels.
+          </p>
+</div>
+<!-- Top Action Group -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+            Auto-Mod Settings
+          </button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">download</span>
+            Audit Log Export
+          </button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-surface-container-highest border border-outline text-on-surface font-label-md text-label-md font-medium hover:brightness-110 active:scale-98 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+            Bulk Resolve All Safe
+          </button>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- TELEMETRY & QUEUE STATS CARDS                                         -->
+<!-- ===================================================================== -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Card 1 -->
+<div class="p-space-md rounded-xl bg-surface border border-outline-variant flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Pending Flagged Items</span>
+<span class="p-1.5 rounded-md bg-error-container/40 text-error">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-3">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">7</span>
+<span class="font-label-sm text-label-sm font-medium text-error px-2 py-0.5 rounded-full bg-error-container/30 border border-error/40">3 urgent priority</span>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-2 border-t border-outline-variant">
+<span>Critical queue latency</span>
+<span class="text-tertiary font-semibold">1.4m avg</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-xl bg-surface border border-outline-variant flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Resolved Today</span>
+<span class="p-1.5 rounded-md bg-surface-container-high text-tertiary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-3">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">42</span>
+<span class="font-label-md text-label-md text-on-surface-variant">incidents</span>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-2 border-t border-outline-variant">
+<span>Avg turnaround time</span>
+<span class="text-on-surface font-semibold">6 mins</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-xl bg-surface border border-outline-variant flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">AI Pre-Screen Accuracy</span>
+<span class="p-1.5 rounded-md bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-3">
+<span class="font-headline-xl text-headline-xl font-bold text-primary leading-none">99.1%</span>
+<span class="font-label-sm text-label-sm text-tertiary font-medium">↑ +0.3% vs lw</span>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-2 border-t border-outline-variant">
+<span>Autonomous filter action</span>
+<span class="text-on-surface font-semibold">Spam &amp; link intercept</span>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-md rounded-xl bg-surface border border-outline-variant flex flex-col justify-between hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Mutes / Bans</span>
+<span class="p-1.5 rounded-md bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm mt-3">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface leading-none">5</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">total active</span>
+</div>
+<div class="mt-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-2 border-t border-outline-variant">
+<span>Status distribution</span>
+<span class="text-on-surface font-semibold">4 temp mutes, 1 perm ban</span>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- MAIN TWO-COLUMN MODERATION COCKPIT                                    -->
+<!-- ===================================================================== -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- =================================================================== -->
+<!-- LEFT COLUMN: PENDING REPORTS LIST (5 Cols)                          -->
+<!-- =================================================================== -->
+<div class="lg:col-span-5 flex flex-col gap-space-md bg-surface border border-outline-variant rounded-xl p-space-md">
+<!-- List Subheader & Filter Tabs -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">inbox</span>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Incoming Triage Queue</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Sorted by Severity</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 border-b border-outline-variant">
+<button class="px-2.5 py-1 rounded-full bg-primary/15 border border-primary/40 text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+                All (7)
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap">
+                Toxic / Harassment (3)
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap">
+                Spam / Phishing (2)
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-medium whitespace-nowrap">
+                Self-Promo (2)
+              </button>
+</div>
+</div>
+<!-- Queue Item List -->
+<div class="flex flex-col gap-space-sm">
+<!-- Queue Card 1: SELECTED STATE -->
+<div class="p-space-md rounded-xl bg-surface-container border-2 border-primary glow-accent relative cursor-pointer transition-all">
+<div class="flex items-start justify-between gap-space-sm mb-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-error-container/40 border border-error/50 flex items-center justify-center text-error font-semibold font-label-sm text-label-sm">
+                    CB
+                  </div>
+<div>
+<div class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-1.5">
+                      CryptoBot_889
+                      <span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">#general-chat</span>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">
+                    98% Severe Spam
+                  </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">4 mins ago</span>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm text-on-surface-variant mb-2">
+                "Instant 100x return on new token pre-sale launch! Claim your allocation at <span class="text-error underline font-mono">http://airdrop-claim-nexus.ru/auth</span> before slots close!"
+              </div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span class="flex items-center gap-1 text-error font-medium">
+<span class="material-symbols-outlined text-[15px]">flag</span>
+                  Flagged by 4 members + AutoMod
+                </span>
+<span class="text-primary font-medium flex items-center gap-0.5">
+                  Inspecting
+                  <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Queue Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-secondary font-semibold font-label-sm text-label-sm">
+                    PA
+                  </div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">PixelArtisan</span>
+<p class="font-label-sm text-label-sm text-outline">#color-grading-showcase</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-sm text-label-sm font-semibold">
+                    76% Harassment
+                  </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">18 mins ago</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1 mb-2">
+                "This grade looks like garbage, delete your software and stop wasting client budget..."
+              </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+                  Flagged by 1 member
+                </span>
+<span class="text-outline">Code of Conduct §4</span>
+</div>
+</div>
+<!-- Queue Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-semibold font-label-sm text-label-sm">
+                    LM
+                  </div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Lucas_M</span>
+<p class="font-label-sm text-label-sm text-outline">#masterclass-q-and-a</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded-full bg-error-container/40 text-error font-label-sm text-label-sm font-semibold">
+                    92% Copyright
+                  </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">45 mins ago</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1 mb-2">
+                "Here is the Mega link for the complete $500 pro lighting bundle free rip: mega.nz/folder/..."
+              </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smart_toy</span>
+                  Automated Link Inspector
+                </span>
+<span class="text-outline">Pirated Asset</span>
+</div>
+</div>
+<!-- Queue Card 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-space-sm mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-semibold font-label-sm text-label-sm">
+                    GH
+                  </div>
+<div>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">GrowthHacker_X</span>
+<p class="font-label-sm text-label-sm text-outline">#announcements</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-semibold">
+                    64% Self-Promo
+                  </span>
+<span class="font-label-sm text-label-sm text-outline mt-1">1 hour ago</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1 mb-2">
+                "Follow my brand agency page on IG for growth hacks and DM me for cheap organic followers!"
+              </p>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+                  Flagged by moderator bot
+                </span>
+<span class="text-outline">Channel Rule §1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- RIGHT COLUMN: INCIDENT INSPECTION & RESOLUTION PANEL (7 Cols)       -->
+<!-- =================================================================== -->
+<div class="lg:col-span-7 flex flex-col gap-space-md bg-surface border border-outline-variant rounded-xl p-space-lg">
+<!-- Panel Header -->
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-error-container/30 border border-error/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">policy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">Incident #MOD-2024-0891</h2>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">Priority Triage</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Subject: <span class="text-on-surface font-semibold font-mono">CryptoBot_889</span> • Channel: <span class="text-primary font-mono font-medium">#general-chat</span></p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Reported via AutoMod Engine • 4m ago</span>
+</div>
+</div>
+<!-- Reported Message Context Card -->
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Reported Content Payload</span>
+<div class="p-space-md rounded-xl bg-surface-container-lowest border border-outline-variant relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1.5 h-full bg-error"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-on-surface">CryptoBot_889</span>
+<span class="font-label-sm text-label-sm text-outline">Today at 14:22:08 UTC</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-error-container/40 text-error text-label-sm font-semibold border border-error/30">
+<span class="material-symbols-outlined text-[14px]">dangerous</span>
+                  Phishing Link Confirmed
+                </span>
+</div>
+<div class="font-body-md text-body-md text-on-surface">
+                "Instant 100x return on new token pre-sale launch! Claim your allocation at 
+                <span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-error-container/30 border border-error/50 text-error font-mono text-body-sm font-semibold underline">
+<span class="material-symbols-outlined text-[13px]">link_off</span>
+                  http://airdrop-claim-nexus.ru/auth
+                </span> 
+                before slots close! First 50 wallets only."
+              </div>
+<div class="mt-3 pt-2 border-t border-outline-variant/60 flex items-center justify-between text-outline font-label-sm text-label-sm">
+<span>Message ID: 9028471928371029</span>
+<span>Thread Origin: Main Feed</span>
+</div>
+</div>
+</div>
+<!-- Member Reputation Dossier & AI Breakdown Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Member Dossier -->
+<div class="p-space-md rounded-xl bg-surface-container border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant mb-3">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-on-surface-variant">person_search</span>
+                    Member Dossier
+                  </span>
+<span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">High Risk</span>
+</div>
+<div class="flex flex-col gap-2 font-label-sm text-label-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Account Tenure:</span>
+<span class="text-on-surface font-semibold">3 hours ago</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Platform Purchases:</span>
+<span class="text-on-surface font-semibold">$0.00 (Tier Free)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Total Messages Sent:</span>
+<span class="text-on-surface font-semibold">1 (1 flagged)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">Associated IP:</span>
+<span class="font-mono text-error font-medium">45.134.22.1</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">IP Geolocation / Type:</span>
+<span class="text-error font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">vpn_lock</span>
+                      Data Center VPN / Proxy
+                    </span>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant text-outline font-label-sm text-label-sm">
+                Prior Violations on Network: <span class="text-error font-bold">3 identical hash hits</span>
+</div>
+</div>
+<!-- AI Toxicity & Safety Breakdown -->
+<div class="p-space-md rounded-xl bg-surface-container border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant mb-3">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-primary">auto_fix_high</span>
+                    AI Safety Breakdown
+                  </span>
+<span class="font-label-sm text-label-sm text-outline">Engine v4.2</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- Metric 1 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">Spam Probability</span>
+<span class="text-error font-bold font-mono">99.4%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 99.4%"></div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">Malicious External Domain</span>
+<span class="text-error font-bold">Confirmed Threat</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface-variant">Behavioral Fingerprint</span>
+<span class="text-on-surface font-medium">Automated Bot Pattern</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 94%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[15px]">check_circle</span>
+                Model Confidence: High (Zero ambiguity)
+              </div>
+</div>
+</div>
+<!-- Moderation Actions Grid -->
+<div class="flex flex-col gap-space-sm pt-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Execute Moderation Enforcement</span>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+<!-- Delete Message -->
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container border border-error/50 text-error hover:bg-error-container/20 transition-all text-center gap-1 group">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">delete</span>
+<span class="font-label-sm text-label-sm font-semibold">Delete Message</span>
+</button>
+<!-- Mute User -->
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 transition-all text-center gap-1 group">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">volume_off</span>
+<span class="font-label-sm text-label-sm font-semibold">Mute 24h / 7d</span>
+</button>
+<!-- Ban User & IP -->
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-error-container text-on-error-container hover:brightness-110 transition-all text-center gap-1 border border-error/60 group glow-danger">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">gavel</span>
+<span class="font-label-sm text-label-sm font-bold">Ban User &amp; IP</span>
+</button>
+<!-- Dismiss Report -->
+<button class="flex flex-col items-center justify-center p-3 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all text-center gap-1 group">
+<span class="material-symbols-outlined text-[20px] group-hover:scale-110 transition-transform">check_box</span>
+<span class="font-label-sm text-label-sm font-medium">Dismiss (Safe)</span>
+</button>
+</div>
+</div>
+<!-- Reason & Notes Field -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium flex items-center justify-between">
+<span>Action Reason &amp; Internal Audit Notes</span>
+<span class="text-outline">Recorded to Immutable Audit Trail</span>
+</label>
+<div class="relative">
+<input class="w-full px-3 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" type="text" value="Spam phishing link violating zero-tolerance guidelines. Automated crypto airdrop drainer."/>
+</div>
+</div>
+<!-- Primary Confirmation Action -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">lock</span>
+              Operator authorization: Devon Lane (Admin)
+            </div>
+<button class="px-6 py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-bold hover:brightness-105 active:scale-98 transition-all duration-150 shadow-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+              Confirm &amp; Execute Enforcement
+            </button>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- BOTTOM AUDIT LOG STREAM (Recent Moderation Actions)                   -->
+<!-- ===================================================================== -->
+<section class="bg-surface border border-outline-variant rounded-xl p-space-md flex flex-col gap-space-md">
+<!-- Stream Header -->
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">history_edu</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Live Moderation Audit Log Stream</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">Real-time sync</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+              Live socket connected
+            </span>
+<button class="text-primary hover:underline">View Complete Ledger</button>
+</div>
+</div>
+<!-- Audit Table / Feed -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant text-outline font-label-sm text-label-sm">
+<th class="py-2.5 px-3 font-semibold">Timestamp</th>
+<th class="py-2.5 px-3 font-semibold">Moderator</th>
+<th class="py-2.5 px-3 font-semibold">Action Enforced</th>
+<th class="py-2.5 px-3 font-semibold">Target Member</th>
+<th class="py-2.5 px-3 font-semibold">Channel Scope</th>
+<th class="py-2.5 px-3 font-semibold">Enforcement Justification</th>
+<th class="py-2.5 px-3 font-semibold text-right">Status</th>
+</tr>
+</thead>
+<tbody class="font-body-sm text-body-sm divide-y divide-outline-variant/60">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="py-3 px-3 font-mono text-on-surface-variant text-label-sm">14:18:22 UTC</td>
+<td class="py-3 px-3 font-medium text-on-surface flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-[10px]">DL</div>
+                  Devon Lane
+                </td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-label-sm text-label-sm font-semibold border border-amber-500/30">
+                    Mute (7 Days)
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface font-medium">SpamNode</td>
+<td class="py-3 px-3 text-on-surface-variant">Global / All Channels</td>
+<td class="py-3 px-3 text-on-surface-variant">Telegram bot spam automation sequence in newcomer introductions</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Executed
+                  </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="py-3 px-3 font-mono text-on-surface-variant text-label-sm">13:54:10 UTC</td>
+<td class="py-3 px-3 font-medium text-on-surface flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-secondary/20 text-secondary flex items-center justify-center font-bold text-[10px]">EV</div>
+                  Elena Vance
+                </td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold border border-outline-variant">
+                    Delete Post
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface font-medium">AssetHoarder_9</td>
+<td class="py-3 px-3 text-primary font-mono">#resources</td>
+<td class="py-3 px-3 text-on-surface-variant">Duplicate post cross-posted 4 times within 60 seconds</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Executed
+                  </span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="py-3 px-3 font-mono text-on-surface-variant text-label-sm">12:30:45 UTC</td>
+<td class="py-3 px-3 font-medium text-on-surface flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-tertiary/20 text-tertiary flex items-center justify-center font-bold text-[10px]">AM</div>
+                  AutoMod Rule #12
+                </td>
+<td class="py-3 px-3">
+<span class="px-2 py-0.5 rounded bg-error-container/40 text-error font-label-sm text-label-sm font-semibold border border-error/40">
+                    Auto-Quarantine
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono text-on-surface font-medium">QuickCash_Vip</td>
+<td class="py-3 px-3 text-primary font-mono">#masterclass-q-and-a</td>
+<td class="py-3 px-3 text-on-surface-variant">Intercepted WhatsApp payment routing link with high-risk heuristic</td>
+<td class="py-3 px-3 text-right">
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Auto-Intercept
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Acme Community Hub</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#001a42",
+            "inverse-on-surface": "#303036",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-low": "#1b1b20",
+            "surface": "#131318",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-bright": "#39383e",
+            "on-primary": "#002e6a",
+            "primary": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container-highest": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#00a572",
+            "error": "#ffb4ab",
+            "surface-tint": "#adc6ff",
+            "inverse-surface": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface-dim": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "on-tertiary-container": "#00311f",
+            "primary-container": "#4d8eff",
+            "surface-container-high": "#2a292f",
+            "on-primary-fixed-variant": "#004395",
+            "background": "#131318",
+            "secondary-fixed": "#e9ddff",
+            "surface-variant": "#35343a",
+            "on-secondary": "#3c0091",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#d0bcff",
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "on-error": "#690005",
+            "tertiary": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "secondary": "#d0bcff",
+            "inverse-primary": "#005ac2",
+            "on-secondary-container": "#c4abff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Precision Studio Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.28);
+    }
+    .electric-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .glass-panel {
+      background: rgba(19, 19, 24, 0.82);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased h-screen overflow-hidden flex">
+<!-- ======================================================== -->
+<!-- SHARED COMPONENT: SideNavBar (Expanded Workspace Nav)   -->
+<!-- ======================================================== -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-50 flex flex-col justify-between p-space-md bg-surface-container-low border-r border-outline-variant select-none">
+<!-- Header / Brand Anchor -->
+<div>
+<div class="flex items-center gap-space-sm pb-space-md border-b border-outline-variant">
+<div class="w-10 h-10 rounded-lg electric-gradient flex items-center justify-center font-headline-sm font-bold text-white shadow-lg">
+          OS
+        </div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface leading-tight">Creator OS</span>
+<span class="text-label-md font-label-md text-on-surface-variant">Acme Studios</span>
+</div>
+</div>
+<!-- Navigation Tabs (14 items, 'Memberships' active) -->
+<nav class="mt-space-md space-y-1 overflow-y-auto max-h-[calc(100vh-250px)] pr-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Workspaces -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">workspaces</span>
+<span class="text-label-md font-label-md">Workspaces</span>
+</a>
+<!-- Website Builder -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">web</span>
+<span class="text-label-md font-label-md">Website Builder</span>
+</a>
+<!-- App Builder -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">developer_mode</span>
+<span class="text-label-md font-label-md">App Builder</span>
+</a>
+<!-- Commerce -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span class="text-label-md font-label-md">Commerce</span>
+</a>
+<!-- Marketplace -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">storefront</span>
+<span class="text-label-md font-label-md">Marketplace</span>
+</a>
+<!-- Courses -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">school</span>
+<span class="text-label-md font-label-md">Courses</span>
+</a>
+<!-- Memberships: ACTIVE TARGET -->
+<a class="flex items-center gap-space-sm bg-primary-container text-on-primary-container rounded-lg px-space-md py-space-sm font-medium ambient-glow active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-label-md font-label-md font-semibold">Memberships</span>
+</a>
+<!-- Coaching -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">psychology</span>
+<span class="text-label-md font-label-md">Coaching</span>
+</a>
+<!-- CRM -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">contacts</span>
+<span class="text-label-md font-label-md">CRM</span>
+</a>
+<!-- Email -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+<span class="text-label-md font-label-md">Email</span>
+</a>
+<!-- AI Agents -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+<span class="text-label-md font-label-md">AI Agents</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Affiliates -->
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">loyalty</span>
+<span class="text-label-md font-label-md">Affiliates</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Actions / Pro Upgrade CTA / Settings -->
+<div class="pt-space-sm border-t border-outline-variant space-y-2">
+<button class="w-full electric-gradient text-white rounded-lg py-2 px-3 text-label-md font-label-md font-semibold flex items-center justify-center gap-2 hover:brightness-105 active:scale-[0.98] transition-all shadow-md">
+<span class="material-symbols-outlined text-base">auto_awesome</span>
+<span>Upgrade Plan</span>
+</button>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container px-space-md py-space-sm rounded-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- ======================================================== -->
+<!-- MAIN WORKSPACE CANVAS (TopNavBar + 3-Column Hub)          -->
+<!-- ======================================================== -->
+<div class="ml-64 flex-1 flex flex-col h-screen min-w-0 bg-surface-container-lowest">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="flex justify-between items-center w-full px-space-lg h-14 bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40 shrink-0">
+<!-- Breadcrumb and Telemetry Context -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-label-lg font-label-lg font-bold text-on-surface tracking-tight">Creator OS</span>
+<span class="text-outline">/</span>
+<span class="text-on-surface-variant">Memberships</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-medium flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            Acme Community Hub
+          </span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<!-- Telemetry Live Badge -->
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Telemetry Live: 1,420 Online</span>
+</div>
+</div>
+<!-- Trailing Controls & User Persona -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface text-label-md font-label-md border border-outline-variant hover:bg-surface-container-high active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-base">bolt</span>
+<span>Quick Action</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg electric-gradient text-white text-label-md font-label-md font-semibold hover:brightness-105 active:scale-[0.98] transition-all shadow-sm">
+<span class="material-symbols-outlined text-base">add</span>
+<span>New Post</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<!-- Trailing Icon Actions -->
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors" title="Search">
+<span class="material-symbols-outlined text-xl">search</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-lg transition-colors" title="Help">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<!-- Profile Avatar HK -->
+<div class="relative ml-1 cursor-pointer group">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-label-md font-bold border border-secondary/40 group-hover:border-primary transition-all">
+            HK
+          </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary border-2 border-surface-container-lowest"></span>
+</div>
+</div>
+</header>
+<!-- ======================================================== -->
+<!-- 3-COLUMN WORKSPACE: Channels | Stream | Roster & Telemetry -->
+<!-- ======================================================== -->
+<main class="flex-1 flex overflow-hidden">
+<!-- ------------------------------------------------------ -->
+<!-- COLUMN 1: LEFT NAVIGATION (Channel Tree, 240px wide)    -->
+<!-- ------------------------------------------------------ -->
+<section class="w-60 bg-surface-container-low border-r border-outline-variant flex flex-col shrink-0">
+<!-- Community Brand Header -->
+<div class="p-4 border-b border-outline-variant bg-surface/50">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-container-highest flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-base">forum</span>
+</div>
+<div>
+<div class="flex items-center gap-1">
+<h2 class="text-label-lg font-label-lg font-bold text-on-surface leading-none">Acme Circle</h2>
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;" title="Verified Pro Community">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">4,890 Members</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-on-surface cursor-pointer text-lg">unfold_more</span>
+</div>
+</div>
+<!-- Channel Category Tree -->
+<div class="flex-1 overflow-y-auto p-3 space-y-5">
+<!-- Category 1: WELCOME & RULES -->
+<div>
+<div class="flex items-center justify-between px-2 mb-1.5">
+<span class="text-label-sm font-label-sm text-outline tracking-wider font-semibold">WELCOME &amp; RULES</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer hover:text-on-surface">expand_more</span>
+</div>
+<div class="space-y-0.5">
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-outline">lock</span>
+<span class="truncate">announcements</span>
+</div>
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="text-outline font-medium">#</span>
+<span class="truncate">start-here</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="text-outline font-medium">#</span>
+<span class="truncate">community-guidelines</span>
+</div>
+</a>
+</div>
+</div>
+<!-- Category 2: CORE DISCUSSIONS -->
+<div>
+<div class="flex items-center justify-between px-2 mb-1.5">
+<span class="text-label-sm font-label-sm text-outline tracking-wider font-semibold">CORE DISCUSSIONS</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer hover:text-on-surface">expand_more</span>
+</div>
+<div class="space-y-0.5">
+<!-- #general-chat: ACTIVE -->
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/60 text-on-surface font-medium transition-all" href="#">
+<div class="flex items-center gap-2">
+<span class="text-primary font-bold">#</span>
+<span class="truncate text-body-md font-body-md font-semibold text-primary">general-chat</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-full bg-primary-container text-on-primary-container text-label-sm font-label-sm font-bold">3</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="text-outline font-medium">#</span>
+<span class="truncate">product-feedback</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="text-outline font-medium">#</span>
+<span class="truncate">wins-and-milestones</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="text-outline font-medium">#</span>
+<span class="truncate">ai-agent-experiments</span>
+</div>
+<span class="text-[10px] uppercase font-semibold tracking-wider px-1.5 py-0.5 rounded bg-secondary-container/50 text-secondary border border-secondary/20">VIP</span>
+</a>
+</div>
+</div>
+<!-- Category 3: TIER-EXCLUSIVE LOUNGES -->
+<div>
+<div class="flex items-center justify-between px-2 mb-1.5">
+<span class="text-label-sm font-label-sm text-outline tracking-wider font-semibold">TIER-EXCLUSIVE LOUNGES</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer hover:text-on-surface">expand_more</span>
+</div>
+<div class="space-y-0.5">
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-amber-400">lock</span>
+<span class="truncate">vip-inner-circle</span>
+</div>
+<span class="text-[9px] uppercase font-bold text-amber-400">Founding</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+<span class="truncate">code-review-hotseat</span>
+</div>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 rounded-lg text-body-md font-body-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+<span class="truncate">office-hours-recordings</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<!-- Bottom Space Utility -->
+<div class="p-3 border-t border-outline-variant bg-surface-container-lowest/80 flex items-center justify-between gap-2">
+<button class="flex-1 flex items-center justify-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-label-md font-label-md border border-outline-variant transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Manage Channels</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant transition-colors" title="Invite Members">
+<span class="material-symbols-outlined text-base">person_add</span>
+</button>
+</div>
+</section>
+<!-- ------------------------------------------------------ -->
+<!-- COLUMN 2: CENTER STREAM (Discussion Stream, 720px)     -->
+<!-- ------------------------------------------------------ -->
+<section class="flex-1 flex flex-col bg-surface border-r border-outline-variant min-w-0">
+<!-- Channel Header -->
+<div class="px-6 py-3 border-b border-outline-variant bg-surface-container-low/40 flex items-center justify-between shrink-0">
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface"># general-chat</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant">Open to all tiers</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline truncate max-w-xl">
+              Real-time discussions, project show &amp; tell, and peer troubleshooting. Be kind and constructive!
+            </p>
+</div>
+<!-- Channel Filter & Search Cluster -->
+<div class="flex items-center gap-2 shrink-0">
+<div class="relative">
+<span class="material-symbols-outlined text-outline absolute left-2.5 top-2 text-base">search</span>
+<input class="bg-surface-container border border-outline-variant rounded-lg pl-8 pr-3 py-1 text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:border-primary focus:outline-none w-48" placeholder="Search in #general..." type="text"/>
+</div>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface rounded-lg hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-lg">tune</span>
+</button>
+</div>
+</div>
+<!-- Secondary Filter Tabs Bar -->
+<div class="px-6 py-2 border-b border-outline-variant/60 flex items-center justify-between text-label-md font-label-md bg-surface-container-lowest/30">
+<div class="flex items-center gap-4">
+<button class="text-primary font-semibold border-b-2 border-primary pb-1">All Posts</button>
+<button class="text-on-surface-variant hover:text-on-surface pb-1 flex items-center gap-1">
+<span>Pinned</span>
+<span class="px-1.5 rounded-full bg-surface-container-high text-[10px]">2</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface pb-1">Unanswered</button>
+<button class="text-on-surface-variant hover:text-on-surface pb-1">By Tier</button>
+</div>
+<span class="text-body-sm font-body-sm text-outline">Realtime sync active</span>
+</div>
+<!-- Scrollable Channel Feed -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- Pinned Announcement Banner -->
+<div class="rounded-xl bg-surface-container border border-primary/30 p-4 relative overflow-hidden">
+<div class="absolute -right-6 -top-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-lg">campaign</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm uppercase font-bold text-primary tracking-wider">Pinned Community Announcement</span>
+<span class="text-outline text-xs">• 48 RSVPs</span>
+</div>
+<h3 class="text-body-lg font-body-lg font-semibold text-on-surface mt-0.5">
+                    🚀 Creator OS v2.4 Release Party &amp; Live AMA this Thursday at 5 PM EST!
+                  </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                    Join Huzaifa and engineering leads as we demo autonomous multi-tenant pipelines, the new membership builder, and distribute early alpha keys.
+                  </p>
+</div>
+</div>
+<button class="shrink-0 electric-gradient text-white px-3.5 py-1.5 rounded-lg text-label-md font-label-md font-semibold shadow-sm hover:brightness-105 active:scale-[0.98] transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">event</span>
+<span>Add to Calendar</span>
+</button>
+</div>
+</div>
+<!-- POST 1: Alex Vance (VIP Founder) -->
+<article class="rounded-xl bg-surface-container-low border border-outline-variant p-5 space-y-4 hover:border-secondary/40 transition-colors">
+<!-- Author Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-500 to-orange-400 p-[2px] shrink-0">
+<div class="w-full h-full rounded-full bg-surface-container flex items-center justify-center font-bold text-label-lg text-amber-300">
+                    AV
+                  </div>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-body-lg font-body-lg font-bold text-on-surface">Alex Vance</span>
+<span class="text-label-sm font-label-sm text-outline">@alexv</span>
+<!-- Tier Badge -->
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/30 text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">shield</span>
+<span>VIP Member</span>
+</span>
+<span class="text-outline text-xs">• Founder @ DevPulse</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">42 minutes ago in #general-chat</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<!-- Post Body -->
+<div class="space-y-2">
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+                Just shipped our autonomous Redis queue worker using the new Inngest pipeline from Module 8! Here is our benchmark latency telemetry snapshot (reduced our p99 overhead by 64% under heavy concurrency).
+              </p>
+</div>
+<!-- Embedded Asset: Telemetry Metric Snippet -->
+<div class="rounded-lg bg-surface-container-lowest border border-outline-variant p-4">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base">speed</span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Production Telemetry Benchmark (p99)</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary bg-tertiary-container/30 px-2 py-0.5 rounded font-mono">Live Inngest Telemetry</span>
+</div>
+<div class="grid grid-cols-3 gap-4 pt-3">
+<div>
+<div class="text-label-sm font-label-sm text-outline">P99 Latency</div>
+<div class="text-headline-md font-headline-md font-bold text-tertiary mt-0.5">18ms</div>
+<div class="text-body-sm font-body-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">trending_down</span>
+<span>-64% reduction</span>
+</div>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-outline">Queue Throughput</div>
+<div class="text-headline-md font-headline-md font-bold text-on-surface mt-0.5">4,200 req/s</div>
+<div class="text-body-sm font-body-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">bolt</span>
+<span>Zero backpressure</span>
+</div>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-outline">Worker Concurrency</div>
+<div class="text-headline-md font-headline-md font-bold text-on-surface mt-0.5">64 Nodes</div>
+<div class="text-body-sm font-body-sm text-outline">Self-healing scale</div>
+</div>
+</div>
+</div>
+<!-- Post Interactive Footer -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 text-label-md font-label-md">
+<!-- Reactions -->
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>🔥</span>
+<span class="font-semibold text-xs">34</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>🚀</span>
+<span class="font-semibold text-xs">28</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>💡</span>
+<span class="font-semibold text-xs">12</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>❤️</span>
+<span class="font-semibold text-xs">9</span>
+</button>
+<button class="p-1 rounded-full text-outline hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-base">add_reaction</span>
+</button>
+</div>
+<!-- Thread actions -->
+<div class="flex items-center gap-3 text-outline">
+<button class="flex items-center gap-1 hover:text-on-surface">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>14 Replies</span>
+</button>
+<button class="flex items-center gap-1 hover:text-on-surface">
+<span class="material-symbols-outlined text-base">share</span>
+<span>Share</span>
+</button>
+<button class="flex items-center gap-1 hover:text-on-surface">
+<span class="material-symbols-outlined text-base">bookmark</span>
+<span>Bookmark</span>
+</button>
+</div>
+</div>
+<!-- Nested Thread Preview (Huzaifa Khan reply) -->
+<div class="rounded-lg bg-surface-container-high/60 border-l-2 border-primary p-3 flex items-start gap-3 mt-2">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold text-xs shrink-0">
+                HK
+              </div>
+<div class="min-w-0">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-bold text-on-surface">Huzaifa Khan</span>
+<span class="px-1.5 py-0.2 rounded bg-primary/20 text-primary text-[10px] font-bold">Instructor &amp; Admin</span>
+<span class="text-outline text-xs">18m ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  Phenomenal architecture Alex! Would love to feature this exact pipeline in our weekly dispatch to the community tomorrow.
+                </p>
+</div>
+</div>
+</article>
+<!-- POST 2: Elena Rostova (Pro Member • AI Researcher) -->
+<article class="rounded-xl bg-surface-container-low border border-outline-variant p-5 space-y-4 hover:border-secondary/40 transition-colors">
+<!-- Author Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center font-bold text-label-lg text-primary shrink-0">
+                  ER
+                </div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-body-lg font-body-lg font-bold text-on-surface">Elena Rostova</span>
+<span class="text-label-sm font-label-sm text-outline">@erostova</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/30 text-label-sm font-label-sm font-semibold">
+                      Pro Member
+                    </span>
+<span class="text-outline text-xs">• AI Researcher</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">2 hours ago in #general-chat</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+</button>
+</div>
+<!-- Post Content -->
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+              Seeking feedback on multi-agent consensus prompts for Next.js 14 server actions. What is your preferred retry strategy when LLM tool calls fail schema validation? Here is our current dispatch pattern:
+            </p>
+<!-- Code Snippet -->
+<div class="rounded-lg bg-surface-container-lowest border border-outline-variant p-4 font-mono text-body-sm font-body-sm overflow-x-auto text-on-surface">
+<div class="flex items-center justify-between pb-2 mb-2 border-b border-outline-variant/40 text-xs text-outline">
+<span>agent-orchestrator.ts</span>
+<span class="text-outline">TypeScript</span>
+</div>
+<pre class="leading-relaxed"><code><span class="text-primary font-semibold">const</span> result = <span class="text-secondary">await</span> agent.dispatch({
+  retryWithExponentialBackoff: <span class="text-tertiary">true</span>,
+  maxAttempts: <span class="text-amber-400">3</span>,
+  schemaValidator: z.agentResponseSchema,
+  fallbackStrategy: <span class="text-primary-fixed">"consensus-fallback"</span>
+});</code></pre>
+</div>
+<!-- Post Footer -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/40 text-label-md font-label-md">
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>👍</span>
+<span class="font-semibold text-xs">19</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant hover:border-primary text-on-surface transition-colors">
+<span>🧠</span>
+<span class="font-semibold text-xs">15</span>
+</button>
+<button class="p-1 rounded-full text-outline hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-base">add_reaction</span>
+</button>
+</div>
+<div class="flex items-center gap-3 text-outline">
+<button class="flex items-center gap-1 hover:text-on-surface">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>8 Replies</span>
+</button>
+<button class="flex items-center gap-1 hover:text-on-surface">
+<span class="material-symbols-outlined text-base">share</span>
+<span>Share</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Sticky Bottom Composer Bar -->
+<div class="p-4 border-t border-outline-variant bg-surface-container-low/95 glass-panel shrink-0">
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant focus-within:border-primary transition-all p-3 space-y-2">
+<!-- Toolbar -->
+<div class="flex items-center justify-between border-b border-outline-variant/60 pb-2 text-outline">
+<div class="flex items-center gap-1">
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Bold">
+<span class="material-symbols-outlined text-base">format_bold</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Italic">
+<span class="material-symbols-outlined text-base">format_italic</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Code Block">
+<span class="material-symbols-outlined text-base">code</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Image Upload">
+<span class="material-symbols-outlined text-base">image</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Create Poll">
+<span class="material-symbols-outlined text-base">poll</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container rounded" title="Attach Document">
+<span class="material-symbols-outlined text-base">attach_file</span>
+</button>
+</div>
+<!-- Tier-visibility gate dropdown -->
+<div class="flex items-center gap-1 text-label-sm font-label-sm bg-surface-container px-2 py-1 rounded border border-outline-variant text-on-surface-variant cursor-pointer hover:text-on-surface">
+<span class="material-symbols-outlined text-xs text-primary">visibility</span>
+<span>Visible to: Everyone</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</div>
+</div>
+<!-- Input area -->
+<textarea class="w-full bg-transparent border-0 text-on-surface placeholder:text-outline text-body-md font-body-md focus:ring-0 p-0 resize-none" placeholder="Share an update, ask a question, or drop code in #general-chat... (Markdown &amp; LaTeX supported)" rows="2"></textarea>
+<!-- Send Action Row -->
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-outline">Press [⌘ + Enter] to broadcast</span>
+<button class="electric-gradient text-white px-4 py-1.5 rounded-lg text-label-md font-label-md font-semibold hover:brightness-105 active:scale-[0.98] transition-all flex items-center gap-1.5 shadow-sm">
+<span>Send</span>
+<span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ------------------------------------------------------ -->
+<!-- COLUMN 3: RIGHT ROSTER & TELEMETRY (320px wide)        -->
+<!-- ------------------------------------------------------ -->
+<aside class="w-80 bg-surface-container-low flex flex-col shrink-0 overflow-y-auto">
+<!-- Community Telemetry Card -->
+<div class="p-4 border-b border-outline-variant space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline font-semibold uppercase tracking-wider">Community Health</span>
+<span class="material-symbols-outlined text-xs text-primary">insights</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline">Monthly Dues (MRR)</span>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface mt-0.5">$38,420</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-xs">trending_up</span>
+                +14.8% MoM
+              </span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline">Active Retention</span>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface mt-0.5">94.2%</div>
+<span class="text-label-sm font-label-sm text-primary mt-0.5 block">Top 5% Benchmark</span>
+</div>
+</div>
+</div>
+<!-- Live Voice Room Widget -->
+<div class="p-4 border-b border-outline-variant">
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Co-Working Lounge #1</span>
+</div>
+<!-- Audio Wave Pill -->
+<div class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container text-tertiary">
+<span class="w-0.5 h-2 bg-tertiary animate-pulse"></span>
+<span class="w-0.5 h-3.5 bg-tertiary animate-pulse delay-75"></span>
+<span class="w-0.5 h-1.5 bg-tertiary animate-pulse delay-150"></span>
+<span class="text-[10px] font-mono ml-1">Live</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-outline">8 creators currently co-working &amp; sharing screens</p>
+<div class="flex items-center justify-between pt-1">
+<div class="flex -space-x-1.5 overflow-hidden">
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-primary text-on-primary text-[9px] font-bold flex items-center justify-center">HK</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-secondary text-on-secondary text-[9px] font-bold flex items-center justify-center">AV</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-tertiary text-on-tertiary text-[9px] font-bold flex items-center justify-center">SL</div>
+<div class="inline-block h-6 w-6 rounded-full ring-2 ring-surface bg-surface-container-high text-on-surface text-[9px] font-bold flex items-center justify-center">+5</div>
+</div>
+<button class="px-3 py-1 rounded-lg electric-gradient text-white text-label-sm font-label-sm font-semibold hover:brightness-105 transition-all">
+                Join Room
+              </button>
+</div>
+</div>
+</div>
+<!-- Online Member Directory (Grouped by Role / Tier) -->
+<div class="p-4 flex-1 space-y-4">
+<!-- Group 1: ADMIN / CREATORS -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline font-semibold uppercase tracking-wider">ADMIN / CREATORS — 2</span>
+</div>
+<div class="space-y-1">
+<!-- Huzaifa Khan -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center text-xs font-bold">HK</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Huzaifa Khan</div>
+<div class="text-[11px] text-primary">Lead Creator • Admin</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-primary">stars</span>
+</div>
+<!-- Sarah Lin -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-xs font-bold">SL</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Sarah Lin</div>
+<div class="text-[11px] text-outline">Community Lead • TA</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Group 2: VIP FOUNDING MEMBERS -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-amber-400/80 font-semibold uppercase tracking-wider">VIP FOUNDING MEMBERS — 6</span>
+</div>
+<div class="space-y-1">
+<!-- Alex Vance -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-xs font-bold border border-amber-500/40">AV</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Alex Vance</div>
+<div class="text-[11px] text-outline">DevPulse</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-amber-400">shield</span>
+</div>
+<!-- Marcus Kane -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-xs font-bold border border-amber-500/40">MK</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Marcus Kane</div>
+<div class="text-[11px] text-outline">Synthetix</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-amber-400">shield</span>
+</div>
+<!-- Elena Rostova -->
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-300 flex items-center justify-center text-xs font-bold border border-amber-500/40">ER</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Elena Rostova</div>
+<div class="text-[11px] text-outline">AI Researcher</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-xs text-amber-400">shield</span>
+</div>
+</div>
+</div>
+<!-- Group 3: PRO MEMBERS -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline font-semibold uppercase tracking-wider">PRO MEMBERS — 42 ONLINE</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-xs font-bold">DF</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md text-on-surface leading-tight">David Finch</div>
+<div class="text-[11px] text-outline">Fullstack Eng</div>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<div class="w-7 h-7 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center text-xs font-bold">KW</div>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary border border-surface"></span>
+</div>
+<div>
+<div class="text-body-md font-body-md text-on-surface leading-tight">Klaus Wagner</div>
+<div class="text-[11px] text-outline">Product Designer</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events Widget -->
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest/50 space-y-2.5">
+<span class="text-label-sm font-label-sm text-outline font-semibold uppercase tracking-wider">Upcoming Circle Events</span>
+<div class="p-2 rounded-lg bg-surface-container border border-outline-variant space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Live Office Hours</span>
+<span class="text-label-sm font-label-sm text-primary">Tomorrow</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">2:00 PM EST with Huzaifa</p>
+</div>
+<div class="p-2 rounded-lg bg-surface-container border border-outline-variant space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">AI Agent Hackathon</span>
+<span class="text-label-sm font-label-sm text-secondary">Nov 22</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Showcase &amp; $5k prize pool</p>
+</div>
+</div>
+</aside>
+</main>
+</div>
+</body></html>

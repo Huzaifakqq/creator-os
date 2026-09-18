@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - Invoices &amp; Payout History</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#571bc1",
+            "surface-tint": "#adc6ff",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed": "#6ffbbe",
+            "background": "#131318",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "on-tertiary-container": "#00311f",
+            "surface-bright": "#39383e",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "primary-fixed-dim": "#adc6ff",
+            "error-container": "#93000a",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .obsidian-card {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .ambient-glow-primary {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .gradient-btn-primary {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface flex justify-center selection:bg-primary/20 selection:text-primary">
+<!-- Mobile Viewport Container 375px max -->
+<div class="w-full max-w-[375px] min-h-screen flex flex-col relative pb-24 shadow-2xl overflow-x-hidden bg-[#0A0A0F]">
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="sticky top-0 w-full z-40 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 flex justify-between items-center h-14 px-margin-sm shadow-sm dark:shadow-none">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<h1 class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-tight">Invoices &amp; Payouts</h1>
+</div>
+<div class="flex items-center">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-primary font-label-md text-label-md hover:bg-surface-container-high active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export All</span>
+</button>
+</div>
+</header>
+<!-- Main Workspace Content -->
+<main class="flex-1 px-margin-sm pt-space-md space-y-space-md">
+<!-- Top Earnings & Billing Summary Card -->
+<section class="obsidian-card rounded-xl p-4 relative overflow-hidden">
+<!-- Ambient lighting highlight -->
+<div class="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-primary/10 blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Payout Engine Active</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-sm text-label-sm">
+            YTD 2026
+          </span>
+</div>
+<div class="grid grid-cols-2 gap-3 pt-3">
+<div>
+<span class="font-body-sm text-body-sm text-on-surface-variant block mb-1">Paid Out to You</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">$84,290.00</div>
+<div class="flex items-center gap-1 mt-1 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+18.4% vs 2025</span>
+</div>
+</div>
+<div class="border-l border-outline-variant/20 pl-3">
+<span class="font-body-sm text-body-sm text-on-surface-variant block mb-1">Platform Fees &amp; Sub</span>
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">$348.00</div>
+<div class="flex items-center gap-1 mt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span>Auto-billed</span>
+</div>
+</div>
+</div>
+<!-- Connected Payout Method Strip -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between bg-surface-container-lowest/60 -mx-4 -mb-4 p-3 rounded-b-xl">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-7 h-7 rounded-md bg-[#571bc1]/20 border border-secondary/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-[16px]">account_balance</span>
+</div>
+<div class="truncate">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-medium text-on-surface truncate">Stripe Express •••• 4289</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<span class="font-body-sm text-body-sm text-tertiary block leading-none text-[10px]">Instant Payouts Active</span>
+</div>
+</div>
+<button aria-label="Settings" class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Segmented Tab Filter Switch -->
+<nav aria-label="Transaction Type Filter" class="p-1 rounded-xl bg-surface-container-lowest border border-outline-variant/30 flex items-center gap-1">
+<button class="flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all" id="tab-invoices">
+          Subscription Invoices (12)
+        </button>
+<button class="flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium gradient-btn-primary text-white shadow-sm transition-all" id="tab-payouts">
+          Creator Payouts (8)
+        </button>
+</nav>
+<!-- Section Header -->
+<div class="flex items-center justify-between pt-1">
+<h2 class="font-label-lg text-label-lg font-semibold text-on-surface tracking-tight">Recent Activity</h2>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing latest 5 entries</span>
+</div>
+<!-- List of recent items -->
+<div class="space-y-2.5">
+<!-- Item 1: Payout #PO-9821 -->
+<article class="obsidian-card rounded-xl p-3.5 hover:border-outline transition-all duration-150 relative">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container/20 border border-tertiary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">payments</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Payout #PO-9821</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-sm text-label-sm font-medium">
+                    Deposited • ACH Direct
+                  </span>
+</div>
+<time class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Oct 28, 2026</time>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary block">+$14,820.00</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Processed in 1 business day</span>
+<button class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:underline">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>View Statement (PDF)</span>
+</button>
+</div>
+</article>
+<!-- Item 2: Subscription Invoice #INV-2026-10 -->
+<article class="obsidian-card rounded-xl p-3.5 hover:border-outline transition-all duration-150 relative">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 border border-primary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[18px]">receipt</span>
+</div>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Invoice #INV-2026-10</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/40 text-primary font-label-sm text-label-sm font-medium">
+                    Paid • Visa •••• 8812
+                  </span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Pro Creator Tier (Monthly) • <time>Oct 15, 2026</time>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface block">$29.00</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">VAT / Tax: $0.00</span>
+<button class="inline-flex items-center gap-1 font-label-md text-label-md text-primary hover:underline">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Download Invoice</span>
+</button>
+</div>
+</article>
+<!-- Item 3: Payout #PO-9740 -->
+<article class="obsidian-card rounded-xl p-3.5 hover:border-outline transition-all duration-150">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container/20 border border-tertiary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">payments</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Payout #PO-9740</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-sm text-label-sm font-medium">
+                    Deposited
+                  </span>
+</div>
+<time class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Sep 28, 2026</time>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary block">+$18,450.00</span>
+</div>
+</div>
+</article>
+<!-- Item 4: Subscription Invoice #INV-2026-09 -->
+<article class="obsidian-card rounded-xl p-3.5 hover:border-outline transition-all duration-150">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 border border-primary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-[18px]">receipt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Invoice #INV-2026-09</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/40 text-primary font-label-sm text-label-sm font-medium">
+                    Paid
+                  </span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Pro Creator Tier (Monthly) • <time>Sep 15, 2026</time>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface block">$29.00</span>
+</div>
+</div>
+</article>
+<!-- Item 5: Payout #PO-9688 -->
+<article class="obsidian-card rounded-xl p-3.5 hover:border-outline transition-all duration-150">
+<div class="flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container/20 border border-tertiary/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-tertiary text-[18px]">payments</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Payout #PO-9688</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary font-label-sm text-label-sm font-medium">
+                    Deposited
+                  </span>
+</div>
+<time class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">Aug 28, 2026</time>
+</div>
+</div>
+<div class="text-right">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary block">+$12,190.00</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Quick action card: Tax Documents & 1099-K -->
+<section class="obsidian-card rounded-xl p-4 bg-gradient-to-br from-[#12121A] to-[#181824] border border-outline-variant/40 mt-space-md">
+<div class="flex items-start gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/30 border border-secondary/30 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">description</span>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Tax Documents &amp; 1099-K</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              IRS compliance reporting for FY2026. Electronic copies are generated automatically.
+            </p>
+<button class="mt-3 w-full py-2.5 px-3 rounded-lg bg-surface-container border border-outline-variant/50 text-on-surface font-label-md text-label-md font-medium hover:border-primary/60 flex items-center justify-center gap-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span>
+<span>Generate 2026 W-9 / 1099 Summary</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component Implementation) -->
+<!-- Docked full-width bottom-0 with 'Billing' active state logic -->
+<nav aria-label="Global Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-gutter-sm pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
+<!-- Tab 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-sm text-label-sm">Overview</span>
+</a>
+<!-- Tab 2: Products -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="font-label-sm text-label-sm">Products</span>
+</a>
+<!-- Tab 3: Billing (ACTIVE) -->
+<a aria-current="page" class="flex flex-col items-center justify-center text-primary dark:text-primary font-medium gap-1 active:scale-95 transition-transform duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm">Billing</span>
+</a>
+<!-- Tab 4: Settings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Inline Micro-interactions -->
+<script>
+    const tabInvoices = document.getElementById('tab-invoices');
+    const tabPayouts = document.getElementById('tab-payouts');
+
+    tabInvoices.addEventListener('click', () => {
+      tabInvoices.className = 'flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium gradient-btn-primary text-white shadow-sm transition-all';
+      tabPayouts.className = 'flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all';
+    });
+
+    tabPayouts.addEventListener('click', () => {
+      tabPayouts.className = 'flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium gradient-btn-primary text-white shadow-sm transition-all';
+      tabInvoices.className = 'flex-1 py-2 px-1 text-center rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all';
+    });
+  </script>
+</body></html>

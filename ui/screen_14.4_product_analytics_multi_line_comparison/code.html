@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Product Analytics &amp; Performance Comparison</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-surface": "#e4e1e9",
+          "on-secondary-fixed": "#23005c",
+          "on-primary-fixed": "#001a42",
+          "tertiary": "#4edea3",
+          "on-error": "#690005",
+          "secondary-fixed": "#e9ddff",
+          "secondary-fixed-dim": "#d0bcff",
+          "primary-fixed-dim": "#adc6ff",
+          "surface-container-lowest": "#0e0e13",
+          "surface-bright": "#39383e",
+          "inverse-on-surface": "#303036",
+          "on-tertiary": "#003824",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-fixed-dim": "#4edea3",
+          "surface-variant": "#35343a",
+          "surface-container-highest": "#35343a",
+          "inverse-primary": "#005ac2",
+          "surface-container-low": "#1b1b20",
+          "on-error-container": "#ffdad6",
+          "primary": "#adc6ff",
+          "inverse-surface": "#e4e1e9",
+          "on-surface-variant": "#c2c6d6",
+          "outline": "#8c909f",
+          "on-tertiary-container": "#00311f",
+          "error-container": "#93000a",
+          "surface-container-high": "#2a292f",
+          "on-background": "#e4e1e9",
+          "background": "#131318",
+          "secondary": "#d0bcff",
+          "on-primary-fixed-variant": "#004395",
+          "primary-container": "#4d8eff",
+          "tertiary-fixed": "#6ffbbe",
+          "surface-dim": "#131318",
+          "outline-variant": "#424754",
+          "surface-tint": "#adc6ff",
+          "tertiary-container": "#00a572",
+          "on-tertiary-fixed-variant": "#005236",
+          "on-primary": "#002e6a",
+          "on-secondary": "#3c0091",
+          "on-primary-container": "#00285d",
+          "surface": "#131318",
+          "secondary-container": "#571bc1",
+          "primary-fixed": "#d8e2ff",
+          "on-secondary-container": "#c4abff",
+          "surface-container": "#1f1f25",
+          "on-secondary-fixed-variant": "#5516be",
+          "error": "#ffb4ab"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "gutter-sm": "1rem",
+          "space-xl": "2rem",
+          "margin-sm": "1rem",
+          "space-xs": "0.25rem",
+          "margin": "2rem",
+          "space-md": "1rem",
+          "space-sm": "0.5rem",
+          "space-lg": "1.5rem"
+        },
+        "fontFamily": {
+          "display-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "display-lg-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "label-md": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-xl-mobile": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-xl": ["Inter"],
+          "label-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "headline-lg": ["Inter"]
+        },
+        "fontSize": {
+          "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+          "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+          "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+        }
+      }
+    }
+  }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .accent-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -3px rgba(59, 130, 246, 0.45);
+    }
+    .accent-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(139, 92, 246, 0.55);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container font-body-md text-body-md">
+<!-- SideNavBar Anchor (Shared Component JSON Source) -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant/30">
+<div class="flex flex-col justify-between h-full p-4 w-64">
+<!-- Top Workspace Brand Section -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between px-2 pt-1">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white" data-icon="token">token</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight leading-tight">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Enterprise Studio</span>
+</div>
+</div>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="unfold_more">unfold_more</span>
+</button>
+</div>
+<!-- CTA Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-surface-container-high/60 hover:bg-surface-container/80 border border-outline-variant/30 text-primary hover:text-white transition-all duration-150 active:scale-[0.98] text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>New Asset</span>
+</button>
+<!-- Navigation Links Cluster with Analytics Active & Nested Menu -->
+<nav class="flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-320px)] custom-scrollbar pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="workspaces">workspaces</span>
+<span>Workspaces</span>
+</a>
+<!-- 3. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="web">web</span>
+<span>Website Builder</span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="apps">apps</span>
+<span>App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+<span>Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="contacts">contacts</span>
+<span>CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span>Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>AI Agents</span>
+</a>
+<!-- 13. Analytics (ACTIVE CATEGORY ACCORDING TO TASK) -->
+<div class="flex flex-col">
+<a class="flex items-center justify-between px-3 py-2 text-primary dark:text-primary bg-surface-container-high/60 font-semibold rounded-lg border-l-2 border-primary transition-all duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="analytics" data-weight="fill">analytics</span>
+<span>Analytics</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="expand_less">expand_less</span>
+</a>
+<!-- Sub-items according to requirement -->
+<div class="ml-4 pl-3 border-l border-outline-variant/30 flex flex-col gap-1 mt-1 mb-1">
+<a class="py-1 px-2 text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm rounded transition-colors" href="#">Revenue</a>
+<a class="py-1 px-2 text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm rounded transition-colors" href="#">Traffic Analytics</a>
+<a class="py-1 px-2 text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm rounded transition-colors" href="#">Conversion Analytics</a>
+<!-- Product Analytics [ACTIVE] -->
+<a class="py-1 px-2 bg-primary/10 text-primary font-semibold text-label-sm font-label-sm rounded flex items-center justify-between" href="#">
+<span>Product Analytics</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</a>
+<a class="py-1 px-2 text-on-surface-variant hover:text-on-surface text-label-sm font-label-sm rounded transition-colors" href="#">Custom Reports</a>
+</div>
+</div>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span>Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors duration-150 active:scale-[0.98] text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Help & Documentation Tabs -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/30 pt-3">
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+<span>Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface font-medium rounded-lg hover:bg-surface-container/50 transition-colors text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Anchor (Shared Component JSON Source) -->
+<header class="sticky top-0 right-0 w-[calc(100%-16rem)] h-14 z-30 ml-auto bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex items-center justify-between px-6 h-14 w-full">
+<!-- Breadcrumb / Search on Left -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-on-surface-variant">Analytics</span>
+<span class="text-outline text-xs">/</span>
+<span class="text-on-surface font-semibold">Product Analytics &amp; Performance</span>
+</div>
+<div class="h-4 w-px bg-outline-variant/40 mx-1"></div>
+<!-- Time Range Switcher Required -->
+<div class="inline-flex items-center p-0.5 rounded-lg bg-surface-container-high/70 border border-outline-variant/30 text-label-sm font-label-sm">
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded transition-colors">7d</button>
+<button class="px-2.5 py-1 bg-primary text-on-primary-fixed font-semibold rounded shadow-sm">30d</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded transition-colors">90d</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded transition-colors">1y</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface rounded transition-colors flex items-center gap-1">
+<span>Custom</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="calendar_month">calendar_month</span>
+</button>
+</div>
+</div>
+<!-- Trailing Cluster Actions -->
+<div class="flex items-center gap-3">
+<!-- Export CSV Button -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40 hover:border-primary/50 text-on-surface text-label-md font-label-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Export CSV</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/40"></div>
+<!-- Trailing Icon Actions: notifications, help, tune -->
+<div class="flex items-center gap-1">
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-[#EF4444] border-2 border-surface-container-lowest"></span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors" title="Help">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors" title="Tune &amp; Filters">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+<div class="h-4 w-px bg-outline-variant/40"></div>
+<!-- Profile / Tenant Pill -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer group">
+<div class="w-8 h-8 rounded-full border border-primary/40 bg-surface-container-high overflow-hidden flex items-center justify-center">
+<img class="w-full h-full object-cover" data-alt="Close up studio portrait of a modern digital creator and creative director in high contrast cinematic studio lighting with deep obsidian shadows and ambient cool blue edge light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCR9CRzOa_jUa9O_FcwzNavAqGDTh79Cvqr7pqccW0eB7-gMzI5qqqaTHzNa_-DWJTQakoJw4mw7wZ59TDm9Gb6Kz7m3arb-Kq4EIRV7wN03cF29ofrQJMGYaucfzWdD1GxPnrbmC3Szjdl1RNEqi40g_RQiO1Wsy8FLmgQMGeauGoEUHoI1X3i7nEpY1UzVSeWZO1tH5rHT4dKgjJu3WStBdvth-UJpkBx07RqwVHOTqTJ_az5Qi6S9w"/>
+</div>
+<div class="flex flex-col text-left">
+<span class="text-label-md font-label-md font-semibold text-on-surface leading-tight">Alex Rivera</span>
+<span class="text-label-sm font-label-sm text-outline leading-none">Studio Pro</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-primary transition-colors" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas Canvas: 1440px target layout -->
+<main class="ml-64 p-8 max-w-[1440px] flex flex-col gap-8 bg-surface-container-lowest min-h-[calc(100vh-56px)]">
+<!-- 1. Header Section -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant/20 pb-6">
+<div class="flex flex-col gap-1 max-w-3xl">
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg font-bold text-on-surface tracking-tight">Product Performance &amp; Multi-Item Intelligence</h1>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">Live Cohorts</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Track individual product velocity, conversion efficiency, and comparative revenue across your courses, downloads, and memberships.
+        </p>
+</div>
+<!-- Right Action Buttons -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-high border border-outline-variant/40 hover:border-primary/50 text-on-surface text-label-lg font-label-lg transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="ios_share">ios_share</span>
+<span>Export Analysis</span>
+</button>
+<button class="accent-gradient-btn flex items-center gap-2 px-4 py-2 rounded-lg text-white font-semibold text-label-lg font-label-lg transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="compare_arrows">compare_arrows</span>
+<span>Compare Products (3 selected)</span>
+</button>
+</div>
+</section>
+<!-- 2. Top Metric KPI Row (4 Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Card 1: Top Earning Product -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between hover:border-outline-variant/60 transition-all duration-200 group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Top Earning Product</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold line-clamp-1 group-hover:text-primary transition-colors">Cinematography Masterclass 2026</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-[#93C5FD]">Course</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="text-headline-xl font-headline-xl text-on-surface font-bold tracking-tight leading-none">$48,920</span>
+<span class="text-label-sm font-label-sm text-outline mt-1.5">412 total units sold</span>
+</div>
+<div class="flex items-center gap-1 text-[#10B981] bg-[#10B981]/10 px-2 py-1 rounded-md text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+<span>+18.4%</span>
+</div>
+</div>
+<div class="mt-3 w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-full rounded-full" style="width: 74%"></div>
+</div>
+</div>
+<!-- Card 2: Highest Conversion Velocity -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between hover:border-outline-variant/60 transition-all duration-200 group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Highest Conversion Velocity</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold line-clamp-1 group-hover:text-tertiary transition-colors">3D Shader &amp; Texture Kit</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 border border-[#10B981]/30 text-[#6EE7B7]">Digital Asset</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="text-headline-xl font-headline-xl text-on-surface font-bold tracking-tight leading-none">14.8%</span>
+<span class="text-label-sm font-label-sm text-outline mt-1.5">1,240 qualified views</span>
+</div>
+<div class="flex items-center gap-1 text-[#10B981] bg-[#10B981]/10 px-2 py-1 rounded-md text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+<span>+3.2%</span>
+</div>
+</div>
+<div class="mt-3 w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#10B981] h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<!-- Card 3: Average Order Value -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between hover:border-outline-variant/60 transition-all duration-200 group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Average Order Value</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold line-clamp-1">Blended SKU Basket</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#8B5CF6]/15 border border-[#8B5CF6]/30 text-[#C4B5FD]">Catalog Avg</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="text-headline-xl font-headline-xl text-on-surface font-bold tracking-tight leading-none">$118.50</span>
+<span class="text-label-sm font-label-sm text-outline mt-1.5">Across 18 live offerings</span>
+</div>
+<div class="flex items-center gap-1 text-[#10B981] bg-[#10B981]/10 px-2 py-1 rounded-md text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_upward">arrow_upward</span>
+<span>+$12.20</span>
+</div>
+</div>
+<div class="mt-3 w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#8B5CF6] h-full rounded-full" style="width: 61%"></div>
+</div>
+</div>
+<!-- Card 4: Active Product Catalog -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between hover:border-outline-variant/60 transition-all duration-200 group">
+<div class="flex items-start justify-between">
+<div class="flex flex-col gap-1">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-on-surface-variant font-semibold">Active Product Catalog</span>
+<span class="text-body-md font-body-md text-on-surface font-semibold">Multi-Tenant Storefront</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest border border-outline-variant/40 text-on-surface-variant">Inventory</span>
+</div>
+<div class="mt-4 flex items-baseline justify-between">
+<div class="flex flex-col">
+<span class="text-headline-xl font-headline-xl text-on-surface font-bold tracking-tight leading-none">18 <span class="text-headline-md font-headline-md font-normal text-outline">/ 21</span></span>
+<span class="text-label-sm font-label-sm text-outline mt-1.5">18 Live SKUs · 3 Drafts</span>
+</div>
+<div class="flex items-center gap-1 text-primary bg-primary/10 px-2 py-1 rounded-md text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+<span>94.2% Ret.</span>
+</div>
+</div>
+<div class="mt-3 w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94.2%"></div>
+</div>
+</div>
+</section>
+<!-- 3. Product Comparison & Multi-line Trend Section -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-6 flex flex-col gap-6 relative overflow-hidden">
+<!-- Ambient Glow Behind Chart -->
+<div class="absolute -right-20 -top-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Section Header & Interactive Legend Pills -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-md font-headline-md font-semibold text-on-surface">Comparative Revenue Trajectory</h2>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="info" title="Comparing multi-SKU velocity across 8 trailing weeks">info</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Dynamic normalized revenue pacing per rolling 7-day cycle</p>
+</div>
+<!-- Legend Pills with Checkbox Status -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Checkbox 1: Cinematography Masterclass [Blue] -->
+<label class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high/60 border border-[#3B82F6]/40 cursor-pointer hover:bg-surface-container-high transition-all">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-2.5 h-2.5 rounded-full bg-[#3B82F6] shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span>
+<span class="text-label-md font-label-md text-on-surface font-medium">Cinematography Masterclass</span>
+</label>
+<!-- Checkbox 2: Creator Preset Bundle [Purple] -->
+<label class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high/60 border border-[#8B5CF6]/40 cursor-pointer hover:bg-surface-container-high transition-all">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#8B5CF6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-2.5 h-2.5 rounded-full bg-[#8B5CF6] shadow-[0_0_8px_rgba(139,92,246,0.6)]"></span>
+<span class="text-label-md font-label-md text-on-surface font-medium">Creator Preset Bundle</span>
+</label>
+<!-- Checkbox 3: 3D Shader Library [Emerald] -->
+<label class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high/60 border border-[#10B981]/40 cursor-pointer hover:bg-surface-container-high transition-all">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#10B981] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.6)]"></span>
+<span class="text-label-md font-label-md text-on-surface font-medium">3D Shader Library</span>
+</label>
+<!-- Checkbox 4: VIP Community Pass [Amber - Unchecked] -->
+<label class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high/20 border border-outline-variant/20 cursor-pointer opacity-60 hover:opacity-100 transition-all">
+<input class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#F59E0B] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/50"></span>
+<span class="text-label-md font-label-md text-outline font-medium">VIP Community Pass</span>
+</label>
+</div>
+</div>
+<!-- Chart Visualization Grid + Side-by-Side Comparison Card -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+<!-- Multi-line Chart Canvas (xl:col-span-8) -->
+<div class="xl:col-span-8 bg-surface-container-lowest/60 border border-outline-variant/20 rounded-xl p-5 flex flex-col justify-between relative">
+<!-- Chart Floating Highlight Callout Box -->
+<div class="absolute top-8 left-10 z-10 flex items-center gap-2 bg-surface-container-high/90 backdrop-blur-md border border-[#3B82F6]/40 px-3 py-1.5 rounded-lg shadow-lg">
+<span class="w-2 h-2 rounded-full bg-[#3B82F6] animate-ping"></span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Masterclass leads GMV with $14.2k in Week 7</span>
+<span class="text-label-sm font-label-sm text-[#10B981] font-bold">+28%</span>
+</div>
+<!-- SVG Chart Area -->
+<div class="w-full h-64 mt-6">
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 740 230">
+<defs>
+<!-- Blue Gradient Fill -->
+<lineargradient id="gradBlue" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0"></stop>
+</lineargradient>
+<!-- Purple Gradient Fill -->
+<lineargradient id="gradPurple" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Horizontal Grid Guidelines -->
+<line stroke="#1E1E2E" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="720" y1="20" y2="20"></line>
+<line stroke="#1E1E2E" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="720" y1="65" y2="65"></line>
+<line stroke="#1E1E2E" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="720" y1="110" y2="110"></line>
+<line stroke="#1E1E2E" stroke-dasharray="4 4" stroke-width="1" x1="30" x2="720" y1="155" y2="155"></line>
+<line stroke="#2A292F" stroke-width="1" x1="30" x2="720" y1="200" y2="200"></line>
+<!-- Y-Axis Ticks -->
+<text fill="#8c909f" font-family="Inter" font-size="10" text-anchor="end" x="22" y="24">$16k</text>
+<text fill="#8c909f" font-family="Inter" font-size="10" text-anchor="end" x="22" y="69">$12k</text>
+<text fill="#8c909f" font-family="Inter" font-size="10" text-anchor="end" x="22" y="114">$8k</text>
+<text fill="#8c909f" font-family="Inter" font-size="10" text-anchor="end" x="22" y="159">$4k</text>
+<text fill="#8c909f" font-family="Inter" font-size="10" text-anchor="end" x="22" y="204">$0</text>
+<!-- Area Fill for Cinematography Masterclass -->
+<polygon fill="url(#gradBlue)" points="50,150 140,135 230,120 320,85 410,95 500,60 590,32 680,45 680,200 50,200"></polygon>
+<!-- Line 1: Cinematography Masterclass (Blue #3B82F6) -->
+<polyline fill="none" filter="drop-shadow(0 0 6px rgba(59,130,246,0.5))" points="50,150 140,135 230,120 320,85 410,95 500,60 590,32 680,45" stroke="#3B82F6" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></polyline>
+<!-- Points Line 1 -->
+<circle cx="50" cy="150" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<circle cx="140" cy="135" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<circle cx="230" cy="120" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<circle cx="320" cy="85" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<circle cx="410" cy="95" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<circle cx="500" cy="60" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<!-- Highlighted peak at Week 7 ($14.2k) -->
+<circle class="animate-pulse" cx="590" cy="32" fill="#3B82F6" r="6" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="680" cy="45" fill="#0A0A0F" r="4" stroke="#3B82F6" stroke-width="2.5"></circle>
+<!-- Line 2: Creator Preset Bundle (Purple #8B5CF6) -->
+<polyline fill="none" points="50,175 140,160 230,140 320,135 410,125 500,110 590,95 680,88" stroke="#8B5CF6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<circle cx="590" cy="95" fill="#0A0A0F" r="3.5" stroke="#8B5CF6" stroke-width="2"></circle>
+<circle cx="680" cy="88" fill="#0A0A0F" r="3.5" stroke="#8B5CF6" stroke-width="2"></circle>
+<!-- Line 3: 3D Shader Library (Emerald #10B981) -->
+<polyline fill="none" points="50,185 140,180 230,165 320,150 410,140 500,132 590,125 680,118" stroke="#10B981" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></polyline>
+<circle cx="590" cy="125" fill="#0A0A0F" r="3.5" stroke="#10B981" stroke-width="2"></circle>
+<circle cx="680" cy="118" fill="#0A0A0F" r="3.5" stroke="#10B981" stroke-width="2"></circle>
+<!-- Hover Tooltip Marker Line at Week 7 -->
+<line opacity="0.8" stroke="#3B82F6" stroke-dasharray="3 3" stroke-width="1.5" x1="590" x2="590" y1="20" y2="200"></line>
+</svg>
+</div>
+<!-- X-Axis Week Labels -->
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline px-6 pt-2 border-t border-outline-variant/20">
+<span>Wk 1</span>
+<span>Wk 2</span>
+<span>Wk 3</span>
+<span>Wk 4</span>
+<span>Wk 5</span>
+<span>Wk 6</span>
+<span class="text-primary font-bold">Wk 7 (Peak)</span>
+<span>Wk 8</span>
+</div>
+</div>
+<!-- Side-by-Side Comparison Stats Card (xl:col-span-4) -->
+<div class="xl:col-span-4 bg-surface-container-high/40 border border-outline-variant/30 rounded-xl p-5 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">3-Product Benchmark</span>
+<span class="text-label-sm font-label-sm text-outline">Last 30 Days</span>
+</div>
+<!-- Comparison Table Matrix -->
+<div class="flex flex-col gap-3.5 mt-4">
+<!-- Item 1: Cinematography Masterclass -->
+<div class="flex flex-col gap-1.5 p-2.5 rounded-lg bg-surface-container-low/80 border border-[#3B82F6]/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#3B82F6]"></span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Cinematography Masterclass</span>
+</div>
+<span class="text-label-sm font-label-sm font-bold text-primary">$48,920</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-[11px] text-outline pt-1">
+<div>Views: <span class="text-on-surface font-medium">12.4k</span></div>
+<div>Add-Cart: <span class="text-on-surface font-medium">21.8%</span></div>
+<div>Conv: <span class="text-on-surface font-medium">11.4%</span></div>
+<div>Refund: <span class="text-[#10B981] font-semibold">0.6%</span></div>
+</div>
+</div>
+<!-- Item 2: Creator Preset Bundle -->
+<div class="flex flex-col gap-1.5 p-2.5 rounded-lg bg-surface-container-low/80 border border-[#8B5CF6]/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Creator Preset Bundle</span>
+</div>
+<span class="text-label-sm font-label-sm font-bold text-secondary">$24,480</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-[11px] text-outline pt-1">
+<div>Views: <span class="text-on-surface font-medium">8.9k</span></div>
+<div>Add-Cart: <span class="text-on-surface font-medium">24.2%</span></div>
+<div>Conv: <span class="text-on-surface font-medium">13.2%</span></div>
+<div>Refund: <span class="text-[#10B981] font-semibold">0.4%</span></div>
+</div>
+</div>
+<!-- Item 3: 3D Shader Master Library -->
+<div class="flex flex-col gap-1.5 p-2.5 rounded-lg bg-surface-container-low/80 border border-[#10B981]/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">3D Shader Master Library</span>
+</div>
+<span class="text-label-sm font-label-sm font-bold text-tertiary">$18,360</span>
+</div>
+<div class="grid grid-cols-4 gap-1 text-[11px] text-outline pt-1">
+<div>Views: <span class="text-on-surface font-medium">7.1k</span></div>
+<div>Add-Cart: <span class="text-on-surface font-medium">27.0%</span></div>
+<div>Conv: <span class="text-on-surface font-medium">14.8%</span></div>
+<div>Refund: <span class="text-[#10B981] font-semibold">0.8%</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Insights Strip -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline">Combined Net Rev:</span>
+<span class="text-on-surface font-bold text-label-lg font-label-lg">$91,760 <span class="text-[#10B981] text-xs font-semibold">(99.4% retained)</span></span>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Comprehensive Product Performance Table -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl overflow-hidden flex flex-col">
+<!-- Toolbar Filter & Search Controls -->
+<div class="p-5 border-b border-outline-variant/30 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Search input on left -->
+<div class="relative flex-1 max-w-md">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-on-surface placeholder-outline text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Filter products by title, SKU, or type..." type="text"/>
+</div>
+<!-- Right Controls: Category, Sort, and Bulk Actions -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Category Filter -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-high border border-outline-variant/40 rounded-lg pl-3 pr-8 py-2 text-label-md font-label-md text-on-surface focus:border-primary focus:outline-none cursor-pointer">
+<option>Category: All Formats</option>
+<option>Video Courses</option>
+<option>Digital Assets</option>
+<option>Memberships</option>
+<option>Enterprise Software</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Sort Dropdown -->
+<div class="relative">
+<select class="appearance-none bg-surface-container-high border border-outline-variant/40 rounded-lg pl-3 pr-8 py-2 text-label-md font-label-md text-on-surface focus:border-primary focus:outline-none cursor-pointer">
+<option>Sort by: Gross Revenue (High to Low)</option>
+<option>Sort by: Units Sold</option>
+<option>Sort by: Conversion Rate</option>
+<option>Sort by: Total Views</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]" data-icon="sort">sort</span>
+</div>
+<!-- Bulk Actions Button -->
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container-high border border-outline-variant/40 hover:bg-surface-container text-on-surface text-label-md font-label-md transition-colors">
+<span>Bulk Actions</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+</div>
+<!-- Data Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest/70 border-b border-outline-variant/30 text-label-sm font-label-sm uppercase tracking-wider text-outline">
+<th class="py-3.5 px-4 w-10 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</th>
+<th class="py-3.5 px-4 font-semibold text-on-surface">Product &amp; Identifier</th>
+<th class="py-3.5 px-4 font-semibold">Type</th>
+<th class="py-3.5 px-4 font-semibold">Views (30d)</th>
+<th class="py-3.5 px-4 font-semibold">Units Sold</th>
+<th class="py-3.5 px-4 font-semibold">Gross Revenue</th>
+<th class="py-3.5 px-4 font-semibold">Conversion Rate</th>
+<th class="py-3.5 px-4 font-semibold">Refund Rate</th>
+<th class="py-3.5 px-4 text-right font-semibold">Quick Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm">
+<!-- Row 1: Cinematography Masterclass 2026 (EXPANDED DRAWER ACTIVE) -->
+<tr class="bg-surface-container-high/40 hover:bg-surface-container-high/60 transition-colors">
+<td class="py-4 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Futuristic cinema camera rig capturing an anamorphic frame with cinematic cyan and tungsten rim lighting in a sleek studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCur3AffulPFtTQwMaV-pMvAy40b2MSP-boZWVSLCVpE1mly_NNi-ivKG6ltV4aRAlGpMmHv2UY6jxTNpOXdmpFYFPo4N1kYINYcu3CNIEqr5UmvpGlYedIW7VlgQDZpmu8zphCD6z4hxA2CKYB8WmnJ86x6iDwZbep5SL8we1y8lFnUZMxpUU3J4KI-eF9BU9PDmMcl5IaL3pRfH3IniWxoJfmBJNfpKv32M7QlGwEo4R9VdRsmKAfWg"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Cinematography Masterclass 2026</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-2601</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#3B82F6]/10 text-[#93C5FD] border border-[#3B82F6]/20">Featured</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Course</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">12,450</span>
+<!-- Mini sparkline bar -->
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">412</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$48,920</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+18.4%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#3B82F6] h-full rounded-full" style="width: 72%"></div>
+</div>
+<span class="font-semibold text-[#93C5FD]">11.4%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 text-[#10B981] font-semibold">0.6%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg bg-primary/20 text-primary hover:bg-primary/30 transition-colors" title="Collapse Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_up">keyboard_arrow_up</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Expanded Drawer Child Details for Row 1 -->
+<tr class="bg-surface-container-lowest/90 border-y border-outline-variant/30">
+<td class="p-6" colspan="9">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 bg-surface-container-low/60 rounded-xl p-5 border border-primary/20">
+<!-- Weekly Sales Pacing Breakdown -->
+<div class="flex flex-col gap-3 border-r border-outline-variant/20 pr-4">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Weekly Sales Breakdown</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">Week 7 Surge</span>
+</div>
+<div class="space-y-2 text-label-sm font-label-sm">
+<div class="flex items-center justify-between">
+<span class="text-outline">Wk 5 (Early Bird):</span>
+<span class="text-on-surface font-medium">68 sales ($8,092)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Wk 6 (Webinar launch):</span>
+<span class="text-on-surface font-medium">112 sales ($13,328)</span>
+</div>
+<div class="flex items-center justify-between text-primary font-semibold">
+<span>Wk 7 (Live Workshop):</span>
+<span>142 sales ($16,898)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-outline">Wk 8 (Evergreen steady):</span>
+<span class="text-on-surface font-medium">90 sales ($10,602)</span>
+</div>
+</div>
+</div>
+<!-- Customer Cohort Origin -->
+<div class="flex flex-col gap-3 border-r border-outline-variant/20 pr-4">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Customer Cohort Origin</span>
+<span class="text-label-sm font-label-sm text-outline">Top Attribution</span>
+</div>
+<div class="space-y-2 text-label-sm font-label-sm">
+<div class="flex items-center justify-between">
+<span class="text-on-surface">YouTube Organic Series:</span>
+<span class="text-on-surface font-bold">48% (198 buyers)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface">Weekly Creator Newsletter:</span>
+<span class="text-on-surface font-bold">32% (132 buyers)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface">Affiliate Network:</span>
+<span class="text-on-surface font-bold">14% (58 buyers)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-on-surface">Direct Social / Instagram:</span>
+<span class="text-on-surface font-bold">6% (24 buyers)</span>
+</div>
+</div>
+</div>
+<!-- Quick Health & Retention Stats -->
+<div class="flex flex-col justify-between">
+<div>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Product Health Metrics</span>
+<div class="grid grid-cols-2 gap-3 mt-3">
+<div class="bg-surface-container-high/40 p-2.5 rounded-lg">
+<span class="text-[11px] text-outline block">Course Completion</span>
+<span class="text-label-lg font-label-lg font-bold text-on-surface">76.4%</span>
+</div>
+<div class="bg-surface-container-high/40 p-2.5 rounded-lg">
+<span class="text-[11px] text-outline block">Community Joins</span>
+<span class="text-label-lg font-label-lg font-bold text-tertiary">91.8%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-3 border-t border-outline-variant/20 mt-3">
+<a class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1" href="#">
+<span>Open Comprehensive Course Funnel &amp; Module Analytics</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</div>
+</div>
+</td>
+</tr>
+<!-- Row 2: Creator Preset Bundle + Sound Kit -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-4 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#8B5CF6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Digital audio synthesizer wave visualizer and color grading waveforms with neon purple highlights on an obsidian glass background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mmcLDagOIP2t734KmbuKqc6KZ482OtiNzhu2Dp7MNQ1QfQ0y5DZFSk02lPsi7_SDH8I0jvElMcVvNOBiygxm7kGPgSLF7yu23IzuSGA9Q3J95WTsXtNpJfcgIJNQFrFFtlmxHvl1bDWCLsFy1tGj0PtriI_zCv5Sy04qjmAcWNB70U808FLknYZd-1CwexuwgdjtejBuM2YuU0PgigiCX5Q-kSgaARFC1GvAL9-b8dduu6LjWkofJA"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Creator Preset Bundle + Sound Kit</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-1044</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-secondary-container/30 text-secondary border border-secondary/20">Bundle</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Digital</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">8,920</span>
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">680</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$24,480</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+12.1%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#8B5CF6] h-full rounded-full" style="width: 80%"></div>
+</div>
+<span class="font-semibold text-[#C4B5FD]">13.2%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 text-[#10B981] font-semibold">0.4%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Expand Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: 3D Shader Master Library -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-4 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#10B981] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Reflective 3D procedural emerald glass sphere with caustics and intricate geometric refraction patterns on dark obsidian backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVFXL34qQ6zRlS1IFgARrfZNKgP3v9y15t2T0Z8UjEQ4fCkgpQee_dMODxDDDgOcXFuglkKKOsvEFda_LuJHkdPYjO3GQeq21cRdTJ6RrM2gIl2Y1oCyfMDdUGMEnbgeAdSEx-WUHaYdqSzLIihRJNHwHug0BqY6UF3gFtng8WJHT7C9zAf38mY5BBijqF8nhjgPj-C36H9Q4Jm7x9GFlwPieOtkzfdFfCHFEY644FLoJDySzrNqFEKQ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">3D Shader Master Library</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-3D88</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-tertiary-container/30 text-tertiary border border-tertiary/20">3D Asset</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Digital</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">7,140</span>
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 55%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">510</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$18,360</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+22.4%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#10B981] h-full rounded-full" style="width: 90%"></div>
+</div>
+<span class="font-semibold text-[#6EE7B7]">14.8%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 text-[#10B981] font-semibold">0.8%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Expand Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Studio Agency Enterprise License -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-4 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Clean isometric server architecture wireframe graphic illuminated by crisp electric blue neon lines over dark slate matrix." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE5ZT0WXxeLMjecdHd_fMFQhkynQNMTzbDFTtxvZ3zLt8t1zPdRnhKzDN4tT2CSUhfGDlHoKaS0jzUpHy4qd7dlTY8-stukZvTfy_pP2IBQrn-hKy9uw0HpCxYTSgT5qm9g2VHC8LW-TaRFR68gkUF5eJcIUcOyAOEQM8SYfysYAJ5olXRoCFV_od0DMNienxlBINZ28hTMSeuyt3K2utNl2E5b7UXUhoOZwEqhfHXHG4EA9QZXLC9-Q"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Studio Agency Enterprise License</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-ENT09</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-surface-container-highest text-on-surface-variant">B2B</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Software</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">1,820</span>
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 25%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">42</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$16,800</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+8.5%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 28%"></div>
+</div>
+<span class="font-semibold text-outline">4.2%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 text-[#10B981] font-semibold">0.0%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Expand Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Community VIP Annual Pass -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-4 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="Holographic metallic membership access key card floating over a dark obsidian minimalist podium with subtle amber backlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC25yXLbsPuLKW33ez0hpC1LwpC-mA9iveeZbcjS-gS9QK6A6TMbHkN_U1paQWdTBDTmqrfGTMHB63KccBJtWRFXNOUkToDzs70gjLRvNu4cjl9K7Cl5HGo69bTQZlB_OvEHtR4t6M6_39yfjm6R2D4y3bl3mMCLR23RRX9M8zRqbouD_p43nugBl2FPLDn-SnQluXAMEy9atFE2fxF5CGNqy26lg5u6fQkvP3iKC5yBNEdJb69KDBmhQ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Community VIP Annual Pass</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-VIP99</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-[#F59E0B]/10 text-[#FBBF24] border border-[#F59E0B]/20">Recurring</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Membership</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">4,560</span>
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 45%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">215</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$12,900</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+5.4%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#F59E0B] h-full rounded-full" style="width: 58%"></div>
+</div>
+<span class="font-semibold text-[#FCD34D]">8.6%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#F59E0B]/15 text-[#F59E0B] font-semibold">1.1%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Expand Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Logic Pro & Dolby Atmos Intensive -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-4 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg overflow-hidden shrink-0 border border-outline-variant/40 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="High fidelity studio monitor speaker with glowing acoustic sound dispersion fields and blue-violet atmospheric illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCglVj5zciSeLYs4FjOZ8SkQVCXP_M0iGucQ57FR02oO4HNXIFrnu-K7azSfDmsNsASfcGbtdyTB1sVhFsCKzpFgdGFXgAodIR8EPOPPr-isMAkFHtI1DZCNUMMdsDQtcjAQywjUrzSnmlAbDB6Zwp2allep_dGIk89eAr-EFnDpa5u2GJppE2lxQ51tS-3fpPKnqOx0ozeyoUbgdRlzjaPquj2jas9aRYRkYFYhkrB3Ff7ud1tddCA9Q"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Logic Pro &amp; Dolby Atmos Intensive</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="text-label-sm font-label-sm text-outline">SKU: CR-AUD04</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] bg-surface-container-highest text-on-surface-variant">Course</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-on-surface">Course</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col gap-1">
+<span class="font-semibold text-on-surface">3,200</span>
+<div class="w-20 bg-surface-container-high rounded-full h-1 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 32%"></div>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-medium text-on-surface">94</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-1.5">
+<span class="font-bold text-on-surface">$9,400</span>
+<span class="text-[11px] text-[#10B981] font-semibold">+14.0%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<div class="w-14 bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 52%"></div>
+</div>
+<span class="font-semibold text-primary">7.8%</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#10B981]/15 text-[#10B981] font-semibold">0.5%</span>
+</td>
+<td class="py-4 px-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Expand Drawer">
+<span class="material-symbols-outlined text-[18px]" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="Edit Product">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors" title="View Funnel">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt">filter_alt</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-label-sm font-label-sm">
+<div class="text-on-surface-variant">
+          Showing <span class="font-semibold text-on-surface">1 - 6</span> of <span class="font-semibold text-on-surface">18</span> products
+        </div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container-high text-outline hover:text-on-surface border border-outline-variant/30 transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary-fixed font-bold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors">3</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-container border border-outline-variant/30 transition-colors flex items-center gap-1">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

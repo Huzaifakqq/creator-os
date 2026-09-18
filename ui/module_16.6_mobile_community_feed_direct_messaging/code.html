@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - Community Feed &amp; Direct Messaging</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-fixed": "#002113",
+            "tertiary": "#4edea3",
+            "on-primary": "#002e6a",
+            "on-primary-container": "#00285d",
+            "tertiary-container": "#00a572",
+            "outline": "#8c909f",
+            "on-secondary": "#3c0091",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-bright": "#39383e",
+            "inverse-primary": "#005ac2",
+            "on-secondary-fixed-variant": "#5516be",
+            "secondary": "#d0bcff",
+            "on-background": "#e4e1e9",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-lowest": "#0e0e13",
+            "primary": "#adc6ff",
+            "primary-fixed": "#d8e2ff",
+            "on-surface-variant": "#c2c6d6",
+            "error": "#ffb4ab",
+            "surface": "#131318",
+            "background": "#131318",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary": "#003824",
+            "on-primary-fixed": "#001a42",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-container": "#571bc1",
+            "on-primary-fixed-variant": "#004395",
+            "error-container": "#93000a",
+            "outline-variant": "#424754",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-highest": "#35343a",
+            "on-error-container": "#ffdad6"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen flex justify-center">
+<!-- Mobile Viewport Shell (390px simulated device width) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-20 shadow-2xl border-x border-outline-variant/30">
+<!-- 1. iOS Status Bar -->
+<div class="w-full h-11 px-6 flex justify-between items-center bg-surface sticky top-0 z-50 select-none">
+<span class="text-body-sm font-label-lg font-semibold tracking-tight text-on-surface">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON) -->
+<header class="flex justify-between items-center w-full px-4 h-14 sticky top-11 z-40 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant">
+<!-- Leading Icon & Workspace Context -->
+<div class="flex items-center space-x-3">
+<button class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center hover:bg-surface-container-high transition-colors active:scale-95 text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+</button>
+<div class="flex flex-col">
+<div class="flex items-center space-x-1">
+<span class="text-label-md font-headline-sm text-on-surface">Creator OS</span>
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Acme Studios Campus</span>
+</div>
+</div>
+<!-- Trailing Action Icons -->
+<div class="flex items-center space-x-1">
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="search">search</span>
+</button>
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container hover:text-on-surface active:scale-95 transition-all relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface"></span>
+</button>
+</div>
+</header>
+<!-- Channel Info & Audience Presence Sub-Bar -->
+<section class="px-4 py-2.5 bg-surface-container-low flex items-center justify-between border-b border-outline-variant/40">
+<div class="flex items-center space-x-2">
+<div class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant/60 flex items-center space-x-1 text-on-surface">
+<span class="text-label-sm font-label-md text-primary">#</span>
+<span class="text-label-sm font-label-md text-on-surface">general-discussion</span>
+</div>
+</div>
+<div class="flex items-center space-x-1.5 text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">1,420 Online</span>
+</div>
+</section>
+<!-- Segment / Sub-navigation Tabs (Scrollable Horizontal Strip) -->
+<nav class="flex items-center space-x-2 px-4 py-2 overflow-x-auto no-scrollbar border-b border-outline-variant/30 bg-surface">
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-primary-container text-on-primary-container font-medium whitespace-nowrap shadow-sm">
+        Feed
+      </button>
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-surface-container text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+        Channels (14)
+      </button>
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-surface-container text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors flex items-center space-x-1">
+<span>Direct Messages</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary text-on-secondary font-bold text-[10px]">3</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-surface-container text-on-surface-variant hover:text-on-surface whitespace-nowrap transition-colors">
+        Bookmarks
+      </button>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col space-y-3 p-3">
+<!-- 2. Pinned Announcement / Live Stage Banner -->
+<section class="relative overflow-hidden rounded-xl bg-gradient-to-r from-surface-container-high to-surface-container p-3 border border-outline-variant/60 shadow-lg">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-secondary-container/20 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2">
+<span class="flex h-2.5 w-2.5 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-error font-semibold">Live Audio Stage</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="headphones">headphones</span>
+<span>124 listening</span>
+</span>
+</div>
+<h2 class="mt-1.5 text-label-lg font-headline-sm text-on-surface line-clamp-1">
+          Lighting Masterclass Q&amp;A with Sarah Lin
+        </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 line-clamp-1">
+          Anamorphic falloff ratios and key lights in Davinci 19.
+        </p>
+<div class="mt-2.5 flex items-center justify-between">
+<div class="flex -space-x-1.5 overflow-hidden">
+<div class="w-6 h-6 rounded-full ring-2 ring-surface bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-primary">SL</div>
+<div class="w-6 h-6 rounded-full ring-2 ring-surface bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-secondary">MK</div>
+<div class="w-6 h-6 rounded-full ring-2 ring-surface bg-surface-container flex items-center justify-center text-[10px] font-bold text-tertiary">+8</div>
+</div>
+<button class="h-8 px-3 rounded-full bg-primary text-on-primary text-label-sm font-label-md flex items-center space-x-1 hover:brightness-105 active:scale-95 transition-all shadow-md">
+<span class="material-symbols-outlined text-[15px]" data-icon="mic">mic</span>
+<span>Join Stage</span>
+</button>
+</div>
+</section>
+<!-- 5. Quick Direct Messaging Drawer / Floating Preview Strip -->
+<section class="bg-surface-container-low rounded-xl p-2.5 border border-outline-variant/40">
+<div class="flex items-center justify-between px-1 mb-2">
+<span class="text-label-sm font-label-md uppercase tracking-wider text-on-surface-variant flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="chat">chat</span>
+<span>Quick Direct Messages</span>
+</span>
+<button class="text-label-sm font-label-md text-primary hover:underline">View All</button>
+</div>
+<div class="flex space-x-3 overflow-x-auto no-scrollbar py-1">
+<!-- DM Avatar 1: Sarah Lin -->
+<button class="flex flex-col items-center space-y-1 group active:scale-95 transition-transform shrink-0 w-16 text-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full ring-2 ring-primary/40 bg-surface-container-high flex items-center justify-center font-bold text-label-md text-on-surface">SL</div>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-low"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface truncate w-full">Sarah Lin</span>
+<span class="text-[10px] text-on-surface-variant truncate w-full">Review 3pm</span>
+</button>
+<!-- DM Avatar 2: Alex Vance -->
+<button class="flex flex-col items-center space-y-1 group active:scale-95 transition-transform shrink-0 w-16 text-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full ring-1 ring-outline-variant bg-surface-container-high flex items-center justify-center font-bold text-label-md text-secondary">AV</div>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-tertiary-container ring-2 ring-surface-container-low"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface truncate w-full">Alex Vance</span>
+<span class="text-[10px] text-on-surface-variant truncate w-full">Keys rotated</span>
+</button>
+<!-- DM Avatar 3: David Miller -->
+<button class="flex flex-col items-center space-y-1 group active:scale-95 transition-transform shrink-0 w-16 text-center">
+<div class="relative">
+<div class="w-12 h-12 rounded-full ring-1 ring-outline-variant bg-surface-container-high flex items-center justify-center font-bold text-label-md text-tertiary">DM</div>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-outline-variant ring-2 ring-surface-container-low"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface truncate w-full">David Miller</span>
+<span class="text-[10px] text-on-surface-variant truncate w-full">Thanks!</span>
+</button>
+<!-- DM Avatar 4: New Chat Action -->
+<button class="flex flex-col items-center space-y-1 active:scale-95 transition-transform shrink-0 w-16 text-center">
+<div class="w-12 h-12 rounded-full border border-dashed border-outline-variant hover:border-primary flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant truncate w-full">New Chat</span>
+<span class="text-[10px] text-transparent">.</span>
+</button>
+</div>
+</section>
+<!-- 3. Interactive Post Creation Bar -->
+<section class="bg-surface-container-low rounded-xl p-3 border border-outline-variant/50">
+<div class="flex items-center space-x-3">
+<div class="w-9 h-9 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-label-md shrink-0">
+            ME
+          </div>
+<div class="flex-1 bg-surface rounded-lg px-3 py-2 border border-outline-variant/60 flex items-center justify-between text-on-surface-variant">
+<input class="bg-transparent border-none p-0 text-body-sm font-body-sm text-on-surface placeholder-on-surface-variant/60 focus:ring-0 w-full" placeholder="Share an insight, breakdown, or question..." type="text"/>
+</div>
+</div>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-2 text-on-surface-variant">
+<button class="p-1.5 rounded-md hover:bg-surface-container hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="image">image</span>
+</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="poll">poll</span>
+</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="sentiment_satisfied">sentiment_satisfied</span>
+</button>
+</div>
+<button class="h-8 px-4 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-surface font-label-md text-label-sm font-semibold active:scale-95 transition-all shadow-sm">
+            Post
+          </button>
+</div>
+</section>
+<!-- 4. Community Feed Stream -->
+<!-- Post 1: Video Color Grading Assignment Showcase -->
+<article class="bg-surface-container-low rounded-xl p-3.5 border border-outline-variant/50 space-y-3">
+<!-- Post Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-label-md text-primary ring-1 ring-outline-variant">
+              MK
+            </div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="text-label-md font-headline-sm text-on-surface">Marcus Kane</span>
+<span class="px-1.5 py-0.2 text-[10px] font-bold rounded bg-primary-container/30 border border-primary text-primary">PRO</span>
+</div>
+<div class="flex items-center space-x-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span>Cinematographer</span>
+<span>•</span>
+<span>15m ago</span>
+</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Post Body -->
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+          Completed the <span class="text-primary font-medium">#AnamorphicContrast</span> grading assignment! Here is the side-by-side node graph and 35mm test sequence.
+        </p>
+<!-- Media Preview Card (Side by Side) -->
+<div class="relative rounded-lg overflow-hidden border border-outline-variant bg-surface-container-lowest">
+<div class="w-full h-44 bg-cover bg-center relative" data-alt="Cinematic 35mm film still comparison demonstrating high contrast anamorphic lighting with cool cyan shadow tones and warm sodium vapor highlights on an actor in a dark studio setting. Clean colorist scope lines and crisp node graph visualization." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7fBRESxHojqX0OyNEz5q7jwWJKg6ElSFI0M5sySOnTAHULFXlXpOmOnlsfSi98MzpYyoMjHASOVp_iCMaVyuCzSFw792ROr8sNW-lMYnAHBe6vNCTH22dJ9WXkIuX_dCXvRb5bB3kWmmHiK5PuN-8eWWKPdnCrsAYBVYCuuG-UHYEbGvSzJOCGa7-NwgNZjAFMTaOAZi6Zv02nP3f_9vV2ScM5WxCNm_f7yayKFDUpLPJk5FYp0AWwA')">
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-surface/80 backdrop-blur-sm border border-outline-variant text-[11px] font-mono font-semibold text-on-surface">
+              Node 04: LogC ➔ Rec.709
+            </div>
+<div class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-surface/90 backdrop-blur-sm border border-outline-variant text-[11px] font-medium text-tertiary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="download">download</span>
+<span>LUT .cube</span>
+</div>
+</div>
+</div>
+<!-- Reaction Chips Strip -->
+<div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/60 flex items-center space-x-1 text-label-sm font-label-sm text-on-surface active:scale-95 transition-all">
+<span>🔥</span>
+<span>24</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/60 flex items-center space-x-1 text-label-sm font-label-sm text-on-surface active:scale-95 transition-all">
+<span>💡</span>
+<span>12</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/60 flex items-center space-x-1 text-label-sm font-label-sm text-on-surface active:scale-95 transition-all">
+<span>🚀</span>
+<span>6</span>
+</button>
+<button class="px-2 py-1 rounded-full bg-surface-container border border-dashed border-outline-variant text-on-surface-variant hover:text-on-surface text-[12px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="add_reaction">add_reaction</span>
+</button>
+</div>
+<!-- Social Action Counts -->
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/30 text-label-sm font-label-md text-on-surface-variant">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px] text-error" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span>42 Likes</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="chat_bubble">chat_bubble</span>
+<span>18 Comments</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="fork_right">fork_right</span>
+<span>5 Saves</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="share">share</span>
+</button>
+</div>
+<!-- Instructor Inline Reply Preview -->
+<div class="bg-surface rounded-lg p-2.5 border border-outline-variant/40 space-y-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container text-on-secondary font-bold text-[10px] flex items-center justify-center">
+                SL
+              </div>
+<span class="text-label-sm font-label-md text-on-surface font-semibold">Sarah Lin</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-container/30 text-tertiary font-semibold text-[9px] uppercase">Instructor</span>
+</div>
+<span class="text-[10px] text-on-surface-variant">8m ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant pl-8 leading-snug">
+            Great falloff control in the midtones! Check lesson 4.3 for secondary rim isolation around the hair line.
+          </p>
+</div>
+</article>
+<!-- Post 2: Technical Discussion / Code Lab -->
+<article class="bg-surface-container-low rounded-xl p-3.5 border border-outline-variant/50 space-y-3">
+<!-- Post Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-label-md text-secondary ring-1 ring-outline-variant">
+              ER
+            </div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="text-label-md font-headline-sm text-on-surface">Elena Rostova</span>
+<span class="px-1.5 py-0.2 text-[10px] font-bold rounded bg-secondary-container/40 border border-secondary text-secondary">DEV</span>
+</div>
+<div class="flex items-center space-x-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span>Lead Dev Member</span>
+<span>•</span>
+<span>1h ago</span>
+</div>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Post Body -->
+<p class="text-body-sm font-body-sm text-on-surface leading-relaxed">
+          Quick tip: When connecting the Webhook endpoint to Inngest with Creator OS SDK v2.4, remember to verify the HMAC SHA-256 header before dispatch.
+        </p>
+<!-- Code Block Snippet -->
+<div class="rounded-lg bg-surface-container-lowest p-3 border border-outline-variant/70 font-mono text-body-sm overflow-x-auto text-on-surface">
+<div class="flex items-center justify-between mb-1.5 text-[11px] text-on-surface-variant border-b border-outline-variant/30 pb-1">
+<span>webhook-handler.ts</span>
+<span class="text-tertiary">verified</span>
+</div>
+<pre class="text-[12px] leading-5 text-primary"><code><span class="text-secondary">import</span> { verifySignature } <span class="text-secondary">from</span> <span class="text-tertiary">"@creatoros/sdk"</span>;
+
+<span class="text-secondary">const</span> isValid = <span class="text-primary-container">verifySignature</span>({
+  payload,
+  sig: headers[<span class="text-tertiary">"x-hub-signature-256"</span>]
+});</code></pre>
+</div>
+<!-- Social Action Counts -->
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/30 text-label-sm font-label-md text-on-surface-variant">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="favorite">favorite</span>
+<span>19 Likes</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="chat_bubble">chat_bubble</span>
+<span>7 Comments</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="bookmark">bookmark</span>
+<span>Save</span>
+</button>
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[17px]" data-icon="share">share</span>
+</button>
+</div>
+</article>
+</main>
+<!-- BottomNavBar Component (from Shared Components JSON) -->
+<!-- Active state applied to "Feed" based on current module screen -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-2 bg-surface-container-low dark:bg-surface-container-low border-t border-outline-variant dark:border-outline-variant max-w-[390px] mx-auto right-0">
+<!-- Feed (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-full px-3 py-1 font-label-sm text-label-sm active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dynamic_feed">dynamic_feed</span>
+<span>Feed</span>
+</a>
+<!-- Channels -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="tag">tag</span>
+<span>Channels</span>
+</a>
+<!-- Messages with 3-unread badge -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface active:scale-95 transition-transform duration-150 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="chat_bubble">chat_bubble</span>
+<span class="absolute -top-1 -right-2 px-1 py-0.2 bg-secondary text-on-secondary rounded-full text-[9px] font-bold">3</span>
+</div>
+<span>Messages</span>
+</a>
+<!-- Mentions -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="alternate_email">alternate_email</span>
+<span>Mentions</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_circle">account_circle</span>
+<span>Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

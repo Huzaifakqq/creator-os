@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS — Block Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#004395",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed": "#002113",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "error-container": "#93000a",
+            "surface-tint": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "surface-container-high": "#2a292f",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "inverse-primary": "#005ac2",
+            "secondary": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "on-secondary": "#3c0091",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "background": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-lowest": "#0e0e13",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface-dim": "#131318",
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#00a572",
+            "on-primary-container": "#00285d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px -4px rgba(77, 142, 255, 0.4);
+    }
+    .glow-selected {
+      box-shadow: 0 0 0 1px #4d8eff, 0 0 16px -2px rgba(77, 142, 255, 0.35);
+    }
+    /* Hide scrollbar for category pills */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Simulator Frame (375px) -->
+<main class="w-[375px] min-h-screen bg-[#0A0A0F] relative flex flex-col pb-36 shadow-2xl overflow-hidden border-x border-[#1E1E2E]/60">
+<!-- Top Bar: Sticky block editor sub-navigation -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-3 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex items-center gap-2 min-w-0">
+<button aria-label="Navigate back" class="w-8 h-8 rounded-lg flex items-center justify-center bg-surface-container hover:text-primary active:scale-95 transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col min-w-0">
+<span class="text-label-sm font-label-sm text-primary tracking-wide">CANVAS</span>
+<h1 class="text-body-md font-body-md font-semibold text-on-surface truncate">Homepage (v2.4 Live)</h1>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<!-- Preview Button -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center bg-surface-container border border-[#1E1E2E] text-on-surface hover:text-primary hover:border-primary/40 active:scale-95 transition-all" title="Preview Mode">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+<!-- Gradient Publish Button -->
+<button class="h-8 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-semibold flex items-center gap-1 active:scale-95 transition-all glow-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="rocket_launch">rocket_launch</span>
+<span>Publish</span>
+</button>
+</div>
+</header>
+<!-- Canvas Editing Area -->
+<div class="flex-1 px-3.5 pt-4 pb-28 space-y-4">
+<!-- BLOCK 1: Hero Block -->
+<section class="group relative rounded-xl bg-[#12121A] border border-[#1E1E2E] p-4 transition-all duration-200 hover:border-outline-variant/60">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="splitscreen">splitscreen</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Hero Section</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-60" data-icon="drag_handle">drag_handle</span>
+</div>
+<div class="text-center py-3 px-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-[#1E1E2E] mb-3">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Version 2.4 Active</span>
+</div>
+<h2 class="text-headline-xl-mobile font-headline-xl-mobile font-bold tracking-tight text-on-surface mb-2">
+            Build &amp; Scale Your Sovereign Digital Empire
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4 px-2">
+            Multi-tenant infrastructure engineered specifically for independent creators, streaming platforms, and modern digital asset sales.
+          </p>
+<div class="flex items-center justify-center gap-2">
+<div class="h-9 px-4 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium flex items-center justify-center gap-1.5 shadow-sm">
+<span>Launch Studio</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<div class="h-9 px-3 rounded-lg bg-surface-container border border-[#1E1E2E] text-on-surface text-label-md font-label-md font-medium flex items-center justify-center">
+<span>Documentation</span>
+</div>
+</div>
+</div>
+</section>
+<!-- BLOCK 2: Bento Metric Block (SELECTED STATE) -->
+<section class="relative rounded-xl bg-[#12121A] border-2 border-primary glow-selected p-4 transition-all">
+<!-- Floating Block Toolbar -->
+<aside aria-label="Block controls" class="absolute -top-3.5 right-3 flex items-center gap-0.5 bg-[#181824] border border-[#2A2A3E] rounded-lg px-1.5 py-1 shadow-xl z-20">
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-colors" title="Edit Block">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<div class="w-[1px] h-3 bg-outline-variant/40 mx-0.5"></div>
+<button class="w-6 h-6 rounded flex items-center justify-center text-on-surface hover:text-primary active:scale-95 transition-colors" title="Duplicate Block">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+<div class="w-[1px] h-3 bg-outline-variant/40 mx-0.5"></div>
+<button class="w-6 h-6 rounded flex items-center justify-center text-error hover:bg-error-container/20 active:scale-95 transition-colors" title="Delete Block">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</aside>
+<!-- Block Identity Header -->
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm text-primary font-semibold">Bento Metrics (Selected)</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- 2-Column Bento Items -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Bento Cell 1 -->
+<div class="bg-[#181824] border border-[#2A2A3E] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Gross Volume</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface leading-tight">$42.8M</div>
+<div class="text-[10px] text-tertiary font-medium mt-0.5">Creator Earnings</div>
+</div>
+</div>
+<!-- Bento Cell 2 -->
+<div class="bg-[#181824] border border-[#2A2A3E] rounded-lg p-3 flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">SLA Payout</span>
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="verified">verified</span>
+</div>
+<div>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface leading-tight">99.99%</div>
+<div class="text-[10px] text-primary font-medium mt-0.5">Direct Settlement</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BLOCK 3: Video Stream Block Preview -->
+<section class="group relative rounded-xl bg-[#12121A] border border-[#1E1E2E] p-4 transition-all duration-200 hover:border-outline-variant/60">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]" data-icon="smart_display">smart_display</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Video Stream Preview</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-60" data-icon="drag_handle">drag_handle</span>
+</div>
+<div class="relative w-full h-36 rounded-lg overflow-hidden border border-[#1E1E2E] bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-85" data-alt="A dark-themed high-tech studio stream broadcast preview with modern creator software, glowing violet and electric blue neon interfaces, cinematic depth of field, minimalist studio monitors in an obsidian workspace setting, futuristic production atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlr6s4HR2eXVK4fUnJfqUxG-kKdzcoD1dfHwgROHivvvZ_HaY9P5ymc7WpXy4HAuuwjXOl9FSSHtUc6DQB-CQuQ48H0_DNWpz0aLMepZF0o7LQOv7xaU7risfkJeOqLfwXJwhURY-xj01Wy2EekrDwhRfFtZJxq3jv4G5Q9eTkaZHNu5Ccd-VYbajwuT429wLA1oJCdxOzDOUzGFHg6o-3PDAMv_MJjGo5U1oQKp9-ifMALXmvCK_CwA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-between p-2.5">
+<div class="flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error/90 text-on-error font-label-sm text-[10px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                LIVE 4K
+              </span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest/70 text-on-surface text-[10px] font-mono backdrop-blur-sm">01:24:18</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-label-md font-label-md font-semibold text-white truncate">Global Product Keynote 2025</p>
+<p class="text-[10px] text-on-surface-variant">1,420 viewers waiting</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/30 text-white">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Interactive Slide-up Block Palette Drawer Overlay -->
+<div class="fixed bottom-16 left-1/2 -translate-x-1/2 w-[375px] z-40 bg-[#12121A]/95 backdrop-blur-xl border-t border-[#1E1E2E] rounded-t-2xl shadow-2xl transition-transform">
+<!-- Drawer Pull Handle Bar -->
+<div class="w-full flex items-center justify-center pt-2.5 pb-1 cursor-grab active:cursor-grabbing">
+<div class="w-10 h-1.5 rounded-full bg-[#2A2A3E]"></div>
+</div>
+<!-- Drawer Header -->
+<div class="px-3.5 pt-1 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Add Block</h2>
+<span class="text-label-sm font-label-sm text-outline font-normal">(Drag to canvas)</span>
+</div>
+<!-- AI Generate Block Sparkle Pill -->
+<button class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary-container/20 to-secondary-container/20 border border-primary/40 text-primary text-label-sm font-label-sm font-semibold hover:border-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+<span>AI Generate</span>
+</button>
+</div>
+<!-- Filter Category Pills (Horizontal Scroll) -->
+<div class="px-3.5 pb-2.5 overflow-x-auto no-scrollbar flex items-center gap-1.5">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-medium shrink-0">All</button>
+<button class="px-3 py-1 rounded-full bg-[#181824] border border-[#1E1E2E] text-on-surface-variant hover:text-white font-label-sm text-label-sm font-medium shrink-0">Layout</button>
+<button class="px-3 py-1 rounded-full bg-[#181824] border border-[#1E1E2E] text-on-surface-variant hover:text-white font-label-sm text-label-sm font-medium shrink-0">Content</button>
+<button class="px-3 py-1 rounded-full bg-[#181824] border border-[#1E1E2E] text-on-surface-variant hover:text-white font-label-sm text-label-sm font-medium shrink-0">Interactive</button>
+<button class="px-3 py-1 rounded-full bg-[#181824] border border-[#1E1E2E] text-on-surface-variant hover:text-white font-label-sm text-label-sm font-medium shrink-0">Commerce</button>
+</div>
+<!-- 2-Column Grid of Draggable Block Chips -->
+<div class="px-3.5 pb-3 grid grid-cols-2 gap-2">
+<!-- Chip 1: Hero Block -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="splitscreen">splitscreen</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">Hero Block</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- Chip 2: Bento Grid -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="grid_view">grid_view</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">Bento Grid</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- Chip 3: Video Player -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="play_circle">play_circle</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">Video Player</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- Chip 4: Pricing Table -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="payments">payments</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">Pricing Table</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- Chip 5: Lead Form -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-secondary-fixed-dim shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="mail">mail</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">Lead Form</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+<!-- Chip 6: FAQ Accordion -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/40 active:scale-95 cursor-grab transition-all">
+<div class="flex items-center gap-2 min-w-0">
+<div class="w-7 h-7 rounded bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center text-on-surface-variant shrink-0">
+<span class="material-symbols-outlined text-[16px]" data-icon="quiz">quiz</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface font-medium truncate">FAQ Accordion</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] opacity-40 shrink-0" data-icon="drag_indicator">drag_indicator</span>
+</div>
+</div>
+</div>
+<!-- SHARED COMPONENT: BottomNavBar (Fixed bottom shell navigation) -->
+<!-- Destination 2: 'Build' is explicitly ACTIVE -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-[375px] z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface-container-lowest/95 dark:bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant/20 dark:border-outline-variant/20 shadow-none">
+<!-- Tab 1: Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#home">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<!-- Tab 2: Build (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-medium gap-1 hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#build">
+<span class="material-symbols-outlined" data-icon="build" data-weight="fill" style="font-variation-settings: 'FILL' 1;">build</span>
+<span class="text-label-sm font-label-sm">Build</span>
+</a>
+<!-- Tab 3: Sell (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#sell">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="text-label-sm font-label-sm">Sell</span>
+</a>
+<!-- Tab 4: Grow (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#grow">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span class="text-label-sm font-label-sm">Grow</span>
+</a>
+<!-- Tab 5: More (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform" href="#more">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+<span class="text-label-sm font-label-sm">More</span>
+</a>
+</nav>
+</main>
+</body></html>

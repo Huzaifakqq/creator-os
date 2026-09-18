@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Deliverability Health &amp; Domain Warmup Studio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-tint": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed": "#002113",
+            "on-error": "#690005",
+            "on-primary-container": "#00285d",
+            "outline": "#8c909f",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed": "#e9ddff",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "secondary-fixed-dim": "#d0bcff",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "on-tertiary": "#003824",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "tertiary": "#4edea3",
+            "tertiary-container": "#00a572",
+            "on-background": "#e4e1e9",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-primary": "#005ac2",
+            "surface-container-high": "#2a292f",
+            "background": "#131318",
+            "surface-container-highest": "#35343a",
+            "primary": "#adc6ff",
+            "error-container": "#93000a",
+            "on-surface": "#e4e1e9",
+            "surface-dim": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error": "#ffb4ab",
+            "outline-variant": "#424754",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          fontSize: {
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1f1f25;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .glass-panel {
+      background: rgba(19, 19, 24, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .chart-bar-glow:hover {
+      filter: drop-shadow(0 0 8px rgba(77, 142, 255, 0.5));
+    }
+    .radial-score {
+      stroke-dasharray: 283;
+      stroke-dashoffset: 4.5;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased min-h-screen flex overflow-x-hidden select-none selection:bg-primary selection:text-on-primary-container">
+<!-- Left SideNavBar (Shared Component Specification) -->
+<aside class="fixed top-0 left-0 h-screen w-64 z-40 bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline-variant flex flex-col justify-between p-4">
+<div class="flex flex-col gap-6">
+<!-- Workspace Brand / Header -->
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant mt-0.5">Studio Enterprise</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-medium shadow-[0_0_16px_rgba(59,130,246,0.35)] hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>New Project</span>
+</button>
+<!-- Primary Navigation -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="video_library">video_library</span>
+<span>Media Studio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<!-- Active Parent Tab: Monetization / Audience / Email Marketing Branch -->
+<div class="flex flex-col gap-0.5">
+<a class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-label-md text-label-md transition-colors duration-150" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="font-medium">Email Marketing</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="expand_more">expand_more</span>
+</a>
+<!-- Sub-items cluster -->
+<div class="pl-8 pr-1 py-1 flex flex-col gap-1 border-l border-surface-container-high ml-4">
+<a class="flex items-center justify-between px-2 py-1.5 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span>Campaigns &amp; Flows</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded bg-surface-container text-outline">14</span>
+</a>
+<a class="flex items-center justify-between px-2 py-1.5 rounded-md bg-[#3B82F6]/15 border border-[#3B82F6]/30 text-primary font-label-sm text-label-sm font-semibold" href="#">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                Deliverability Studio
+              </span>
+<span class="text-[10px] font-mono px-1 py-0.2 rounded bg-tertiary/20 text-tertiary">98.4%</span>
+</a>
+<a class="flex items-center px-2 py-1.5 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span>Warmup Automations</span>
+</a>
+<a class="flex items-center px-2 py-1.5 rounded-md text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span>Suppression Lists</span>
+</a>
+</div>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span>Monetization</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span>Audience</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer Utilities -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/40">
+<div class="px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Warmup Active</span>
+</div>
+<span class="font-label-sm text-label-sm font-mono text-tertiary">Day 18/30</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<a class="flex items-center gap-3 px-3 py-1.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="wifi_tethering">wifi_tethering</span>
+<span>Status</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Workspace Canvas Layout -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- TopNavBar (Shared Component Specification) -->
+<header class="sticky top-0 h-14 w-full z-30 bg-surface/90 backdrop-blur-md border-b border-outline-variant/60 flex items-center justify-between px-6">
+<!-- Breadcrumb & Connection Status Indicator -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 font-label-md text-label-md">
+<span class="text-on-surface-variant">Email Marketing</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Deliverability &amp; Domain Warmup</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40"></div>
+<!-- Real-time Connected Status Badge -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px] font-label-sm text-label-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface-variant">Infrastructure:</span>
+<span class="font-medium text-white">Resend &amp; Amazon SES Connected</span>
+<span class="text-tertiary font-mono text-[10px] pl-1">us-east-1</span>
+</div>
+</div>
+<!-- Action Buttons Cluster & Profile -->
+<div class="flex items-center gap-3">
+<button class="h-8 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface font-label-md text-label-md flex items-center gap-1.5 hover:border-primary/50 hover:bg-surface-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="file_download">file_download</span>
+<span>Export DNS Records</span>
+</button>
+<button class="h-8 px-3.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-medium flex items-center gap-2 shadow-[0_0_14px_rgba(59,130,246,0.35)] hover:brightness-105 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="bolt">bolt</span>
+<span>Run Instant Spam Test</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/50 mx-1"></div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-outline-variant overflow-hidden cursor-pointer hover:border-primary transition-colors">
+<img class="w-full h-full object-cover" data-alt="High quality studio headshot portrait of a creative engineering executive with sharp focus and cinematic soft studio lighting in a modern obsidian tech office setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz8j3eMBL7gGiYziXMllURKIYQPJJtLHcMhT78n8ljF2PrDHJpW8hvf1Y-iBz2TvzpmThKovjxYMp0Zlce4XEtKLYae2OhFwY9bve8S8URHESdk69EK1Glvp0D_bkxFXNB9_MGjtZ3wAol1T95gyFgIq92dzDduPofgiXsjUCBD3B3YJdy0sA9XuQ6MkBQL5NK6M1eDF1Tx3T8pgUFkHq9UdnNsi_Y9o16vz3TYLPfOVa0iQbXaaCIqg"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Workspace Body -->
+<main class="flex-1 p-6 space-y-6 max-w-[1600px] w-full mx-auto">
+<!-- Section Title & Live Warmup Banner Alert -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="font-headline-lg text-headline-lg text-white font-bold tracking-tight">Deliverability Health &amp; Domain Warmup Studio</h1>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30">ENGINE v4.2</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Autonomous inbox warming pipeline, multi-tenant DNS reputation shields, and protocol verification matrix.</p>
+</div>
+<!-- Circuit Breaker Status Pill -->
+<div class="flex items-center gap-3 bg-[#12121A] border border-[#1E1E2E] rounded-xl px-4 py-2.5 shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] font-label-sm text-outline-variant uppercase tracking-wider font-semibold">Circuit Breaker</span>
+<span class="text-[13px] font-medium text-tertiary flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Auto-Throttle Armed (&lt;0.05% threshold)
+            </span>
+</div>
+</div>
+</div>
+<!-- 1. Deliverability Health KPI Bento Strip (4 cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Card 1: Sender Reputation Score -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 relative overflow-hidden flex flex-col justify-between hover:border-[#3B82F6]/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant">Sender Reputation Score</span>
+<span class="text-[11px] text-outline font-normal">Global IP &amp; Domain Aggregate</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary border border-tertiary/30 text-[11px] font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span>
+              +0.8% this week
+            </span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-xl text-headline-xl text-white font-bold font-mono">98.4</span>
+<span class="text-on-surface-variant font-mono font-medium">/ 100</span>
+</div>
+<div class="flex items-center gap-2 mt-1">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span>
+<span class="font-label-md text-label-md text-tertiary font-semibold">Optimal • Excellent Tier</span>
+</div>
+</div>
+<!-- SVG Radial Gauge -->
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" r="42" stroke="#1E1E2E" stroke-width="8"></circle>
+<circle cx="50" cy="50" fill="none" r="42" stroke="#4edea3" stroke-dasharray="264" stroke-dashoffset="4.2" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<span class="absolute text-[12px] font-mono font-bold text-white">98%</span>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-[11px] text-on-surface-variant">
+<span>Historical low: 96.1</span>
+<span class="text-tertiary font-medium">Zero spam trap hits</span>
+</div>
+</div>
+<!-- Card 2: Inbox Placement Rate -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 flex flex-col justify-between hover:border-[#3B82F6]/40 transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant">Inbox Placement Rate</span>
+<p class="text-[11px] text-outline">Seed list delivery testing</p>
+</div>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="mark_email_read">mark_email_read</span>
+</span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-white font-bold font-mono">99.2%</span>
+<span class="text-[11px] text-tertiary font-medium">Top 1% of senders</span>
+</div>
+<!-- Segmented Stack Bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden flex mt-3 gap-0.5">
+<div class="h-full bg-tertiary" style="width: 96.4%" title="Primary Inbox: 96.4%"></div>
+<div class="h-full bg-primary-container" style="width: 2.8%" title="Promotions: 2.8%"></div>
+<div class="h-full bg-error" style="width: 0.8%" title="Spam: 0.0%"></div>
+</div>
+<!-- Breakdown Legends -->
+<div class="grid grid-cols-3 gap-1 mt-3 pt-3 border-t border-[#1E1E2E] text-[11px]">
+<div>
+<div class="text-on-surface-variant">Primary</div>
+<div class="font-mono font-semibold text-white">96.4%</div>
+</div>
+<div>
+<div class="text-on-surface-variant">Promos</div>
+<div class="font-mono font-semibold text-primary">2.8%</div>
+</div>
+<div>
+<div class="text-on-surface-variant">Spam Box</div>
+<div class="font-mono font-semibold text-tertiary">0.0%</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Bounce & Complaint Velocity -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 flex flex-col justify-between hover:border-[#3B82F6]/40 transition-colors">
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant">Bounce &amp; Complaint Velocity</span>
+<p class="text-[11px] text-outline">Telemetry over rolling 7 days</p>
+</div>
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-[#8B5CF6]">
+<span class="material-symbols-outlined text-[18px]" data-icon="speed">speed</span>
+</span>
+</div>
+<div class="mt-2 space-y-3">
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-on-surface-variant">Hard Bounce</span>
+<span class="font-mono font-semibold text-white">0.12% <span class="text-outline font-normal text-[10px]">(Max 2.0%)</span></span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 6%"></div>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-on-surface-variant">Spam Complaints</span>
+<span class="font-mono font-semibold text-tertiary">0.01% <span class="text-outline font-normal text-[10px]">(Safe &lt; 0.08%)</span></span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-[#3B82F6] rounded-full" style="width: 12.5%"></div>
+</div>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-[11px]">
+<span class="text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+              Zero ISP blocks recorded
+            </span>
+<span class="text-outline font-mono">14 bounces/120k</span>
+</div>
+</div>
+<!-- Card 4: Warmup Day 18 / 30 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 flex flex-col justify-between hover:border-[#3B82F6]/40 transition-colors relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-[#3B82F6]/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant">Ramp Progression</span>
+<p class="text-[11px] text-outline">Graduated step warmup</p>
+</div>
+<span class="px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30 font-mono text-[11px] font-bold text-primary">
+              DAY 18 / 30
+            </span>
+</div>
+<div class="mt-2">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-white font-bold font-mono">18,500</span>
+<span class="text-body-sm text-body-sm text-on-surface-variant">/ 50,000 target</span>
+</div>
+<!-- Warmup progress bar -->
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden mt-3 relative">
+<div class="h-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full" style="width: 60%"></div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-outline font-mono mt-1.5">
+<span>200/day (Day 1)</span>
+<span class="text-primary font-medium">60% Complete</span>
+<span>50k (Day 30)</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-[11px]">
+<span class="text-white font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+              Next bump: +2,500 tomorrow
+            </span>
+<span class="text-on-surface-variant">Schedule: On Track</span>
+</div>
+</div>
+</div>
+<!-- 2. Domain Authentication & DNS Protocol Verification Matrix -->
+<section class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-5 border-b border-[#1E1E2E] gap-3">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="dns">dns</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold">Domain Authentication &amp; DNS Protocol Verification Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cryptographic identity guarantees and sender alignment records checked every 15 minutes.</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface text-label-sm font-medium hover:bg-surface-container-high transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px]" data-icon="sync">sync</span>
+<span>Re-verify All Domains</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/30 text-primary text-label-sm font-semibold hover:bg-primary/20 transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="add">add</span>
+<span>Add Custom Domain</span>
+</button>
+</div>
+</div>
+<!-- Domain Item 1: mail.creatorstudio.io -->
+<div class="mt-5 rounded-lg bg-[#181824] border border-[#1E1E2E] overflow-hidden">
+<!-- Domain Header Bar -->
+<div class="px-5 py-3.5 bg-surface-container-low border-b border-[#1E1E2E] flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[22px]" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="flex items-center gap-2">
+<span class="font-mono text-white font-semibold text-[15px]">mail.creatorstudio.io</span>
+<span class="px-2 py-0.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-[11px] font-medium">Primary Broadcast Domain</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 border border-tertiary/30 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Active &amp; Routing
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[12px] font-label-md text-label-md text-on-surface-variant">
+<span>Provider: <span class="text-white font-medium">Resend (AWS SES)</span></span>
+<span>Health: <span class="text-tertiary font-mono font-bold">100% Valid</span></span>
+<span class="text-outline">Last check: 4 mins ago</span>
+</div>
+</div>
+<!-- DNS Records Grid -->
+<div class="p-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+<!-- SPF Record -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">SPF Record</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">TXT</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Pass
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-tertiary-fixed-dim break-all select-all">
+                v=spf1 include:resend.com ~all
+              </div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>Alignment: Strict</span>
+<span class="text-tertiary">Lookup count: 2 / 10</span>
+</div>
+</div>
+<!-- DKIM 2048-bit Record -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">DKIM 2048-bit</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">CNAME</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> RSA-2048 Pass
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-tertiary-fixed-dim break-all select-all">
+                resend._domainkey.creatorstudio.io
+              </div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>Selector: resend</span>
+<span class="text-tertiary">Rotation: Automatic (90d)</span>
+</div>
+</div>
+<!-- DMARC Policy Record -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">DMARC Policy</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">TXT</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Strict Reject
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-tertiary-fixed-dim break-all select-all">
+                v=DMARC1; p=reject; rua=mailto:dmarc@creatorstudio.io
+              </div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>Policy Enforcement: 100%</span>
+<span class="text-tertiary">Spoofing Immunity: Max</span>
+</div>
+</div>
+<!-- BIMI & Brand Icon -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">BIMI &amp; Brand Icon</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">TXT</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> VMC Validated
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-on-surface-variant break-all flex items-center justify-between">
+<span class="truncate">v=BIMI1; l=https://creatorstudio.io/bimi-logo.svg; a=cert.pem</span>
+<div class="w-4 h-4 rounded bg-gradient-to-tr from-primary to-secondary flex-shrink-0 ml-2"></div>
+</div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>Entrust VMC Issued</span>
+<span class="text-primary">Inboxes show verified avatar</span>
+</div>
+</div>
+<!-- Custom Return-Path -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">Custom Return-Path (Mail-From)</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">MX / CNAME</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Aligned
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-tertiary-fixed-dim break-all select-all">
+                bounce.creatorstudio.io
+              </div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>CNAME: feedback.resend.com</span>
+<span class="text-tertiary">Zero shared reputation</span>
+</div>
+</div>
+<!-- TLS & MX Diagnostic -->
+<div class="p-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-outline-variant/60 transition-colors flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="font-mono font-semibold text-white text-[13px]">MTA-STS &amp; TLS 1.3</span>
+<span class="text-[10px] uppercase font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline">TLS</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-tertiary/15 text-tertiary text-[11px] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Enforced
+                </span>
+</div>
+<div class="bg-[#0A0A0F] p-2 rounded border border-[#1E1E2E] font-mono text-[11px] text-on-surface-variant flex items-center justify-between">
+<span>mode: enforce | max_age: 604800</span>
+<span class="text-tertiary font-mono">TLS 1.3 ONLY</span>
+</div>
+<div class="mt-2 text-[11px] text-outline flex items-center justify-between">
+<span>E2E In-Transit Encryption</span>
+<span class="text-tertiary">Pass (100%)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Domain Item 2: notifications.creatorstudio.io -->
+<div class="mt-3 rounded-lg bg-[#181824] border border-[#1E1E2E] px-5 py-3 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="mark_email_unread">mark_email_unread</span>
+<div class="flex items-center gap-2">
+<span class="font-mono text-white font-medium text-[14px]">notifications.creatorstudio.io</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-[11px]">Transactional Domain</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary text-[11px] font-medium">100% Health</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-[12px]">
+<span class="text-outline font-mono">SPF • DKIM • DMARC Verified</span>
+<button class="text-primary hover:text-white font-label-sm text-label-sm font-medium transition-colors">View Records</button>
+</div>
+</div>
+</section>
+<!-- 3. Automated 30-Day Domain Warmup Ramp Schedule & Chart -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
+<!-- Left: Interactive Warmup Ramp Schedule & Chart (xl:col-span-2) -->
+<div class="xl:col-span-2 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 flex flex-col justify-between">
+<div>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-[#1E1E2E]">
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-white font-semibold">Automated 30-Day Domain Warmup Ramp</h3>
+<span class="px-2 py-0.5 rounded bg-[#3B82F6]/10 text-primary border border-primary/20 text-[11px] font-medium">Graduated Algorithm</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Day-by-day sending volume pacing across warm subscriber tiers.</p>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-4 text-[11px] font-label-md">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-gradient-to-t from-[#3B82F6] to-[#8B5CF6]"></span>
+<span class="text-on-surface">Delivered (Days 1-18)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-3 rounded bg-[#1E1E2E] border border-dashed border-outline"></span>
+<span class="text-on-surface-variant">Projected Ramp (Days 19-30)</span>
+</div>
+</div>
+</div>
+<!-- Warmup Milestone Snapshot Strip -->
+<div class="grid grid-cols-4 gap-2 my-4">
+<div class="p-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="text-[11px] text-on-surface-variant">Day 1 Initial Cap</div>
+<div class="font-mono text-white font-semibold text-[14px]">200 / day</div>
+<span class="text-[10px] text-tertiary">Completed (100% inbox)</span>
+</div>
+<div class="p-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="text-[11px] text-on-surface-variant">Current Day 18</div>
+<div class="font-mono text-primary font-bold text-[14px]">18,500 / day</div>
+<span class="text-[10px] text-tertiary">Cap Reached Today</span>
+</div>
+<div class="p-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="text-[11px] text-on-surface-variant">Day 24 Target</div>
+<div class="font-mono text-white font-semibold text-[14px]">32,000 / day</div>
+<span class="text-[10px] text-outline">Graduated ramp stage</span>
+</div>
+<div class="p-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="text-[11px] text-on-surface-variant">Day 30 Peak Capacity</div>
+<div class="font-mono text-secondary font-bold text-[14px]">50,000 / day</div>
+<span class="text-[10px] text-outline">Full production volume</span>
+</div>
+</div>
+<!-- Custom Data-Driven Warmup Chart Visualization (30 Columns) -->
+<div class="mt-6 pt-4">
+<div class="flex items-end justify-between h-48 gap-1.5 px-2">
+<!-- Day 1 to 18 (Completed / Active) -->
+<!-- Day 1 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/60 rounded-t h-[4%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">1</span>
+</div>
+<!-- Day 2 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/60 rounded-t h-[5%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">2</span>
+</div>
+<!-- Day 3 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/70 rounded-t h-[7%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">3</span>
+</div>
+<!-- Day 4 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/70 rounded-t h-[9%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">4</span>
+</div>
+<!-- Day 5 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/75 rounded-t h-[11%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">5</span>
+</div>
+<!-- Day 6 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/75 rounded-t h-[14%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">6</span>
+</div>
+<!-- Day 7 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/80 rounded-t h-[17%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">7</span>
+</div>
+<!-- Day 8 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/80 rounded-t h-[20%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">8</span>
+</div>
+<!-- Day 9 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/85 rounded-t h-[23%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">9</span>
+</div>
+<!-- Day 10 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/85 rounded-t h-[26%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">10</span>
+</div>
+<!-- Day 11 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/90 rounded-t h-[29%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">11</span>
+</div>
+<!-- Day 12 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6]/90 rounded-t h-[32%] chart-bar-glow group-hover:bg-[#3B82F6]"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">12</span>
+</div>
+<!-- Day 13 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6] rounded-t h-[35%] chart-bar-glow group-hover:bg-primary"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">13</span>
+</div>
+<!-- Day 14 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6] rounded-t h-[38%] chart-bar-glow group-hover:bg-primary"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">14</span>
+</div>
+<!-- Day 15 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#3B82F6] rounded-t h-[42%] chart-bar-glow group-hover:bg-primary"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">15</span>
+</div>
+<!-- Day 16 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#4d8eff] rounded-t h-[46%] chart-bar-glow group-hover:bg-primary"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">16</span>
+</div>
+<!-- Day 17 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full bg-[#4d8eff] rounded-t h-[51%] chart-bar-glow group-hover:bg-primary"></div>
+<span class="text-[9px] font-mono text-outline group-hover:text-white">17</span>
+</div>
+<!-- Day 18 (Today / Active Anchor) -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer relative">
+<div class="w-full bg-gradient-to-t from-[#3B82F6] to-[#8B5CF6] rounded-t h-[57%] shadow-[0_0_12px_rgba(139,92,246,0.6)]"></div>
+<span class="text-[9px] font-mono font-bold text-white bg-[#8B5CF6] px-1 rounded-sm">18</span>
+<span class="absolute -top-7 text-[10px] font-mono font-bold text-white bg-surface-container-highest px-1 py-0.5 rounded shadow">18.5k</span>
+</div>
+<!-- Day 19 to 30 (Projected Ramp / Outlined) -->
+<!-- Day 19 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[61%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">19</span>
+</div>
+<!-- Day 20 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[65%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">20</span>
+</div>
+<!-- Day 21 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[69%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">21</span>
+</div>
+<!-- Day 22 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[73%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">22</span>
+</div>
+<!-- Day 23 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[77%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">23</span>
+</div>
+<!-- Day 24 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[81%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">24</span>
+</div>
+<!-- Day 25 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[85%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">25</span>
+</div>
+<!-- Day 26 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[89%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">26</span>
+</div>
+<!-- Day 27 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[93%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">27</span>
+</div>
+<!-- Day 28 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[96%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">28</span>
+</div>
+<!-- Day 29 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border border-dashed border-[#8c909f]/40 bg-[#1E1E2E]/30 rounded-t h-[98%] hover:bg-[#8B5CF6]/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-outline/60 group-hover:text-white">29</span>
+</div>
+<!-- Day 30 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 group cursor-pointer">
+<div class="w-full border-2 border-dashed border-secondary/60 bg-secondary/10 rounded-t h-[100%] hover:bg-secondary/20 transition-colors"></div>
+<span class="text-[9px] font-mono text-secondary font-bold group-hover:text-white">30</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#1E1E2E] flex flex-wrap items-center justify-between gap-2 text-[12px] text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="auto_mode">auto_mode</span>
+<span>Graduation Strategy: <strong class="text-white font-medium">Smart AI Engagement Clustering</strong></span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-outline">Max throughput per hr: 1,540 msg/hr</span>
+<button class="text-primary hover:underline font-medium">Edit Step Curves</button>
+</div>
+</div>
+</div>
+<!-- Right: ISP Distribution & Throttle Circuit Breaker (xl:col-span-1) -->
+<div class="space-y-6 flex flex-col">
+<!-- ISP Distribution Bento Box -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="font-headline-sm text-headline-sm text-white font-semibold">ISP Distribution</span>
+<span class="text-[11px] font-mono text-outline">Target Mix</span>
+</div>
+<p class="text-[12px] text-on-surface-variant mb-4">Warming load distribution across top consumer mailbox providers.</p>
+<!-- Progress bar segments -->
+<div class="space-y-3">
+<!-- Gmail -->
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-white flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#3B82F6]"></span>
+                      Google Workspace / Gmail
+                    </span>
+<span class="font-mono font-bold text-white">48%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-[#3B82F6] rounded-full" style="width: 48%"></div>
+</div>
+</div>
+<!-- Apple Mail -->
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-white flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#8B5CF6]"></span>
+                      Apple iCloud / Mail
+                    </span>
+<span class="font-mono font-bold text-white">28%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-[#8B5CF6] rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Outlook -->
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-white flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#4edea3]"></span>
+                      Microsoft 365 / Outlook
+                    </span>
+<span class="font-mono font-bold text-white">16%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-[#4edea3] rounded-full" style="width: 16%"></div>
+</div>
+</div>
+<!-- Yahoo / AOL -->
+<div>
+<div class="flex items-center justify-between text-[12px] mb-1">
+<span class="text-white flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                      Yahoo / AOL Mail
+                    </span>
+<span class="font-mono font-bold text-white">8%</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-[11px] text-tertiary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]" data-icon="check_circle">check_circle</span>
+                All MX feedback loops connected
+              </span>
+<span class="text-outline">CFR compliant</span>
+</div>
+</div>
+<!-- Circuit Breaker Settings Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="security">security</span>
+<span class="font-label-lg text-label-lg font-semibold text-white">Circuit Breaker &amp; Throttle</span>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/20">LIVE</span>
+</div>
+<p class="text-[12px] text-on-surface-variant mt-2">
+              If spam complaint velocity exceeds <span class="text-white font-mono font-bold">0.05%</span> in any 60-min window, sending stops immediately.
+            </p>
+<div class="mt-3 flex items-center justify-between p-2 rounded bg-[#0A0A0F] border border-[#1E1E2E] text-[11px] font-mono">
+<span class="text-on-surface-variant">Current Rate: <span class="text-tertiary font-bold">0.01%</span></span>
+<span class="text-outline">Trip Limit: 0.05%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Real-time Spam Filter & Blocklist Diagnostics Console -->
+<section class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#1E1E2E] gap-2">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]" data-icon="policy">policy</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold">Real-time Spam Filter &amp; Blocklist Diagnostics Console</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Continuous heuristic auditing across 12 authoritative RBLs and SpamAssassin engine.</p>
+</div>
+</div>
+<!-- Pre-flight Spam Score Badge -->
+<div class="flex items-center gap-3 bg-[#181824] border border-[#1E1E2E] px-3.5 py-1.5 rounded-lg">
+<span class="text-[12px] text-on-surface-variant">SpamAssassin Pre-Flight:</span>
+<span class="font-mono font-bold text-tertiary text-[14px]">0.2 / 5.0</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary/15 text-tertiary text-[10px] font-mono uppercase">Passed Clean</span>
+</div>
+</div>
+<!-- Blocklists Badges Strip -->
+<div class="mt-5">
+<div class="flex items-center justify-between mb-3 text-[12px]">
+<span class="text-on-surface-variant font-medium">Reputation Blocklist (RBL) Live Monitor</span>
+<span class="text-tertiary font-mono flex items-center gap-1 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              12 of 12 Blacklists Clean
+            </span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+<!-- Spamhaus -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">Spamhaus (SBL)</div>
+<div class="text-[10px] text-outline font-mono">zen.spamhaus.org</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Barracuda -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">Barracuda RBL</div>
+<div class="text-[10px] text-outline font-mono">b.barracudacentral</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- SORBS -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">SORBS Aggregate</div>
+<div class="text-[10px] text-outline font-mono">dnsbl.sorbs.net</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- SpamCop -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">SpamCop (SCBL)</div>
+<div class="text-[10px] text-outline font-mono">bl.spamcop.net</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Invaluement -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">Invaluement RBL</div>
+<div class="text-[10px] text-outline font-mono">ivmURI.inval</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- UCEPROTECT -->
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-between">
+<div>
+<div class="text-[12px] font-semibold text-white">UCEPROTECT L1</div>
+<div class="text-[10px] text-outline font-mono">dnsbl-1.uceprotect</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Heuristic Rule Checks Console Log -->
+<div class="mt-4 p-4 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="flex items-center justify-between text-[11px] font-mono text-outline mb-2">
+<span>PRE-FLIGHT DIAGNOSTIC LOG (BROADCAST SEED RUN #4928)</span>
+<span class="text-tertiary">0 ERRORS • 0 WARNINGS</span>
+</div>
+<div class="space-y-1 font-mono text-[11px]">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-tertiary">[PASS]</span>
+<span class="text-on-surface-variant">HTML-to-Text ratio:</span>
+<span class="text-white">41.8% (optimal &gt; 25%)</span>
+<span class="text-outline ml-auto">Rule: MIME_HTML_ONLY [Passed]</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-tertiary">[PASS]</span>
+<span class="text-on-surface-variant">Trigger keywords scan:</span>
+<span class="text-white">Zero high-risk financial/phishing tokens identified</span>
+<span class="text-outline ml-auto">Rule: SPAM_PHRASE_DETECT [Passed]</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface">
+<span class="text-tertiary">[PASS]</span>
+<span class="text-on-surface-variant">List-Unsubscribe Header:</span>
+<span class="text-white">RFC 8058 One-Click POST enabled (&lt;mailto:unsub@creatorstudio.io&gt;)</span>
+<span class="text-outline ml-auto">Rule: ONE_CLICK_UNSUB [Enforced]</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Workspace Footer -->
+<footer class="mt-auto px-6 py-4 border-t border-[#1E1E2E] flex flex-col sm:flex-row items-center justify-between text-[12px] text-on-surface-variant gap-2">
+<div class="flex items-center gap-3">
+<span>© 2025 Creator OS. Studio Enterprise Edition.</span>
+<span class="text-outline-variant">•</span>
+<span class="text-tertiary">All sending clusters healthy</span>
+</div>
+<div class="flex items-center gap-4">
+<a class="hover:text-white transition-colors" href="#">Deliverability Best Practices</a>
+<a class="hover:text-white transition-colors" href="#">IP Warmup Guidelines</a>
+<a class="hover:text-white transition-colors" href="#">API Diagnostics</a>
+</div>
+</footer>
+</div>
+</body></html>

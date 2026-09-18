@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS — Register</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#004395",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed": "#002113",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "error-container": "#93000a",
+            "surface-tint": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "surface-container-high": "#2a292f",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "inverse-primary": "#005ac2",
+            "secondary": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "on-secondary": "#3c0091",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "background": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-lowest": "#0e0e13",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface-dim": "#131318",
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#00a572",
+            "on-primary-container": "#00285d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 18px;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex justify-center min-h-screen selection:bg-primary/20 selection:text-primary">
+<!-- Mobile 375px Canvas Shell -->
+<div class="w-full max-w-[375px] min-h-screen bg-surface-container-lowest relative flex flex-col overflow-x-hidden shadow-2xl border-x border-outline-variant/10">
+<!-- Decorative Ambient Top Glow -->
+<div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-72 bg-gradient-to-br from-primary/20 via-secondary-container/30 to-transparent blur-[64px] rounded-full opacity-60"></div>
+<div class="pointer-events-none absolute top-48 -right-20 w-48 h-48 bg-tertiary-container/15 blur-[54px] rounded-full opacity-40"></div>
+<!-- Mobile System Status Bar Mock -->
+<div class="relative z-20 flex items-center justify-between px-6 pt-3 pb-2 select-none">
+<span class="text-label-sm font-label-sm text-on-surface font-semibold tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined !text-[15px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined !text-[15px]">wifi</span>
+<span class="material-symbols-outlined !text-[17px]">battery_full</span>
+</div>
+</div>
+<!-- App Identity & Brand Header -->
+<header class="relative z-10 px-6 pt-4 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="h-9 w-9 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant/40 shadow-sm relative group">
+<div class="absolute inset-0 bg-primary/10 rounded-lg blur-xs"></div>
+<span class="material-symbols-outlined text-primary relative z-10" data-icon="hub">hub</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm font-semibold tracking-wider uppercase bg-primary/15 text-primary border border-primary/30 shadow-[0_0_12px_rgba(173,198,255,0.3)]">
+            v2.4
+          </span>
+</div>
+</div>
+<div class="h-8 w-8 rounded-lg bg-surface-container-low flex items-center justify-center border border-outline-variant/20 text-on-surface-variant">
+<span class="material-symbols-outlined !text-[16px]">shield_spark</span>
+</div>
+</header>
+<!-- Main Registration Workspace Content -->
+<main class="relative z-10 flex-1 px-6 pt-5 pb-8 flex flex-col justify-between">
+<div>
+<!-- Screen Title Section -->
+<div class="space-y-1.5 mb-6">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">
+            Create your account
+          </h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Launch your multi-tenant digital business in seconds
+          </p>
+</div>
+<!-- Interactive Form Card Container -->
+<div class="bg-surface-container-low/90 rounded-xl border border-outline-variant/30 p-5 backdrop-blur-md shadow-[0_12px_32px_-4px_rgba(0,0,0,0.5)] space-y-4">
+<!-- Field: Full Name -->
+<div class="space-y-1.5">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">
+              Full Name
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none" data-icon="person">person</span>
+<input class="w-full h-10 pl-9 pr-3 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_12px_rgba(173,198,255,0.2)] transition-all" placeholder="Alex Morgan" type="text"/>
+</div>
+</div>
+<!-- Field: Email Address -->
+<div class="space-y-1.5">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">
+              Email Address
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none" data-icon="mail">mail</span>
+<input class="w-full h-10 pl-9 pr-3 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_12px_rgba(173,198,255,0.2)] transition-all" placeholder="alex@creator.studio" type="email"/>
+</div>
+</div>
+<!-- Field: Password -->
+<div class="space-y-1.5">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">
+              Password
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none" data-icon="lock">lock</span>
+<input class="w-full h-10 pl-9 pr-10 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_12px_rgba(173,198,255,0.2)] transition-all" id="passwordInput" placeholder="••••••••••••" type="password" value="CreatorEnterprise2024!"/>
+<button class="absolute right-3 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined !text-[18px]">visibility</span>
+</button>
+</div>
+<!-- 4-Segment Password Strength Indicator Bar -->
+<div class="pt-2 space-y-1.5">
+<div class="flex items-center justify-between text-[11px] font-label-sm">
+<span class="text-outline">Strength</span>
+<span class="text-tertiary font-semibold flex items-center gap-1">
+<span class="h-1.5 w-1.5 rounded-full bg-tertiary"></span>
+                  Strong
+                </span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full">
+<!-- Segment 1: Filled -->
+<div class="h-full rounded-full bg-tertiary transition-all duration-300"></div>
+<!-- Segment 2: Filled -->
+<div class="h-full rounded-full bg-tertiary transition-all duration-300"></div>
+<!-- Segment 3: Filled -->
+<div class="h-full rounded-full bg-tertiary transition-all duration-300"></div>
+<!-- Segment 4: Filled (Strong State) -->
+<div class="h-full rounded-full bg-tertiary shadow-[0_0_8px_rgba(78,222,163,0.6)] transition-all duration-300"></div>
+</div>
+</div>
+</div>
+<!-- Field: Confirm Password -->
+<div class="space-y-1.5">
+<label class="block text-label-sm font-label-sm text-on-surface-variant">
+              Confirm Password
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none" data-icon="lock_reset">lock_reset</span>
+<input class="w-full h-10 pl-9 pr-10 bg-surface-container-lowest border border-outline-variant/40 rounded-lg text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_12px_rgba(173,198,255,0.2)] transition-all" placeholder="••••••••••••" type="password" value="CreatorEnterprise2024!"/>
+<span class="material-symbols-outlined absolute right-3 text-tertiary !text-[18px]">check_circle</span>
+</div>
+</div>
+<!-- Terms Checkbox -->
+<div class="pt-1 flex items-start gap-3">
+<label class="relative flex items-center justify-center cursor-pointer mt-0.5">
+<input checked="" class="appearance-none w-[18px] h-[18px] rounded bg-surface-container-lowest border border-primary/80 checked:bg-gradient-to-br checked:from-primary-container checked:to-secondary-container checked:border-transparent focus:ring-0 focus:outline-none transition-all cursor-pointer shadow-[0_0_10px_rgba(77,142,255,0.35)]" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary-container text-[14px] pointer-events-none font-bold">check</span>
+</label>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-tight">
+              I agree to the <a class="text-primary hover:underline underline-offset-2" href="#">Terms of Service</a> &amp; <a class="text-primary hover:underline underline-offset-2" href="#">Privacy Policy</a>
+</p>
+</div>
+</div>
+<!-- Primary Action Call -->
+<div class="mt-5 space-y-4">
+<button class="w-full h-11 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-[0_0_20px_-2px_rgba(77,142,255,0.45)] active:scale-[0.98] transition-all hover:brightness-105" type="button">
+<span>Create Account</span>
+<span class="material-symbols-outlined !text-[18px]">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative flex items-center justify-center py-1">
+<div class="border-t border-outline-variant/30 w-full"></div>
+<span class="bg-surface-container-lowest px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider relative z-10">or</span>
+</div>
+<!-- Continue with Google Button -->
+<button class="w-full h-11 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-3 active:scale-[0.98] hover:bg-surface-container hover:border-outline-variant/70 transition-all shadow-sm" type="button">
+<svg class="w-4 h-4 shrink-0" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+</div>
+</div>
+<!-- Bottom Sign In Link & Safe Area Alignment -->
+<footer class="mt-8 text-center pt-2">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Already have an account? 
+          <a class="text-primary font-medium hover:underline underline-offset-2 ml-1" href="#">
+            Sign in
+          </a>
+</p>
+<!-- Standard Mobile Safe Area Indicator Bar -->
+<div class="mt-6 flex justify-center">
+<div class="w-32 h-1 bg-outline-variant/40 rounded-full"></div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — The Autonomous Operating System for Creators &amp; Studios</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "surface-container-high": "#2a292f",
+            "inverse-on-surface": "#303036",
+            "surface-container-low": "#1b1b20",
+            "on-secondary": "#3c0091",
+            "surface-bright": "#39383e",
+            "on-surface-variant": "#c2c6d6",
+            "surface-tint": "#adc6ff",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "on-error-container": "#ffdad6",
+            "secondary-fixed-dim": "#d0bcff",
+            "error": "#ffb4ab",
+            "tertiary": "#4edea3",
+            "on-primary-container": "#00285d",
+            "on-surface": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-lowest": "#0e0e13",
+            "outline": "#8c909f",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-secondary-container": "#c4abff",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container": "#1f1f25",
+            "background": "#131318",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-tertiary-container": "#00311f",
+            "on-primary": "#002e6a",
+            "surface": "#131318",
+            "surface-dim": "#131318",
+            "secondary-container": "#571bc1",
+            "primary": "#adc6ff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-container": "#00a572",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-fixed": "#23005c",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "error-container": "#93000a",
+            "on-background": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "tertiary-fixed": "#6ffbbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-mesh-bg {
+      background-radial: radial-gradient(circle at 50% -20%, rgba(77, 142, 255, 0.18) 0%, rgba(87, 27, 193, 0.12) 35%, rgba(14, 14, 19, 0) 70%);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary selection:text-on-primary-container min-h-screen overflow-x-hidden font-body-md text-body-md">
+<!-- TOP APP/MARKETING BAR (Shared Component JSON Blueprint Compliant) -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30 dark:border-outline-variant/30">
+<div class="max-w-7xl mx-auto flex items-center justify-between px-space-xl h-14">
+<!-- Brand Anchor -->
+<a class="flex items-center gap-2 group transition-all duration-200 active:scale-95" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center p-0.5 shadow-[0_0_16px_rgba(77,142,255,0.4)]">
+<div class="w-full h-full bg-surface-container-lowest rounded-[6px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]">hub</span>
+</div>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+</a>
+<!-- Web Nav Links -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-primary dark:text-primary font-label-lg text-label-lg font-semibold transition-colors duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#product">Product</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#features">Features</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#pricing">Pricing</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg transition-colors duration-150 hover:text-on-surface dark:hover:text-on-surface" href="#testimonials">Testimonials</a>
+</nav>
+<!-- Trailing CTAs -->
+<div class="flex items-center space-x-3">
+<button class="text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg px-3 py-1.5 transition-all duration-200 active:scale-95">
+          Sign In
+        </button>
+<button class="bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-on-primary font-label-lg text-label-lg font-semibold px-4 py-2 rounded-lg shadow-[0_0_16px_rgba(77,142,255,0.35)] transition-all duration-200 active:scale-95 flex items-center gap-1.5">
+<span>Start Free Trial</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</header>
+<!-- HERO SECTION -->
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+<!-- Atmospheric Ambient Glows -->
+<div class="absolute top-12 left-1/2 -translate-x-1/2 w-[680px] h-[340px] bg-primary-container/15 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute top-44 left-1/3 -translate-x-1/2 w-[420px] h-[220px] bg-secondary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-space-xl relative z-10 flex flex-col items-center text-center">
+<!-- Announcement Pill Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/40 shadow-sm hover:border-primary/50 transition-colors duration-200 mb-8 cursor-pointer group">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant font-medium group-hover:text-on-surface">
+          ⚡ Creator OS 3.0 is Live — Deploy 8 Autonomous AI Agents to run your creator empire
+        </span>
+<span class="material-symbols-outlined text-[14px] text-primary transition-transform duration-200 group-hover:translate-x-0.5">chevron_right</span>
+</div>
+<!-- Main Headline -->
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface max-w-4xl tracking-tight leading-tight md:leading-[1.15] mb-6">
+        The Entire Creator Tech Stack. <br class="hidden md:inline"/>
+<span class="bg-gradient-to-r from-primary via-secondary to-tertiary bg-clip-text text-transparent">Replaced by One Intelligent OS.</span>
+</h1>
+<!-- Subtitle -->
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mb-10 leading-relaxed">
+        Websites, courses, digital commerce, community spaces, newsletters, CRM pipelines, and autonomous AI agents — seamlessly orchestrated in one unified workspace.
+      </p>
+<!-- Action Cluster -->
+<div class="flex flex-col sm:flex-row items-center gap-4 mb-12 w-full justify-center">
+<button class="w-full sm:w-auto bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-on-primary font-label-lg text-label-lg font-semibold px-7 py-3.5 rounded-lg shadow-[0_0_24px_rgba(77,142,255,0.45)] transition-all duration-200 active:scale-95 flex items-center justify-center gap-2">
+<span>Start Free Trial — No Credit Card</span>
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</button>
+<button class="w-full sm:w-auto bg-surface-container-low hover:bg-surface-container border border-outline-variant/50 text-on-surface font-label-lg text-label-lg px-6 py-3.5 rounded-lg transition-all duration-200 active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">play_circle</span>
+<span>Watch 3-Min Platform Demo</span>
+</button>
+</div>
+<!-- Social Proof Metrics Cluster -->
+<div class="flex flex-col sm:flex-row items-center gap-4 py-2 px-5 rounded-full bg-surface-container-low/60 border border-outline-variant/30 backdrop-blur-sm mb-16">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="A close-up portrait of a tech entrepreneur wearing modern dark studio clothes with soft cinematic purple ambient rim lighting in a sleek obsidian interior setup, high detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMRr1g1gG6nPzj_EP3e-APNwi5heML0bnMGyh9D4aXu12nVnz1IlfIW4XCo1tStQ6ufJeOXrRySteGtbyWF2KkWAzWWXhguvUq9fmcsBX9URvHaZV9JZWRgwes1PKMnqmd4dUevUR6A16me9_Z8ubM1JaotqOOszMbHGvOKT4T-QFkrWRW6YirjjaSxJyIn2rE9pLH_Zsbs_28XP4Lnjv1IS4J3J13lj6KEXQZzpoxLWtg2-K062b2UQ"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="A portrait of an innovative digital educator in her creative studio with warm electric blue ambient monitor lighting in a clean dark modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgVzvr4oR6w4gadeh_FmxCAiE5RyYuolOedPjYZiaCG-Fv07cIH2X2u_zEFCIoBSrWtRLP7QQAnRSBBMsKrENdtvWk-wGs_FUrKOG1CUmu--f6Oi-2xPo4q8dIYg_om8hgsGFki1mSqd02sa2ZmaEtQBobRXLmEvVxAKkENsSo4qzyxgk1U0OBih--xBQt-fEjyNxVeR7od1E0Z2tBZwaaCbAwxa7eQ1GgRsU6f1q_IyrRQoaeYr9Gvw"/>
+<img class="inline-block h-7 w-7 rounded-full ring-2 ring-surface-container-lowest object-cover" data-alt="A charismatic young software engineer and developer creator smiling at the camera, studio backdrop with subtle blue and violet neon backlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQjV16GhD_RBJCMlsg1U6LVhjv3qDopjfdbkOaCiqgHD3H8yKp9gqhGs1FfaS1-SGbgVzSd_l6L-5_ETWIVHTT6PtnTH2vtlvfmrY9IiAT5gruXWT1qIaYZa2_PiLFkQbGmX2TMJtB6kWrmca4CPjfZlSqlLWnMu8cJF4KYE7nVRtuGMjydxeaQH_FhyJOh5Ngt-xR7DHp0RRCKYHvSOo6--N7VzZfaY-jxlYgngPcPz509aQNx7171A"/>
+<div class="inline-flex h-7 w-7 rounded-full bg-primary-container text-on-primary-container items-center justify-center text-label-sm font-label-sm font-bold ring-2 ring-surface-container-lowest">
+            +4k
+          </div>
+</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1.5">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-semibold text-on-surface">4.9/5</span> from 820+ verified reviews • Trusted by 4,200+ elite creators
+        </div>
+</div>
+<!-- HIGH-FIDELITY PLATFORM SHOWCASE (IDE / Modern Studio UI) -->
+<div class="w-full max-w-6xl rounded-xl p-1 bg-gradient-to-b from-outline-variant/50 via-outline-variant/20 to-transparent shadow-[0_24px_80px_-12px_rgba(0,0,0,0.9)]">
+<div class="rounded-[10px] bg-surface-container-lowest border border-outline-variant/30 overflow-hidden text-left">
+<!-- Window Chrome Header -->
+<div class="h-10 bg-surface-container-low border-b border-outline-variant/30 px-4 flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<div class="w-2.5 h-2.5 rounded-full bg-error/70"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-amber-500/70"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary/70"></div>
+<span class="text-label-sm font-label-sm text-outline ml-3 font-mono">creator-os-workspace://prod-control-center</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 border border-tertiary-container/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                8 Agents Autonomous
+              </span>
+<span class="text-outline-variant text-[12px]">|</span>
+<span class="text-outline text-label-sm font-label-sm">Cluster US-East</span>
+</div>
+</div>
+<!-- Internal Workspace Dashboard Layout -->
+<div class="grid grid-cols-12 gap-0">
+<!-- Mini Sidebar -->
+<div class="hidden lg:flex col-span-2 border-r border-outline-variant/20 bg-surface-container-lowest p-3 flex-col justify-between">
+<div class="space-y-1">
+<div class="px-2.5 py-1.5 rounded-lg bg-surface-container text-primary flex items-center gap-2 text-label-md font-label-md font-medium">
+<span class="material-symbols-outlined text-[16px]">grid_view</span>
+                  Mission Control
+                </div>
+<div class="px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px]">smart_toy</span>
+                  Autonomous Fleet
+                </div>
+<div class="px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px]">shopping_bag</span>
+                  Commerce &amp; LMS
+                </div>
+<div class="px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px]">forum</span>
+                  Community Hub
+                </div>
+<div class="px-2.5 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low flex items-center gap-2 text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px]">handshake</span>
+                  Sponsor Pipeline
+                </div>
+</div>
+<!-- Live Node State -->
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<p class="text-label-sm font-label-sm text-outline">Compute Usage</p>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 mt-1.5 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-tertiary h-1.5 rounded-full" style="width: 42%;"></div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-1">42% • 1.4M req/mo</p>
+</div>
+</div>
+<!-- Main Canvas Area -->
+<div class="col-span-12 lg:col-span-10 p-5 bg-surface-container-lowest/60">
+<!-- Metric Tiles -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm font-medium">Monthly Recurring Revenue</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">trending_up</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold text-on-surface">$142,500 <span class="text-label-md font-label-md text-tertiary font-normal">+24.6%</span></div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Across 4 membership tiers &amp; 3 cohorts</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm font-medium">Active Autonomous Actions</span>
+<span class="material-symbols-outlined text-primary text-[18px]">electric_bolt</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold text-on-surface">3,412 <span class="text-label-md font-label-md text-primary font-normal">this week</span></div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Zero manual intervention needed</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm font-medium">Sponsor Close Rate</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold text-on-surface">88.4% <span class="text-label-md font-label-md text-secondary font-normal">avg 1.8h</span></div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Autonomous lead qualifier active</p>
+</div>
+</div>
+<!-- Stream & Agent Live Logs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Live Agent Activity Stream -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">smart_toy</span>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Autonomous Fleet Feed</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                      Real-time
+                    </span>
+</div>
+<div class="space-y-3">
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="p-1.5 rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[16px]">mail</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline">
+<p class="text-label-md font-label-md font-medium text-on-surface">Sponsor Scorer Agent</p>
+<span class="text-label-sm font-label-sm text-outline">12s ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Qualified $15,000 inbound partnership from Supabase. Prepared customized rate deck.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="p-1.5 rounded bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-[16px]">school</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline">
+<p class="text-label-md font-label-md font-medium text-on-surface">Teaching Assistant Agent</p>
+<span class="text-label-sm font-label-sm text-outline">48s ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Resolved Python AST debugging question for student in Cohort 4 discord.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-2.5 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20">
+<div class="p-1.5 rounded bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-baseline">
+<p class="text-label-md font-label-md font-medium text-on-surface">Dynamic Pricing Optimizer</p>
+<span class="text-label-sm font-label-sm text-outline">2m ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Applied localized purchasing power parity discount in EU region. +14 sales gained.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Revenue Velocity Chart Simulation -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between pb-3 mb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">query_stats</span>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Unified Telemetry &amp; Pipeline</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline font-mono">LIVE SYNC</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Combined revenue streams (Stripe Subscriptions, Cohorts, and Sponsor Retainers)</p>
+</div>
+<!-- Geometric SVG Sparkline Graphic -->
+<div class="relative h-28 w-full flex items-end justify-between px-2 pt-4">
+<div class="w-8 bg-primary/20 hover:bg-primary/40 rounded-t h-12 transition-all"></div>
+<div class="w-8 bg-primary/30 hover:bg-primary/50 rounded-t h-16 transition-all"></div>
+<div class="w-8 bg-primary/40 hover:bg-primary/60 rounded-t h-20 transition-all"></div>
+<div class="w-8 bg-primary/30 hover:bg-primary/50 rounded-t h-14 transition-all"></div>
+<div class="w-8 bg-secondary/40 hover:bg-secondary/60 rounded-t h-22 transition-all"></div>
+<div class="w-8 bg-secondary/60 hover:bg-secondary/80 rounded-t h-24 transition-all"></div>
+<div class="w-8 bg-gradient-to-t from-primary-container to-secondary-container rounded-t h-28 relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 bg-surface-container-highest text-tertiary px-1.5 py-0.5 rounded text-[10px] font-mono whitespace-nowrap shadow">
+                        +$12.4k
+                      </span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-3 border-t border-outline-variant/20 text-label-sm font-label-sm text-on-surface-variant">
+<span>Oct 1</span>
+<span>Oct 10</span>
+<span>Oct 20</span>
+<span class="text-primary font-semibold">Today (Record Peak)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- LOGO CLOUD / SOCIAL PROOF STRIP -->
+<section class="py-12 border-y border-outline-variant/20 bg-surface-container-low/40">
+<div class="max-w-7xl mx-auto px-space-xl">
+<p class="text-center text-label-md font-label-md text-outline uppercase tracking-wider mb-8">
+        Powering the fastest growing creators across YouTube, Substack, GitHub, and Discord
+      </p>
+<div class="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-70">
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary">terminal</span> DevPulse
+        </div>
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary">psychology</span> NeuralFlow
+        </div>
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-tertiary">polyline</span> Synthetix
+        </div>
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-primary">movie_creation</span> Acme Studios
+        </div>
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-secondary">newspaper</span> SubStack Pro
+        </div>
+<div class="flex items-center gap-2 text-headline-sm font-headline-sm font-bold text-on-surface-variant tracking-tight hover:text-on-surface transition-colors cursor-default">
+<span class="material-symbols-outlined text-tertiary">code_blocks</span> CodeLab
+        </div>
+</div>
+</div>
+</section>
+<!-- BENTO GRID OF CORE PLATFORM CAPABILITIES -->
+<section class="py-24 max-w-7xl mx-auto px-space-xl" id="features">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-primary font-label-md text-label-md font-semibold tracking-wider uppercase">Architecture Built For Scale</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">
+        One Platform. Infinite Creator Leverage.
+      </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+        Stop stitching together half a dozen brittle tools with messy webhook workflows. Creator OS handles your entire operational lifecycle natively.
+      </p>
+</div>
+<!-- Bento Matrix Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Card 1: 2-Column Hero Bento Card (Autonomous AI Agent Fleet) -->
+<div class="md:col-span-8 p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group hover:border-primary/50 transition-all duration-300">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-primary-container/10 rounded-full blur-3xl group-hover:bg-primary-container/20 transition-all pointer-events-none"></div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-label-sm font-label-sm font-semibold mb-4">
+<span class="material-symbols-outlined text-[15px]">smart_toy</span>
+          Autonomous Operating Core
+        </div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mb-3">
+          Autonomous AI Agent Fleet
+        </h3>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-xl mb-6">
+          8 specialized autonomous agents that work alongside you 24/7. They draft customized newsletters, score inbound sponsor pitches, answer Discord student questions, and dynamically adjust membership pricing.
+        </p>
+<!-- Visual Micro-Widget Inside Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/20 flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-medium text-on-surface">Auto-Grading TA Agent</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Grades code &amp; design submissions</p>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/20 flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-medium text-on-surface">Sponsor Deal Closer</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Sends automated contract terms</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Digital Commerce & Dynamic Tiers -->
+<div class="md:col-span-4 p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group hover:border-secondary/50 transition-all duration-300">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-label-sm font-semibold mb-4">
+<span class="material-symbols-outlined text-[15px]">credit_card</span>
+          0% Platform Fees
+        </div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mb-3">
+          Digital Commerce &amp; LMS
+        </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">
+          Sell video courses, downloadable software binaries, private podcasts, and recurring tiers. Direct Stripe Connect integration.
+        </p>
+<div class="p-4 rounded-lg bg-surface-container border border-outline-variant/20 flex justify-between items-center">
+<div>
+<span class="text-label-sm font-label-sm text-outline">Checkout Conversion</span>
+<p class="text-headline-sm font-headline-sm font-bold text-tertiary">14.8% avg</p>
+</div>
+<span class="material-symbols-outlined text-[32px] text-tertiary">rocket_launch</span>
+</div>
+</div>
+<!-- Card 3: CRM & High-Value Sponsor Pipeline -->
+<div class="md:col-span-4 p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group hover:border-tertiary/50 transition-all duration-300">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/20 text-tertiary text-label-sm font-label-sm font-semibold mb-4">
+<span class="material-symbols-outlined text-[15px]">leaderboard</span>
+          High Velocity
+        </div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mb-3">
+          CRM &amp; Deal Pipeline
+        </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+          Track brand deals from first pitch to escrow release. Auto-generates e-signatures, media kits, and telemetry performance reports.
+        </p>
+<div class="space-y-2">
+<div class="h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 78%"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-outline">
+<span>Quarterly Goal ($200k)</span>
+<span class="text-on-surface font-semibold">$156k</span>
+</div>
+</div>
+</div>
+<!-- Card 4: Website & App Builder -->
+<div class="md:col-span-4 p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group hover:border-primary/50 transition-all duration-300">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-label-sm font-label-sm font-semibold mb-4">
+<span class="material-symbols-outlined text-[15px]">web</span>
+          Visual Canvas
+        </div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mb-3">
+          Website &amp; App Builder
+        </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+          Full visual block editor with AI prompt app generator for custom interactive widgets, ROI calculators, and private member portals.
+        </p>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container text-body-sm font-body-sm text-on-surface font-mono">
+<span class="text-primary">&gt;</span> Prompt: "Build student quiz portal"
+        </div>
+</div>
+<!-- Card 5: Affiliate & Referral Engine -->
+<div class="md:col-span-4 p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group hover:border-secondary/50 transition-all duration-300">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-label-sm font-label-sm font-semibold mb-4">
+<span class="material-symbols-outlined text-[15px]">share</span>
+          Viral Growth
+        </div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mb-3">
+          Affiliate &amp; Referral Engine
+        </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+          Auto-generate tiered partner links, track cookie attribution, and automate multi-currency payouts without spreadsheets.
+        </p>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/20 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Top Partner: @alexdev</span>
+<span class="text-label-sm font-label-sm text-secondary font-semibold">+$4,290 Payout</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE FEATURE COMPARISON: OLD WAY vs CREATOR OS -->
+<section class="py-20 bg-surface-container-lowest border-y border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mb-3">
+          The Old Fragmented Way vs. Creator OS
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+          Why waste thousands of dollars a month and countless engineering hours gluing conflicting platforms together?
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+<!-- The Fragmented Stack Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/40 relative">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/20">
+<div>
+<span class="text-label-sm font-label-sm text-error font-semibold uppercase tracking-wider">The Fragmented Mess</span>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mt-1">7 Disconnected Subscriptions</h3>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-error">~$1,450/mo</span>
+<p class="text-body-sm font-body-sm text-outline">+ Zapier usage fees</p>
+</div>
+</div>
+<ul class="space-y-4 text-body-md font-body-md text-on-surface-variant">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">close</span>
+<span><strong>Shopify + Teachable:</strong> Fragmented customer logins; student identities don't match digital store accounts.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">close</span>
+<span><strong>Circle / Discord:</strong> Manual invite bots constantly drop permissions after refunds or failed card rebills.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">close</span>
+<span><strong>ConvertKit + Zapier:</strong> Webhooks break silently at 2 AM; sync errors lead to missed student welcome sequences.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">close</span>
+<span><strong>HubSpot + ChatGPT manual prompts:</strong> Hours spent copying and pasting emails between tabs to close sponsors.</span>
+</li>
+</ul>
+</div>
+<!-- The Creator OS Unified Stack Card -->
+<div class="p-space-lg rounded-xl bg-gradient-to-b from-surface-container-low to-surface-container border border-primary/40 relative shadow-[0_0_32px_rgba(77,142,255,0.15)]">
+<div class="absolute -top-3.5 right-6 px-3 py-0.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary text-label-sm font-label-sm font-bold uppercase tracking-wider">
+            Modern Studio Standard
+          </div>
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/30">
+<div>
+<span class="text-label-sm font-label-sm text-primary font-semibold uppercase tracking-wider">The Intelligent Solution</span>
+<h3 class="text-headline-md font-headline-md text-on-surface font-semibold mt-1">Creator OS Unified Engine</h3>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-tertiary">From $99/mo</span>
+<p class="text-body-sm font-body-sm text-tertiary">0% platform transaction fee</p>
+</div>
+</div>
+<ul class="space-y-4 text-body-md font-body-md text-on-surface">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Single Identity Graph:</strong> One customer login across your store, video courses, community discussions, and digital receipts.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>8 Autonomous Agents:</strong> Inbound leads scored in seconds, automatic personalized onboarding, dynamic localized pricing.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Native Telemetry:</strong> Real-time conversion, churn metrics, and revenue recognition without third-party connector tools.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-tertiary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<span><strong>Complete Ownership:</strong> Custom domains, 100% white-label student portals, instant multi-currency Stripe Connect payouts.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- CREATOR TESTIMONIALS & WALL OF LOVE -->
+<section class="py-24 max-w-7xl mx-auto px-space-xl" id="testimonials">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-secondary font-label-md text-label-md font-semibold tracking-wider uppercase">Wall of Love</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">
+        Trusted by Digital Pioneers
+      </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant">
+        See how high-growth creators scaled their revenue while cutting operational hours by 70%.
+      </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Testimonial 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:border-outline transition-colors">
+<p class="text-body-lg font-body-lg text-on-surface mb-6 leading-relaxed">
+          “Creator OS replaced 5 separate tools and our revenue doubled because the AI agents actually follow up on sponsorship leads within 2 minutes.”
+        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<img class="w-11 h-11 rounded-full object-cover ring-1 ring-primary/40" data-alt="A professional headshot of Alex Vance, a male tech founder with stylish glasses wearing a dark charcoal turtleneck in a minimalist studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwQxH2rhGThS-NIaGCGnxu2lHEVT74XU9OetGbHl7YX3UxEoptyVdIddvOSM522lmzjcEA4XFaswsTcwtMoomlqy-DM2sQByeiIMRCMqFr1moRfXVtmLiyW911sv7Q080yoYM49EGiLQSra7o42iKxcDvDESS21OLzwR19zZYFN251QuHhAp7N8Vkry1W-YUgH-8Uj7Af33e_NCroDsGUN5AK6U-ae8mM1PNrO7r0DfZZpnpaPDZlqGA"/>
+<div>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface">Alex Vance</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Founder @ DevPulse (420k Subs)</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:border-outline transition-colors">
+<p class="text-body-lg font-body-lg text-on-surface mb-6 leading-relaxed">
+          “Running cohorts used to take 20 hours a week of grading and Discord moderating. Creator OS's TA agent handles 80% of student questions automatically.”
+        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<img class="w-11 h-11 rounded-full object-cover ring-1 ring-secondary/40" data-alt="A professional headshot of Elena Rostova, a confident female AI researcher and digital creator with sleek dark hair, lit by soft violet and neon blue tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArYLtCSqUl8ZADZbkCICXMzIkQeVs2Gzztc0M0X77RYAIc01uij8-GOzktsVS-W4KC0xEgac8X7nXN-RAow8CIyP4TaDW1LrAY1trhb02O8Y8XMLo6pCKn9XtNCzE-tNAHreJv9anUJiISW-6lY1kaWEzbpvCNk_wNlc7q-ApI2vb7rsNfEI4pI5DgzDz1TVUx0Oe-j02QWdbcoZsC8HecvUAEJUVPLO151h1dog2GmEDV06v9uhCcKQ"/>
+<div>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface">Elena Rostova</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Creator @ NeuralFlow</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between hover:border-outline transition-colors">
+<p class="text-body-lg font-body-lg text-on-surface mb-6 leading-relaxed">
+          “The built-in affiliate engine and instant Stripe payouts drove 35% of our Black Friday GMV without touching a single manual spreadsheet.”
+        </p>
+<div class="flex items-center gap-3 pt-4 border-t border-outline-variant/20">
+<img class="w-11 h-11 rounded-full object-cover ring-1 ring-tertiary/40" data-alt="A portrait of Marcus Kane, a principal digital media entrepreneur with short hair wearing a dark modern blazer in a low-light studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN7JWHuMy3kDc72D0dmAEs4W6PpJAyKN2YB0ZTlSVhLe6VNiNSzK5qdyzmcsURiwNiOawW3pC-bHYPSjx5edWRJGR4cX64hzrkuQYI2QKv4K5B5VDasg3SV5jbsLCJc_m87zqUKjnHsdHwVdvYW2pNkVHh_rK960EGmnNcU3j4pvsyGXRruRW9mNlP8ImQ08MsZmdpZ56IZW7jnmdGlMnsUwypFmi8L24_EwMvKeokKdo5a_PtPbNVgw"/>
+<div>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface">Marcus Kane</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Principal @ Synthetix</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- TRANSPARENT PRICING TIERS -->
+<section class="py-24 bg-surface-container-lowest border-t border-outline-variant/20" id="pricing">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="text-center max-w-3xl mx-auto mb-12">
+<span class="text-tertiary font-label-md text-label-md font-semibold tracking-wider uppercase">Simple, Predictable Economics</span>
+<h2 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-on-surface mt-2 mb-4">
+          Choose the Engine for Your Growth
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant mb-8">
+          All tiers include core workspace access, native telemetry, and encrypted cloud hosting.
+        </p>
+<!-- Pricing Toggle -->
+<div class="inline-flex items-center p-1 bg-surface-container-low rounded-xl border border-outline-variant/40">
+<button class="px-4 py-2 rounded-lg bg-surface-container-highest text-on-surface font-label-md text-label-md font-semibold transition-all">
+            Billed Annually <span class="text-tertiary font-bold ml-1">Save 20%</span>
+</button>
+<button class="px-4 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all">
+            Billed Monthly
+          </button>
+</div>
+</div>
+<!-- Pricing Cards Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+<!-- Starter Tier -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Starter</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">For emerging creators publishing their first course or digital library.</p>
+<div class="mt-6 mb-6">
+<span class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface">$49</span>
+<span class="text-body-md font-body-md text-outline">/ month</span>
+</div>
+<ul class="space-y-3 text-body-md font-body-md text-on-surface-variant border-t border-outline-variant/20 pt-6">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+<span>1 Workspace</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+<span>2 Autonomous AI Agents</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+<span>Website &amp; Course Builder</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">check</span>
+<span>Up to 2,500 active members</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[18px]">check</span>
+<span>5% platform transaction fee</span>
+</li>
+</ul>
+</div>
+<button class="w-full mt-8 py-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-lg text-label-lg font-semibold transition-all">
+            Start Free Starter Trial
+          </button>
+</div>
+<!-- Pro Creator Tier (Highlighted) -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border-2 border-primary-container relative flex flex-col justify-between shadow-[0_0_32px_rgba(77,142,255,0.2)]">
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-on-primary text-label-sm font-label-sm font-bold uppercase tracking-wider">
+            Most Popular
+          </div>
+<div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Pro Creator</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">For full-time digital creators scaling multi-channel revenue streams.</p>
+<div class="mt-6 mb-6">
+<span class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface">$149</span>
+<span class="text-body-md font-body-md text-outline">/ month</span>
+</div>
+<ul class="space-y-3 text-body-md font-body-md text-on-surface border-t border-outline-variant/30 pt-6">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span>3 Independent Workspaces</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span><strong>All 8 Autonomous AI Agents</strong></span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span>Unlimited Courses &amp; Memberships</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span><strong>0% platform fee</strong> (Stripe direct)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span>Custom Domains &amp; Branding</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]">check</span>
+<span>Full CRM &amp; Sponsor Pipeline</span>
+</li>
+</ul>
+</div>
+<button class="w-full mt-8 py-3 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-on-primary font-label-lg text-label-lg font-semibold shadow-[0_0_16px_rgba(77,142,255,0.4)] transition-all">
+            Get Started with Pro
+          </button>
+</div>
+<!-- Studio & Enterprise Tier -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Studio &amp; Enterprise</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">For digital production studios and multi-creator media companies.</p>
+<div class="mt-6 mb-6">
+<span class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface">$499</span>
+<span class="text-body-md font-body-md text-outline">/ month</span>
+</div>
+<ul class="space-y-3 text-body-md font-body-md text-on-surface-variant border-t border-outline-variant/20 pt-6">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Unlimited Workspaces</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Dedicated AI Compute Pool</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Custom Team RBAC &amp; Permissions</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Stripe Express Direct Payouts</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">check</span>
+<span>Dedicated Account Lead &amp; 99.99% SLA</span>
+</li>
+</ul>
+</div>
+<button class="w-full mt-8 py-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-lg text-label-lg font-semibold transition-all">
+            Contact Enterprise Sales
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- HIGH-CONVERTING FINAL CTA BANNER -->
+<section class="py-20 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-space-xl">
+<div class="rounded-2xl p-8 md:p-14 bg-gradient-to-r from-primary-container/20 via-surface-container to-secondary-container/20 border border-outline-variant/40 text-center relative overflow-hidden shadow-[0_12px_48px_-8px_rgba(0,0,0,0.8)]">
+<div class="absolute inset-0 bg-radial from-primary-container/10 via-transparent to-transparent pointer-events-none"></div>
+<h2 class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface mb-4">
+          Ready to automate and scale your creator business?
+        </h2>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
+          Join thousands of creators who replaced their bloated SaaS stack with Creator OS. Deploy your first autonomous fleet in under 5 minutes.
+        </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-on-primary font-label-lg text-label-lg font-semibold px-8 py-3.5 rounded-lg shadow-[0_0_20px_rgba(77,142,255,0.4)] transition-all duration-200 active:scale-95">
+            Get Started Free Today
+          </button>
+<button class="w-full sm:w-auto bg-surface-container-low hover:bg-surface-container border border-outline-variant/50 text-on-surface font-label-lg text-label-lg px-6 py-3.5 rounded-lg transition-all duration-200 active:scale-95">
+            Book Live Demo
+          </button>
+</div>
+<p class="text-label-sm font-label-sm text-outline mt-6">
+          14-Day Free Trial • No Credit Card Required • 1-Click Data Migration from Teachable/ConvertKit
+        </p>
+</div>
+</div>
+</section>
+<!-- COMPREHENSIVE MARKETING FOOTER (Shared Component JSON Blueprint Compliant) -->
+<footer class="w-full bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30 dark:border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-space-xl py-space-xl">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+<!-- Brand Info -->
+<div class="col-span-2">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center p-0.5">
+<div class="w-full h-full bg-surface-container-lowest rounded-[5px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[15px]">hub</span>
+</div>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface">Creator OS</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant dark:text-on-surface-variant max-w-sm mb-4">
+            The studio-grade autonomous operating system designed for modern digital creators, media entrepreneurs, and multi-tenant teams.
+          </p>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/20 text-body-sm font-body-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+            All Systems Operational • 99.98% Uptime
+          </div>
+</div>
+<!-- Col 1: Platform -->
+<div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface mb-3">Platform</h4>
+<ul class="space-y-2 text-body-sm font-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Multi-Tenant Engine</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Analytics Studio</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Workflow Automations</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Media Asset Manager</a></li>
+</ul>
+</div>
+<!-- Col 2: Resources -->
+<div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface mb-3">Resources</h4>
+<ul class="space-y-2 text-body-sm font-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Documentation</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">API Reference</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Changelog</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Status</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Community</a></li>
+</ul>
+</div>
+<!-- Col 3: Legal & Trust -->
+<div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface mb-3">Legal &amp; Trust</h4>
+<ul class="space-y-2 text-body-sm font-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Security</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-6 flex flex-col md:flex-row items-center justify-between text-body-sm font-body-sm text-outline">
+<span>© 2025 Creator OS, Inc. All rights reserved.</span>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Security</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

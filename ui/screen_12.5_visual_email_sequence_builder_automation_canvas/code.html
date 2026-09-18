@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sequence Builder — Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "primary": "#adc6ff",
+            "on-primary": "#002e6a",
+            "inverse-primary": "#005ac2",
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface-variant": "#35343a",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "on-primary-fixed-variant": "#004395",
+            "surface": "#131318",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#00a572",
+            "on-tertiary": "#003824",
+            "error-container": "#93000a",
+            "on-surface-variant": "#c2c6d6",
+            "primary-container": "#4d8eff",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-on-surface": "#303036",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "surface-container-high": "#2a292f",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "secondary-container": "#571bc1",
+            "surface-container-highest": "#35343a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e4e1e9",
+            "error": "#ffb4ab"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem"
+          },
+          fontFamily: {
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          fontSize: {
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .canvas-dot-grid {
+      background-color: #0A0A0F;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.25px, transparent 1.25px);
+      background-size: 24px 24px;
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.4);
+    }
+    .glow-node-selected {
+      box-shadow: 0 0 0 1px #3B82F6, 0 12px 32px -4px rgba(59, 130, 246, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased flex h-screen w-screen overflow-hidden select-none">
+<!-- SHARED COMPONENT: SideNavBar (collapsible desktop navigation drawer) -->
+<aside class="fixed left-0 top-0 z-50 flex flex-col h-screen w-64 bg-surface-container-low border-r border-outline-variant px-3 py-4 overflow-y-auto shrink-0 custom-scrollbar">
+<!-- Brand Header -->
+<div class="flex items-center gap-3 px-3 py-2 mb-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white shadow-sm font-headline-sm text-headline-sm font-bold">
+        C
+      </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-tight">Creator OS</span>
+<span class="font-label-sm text-label-sm text-outline">Enterprise Suite</span>
+</div>
+</div>
+<!-- Navigation List: Active item is "Email" according to intent -->
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">forum</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">contacts</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- ACTIVE NAVIGATION ITEM: Email -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high text-primary font-medium border border-outline-variant shadow-sm transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">mail</span>
+<span class="font-label-md text-label-md font-semibold">Email</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+<span class="font-label-md text-label-md">Admin</span>
+</a>
+</nav>
+<!-- Workspace Upgrade Banner -->
+<div class="mt-4 p-3 rounded-xl bg-[#181824] border border-[#2A2A3E] relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-20 h-20 bg-blue-500/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Pro Automations</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-2.5">99.98% delivery rate enabled on your node cluster.</p>
+<button class="w-full py-1.5 px-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 active:scale-[0.98] transition-all text-white font-label-md text-label-md font-medium rounded-lg text-center shadow-sm">
+        Upgrade Workspace
+      </button>
+</div>
+<!-- SideNav Footer -->
+<div class="mt-4 pt-3 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface text-body-sm font-body-sm transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface text-body-sm font-body-sm transition-all duration-150 ease-out" href="#">
+<span class="material-symbols-outlined text-[18px]">headset_mic</span>
+<span class="font-label-md text-label-md">Support</span>
+</a>
+</div>
+</aside>
+<!-- MAIN VIEWPORT (Offset for fixed 256px sidebar) -->
+<div class="flex-1 flex flex-col ml-64 min-w-0 h-screen overflow-hidden">
+<!-- SHARED COMPONENT: TopNavBar (Configured for Sequence Studio Builder) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-6 bg-surface border-b border-outline-variant shrink-0">
+<!-- Left: Sequence Info & Breadcrumbs -->
+<div class="flex items-center gap-4 min-w-0">
+<div class="flex items-center gap-2">
+<button class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high p-1.5 rounded-lg transition-colors" title="Back to Sequences">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="h-4 w-px bg-outline-variant"></div>
+<span class="material-symbols-outlined text-primary text-[22px]">account_tree</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight truncate">
+              New Student Onboarding &amp; Upsell Flow
+            </h1>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+              Active / Live
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-outline flex items-center gap-2">
+<span>Production Pipeline</span>
+<span>•</span>
+<span>Triggered 4,219 times</span>
+<span>•</span>
+<span>Auto-saving</span>
+</span>
+</div>
+</div>
+<!-- Canvas Center Micro Tools -->
+<div class="hidden xl:flex items-center gap-1 bg-[#12121A] border border-[#1E1E2E] p-1 rounded-lg">
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded transition-colors" title="Zoom Out">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<span class="px-2 font-label-md text-label-md text-on-surface font-medium">100%</span>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="flex items-center gap-1.5 px-2.5 py-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded font-label-md text-label-md transition-colors" title="Re-center Canvas">
+<span class="material-symbols-outlined text-[16px]">filter_center_focus</span>
+<span>Re-center Canvas</span>
+</button>
+</div>
+<!-- Right: Action Controls -->
+<div class="flex items-center gap-2.5">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-blue-500 text-on-surface font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[18px] text-tertiary">play_circle</span>
+<span>Test Flow</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 active:scale-[0.98] text-white font-label-md text-label-md font-semibold transition-all glow-primary">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save Sequence</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Canvas History">
+<span class="material-symbols-outlined text-[20px]">history</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Sequence Settings">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</header>
+<!-- WORKSPACE CANVAS BODY (Split into 3 sections) -->
+<div class="flex-1 flex overflow-hidden relative">
+<!-- 1. LEFT TOOL PANEL: Sequence Node Drawer (240px wide) -->
+<aside class="w-60 bg-[#12121A]/95 backdrop-blur-md border-r border-[#1E1E2E] flex flex-col z-20 shrink-0">
+<!-- Header -->
+<div class="p-3 border-b border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">extension</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface tracking-wide">FLOW NODES</span>
+</div>
+<span class="text-outline font-label-sm text-label-sm">Drag to canvas</span>
+</div>
+<!-- Draggable Node Library -->
+<div class="flex-1 p-3 space-y-2.5 overflow-y-auto custom-scrollbar">
+<div class="text-[11px] font-semibold text-outline uppercase tracking-wider px-1">Events &amp; Triggers</div>
+<!-- Trigger Card -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-emerald-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-emerald-300">Trigger</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Event trigger listener</span>
+</div>
+</div>
+<div class="text-[11px] font-semibold text-outline uppercase tracking-wider px-1 pt-2">Communication</div>
+<!-- Email Node -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-blue-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-blue-300">Email</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Send visual campaign</span>
+</div>
+</div>
+<div class="text-[11px] font-semibold text-outline uppercase tracking-wider px-1 pt-2">Logic &amp; Timing</div>
+<!-- Time Delay -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-amber-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">hourglass_empty</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-amber-300">Time Delay</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Wait periods or dates</span>
+</div>
+</div>
+<!-- Conditional Split -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-purple-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">call_split</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-purple-300">Conditional Split</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Yes/No branching rules</span>
+</div>
+</div>
+<div class="text-[11px] font-semibold text-outline uppercase tracking-wider px-1 pt-2">Data &amp; API</div>
+<!-- Webhook -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-cyan-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">webhook</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-cyan-300">Webhook</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Post JSON to endpoint</span>
+</div>
+</div>
+<!-- Tag Customer -->
+<div class="group flex items-center gap-3 p-2.5 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-pink-500/50 cursor-grab active:cursor-grabbing transition-all duration-150 shadow-sm" draggable="true">
+<div class="w-8 h-8 rounded-md bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">loyalty</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white group-hover:text-pink-300">Tag Customer</span>
+<span class="font-body-sm text-[11px] text-outline truncate">Attach / detach CRM tags</span>
+</div>
+</div>
+</div>
+<!-- Bottom Quick Stats -->
+<div class="p-3 bg-[#0e0e13] border-t border-[#1E1E2E] text-[11px] space-y-1.5">
+<div class="flex justify-between text-outline">
+<span>Active Enrollees:</span>
+<span class="text-white font-mono font-medium">842 students</span>
+</div>
+<div class="flex justify-between text-outline">
+<span>Avg. Conversion:</span>
+<span class="text-emerald-400 font-mono font-medium">18.4%</span>
+</div>
+</div>
+</aside>
+<!-- 2. CENTER FLOW CANVAS (Infinite Dot Grid) -->
+<main class="flex-1 canvas-dot-grid relative overflow-auto p-12 custom-scrollbar">
+<!-- Live Visual Interactive Workflow Diagram -->
+<div class="relative min-w-[940px] min-h-[980px] mx-auto pt-4 pb-20">
+<!-- Background SVG Vector Connectors Layer -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-0">
+<defs>
+<!-- Linear Gradients for Flow Vectors -->
+<lineargradient id="lineGradMain" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#10B981"></stop>
+<stop offset="50%" stop-color="#3B82F6"></stop>
+<stop offset="100%" stop-color="#8B5CF6"></stop>
+</lineargradient>
+<lineargradient id="branchYes" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#10B981"></stop>
+<stop offset="100%" stop-color="#3B82F6"></stop>
+</lineargradient>
+<lineargradient id="branchNo" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#F59E0B"></stop>
+<stop offset="100%" stop-color="#EF4444"></stop>
+</lineargradient>
+<!-- Arrow markers -->
+<marker id="arrowGreen" markerheight="6" markerwidth="6" orient="auto" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#10B981"></path>
+</marker>
+<marker id="arrowBlue" markerheight="6" markerwidth="6" orient="auto" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#3B82F6"></path>
+</marker>
+<marker id="arrowAmber" markerheight="6" markerwidth="6" orient="auto" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#F59E0B"></path>
+</marker>
+<marker id="arrowPurple" markerheight="6" markerwidth="6" orient="auto" refx="6" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1 L 10 5 L 0 9 z" fill="#8B5CF6"></path>
+</marker>
+</defs>
+<!-- Line 1: Trigger to Email 1 (x: 290, y: 72 -> 132) -->
+<path d="M 320,84 L 320,136" fill="none" marker-end="url(#arrowGreen)" stroke="#10B981" stroke-dasharray="4 4" stroke-width="2"></path>
+<!-- Line 2: Email 1 to Delay 2 Days (x: 320, y: 236 -> 296) -->
+<path d="M 320,240 L 320,296" fill="none" marker-end="url(#arrowBlue)" stroke="#3B82F6" stroke-width="2"></path>
+<!-- Line 3: Delay 2 Days to Condition Diamond (x: 320, y: 368 -> 426) -->
+<path d="M 320,366 L 320,422" fill="none" marker-end="url(#arrowAmber)" stroke="#F59E0B" stroke-width="2"></path>
+<!-- YES Branch: Condition bottom port (320, 524) to Node 5A (320, 610) -->
+<path d="M 320,524 L 320,610" fill="none" marker-end="url(#arrowGreen)" stroke="#10B981" stroke-width="2.5"></path>
+<!-- Line 5A-1: Node 5A down to Delay 3 Days (320, 712 -> 766) -->
+<path d="M 320,710 L 320,766" fill="none" marker-end="url(#arrowBlue)" stroke="#3B82F6" stroke-width="2"></path>
+<!-- Line 5A-2: Delay 3 Days down to Upsell VIP Mentorship (320, 834 -> 888) -->
+<path d="M 320,834 L 320,888" fill="none" marker-end="url(#arrowPurple)" stroke="#8B5CF6" stroke-width="2"></path>
+<!-- NO Branch: Condition right port (420, 474) curved over to Node 5B (620, 474 -> downward to 610) -->
+<path d="M 420,474 C 540,474 620,530 620,610" fill="none" marker-end="url(#arrowAmber)" stroke="#EF4444" stroke-width="2.5"></path>
+<!-- Line 5B-1: Node 5B down to Delay 1 Day (620, 710 -> 766) -->
+<path d="M 620,710 L 620,766" fill="none" marker-end="url(#arrowAmber)" stroke="#EF4444" stroke-width="2"></path>
+<!-- Line 5B-2: Delay 1 Day down to Push Notification (620, 834 -> 888) -->
+<path d="M 620,834 L 620,888" fill="none" marker-end="url(#arrowAmber)" stroke="#EF4444" stroke-width="2"></path>
+</svg>
+<!-- ================= FLOW NODES LAYER ================= -->
+<!-- NODE 1: Trigger Node (Green Accent) -->
+<div class="absolute left-[170px] top-[14px] w-[300px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-emerald-500 border border-[#1E1E2E] rounded-xl p-3.5 shadow-lg hover:border-emerald-500/60 transition-all group">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-emerald-500/20 text-emerald-400 material-symbols-outlined text-[16px]">bolt</span>
+<span class="font-label-md text-label-md font-semibold text-emerald-400 uppercase tracking-wider">Trigger</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-[#181824] text-outline border border-[#1E1E2E]">ID #TRG-01</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">On Course Purchase</h2>
+<div class="flex items-center gap-1.5 text-outline font-body-sm text-body-sm bg-[#181824] p-2 rounded-lg border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[15px] text-emerald-400">check_circle</span>
+<span class="text-on-surface truncate">Enrolled in Cinematography Masterclass</span>
+</div>
+</div>
+</div>
+<!-- Connector Insertion Button 1 -->
+<div class="absolute left-[308px] top-[100px] z-20">
+<button class="w-6 h-6 rounded-full bg-[#181824] hover:bg-blue-600 border border-[#2A2A3E] hover:border-blue-400 text-outline hover:text-white flex items-center justify-center transition-all transform hover:scale-125 shadow-md group" title="Insert Step">
+<span class="material-symbols-outlined text-[14px] group-hover:rotate-90 transition-transform">add</span>
+</button>
+</div>
+<!-- NODE 2: Email Action Node (Blue Accent) - SELECTED STATE -->
+<div class="absolute left-[170px] top-[140px] w-[300px] z-10">
+<div class="bg-[#181824] border-l-4 border-l-blue-500 border border-blue-500/80 rounded-xl p-3.5 glow-node-selected transition-all cursor-pointer relative">
+<!-- Active Selection Pin -->
+<div class="absolute -top-2.5 -right-2.5 bg-blue-600 text-white p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+</div>
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-blue-500/20 text-blue-400 material-symbols-outlined text-[16px]">mail</span>
+<span class="font-label-md text-label-md font-semibold text-blue-400 uppercase tracking-wider">Email Action</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-blue-950/60 text-blue-300 border border-blue-800/40">SELECTED</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">
+                Email 1: Welcome &amp; Course Setup Guide
+              </h2>
+<div class="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-[#2A2A3E]">
+<div class="flex flex-col">
+<span class="text-[10px] text-outline font-label-sm">Delivery timing</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Sent immediately</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-outline font-label-sm">Avg Open Rate</span>
+<span class="font-label-md text-label-md text-tertiary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 84%
+                  </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Connector Insertion Button 2 -->
+<div class="absolute left-[308px] top-[260px] z-20">
+<button class="w-6 h-6 rounded-full bg-[#181824] hover:bg-blue-600 border border-[#2A2A3E] hover:border-blue-400 text-outline hover:text-white flex items-center justify-center transition-all transform hover:scale-125 shadow-md group" title="Insert Step">
+<span class="material-symbols-outlined text-[14px] group-hover:rotate-90 transition-transform">add</span>
+</button>
+</div>
+<!-- NODE 3: Delay Node (Amber Accent) -->
+<div class="absolute left-[205px] top-[300px] w-[230px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-amber-500 border border-[#1E1E2E] rounded-xl p-3 shadow-lg hover:border-amber-500/60 transition-all group">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="p-1 rounded bg-amber-500/20 text-amber-400 material-symbols-outlined text-[15px]">hourglass_empty</span>
+<span class="font-label-md text-label-md font-semibold text-amber-400 uppercase tracking-wider">Delay Gate</span>
+</div>
+<span class="text-outline font-mono text-[10px]">T-GATE</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm font-semibold text-white">Wait 2 Days</span>
+<span class="text-[11px] text-outline bg-[#181824] px-2 py-0.5 rounded border border-[#1E1E2E]">Relative</span>
+</div>
+</div>
+</div>
+<!-- Connector Insertion Button 3 -->
+<div class="absolute left-[308px] top-[386px] z-20">
+<button class="w-6 h-6 rounded-full bg-[#181824] hover:bg-purple-600 border border-[#2A2A3E] hover:border-purple-400 text-outline hover:text-white flex items-center justify-center transition-all transform hover:scale-125 shadow-md group" title="Insert Step">
+<span class="material-symbols-outlined text-[14px] group-hover:rotate-90 transition-transform">add</span>
+</button>
+</div>
+<!-- NODE 4: Condition / Decision Split Node (Purple Hex/Diamond) -->
+<div class="absolute left-[180px] top-[426px] w-[280px] z-10">
+<div class="bg-[#181824] border-2 border-purple-500/70 rounded-2xl p-4 shadow-xl relative backdrop-blur-md">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">alt_route</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-purple-300 uppercase tracking-wide">Condition Split</span>
+</div>
+<span class="font-mono text-[11px] text-purple-300 bg-purple-900/40 px-2 py-0.5 rounded border border-purple-700/50">IF / ELSE</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white text-center py-1">
+                Watched Module 1?
+              </h2>
+<p class="font-body-sm text-[11px] text-outline text-center">Telemetry: Video progress &gt;= 90%</p>
+<!-- Branch Labels Out Ports -->
+<div class="flex justify-between items-center mt-3 pt-2 border-t border-[#2A2A3E]">
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-sm text-label-sm font-bold text-emerald-400">YES Branch ↓</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="font-label-sm text-label-sm font-bold text-rose-400">NO Branch →</span>
+<span class="w-2 h-2 rounded-full bg-rose-400"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= YES BRANCH (LEFT / DOWNWARD) ================= -->
+<!-- Connector Insertion Button YES Branch -->
+<div class="absolute left-[308px] top-[560px] z-20">
+<button class="w-6 h-6 rounded-full bg-[#181824] hover:bg-emerald-600 border border-[#2A2A3E] hover:border-emerald-400 text-outline hover:text-white flex items-center justify-center transition-all transform hover:scale-125 shadow-md group" title="Insert Step">
+<span class="material-symbols-outlined text-[14px] group-hover:rotate-90 transition-transform">add</span>
+</button>
+</div>
+<!-- NODE 5A: Email Action (YES path) -->
+<div class="absolute left-[170px] top-[610px] w-[300px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-emerald-500 border border-[#1E1E2E] rounded-xl p-3.5 shadow-lg hover:border-emerald-500/60 transition-all group">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-emerald-500/20 text-emerald-400 material-symbols-outlined text-[16px]">mail</span>
+<span class="font-label-md text-label-md font-semibold text-emerald-400">Email 2A</span>
+</div>
+<span class="text-emerald-400 font-label-sm text-[10px] bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-800/40">Engaged Path</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">
+                Great start! Here is your LUT Download pack
+              </h2>
+<p class="font-body-sm text-[11px] text-outline">Assets: 12 .cube cinematic LUTs unlocked</p>
+</div>
+</div>
+<!-- Delay 3 Days Node (YES path continuation) -->
+<div class="absolute left-[205px] top-[766px] w-[230px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-amber-500 border border-[#1E1E2E] rounded-xl p-2.5 shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-[16px]">hourglass_empty</span>
+<span class="font-headline-sm text-headline-sm font-medium text-white">Wait 3 Days</span>
+</div>
+<span class="text-[10px] text-outline font-mono">DEL-03</span>
+</div>
+</div>
+</div>
+<!-- Upsell VIP Mentorship Node (YES path climax) -->
+<div class="absolute left-[170px] top-[888px] w-[300px] z-10">
+<div class="bg-gradient-to-br from-[#181824] to-[#1F1435] border-l-4 border-l-purple-500 border border-purple-500/40 rounded-xl p-3.5 shadow-lg hover:border-purple-400 transition-all">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-purple-500/20 text-purple-400 material-symbols-outlined text-[16px]">stars</span>
+<span class="font-label-md text-label-md font-semibold text-purple-300">Conversion Climax</span>
+</div>
+<span class="text-purple-300 font-mono text-[10px] bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800/50">$499 Offer</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">
+                Upsell VIP Mentorship
+              </h2>
+<p class="font-body-sm text-[11px] text-outline">Email + 15% discount voucher checkout trigger</p>
+</div>
+</div>
+<!-- ================= NO BRANCH (RIGHT PATH) ================= -->
+<!-- NODE 5B: Email Action (NO path) -->
+<div class="absolute left-[470px] top-[610px] w-[300px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-rose-500 border border-[#1E1E2E] rounded-xl p-3.5 shadow-lg hover:border-rose-500/60 transition-all group">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-rose-500/20 text-rose-400 material-symbols-outlined text-[16px]">mail</span>
+<span class="font-label-md text-label-md font-semibold text-rose-400">Email 2B</span>
+</div>
+<span class="text-rose-400 font-label-sm text-[10px] bg-rose-950/40 px-2 py-0.5 rounded border border-rose-800/40">Re-engagement</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">
+                Need help getting started? Check 5-min Quickstart
+              </h2>
+<p class="font-body-sm text-[11px] text-outline">Friction-removal guide + Discord student link</p>
+</div>
+</div>
+<!-- Delay 1 Day Node (NO path continuation) -->
+<div class="absolute left-[505px] top-[766px] w-[230px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-amber-500 border border-[#1E1E2E] rounded-xl p-2.5 shadow-lg">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-400 text-[16px]">hourglass_empty</span>
+<span class="font-headline-sm text-headline-sm font-medium text-white">Wait 1 Day</span>
+</div>
+<span class="text-[10px] text-outline font-mono">DEL-04</span>
+</div>
+</div>
+</div>
+<!-- Push Notification Action (NO path climax) -->
+<div class="absolute left-[470px] top-[888px] w-[300px] z-10">
+<div class="bg-[#12121A] border-l-4 border-l-amber-500 border border-[#1E1E2E] rounded-xl p-3.5 shadow-lg hover:border-amber-400 transition-all">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<span class="p-1 rounded bg-amber-500/20 text-amber-400 material-symbols-outlined text-[16px]">notifications_active</span>
+<span class="font-label-md text-label-md font-semibold text-amber-300">Push Alert</span>
+</div>
+<span class="text-amber-300 font-mono text-[10px] bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800/50">Mobile App</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-white leading-tight mb-1">
+                Push Notification
+              </h2>
+<p class="font-body-sm text-[11px] text-outline">"Your course cohort is progressing without you!"</p>
+</div>
+</div>
+</div>
+</main>
+<!-- 3. RIGHT INSPECTOR PROPERTY PANEL (320px wide) -->
+<aside class="w-80 bg-[#12121A] border-l border-[#1E1E2E] flex flex-col z-20 shrink-0 custom-scrollbar overflow-y-auto">
+<!-- Panel Header: Selected Node Identification -->
+<div class="p-4 border-b border-[#1E1E2E] bg-[#181824]/60">
+<div class="flex items-center justify-between mb-1">
+<span class="text-[11px] font-semibold text-primary uppercase tracking-wider flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+              Selected Node Inspector
+            </span>
+<span class="material-symbols-outlined text-outline text-[18px] cursor-pointer hover:text-white">more_horiz</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-white">Email 1: Welcome &amp; Course Setup Guide</h2>
+<span class="font-label-sm text-label-sm text-outline">Action ID: <span class="font-mono text-on-surface">EML-NODE-012</span></span>
+</div>
+<!-- Node Configuration Form Settings -->
+<div class="p-4 space-y-5">
+<!-- Subject Line Input with Variable Tag -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md font-semibold text-white">Subject Line</label>
+<button class="text-[11px] text-primary hover:underline font-label-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">add</span> Insert Variable
+              </button>
+</div>
+<div class="relative">
+<input class="w-full bg-[#0A0A0F] border border-[#1E1E2E] focus:border-blue-500 rounded-lg px-3 py-2 text-white font-body-sm text-body-sm outline-none transition-all pr-8" type="text" value="Welcome to the craft, {{first_name}}! 🎬"/>
+<span class="material-symbols-outlined text-outline text-[16px] absolute right-2.5 top-2.5 pointer-events-none">label</span>
+</div>
+<p class="text-[11px] text-outline">Dynamic tag <span class="text-primary font-mono">{{first_name}}</span> resolves to student contact record.</p>
+</div>
+<!-- Sender Profile Input -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md font-semibold text-white">Sender Profile</label>
+<div class="relative">
+<input class="w-full bg-[#0A0A0F] border border-[#1E1E2E] focus:border-blue-500 rounded-lg px-3 py-2 text-white font-body-sm text-body-sm outline-none transition-all pr-8" type="text" value="Elena Vance &lt;master@creator-os.com&gt;"/>
+<span class="material-symbols-outlined text-tertiary text-[16px] absolute right-2.5 top-2.5" title="DKIM &amp; SPF Verified">verified</span>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Domain authenticated via Custom CNAME</span>
+</div>
+</div>
+<!-- Template Selector Dropdown -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md font-semibold text-white">Template Selector</label>
+<div class="relative">
+<select class="w-full bg-[#0A0A0F] border border-[#1E1E2E] focus:border-blue-500 rounded-lg px-3 py-2 text-white font-body-sm text-body-sm outline-none appearance-none cursor-pointer">
+<option selected="">Dark Minimalist Studio (v3.2)</option>
+<option>Cinematic Welcome Letter</option>
+<option>Modern Card Grid Showcase</option>
+<option>Plain Text Founder Memo</option>
+</select>
+<span class="material-symbols-outlined text-outline text-[18px] absolute right-2.5 top-2.5 pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Template Preview Miniature -->
+<div class="p-2.5 rounded-xl bg-[#0A0A0F] border border-[#1E1E2E] flex items-center gap-3">
+<div class="w-12 h-14 bg-[#181824] rounded border border-[#2A2A3E] flex flex-col p-1 shrink-0 overflow-hidden">
+<div class="w-full h-2 bg-blue-500/40 rounded-sm mb-1"></div>
+<div class="w-3/4 h-1 bg-white/20 rounded-xs mb-1"></div>
+<div class="w-full h-1 bg-white/10 rounded-xs mb-0.5"></div>
+<div class="w-5/6 h-1 bg-white/10 rounded-xs"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-medium text-white truncate">Dark Minimalist Studio</span>
+<span class="text-[11px] text-outline">Responsive HTML5 • 28.4 KB</span>
+<span class="text-[11px] text-blue-400 hover:underline cursor-pointer">Preview in browser</span>
+</div>
+</div>
+<!-- Tracking Toggles (Custom Instrument Switches) -->
+<div class="space-y-3 pt-2 border-t border-[#1E1E2E]">
+<span class="font-label-sm text-label-sm font-semibold text-outline uppercase tracking-wider">Telemetry &amp; Tracking</span>
+<!-- Open Tracking -->
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md font-medium text-white block">Open tracking</span>
+<span class="text-[11px] text-outline">Track invisible 1x1 tracking pixel</span>
+</div>
+<!-- Checked Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-[#1E1E2E] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-blue-600 peer-checked:to-purple-600"></div>
+</label>
+</div>
+<!-- Click Tracking -->
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md font-medium text-white block">Click tracking</span>
+<span class="text-[11px] text-outline">Wrap hyperlinks for conversion attribution</span>
+</div>
+<!-- Checked Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-[#1E1E2E] peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-blue-600 peer-checked:to-purple-600"></div>
+</label>
+</div>
+</div>
+<!-- Primary Call to Action: Edit Content Composer -->
+<div class="pt-3">
+<button class="w-full py-2.5 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:brightness-110 active:scale-[0.98] text-white font-label-md text-label-md font-semibold rounded-lg flex items-center justify-center gap-2 shadow-lg glow-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">brush</span>
+<span>Edit Content in Composer</span>
+</button>
+<p class="text-center text-[11px] text-outline mt-2">Launches full-screen interactive WYSIWYG studio</p>
+</div>
+<!-- Secondary Node Operations -->
+<div class="pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<button class="text-outline hover:text-white flex items-center gap-1 font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Duplicate</span>
+</button>
+<button class="text-rose-400 hover:text-rose-300 flex items-center gap-1 font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+<span>Delete Node</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</body></html>

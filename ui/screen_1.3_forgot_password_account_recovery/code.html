@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Reset Password</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#1b1b20",
+            "surface-container-high": "#2a292f",
+            "tertiary-container": "#00a572",
+            "outline": "#8c909f",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed": "#e9ddff",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#0e0e13",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "inverse-on-surface": "#303036",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#d8e2ff",
+            "on-background": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-tertiary": "#003824",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-bright": "#39383e",
+            "on-primary": "#002e6a",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-fixed-dim": "#adc6ff",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-primary-fixed-variant": "#004395",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-container": "#00311f",
+            "secondary-container": "#571bc1",
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "on-secondary-container": "#c4abff",
+            "outline-variant": "#424754",
+            "on-primary-fixed": "#001a42",
+            "on-surface": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container-highest": "#35343a",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "on-error": "#690005",
+            "primary": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "on-secondary-fixed": "#23005c"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          fontFamily: {
+            "headline-xl": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          fontSize: {
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .auth-glow-bg {
+      background: radial-gradient(circle at 50% 25%, rgba(77, 142, 255, 0.12) 0%, rgba(87, 27, 193, 0.08) 35%, transparent 70%);
+    }
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md antialiased min-h-screen flex flex-col justify-between selection:bg-primary/20 selection:text-primary relative overflow-x-hidden">
+<!-- Ambient Background Grids & Radial Glow -->
+<div class="fixed inset-0 pointer-events-none z-0 auth-glow-bg"></div>
+<div class="fixed inset-0 pointer-events-none z-0 grid-pattern opacity-60"></div>
+<div class="fixed -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-primary/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
+<!-- Minimal Header (Docked Top Web Shell compliant with Shared TopAppBar standards) -->
+<header class="relative z-50 w-full border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md">
+<div class="w-full max-w-7xl mx-auto h-14 px-6 flex items-center justify-between">
+<!-- Brand & Version Segment -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center relative overflow-hidden group-hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+<div class="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-primary ring-2 ring-[#0A0A0F] animate-pulse"></div>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</a>
+<div class="h-4 w-px bg-outline-variant/40"></div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/30">v2.4</span>
+</div>
+<!-- Right Support / Action Link -->
+<div class="flex items-center gap-4">
+<a class="inline-flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="headset_mic">headset_mic</span>
+<span>Contact Security Desk</span>
+</a>
+<span class="text-outline-variant/40 hidden sm:inline">•</span>
+<a class="text-label-md font-label-md text-primary hover:text-primary-fixed transition-colors duration-150 flex items-center gap-1" href="#">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Central Main Content Canvas -->
+<main class="relative z-10 flex-1 flex items-center justify-center px-4 py-12 md:py-16">
+<div class="w-full max-w-[480px]">
+<!-- Sleek Glassmorphic Container Card -->
+<div class="bg-[#12121A]/95 border border-[#1E1E2E] rounded-xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+<!-- Subtle Top Edge Gradient Accent Line -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-80"></div>
+<!-- Security Badge Icon -->
+<div class="flex justify-center mb-5">
+<div class="relative group">
+<div class="w-14 h-14 rounded-xl btn-gradient p-[1px] shadow-lg shadow-primary/20">
+<div class="w-full h-full bg-[#12121A] rounded-[11px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]" data-icon="shield_lock" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-primary/25 rounded-xl blur-lg -z-10 group-hover:bg-primary/40 transition-all"></div>
+</div>
+</div>
+<!-- Typography Heading -->
+<div class="text-center mb-6">
+<h1 class="text-headline-md font-headline-md text-on-surface mb-2 tracking-tight">Reset your password</h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-sm mx-auto leading-relaxed">
+            Enter your registered email address and we'll send a secure one-time recovery link and verification code.
+          </p>
+</div>
+<!-- Recovery Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div class="space-y-1.5">
+<label class="block text-label-md font-label-md text-on-surface flex items-center justify-between" for="recovery-email">
+<span>Work Email Address</span>
+<span class="text-label-sm font-label-sm text-outline">SSO / Identity Linked</span>
+</label>
+<div class="relative flex items-center">
+<div class="absolute left-3.5 pointer-events-none flex items-center text-outline-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+</div>
+<input class="w-full h-[42px] pl-10 pr-10 bg-[#12121A] border border-[#1E1E2E] rounded-lg text-on-surface font-body-md placeholder:text-outline-variant/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all shadow-inner" id="recovery-email" name="email" placeholder="name@domain.com" required="" type="email" value="elena@apex.studio"/>
+<div class="absolute right-3 pointer-events-none flex items-center text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<!-- Contextual SSO/2FA Security Hint -->
+<div class="flex items-start gap-2 pt-1">
+<span class="material-symbols-outlined text-outline text-[15px] mt-0.5 shrink-0" data-icon="info">info</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant/80 leading-tight">
+                We'll verify your account credentials against your workspace SSO and 2FA settings.
+              </p>
+</div>
+</div>
+<!-- Primary Submit Action -->
+<div class="pt-2">
+<button class="w-full h-[42px] rounded-lg btn-gradient text-white font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform duration-150 cursor-pointer shadow-md" type="submit">
+<span>Send Recovery Instructions</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Divider with subtle badge -->
+<div class="relative my-6">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+</div>
+<div class="relative flex justify-center text-label-sm font-label-sm">
+<span class="bg-[#12121A] px-3 text-outline">Alternative Recovery Methods</span>
+</div>
+</div>
+<!-- Alternative Recovery Options Grid -->
+<div class="space-y-2">
+<a class="flex items-center justify-between p-3 rounded-lg border border-[#1E1E2E] bg-surface-container-lowest/60 hover:bg-[#181824] hover:border-primary/40 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-md bg-surface-container flex items-center justify-center border border-outline-variant/30 text-primary group-hover:text-primary-fixed">
+<span class="material-symbols-outlined text-[18px]" data-icon="key">key</span>
+</div>
+<div class="text-left">
+<div class="text-label-md font-label-md text-on-surface group-hover:text-primary transition-colors">Hardware Security Key</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant/70">FIDO2 / WebAuthn / YubiKey</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] group-hover:translate-x-0.5 group-hover:text-on-surface transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+<a class="flex items-center justify-between p-3 rounded-lg border border-[#1E1E2E] bg-surface-container-lowest/60 hover:bg-[#181824] hover:border-primary/40 transition-colors group" href="#">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-md bg-surface-container flex items-center justify-center border border-outline-variant/30 text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<div class="text-left">
+<div class="text-label-md font-label-md text-on-surface group-hover:text-primary transition-colors">Workspace Administrator</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant/70">Request manual token reissue</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px] group-hover:translate-x-0.5 group-hover:text-on-surface transition-all" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<!-- Bottom Return to Sign In Link -->
+<div class="mt-6 pt-5 border-t border-outline-variant/20 text-center">
+<a class="inline-flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_back">arrow_back</span>
+<span>Remembered your password? Back to Sign In</span>
+</a>
+</div>
+</div>
+<!-- Trust Indicator under Container -->
+<div class="mt-5 flex items-center justify-center gap-4 text-body-sm font-body-sm text-on-surface-variant/60">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>TLS 1.3 256-bit Encrypted</span>
+</div>
+<span>•</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="fingerprint">fingerprint</span>
+<span>Zero-Knowledge Proofs</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Minimal Footer (Follows Shared Component Specification & Compliance Badges) -->
+<footer class="relative z-20 w-full border-t border-outline-variant/30 bg-surface-container-lowest py-5 px-6">
+<div class="w-full max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<!-- Copyright & Security Label -->
+<div class="flex flex-wrap items-center gap-2 text-center sm:text-left">
+<span class="text-label-sm font-label-sm text-on-surface-variant">© 2025 Creator OS Inc.</span>
+<span class="hidden sm:inline text-outline-variant/50">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant/80">Enterprise-grade security &amp; SOC-2 compliance</span>
+</div>
+<!-- System Gateway Live Status Pill & Policy Links -->
+<div class="flex items-center gap-4">
+<!-- Live Status Pill -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/30 text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary -ml-3.5"></span>
+<span class="text-on-surface">Auth Gateway Operational</span>
+</div>
+<div class="hidden md:flex items-center gap-3 text-label-sm font-label-sm">
+<a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-on-surface transition-colors" href="#">Security Desk</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

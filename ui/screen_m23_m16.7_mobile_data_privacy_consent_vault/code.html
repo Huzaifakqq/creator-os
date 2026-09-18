@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Mobile Data Privacy &amp; Consent Vault</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "secondary": "#d0bcff",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container": "#1f1f25",
+            "surface": "#131318",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "primary": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-container": "#00285d",
+            "background": "#131318",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-primary": "#005ac2",
+            "surface-bright": "#39383e",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#004395",
+            "surface-dim": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "primary-container": "#4d8eff",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1b1b20",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#23005c",
+            "outline": "#8c909f",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "label-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    /* Custom subtle glass/glow styling */
+    .glow-primary-subtle {
+      box-shadow: 0 0 20px -5px rgba(77, 142, 255, 0.25);
+    }
+    body {
+      background-color: #0e0e13;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex flex-col items-center min-h-screen">
+<!-- Mobile Viewport Container (375px bounded canvas) -->
+<div class="w-full max-w-md min-h-screen bg-surface-container-lowest relative flex flex-col pb-24 shadow-2xl overflow-x-hidden">
+<!-- TopAppBar (Shared Component Instance) -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary docked full-width top-0 sticky z-40 shadow-sm dark:shadow-none border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-14 w-full px-4 max-w-md mx-auto">
+<button aria-label="Go back" class="flex items-center justify-center w-10 h-10 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="security" data-weight="fill" style="font-variation-settings: 'FILL' 1;">security</span>
+<h1 class="text-headline-sm font-headline-sm font-semibold text-on-surface dark:text-on-surface tracking-tight">Data &amp; Privacy Vault</h1>
+</div>
+<button aria-label="Shield lock status" class="flex items-center justify-center w-10 h-10 rounded-lg text-primary dark:text-primary hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined" data-icon="shield_lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield_lock</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 py-5 space-y-4">
+<!-- Section 1: Compliance & Sovereignty Banner -->
+<section class="bg-surface border border-outline-variant/30 rounded-xl p-4 relative overflow-hidden">
+<!-- Ambient subtle backdrop glow -->
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start space-x-3.5 relative z-10">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center shrink-0 text-primary glow-primary-subtle">
+<span class="material-symbols-outlined text-xl" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center flex-wrap gap-2 mb-1.5">
+<span class="text-headline-sm font-headline-sm text-on-surface text-base">Sovereignty Shield</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 border border-tertiary/30 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5 animate-pulse"></span>
+                GDPR &amp; CCPA Compliant
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+              Creator OS multi-tenant privacy vault. All subscriber and customer PII encrypted at rest with AES-256 and zero-knowledge encryption.
+            </p>
+</div>
+</div>
+</section>
+<!-- Section 2: Privacy Controls & Tracking -->
+<section class="bg-surface border border-outline-variant/30 rounded-xl p-4 space-y-4">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/20">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="tune">tune</span>
+<h2 class="text-headline-sm font-headline-sm text-base text-on-surface">Privacy Controls &amp; Tracking</h2>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary bg-surface-container px-2 py-0.5 rounded-md border border-outline-variant/20">Active Protection</span>
+</div>
+<div class="space-y-4 pt-1">
+<!-- Toggle Item 1 -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<span class="text-label-lg font-label-lg text-on-surface block font-medium">Cookie Consent Banner for Websites</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                Displays GDPR compliant cookie selector on your creator storefront.
+              </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input aria-label="Toggle Cookie Consent Banner" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high border border-outline-variant/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></div>
+</label>
+</div>
+<div class="h-px bg-outline-variant/20 w-full"></div>
+<!-- Toggle Item 2 -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<span class="text-label-lg font-label-lg text-on-surface block font-medium">First-Party Analytics Only</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                Disables third-party ad tracking scripts across your domains.
+              </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input aria-label="Toggle First-Party Analytics Only" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high border border-outline-variant/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></div>
+</label>
+</div>
+<div class="h-px bg-outline-variant/20 w-full"></div>
+<!-- Toggle Item 3 -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1">
+<span class="text-label-lg font-label-lg text-on-surface block font-medium">Anonymize Visitor IP Addresses</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                Truncates IPv4 and IPv6 addresses before analytics ingestion.
+              </p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input aria-label="Toggle Anonymize Visitor IP Addresses" checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high border border-outline-variant/40 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary peer-checked:border-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Section 3: Customer Data Subject Requests (DSR) -->
+<section class="bg-surface border border-outline-variant/30 rounded-xl p-4 space-y-3.5">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/20">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="manage_accounts">manage_accounts</span>
+<h2 class="text-headline-sm font-headline-sm text-base text-on-surface">Data Subject Requests (DSR)</h2>
+</div>
+</div>
+<!-- Summary Row -->
+<div class="flex items-center justify-between bg-surface-container-low px-3.5 py-2.5 rounded-lg border border-outline-variant/20">
+<div class="flex items-center space-x-2 text-label-md font-label-md text-on-surface-variant">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span>0 Pending Requests</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center space-x-2 text-label-md font-label-md text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span>14 Completed DSRs</span>
+</div>
+</div>
+<!-- Action: Right to be Forgotten -->
+<button class="w-full flex items-center justify-between p-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 transition-all text-left group active:scale-[0.99]" type="button">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded bg-surface-container-highest flex items-center justify-center text-primary group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete_sweep">delete_sweep</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg text-on-surface block font-medium">Process GDPR Right to be Forgotten</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Automated queue &amp; consent audit log</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-0.5 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Search Bar Input: Lookup & Erasure -->
+<div class="space-y-1.5 pt-1">
+<label class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider block" for="dsr-search">Customer PII Lookup &amp; Erasure</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline text-lg pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-10 bg-surface-container-lowest border border-outline-variant/40 rounded-lg pl-9 pr-20 text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" id="dsr-search" placeholder="Enter subscriber email to purge..." type="email"/>
+<button class="absolute right-1.5 px-3 py-1 bg-surface-container-high hover:bg-surface-bright text-label-sm font-label-sm text-primary rounded border border-outline-variant/30 active:scale-95 transition-all" type="button">
+              Lookup
+            </button>
+</div>
+</div>
+</section>
+<!-- Section 4: Export Full Workspace Archive -->
+<section class="bg-surface border border-outline-variant/30 rounded-xl p-4 space-y-3.5">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="archive">archive</span>
+<h2 class="text-headline-sm font-headline-sm text-base text-on-surface">Data Portability &amp; Full Export</h2>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-container/20 border border-secondary/30 px-2 py-0.5 rounded">JSON / CSV</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Includes: Subscribers, Sales Ledger, Course Submissions, and Media Metadata in structured open formats.
+        </p>
+<!-- Included Data Chips Matrix -->
+<div class="grid grid-cols-2 gap-2 pt-0.5">
+<div class="flex items-center space-x-2 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="groups">groups</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Subscribers List</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Sales Ledger</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="school">school</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Course Submissions</span>
+</div>
+<div class="flex items-center space-x-2 bg-surface-container-low px-2.5 py-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="perm_media">perm_media</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Media Metadata</span>
+</div>
+</div>
+<!-- Export Action Button -->
+<div class="pt-2">
+<button class="w-full h-11 bg-primary text-on-primary font-label-lg font-semibold rounded-lg flex items-center justify-center space-x-2 hover:brightness-105 active:scale-98 transition-all glow-primary-subtle" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="cloud_download">cloud_download</span>
+<span>Request Full Data Archive (.zip)</span>
+</button>
+<div class="flex items-center justify-center space-x-1.5 mt-2 text-center text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-outline" data-icon="info">info</span>
+<span>Generates encrypted download link valid for 24 hours</span>
+</div>
+</div>
+</section>
+<!-- Section 5: Data Retention Policy -->
+<section class="bg-surface border border-outline-variant/30 rounded-xl p-4 space-y-3">
+<div class="flex items-center space-x-2 pb-1 border-b border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="history_toggle_off">history_toggle_off</span>
+<h2 class="text-headline-sm font-headline-sm text-base text-on-surface">Data Retention Policy</h2>
+</div>
+<div class="flex items-center justify-between gap-3 pt-1">
+<div class="flex-1">
+<span class="text-label-lg font-label-lg text-on-surface block font-medium">Student &amp; Visitor Logs</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Auto-purge stale session data</span>
+</div>
+<div class="relative">
+<select aria-label="Retain inactive student logs for" class="appearance-none bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md rounded-lg py-2 pl-3 pr-8 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="6m">6 Months</option>
+<option value="1y">1 Year</option>
+<option selected="" value="2y">2 Years ▾</option>
+<option value="5y">5 Years</option>
+<option value="indefinite">Indefinite (Custom Legal Hold)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant text-base absolute right-2.5 top-2.5 pointer-events-none" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component Instance) -->
+<!-- JSON Specs: label_texts: ["Overview", "Products", "Billing", "Settings"] -->
+<!-- JSON Specs: icons: ["dashboard", "inventory_2", "receipt_long", "settings"] -->
+<!-- Active Tab: Settings (as dictated by context and Settings & Governance hierarchy) -->
+<nav class="bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-md docked full-width bottom-0 shadow-lg dark:shadow-[0_-4px_24px_rgba(0,0,0,0.6)] fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-md mx-auto">
+<!-- Item 1: Overview -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150 group" href="#overview">
+<span class="material-symbols-outlined text-xl mb-0.5 group-hover:scale-105 transition-transform" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm">Overview</span>
+</a>
+<!-- Item 2: Products -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150 group" href="#products">
+<span class="material-symbols-outlined text-xl mb-0.5 group-hover:scale-105 transition-transform" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-sm font-label-sm">Products</span>
+</a>
+<!-- Item 3: Billing -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150 group" href="#billing">
+<span class="material-symbols-outlined text-xl mb-0.5 group-hover:scale-105 transition-transform" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm">Billing</span>
+</a>
+<!-- Item 4: Settings (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary bg-primary-container/20 dark:bg-primary-container/20 rounded-xl px-3 py-1 active:scale-95 transition-transform duration-150" href="#settings">
+<span class="material-symbols-outlined text-xl mb-0.5" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-label-sm font-label-sm font-semibold">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

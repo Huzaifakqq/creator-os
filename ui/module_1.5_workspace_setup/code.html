@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Workspace Setup</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "background": "#131318",
+            "primary": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-dim": "#131318",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "surface-bright": "#39383e",
+            "surface-container-low": "#1b1b20",
+            "primary-container": "#4d8eff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#c4abff",
+            "surface-container-highest": "#35343a",
+            "surface-container": "#1f1f25",
+            "error": "#ffb4ab",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary": "#002e6a",
+            "surface-tint": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "inverse-primary": "#005ac2",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "outline-variant": "#424754",
+            "on-secondary-fixed": "#23005c",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-glow-card {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.25);
+    }
+    .ambient-glow-primary {
+      box-shadow: 0 0 20px -2px rgba(77, 142, 255, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface min-h-screen relative flex flex-col items-center justify-between font-body-md overflow-x-hidden antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Atmospheric Background Glow Effects -->
+<div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+<div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-primary-container/20 to-secondary-container/10 blur-[130px] rounded-full"></div>
+<div class="absolute bottom-10 right-1/4 w-[420px] h-[280px] bg-primary/10 blur-[100px] rounded-full"></div>
+</div>
+<!-- Minimal Linear Shell Navigation for Onboarding Flow (Task Focused) -->
+<header class="w-full max-w-7xl mx-auto px-6 h-16 flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-white text-lg">deployed_code</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-label-md font-label-md text-on-surface-variant hidden sm:inline-block">Signed in as alex@creator.io</span>
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low text-label-md font-label-md text-on-surface hover:text-white transition-colors duration-150" type="button">
+        Help Center
+      </button>
+</div>
+</header>
+<!-- Main Setup Card Canvas Container -->
+<main class="w-full max-w-[680px] mx-auto px-4 py-8 z-10 flex flex-col flex-1 justify-center">
+<!-- Progress Step Header Area -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-container/20 text-primary border border-primary-container/40">Step 1 of 3</span>
+<span class="text-label-md font-label-md font-medium text-on-surface">Workspace Foundation</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Next: Monetization Models</span>
+</div>
+<!-- 3-Step Visual Segmented Bar -->
+<div class="grid grid-cols-3 gap-2 w-full">
+<!-- Step 1 Active -->
+<div class="h-1.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container shadow-sm shadow-primary-container/50"></div>
+<!-- Step 2 Pending -->
+<div class="h-1.5 rounded-full bg-surface-container-highest"></div>
+<!-- Step 3 Pending -->
+<div class="h-1.5 rounded-full bg-surface-container-highest"></div>
+</div>
+</div>
+<!-- Onboarding Card Box -->
+<section class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-6 sm:p-8 backdrop-blur-md shadow-2xl relative">
+<!-- Heading -->
+<div class="mb-8">
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight mb-2">Let's set up your workspace</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Personalize your creator headquarters where your audience and revenue live</p>
+</div>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- 1. Workspace Name with live domain preview -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block text-label-lg font-label-lg text-on-surface" for="workspace-name">
+              Workspace Name
+            </label>
+<span class="text-label-sm font-label-sm text-outline">Required</span>
+</div>
+<div class="relative">
+<input class="w-full h-10 px-3 bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-on-surface font-body-md placeholder-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" id="workspace-name" oninput="document.getElementById('subdomain-preview').innerText = (this.value ? this.value.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '') : 'your-space') || 'your-space'" placeholder="e.g. Acme Studios" type="text" value="Acme Studios"/>
+</div>
+<!-- Domain Preview Pill -->
+<div class="mt-2.5 flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-outline text-base">link</span>
+<span>Default Domain:</span>
+<span class="font-medium text-primary font-mono px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30">
+<span id="subdomain-preview">acme-studios</span>.creatoros.app
+            </span>
+</div>
+</div>
+<!-- 2. Workspace Logo Upload Area -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2">
+            Workspace Logo / Icon
+          </label>
+<div class="flex flex-col sm:flex-row items-center gap-4">
+<!-- Current Avatar Placeholder -->
+<div class="w-16 h-16 rounded-xl bg-surface-container-highest border border-outline-variant/40 flex items-center justify-center relative group overflow-hidden shrink-0">
+<span class="material-symbols-outlined text-outline text-2xl group-hover:hidden">storefront</span>
+<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary-container/20 to-secondary-container/20 text-primary font-headline-sm font-headline-sm">
+                AS
+              </div>
+</div>
+<!-- Drag & Drop Zone -->
+<div class="w-full border-2 border-dashed border-outline-variant/50 hover:border-primary-container/60 rounded-xl p-4 flex items-center justify-center gap-3 bg-surface-container-lowest/50 hover:bg-surface-container-lowest transition-all cursor-pointer">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">cloud_upload</span>
+</div>
+<div class="text-left">
+<p class="text-label-md font-label-md text-on-surface">
+<span class="text-primary font-medium hover:underline">Click to upload</span> or drag and drop
+                </p>
+<p class="text-label-sm font-label-sm text-outline">Upload PNG, SVG, or JPG (max 5MB)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Industry / Niche Dropdown Selector -->
+<div>
+<label class="block text-label-lg font-label-lg text-on-surface mb-2" for="industry-select">
+            Industry / Niche
+          </label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-10 bg-surface-container-lowest border border-outline-variant/50 rounded-lg text-on-surface font-body-md focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container appearance-none cursor-pointer transition-all" id="industry-select">
+<option value="education">Education &amp; Online Courses</option>
+<option value="art">Digital Art &amp; Design</option>
+<option selected="" value="tech">Tech &amp; SaaS</option>
+<option value="fitness">Fitness &amp; Wellness</option>
+<option value="music">Music &amp; Audio</option>
+<option value="coaching">Coaching &amp; Consulting</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-outline">
+<span class="material-symbols-outlined text-xl">unfold_more</span>
+</div>
+</div>
+</div>
+<!-- 4. Primary Goal Selection (2x2 Grid) -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<label class="block text-label-lg font-label-lg text-on-surface">
+              What's your primary goal?
+            </label>
+<span class="text-label-sm font-label-sm text-outline">Select one to calibrate templates</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="goals-container">
+<!-- Option 1 -->
+<label class="goal-card relative flex items-start gap-3 p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline cursor-pointer transition-all">
+<input class="sr-only" name="primary_goal" type="radio" value="courses"/>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0 icon-box">
+<span class="material-symbols-outlined text-lg">school</span>
+</div>
+<div class="pr-5">
+<div class="text-label-md font-label-md font-semibold text-on-surface">Sell Courses &amp; Memberships</div>
+<div class="text-body-sm font-body-sm text-outline mt-0.5">Host premium video cohorts and community spaces.</div>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="goal-card relative flex items-start gap-3 p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline cursor-pointer transition-all">
+<input class="sr-only" name="primary_goal" type="radio" value="funnels"/>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0 icon-box">
+<span class="material-symbols-outlined text-lg">web</span>
+</div>
+<div class="pr-5">
+<div class="text-label-md font-label-md font-semibold text-on-surface">Build Custom Website &amp; Funnels</div>
+<div class="text-body-sm font-body-sm text-outline mt-0.5">High-converting landing pages and lead magnets.</div>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="goal-card relative flex items-start gap-3 p-3.5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest hover:border-outline cursor-pointer transition-all">
+<input class="sr-only" name="primary_goal" type="radio" value="agents"/>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0 icon-box">
+<span class="material-symbols-outlined text-lg">smart_toy</span>
+</div>
+<div class="pr-5">
+<div class="text-label-md font-label-md font-semibold text-on-surface">Deploy AI Autonomous Agents</div>
+<div class="text-body-sm font-body-sm text-outline mt-0.5">Automate member support, outreach, and marketing.</div>
+</div>
+</label>
+<!-- Option 4 (Pre-selected) -->
+<label class="goal-card selected-card relative flex items-start gap-3 p-3.5 rounded-xl border-2 border-primary-container bg-surface-container-low custom-glow-card cursor-pointer transition-all">
+<input checked="" class="sr-only" name="primary_goal" type="radio" value="empire"/>
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container text-white flex items-center justify-center shrink-0 icon-box">
+<span class="material-symbols-outlined text-lg">military_tech</span>
+</div>
+<div class="pr-5">
+<div class="text-label-md font-label-md font-semibold text-on-surface">All-in-One Digital Empire</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Unify CRM, storefront, autonomous bots, and funnels.</div>
+</div>
+<!-- Active Badge -->
+<div class="absolute top-3 right-3 text-primary check-badge">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Navigation Actions -->
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<button class="px-4 py-2 rounded-lg border border-outline-variant/40 bg-surface-container-lowest text-label-lg font-label-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all active:scale-[0.98] flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+            Back
+          </button>
+<button class="px-6 py-2.5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 active:scale-[0.98] text-white text-label-lg font-label-lg font-semibold flex items-center gap-2 ambient-glow-primary transition-all" type="button">
+<span>Continue to Step 2</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</button>
+</div>
+</form>
+</section>
+<!-- Support Hint -->
+<div class="mt-4 text-center">
+<span class="text-label-sm font-label-sm text-outline">
+        Need assistance setting up a custom domain or migrating from another platform? 
+        <a class="text-primary hover:underline" href="#">Contact Concierge</a>
+</span>
+</div>
+</main>
+<!-- Minimal Linear Shell Footer -->
+<footer class="w-full py-6 px-6 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-label-sm font-label-sm text-outline z-10 border-t border-outline-variant/20">
+<div>© 2025 Creator OS Inc. All rights reserved.</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Terms of Service</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Status</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Support</a>
+</div>
+</footer>
+<script>
+    // Handle Interactive Selection on Goal Cards
+    const goalCards = document.querySelectorAll('.goal-card');
+    goalCards.forEach(card => {
+      card.addEventListener('click', () => {
+        goalCards.forEach(c => {
+          c.classList.remove('selected-card', 'border-2', 'border-primary-container', 'custom-glow-card');
+          c.classList.add('border', 'border-outline-variant/40', 'bg-surface-container-lowest');
+          const existingBadge = c.querySelector('.check-badge');
+          if (existingBadge) existingBadge.remove();
+          const iconBox = c.querySelector('.icon-box');
+          if (iconBox) {
+            iconBox.className = "w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant shrink-0 icon-box";
+          }
+        });
+
+        // Apply active classes to clicked card
+        card.classList.remove('border', 'border-outline-variant/40', 'bg-surface-container-lowest');
+        card.classList.add('selected-card', 'border-2', 'border-primary-container', 'custom-glow-card');
+        
+        const iconBox = card.querySelector('.icon-box');
+        if (iconBox) {
+          iconBox.className = "w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container text-white flex items-center justify-center shrink-0 icon-box";
+        }
+
+        const badge = document.createElement('div');
+        badge.className = 'absolute top-3 right-3 text-primary check-badge';
+        badge.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span>';
+        card.appendChild(badge);
+
+        const radio = card.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+      });
+    });
+  </script>
+</body></html>

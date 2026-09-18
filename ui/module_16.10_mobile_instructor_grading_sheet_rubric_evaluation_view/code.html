@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Module 16.10: Mobile Instructor Grading Sheet &amp; Rubric Evaluation View</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface": "#131318",
+            "on-surface": "#e4e1e9",
+            "inverse-on-surface": "#303036",
+            "surface-container-lowest": "#0e0e13",
+            "outline-variant": "#424754",
+            "on-primary": "#002e6a",
+            "background": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface-tint": "#adc6ff",
+            "error-container": "#93000a",
+            "tertiary-container": "#00a572",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-primary": "#005ac2",
+            "on-background": "#e4e1e9",
+            "surface-container-highest": "#35343a",
+            "primary": "#adc6ff",
+            "inverse-surface": "#e4e1e9",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "primary-fixed-dim": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "surface-dim": "#131318",
+            "error": "#ffb4ab",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "surface-container-high": "#2a292f",
+            "surface-variant": "#35343a",
+            "outline": "#8c909f",
+            "secondary-fixed": "#e9ddff",
+            "secondary": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#4d8eff",
+            "surface-container": "#1f1f25",
+            "secondary-container": "#571bc1",
+            "tertiary": "#4edea3",
+            "on-primary-container": "#00285d",
+            "secondary-fixed-dim": "#d0bcff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom subtle glow effects conforming to brand specs */
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .glow-tertiary {
+      box-shadow: 0 0 20px -2px rgba(78, 222, 163, 0.28);
+    }
+    /* Hide scrollbars while allowing touch drag */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Simulation Shell (390px max-width container) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-36 shadow-2xl border-x border-outline-variant/30">
+<!-- TopAppBar (Shared Component execution) -->
+<header class="bg-surface text-primary font-headline-sm text-headline-sm font-label-md text-label-md docked full-width top-0 border-b border-outline-variant/40 flat no shadows Level 0 flex justify-between items-center w-full px-space-md h-14 sticky top-0 z-50 backdrop-blur-md bg-surface/90">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-98 transition-transform duration-100 ease-out">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Student Evaluation</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant -mt-0.5">Module 4 • Attempt 1/3</span>
+</div>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md px-3 py-1.5 rounded-lg border border-outline-variant/60 active:scale-98 transition-all duration-150 flex items-center gap-1">
+<span>Publish</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="send">send</span>
+</button>
+</header>
+<!-- Main Workspace Container -->
+<main class="flex-1 px-3.5 pt-3 space-y-4">
+<!-- Student Switcher Carousel & Live Grade Accumulator -->
+<section class="flex flex-col gap-2.5">
+<!-- Student Switcher Bar -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="relative w-9 h-9 rounded-full bg-gradient-to-tr from-secondary-container to-primary-container p-0.5 flex-shrink-0">
+<div class="w-full h-full rounded-full bg-surface-container-lowest flex items-center justify-center font-label-md text-label-md font-bold text-primary">
+                MK
+              </div>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface"></span>
+</div>
+<div class="flex flex-col leading-tight">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Marcus Kane</span>
+<span class="bg-secondary-container/50 border border-secondary/30 text-secondary text-[10px] font-label-sm px-1.5 py-0.2 rounded-full">PRO</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Student 4 of 28 Pending</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Previous student" class="w-7 h-7 rounded-lg bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button aria-label="Next student" class="w-7 h-7 rounded-lg bg-surface-container border border-outline-variant/40 flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Grade Accumulator Bento Banner -->
+<div class="bg-surface-container-low border border-tertiary-container/40 rounded-xl p-3 flex items-center justify-between relative overflow-hidden glow-tertiary">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-tertiary/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center gap-2.5">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/30 border border-tertiary-fixed/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-tertiary font-semibold block">Evaluated Score</span>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">92</span>
+<span class="font-label-md text-label-md text-on-surface-variant">/ 100 Pts</span>
+</div>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-md text-label-md font-semibold bg-tertiary-container text-on-tertiary-container">
+              Grade: A
+            </span>
+<span class="block font-label-sm text-label-sm text-tertiary mt-0.5 font-medium">Passing Score (≥80)</span>
+</div>
+</div>
+</section>
+<!-- Student Submission Summary & Video Reviewer Module -->
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3 space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="movie">movie</span>
+<h2 class="font-label-lg text-label-lg font-semibold text-on-surface">Submission Media</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+            Submitted 45m ago
+          </span>
+</div>
+<!-- Video Player Mock with Timeline Pins -->
+<div class="relative rounded-lg overflow-hidden bg-surface-container-lowest border border-outline-variant/60 shadow-inner group">
+<div class="aspect-video w-full bg-surface-container-highest relative flex items-center justify-center overflow-hidden">
+<!-- Simulated Cinematography Frame with Lighting Test -->
+<img class="w-full h-full object-cover" data-alt="A cinematic low-key film still demonstrating an anamorphic contrast test with deep dark shadows, subtle atmospheric blue haze, and a crisp 4 to 1 lighting ratio illuminating a dramatic character profile. Shot on high-end digital cinema camera with soft lens flare in a moody studio setup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6-4TWs7gDZX0aHrcZYRl8iu4bfX9ZqVcLyP9hzpdnp7g9prhHtTrJTubyJLFm4HnIZanM7hFxAMOcY-IY4PWxIhAcmTdiNj3Hh1l77v6EdojtF4PlUL2SgZ7znSEt30Rl5TbSUVkM-4jg7rICvcvy_lHtYL43D9-u80rskV8b4Zf-nyae8wqsGNF3Pf1Z7BpOHme80LLCyflusaRX9rdaWMsNX-JIjUsWvodcCMVEY09AN4FepfVLMw"/>
+<!-- Video Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+<!-- Resolution & Codec Badge -->
+<div class="absolute top-2 left-2 flex items-center gap-1 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-label-sm text-on-surface-variant border border-outline-variant/40">
+<span>ProRes 422 HQ</span>
+<span>•</span>
+<span>24fps Rec.709</span>
+</div>
+<!-- Big Center Play Button -->
+<button aria-label="Play submission video" class="w-11 h-11 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-lg active:scale-95 transition-transform duration-100 hover:bg-primary">
+<span class="material-symbols-outlined text-[26px] ml-0.5" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Video Title Bar Bottom -->
+<div class="absolute bottom-8 left-2 right-2 flex justify-between items-center text-[11px] font-label-sm text-on-surface">
+<span class="truncate max-w-[210px] font-medium">Scene04_Keylight_Take2.mov</span>
+<span class="font-mono text-on-surface-variant">00:28 / 01:12</span>
+</div>
+<!-- Custom Scrubber with Review Pins -->
+<div class="absolute bottom-2 left-2 right-2">
+<div class="relative w-full h-2 bg-surface-variant/80 rounded-full overflow-visible flex items-center cursor-pointer">
+<!-- Played Track -->
+<div class="h-full bg-primary rounded-full w-[38%] relative"></div>
+<!-- Playhead Scrub Knob -->
+<div class="absolute left-[38%] -translate-x-1/2 w-3 h-3 rounded-full bg-white border border-primary shadow"></div>
+<!-- Instructor Yellow Bookmark Pins -->
+<div class="absolute left-[19%] -top-1.5 -translate-x-1/2 flex flex-col items-center group/pin" title="0:14 Key Light Check">
+<span class="material-symbols-outlined text-amber-400 text-[14px]" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="absolute left-[38%] -top-1.5 -translate-x-1/2 flex flex-col items-center group/pin" title="0:28 Spill Flag">
+<span class="material-symbols-outlined text-amber-400 text-[14px]" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="absolute left-[52%] -top-1.5 -translate-x-1/2 flex flex-col items-center group/pin" title="0:38 Fill Ratio Check">
+<span class="material-symbols-outlined text-amber-400 text-[14px]" data-icon="bookmark" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Attached Review Assets -->
+<div class="flex flex-wrap gap-1.5 pt-0.5">
+<div class="flex items-center gap-1.5 bg-surface-container px-2 py-1 rounded-md border border-outline-variant/40 text-[11px] font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="truncate max-w-[140px]">Arri_LogC4_SkinTone_Fix.cube</span>
+<span class="text-outline text-[9px]">(4.2 MB)</span>
+</div>
+<a class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded-md border border-primary/30 text-[11px] font-label-sm text-primary hover:bg-surface-container-high transition-colors" href="#">
+<span>Frame.io Link</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="north_east">north_east</span>
+</a>
+</div>
+</section>
+<!-- Rubric Criteria Evaluation Stack -->
+<section class="space-y-3">
+<div class="flex items-center justify-between px-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="fact_check">fact_check</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Rubric Evaluation</h2>
+</div>
+<span class="font-label-md text-label-md text-primary font-medium">3 Criteria Applied</span>
+</div>
+<!-- Criterion Card 1 -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 space-y-2.5 transition-all duration-150 hover:border-primary/40">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-primary font-medium block">CRITERION 1 • 35 PTS</span>
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Key-to-Fill 4:1 Low-Key Lighting Ratio</h3>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-tertiary">35</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/35</span>
+</div>
+</div>
+<!-- Slider / Stepper Mock -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Under-exposed</span>
+<span>Ideal 4:1 Ratio</span>
+<span>Over-fill</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-tertiary rounded-full w-full"></div>
+</div>
+</div>
+<!-- Comment chip -->
+<div class="flex items-center gap-1.5 pt-1">
+<span class="inline-flex items-center gap-1 bg-tertiary-container/20 border border-tertiary/30 text-tertiary text-[11px] font-label-sm px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="done">done</span>
+              Strong contrast roll-off
+            </span>
+</div>
+</div>
+<!-- Criterion Card 2 -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 space-y-2.5 transition-all duration-150 hover:border-primary/40">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-medium block">CRITERION 2 • 35 PTS</span>
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Custom Rec.709 / LogC4 LUT Curve</h3>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">32</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/35</span>
+</div>
+</div>
+<!-- Slider -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Color Clipping</span>
+<span>Balanced Curve</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[91%]"></div>
+</div>
+</div>
+<!-- Bookmark Pill -->
+<div class="flex items-center gap-1.5 pt-1">
+<button class="inline-flex items-center gap-1 bg-surface-container-high border border-amber-500/40 text-amber-300 text-[11px] font-label-sm px-2 py-0.5 rounded-md hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-[13px]" data-icon="flag" data-weight="fill" style="font-variation-settings: 'FILL' 1;">flag</span>
+              Flagged @ 0:28 secondary rim spill
+            </button>
+</div>
+</div>
+<!-- Criterion Card 3 -->
+<div class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 space-y-2.5 transition-all duration-150 hover:border-primary/40">
+<div class="flex items-start justify-between gap-2">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium block">CRITERION 3 • 30 PTS</span>
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface leading-tight">Color Pipeline Snippet &amp; Technical Notes</h3>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">25</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/30</span>
+</div>
+</div>
+<!-- Slider -->
+<div class="space-y-1">
+<div class="flex justify-between text-[11px] font-label-sm text-on-surface-variant">
+<span>Incomplete</span>
+<span>Full Node Tree</span>
+</div>
+<div class="relative w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary/80 rounded-full w-[83%]"></div>
+</div>
+</div>
+<!-- Status badge -->
+<div class="pt-0.5 text-[11px] font-body-sm text-on-surface-variant">
+            Comprehensive notes &amp; DaVinci Resolve Project (.DRP) included.
+          </div>
+</div>
+</section>
+<!-- Timecoded Feedback & Voice Critique Studio -->
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="mic" data-weight="fill" style="font-variation-settings: 'FILL' 1;">mic</span>
+<h2 class="font-label-lg text-label-lg font-semibold text-on-surface">Voice Critique Studio</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-container/40 border border-secondary/30 px-2 py-0.5 rounded-full">
+            Instructor Memo
+          </span>
+</div>
+<!-- Voice Memo Player with Waveform Mock -->
+<div class="bg-surface-container rounded-lg p-2.5 border border-outline-variant/40 space-y-2">
+<div class="flex items-center gap-2.5">
+<button aria-label="Play audio critique" class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Audio Waveform Visualization -->
+<div class="flex-1 flex items-center gap-0.5 h-6">
+<span class="w-1 bg-secondary rounded-full h-2 animate-pulse"></span>
+<span class="w-1 bg-secondary rounded-full h-4"></span>
+<span class="w-1 bg-secondary rounded-full h-6"></span>
+<span class="w-1 bg-secondary rounded-full h-3"></span>
+<span class="w-1 bg-secondary rounded-full h-5"></span>
+<span class="w-1 bg-secondary rounded-full h-6"></span>
+<span class="w-1 bg-secondary rounded-full h-4"></span>
+<span class="w-1 bg-outline-variant rounded-full h-2"></span>
+<span class="w-1 bg-outline-variant rounded-full h-3"></span>
+<span class="w-1 bg-outline-variant rounded-full h-5"></span>
+<span class="w-1 bg-outline-variant rounded-full h-2"></span>
+<span class="w-1 bg-outline-variant rounded-full h-4"></span>
+<span class="w-1 bg-outline-variant rounded-full h-3"></span>
+<span class="w-1 bg-outline-variant rounded-full h-2"></span>
+<span class="w-1 bg-outline-variant rounded-full h-5"></span>
+<span class="w-1 bg-outline-variant rounded-full h-3"></span>
+<span class="w-1 bg-outline-variant rounded-full h-2"></span>
+</div>
+<span class="font-mono text-[11px] font-label-sm text-on-surface-variant">0:54</span>
+</div>
+<!-- Transcript Preview -->
+<div class="bg-surface-container-lowest/60 rounded p-2 text-[11px] font-body-sm text-on-surface-variant border border-outline-variant/20 italic">
+            "Marcus, fantastic correction on the Arri LogC curve. Watch the spill on the 4000K rim light during the shoulder sweep..."
+          </div>
+</div>
+<!-- Formatted Written Critique Textarea -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm text-on-surface font-medium block">
+            Written Evaluation &amp; Notes
+          </label>
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/60 p-2.5 focus-within:border-primary transition-colors">
+<p class="text-[12px] font-body-sm text-on-surface leading-relaxed">
+              Great execution on the low-key contrast ratio. The falloff into deep shadows remains clean without introducing digital noise. Keep an eye on secondary rim highlights at 0:28.
+            </p>
+</div>
+</div>
+<!-- Quick Praise Tags Carousel -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-1 pb-0.5">
+<button class="flex-shrink-0 bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 rounded-full px-2.5 py-1 text-[11px] font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            + Excellent Contrast
+          </button>
+<button class="flex-shrink-0 bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 rounded-full px-2.5 py-1 text-[11px] font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            + Clean Node Graph
+          </button>
+<button class="flex-shrink-0 bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 rounded-full px-2.5 py-1 text-[11px] font-label-sm text-on-surface-variant hover:text-on-surface transition-colors">
+            + Followed 1:1 Guidance
+          </button>
+</div>
+</section>
+<!-- Feedback Channel Option -->
+<section class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-3 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="forum">forum</span>
+<span class="font-label-sm text-label-sm text-on-surface">Share directly to Marcus's 1:1 DM thread</span>
+</div>
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0 cursor-pointer" type="checkbox"/>
+</section>
+</main>
+<!-- Bottom Action Dock (Sticky above navigation) -->
+<div class="fixed bottom-16 w-full max-w-[390px] px-3.5 py-2.5 bg-surface/95 backdrop-blur-lg border-t border-outline-variant/30 flex items-center gap-2 z-40">
+<button class="flex-1 h-10 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-variant active:scale-98 transition-all duration-150">
+        Save Draft
+      </button>
+<button class="flex-[2] h-10 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 glow-primary active:scale-98 transition-all duration-150">
+<span>Publish Final (92/100)</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+<!-- BottomNavBar (Shared Component execution) -->
+<!-- Active Intent: User is evaluating the rubric score and criteria ("Rubric" is active) -->
+<nav class="bg-surface-container-low dark:bg-surface-container-low text-primary dark:text-primary font-label-sm text-label-sm font-label-md text-label-md docked full-width bottom-0 shadow-2xl Level 2 fixed bottom-0 w-full max-w-[390px] z-50 flex justify-around items-center h-16 px-space-sm backdrop-blur-md">
+<!-- Tab 1: Rubric (Active navigation state) -->
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container dark:bg-primary-container dark:text-on-primary-container rounded-full px-3 py-1 active:scale-95 transition-transform duration-100 ease-out" href="#rubric">
+<span class="material-symbols-outlined text-[20px]" data-icon="fact_check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="font-label-sm text-label-sm mt-0.5">Rubric</span>
+</a>
+<!-- Tab 2: Video -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100 ease-out" href="#video">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_circle">play_circle</span>
+<span class="font-label-sm text-label-sm mt-0.5">Video</span>
+</a>
+<!-- Tab 3: Feedback -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100 ease-out" href="#feedback">
+<span class="material-symbols-outlined text-[20px]" data-icon="mic">mic</span>
+<span class="font-label-sm text-label-sm mt-0.5">Feedback</span>
+</a>
+<!-- Tab 4: Grades -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100 ease-out" href="#grades">
+<span class="material-symbols-outlined text-[20px]" data-icon="grade">grade</span>
+<span class="font-label-sm text-label-sm mt-0.5">Grades</span>
+</a>
+</nav>
+</div>
+</body></html>

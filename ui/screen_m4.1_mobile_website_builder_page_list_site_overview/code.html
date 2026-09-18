@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS — Pages &amp; Site Overview</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim as mandated -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#adc6ff",
+            "surface-bright": "#39383e",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d",
+            "on-tertiary-container": "#00311f",
+            "on-secondary": "#3c0091",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-primary": "#005ac2",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#131318",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed-variant": "#004395",
+            "tertiary-container": "#00a572",
+            "on-secondary-container": "#c4abff",
+            "on-surface": "#e4e1e9",
+            "surface-dim": "#131318",
+            "error-container": "#93000a",
+            "secondary-fixed": "#e9ddff",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container": "#1f1f25",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "inverse-on-surface": "#303036",
+            "on-error": "#690005",
+            "inverse-surface": "#e4e1e9",
+            "on-primary-fixed": "#001a42",
+            "tertiary": "#4edea3",
+            "on-error-container": "#ffdad6",
+            "on-background": "#e4e1e9",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754",
+            "background": "#131318",
+            "surface-container-highest": "#35343a",
+            "outline": "#8c909f",
+            "on-secondary-fixed": "#23005c",
+            "primary": "#adc6ff",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "surface-container-lowest": "#0e0e13",
+            "on-primary": "#002e6a",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-container": "#571bc1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .obsidian-card {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .obsidian-card-interactive:hover {
+      background-color: #181824;
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.35);
+    }
+    .gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    /* Hide scrollbars cleanly for mobile horizontal feeds */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary">
+<!-- 375px Mobile Frame Container -->
+<div class="w-full max-w-[375px] min-h-screen flex flex-col bg-[#0A0A0F] relative pb-24 shadow-2xl overflow-x-hidden">
+<!-- TopAppBar adhering to Shared Components JSON styling and Mobile specifications -->
+<header class="bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-md docked full-width top-0 sticky z-50 shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-3 h-14 max-w-screen-xl mx-auto">
+<!-- Left: Drawer / Navigation Menu -->
+<div class="flex items-center gap-2">
+<button aria-label="Open Navigation Menu" class="w-9 h-9 flex items-center justify-center rounded-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface text-on-surface-variant active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+<div>
+<span class="text-headline-sm-mobile font-headline-sm-mobile font-bold tracking-tight text-on-surface block leading-tight">Creator OS</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant block -mt-0.5 tracking-wide">Pages &amp; Site Overview</span>
+</div>
+</div>
+<!-- Right: Live Domain Badge & Publish Action -->
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface text-[10px]">acme.media</span>
+</div>
+<button class="gradient-btn text-white text-label-sm font-label-sm px-2.5 py-1.5 rounded-lg active:scale-95 transition-transform duration-150 flex items-center gap-1 glow-primary font-semibold shadow-md">
+<span class="material-symbols-outlined text-[14px]">cloud_upload</span>
+<span>Publish</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Mobile Canvas Container -->
+<main class="flex-1 px-4 pt-4 space-y-4">
+<!-- Site Summary Card (Glassmorphic + Obsidian Level 1) -->
+<section class="obsidian-card rounded-xl p-4 relative overflow-hidden">
+<!-- Ambient subtle background luminescent accent -->
+<div class="absolute -top-12 -right-12 w-36 h-36 bg-gradient-to-br from-primary/10 to-secondary/15 rounded-full blur-2xl pointer-events-none"></div>
+<!-- Header of Card: Live status and Device preview toggle -->
+<div class="flex items-center justify-between mb-3 relative z-10">
+<div class="flex items-center gap-2">
+<div class="flex items-center gap-1.5 bg-surface-container-high px-2 py-0.5 rounded-full border border-[#1E1E2E]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface tracking-tight">acmestudio.media</span>
+</div>
+<span class="text-[11px] font-label-sm text-tertiary font-medium">Live v2.4</span>
+</div>
+<!-- Preview Mode Toggle -->
+<div class="flex items-center bg-[#0e0e13] p-0.5 rounded-lg border border-[#1E1E2E]">
+<button aria-label="Desktop Preview Mode" class="p-1 rounded text-on-surface bg-surface-container shadow-xs text-primary transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">desktop_windows</span>
+</button>
+<button aria-label="Mobile Preview Mode" class="p-1 rounded text-on-surface-variant hover:text-on-surface transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+</button>
+</div>
+</div>
+<!-- Thumbnail Live Preview with Frame Geometry -->
+<div class="relative w-full h-36 rounded-lg overflow-hidden border border-[#1E1E2E] bg-surface-container-lowest group mb-3.5">
+<img class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-300" data-alt="A clean, cinematic dark-mode website interface preview with sleek glassmorphism panels, violet and royal blue ambient lighting, bold modern typography, and crisp layout grids against deep obsidian tones for a professional creative portfolio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK-iPNDxn0Qc1LzfqhcCp0jZ6BSkH2Ekv1bt3fRen4oeD0WT1BNlo1OIm7lD_decPSwsmcdkABYaqUWvBN2JrpEpLF47H8UrU3fJHvZoq0Rf3SqLeGx3o3ZEP_TgaSfN-9j8YxNqgEkyw2L4s3K63Qer8gPoNCkSLqkIlLImwfdCKiuAeZ97WqZyISdtCBmH5enxymLGNU5gK7RBcTrpuuFwvrl_bUBglTe4dnmqht7_Zw5LPAF4Jwxg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-black/20"></div>
+<!-- Overlay Floating Quick View Link -->
+<div class="absolute bottom-2.5 right-2.5">
+<a class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#181824]/90 backdrop-blur-md border border-[#2A2A3E] text-on-surface hover:text-primary text-label-sm font-label-sm transition-all duration-150 shadow-md" href="#preview">
+<span>Inspect Live</span>
+<span class="material-symbols-outlined text-[13px]">open_in_new</span>
+</a>
+</div>
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md border border-white/10">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-[10px] font-label-sm text-white/90">200 OK — 42ms TTFB</span>
+</div>
+</div>
+<!-- Micro-Metrics Footer inside Card -->
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-[#1E1E2E]">
+<!-- SEO Health Score -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low/60 border border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-md bg-tertiary-container/20 flex items-center justify-center border border-tertiary-container/30">
+<span class="material-symbols-outlined text-tertiary text-[16px]">speed</span>
+</div>
+<div>
+<p class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider leading-none">SEO Score</p>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="text-headline-sm-mobile font-headline-sm-mobile font-bold text-on-surface">98</span>
+<span class="text-[10px] text-on-surface-variant font-label-sm">/100</span>
+</div>
+</div>
+</div>
+<span class="text-tertiary text-label-sm font-label-sm font-semibold bg-tertiary/10 px-1.5 py-0.5 rounded">Optimum</span>
+</div>
+<!-- Monthly Traffic -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low/60 border border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-md bg-primary-container/20 flex items-center justify-center border border-primary-container/30">
+<span class="material-symbols-outlined text-primary text-[16px]">insights</span>
+</div>
+<div>
+<p class="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider leading-none">Monthly</p>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="text-headline-sm-mobile font-headline-sm-mobile font-bold text-on-surface">14.2k</span>
+<span class="text-[10px] text-tertiary font-label-sm">+18%</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[16px]">trending_up</span>
+</div>
+</div>
+</section>
+<!-- Quick Mobile Tools Bar -->
+<section class="overflow-x-auto no-scrollbar -mx-4 px-4 py-0.5">
+<div class="flex items-center gap-2 w-max">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-sm font-label-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-primary text-[16px]">tune</span>
+<span>Page Settings</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-sm font-label-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-secondary text-[16px]">code</span>
+<span>Custom Code</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-sm font-label-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-tertiary text-[16px]">find_in_page</span>
+<span>SEO Audit</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#12121A] hover:bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-sm font-label-sm transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[16px]">analytics</span>
+<span>Analytics</span>
+</button>
+</div>
+</section>
+<!-- Page Management Section -->
+<section class="space-y-3">
+<!-- Section Header with Add Page Button -->
+<div class="flex items-center justify-between pt-1">
+<div>
+<h2 class="text-headline-sm-mobile font-headline-sm-mobile font-bold text-on-surface tracking-tight">Published Pages (6)</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Manage page routes, index status, &amp; conversions</p>
+</div>
+<button class="flex items-center gap-1 bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 px-2.5 py-1.5 rounded-lg text-primary text-label-sm font-label-sm transition-all duration-150 active:scale-95 shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add_circle</span>
+<span class="font-semibold">+ New Page</span>
+</button>
+</div>
+<!-- Pages Interactive List (Obsidian Cards) -->
+<div class="space-y-2">
+<!-- 1. Home — Main Landing Page -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container/15 flex items-center justify-center text-primary border border-primary-container/30 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">home</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Home — Main Landing Page</span>
+</div>
+<span class="text-body-sm font-body-sm text-primary font-mono text-[11px] block">/home</span>
+</div>
+</div>
+<button aria-label="Menu for Home page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta & Stats Row -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="text-on-surface-variant">Edited 2h ago</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface font-medium">
+<span class="material-symbols-outlined text-primary text-[14px]">conversion_path</span>
+<span>Conv: <strong class="text-primary font-semibold">4.8%</strong></span>
+</div>
+</div>
+</div>
+<!-- 2. Courses & Masterclasses -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/25 flex items-center justify-center text-secondary border border-secondary-container/40 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">school</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Courses &amp; Masterclasses</span>
+<span class="text-body-sm font-body-sm text-primary font-mono text-[11px] block">/courses</span>
+</div>
+</div>
+<button aria-label="Menu for Courses page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="text-on-surface-variant">Edited Yesterday</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span>
+<span>12 lessons linked</span>
+</div>
+</div>
+</div>
+<!-- 3. Digital Presets & 3D Assets -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-primary-container/15 flex items-center justify-center text-primary border border-primary-container/30 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">local_mall</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Digital Presets &amp; 3D Assets</span>
+<span class="text-body-sm font-body-sm text-primary font-mono text-[11px] block">/shop</span>
+</div>
+</div>
+<button aria-label="Menu for Shop page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="text-on-surface-variant">Live catalog</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">inventory_2</span>
+<span>18 products active</span>
+</div>
+</div>
+</div>
+<!-- 4. 1-on-1 Coaching & Mentorship -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/25 flex items-center justify-center text-secondary border border-secondary-container/40 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">1-on-1 Coaching &amp; Mentorship</span>
+<span class="text-body-sm font-body-sm text-primary font-mono text-[11px] block">/coaching</span>
+</div>
+</div>
+<button aria-label="Menu for Coaching page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="text-on-surface-variant">Stripe Integrated</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">event_available</span>
+<span>Booking widget active</span>
+</div>
+</div>
+</div>
+<!-- 5. About & Film Portfolio -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150 opacity-90">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-variant flex items-center justify-center text-outline border border-[#1E1E2E] mt-0.5">
+<span class="material-symbols-outlined text-[18px]">movie</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">About &amp; Film Portfolio</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline font-mono text-[11px] block">/about</span>
+</div>
+</div>
+<button aria-label="Menu for About page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-variant text-on-surface-variant border border-outline-variant/30">
+<span class="w-1 h-1 rounded-full bg-outline"></span> Draft
+                </span>
+<span class="text-on-surface-variant">Edited 3 days ago</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">visibility_off</span>
+<span>Unpublished changes</span>
+</div>
+</div>
+</div>
+<!-- 6. Terms & Privacy Policy -->
+<div class="obsidian-card obsidian-card-interactive rounded-xl p-3 transition-all duration-150">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-start gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant border border-[#1E1E2E] mt-0.5">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</div>
+<div>
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Terms &amp; Privacy Policy</span>
+<span class="text-body-sm font-body-sm text-primary font-mono text-[11px] block">/legal</span>
+</div>
+</div>
+<button aria-label="Menu for Legal page" class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+<!-- Page Meta -->
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-[#1E1E2E]/80 text-[11px] font-label-sm">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">
+<span class="w-1 h-1 rounded-full bg-tertiary"></span> Published
+                </span>
+<span class="text-on-surface-variant">GDPR Compliant</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">security</span>
+<span>Auto-updated</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Quick Deploy & Status Insight -->
+<section class="pt-2">
+<div class="p-3 rounded-xl bg-gradient-to-r from-primary-container/10 via-secondary-container/10 to-transparent border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<div>
+<p class="text-label-md font-label-md text-on-surface font-semibold leading-tight">Global CDN Edge: Fast</p>
+<p class="text-[10px] text-on-surface-variant font-label-sm">Deployed across 32 regional nodes</p>
+</div>
+</div>
+<button class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-0.5">
+<span>Logs</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar faithfully adhering to Shared Components JSON & Active Navigation Protocol -->
+<!-- JSON Blueprint: destination_count=5, labels=["Studio", "Store", "CRM", "Agents", "More"], icons=["dashboard", "storefront", "group", "smart_toy", "more_horiz"] -->
+<!-- Contextual Mapping: "Studio" is active as the core website/pages workspace destination -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-3 py-2 pb-safe h-16 bg-surface-container-lowest/95 dark:bg-surface-container-lowest/95 backdrop-blur-lg border-t border-outline-variant/30 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
+<!-- 1. Studio (Active Destination for Mobile Website Builder & Page Overview) -->
+<button aria-label="Studio" class="flex flex-col items-center justify-center text-primary dark:text-primary font-semibold gap-1 active:scale-95 transition-transform duration-150 hover:text-primary dark:hover:text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-label-sm font-label-sm">Studio</span>
+</button>
+<!-- 2. Store -->
+<button aria-label="Store" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="text-label-sm font-label-sm">Store</span>
+</button>
+<!-- 3. CRM -->
+<button aria-label="CRM" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-label-sm font-label-sm">CRM</span>
+</button>
+<!-- 4. Agents -->
+<button aria-label="Agents" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-label-sm font-label-sm">Agents</span>
+</button>
+<!-- 5. More -->
+<button aria-label="More" class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+<span class="text-label-sm font-label-sm">More</span>
+</button>
+</nav>
+</div>
+</body></html>

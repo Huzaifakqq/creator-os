@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Data Privacy &amp; GDPR Controls</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary-container": "#00311f",
+            "outline-variant": "#424754",
+            "surface-container-low": "#1b1b20",
+            "on-background": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed-variant": "#005236",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-surface": "#e4e1e9",
+            "on-primary": "#002e6a",
+            "on-secondary": "#3c0091",
+            "surface": "#131318",
+            "tertiary": "#4edea3",
+            "on-primary-container": "#00285d",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "surface-dim": "#131318",
+            "on-secondary-container": "#c4abff",
+            "on-error": "#690005",
+            "surface-container": "#1f1f25",
+            "error-container": "#93000a",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "on-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "primary": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-highest": "#35343a",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "background": "#131318",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "on-primary-fixed-variant": "#004395",
+            "outline": "#8c909f",
+            "surface-tint": "#adc6ff",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-container": "#00a572",
+            "inverse-on-surface": "#303036",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#003824",
+            "surface-container-lowest": "#0e0e13",
+            "surface-bright": "#39383e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.4);
+    }
+    .custom-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(59, 130, 246, 0.6);
+    }
+    .custom-gradient-text {
+      background: linear-gradient(135deg, #adc6ff 0%, #d0bcff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .card-obsidian {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .card-obsidian:hover {
+      border-color: rgba(139, 92, 246, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex min-h-screen overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- SIDEBAR NAVIGATION (Desktop 64w fixed, Shared Component: SideNavBar) -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-low border-r border-outline-variant">
+<div class="flex flex-col h-full justify-between p-space-md">
+<!-- Top Section & Workspace Header -->
+<div class="flex flex-col gap-y-4">
+<!-- Brand / Header -->
+<div class="flex items-center gap-x-3 px-2 py-2">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white text-xl" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="text-body-sm font-body-sm text-outline tracking-normal mt-0.5">Enterprise Suite</span>
+</div>
+</div>
+<!-- Tenant Workspace Selector -->
+<div class="mx-1 p-2 rounded-lg bg-surface-container border border-outline-variant/60 flex items-center justify-between cursor-pointer hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-6 h-6 rounded bg-primary-container/20 border border-primary/30 flex items-center justify-center flex-shrink-0">
+<span class="text-label-sm font-label-sm text-primary font-bold">AS</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="text-body-sm font-body-sm text-on-surface font-medium truncate">Acme Studios</span>
+<span class="text-label-sm font-label-sm text-outline">Enterprise Tier</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-base" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Primary Navigation Tabs -->
+<nav class="flex flex-col gap-y-1 mt-2">
+<!-- Overview (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-95 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="space_dashboard">space_dashboard</span>
+<span>Overview</span>
+</a>
+<!-- Security & Sessions (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-95 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="shield">shield</span>
+<span>Security &amp; Sessions</span>
+</a>
+<!-- Notifications (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-95 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span>Notifications</span>
+</a>
+<!-- Privacy & GDPR (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary bg-surface-container border-l-2 border-primary font-medium hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-95 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-xl text-primary" data-icon="privacy_tip" data-weight="fill">privacy_tip</span>
+<span>Privacy &amp; GDPR</span>
+</a>
+<!-- API & Integrations (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-95 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="webhook">webhook</span>
+<span>API &amp; Integrations</span>
+</a>
+</nav>
+</div>
+<!-- Footer Actions & CTA -->
+<div class="flex flex-col gap-y-3 pt-4 border-t border-outline-variant/40">
+<!-- CTA Deploy Button -->
+<button class="w-full py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant text-label-md font-label-md flex items-center justify-center gap-2 transition-all active:scale-95">
+<span class="material-symbols-outlined text-base text-tertiary" data-icon="rocket_launch">rocket_launch</span>
+<span>Deploy Project</span>
+</button>
+<!-- Documentation & Support Links -->
+<div class="flex flex-col gap-y-1">
+<a class="flex items-center gap-3 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 rounded text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm transition-colors" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+<!-- Org Indicator Status -->
+<div class="px-3 py-2 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-outline">API v2.4 Live</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">EU-West-1</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN VIEWPORT CANVAS (Margin left for desktop sidebar: 256px / 16rem) -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- TOP UTILITY HEADER (Shared Component: TopNavBar modified for data & legal view) -->
+<header class="sticky top-0 right-0 w-full h-14 z-20 bg-surface/90 backdrop-blur-md border-b border-outline-variant/60 px-space-lg flex items-center justify-between">
+<!-- Breadcrumb and Context -->
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="text-body-sm font-body-sm text-outline">Settings</span>
+<span class="material-symbols-outlined text-sm text-outline-variant" data-icon="chevron_right">chevron_right</span>
+<span class="text-body-sm font-body-sm text-outline">Privacy &amp; Legal</span>
+<span class="material-symbols-outlined text-sm text-outline-variant" data-icon="chevron_right">chevron_right</span>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold truncate">Data Privacy &amp; GDPR Controls</span>
+<!-- SOC-2 Compliance Pill -->
+<div class="ml-3 hidden lg:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+<span>SOC-2 Type II Certified</span>
+</div>
+</div>
+<!-- Header Trailing Actions & Search -->
+<div class="flex items-center gap-3 flex-shrink-0">
+<!-- Quick Search Bar -->
+<div class="relative hidden xl:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface-container-low border border-outline-variant/80 rounded-md text-on-surface text-body-sm placeholder:text-outline/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" placeholder="Search compliance &amp; policies..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 text-[10px] font-mono text-outline bg-surface-container-high border border-outline-variant rounded">⌘K</kbd>
+</div>
+<!-- Notification Bell -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Audit Notifications">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<!-- Help Documentation -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Compliance Docs">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<div class="h-5 w-px bg-outline-variant/60 mx-1"></div>
+<!-- Save Privacy Preferences Button -->
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant text-label-md font-label-md flex items-center gap-2 transition-all active:scale-95 shadow-sm">
+<span class="material-symbols-outlined text-base text-primary" data-icon="save">save</span>
+<span>Save Privacy Preferences</span>
+</button>
+</div>
+</header>
+<!-- CONTENT BODY CANVAS -->
+<main class="flex-1 px-8 py-8 max-w-7xl w-full mx-auto space-y-8">
+<!-- PAGE TITLE & HERO HEADER -->
+<div class="flex flex-col md:flex-row md:items-end justify-between pb-4 border-b border-outline-variant/40 gap-4">
+<div>
+<div class="flex items-center gap-2.5 mb-1">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-semibold">GDPR &amp; CCPA Enforcement Studio</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl font-bold text-on-surface tracking-tight">Data &amp; Privacy Governance</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1 max-w-2xl">
+            Configure automated data subject access requests, manage third-party telemetry, audit encryption protocols, and exercise workspace data sovereignty.
+          </p>
+</div>
+<!-- Right side quick state -->
+<div class="flex items-center gap-2 text-label-md font-label-md text-outline bg-surface-container-low px-3 py-2 rounded-lg border border-outline-variant/60">
+<span class="material-symbols-outlined text-tertiary text-lg" data-icon="lock">lock</span>
+<span>End-to-End Vault Encrypted</span>
+</div>
+</div>
+<!-- SECTION 1: EXPORT PERSONAL & WORKSPACE DATA -->
+<section class="card-obsidian rounded-xl p-space-lg relative overflow-hidden">
+<!-- Subtle Glow element -->
+<div class="absolute -top-16 -right-16 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-outline-variant/40">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="cloud_download">cloud_download</span>
+<h2 class="text-headline-md font-headline-md text-on-surface font-semibold">Export Personal &amp; Workspace Data</h2>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              Exercising your rights under <span class="text-on-surface font-medium">GDPR Article 20 (Right to Data Portability)</span>. You can generate a machine-readable archive (JSON &amp; media assets) containing all telemetry, rosters, and financial records.
+            </p>
+</div>
+<div class="flex items-center gap-3">
+<button class="custom-gradient-btn px-4 py-2.5 rounded-lg text-white font-label-lg text-label-lg font-medium flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<span>Request Data Export</span>
+</button>
+</div>
+</div>
+<!-- Status Banner: Recent Export Request & Queue State -->
+<div class="mt-5 p-4 rounded-lg bg-surface-container-low/90 border border-primary/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="folder_zip">folder_zip</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="text-body-md font-body-md text-on-surface font-semibold">Latest Snapshot Ready</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/20 text-tertiary text-label-sm font-label-sm border border-tertiary/40">Verified SHA-256</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                Export generated on <span class="text-on-surface font-medium">Oct 28, 2026</span> (ZIP format, 1.42 GB) — Download available for <span class="text-primary font-medium">6 more days</span>.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<!-- Download Button -->
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant hover:border-primary text-label-md font-label-md flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-primary text-base" data-icon="download">download</span>
+<span>Download Archive (.ZIP)</span>
+</button>
+<!-- Queue indicator -->
+<div class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/40 text-outline text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span>No pending exports</span>
+</div>
+</div>
+</div>
+<!-- Granular Export Selector Bento Grid -->
+<div class="mt-6">
+<label class="text-label-md font-label-md text-outline uppercase tracking-wider block mb-3">Custom Archive Bundle Specification</label>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Checkbox 1 -->
+<label class="flex items-start gap-3.5 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 cursor-pointer transition-colors group">
+<input checked="" class="mt-1 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-colors" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium group-hover:text-primary transition-colors">User profile &amp; authentication logs</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Full multi-tenant auth audit trail, session IP logs, OAuth tokens, and profile metadata.</span>
+</div>
+</label>
+<!-- Checkbox 2 -->
+<label class="flex items-start gap-3.5 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 cursor-pointer transition-colors group">
+<input checked="" class="mt-1 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-colors" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium group-hover:text-primary transition-colors">Course materials &amp; student rosters</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Curriculum files, student completion metrics, video viewing telemetry, and grading tables.</span>
+</div>
+</label>
+<!-- Checkbox 3 -->
+<label class="flex items-start gap-3.5 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 cursor-pointer transition-colors group">
+<input checked="" class="mt-1 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-colors" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium group-hover:text-primary transition-colors">Commerce transaction history &amp; invoices</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Stripe subscription logs, VAT calculation sheets, payout receipts, and customer billing addresses.</span>
+</div>
+</label>
+<!-- Checkbox 4 -->
+<label class="flex items-start gap-3.5 p-3.5 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 cursor-pointer transition-colors group">
+<input checked="" class="mt-1 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-primary focus:ring-offset-0 transition-colors" type="checkbox"/>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium group-hover:text-primary transition-colors">AI agent conversation logs &amp; prompt embeddings</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Vector database memory vectors, workflow agent prompts, and custom fine-tuning conversation pairs.</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- SECTION 2: CONSENT & TELEMETRY MANAGEMENT -->
+<section class="card-obsidian rounded-xl p-space-lg">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="tune">tune</span>
+<h2 class="text-headline-md font-headline-md text-on-surface font-semibold">Consent &amp; Telemetry Management</h2>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-6">
+          Adjust real-time privacy preferences. Any modification propagates immediately to all edge cache servers and background telemetry workers.
+        </p>
+<div class="space-y-4">
+<!-- Toggle 1: Marketing (OFF) -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-3.5 max-w-3xl">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="campaign">campaign</span>
+</div>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium">Marketing &amp; Educational Communications</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Receive product changelogs, marketing playbooks, and webinar invites</span>
+</div>
+</div>
+<!-- Toggle OFF -->
+<button aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-surface-variant transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-0 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-outline shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Toggle 2: Product Analytics (ON) -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-3.5 max-w-3xl">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="analytics">analytics</span>
+</div>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium">Product Analytics &amp; Telemetry</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Help improve Creator OS by sharing anonymized usage metrics and crash telemetry</span>
+</div>
+</div>
+<!-- Toggle ON -->
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Toggle 3: Third-Party Data Processing (ON) -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-outline-variant transition-colors">
+<div class="flex items-start gap-3.5 max-w-3xl">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md text-on-surface font-medium">Third-Party Data Processing</span>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Allow sub-processors (Stripe, Resend, Pinecone) to process workflow transactions</span>
+</div>
+</div>
+<!-- Toggle ON -->
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Toggle 4: AI Model Training Opt-Out (ON + Badge) -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-low border border-primary/30 hover:border-primary/50 transition-colors">
+<div class="flex items-start gap-3.5 max-w-3xl">
+<div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2 flex-wrap">
+<span class="text-body-md font-body-md text-on-surface font-medium">AI Model Training Opt-Out</span>
+<!-- Verified Zero-Retention Guarantee badge -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary/15 border border-tertiary/40 text-tertiary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+<span>Verified Zero-Retention Guarantee</span>
+</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline mt-0.5">Ensure your proprietary course materials and creator prompt studio assets are NEVER used for foundation model training</span>
+</div>
+</div>
+<!-- Toggle ON -->
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-primary-container transition-colors duration-200 ease-in-out focus:outline-none" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- SECTION 3: DATA RETENTION & COMPLIANCE DISCLOSURES -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Info Card: Retention Policy -->
+<div class="md:col-span-2 card-obsidian rounded-xl p-space-lg flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center flex-shrink-0 text-primary border border-outline-variant/40">
+<span class="material-symbols-outlined text-2xl" data-icon="schedule">schedule</span>
+</div>
+<div class="flex flex-col space-y-1">
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Data Retention Policy</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              We retain your operational data for <span class="text-on-surface font-semibold">30 days</span> after account deletion to prevent accidental disruptions. Encrypted cold-storage backups are cryptographically purged after <span class="text-on-surface font-semibold">90 days</span> in compliance with ISO/IEC 27001 standards.
+            </p>
+<div class="pt-2 flex items-center gap-4 text-label-sm font-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle">check_circle</span>
+                Immutable Audit Logs
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle">check_circle</span>
+                AES-256 Server-Side
+              </span>
+</div>
+</div>
+</div>
+<!-- Sub-processor Roster Link Box -->
+<div class="card-obsidian rounded-xl p-space-lg flex flex-col justify-between">
+<div class="space-y-1">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Sub-Contractors</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Authorized Sub-Processors</h3>
+<p class="text-body-sm font-body-sm text-outline">
+              View our complete, audited list of infrastructure vendors, CDNs, and AI inference endpoints.
+            </p>
+</div>
+<a class="mt-4 inline-flex items-center justify-between px-3.5 py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant text-label-md font-label-md transition-all group" href="#">
+<span class="text-primary group-hover:text-on-surface">View 12 authorized enterprise sub-processors</span>
+<span class="material-symbols-outlined text-base text-primary group-hover:translate-x-0.5 transition-transform" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+</section>
+<!-- SECTION 4: PERMANENT ACCOUNT & DATA DELETION (DANGER ZONE) -->
+<section class="rounded-xl border border-red-900/60 bg-[#161214] p-space-lg relative overflow-hidden shadow-2xl">
+<!-- Danger zone corner tag -->
+<div class="absolute top-0 right-0 px-3 py-1 bg-red-950/80 border-b border-l border-red-900/60 rounded-bl text-[11px] font-mono font-semibold text-red-400 uppercase tracking-widest">
+          Danger Zone
+        </div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-red-950/60 border border-red-800/80 flex items-center justify-center flex-shrink-0 text-red-400">
+<span class="material-symbols-outlined text-2xl" data-icon="warning">warning</span>
+</div>
+<div class="flex-1 space-y-2">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-md font-headline-md text-red-200 font-semibold">Permanently Delete Workspace &amp; All Associated Data</h2>
+</div>
+<p class="text-body-md font-body-md text-red-200/80 leading-relaxed max-w-4xl">
+              This action is <span class="text-red-100 font-bold underline decoration-red-500">irreversible</span>. All published websites, student enrollments, courses, subscriptions, and AI agent memory graphs will be permanently erased from all production databases and CDN edges.
+            </p>
+<!-- Inline Demonstration of Confirmation Challenge Box -->
+<div class="mt-6 p-5 rounded-lg bg-[#0E0C0D] border border-red-900/50 max-w-2xl space-y-4">
+<div class="space-y-1">
+<label class="text-body-sm font-body-sm text-on-surface-variant block" for="slug-challenge">
+                  To proceed, type your workspace slug <span class="font-mono text-red-300 font-semibold bg-red-950/60 px-1.5 py-0.5 rounded border border-red-900/40 select-all">acme-studios</span> to confirm deletion:
+                </label>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+<div class="relative flex-1">
+<input class="w-full h-10 px-3 rounded-md bg-[#181416] border border-red-900/70 text-on-surface text-body-md font-mono placeholder:text-outline/40 focus:border-red-500 focus:ring-1 focus:ring-red-500 focus:outline-none transition-all" id="slug-challenge" placeholder="acme-studios" type="text"/>
+</div>
+<!-- Disabled Danger Confirmation Button -->
+<button class="px-4 h-10 rounded-md bg-red-950/40 text-red-400/50 border border-red-900/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-2 cursor-not-allowed transition-all" disabled="" title="Slug verification required" type="button">
+<span class="material-symbols-outlined text-base" data-icon="delete_forever">delete_forever</span>
+<span>Confirm Permanent Deletion</span>
+</button>
+</div>
+<p class="text-label-sm font-label-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="info">info</span>
+                Requires Organization Owner privilege. Billing immediately stops.
+              </p>
+</div>
+<!-- Alternative Action Link -->
+<div class="pt-3">
+<button class="text-body-sm font-body-sm text-outline hover:text-on-surface transition-colors flex items-center gap-1">
+<span>Looking to freeze billing without deleting data?</span>
+<span class="text-primary hover:underline">Pause Subscription Instead →</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- BOTTOM AUDIT TRAIL META -->
+<footer class="pt-4 pb-8 flex flex-col sm:flex-row items-center justify-between text-label-sm font-label-sm text-outline border-t border-outline-variant/30 gap-2">
+<div>
+          Creator OS DPO (Data Protection Officer): <span class="text-on-surface font-mono">dpo@creatoros.enterprise</span>
+</div>
+<div class="flex items-center gap-4">
+<span>GDPR v2026.4</span>
+<span>•</span>
+<span>Standard Contractual Clauses (SCC) Active</span>
+<span>•</span>
+<span class="text-tertiary">All Systems Operational</span>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

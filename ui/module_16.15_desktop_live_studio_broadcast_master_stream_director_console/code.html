@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Module 16.15 Desktop Live Studio Broadcast &amp; Master Stream Director Console</title>
+<!-- Fonts & Material Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "tertiary-container": "#00a572",
+            "background": "#131318",
+            "secondary-fixed": "#e9ddff",
+            "surface": "#131318",
+            "tertiary": "#4edea3",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "surface-tint": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "outline": "#8c909f",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#004395",
+            "primary": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-dim": "#131318",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container-highest": "#35343a",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "primary-fixed": "#d8e2ff",
+            "surface-bright": "#39383e",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "on-secondary-fixed": "#23005c",
+            "inverse-primary": "#005ac2",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "secondary": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Custom Studio Scrollbars */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    /* Pulsing on-air indicator */
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; box-shadow: 0 0 16px rgba(239, 68, 68, 0.8); }
+      50% { opacity: 0.65; box-shadow: 0 0 4px rgba(239, 68, 68, 0.3); }
+    }
+    .animate-on-air {
+      animation: pulse-red 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary">
+<!-- SHARED COMPONENT: SideNavBar (docked left-0 top-0 h-screen w-64) -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-50 flex flex-col justify-between py-space-md px-space-sm bg-surface-container-lowest border-r border-outline-variant select-none">
+<div class="flex flex-col gap-space-md">
+<!-- Tenant & Brand Header -->
+<div class="flex items-center gap-space-sm px-space-sm py-space-xs">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined" data-icon="videocam">videocam</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Enterprise Space</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<div class="px-space-xs">
+<button class="w-full flex items-center justify-center gap-space-xs bg-surface-container-high hover:bg-surface-container-highest border border-outline-variant text-on-surface py-2 rounded-lg font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary" data-icon="radio_button_checked">radio_button_checked</span>
+<span>Quick Record</span>
+</button>
+</div>
+<!-- Primary Navigation Tabs (Active: Broadcast) -->
+<nav class="flex flex-col gap-1 px-space-xs">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Studio -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span>Studio</span>
+</a>
+<!-- 3. Broadcast (ACTIVE LOCK FOR THIS VIEW) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-high text-primary font-label-md text-label-md border-l-2 border-primary transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="sensors" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sensors</span>
+<span class="font-semibold">Broadcast</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-error animate-pulse"></span>
+</a>
+<!-- 4. Classroom -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>Classroom</span>
+</a>
+<!-- 5. Community -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Community</span>
+</a>
+<!-- 6. CRM -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="contact_mail">contact_mail</span>
+<span>CRM</span>
+</a>
+<!-- 7. Analytics -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<!-- 8. Settings -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- SideNavBar Footer -->
+<div class="flex flex-col gap-1 px-space-xs pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<div class="flex items-center justify-between px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span>Status</span>
+</div>
+<span class="flex items-center gap-1 text-[11px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> 99.9%
+        </span>
+</div>
+</div>
+</aside>
+<!-- MAIN VIEWPORT CONTAINER (offset by fixed 256px SideNavBar) -->
+<div class="pl-64 flex flex-col min-h-screen">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="flex justify-between items-center w-full px-space-lg h-14 sticky top-0 z-40 bg-surface-container-low border-b border-outline-variant">
+<!-- Left Cluster: Search & Context Label -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight">Creator OS</span>
+<span class="text-outline-variant">/</span>
+<span class="text-label-md font-label-md text-on-surface-variant">Live Master Console</span>
+</div>
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-base" data-icon="search">search</span>
+<input class="w-full h-9 bg-surface-container-lowest border border-outline-variant rounded-md pl-9 pr-3 text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:border-primary focus:outline-none transition-colors" placeholder="Search inputs, guests, cues (⌘K)..." type="text"/>
+</div>
+</div>
+<!-- Right Cluster: Primary & Secondary Actions + Trailing Icons -->
+<div class="flex items-center gap-space-sm">
+<!-- Live Status Flag -->
+<div class="flex items-center gap-2 bg-error-container/40 border border-error/50 px-3 py-1 rounded-full animate-on-air mr-2">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+<span class="text-label-sm font-label-sm text-error font-bold tracking-wider uppercase">ON AIR</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">01:42:19</span>
+</div>
+<!-- Trailing Secondary: Go Live -->
+<button class="flex items-center gap-1.5 px-3.5 h-9 bg-surface-container-high border border-outline-variant hover:border-outline text-on-surface rounded-lg font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-base" data-icon="sensors">sensors</span>
+<span>Go Live</span>
+</button>
+<!-- Trailing Primary: Create New -->
+<button class="flex items-center gap-1.5 px-3.5 h-9 bg-primary-container text-on-primary-container rounded-lg font-label-md text-label-md hover:brightness-105 transition-all duration-150 active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+<span>Create New</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<!-- Trailing Icon Actions: notifications, tune, help -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Tune Settings">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Help Desk">
+<span class="material-symbols-outlined text-xl" data-icon="help">help</span>
+</button>
+<!-- Profile Avatar -->
+<div class="ml-2 pl-2 border-l border-outline-variant">
+<img class="w-8 h-8 rounded-full border border-outline object-cover shadow-sm" data-alt="Close-up professional portrait of a stream director in dark studio lighting with cyan backlight reflections and audio engineering headset, high contrast aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxGn5z8DIBaTJSzTVB7Szvlg1NtArKP-iBkL44SBqMWdSI2YrLTLCmbn-mwUOa04tJ3oIwWjuKwEaNT4Q2F8By9nTCp8Qz_6oseogJp7Y3DoWwdJvEbRe0s3TRhddmpjOq5q6edkBPaXYxJrtuu_Kpet2YfXc48Cd9zOe7W_w6aZHjUgqPK0n751oIcQvgr7IQKhxpRlzVfKV-ofoZaj5gb4yLaAgbB8XD9rjrULsE-5zzAuVOmTwr8g"/>
+</div>
+</div>
+</header>
+<!-- STREAM HEALTH & TELEMETRY STRIP -->
+<section class="w-full bg-surface-container-lowest border-b border-outline-variant px-space-lg py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<!-- Telemetry 1: Bitrate -->
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Bitrate</span>
+<span class="font-mono text-label-md font-label-md text-tertiary font-bold">6,240 kbps</span>
+<span class="text-label-sm font-label-sm text-outline">(CBR Target)</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<!-- Telemetry 2: Frame Loss -->
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Dropped Frames</span>
+<span class="font-mono text-label-md font-label-md text-tertiary">0.01%</span>
+<span class="text-[11px] text-outline font-mono">(4 / 368,200)</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<!-- Telemetry 3: Latency -->
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Edge Latency</span>
+<span class="font-mono text-label-md font-label-md text-primary font-bold">11ms</span>
+<span class="text-[11px] text-outline">us-east-virginia</span>
+</div>
+<div class="h-4 w-px bg-outline-variant"></div>
+<!-- Telemetry 4: CPU / GPU Load -->
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Encoder Load</span>
+<span class="font-mono text-label-md font-label-md text-on-surface">NVENC 28%</span>
+<div class="w-16 h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 28%"></div>
+</div>
+</div>
+</div>
+<!-- Emergency Director Trigger Bar -->
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-outline mr-1 uppercase">Safety Cues:</span>
+<button class="px-2.5 py-1 bg-surface-container-high hover:bg-surface-variant text-on-surface-variant hover:text-on-surface border border-outline-variant rounded font-label-sm text-label-sm transition-all active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="mic_off">mic_off</span>
+<span>Mute All</span>
+</button>
+<button class="px-2.5 py-1 bg-surface-container-high hover:bg-surface-variant text-on-surface-variant hover:text-on-surface border border-outline-variant rounded font-label-sm text-label-sm transition-all active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span>
+<span>BRB Slate</span>
+</button>
+<button class="px-2.5 py-1 bg-surface-container-high hover:bg-surface-variant text-on-surface-variant hover:text-on-surface border border-outline-variant rounded font-label-sm text-label-sm transition-all active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="badge">badge</span>
+<span>Host Tag</span>
+</button>
+<button class="px-2.5 py-1 bg-surface-container-high hover:bg-surface-variant text-primary border border-outline-variant rounded font-label-sm text-label-sm transition-all active:scale-95 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="poll">poll</span>
+<span>Quick Poll</span>
+</button>
+</div>
+</section>
+<!-- WORKSPACE CANVAS: MASTER BROADCAST CONSOLE -->
+<main class="flex-1 p-space-lg grid grid-cols-12 gap-space-lg bg-surface">
+<!-- LEFT & CENTER REGION: MONITORS, VIDEO SWITCHER & AUDIO (Cols 1 to 9) -->
+<div class="col-span-9 flex flex-col gap-space-md">
+<!-- DUAL MONITOR BAY: PREVIEW (PVW) & PROGRAM (PGM) -->
+<div class="grid grid-cols-12 gap-space-md">
+<!-- PREVIEW (GREEN TALLY) -->
+<div class="col-span-6 bg-surface-container-low border border-outline-variant rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary-container text-on-tertiary font-bold tracking-wider">PVW • PREVIEW</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">Source: DaVinci Resolve Feed</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline font-mono">1080p60 SDR</span>
+</div>
+<!-- Preview Video Surface -->
+<div class="relative aspect-video w-full rounded-lg overflow-hidden border-2 border-tertiary/60 bg-surface-container-lowest group">
+<img class="w-full h-full object-cover" data-alt="High-end DaVinci Resolve color grading studio workspace showing sophisticated multi-node video scopes, wave monitor graphs, and cinematic 4k timelines glowing in deep dark blue and obsidian hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYJLJSinR4EXbZrUnE0bFzrauTmNkWB5vGUqxFqEA5LB2bQrWRWCTE2b-9U097r5iWa9_Jye-FAKX7Vd0wPzoAff8Gf-hEVZ3kqZaG3fegx9KzMJfAqXeKaW2gbMkJ1Qe6VCiNAqLEY9XPWyM7o0m4sWenDxAjfCi1FnBycMgfFAq8gLqPPiABBAOs7tJYGz5TdcC1oubw5kPfJAIcoE7NuKYuBk4ieLy4vVLbeb5UUcyMqjMnuZC-uw"/>
+<!-- Subtle Rule-of-Thirds Grid Overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-20 grid grid-cols-3 grid-rows-3 border border-outline/30">
+<div class="border-r border-b border-outline/30"></div>
+<div class="border-r border-b border-outline/30"></div>
+<div class="border-b border-outline/30"></div>
+<div class="border-r border-b border-outline/30"></div>
+<div class="border-r border-b border-outline/30"></div>
+<div class="border-b border-outline/30"></div>
+</div>
+<!-- PVW Bottom Tag -->
+<div class="absolute bottom-2 left-2 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-1 rounded text-label-sm font-label-sm text-tertiary border border-tertiary/40">
+                Next Transition: Auto-Dissolve 1.2s
+              </div>
+</div>
+</div>
+<!-- PROGRAM (RED TALLY / LIVE AIR) -->
+<div class="col-span-6 bg-surface-container-low border border-outline-variant rounded-xl p-3 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container text-on-error-container font-bold tracking-wider">PGM • LIVE OUT</span>
+<span class="text-label-sm font-label-sm text-error font-mono font-semibold">Cam A — Sony FX6 Master</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-tertiary font-mono">4K Cloud Rec Active</span>
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+</div>
+</div>
+<!-- Program Video Surface with Real-time HUD -->
+<div class="relative aspect-video w-full rounded-lg overflow-hidden border-2 border-error bg-surface-container-lowest shadow-[0_0_24px_-6px_rgba(239,68,68,0.35)]">
+<img class="w-full h-full object-cover" data-alt="Cinematic production studio set with host sitting in an ergonomic workstation under moody cobalt and tungsten rim lighting, Sony FX6 shallow depth of field framing with clean background bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG-1k8W4035wWBliJYjHirMlGC20WdRTUZtlNp9_FEzgJF3XCVAbK8CqOb14lp_RyUURLXr7XQsuUAKa9h4ogesIB0YaxN68xeDd1TpQMtFNTnABYCr6J_Z_mZFP1m5MDAWJ1ljDJaN34Kj23iIfrhN3WBDNIrcGewH76640HWyhd0Mvko-_m5TroIkOyuEwt4993IVsOtyoMoxWi6i4pcMJJ8en_X04bthNGgWXudweVs_SLxxTvPcA"/>
+<!-- Live HUD Telemetry Overlays -->
+<div class="absolute top-2 left-2 flex items-center gap-2 bg-surface-container-lowest/85 backdrop-blur-md px-2.5 py-1 rounded border border-outline-variant/60 font-mono text-[11px] text-on-surface">
+<span class="text-error font-bold">1080p60 HDR</span>
+<span class="text-outline">|</span>
+<span>REC 01:42:19</span>
+<span class="text-outline">|</span>
+<span class="text-tertiary">Rec Bitrate: 48.2 Mbps</span>
+</div>
+<div class="absolute top-2 right-2 bg-surface-container-lowest/85 backdrop-blur-md px-2 py-1 rounded border border-outline-variant/60 text-[11px] font-mono text-tertiary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="cloud_done">cloud_done</span>
+<span>Dual RTMP + HLS Master</span>
+</div>
+<!-- Live Lower Third Mock Overlay -->
+<div class="absolute bottom-3 left-4 bg-gradient-to-r from-surface-container-lowest/95 via-surface-container-lowest/80 to-transparent p-2.5 pl-3 border-l-4 border-primary rounded-r max-w-sm backdrop-blur-sm">
+<span class="text-label-sm font-label-sm text-primary font-bold tracking-wide uppercase block">Elena Vance — Masterclass Lead</span>
+<span class="text-body-sm font-body-sm text-on-surface">Live Node Color Timing for High-Framerate Virtual Production</span>
+</div>
+</div>
+</div>
+</div>
+<!-- HARDWARE SWITCHER RACK & T-BAR TRANSITION STRIP -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="grid_view">grid_view</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">Video Switcher Bus &amp; Cross-Fader</span>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm text-on-surface-variant">
+<span>Transition Mode: <strong class="text-on-surface">Smooth Bezier Dissolve</strong></span>
+<span class="text-outline">|</span>
+<span>Rate: <strong class="text-on-surface">1.2s</strong></span>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-space-md items-center">
+<!-- 4-Source Camera & Media Switcher Buttons -->
+<div class="col-span-8 grid grid-cols-4 gap-3">
+<!-- Source 1: Cam A (Active Program - Red) -->
+<div class="relative bg-surface-container-lowest border-2 border-error rounded-lg p-2 flex flex-col gap-1.5 cursor-pointer shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-error font-mono">01 PGM</span>
+<span class="w-2 h-2 rounded-full bg-error"></span>
+</div>
+<div class="aspect-video bg-surface-container rounded overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Miniature monitor thumbnail preview showing Sony FX6 A-camera live angle of studio host against dark tech background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfhvbLjxk0WixxSZGle2KC2Y9KwtGKmBQohrQhj-rstGlkLxaGVTQNeU3pNOQ2nKFLZbsHEcpHDZDsK7sgW7IOe8YbCAsw8CJGtMWmFpmdqbM1uZVZvWNIGFgra6NcnuLveLbET4kZ_u1J9qevoqgm5DlbU4c7-zqj17wL8BaQlx3rEXj2KLsrMrFIA6WJj26LScI5lEc9bSX213uJ78YnCjlJgTn8tiFGT9Nm9ywy9aPWRRHy-DPOKQ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold truncate">Cam A Sony FX6</span>
+<span class="text-[10px] text-on-surface-variant font-mono">1080p60 Live</span>
+</div>
+</div>
+<!-- Source 2: Cam B (Top Rig) -->
+<div class="relative bg-surface-container-lowest border border-outline-variant hover:border-outline rounded-lg p-2 flex flex-col gap-1.5 cursor-pointer transition-all">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-outline font-mono">02 CAM</span>
+<span class="text-[10px] text-outline">STANDBY</span>
+</div>
+<div class="aspect-video bg-surface-container rounded overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Overhead 90-degree camera angle displaying a tactile mechanical broadcast switcher, color control dials, and stream director deck on matte black desk." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUnmuheQQV2BQO_K64xDYLBmssUl9vOLfKDcX_mfJ_yJ7jYsjnI4xOpT1GJGB0SHNqaInyzRsBvLRFrE7NvdxfqVVreN_1DlZr5xex9JoH-WMFe1kt8PBITTJFub2FhGY6xaew5RNbuNyqSZVZGLALnfngfldCcWS20uU582NyQSSDxMrJ5fDGK0HkPQlBAp4ivvxELE5RMlKCZGanzNdRlQFAcvMpNUNRXdKMi25ew02v0Q7cmQFr-A"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold truncate">Cam B Top Rig</span>
+<span class="text-[10px] text-on-surface-variant font-mono">1080p60 Standby</span>
+</div>
+</div>
+<!-- Source 3: DaVinci Resolve (Active Preview - Green) -->
+<div class="relative bg-surface-container-lowest border-2 border-tertiary rounded-lg p-2 flex flex-col gap-1.5 cursor-pointer shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-tertiary font-mono">03 PVW</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<div class="aspect-video bg-surface-container rounded overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Detailed screenshot of DaVinci Resolve desktop interface preview feed with live grade grading curve and audio waveform monitor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBozBP8VCENdHG5PO3T2btHzDeC5HT_JVg4ZKBrJesoWhT4O5OpqGWff8KLxQDjKUziZA-ap8MYxw-ilK9PttlN34Nh2gn46_-9dbPs5hUDegUW_B_aiZdlBuUsBfll6Wvg-_XhOaPDDzjzzgOJsIubqm9nKrNbpk9J3gdZfddv6-N9fpdMcGIYa9ao1TepfIM1HM4DmbjHDcw2BXCyhGtF6RxHs3GY_46bel5ojmFxI7fLoiNn2No1Qg"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold truncate">DaVinci Feed</span>
+<span class="text-[10px] text-on-surface-variant font-mono">Direct NDI Input</span>
+</div>
+</div>
+<!-- Source 4: Screen Share -->
+<div class="relative bg-surface-container-lowest border border-outline-variant hover:border-outline rounded-lg p-2 flex flex-col gap-1.5 cursor-pointer transition-all">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold text-outline font-mono">04 SCR</span>
+<span class="text-[10px] text-outline">STANDBY</span>
+</div>
+<div class="aspect-video bg-surface-container rounded overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Code editor interface thumbnail preview filled with modern TypeScript shaders and React live streaming components in dark synth aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW-T7Tefg3HkeWLxlmLCRbgt3SVZ4pBTZwjT0ywxxtuRADA9gijPsB7GJ4XwOKjSRp_8_Z7g0M00l8bVAq3F7AQZSPbP8MgAB2ZbRGgmHvLAZL4v-KRh74Jm8y_2NTlb2NHUD4vCJIbLswtND15mDAGouHeUlkNm9c3RTUrLIeKJ_-wm6ptFofrdw3rzgezbG4flaAh52fetSt5b_x0lyHm4VukvY6OTbhMPOrjTFaOrvfrR57vo7dAQ"/>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold truncate">Screen Share</span>
+<span class="text-[10px] text-on-surface-variant font-mono">DisplayPort 2</span>
+</div>
+</div>
+</div>
+<!-- Transition Control Deck & Hardware T-Bar Simulator -->
+<div class="col-span-4 bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-bold uppercase text-on-surface-variant tracking-wider">Transition T-Bar</span>
+<span class="text-label-sm font-label-sm font-mono text-primary">POSITION: 42%</span>
+</div>
+<!-- Interactive T-Bar Slider Assembly -->
+<div class="relative w-full h-7 bg-surface-container-high rounded-full border border-outline-variant flex items-center px-1">
+<!-- Track Glow -->
+<div class="h-2 bg-gradient-to-r from-tertiary via-primary to-error rounded-full" style="width: 42%;"></div>
+<!-- Handle Knob -->
+<div class="absolute left-[40%] w-6 h-6 rounded-full bg-on-surface border-2 border-primary shadow-lg cursor-ew-resize flex items-center justify-center">
+<span class="w-1 h-3 bg-background rounded-full"></span>
+</div>
+</div>
+<!-- Cut & Auto Buttons -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-2 rounded font-label-md text-label-md font-bold bg-surface-container-high hover:bg-surface-variant border border-outline-variant text-on-surface active:scale-95 transition-all">
+                  CUT DIRECT
+                </button>
+<button class="py-2 rounded font-label-md text-label-md font-bold bg-primary hover:bg-primary/90 text-on-primary active:scale-95 transition-all shadow-md">
+                  AUTO DISSOLVE
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- MULTI-TRACK AUDIO MIXER BOARD WITH VU METERS & GAIN KNOBS -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between border-b border-outline-variant pb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="equalizer">equalizer</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">Master Audio Control Board</span>
+<span class="text-label-sm font-label-sm text-outline font-mono">48kHz / 24-bit Floating DSP</span>
+</div>
+<div class="flex items-center gap-4 text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Master Limiter: <strong class="text-tertiary font-mono">-0.1 dBFS Safe</strong></span>
+<button class="px-2.5 py-1 bg-surface-container-high rounded border border-outline-variant text-outline hover:text-on-surface text-label-sm font-label-sm">Solo Mode Off</button>
+</div>
+</div>
+<!-- 4 Mixer Channel Strips -->
+<div class="grid grid-cols-4 gap-space-md">
+<!-- Channel 1: Mic 1 (Shure SM7B) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface font-bold">Ch 01 • Mic 1</span>
+<span class="text-[11px] text-tertiary font-mono">SM7B Live</span>
+</div>
+<!-- Rotary Knob Visualizer -->
+<div class="flex items-center justify-between bg-surface-container px-2 py-1.5 rounded">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-primary flex items-center justify-center relative">
+<span class="w-0.5 h-2 bg-primary rounded-full absolute -top-0.5"></span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Preamp</span>
+</div>
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-bold">+52 dB</span>
+</div>
+<!-- VU Meter & Vertical Fader -->
+<div class="flex items-center gap-3 py-1">
+<!-- Dual Digital VU Bar -->
+<div class="flex gap-1 h-32 bg-surface-container-high p-1 rounded">
+<!-- L Channel Meter -->
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 78%;"></div>
+</div>
+<!-- R Channel Meter -->
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 74%;"></div>
+</div>
+</div>
+<!-- Hardware Fader Slider Track -->
+<div class="flex-1 flex flex-col justify-between h-32 py-1">
+<div class="flex justify-between text-[10px] text-outline font-mono">
+<span>+6</span>
+<span>0</span>
+<span>-12</span>
+<span>-inf</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded-full border border-outline-variant flex items-center">
+<div class="absolute left-[70%] w-6 h-5 rounded bg-on-surface border border-outline shadow-md -translate-x-1/2 flex items-center justify-center cursor-pointer">
+<span class="w-3 h-0.5 bg-background"></span>
+</div>
+</div>
+<div class="text-center font-mono text-label-sm font-label-sm text-primary font-bold">-2.4 dB</div>
+</div>
+</div>
+<!-- Strip Buttons -->
+<div class="grid grid-cols-2 gap-1.5 pt-1">
+<button class="py-1 rounded text-[11px] font-bold bg-error-container text-on-error-container">MUTE</button>
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline hover:text-on-surface">SOLO</button>
+</div>
+</div>
+<!-- Channel 2: DaVinci Audio Feed -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface font-bold">Ch 02 • DaVinci</span>
+<span class="text-[11px] text-outline font-mono">Stereo NDI</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container px-2 py-1.5 rounded">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-outline flex items-center justify-center relative">
+<span class="w-0.5 h-2 bg-outline rounded-full absolute -top-0.5"></span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Preamp</span>
+</div>
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-bold">0 dB</span>
+</div>
+<div class="flex items-center gap-3 py-1">
+<div class="flex gap-1 h-32 bg-surface-container-high p-1 rounded">
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 62%;"></div>
+</div>
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 60%;"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between h-32 py-1">
+<div class="flex justify-between text-[10px] text-outline font-mono">
+<span>+6</span>
+<span>0</span>
+<span>-12</span>
+<span>-inf</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded-full border border-outline-variant flex items-center">
+<div class="absolute left-[55%] w-6 h-5 rounded bg-on-surface border border-outline shadow-md -translate-x-1/2 flex items-center justify-center cursor-pointer">
+<span class="w-3 h-0.5 bg-background"></span>
+</div>
+</div>
+<div class="text-center font-mono text-label-sm font-label-sm text-on-surface">-6.1 dB</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-1">
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline hover:text-error">MUTE</button>
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline hover:text-on-surface">SOLO</button>
+</div>
+</div>
+<!-- Channel 3: Remote Guests (Zoom / SRT) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface font-bold">Ch 03 • Guests</span>
+<span class="text-[11px] text-primary font-mono">SRT Low-Lat</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container px-2 py-1.5 rounded">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full border border-outline flex items-center justify-center relative">
+<span class="w-0.5 h-2 bg-outline rounded-full absolute -top-0.5"></span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Preamp</span>
+</div>
+<span class="text-label-sm font-label-sm font-mono text-on-surface font-bold">+6 dB</span>
+</div>
+<div class="flex items-center gap-3 py-1">
+<div class="flex gap-1 h-32 bg-surface-container-high p-1 rounded">
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 45%;"></div>
+</div>
+<div class="w-2 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 48%;"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between h-32 py-1">
+<div class="flex justify-between text-[10px] text-outline font-mono">
+<span>+6</span>
+<span>0</span>
+<span>-12</span>
+<span>-inf</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded-full border border-outline-variant flex items-center">
+<div class="absolute left-[45%] w-6 h-5 rounded bg-on-surface border border-outline shadow-md -translate-x-1/2 flex items-center justify-center cursor-pointer">
+<span class="w-3 h-0.5 bg-background"></span>
+</div>
+</div>
+<div class="text-center font-mono text-label-sm font-label-sm text-on-surface">-10.8 dB</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-1">
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline hover:text-error">MUTE</button>
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline hover:text-on-surface">SOLO</button>
+</div>
+</div>
+<!-- Channel 4: Master Program Mix Output -->
+<div class="bg-surface-container-lowest border-2 border-outline rounded-lg p-3 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-primary font-bold">Ch 04 • Master Bus</span>
+<span class="text-[11px] text-tertiary font-mono">Broadcast Mix</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container px-2 py-1.5 rounded">
+<span class="text-label-sm font-label-sm text-outline">Compressor</span>
+<span class="text-label-sm font-label-sm font-mono text-tertiary font-bold">4:1 Fast RMS</span>
+</div>
+<div class="flex items-center gap-3 py-1">
+<div class="flex gap-1 h-32 bg-surface-container-high p-1 rounded">
+<div class="w-2.5 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 82%;"></div>
+</div>
+<div class="w-2.5 h-full bg-surface-container-lowest rounded-sm flex flex-col-reverse overflow-hidden">
+<div class="w-full bg-gradient-to-t from-tertiary via-tertiary to-error" style="height: 80%;"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col justify-between h-32 py-1">
+<div class="flex justify-between text-[10px] text-outline font-mono">
+<span>+6</span>
+<span>0</span>
+<span>-12</span>
+<span>-inf</span>
+</div>
+<div class="relative w-full h-3 bg-surface-container-high rounded-full border border-outline-variant flex items-center">
+<div class="absolute left-[80%] w-7 h-5 rounded bg-primary text-on-primary border border-primary shadow-md -translate-x-1/2 flex items-center justify-center cursor-pointer">
+<span class="w-3 h-0.5 bg-on-primary"></span>
+</div>
+</div>
+<div class="text-center font-mono text-label-sm font-label-sm text-primary font-bold">0.0 dB (UNITY)</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-1.5 pt-1">
+<button class="py-1 rounded text-[11px] font-bold bg-surface-container-high text-outline">AUTO DUCK</button>
+<button class="py-1 rounded text-[11px] font-bold bg-tertiary-container text-on-tertiary">SAFE ON</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT REGION: AUDIENCE Q&A, SUPERCHAT FEED & LOWER-THIRD CONTROLS (Cols 10 to 12) -->
+<div class="col-span-3 flex flex-col gap-space-md">
+<!-- Live Audience Interaction Hub -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-md flex flex-col h-full">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3 mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="forum">forum</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">Live Q&amp;A &amp; Chat</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary font-mono">2,842 Viewers</span>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-2 mb-3">
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary-container font-semibold">All Priority</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant hover:text-on-surface">SuperChats ($)</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant hover:text-on-surface">Questions</button>
+</div>
+<!-- Chat Stream Feed List -->
+<div class="flex-1 overflow-y-auto pr-1 flex flex-col gap-3 min-h-[420px] max-h-[520px]">
+<!-- SuperChat Card with Push to Lower Third -->
+<div class="bg-surface-container-lowest border border-secondary-container rounded-lg p-3 flex flex-col gap-2 relative shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-secondary-container text-on-secondary-container font-mono">$50.00 SUPERTIP</span>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Marcus Reed</span>
+</div>
+<span class="text-[11px] text-outline font-mono">2m ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-snug">
+                "Elena, can you demonstrate your color contrast curves when grading high-contrast neon night plates?"
+              </p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/50">
+<span class="text-[11px] text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Ready for Graphic
+                </span>
+<button class="flex items-center gap-1 px-2 py-1 bg-primary text-on-primary rounded text-label-sm font-label-sm font-semibold hover:brightness-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-xs" data-icon="splitscreen_left">splitscreen_left</span>
+<span>Push Lower-3rd</span>
+</button>
+</div>
+</div>
+<!-- Question Card (Active on Air) -->
+<div class="bg-surface-container-lowest border-2 border-primary rounded-lg p-3 flex flex-col gap-2 relative shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-primary-container text-on-primary-container">ON SCREEN NOW</span>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Sophia Lin</span>
+</div>
+<span class="text-[11px] text-outline font-mono">4m ago</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-snug">
+                "What is your recommended shutter angle when matching the FX6 with virtual LED stage refresh rates?"
+              </p>
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/50">
+<span class="text-[11px] text-primary font-mono">Lower-Third Overlay LIVE</span>
+<button class="flex items-center gap-1 px-2 py-1 bg-surface-container-high hover:bg-error-container text-on-surface-variant hover:text-on-error-container rounded text-label-sm font-label-sm font-semibold transition-all">
+<span class="material-symbols-outlined text-xs" data-icon="close">close</span>
+<span>Remove Overlay</span>
+</button>
+</div>
+</div>
+<!-- Community Interaction -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-3 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface">Liam Davies • Pro Member</span>
+<span class="text-[11px] text-outline font-mono">just now</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug">
+                "The 1080p60 HDR latency is insanely crisp tonight! No jitter on mobile at all."
+              </p>
+<div class="flex justify-end pt-1">
+<button class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="push_pin">push_pin</span>
+<span>Pin to Crew</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Director Live Announcement / Quick Chat Injector -->
+<div class="pt-3 border-t border-outline-variant mt-3 flex flex-col gap-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Post as Studio Host</span>
+<span class="text-outline">Ctrl+Enter to Send</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-9 bg-surface-container-lowest border border-outline-variant rounded-md pl-3 pr-10 text-body-sm font-body-sm text-on-surface focus:border-primary focus:outline-none" placeholder="Type prompt or moderator announcement..." type="text"/>
+<button class="absolute right-1.5 w-7 h-7 bg-primary rounded flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

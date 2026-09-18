@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Usage Meters &amp; Safeguards</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#003824",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "inverse-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "background": "#131318",
+            "on-secondary": "#3c0091",
+            "surface-container": "#1f1f25",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-dim": "#131318",
+            "surface-container-highest": "#35343a",
+            "surface-container-low": "#1b1b20",
+            "primary": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "surface": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "on-background": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-secondary-fixed": "#23005c",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#001a42",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "outline": "#8c909f",
+            "on-error": "#690005",
+            "surface-tint": "#adc6ff",
+            "on-primary": "#002e6a",
+            "surface-variant": "#35343a",
+            "primary-container": "#4d8eff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .glow-warning {
+      box-shadow: 0 0 24px -4px rgba(245, 158, 11, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary">
+<!-- SHARED COMPONENT: SideNavBar -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface-container-lowest border-r border-outline-variant/30 select-none">
+<div class="flex flex-col justify-between h-full p-4 w-64">
+<!-- Workspace Brand Anchor -->
+<div class="space-y-4">
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-on-primary shadow-inner">
+<span class="material-symbols-outlined text-[20px]" data-icon="deployed_code">deployed_code</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase">Enterprise Studio</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full h-9 px-3 rounded-lg bg-surface-container-high/60 hover:bg-surface-container text-on-surface border border-outline-variant/30 flex items-center justify-center gap-2 text-label-md font-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add">add</span>
+<span>New Asset</span>
+</button>
+<!-- Navigation Tabs Container -->
+<nav class="space-y-0.5 overflow-y-auto max-h-[calc(100vh-270px)] custom-scrollbar pr-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="workspaces">workspaces</span>
+<span>Workspaces</span>
+</a>
+<!-- Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="web">web</span>
+<span>Website Builder</span>
+</a>
+<!-- App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="apps">apps</span>
+<span>App Builder</span>
+</a>
+<!-- Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="shopping_cart">shopping_cart</span>
+<span>Commerce</span>
+</a>
+<!-- Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="storefront">storefront</span>
+<span>Marketplace</span>
+</a>
+<!-- Courses -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="school">school</span>
+<span>Courses</span>
+</a>
+<!-- Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="card_membership">card_membership</span>
+<span>Memberships</span>
+</a>
+<!-- Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="psychology">psychology</span>
+<span>Coaching</span>
+</a>
+<!-- CRM -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="contacts">contacts</span>
+<span>CRM</span>
+</a>
+<!-- Email -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="mail">mail</span>
+<span>Email</span>
+</a>
+<!-- AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="smart_toy">smart_toy</span>
+<span>AI Agents</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<!-- Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="handshake">handshake</span>
+<span>Affiliates</span>
+</a>
+<!-- Settings (ACTIVE INTENT TAB: Usage Meters & Safeguards is under Settings) -->
+<a class="flex items-center gap-3 px-3 py-2 text-primary bg-surface-container-high/60 font-semibold rounded-lg border-l-2 border-primary text-label-md font-label-md transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer Links -->
+<div class="pt-3 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+<span>Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Viewport Canvas (offset by sidebar width 16rem = w-64) -->
+<div class="ml-64 flex-1 min-h-screen flex flex-col bg-surface">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="sticky top-0 right-0 w-full h-14 z-30 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 flex items-center justify-between px-6">
+<!-- Left: Breadcrumb / Search Integration -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-outline">
+<span class="hover:text-on-surface cursor-pointer">Settings</span>
+<span class="text-[12px]">/</span>
+<span class="hover:text-on-surface cursor-pointer">Billing &amp; Plan</span>
+<span class="text-[12px]">/</span>
+<span class="text-on-surface font-medium">Usage Meters &amp; Limits</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40 mx-1"></div>
+<!-- Telemetry Status Pills -->
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant/40 text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Current Billing Period: Day 18 of 30
+          </span>
+<span class="text-label-sm font-label-sm text-outline">
+            Reset in 12 days
+          </span>
+</div>
+</div>
+<!-- Right: Action Controls & User Identity -->
+<div class="flex items-center gap-3">
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 text-label-md font-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="tune">tune</span>
+<span>Manage Subscription</span>
+</button>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+</button>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40 mx-1"></div>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer group">
+<img alt="User Profile Avatar" class="w-7 h-7 rounded-full object-cover border border-outline-variant/40 group-hover:border-primary transition-colors" data-alt="Close-up portrait of a high-tech modern digital creator in a dimly lit studio setting with cool ambient blue reflections and minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQiV9Oyza_Bnkos6EyVx6ZiaCDnSzsq_RLjHc5v7XkbEemsaI5RVNZhlR4ceI4Yu7XhLCxu4hGnQmx6_s3ieBKIVqW7xOOnL4OT-cyQnHmfIXyMjMkWRnkoZkTqbEqMrokIbs3kTwNuhbxlavzX0XnusI4X1XYOwvIR7KwAc9u7MeM9sal2lT2OrM-HBjP4OzOYR3lSoXblcYBm9y02zLWQBR4YCRl5mtVdjIRZZsg3ggt9DpBqi-knw"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-md font-label-md text-on-surface font-semibold leading-none">Studio Apex</span>
+<span class="text-label-sm font-label-sm text-outline leading-tight">Pro Tier</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-on-surface" data-icon="keyboard_arrow_down">keyboard_arrow_down</span>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content Canvas -->
+<main class="p-8 max-w-[1440px] w-full mx-auto space-y-6">
+<!-- Header & Action Row -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Resource Utilization &amp; Quota Meters</h1>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">Live Cluster</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+            Real-time telemetry tracking compute, storage, email deliverability bandwidth, and AI token allocations across your workspace cluster.
+          </p>
+</div>
+<div class="flex items-center gap-2.5 flex-shrink-0">
+<button class="h-10 px-3.5 rounded-lg bg-surface-container border border-outline-variant/40 hover:border-outline text-on-surface text-label-md font-label-md flex items-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="download">download</span>
+<span>Download Usage CSV</span>
+</button>
+<button class="h-10 px-3.5 rounded-lg bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface text-label-md font-label-md flex items-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="notifications_active">notifications_active</span>
+<span>Configure Quota Alerts</span>
+</button>
+<button class="h-10 px-4 rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 text-white font-medium text-label-md font-label-md flex items-center gap-2 shadow-lg shadow-blue-500/20 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="bolt">bolt</span>
+<span>Upgrade Plan</span>
+</button>
+</div>
+</section>
+<!-- Executive Quota Warning Banner -->
+<section class="relative overflow-hidden rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[22px]" data-icon="warning">warning</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h4 class="text-body-md font-body-md font-semibold text-amber-200">AI Inference Generations at 85% capacity</h4>
+<span class="px-2 py-0.2 rounded text-[11px] font-semibold bg-amber-400/20 text-amber-300 border border-amber-400/30">Action Suggested</span>
+</div>
+<p class="text-body-sm font-body-sm text-amber-300/80 mt-0.5">
+              Workspace will throttle or auto-scale based on your overage policies once 1,000 requests are crossed.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 self-end md:self-center">
+<label class="flex items-center gap-2 cursor-pointer select-none bg-surface-container-lowest/70 border border-amber-500/30 rounded-lg px-3 py-1.5 text-body-sm font-body-sm text-on-surface">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-label-md font-label-md text-amber-200">Auto-scale enabled</span>
+</label>
+<a class="text-label-md font-label-md text-amber-300 hover:text-amber-100 underline decoration-amber-400/40 hover:decoration-amber-300 transition-colors" href="#safeguards">
+            Adjust Overages
+          </a>
+</div>
+</section>
+<!-- 4 Primary Meter Cards (2x2 Grid) -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+<!-- Card 1: AI Generations & Autonomous Agents -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 flex flex-col justify-between relative hover:border-amber-500/40 transition-colors group">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+<span class="material-symbols-outlined text-[22px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">AI Generations &amp; Autonomous Agents</h3>
+<p class="text-body-sm font-body-sm text-outline">LLM prompt completions &amp; pipeline invocations</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-amber-500/10 border border-amber-500/30 text-amber-400 font-semibold">
+                85% Consumed
+              </span>
+</div>
+<div class="mt-5 flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg-mobile lg:text-headline-xl font-headline-xl font-bold text-on-surface">850</span>
+<span class="text-body-lg font-body-lg text-outline">/ 1,000 runs</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">150 runs remaining • Resets Nov 1st</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden mt-3 p-[1px]">
+<div class="bg-gradient-to-r from-amber-500 to-amber-300 h-full rounded-full glow-warning transition-all duration-500" style="width: 85%;"></div>
+</div>
+<!-- Micro Trendline Sparkline SVG -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="text-label-sm font-label-sm text-outline">14-Day Invocations Trend</div>
+<svg class="w-36 h-6 overflow-visible" fill="none" viewbox="0 0 140 24">
+<path d="M0 18 Q 20 15, 35 17 T 70 10 T 105 12 T 140 4" fill="none" stroke="#f59e0b" stroke-linecap="round" stroke-width="2"></path>
+<circle class="animate-ping" cx="140" cy="4" fill="#f59e0b" opacity="0.75" r="3"></circle>
+<circle cx="140" cy="4" fill="#f59e0b" r="3"></circle>
+</svg>
+</div>
+<!-- Detailed Breakdown -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-outline-variant/20 text-left">
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Text Generation</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">520 runs</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Vision &amp; Code</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">210 runs</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Agent Tasks</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">120 runs</div>
+</div>
+</div>
+</div>
+<!-- Card Action -->
+<div class="mt-5 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-amber-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+              Velocity +18% vs last week
+            </span>
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="add_circle">add_circle</span>
+<span>Buy Token Add-on (+500)</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Digital Asset Storage & Media Cloud -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 flex flex-col justify-between relative hover:border-tertiary/40 transition-colors group">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]" data-icon="cloud">cloud</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Digital Asset Storage &amp; Media Cloud</h3>
+<p class="text-body-sm font-body-sm text-outline">High-performance decentralized video &amp; course repository</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-tertiary/10 border border-tertiary/30 text-tertiary font-semibold">
+                25% Consumed
+              </span>
+</div>
+<div class="mt-5 flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg-mobile lg:text-headline-xl font-headline-xl font-bold text-on-surface">12.5 GB</span>
+<span class="text-body-lg font-body-lg text-outline">/ 50 GB</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">37.5 GB free space available • Global CDN</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden mt-3 p-[1px]">
+<div class="bg-gradient-to-r from-emerald-500 to-teal-300 h-full rounded-full transition-all duration-500" style="width: 25%;"></div>
+</div>
+<!-- Micro Trendline Sparkline SVG -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="text-label-sm font-label-sm text-outline">Steady Storage Accumulation</div>
+<svg class="w-36 h-6 overflow-visible" fill="none" viewbox="0 0 140 24">
+<path d="M0 20 L 35 18 L 70 16 L 105 14 L 140 11" fill="none" stroke="#4edea3" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="140" cy="11" fill="#4edea3" r="3"></circle>
+</svg>
+</div>
+<!-- Detailed Breakdown -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-outline-variant/20 text-left">
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Video Masterclasses</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">8.2 GB</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">3D Assets &amp; Code</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">3.1 GB</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Audio &amp; Presets</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">1.2 GB</div>
+</div>
+</div>
+</div>
+<!-- Card Action -->
+<div class="mt-5 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+              Healthy capacity margin
+            </span>
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="database">database</span>
+<span>Manage CDN Cache</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Email Marketing & Broadcast Delivery -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 flex flex-col justify-between relative hover:border-primary/40 transition-colors group">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 border border-primary-container/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]" data-icon="forward_to_inbox">forward_to_inbox</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Email Marketing &amp; Broadcast Delivery</h3>
+<p class="text-body-sm font-body-sm text-outline">Dedicated transactional and newsletter relay nodes</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary font-semibold">
+                64% Consumed
+              </span>
+</div>
+<div class="mt-5 flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg-mobile lg:text-headline-xl font-headline-xl font-bold text-on-surface">3,200</span>
+<span class="text-body-lg font-body-lg text-outline">/ 5,000 sent</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">1,800 emails remaining • 99.4% Deliverability</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden mt-3 p-[1px]">
+<div class="bg-gradient-to-r from-blue-600 to-primary-container h-full rounded-full transition-all duration-500" style="width: 64%;"></div>
+</div>
+<!-- Micro Trendline Sparkline SVG -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="text-label-sm font-label-sm text-outline">Recent Broadcast Surge</div>
+<svg class="w-36 h-6 overflow-visible" fill="none" viewbox="0 0 140 24">
+<path d="M0 20 L 25 19 L 45 10 L 60 18 L 85 8 L 110 16 L 140 6" fill="none" stroke="#4d8eff" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="140" cy="6" fill="#4d8eff" r="3"></circle>
+</svg>
+</div>
+<!-- Detailed Breakdown -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-outline-variant/20 text-left">
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Weekly Newsletters</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">2,100</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Automated Drips</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">850</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Invoices/Receipts</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">250</div>
+</div>
+</div>
+</div>
+<!-- Card Action -->
+<div class="mt-5 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule_send">schedule_send</span>
+              Next blast scheduled in 2d
+            </span>
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="trending_up">trending_up</span>
+<span>Increase Sending Quota</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Global Edge Bandwidth & Video Streaming -->
+<div class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 flex flex-col justify-between relative hover:border-secondary/40 transition-colors group">
+<div>
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 border border-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]" data-icon="language">language</span>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Global Edge Bandwidth &amp; Video Streaming</h3>
+<p class="text-body-sm font-body-sm text-outline">Low-latency video multi-bitrate egress</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary/10 border border-secondary/30 text-secondary font-semibold">
+                45% Consumed
+              </span>
+</div>
+<div class="mt-5 flex items-baseline justify-between">
+<div class="flex items-baseline gap-2">
+<span class="text-display-lg-mobile lg:text-headline-xl font-headline-xl font-bold text-on-surface">45 GB</span>
+<span class="text-body-lg font-body-lg text-outline">/ 100 GB</span>
+</div>
+<span class="text-body-sm font-body-sm text-outline">55 GB unmetered buffer remaining • HLS active</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container h-2.5 rounded-full overflow-hidden mt-3 p-[1px]">
+<div class="bg-gradient-to-r from-purple-600 to-secondary h-full rounded-full transition-all duration-500" style="width: 45%;"></div>
+</div>
+<!-- Micro Trendline Sparkline SVG -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="text-label-sm font-label-sm text-outline">Consistent Video Traffic</div>
+<svg class="w-36 h-6 overflow-visible" fill="none" viewbox="0 0 140 24">
+<path d="M0 15 Q 30 20, 60 12 T 110 14 T 140 9" fill="none" stroke="#d0bcff" stroke-linecap="round" stroke-width="2"></path>
+<circle cx="140" cy="9" fill="#d0bcff" r="3"></circle>
+</svg>
+</div>
+<!-- Detailed Breakdown -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-outline-variant/20 text-left">
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Course Player HLS</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">32 GB</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Downloads Delivery</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">9 GB</div>
+</div>
+<div class="bg-surface-container/40 p-2 rounded-lg border border-outline-variant/20">
+<div class="text-label-sm font-label-sm text-outline truncate">Static Edge Assets</div>
+<div class="text-body-md font-body-md font-semibold text-on-surface">4 GB</div>
+</div>
+</div>
+</div>
+<!-- Card Action -->
+<div class="mt-5 pt-4 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="speed">speed</span>
+              Average Edge TTFB: 24ms
+            </span>
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="monitoring">monitoring</span>
+<span>Bandwidth Analytics</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Detailed Historical Usage Trend Section -->
+<section class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface">30-Day Historical Telemetry &amp; Forecast</h2>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Aggregated consumption trends with predictive overage machine-learning model</p>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container rounded-lg border border-outline-variant/30">
+<button class="px-3 py-1 rounded-md text-label-md font-label-md bg-surface-container-high text-on-surface shadow-sm font-medium">All Meters</button>
+<button class="px-3 py-1 rounded-md text-label-md font-label-md text-outline hover:text-on-surface transition-colors">AI Generations</button>
+<button class="px-3 py-1 rounded-md text-label-md font-label-md text-outline hover:text-on-surface transition-colors">Storage</button>
+<button class="px-3 py-1 rounded-md text-label-md font-label-md text-outline hover:text-on-surface transition-colors">Emails</button>
+<button class="px-3 py-1 rounded-md text-label-md font-label-md text-outline hover:text-on-surface transition-colors">Bandwidth</button>
+</div>
+</div>
+<!-- Telemetry Canvas Visualizer (Area Chart Simulation) -->
+<div class="relative w-full h-64 bg-surface-container/30 rounded-lg p-4 border border-outline-variant/20 flex flex-col justify-between overflow-hidden">
+<!-- Background Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between p-6 pointer-events-none opacity-20">
+<div class="w-full border-b border-outline-variant border-dashed"></div>
+<div class="w-full border-b border-outline-variant border-dashed"></div>
+<div class="w-full border-b border-outline-variant border-dashed"></div>
+<div class="w-full border-b border-outline-variant border-dashed"></div>
+</div>
+<!-- Projected Marker Line -->
+<div class="absolute top-0 bottom-0 left-[60%] border-r-2 border-dashed border-amber-500/60 flex flex-col justify-start items-center">
+<span class="bg-amber-500/20 text-amber-300 border border-amber-500/40 text-[10px] font-semibold px-2 py-0.5 rounded mt-2">
+              Today (Day 18)
+            </span>
+</div>
+<!-- Multi-line SVG Data Visualization -->
+<svg class="w-full h-44 mt-4 overflow-visible" preserveaspectratio="none" viewbox="0 0 900 160">
+<defs>
+<lineargradient id="aiGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#f59e0b" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="emailGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"></stop>
+<stop offset="100%" stop-color="#3B82F6" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- AI Fill and Line -->
+<path d="M0,130 Q150,110 300,90 T540,40 L540,160 L0,160 Z" fill="url(#aiGrad)"></path>
+<path d="M0,130 Q150,110 300,90 T540,40" fill="none" stroke="#f59e0b" stroke-width="2.5"></path>
+<!-- Projected dashed path for AI -->
+<path d="M540,40 Q680,25 900,10" fill="none" stroke="#f59e0b" stroke-dasharray="5,5" stroke-width="2"></path>
+<!-- Email Delivery Line -->
+<path d="M0,140 Q150,135 250,70 T400,120 T540,80" fill="none" stroke="#3B82F6" stroke-width="2"></path>
+<path d="M540,80 Q700,60 900,50" fill="none" stroke="#3B82F6" stroke-dasharray="4,4" stroke-width="1.5"></path>
+<!-- Bandwidth Line -->
+<path d="M0,145 Q200,130 400,115 T540,100" fill="none" stroke="#8B5CF6" stroke-width="2"></path>
+<path d="M540,100 Q750,90 900,80" fill="none" stroke="#8B5CF6" stroke-dasharray="4,4" stroke-width="1.5"></path>
+<!-- Storage Line -->
+<path d="M0,150 L540,130" fill="none" stroke="#10B981" stroke-width="2"></path>
+<path d="M540,130 L900,115" fill="none" stroke="#10B981" stroke-dasharray="4,4" stroke-width="1.5"></path>
+<circle cx="540" cy="40" fill="#f59e0b" r="4.5" stroke="#0e0e13" stroke-width="2"></circle>
+<circle cx="540" cy="80" fill="#3B82F6" r="4.5" stroke="#0e0e13" stroke-width="2"></circle>
+</svg>
+<!-- Timeline labels -->
+<div class="flex justify-between text-[11px] text-outline font-medium pt-2 border-t border-outline-variant/30">
+<span>Oct 01</span>
+<span>Oct 06</span>
+<span>Oct 11</span>
+<span>Oct 18 (Now)</span>
+<span>Oct 24 (Projected)</span>
+<span>Oct 30 (Reset)</span>
+</div>
+</div>
+<!-- Projected End-of-Cycle Notification Module -->
+<div class="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-surface-container to-surface-container-high border border-amber-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-amber-500/20 text-amber-300 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]" data-icon="query_stats">query_stats</span>
+</div>
+<div>
+<span class="text-body-md font-body-md font-semibold text-on-surface">
+                Projected AI Usage: 1,120 runs <span class="text-amber-300">(Overage +$12.00 estimated)</span>
+</span>
+<p class="text-body-sm font-body-sm text-outline">
+                At your current consumption rate, you will exceed your included quota by 120 generations on Day 26.
+              </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-9 px-4 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-label-md font-label-md transition-colors shadow-sm">
+              Upgrade to Scale Tier
+            </button>
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors">
+              Dismiss
+            </button>
+</div>
+</div>
+</section>
+<!-- Overages & Threshold Safeguards Table -->
+<section class="rounded-xl bg-surface-container-lowest border border-outline-variant/30 p-6 space-y-5" id="safeguards">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Overages &amp; Threshold Safeguards</h2>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Automated policies to prevent unexpected bill spikes and maintain workspace continuity</p>
+</div>
+<button class="h-8 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md flex items-center gap-1.5 self-start md:self-auto transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="add">add</span>
+<span>Create Safeguard Rule</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 text-label-sm font-label-sm text-outline uppercase tracking-wider">
+<th class="py-3 px-4">Resource Meter</th>
+<th class="py-3 px-4">Safeguard Policy</th>
+<th class="py-3 px-4">Trigger Threshold</th>
+<th class="py-3 px-4">Overage Unit Cost</th>
+<th class="py-3 px-4">Policy Status</th>
+<th class="py-3 px-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm">
+<!-- Row 1: AI Generations Auto-scale -->
+<tr class="hover:bg-surface-container/40 transition-colors group">
+<td class="py-4 px-4 font-medium text-on-surface flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">AI Inference Tokens</div>
+<div class="text-label-sm text-outline">GPT-4o &amp; Claude 3.5 Sonnet</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Auto-scale Pay-as-you-go</div>
+<div class="text-label-sm text-outline">Seamless overages without API interruptions</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 text-on-surface text-label-sm font-medium">
+                    &gt; 1,000 runs (100%)
+                  </span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface font-medium">
+                  $0.02 / extra generation
+                </td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-label-sm font-label-sm text-tertiary">Active</span>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Soft Cap with Email Alert -->
+<tr class="hover:bg-surface-container/40 transition-colors group">
+<td class="py-4 px-4 font-medium text-on-surface flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="forward_to_inbox">forward_to_inbox</span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Email Deliverability</div>
+<div class="text-label-sm text-outline">Broadcast &amp; Funnel Relay</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Soft Cap with Admin Alerts</div>
+<div class="text-label-sm text-outline">Notify tech-lead via Slack &amp; Email at 80%</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 text-on-surface text-label-sm font-medium">
+                    At 4,000 sent (80%)
+                  </span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface font-medium">
+                  $0.001 / extra email
+                </td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-label-sm font-label-sm text-tertiary">Active</span>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Hard Cap Storage -->
+<tr class="hover:bg-surface-container/40 transition-colors group">
+<td class="py-4 px-4 font-medium text-on-surface flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-tertiary/10 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="cloud">cloud</span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Media Storage Volume</div>
+<div class="text-label-sm text-outline">Asset Storage &amp; Video Masters</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Hard Cap (Stop Service)</div>
+<div class="text-label-sm text-outline">Reject uploads past quota to eliminate bill shocks</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 text-on-surface text-label-sm font-medium">
+                    Strict at 50 GB (100%)
+                  </span>
+</td>
+<td class="py-4 px-4 font-mono text-outline">
+                  $0.00 (Uploads Blocked)
+                </td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-label-sm font-label-sm text-tertiary">Active</span>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Edge Bandwidth Overflow -->
+<tr class="hover:bg-surface-container/40 transition-colors group">
+<td class="py-4 px-4 font-medium text-on-surface flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-secondary-container/20 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="language">language</span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Edge Bandwidth Egress</div>
+<div class="text-label-sm text-outline">HLS Streaming &amp; Dynamic API</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Tiered Auto-Purchase</div>
+<div class="text-label-sm text-outline">Auto-buy 25 GB block at $15 when threshold hits 90%</div>
+</td>
+<td class="py-4 px-4">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant/30 text-on-surface text-label-sm font-medium">
+                    At 90 GB (90%)
+                  </span>
+</td>
+<td class="py-4 px-4 font-mono text-on-surface font-medium">
+                  $0.60 / GB block
+                </td>
+<td class="py-4 px-4">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+<span class="ml-2 text-label-sm font-label-sm text-outline">Standby</span>
+</label>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="text-outline hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Bottom Workspace Safeguard Diagnostic Ribbon -->
+<footer class="pt-4 pb-12 flex flex-col sm:flex-row items-center justify-between text-body-sm font-body-sm text-outline border-t border-outline-variant/30 gap-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Safeguard Daemon v4.19 active — Latency: 14ms across 12 Edge zones</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-on-surface transition-colors" href="#">Pricing Documentation</a>
+<a class="hover:text-on-surface transition-colors" href="#">Overages SLA</a>
+<a class="hover:text-on-surface transition-colors" href="#">Audit Logs</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

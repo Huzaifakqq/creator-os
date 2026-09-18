@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS — Products &amp; Storefront</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#004395",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed": "#002113",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "error-container": "#93000a",
+            "surface-tint": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "surface-container-high": "#2a292f",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "inverse-primary": "#005ac2",
+            "secondary": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "on-secondary": "#3c0091",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "background": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-lowest": "#0e0e13",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface-dim": "#131318",
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary-container": "#00a572",
+            "on-primary-container": "#00285d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scrollbar suppression for modern clean feel */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .accent-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.45);
+    }
+    .glow-fab {
+      box-shadow: 0 10px 25px -3px rgba(59, 130, 246, 0.5), 0 0 15px 2px rgba(139, 92, 246, 0.35);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex flex-col items-center justify-start min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- Mobile Screen Shell Container (375px viewport frame simulation) -->
+<div class="w-full max-w-[375px] min-h-screen bg-surface-container-lowest flex flex-col relative overflow-hidden shadow-2xl">
+<!-- Top Status Bar (Safe Area Padding & Hardware Indicators) -->
+<div class="w-full pt-3 px-6 pb-2 flex justify-between items-center text-on-surface-variant font-label-md text-label-md select-none z-50 bg-surface">
+<span class="font-headline-sm text-label-md tracking-tight text-on-surface font-semibold">9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[16px]">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar Component (from JSON anchor definition) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-4 bg-surface shadow-none border-none">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Products &amp; Storefront</h1>
+</div>
+</div>
+<div class="flex items-center space-x-1.5">
+<!-- Search Trigger Icon -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<!-- Filter Icon with Active Badge -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg relative text-on-surface-variant hover:text-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+<span class="absolute top-1.5 right-1.5 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-primary text-on-primary font-label-sm text-[9px] font-bold ring-2 ring-surface">4</span>
+</button>
+</div>
+</header>
+<!-- Filter & Category Horizontal Chip Carousel -->
+<section class="w-full bg-surface py-3 px-4 overflow-x-auto no-scrollbar flex items-center space-x-2 select-none">
+<!-- Active Pill -->
+<button class="flex items-center space-x-1.5 h-7 px-3 rounded-full bg-primary/15 border border-primary/40 text-primary font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all">
+<span class="font-medium">All Products</span>
+<span class="text-label-sm font-label-sm bg-primary/20 text-primary rounded-full px-1.5 py-0.2">18</span>
+</button>
+<!-- Category Chip 2 -->
+<button class="flex items-center space-x-1.5 h-7 px-3 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all">
+<span>Digital Assets</span>
+<span class="text-label-sm font-label-sm opacity-60">8</span>
+</button>
+<!-- Category Chip 3 -->
+<button class="flex items-center space-x-1.5 h-7 px-3 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all">
+<span>Masterclasses</span>
+<span class="text-label-sm font-label-sm opacity-60">4</span>
+</button>
+<!-- Category Chip 4 -->
+<button class="flex items-center space-x-1.5 h-7 px-3 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all">
+<span>Memberships</span>
+<span class="text-label-sm font-label-sm opacity-60">3</span>
+</button>
+<!-- Category Chip 5 -->
+<button class="flex items-center space-x-1.5 h-7 px-3 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-on-surface-variant hover:text-on-surface font-label-md text-label-md whitespace-nowrap active:scale-95 transition-all">
+<span>Coaching</span>
+<span class="text-label-sm font-label-sm opacity-60">3</span>
+</button>
+</section>
+<!-- Quick Stats Bar / Catalog Overview Sub-strip -->
+<div class="px-4 py-2.5 flex items-center justify-between bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm border-b border-outline-variant/10">
+<span class="flex items-center space-x-1 text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="font-medium">Catalog live</span>
+</span>
+<span class="text-on-surface font-semibold tracking-tight">$175.4k <span class="font-normal text-on-surface-variant">Total GMV</span></span>
+</div>
+<!-- Product Roster Stacked Cards Canvas -->
+<main class="flex-1 w-full px-4 pt-3 pb-28 space-y-3.5 overflow-y-auto">
+<!-- Product Card 1: Master LUTs & Film Emulation Pack -->
+<article class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-3.5 relative overflow-hidden transition-all duration-200 hover:border-outline-variant/60 active:scale-[0.99] group">
+<!-- Ambient subtle glow element -->
+<div class="absolute -right-10 -bottom-10 w-28 h-28 bg-primary-container/5 blur-2xl pointer-events-none rounded-full"></div>
+<div class="flex items-start space-x-3">
+<!-- Preview Thumbnail -->
+<div class="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high border border-[#1E1E2E]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A dark cinematic still of neon cyberpunk architectural reflections on wet asphalt with high contrast cyan and deep indigo grading, shot on an anamorphic lens with intense film grain and pristine studio atmospheric color depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpv2Z4qW1kRMtEuDc-3wM4RMp3ofLS3cEZeD1zMNdOwOXvBatAMMQwpoVUirNi12J4N4XPCpjJ1AwY4xeoTdBh05fwzNWjVeLKbAcPuLIhYyfcxqz3DdpxcLGnOAI2Kdu7DaW2-sTCwywaAftK9H-qYQlupK_qYntCROFs91ZKtUWFoyDcChQ-1IGsGla6m4Dh4pl30oYg_WGnaymZGKQ4y_y7kFWRN8BTtTLn0SarX_k8ggjrNqijfQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+<div class="absolute bottom-1 right-1 bg-black/60 backdrop-blur-xs px-1 rounded font-label-sm text-[9px] text-on-surface font-mono">LUT</div>
+</div>
+<!-- Card Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                Digital Asset
+              </span>
+<!-- Active Status Toggle -->
+<div class="flex items-center space-x-1.5 cursor-pointer">
+<span class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
+<span class="text-[11px] font-label-sm font-medium text-[#10B981]">Active</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-body-md font-semibold text-on-surface truncate leading-snug">
+              DaVinci Resolve Master LUTs &amp; Film Emulation Pack
+            </h2>
+<!-- Price Tag -->
+<div class="mt-1 flex items-baseline space-x-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$49.00</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">USD</span>
+</div>
+</div>
+</div>
+<!-- Metrics & Quick Actions Footer -->
+<div class="mt-3 pt-2.5 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center space-x-1.5 font-medium">
+<span class="material-symbols-outlined text-[14px] text-tertiary">trending_up</span>
+<span class="text-on-surface font-semibold">1,080</span>
+<span>sales</span>
+<span class="text-outline/40">•</span>
+<span class="text-tertiary font-semibold">$52.9k GMV</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</article>
+<!-- Product Card 2: Anamorphic Cinematography Masterclass -->
+<article class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-3.5 relative overflow-hidden transition-all duration-200 hover:border-outline-variant/60 active:scale-[0.99] group">
+<div class="flex items-start space-x-3">
+<!-- Thumbnail with Video Play Badge -->
+<div class="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high border border-[#1E1E2E] flex items-center justify-center">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An expansive cinematic landscape shot inside an optical laboratory with vintage anamorphic cinema lenses reflecting soft ambient blue and violet stage illumination, evoking professional film production mastery and precision engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0QAcqzn98HenRZ1EMltdsl1-gCrA3bmNFc6KV3bqn_s6qiQQy_00JEsjc06jwhFV3dGHGVQq684HlPv8rbM-OKb_oTCS8Qz4-uFs2puSFZGu_AENF72wvi5yqg_sfPRShCIerA3Vn7zBgHPgARREyX69lblpY4f98J9N2VkOImGaOoxCGws2n4q1uJEUajTCLUs_sOxOZJq8A2n7gzK2lK5JARs3qH6NWqz2Tew-QKHtLtLe1x7TQpQ"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-surface/80 backdrop-blur-sm border border-outline/30 flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+</div>
+<!-- Card Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm font-medium bg-secondary/15 text-secondary border border-secondary/30">
+                Course
+              </span>
+<!-- Active Status Toggle -->
+<div class="flex items-center space-x-1.5 cursor-pointer">
+<span class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
+<span class="text-[11px] font-label-sm font-medium text-[#10B981]">Active</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-body-md font-semibold text-on-surface truncate leading-snug">
+              Anamorphic Cinematography Masterclass
+            </h2>
+<!-- Price Tag -->
+<div class="mt-1 flex items-baseline space-x-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$249.00</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">USD</span>
+</div>
+</div>
+</div>
+<!-- Metrics & Quick Actions Footer -->
+<div class="mt-3 pt-2.5 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center space-x-1.5 font-medium">
+<span class="material-symbols-outlined text-[14px] text-tertiary">school</span>
+<span class="text-on-surface font-semibold">492</span>
+<span>enrolled</span>
+<span class="text-outline/40">•</span>
+<span class="text-tertiary font-semibold">$122.5k GMV</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</article>
+<!-- Product Card 3: VIP Creative Director Community -->
+<article class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-3.5 relative overflow-hidden transition-all duration-200 hover:border-outline-variant/60 active:scale-[0.99] group">
+<div class="flex items-start space-x-3">
+<!-- Membership Community Icon / Graphic Box -->
+<div class="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container border border-[#1E1E2E] flex flex-col items-center justify-center bg-gradient-to-br from-surface-container via-surface-container-high to-surface-variant/40">
+<div class="w-8 h-8 rounded-full bg-secondary-container/50 border border-secondary/40 flex items-center justify-center text-secondary mb-1">
+<span class="material-symbols-outlined text-[18px]">card_membership</span>
+</div>
+<span class="font-label-sm text-[9px] text-on-surface-variant font-medium">VIP Tier</span>
+</div>
+<!-- Card Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm font-medium bg-tertiary/10 text-tertiary border border-tertiary/30">
+                Membership
+              </span>
+<!-- Active Status Toggle -->
+<div class="flex items-center space-x-1.5 cursor-pointer">
+<span class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
+<span class="text-[11px] font-label-sm font-medium text-[#10B981]">Active</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-body-md font-semibold text-on-surface truncate leading-snug">
+              VIP Creative Director Community
+            </h2>
+<!-- Price Tag -->
+<div class="mt-1 flex items-baseline space-x-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$79</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">/mo</span>
+</div>
+</div>
+</div>
+<!-- Metrics & Quick Actions Footer -->
+<div class="mt-3 pt-2.5 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center space-x-1.5 font-medium">
+<span class="material-symbols-outlined text-[14px] text-primary">groups</span>
+<span class="text-on-surface font-semibold">312</span>
+<span>active members</span>
+<span class="text-outline/40">•</span>
+<span class="text-on-surface font-semibold">$24.6k MRR</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</article>
+<!-- Product Card 4: 1-on-1 Studio Mentorship Session -->
+<article class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-3.5 relative overflow-hidden transition-all duration-200 hover:border-outline-variant/60 active:scale-[0.99] group">
+<div class="flex items-start space-x-3">
+<!-- Calendar Coaching Graphic Box -->
+<div class="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container border border-[#1E1E2E] flex flex-col items-center justify-center bg-gradient-to-br from-surface-container via-surface-container-high to-surface-variant/40">
+<div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</div>
+<span class="font-label-sm text-[9px] text-on-surface-variant font-medium">60 Min</span>
+</div>
+<!-- Card Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between mb-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-label-sm font-medium bg-outline-variant/40 text-on-surface-variant border border-outline-variant">
+                Coaching
+              </span>
+<!-- Active Status Toggle -->
+<div class="flex items-center space-x-1.5 cursor-pointer">
+<span class="w-2 h-2 rounded-full bg-[#10B981] shadow-[0_0_8px_#10B981]"></span>
+<span class="text-[11px] font-label-sm font-medium text-[#10B981]">Active</span>
+</div>
+</div>
+<h2 class="font-headline-sm text-body-md font-semibold text-on-surface truncate leading-snug">
+              1-on-1 Studio Mentorship Session
+            </h2>
+<!-- Price Tag -->
+<div class="mt-1 flex items-baseline space-x-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">$150</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">/hr</span>
+</div>
+</div>
+</div>
+<!-- Metrics & Quick Actions Footer -->
+<div class="mt-3 pt-2.5 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center space-x-1.5 font-medium">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+<span class="text-on-surface font-semibold">31</span>
+<span>completed</span>
+<span class="text-outline/40">•</span>
+<span class="text-on-surface font-semibold">5.0 ★</span>
+</div>
+<button class="w-7 h-7 flex items-center justify-center rounded text-on-surface-variant hover:text-on-surface active:scale-95">
+<span class="material-symbols-outlined text-[16px]">more_vert</span>
+</button>
+</div>
+</article>
+</main>
+<!-- Floating Action Button (FAB) at Bottom-Right for '+ Add Product' -->
+<button aria-label="Add Product" class="fixed bottom-20 right-5 z-40 accent-gradient text-white flex items-center justify-center rounded-full w-13 h-13 p-3.5 glow-fab active:scale-95 transition-transform duration-150 group">
+<span class="material-symbols-outlined text-[24px] font-bold">add</span>
+</button>
+<!-- BottomNavBar Component (JSON Anchor Execution) -->
+<!-- Destination count: 5 | Labels: Home, Build, Sell, Grow, More | Active tab: Sell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-2 pb-safe bg-surface-container-lowest/95 backdrop-blur-md shadow-none border-none">
+<!-- Tab 1: Home (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span class="font-label-sm text-label-sm leading-none">Home</span>
+</a>
+<!-- Tab 2: Build (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">build</span>
+<span class="font-label-sm text-label-sm leading-none">Build</span>
+</a>
+<!-- Tab 3: Sell (ACTIVE - Mapped to Storefront & Products Roster) -->
+<a class="flex flex-col items-center justify-center text-primary font-medium gap-1 hover:text-primary transition-colors duration-150 active:scale-95 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span class="absolute -top-1 -right-1.5 w-1.5 h-1.5 rounded-full bg-primary glow-primary"></span>
+</div>
+<span class="font-label-sm text-label-sm leading-none text-primary font-bold">Sell</span>
+</a>
+<!-- Tab 4: Grow (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+<span class="font-label-sm text-label-sm leading-none">Grow</span>
+</a>
+<!-- Tab 5: More (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+<span class="font-label-sm text-label-sm leading-none">More</span>
+</a>
+</nav>
+</div>
+</body></html>

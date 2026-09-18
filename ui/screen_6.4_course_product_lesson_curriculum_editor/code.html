@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screen 6.4 — Course Product &amp; Lesson Curriculum Editor</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#131318",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-tint": "#adc6ff",
+            "secondary": "#d0bcff",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed-variant": "#004395",
+            "error": "#ffb4ab",
+            "surface-variant": "#35343a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "background": "#131318",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#571bc1",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "on-secondary-container": "#c4abff",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "on-primary-container": "#00285d",
+            "on-tertiary-container": "#00311f",
+            "on-secondary": "#3c0091",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "error-container": "#93000a",
+            "surface-container-low": "#1b1b20",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "outline": "#8c909f",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-highest": "#35343a",
+            "surface-dim": "#131318",
+            "surface-bright": "#39383e",
+            "tertiary": "#4edea3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Studio-grade custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.4);
+      transition: all 0.15s ease-in-out;
+    }
+    .primary-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px 0px rgba(59, 130, 246, 0.55);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased h-screen overflow-hidden flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- ==================== SHARED COMPONENT: TopAppBar ==================== -->
+<header class="flex justify-between items-center w-full px-margin-sm h-14 sticky top-0 z-40 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 bg-surface-container-lowest dark:bg-surface-container-lowest shadow-none border-b border-outline-variant dark:border-outline-variant">
+<!-- Leading cluster with tenant / cohort switcher -->
+<div class="flex items-center gap-space-md">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 text-outline active:scale-95 transition-transform duration-100" title="Switch Cohort Workspace" type="button">
+<span class="material-symbols-outlined text-primary dark:text-primary" data-icon="swap_horiz">swap_horiz</span>
+<span class="text-label-md font-label-md font-bold text-on-surface dark:text-on-surface tracking-tight">Cohort Beta-9</span>
+<span class="material-symbols-outlined text-outline" data-icon="expand_more">expand_more</span>
+</button>
+<span class="h-4 w-px bg-outline-variant"></span>
+<!-- Course Title & Status Badge -->
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-outline" data-icon="movie_edit">movie_edit</span>
+<h1 class="text-headline-sm font-headline-sm text-on-surface truncate max-w-md">
+          Advanced Anamorphic Cinematography Masterclass
+        </h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-tertiary border border-tertiary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5 animate-pulse"></span>
+          In Development (14/18 Lessons Ready)
+        </span>
+</div>
+</div>
+<!-- Actions cluster -->
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md border border-outline-variant transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+<span>Student Preview</span>
+</button>
+<button class="primary-gradient-btn flex items-center gap-1.5 px-4 py-1.5 rounded-lg text-white text-label-md font-label-md font-semibold active:scale-98" type="button">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+<span>Publish Course</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="p-2 rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 text-on-surface-variant active:scale-95 transition-transform duration-100" title="Settings &amp; Parameters" type="button">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- ==================== MAIN 3-COLUMN WORKSPACE CANVAS ==================== -->
+<main class="flex-1 flex overflow-hidden w-full">
+<!-- ==================== LEFT COLUMN: Module & Lesson Tree (280px) ==================== -->
+<aside class="w-[280px] shrink-0 border-r border-outline-variant bg-surface flex flex-col overflow-hidden">
+<!-- Sidebar Header / Add Module -->
+<div class="p-3 border-b border-outline-variant flex flex-col gap-2 bg-surface-container-lowest">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-outline" data-icon="account_tree">account_tree</span>
+<span class="text-label-md font-label-md font-semibold text-on-surface uppercase tracking-wider">Curriculum</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline">3 Modules • 18 Items</span>
+</div>
+<button class="w-full flex items-center justify-center gap-1.5 py-1.5 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary border border-outline-variant text-label-md font-label-md font-semibold transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="add_circle">add_circle</span>
+<span>+ Add Module</span>
+</button>
+</div>
+<!-- Module & Lesson Tree List -->
+<div class="flex-1 overflow-y-auto p-2 space-y-3">
+<!-- MODULE 1: Expanded -->
+<div class="rounded-lg border border-outline-variant bg-surface-container-lowest/60 overflow-hidden">
+<!-- Module Header -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-primary" data-icon="folder_open">folder_open</span>
+<div class="truncate">
+<p class="text-label-sm font-label-sm text-outline">MODULE 01</p>
+<p class="text-label-md font-label-md font-semibold text-on-surface truncate">Foundations of Anamorphic Lenses</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline transition-transform rotate-180" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Lesson Items inside Module 1 -->
+<div class="p-1 space-y-1">
+<!-- Lesson 1.1 -->
+<div class="group flex items-center justify-between p-2 rounded-lg hover:bg-surface-container cursor-pointer transition-all border border-transparent">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline/40 group-hover:text-outline cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-outline" data-icon="play_circle">play_circle</span>
+<div class="truncate">
+<span class="text-label-md font-label-md text-on-surface truncate block">1.1: History of CinemaScope</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-label-sm font-label-sm text-outline">12m</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Lesson 1.2: ACTIVE SELECTED -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-high border border-primary/40 shadow-sm cursor-pointer transition-all">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-primary" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<div class="truncate">
+<span class="text-label-md font-label-md font-semibold text-primary truncate block">1.2: Optical Distortion &amp; Bokeh</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-label-sm font-label-sm text-primary font-semibold">24m</span>
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Lesson 1.3: Quiz -->
+<div class="group flex items-center justify-between p-2 rounded-lg hover:bg-surface-container cursor-pointer transition-all border border-transparent">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline/40 group-hover:text-outline cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-secondary" data-icon="quiz">quiz</span>
+<div class="truncate">
+<span class="text-label-md font-label-md text-on-surface truncate block">1.3: Squeeze Ratios &amp; De-Squeeze</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-label-sm font-label-sm text-outline">5 Qs</span>
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Lesson 1.4: Download file -->
+<div class="group flex items-center justify-between p-2 rounded-lg hover:bg-surface-container cursor-pointer transition-all border border-transparent">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline/40 group-hover:text-outline cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="download_for_offline">download_for_offline</span>
+<div class="truncate">
+<span class="text-label-md font-label-md text-on-surface truncate block">1.4: Lens Distortion Grid</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 shrink-0">
+<span class="text-label-sm font-label-sm text-outline">File</span>
+<span class="material-symbols-outlined text-outline" data-icon="radio_button_unchecked">radio_button_unchecked</span>
+</div>
+</div>
+<!-- Add Lesson button inside module -->
+<button class="w-full py-1 text-center text-label-sm font-label-sm text-outline hover:text-primary flex items-center justify-center gap-1 mt-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-label-sm" data-icon="add">add</span>
+              Add item to Module 1
+            </button>
+</div>
+</div>
+<!-- MODULE 2: Collapsed -->
+<div class="rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden">
+<div class="flex items-center justify-between p-2.5 bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline/40 cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-outline" data-icon="folder">folder</span>
+<div class="truncate">
+<p class="text-label-sm font-label-sm text-outline">MODULE 02</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Lighting for High Dynamic Range</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-label-sm font-label-sm text-outline">6 lessons</span>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- MODULE 3: Collapsed -->
+<div class="rounded-lg border border-outline-variant bg-surface-container-lowest overflow-hidden">
+<div class="flex items-center justify-between p-2.5 bg-surface-container-lowest cursor-pointer hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-outline/40 cursor-grab" data-icon="drag_indicator">drag_indicator</span>
+<span class="material-symbols-outlined text-outline" data-icon="folder">folder</span>
+<div class="truncate">
+<p class="text-label-sm font-label-sm text-outline">MODULE 03</p>
+<p class="text-label-md font-label-md text-on-surface truncate">Color Grading &amp; ACES Pipeline</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-label-sm font-label-sm text-outline">8 lessons</span>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- ==================== CENTER PANEL: Lesson Editor Area (Flexible) ==================== -->
+<section class="flex-1 bg-surface-container-lowest overflow-y-auto flex flex-col border-r border-outline-variant">
+<!-- Editor Top Action / Tab Bar -->
+<div class="sticky top-0 z-30 bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant px-6 py-2.5 flex items-center justify-between">
+<!-- Content Mode Tabs -->
+<div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg border border-outline-variant">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-high text-primary text-label-md font-label-md font-semibold shadow-sm" type="button">
+<span class="material-symbols-outlined text-primary" data-icon="videocam">videocam</span>
+<span>Video</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-outline hover:text-on-surface text-label-md font-label-md transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="article">article</span>
+<span>Text</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-outline hover:text-on-surface text-label-md font-label-md transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="quiz">quiz</span>
+<span>Quiz</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1 rounded text-outline hover:text-on-surface text-label-md font-label-md transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="download">download</span>
+<span>Download</span>
+</button>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-outline">Auto-saved at 14:32</span>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant text-label-md font-label-md" type="button">
+            Discard Changes
+          </button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-semibold text-label-md font-label-md hover:bg-primary/90" type="button">
+            Save Draft
+          </button>
+</div>
+</div>
+<!-- Editor Content Canvas -->
+<div class="p-6 space-y-6 max-w-5xl w-full mx-auto">
+<!-- VIDEO UPLOAD & PLAYER PREVIEW MODULE -->
+<div class="rounded-xl border border-outline-variant bg-surface p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="play_circle">play_circle</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Video Source &amp; Player Pipeline</h2>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm">
+<span class="px-2 py-0.5 rounded bg-tertiary/10 text-tertiary border border-tertiary/30">HLS Transcode Ready</span>
+<span class="text-outline">4K CinemaDNG Pro</span>
+</div>
+</div>
+<!-- Video Player Shell -->
+<div class="relative w-full aspect-video rounded-lg overflow-hidden border border-outline-variant bg-black group shadow-2xl">
+<!-- Mock Player Footage -->
+<img class="w-full h-full object-cover opacity-85 group-hover:opacity-95 transition-opacity" data-alt="A cinematic still frame showing anamorphic lens bokeh and streak flares in a dark studio setting. The lighting is deep and moody with saturated cyan and violet horizontal light streaks cutting across the frame. The visual aesthetic is studio-grade high dynamic range film production, crisp focus on foreground optical elements with characteristic oval out-of-focus background blur." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvxSxd-IXMIFFHH3tj1adckWjdNKoU1STX0oOHXYsulJv2JjhS3PfGAV8cM-gljG49NaIvzQeCtSyljlCC7UYy-SJWFqU8bwiw0r7xTHUbZqbLjqr4SX2InH83E1Ko8SUecBdqmgy4gWPQiOGVrtDDSnpmV5yCy9wfR_UR-67pfBDhhoUQMLOXY0hgam3HJVe5R2JACvJPFAj0U8WsTTnxRbeiN5MMbm8L8N9tsEc_5zHScA5-aJnXkw"/>
+<!-- Ambient Studio Glow Overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none"></div>
+<!-- Top Overlay Badge -->
+<div class="absolute top-3 left-3 flex items-center gap-2">
+<span class="bg-black/70 backdrop-blur-md px-2.5 py-1 rounded text-label-sm font-label-sm text-white border border-white/10 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                2.39:1 Anamorphic Scope
+              </span>
+<span class="bg-black/70 backdrop-blur-md px-2 py-1 rounded text-label-sm font-label-sm text-outline border border-white/10">
+                Mux Asset ID: mux_99a8x7b1
+              </span>
+</div>
+<!-- Center Big Play Button -->
+<button class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-primary/90 text-on-primary flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-2xl" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Custom Player Controls Bar -->
+<div class="absolute bottom-0 inset-x-0 p-3 bg-gradient-to-t from-black/95 to-transparent space-y-2">
+<!-- Scrubber Bar -->
+<div class="relative w-full h-1.5 bg-outline-variant/60 rounded-full cursor-pointer overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-[42%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+<div class="absolute left-[42%] top-1/2 -translate-y-1/2 -translate-x-1/2 w-3 h-3 bg-white rounded-full shadow"></div>
+</div>
+<!-- Controls Row -->
+<div class="flex items-center justify-between text-on-surface text-label-md font-label-md">
+<div class="flex items-center gap-3">
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="play_arrow">play_arrow</span></button>
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="replay_10">replay_10</span></button>
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="forward_10">forward_10</span></button>
+<span class="text-label-sm font-label-sm text-outline">10:08 / 24:15</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant text-outline hover:text-white" type="button">1080p60</button>
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="volume_up">volume_up</span></button>
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="aspect_ratio">aspect_ratio</span></button>
+<button class="hover:text-primary" type="button"><span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Video URL / Replace / Thumbnail Controls -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+<!-- URL Embed input -->
+<div class="md:col-span-2 space-y-1.5">
+<label class="text-label-sm font-label-sm text-outline">Stream Embed URL or HLS Manifest</label>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 text-label-md font-label-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="https://stream.mux.com/v1/assets/99a8x7b1_anamorphic_hdr.m3u8"/>
+</div>
+<button class="px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-md font-label-md text-on-surface shrink-0" type="button">
+                  Replace File
+                </button>
+</div>
+</div>
+<!-- Thumbnail Chooser -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-outline">Video Poster Thumbnail</label>
+<div class="flex items-center gap-2">
+<button class="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-md font-label-md text-on-surface" type="button">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline" data-icon="image">image</span>
+<span>Frame at 04:12</span>
+</span>
+<span class="material-symbols-outlined text-outline text-label-sm" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RICH TEXT LESSON NOTES & CALLOUT BLOCKS -->
+<div class="rounded-xl border border-outline-variant bg-surface p-5 space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="edit_note">edit_note</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Lesson Notes &amp; Markdown Content</h2>
+</div>
+<!-- Formatting toolbar -->
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg border border-outline-variant text-outline">
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="format_bold">format_bold</span></button>
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="format_italic">format_italic</span></button>
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="code">code</span></button>
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span></button>
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="format_quote">format_quote</span></button>
+<button class="p-1 hover:text-white rounded hover:bg-surface-container" type="button"><span class="material-symbols-outlined" data-icon="link">link</span></button>
+</div>
+</div>
+<!-- Markdown Content Body Area -->
+<div class="space-y-4">
+<p class="text-body-lg font-body-lg text-on-surface leading-relaxed">
+              In this intensive session, we examine the physics of cylindrical lens glass and how horizontal compression crafts the iconic oval out-of-focus highlights. Remember that anamorphic distortion is not an optical defect—it is an intentional aesthetic narrative choice.
+            </p>
+<!-- Callout Block: Studio Directive -->
+<div class="rounded-lg border-l-4 border-primary bg-surface-container-high/40 p-4 border border-outline-variant/40 space-y-1">
+<div class="flex items-center gap-2 text-primary font-semibold text-label-lg font-label-lg">
+<span class="material-symbols-outlined" data-icon="info">info</span>
+<span>Pro Tip: 1.33x vs 2.0x Squeeze Matching</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant pl-6">
+                When working with 16:9 modern sensors, a 1.33x squeeze factor delivers clean 2.39:1 scope without substantial sensor crop loss. For genuine vintage barrel distortion, pair 2.0x squeeze primes with a 4:3 open-gate sensor capture format.
+              </p>
+</div>
+<!-- Markdown code preview snippet -->
+<div class="rounded-lg bg-surface-container-lowest p-3 border border-outline-variant font-mono text-xs text-on-surface-variant space-y-1">
+<div class="flex justify-between text-outline border-b border-outline-variant/40 pb-1 mb-2">
+<span>DaVinci Resolve Clip Attributes setup</span>
+<span>ACEScc / AP0</span>
+</div>
+<p class="text-tertiary">Pixel Aspect Ratio: Custom (1.333 Anamorphic)</p>
+<p class="text-outline">Color Space Transform: Input Gamma -&gt; Alexa Wide Gamut / LogC3</p>
+<p class="text-secondary">Spatial De-Squeeze Node: Matrix [ScaleX: 1.333, ScaleY: 1.0]</p>
+</div>
+</div>
+</div>
+<!-- SUPPLEMENTARY DOWNLOADS & QUIZ TEASER -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Downloads list card -->
+<div class="rounded-xl border border-outline-variant bg-surface p-4 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-label-lg font-label-lg font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary" data-icon="attachment">attachment</span>
+<span>Lesson Downloads (1)</span>
+</h3>
+<button class="text-label-sm font-label-sm text-primary hover:underline" type="button">+ Upload</button>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-label-lg" data-icon="cube">drive_file_rename_outline</span>
+</div>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface truncate">Oval_Bokeh_LUT_Pack_v2.cube</p>
+<p class="text-label-sm font-label-sm text-outline">18.4 MB • 3D LUT Presets</p>
+</div>
+</div>
+<button class="p-1 text-outline hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Quiz preview card teaser -->
+<div class="rounded-xl border border-outline-variant bg-surface p-4 space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-label-lg font-label-lg font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary" data-icon="quiz">quiz</span>
+<span>Comprehension Check</span>
+</h3>
+<span class="text-label-sm font-label-sm text-outline">Optional Gate</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+<div>
+<p class="text-label-md font-label-md text-on-surface">3 Checkpoint Questions Attached</p>
+<p class="text-label-sm font-label-sm text-tertiary">Students must score 80% to proceed</p>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface" type="button">
+                Edit Quiz
+              </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== RIGHT PANEL: Lesson Settings & Access Control (260px) ==================== -->
+<aside class="w-[260px] shrink-0 bg-surface flex flex-col overflow-y-auto">
+<div class="p-4 border-b border-outline-variant bg-surface-container-lowest">
+<h2 class="text-label-md font-label-md font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+<span>Lesson Parameters</span>
+</h2>
+</div>
+<div class="p-4 space-y-5 flex-1">
+<!-- Lesson Title Input -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-outline block">Lesson Title</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-2.5 py-2 text-label-md font-label-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="Optical Distortion &amp; Oval Bokeh Masterclass"/>
+</div>
+<!-- Duration Estimate Input -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-outline block">Duration Estimate</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg px-2.5 py-2 text-label-md font-label-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="24 mins"/>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-outline text-label-lg" data-icon="schedule">schedule</span>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Access Control Toggles -->
+<div class="space-y-4">
+<span class="text-label-sm font-label-sm font-semibold text-outline uppercase tracking-wider block">Access &amp; Requirements</span>
+<!-- Toggle 1: Free Preview -->
+<div class="flex items-start justify-between gap-2">
+<div>
+<p class="text-label-md font-label-md text-on-surface font-medium">Free Preview Lesson</p>
+<p class="text-label-sm font-label-sm text-outline leading-tight mt-0.5">Prospective visitors can watch without enrolling.</p>
+</div>
+<!-- Inactive Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container border border-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-outline after:border-outline-variant after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 2: Mandatory / Required (Active) -->
+<div class="flex items-start justify-between gap-2">
+<div>
+<p class="text-label-md font-label-md text-on-surface font-medium">Mandatory / Unlock Next</p>
+<p class="text-label-sm font-label-sm text-outline leading-tight mt-0.5">Students must finish this lesson before Lesson 1.3 opens.</p>
+</div>
+<!-- Active Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-primary border border-primary-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+</div>
+<!-- Toggle 3: Enable Student Comments -->
+<div class="flex items-start justify-between gap-2">
+<div>
+<p class="text-label-md font-label-md text-on-surface font-medium">Discussions / Comments</p>
+<p class="text-label-sm font-label-sm text-outline leading-tight mt-0.5">Allow public threads and time-coded questions.</p>
+</div>
+<!-- Active Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0 mt-0.5">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-primary border border-primary-container peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all"></div>
+</label>
+</div>
+</div>
+<hr class="border-outline-variant"/>
+<!-- Attached Resources Summary -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm font-semibold text-outline uppercase tracking-wider block">Attached Assets</span>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant text-label-sm font-label-sm space-y-1">
+<div class="flex items-center justify-between text-on-surface">
+<span class="truncate">LUT preset package</span>
+<span class="font-semibold text-primary">18 MB</span>
+</div>
+<p class="text-outline">Hosted on Cloudflare R2 CDN</p>
+</div>
+</div>
+</div>
+<!-- Delete Lesson Action -->
+<div class="p-4 border-t border-outline-variant bg-surface-container-lowest mt-auto">
+<button class="w-full py-2 px-3 rounded-lg border border-error-container text-error hover:bg-error-container/20 text-label-md font-label-md flex items-center justify-center gap-1.5 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span>Delete Lesson</span>
+</button>
+</div>
+</aside>
+</main>
+<!-- ==================== SHARED COMPONENT: BottomNavBar (Responsive Pivot: Mobile Only) ==================== -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-sm py-space-xs bg-surface-container-lowest/95 dark:bg-surface-container-lowest/95 backdrop-blur-md shadow-2xl">
+<!-- Grading -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#grading">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span class="text-label-sm font-label-sm">Grading</span>
+</a>
+<!-- Students -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#students">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-sm font-label-sm">Students</span>
+</a>
+<!-- Rubrics: Semantically closest to course curriculum & content structure -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-semibold hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#rubrics">
+<span class="material-symbols-outlined" data-icon="fact_check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">fact_check</span>
+<span class="text-label-sm font-label-sm">Rubrics</span>
+</a>
+<!-- Insights -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline hover:text-primary dark:hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#insights">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-label-sm font-label-sm">Insights</span>
+</a>
+</nav>
+</body></html>

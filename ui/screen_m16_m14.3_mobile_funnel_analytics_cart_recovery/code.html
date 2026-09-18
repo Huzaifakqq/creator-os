@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Funnel & Cart Recovery</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-primary-container": "#00285d",
+            "primary": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "surface-tint": "#adc6ff",
+            "surface-bright": "#39383e",
+            "background": "#131318",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed": "#6ffbbe",
+            "on-surface": "#e4e1e9",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-container": "#00311f",
+            "surface-container-high": "#2a292f",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff",
+            "on-primary": "#002e6a",
+            "surface-container-highest": "#35343a",
+            "error": "#ffb4ab",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed-variant": "#004395",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "primary-fixed-dim": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-variant": "#35343a",
+            "outline": "#8c909f",
+            "surface-dim": "#131318",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .accent-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .obsidian-card {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen bg-[#0A0A0F] text-on-surface flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Shell (375px bounded canvas) -->
+<div class="w-full max-w-[375px] min-h-screen flex flex-col relative pb-24 overflow-x-hidden bg-[#0A0A0F] shadow-2xl">
+<!-- Ambient Studio Luminescence Glows in Background -->
+<div class="pointer-events-none absolute top-[-60px] left-1/2 -translate-x-1/2 w-[340px] h-[220px] bg-gradient-to-br from-primary/10 via-secondary/10 to-transparent blur-3xl opacity-70"></div>
+<div class="pointer-events-none absolute top-[520px] -right-20 w-[240px] h-[260px] bg-secondary-container/15 blur-[80px] rounded-full"></div>
+<!-- Top Sticky Header Area -->
+<header class="flex justify-between items-center w-full px-space-md h-14 sticky top-0 z-40 bg-surface/90 backdrop-blur-md">
+<div class="flex items-center space-x-2">
+<button aria-label="Go Back" class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</div>
+<div class="flex items-center space-x-2">
+<button aria-label="Tune & Filter" class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<button class="flex items-center space-x-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-high text-primary border border-outline-variant/40 active:scale-95 transition-transform duration-100">
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Subheader Page Title & Quick Metric Sub-bar -->
+<div class="px-space-md pt-3 pb-2 flex items-center justify-between">
+<div>
+<h1 class="text-headline-md font-headline-md text-on-surface tracking-tight">Funnel & Cart Recovery</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          Checkout Funnel Pipeline • Studio M16
+        </p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center border border-outline-variant/50 text-secondary">
+<span class="material-symbols-outlined text-[18px]">filter_alt</span>
+</div>
+</div>
+<!-- Main Content Flow -->
+<main class="px-space-md space-y-space-md flex-1 z-10">
+<!-- Key Funnel Performance KPI Grid (2x2) -->
+<section class="grid grid-cols-2 gap-space-sm pt-1">
+<!-- Card 1: Overall Conversion -->
+<div class="obsidian-card rounded-xl p-space-sm transition-colors hover:border-primary/40 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Overall Conversion</span>
+<span class="material-symbols-outlined text-primary text-[16px]">percent</span>
+</div>
+<div class="my-1.5">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">4.82%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="inline-flex items-center text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+              +0.6%
+            </span>
+<span class="text-label-sm font-label-sm text-outline">vs last mo</span>
+</div>
+</div>
+<!-- Card 2: Cart Abandonment -->
+<div class="obsidian-card rounded-xl p-space-sm transition-colors hover:border-secondary/40 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Cart Abandonment</span>
+<span class="material-symbols-outlined text-error text-[16px]">shopping_cart_checkout</span>
+</div>
+<div class="my-1.5">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">64.2%</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="inline-flex items-center text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+              -3.1%
+            </span>
+<span class="text-label-sm font-label-sm text-outline">improved</span>
+</div>
+</div>
+<!-- Card 3: Recovered Sales -->
+<div class="obsidian-card rounded-xl p-space-sm transition-colors hover:border-primary/40 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Recovered Sales</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">paid</span>
+</div>
+<div class="my-1.5">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">$42,680</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-label-sm font-label-sm text-primary font-semibold">114</span>
+<span class="text-label-sm font-label-sm text-outline">recovered orders</span>
+</div>
+</div>
+<!-- Card 4: Recovery ROI -->
+<div class="obsidian-card rounded-xl p-space-sm transition-colors hover:border-secondary/40 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Recovery ROI</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">rocket_launch</span>
+</div>
+<div class="my-1.5">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">14.2x</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="text-label-sm font-label-sm text-outline">$3,010 rec. cost</span>
+</div>
+</div>
+</section>
+<!-- Visual Stepwise Funnel Drop-off Bar Chart -->
+<section class="obsidian-card rounded-xl p-space-md relative overflow-hidden">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<h2 class="text-label-lg font-label-lg font-bold text-on-surface">Conversion Funnel Drop-off</h2>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+            5 Stages
+          </span>
+</div>
+<!-- Funnel Steps Visualizer -->
+<div class="space-y-3 pt-1">
+<!-- Step 1 -->
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm font-medium text-on-surface">1. Product Page Visitors</span>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm font-bold text-on-surface">24,500</span>
+<span class="text-label-sm font-label-sm text-outline">(100%)</span>
+</div>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-md overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded bg-gradient-to-r from-primary to-secondary w-full transition-all duration-500"></div>
+</div>
+</div>
+<!-- Step 2 -->
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm text-on-surface">2. Added to Cart</span>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm font-bold text-on-surface">8,420</span>
+<span class="text-label-sm font-label-sm text-secondary">34.4% step</span>
+</div>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-md overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded bg-gradient-to-r from-primary/90 to-secondary/90 w-[34.4%] transition-all duration-500"></div>
+</div>
+<div class="flex justify-end mt-0.5">
+<span class="text-label-sm font-label-sm text-error/80">-65.6% drop-off</span>
+</div>
+</div>
+<!-- Step 3 (Crucial Drop-off) -->
+<div class="p-1.5 -mx-1.5 rounded-lg bg-error-container/10 border border-error-container/30">
+<div class="flex justify-between items-baseline mb-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">warning</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">3. Initiated Checkout</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm font-bold text-on-surface">4,180</span>
+<span class="text-label-sm font-label-sm text-secondary">49.6% step</span>
+</div>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-md overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded bg-gradient-to-r from-primary/80 to-secondary/80 w-[17.1%] transition-all duration-500"></div>
+</div>
+<div class="flex justify-end mt-0.5">
+<span class="text-label-sm font-label-sm text-error font-semibold">-50.4% major drop-off</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<span class="text-body-sm font-body-sm text-on-surface">4. Payment Entered</span>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm font-bold text-on-surface">1,620</span>
+<span class="text-label-sm font-label-sm text-secondary">38.8% step</span>
+</div>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-md overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded bg-gradient-to-r from-primary/70 to-secondary/70 w-[6.6%] transition-all duration-500"></div>
+</div>
+</div>
+<!-- Step 5: Completed -->
+<div>
+<div class="flex justify-between items-baseline mb-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+<span class="text-body-sm font-body-sm font-semibold text-tertiary">5. Completed Purchase</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-sm font-label-sm font-bold text-on-surface">1,180</span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">4.82% Final</span>
+</div>
+</div>
+<div class="h-4 w-full bg-surface-container-lowest rounded-md overflow-hidden p-0.5 border border-outline-variant/20">
+<div class="h-full rounded bg-tertiary w-[4.82%] transition-all duration-500"></div>
+</div>
+</div>
+</div>
+<!-- Drop-off Analysis Callout Pill -->
+<div class="mt-4 p-2.5 rounded-lg bg-surface-container-high/80 border border-outline-variant/40 flex items-start gap-2">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">insights</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<span class="text-on-surface font-semibold">Drop-off Insight:</span> Highest drop-off occurred between Cart and Checkout initiation (-50.4%).
+          </p>
+</div>
+</section>
+<!-- Recent Abandoned Carts Recovery Queue -->
+<section class="space-y-space-sm">
+<!-- Queue Header with Badges -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<h2 class="text-label-lg font-label-lg font-bold text-on-surface">Recovery Queue</h2>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container/40 text-error border border-error/30 font-semibold">
+              42 Carts Pending
+            </span>
+</div>
+<div class="flex items-center gap-1 text-tertiary text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Auto-Recovery: Active</span>
+</div>
+</div>
+<!-- Queue Item 1: Marcus Vance -->
+<div class="obsidian-card rounded-xl p-space-sm space-y-2 hover:border-outline transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-primary text-label-md border border-outline-variant">
+                MV
+              </div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Marcus Vance</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1">Cinematic Masterclass All-Access</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">$299.00</span>
+<p class="text-label-sm font-label-sm text-outline">32m ago</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-outline-variant/30">
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-primary">
+<span class="material-symbols-outlined text-[15px]">mark_email_read</span>
+<span>Email 1 Sent (Opened)</span>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-sm font-label-sm border border-outline-variant/50 active:scale-95 transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">sms</span>
+<span>Send SMS</span>
+</button>
+</div>
+</div>
+<!-- Queue Item 2: Elena Rostova -->
+<div class="obsidian-card rounded-xl p-space-sm space-y-2 hover:border-outline transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-secondary text-label-md border border-outline-variant">
+                ER
+              </div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface leading-tight">Elena Rostova</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1">Pro LUTs Bundle 2026</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">$89.00</span>
+<p class="text-label-sm font-label-sm text-outline">1h ago</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-outline-variant/30">
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>Triggering in 58m</span>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-sm font-label-sm border border-outline-variant/50 active:scale-95 transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">bolt</span>
+<span>Instant Ping</span>
+</button>
+</div>
+</div>
+<!-- Queue Item 3: David K. -->
+<div class="obsidian-card rounded-xl p-space-sm space-y-2 hover:border-outline transition-colors">
+<div class="flex justify-between items-start">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-tertiary text-label-md border border-outline-variant">
+                DK
+              </div>
+<div>
+<h3 class="text-body-md font-body-md font-semibold text-on-surface leading-tight">David K.</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-1">1-on-1 Mentorship 4-Pack</p>
+</div>
+</div>
+<div class="text-right">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">$650.00</span>
+<p class="text-label-sm font-label-sm text-outline">3h ago</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1.5 border-t border-outline-variant/30">
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[15px]">ads_click</span>
+<span>Email 2 Clicked • Cart Active</span>
+</div>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface text-label-sm font-label-sm border border-outline-variant/50 active:scale-95 transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">support_agent</span>
+<span>Call / DM</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bottom Action Trigger -->
+<section class="pt-2 pb-4">
+<button class="w-full h-11 px-4 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-primary/50 text-on-surface text-label-lg font-label-lg flex items-center justify-center space-x-2 transition-all active:scale-[0.98]">
+<span>Configure Recovery Workflow Automation</span>
+<span class="material-symbols-outlined text-[18px] text-primary">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Shared Component: BottomNavBar -->
+<!-- Mandatory active item determination: Current page is Analytics / Funnel Analytics -> 'Analytics' is ACTIVE -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-16 bg-surface-container-lowest/95 backdrop-blur-md max-w-[375px] left-1/2 -translate-x-1/2 shadow-lg">
+<!-- Destination 1: Audience (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-label-sm font-label-sm mt-0.5">Audience</span>
+</button>
+<!-- Destination 2: Sequences (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">account_tree</span>
+<span class="text-label-sm font-label-sm mt-0.5">Sequences</span>
+</button>
+<!-- Destination 3: Approvals (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">task_alt</span>
+<span class="text-label-sm font-label-sm mt-0.5">Approvals</span>
+</button>
+<!-- Destination 4: Analytics (Active) -->
+<button class="flex flex-col items-center justify-center bg-surface-container-high text-primary rounded-xl px-3 py-1.5 active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-semibold">Analytics</span>
+</button>
+</nav>
+</div>
+</body></html>

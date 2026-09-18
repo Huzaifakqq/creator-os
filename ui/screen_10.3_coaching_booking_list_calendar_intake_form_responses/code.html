@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Coaching Booking List &amp; Intake Form Responses</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "surface": "#131318",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-highest": "#35343a",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary": "#d0bcff",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "background": "#131318",
+            "on-background": "#e4e1e9",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "surface-bright": "#39383e",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-fixed-dim": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed-variant": "#004395",
+            "inverse-on-surface": "#303036",
+            "outline": "#8c909f",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          fontFamily: {
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          fontSize: {
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      vertical-align: middle;
+      display: inline-block;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased selection:bg-primary selection:text-on-primary-fixed flex h-screen overflow-hidden">
+<!-- SideNavBar Anchor Component from JSON -->
+<aside class="fixed left-0 top-0 bottom-0 h-full w-64 flex flex-col justify-between p-space-md z-30 bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant">
+<div class="flex flex-col gap-space-md">
+<!-- SideNav Workspace Header -->
+<div class="flex items-center gap-space-sm px-space-sm py-2 border-b border-outline-variant pb-space-md">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary font-headline-sm text-headline-sm font-semibold shadow-inner">
+<span class="material-symbols-outlined text-primary" data-icon="deployed_code">deployed_code</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface dark:text-on-surface truncate">Studio Nexus</div>
+<div class="font-label-sm text-label-sm text-outline truncate tracking-wider uppercase">Creator Pro Tier</div>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant font-label-md text-label-md transition-all duration-150 active:scale-98">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="bolt">bolt</span>
+<span>Quick Session</span>
+</button>
+<!-- Navigation Tabs with Coaching Active -->
+<nav class="flex flex-col gap-1">
+<!-- Overview (Inactive) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<!-- Community (Inactive) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+<!-- Moderation (Inactive) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield">shield</span>
+<span class="font-label-md text-label-md">Moderation</span>
+</a>
+<!-- Coaching (ACTIVE MANDATE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container dark:bg-surface-container text-primary dark:text-primary font-medium border-l-2 border-primary transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="school">school</span>
+<span class="font-label-md text-label-md flex-1">Coaching</span>
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</a>
+<!-- Calendar (Inactive) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+<span class="font-label-md text-label-md">Calendar</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer Utilities -->
+<div class="flex flex-col gap-1 pt-space-md border-t border-outline-variant">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-medium hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface dark:hover:text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<!-- Storage & Sync Mini Widget -->
+<div class="mt-space-sm p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60">
+<div class="flex justify-between items-center mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">Intake Vault</span>
+<span class="font-label-sm text-label-sm text-tertiary">94% Free</span>
+</div>
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full w-[6%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Wrapper (Pushed by 64 = 256px) -->
+<div class="ml-64 flex-1 flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar Anchor Component from JSON -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-space-lg h-14 bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant shadow-sm flex-shrink-0">
+<!-- Left: Brand / Breadcrumbs & Search -->
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+<span class="text-outline-variant">/</span>
+<nav class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="font-label-md text-label-md hover:text-on-surface cursor-pointer">Coaching</span>
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="font-label-md text-label-md text-primary font-medium">Bookings &amp; Intake Hub</span>
+</nav>
+</div>
+<!-- Global Search Input in TopNavBar -->
+<div class="relative w-80 hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface-container-low border border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-150" placeholder="Search clients, session topics, dates..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 text-[10px] font-label-sm text-outline bg-surface-container-high rounded border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+<!-- Center Links from Anchor JSON -->
+<div class="hidden xl:flex items-center gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 font-label-md text-label-md" href="#">Workspaces</a>
+<a class="text-primary dark:text-primary font-medium border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Analytics</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 font-label-md text-label-md" href="#">Resources</a>
+</div>
+<!-- Right Trailing cluster: Status Pill, Icon Actions, Avatar -->
+<div class="flex items-center gap-3">
+<!-- Calendar Sync Status Pill -->
+<div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/80 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Google &amp; Outlook: Synced</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant hidden sm:block"></div>
+<!-- Trailing Icon Actions from JSON: notifications, help, settings -->
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors duration-150 relative" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full ring-2 ring-surface"></span>
+</button>
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors duration-150" title="Help &amp; Support">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-md hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors duration-150" title="Settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<!-- Profile Avatar with Creator Studio Anchor -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<img class="w-8 h-8 rounded-full border border-outline-variant object-cover ring-1 ring-primary/30" data-alt="Photorealistic headshot portrait of a creative director in a dark studio wearing a minimal black turtleneck against deep slate backdrop with subtle blue rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2ywXMCZv3nKeMaPkjYbx_PkJd9hu7Y8Kh8bbCjtxuooJGAS8CBn38XVtpB7fZ5NMqlDD_hkWPUfUe-vW3KAyjq0F5xImtLYSUw2RDd95SO_v7lBg9VVizuo4KycZJat-DQKXbwm8RxrM1v_nlHkvjnWnT_Z3EDakjcROMES0NfCLC29cGtdZqr-Cx2H-n_mHn6TMp8Sg2h-1tWfpE3KLFNvD5U0r7_Xmkd3VP0Q0YxuVD7NnTzu4ZSA"/>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Scrollable Workspace Canvas -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-space-lg bg-surface-container-lowest flex flex-col gap-space-lg">
+<!-- Section 1: Page Header with Actions -->
+<section class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">Coaching Bookings &amp; Client Intake Hub</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+            Manage scheduled 1-on-1 mentorship calls, review pre-call intake questionnaires, and sync availability with external calendar providers.
+          </p>
+</div>
+<div class="flex items-center gap-3 flex-shrink-0">
+<!-- Segmented View Toggle -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-high text-on-surface font-label-md text-label-md font-medium shadow-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="view_list">view_list</span>
+<span>List View</span>
+</button>
+<button class="px-3 py-1.5 rounded-md text-outline hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_view_month">calendar_view_month</span>
+<span>Calendar Grid</span>
+</button>
+</div>
+<!-- Secondary Action: Sync Availability -->
+<button class="px-3.5 py-2 bg-surface-container-low hover:bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md rounded-lg flex items-center gap-2 transition-all active:scale-98">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="sync">sync</span>
+<span>Sync Availability</span>
+</button>
+<!-- Primary CTA: Schedule Manual Session -->
+<button class="px-4 py-2 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-label-md text-label-md rounded-lg font-medium shadow-lg shadow-blue-500/20 hover:brightness-110 flex items-center gap-1.5 transition-all active:scale-98">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Schedule Manual Session</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Metrics Bar (Bento-style 4 Summary Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Metric 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant relative overflow-hidden flex flex-col justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Upcoming Sessions</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="video_camera_front">video_camera_front</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">18 <span class="text-sm font-normal text-outline">scheduled</span></div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+<span>Next 7 days active</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500/0 via-blue-500/50 to-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Metric 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant relative overflow-hidden flex flex-col justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Revenue This Month</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="payments">payments</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">$4,250</div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<span>34 completed hrs · <strong class="text-on-surface font-medium">$125/hr avg</strong></span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500/0 via-purple-500/50 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Metric 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant relative overflow-hidden flex flex-col justify-between group hover:border-amber-500/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Pending Intake Reviews</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-amber-400 text-[18px]" data-icon="assignment_late">assignment_late</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-amber-300 tracking-tight">3 <span class="text-sm font-normal text-outline">pending</span></div>
+<div class="flex items-center gap-1.5 mt-1 font-body-sm text-body-sm text-amber-400/90">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span>Needs mentor sign-off</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-amber-500/0 via-amber-500/50 to-amber-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Metric 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant relative overflow-hidden flex flex-col justify-between group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Client Satisfaction</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">4.98 <span class="text-sm font-normal text-outline">/ 5.0</span></div>
+<div class="flex items-center gap-1 mt-1 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex text-amber-400 text-[14px]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="ml-1 text-outline">(88 total reviews)</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-emerald-500/0 via-emerald-500/50 to-emerald-500/0 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</section>
+<!-- Section 3: Filters & Date Range Toolbar -->
+<section class="p-3 bg-surface-container-low border border-outline-variant rounded-xl flex flex-wrap items-center justify-between gap-3">
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Session Type Filter Dropdown -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container border border-outline-variant rounded-lg text-on-surface font-label-md text-label-md cursor-pointer hover:border-outline transition-colors">
+<span class="text-outline">Session Type:</span>
+<span class="font-medium text-primary">All Types</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<!-- Status Filter Tabs / Chips -->
+<div class="flex items-center gap-1 bg-surface-container-lowest p-1 rounded-lg border border-outline-variant/60">
+<button class="px-2.5 py-1 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-medium border border-primary/30">
+              Confirmed (15)
+            </button>
+<button class="px-2.5 py-1 rounded text-outline hover:text-on-surface font-label-sm text-label-sm">
+              Rescheduled (2)
+            </button>
+<button class="px-2.5 py-1 rounded text-outline hover:text-on-surface font-label-sm text-label-sm">
+              Completed (34)
+            </button>
+<button class="px-2.5 py-1 rounded text-outline hover:text-on-surface font-label-sm text-label-sm">
+              Cancelled (1)
+            </button>
+</div>
+<!-- Date Filter Picker -->
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container border border-outline-variant rounded-lg font-label-md text-label-md text-on-surface cursor-pointer hover:border-outline transition-colors">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="calendar_today">calendar_today</span>
+<span>This Week (Nov 17 - Nov 23, 2025)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+<!-- Filter Quick Search -->
+<div class="relative min-w-[220px]">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[16px]" data-icon="filter_list">filter_list</span>
+<input class="w-full h-8 pl-8 pr-3 bg-surface-container border border-outline-variant rounded-md font-body-sm text-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Quick search table..." type="text"/>
+</div>
+</section>
+<!-- Section 4: Main Split Layout (65% Roster Left / 35% Dossier Inspector Right) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start pb-6">
+<!-- Left Section: 65% Upcoming Bookings Roster (col-span-8 approx 66.6%) -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Upcoming Appointments</h2>
+<span class="px-2 py-0.5 rounded-full text-xs font-label-sm bg-surface-container border border-outline-variant text-on-surface-variant">5 showing</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Sorted by: Earliest date</span>
+</div>
+<!-- Booking Cards Container -->
+<div class="flex flex-col gap-2.5">
+<!-- Booking 1 (SELECTED STATE) -->
+<div class="p-space-md rounded-xl bg-surface-container border-2 border-primary/80 shadow-[0_0_20px_-4px_rgba(59,130,246,0.25)] relative transition-all cursor-pointer">
+<!-- Selection indicator line -->
+<div class="absolute left-0 top-3 bottom-3 w-1 bg-primary rounded-r"></div>
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pl-2">
+<div class="flex items-start gap-3">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Close-up portrait of Elena Vance, a woman in her early 30s with sharp aesthetic framing, soft natural lighting, wearing a minimalist dark grey crewneck in a modern video editing suite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRD0FC-6lxJG773JmVNSeHJnVl6vTza_1g2DYRZtivBZUwTXLx2pzPK6MdYXnXgbt9JH0nBIF-jS8TYqbExG_NrkHY8V2maku3eaGjqCM7UNEMZ2D6eNlk8IcZR3eoC5VJYavdVA12HQBJkt5emjGSHMbDLhdlvJqkBe8SQIdE8SRfGA8FkegpuA02lwNKE_xTpnSjaTQ0DSrh1DP0OYirDyD0_4XkoUu16HYMgW6ViQU_iMuMq5V4ug"/>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Elena Vance</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Confirmed
+                      </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-high border border-outline-variant text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle">check_circle</span>
+                        Intake Done
+                      </span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium mt-1">60-Min Color Pipeline Audit</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+<span class="font-medium">Tomorrow, Nov 18 @ 2:00 PM EST</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="videocam">videocam</span>
+<span>Zoom Room #884-219</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-medium">$175 (Paid via Stripe)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between gap-2 pl-2 sm:pl-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-outline-variant">
+<span class="px-2.5 py-1 rounded bg-primary/20 text-primary text-xs font-label-md font-medium border border-primary/30">Active Inspector</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Copy Link">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Manage Call">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Booking 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Editorial candid headshot of Marcus Brody, an indie film producer in his late 30s with glasses, subtle smile, ambient dark studio setup, moody cinematic lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK3YQ3rvKa8ocAnUbpg3n69TAFjLn5ex3rGdkWBW8YT9gXiOI9wK5PbM1iRjLPul0djQsvC39dY_d10m22JeE763DqHUfQTXIYmsMiI5tPoCERg3hfl1dL-RKK7yeYGbv0ihkPtY8bM_oUa8Y44CtiVP0cIfbi0aMUVc7saYAwC4yDQDadeIDQXGO-RGzjeG3kIY3PV7RPhY86v_RGnp-5Ypq0IE-_wm5uhYUPn6GaZDP8mPUsAbne6A"/>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Marcus Brody</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Confirmed
+                      </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-high border border-outline-variant text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle">check_circle</span>
+                        Intake Done
+                      </span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium mt-1">30-Min Post-Production Workflow Review</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="schedule">schedule</span>
+<span>Wednesday, Nov 19 @ 10:30 AM EST</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="videocam">videocam</span>
+<span>Google Meet</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-medium">$95 (Paid)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between gap-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-outline-variant">
+<button class="px-2.5 py-1 text-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors">
+                    Inspect Intake
+                  </button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Manage Call">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Stylized portrait of Kenji Sato, a technical artist in his 20s with short dyed hair, seated before dual ultra-wide computer monitors displaying 3D rendering wireframes in a dark room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_wK9C5-A42u64Ww7wlC4KONkoqVrUmJEffe5VY2GNpFeSo4dbYRcS9u5Jt5jkm_rTYk4AjpuYi6gC7K8I075JR-DIXSAmUbfAOcEP1D-ZO8DAsyzRT51moAQ0xHluxNSDbA6eLEgYJ3NR99rd0hs6VjxS2MPm2KfJwIkEv9njvDMsXfiU6PFoc46ztq6YSXqsBxlFXvcfZcmKmzNVuBoHrAHRCknIhWLXc12nNq9CddTLozcS1zNjpQ"/>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Kenji Sato</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Confirmed
+                      </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-high border border-outline-variant text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle">check_circle</span>
+                        Intake Done
+                      </span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium mt-1">90-Min VFX &amp; Real-time Shaders Mentorship</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="schedule">schedule</span>
+<span>Thursday, Nov 20 @ 4:00 PM EST</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="videocam">videocam</span>
+<span>Zoom Room #412-901</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-medium">$250 (Paid)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between gap-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-outline-variant">
+<button class="px-2.5 py-1 text-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors">
+                    Inspect Intake
+                  </button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Manage Call">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant flex-shrink-0" data-alt="Professional studio portrait of Sarah Jenkins, a creative brand director with shoulder-length curly hair, wearing modern dark attire with subtle ambient purple fill light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCihb9POR2htX5L-ULwsfDoiurlCoakQqqkmyHmD8ckwOEZdkp0pIC_VnDdQNJMDbIMNv47xm5yOxFHAzaYp8_kUWCCEnRzsuSyol_gX9ldX1Apn2RdfpRAaIajtxmm0H9zYjDkW9Y1p6_ReO8fW0U9I3lcwEUA4HB85gu3rmSYhG3UPn-E5WR-fxljBQcbRTFbfLyVQNb75EOIwmCqJRrOmjUjPyxawKhR7fH0dd8ygqhkGfmvJMfgfw"/>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Sarah Jenkins</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-amber-950/60 border border-amber-500/40 text-amber-300 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                        Pending Intake
+                      </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-high border border-outline-variant text-amber-400 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_top">hourglass_top</span>
+                        Awaiting Client
+                      </span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium mt-1">60-Min Motion Brand Identity Critique</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="schedule">schedule</span>
+<span>Friday, Nov 21 @ 1:15 PM EST</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="videocam">videocam</span>
+<span>Zoom</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-medium">$175 (Paid)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between gap-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-outline-variant">
+<button class="px-2.5 py-1 text-xs rounded bg-surface-container hover:bg-surface-container-high text-amber-400 border border-amber-500/30 transition-colors">
+                    Send Reminder
+                  </button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Manage Call">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Booking 5 -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant hover:border-outline hover:bg-surface-container transition-all cursor-pointer">
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+<div class="flex items-start gap-3">
+<img class="w-11 h-11 rounded-lg object-cover border border-outline-variant flex-shrink-0 opacity-85" data-alt="Crisp profile headshot of Alex Reed, a web developer in his early 30s with short beard and headphones around neck, lit by cool monitor backlight against dark wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtiJRKZ4-cjRmT8ILv1eX__D7VLIbXZY2caXgIz7Pp4mDjA54UxIsdjc8bM8-ciMXYfbdbSLa7Pf1QlH9wK6KskqbFdIBUgchB-s6lc_Cl-OQ_IBzUcL5OfEQyGpL2hv27ykPQmIbEQe2LuyUBWg9juQK85GrLFREMvMMf0puvWWisnUbnXkajLiVbTd3Rf6nSRB7HnA2Sy61J5T9LaO8JouJF53FO9BuY6mQqSiveUs9oT1RmDJt9EQ"/>
+<div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Alex Reed</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-highest border border-outline-variant text-on-surface-variant flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                        Rescheduled
+                      </span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm bg-surface-container-high border border-outline-variant text-outline">
+                        Slot Shifted
+                      </span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-medium mt-1">30-Min Developer Portfolio Triage</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 mt-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="schedule">schedule</span>
+<span>Monday, Nov 24 @ 11:00 AM EST</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="credit_card">credit_card</span>
+<span class="text-outline">$95 (Credit applied)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex sm:flex-col items-end justify-between gap-2 border-t sm:border-t-0 pt-2 sm:pt-0 border-outline-variant">
+<button class="px-2.5 py-1 text-xs rounded bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant transition-colors">
+                    View History
+                  </button>
+<button class="p-1.5 rounded-md hover:bg-surface-container-high text-outline hover:text-on-surface transition-colors" title="Manage Call">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Section: 35% Selected Client Intake Dossier Preview (col-span-4 / col-span-5) -->
+<aside class="lg:col-span-5 xl:col-span-4 flex flex-col gap-3">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="description">description</span>
+<span>Client Intake Dossier</span>
+</h2>
+<span class="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-400 font-label-sm text-label-sm">
+              Verified Submission
+            </span>
+</div>
+<!-- Dossier Card -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex flex-col gap-space-md shadow-xl">
+<!-- Dossier Header Client Info -->
+<div class="flex items-start justify-between pb-space-md border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<img class="w-12 h-12 rounded-lg object-cover border border-primary/40" data-alt="Editorial portrait of client Elena Vance in clean studio lighting with dark background, professional and engaged posture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCEIQXMt12u6OMuPoR3tyIcZP6nWuVAkhdMCict92mUDPtBg9xLzLHSiRhcatYH5Na8l-Cig7IwrzsywDk4LobZM7DnpeHOyDXk3iXdCvjTTnZJRoYVHV2bLeu7Z2MswRhM6RpaiElMsUkV_Kaobdm3jJ2ZShyrndiUmnuLMKe_QeAeKTtjAzsreWWdty5gIHzwFLWXQZ2b7lBClhMxrnmspT5PQQ7VgFvIQN4sTPxvPfaTEvVqpRV6g"/>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-on-surface">Elena Vance</h3>
+<p class="font-label-md text-label-md text-primary font-medium">60-Min Color Pipeline Audit</p>
+<p class="font-body-sm text-body-sm text-outline">Tomorrow, Nov 18 · 2:00 PM EST (Zoom)</p>
+</div>
+</div>
+<div class="w-8 h-8 rounded-md bg-surface-container flex items-center justify-center border border-outline-variant text-outline hover:text-on-surface cursor-pointer" title="Export PDF">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+</div>
+</div>
+<!-- Question 1 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md font-medium">
+<span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-[10px] text-primary">1</span>
+<span>Primary challenge to solve in this session:</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/70 text-on-surface font-body-sm text-body-sm leading-relaxed">
+                “We are transitioning our feature film pipeline from Rec.709 to ACEScc in DaVinci Resolve Studio 19 and encountering clipping artifacts in highlights with custom LUTs.”
+              </div>
+</div>
+<!-- Question 2 & Attached Assets -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md font-medium">
+<span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-[10px] text-primary">2</span>
+<span>Deliverables or files you will bring:</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/70 text-on-surface font-body-sm text-body-sm leading-relaxed">
+                “Raw ARRIRAW clip samples (.ari), current .cube 3D LUT, and node tree screenshot.”
+              </div>
+<!-- Attached file pills -->
+<div class="flex flex-col gap-1.5 mt-1">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-high border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="video_file">video_file</span>
+<span class="font-label-md text-label-md text-on-surface truncate">aces_gamut_problem.ari</span>
+<span class="font-label-sm text-label-sm text-outline">(140 MB)</span>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-primary text-[16px] cursor-pointer" data-icon="download">download</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-high border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="code">code</span>
+<span class="font-label-md text-label-md text-on-surface truncate">master_lut_v2.cube</span>
+<span class="font-label-sm text-label-sm text-outline">(8.4 MB)</span>
+</div>
+<span class="material-symbols-outlined text-outline hover:text-secondary text-[16px] cursor-pointer" data-icon="download">download</span>
+</div>
+</div>
+</div>
+<!-- Question 3 -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md font-medium">
+<span class="w-5 h-5 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center text-[10px] text-primary">3</span>
+<span>Current level of experience with ACES:</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/70 text-on-surface font-body-sm text-body-sm flex items-center justify-between">
+<span class="font-medium text-primary">Advanced / Studio Lead</span>
+<span class="font-label-sm text-label-sm text-outline">Deep architectural debugging</span>
+</div>
+</div>
+<!-- Coaching Prep Checklist -->
+<div class="flex flex-col gap-2 pt-2 border-t border-outline-variant">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[16px]" data-icon="checklist">checklist</span>
+<span>Coaching Prep Checklist</span>
+</span>
+<span class="font-label-sm text-label-sm text-outline">1 of 3 ready</span>
+</div>
+<div class="flex flex-col gap-1.5 bg-surface-container p-2.5 rounded-lg border border-outline-variant/60 font-body-sm text-body-sm">
+<!-- Check item 1 (Checked) -->
+<label class="flex items-center gap-2 cursor-pointer text-on-surface-variant line-through text-outline">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span>Review ARRIRAW clip sample</span>
+</label>
+<!-- Check item 2 (Unchecked) -->
+<label class="flex items-center gap-2 cursor-pointer text-on-surface">
+<input class="w-4 h-4 rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span>Set up DaVinci test project with ACEScc color management</span>
+</label>
+<!-- Check item 3 (Unchecked) -->
+<label class="flex items-center gap-2 cursor-pointer text-on-surface">
+<input class="w-4 h-4 rounded bg-surface-container-high border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span>Prepare custom DCTL transform options</span>
+</label>
+</div>
+</div>
+<!-- Action Buttons Stack -->
+<div class="flex flex-col gap-2 pt-2">
+<button class="w-full py-2.5 px-4 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-label-md text-label-md font-semibold shadow-lg shadow-blue-500/25 hover:brightness-110 flex items-center justify-center gap-2 transition-all active:scale-98">
+<span>Open Session Studio</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="chat">chat</span>
+<span>Send DM</span>
+</button>
+<button class="py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="event_repeat">event_repeat</span>
+<span>Reschedule Call</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</section>
+<!-- Section 5: Bottom Pagination & Telemetry Footer -->
+<footer class="mt-auto pt-3 pb-4 border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-3 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-4">
+<span>Showing <strong class="text-on-surface font-medium">1-5</strong> of <strong class="text-on-surface font-medium">18</strong> bookings</span>
+<span class="text-outline-variant">|</span>
+<div class="flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[16px]" data-icon="public">public</span>
+<span>Timezone: <strong class="text-on-surface font-normal">America/New_York (EST)</strong></span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 text-outline">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="mark_email_read">mark_email_read</span>
+<span>Automatic reminders dispatched 24h &amp; 1h prior via Resend</span>
+</div>
+<!-- Pagination Controls -->
+<div class="flex items-center gap-1">
+<button class="p-1 rounded bg-surface-container border border-outline-variant text-outline disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-6 h-6 rounded bg-primary/20 text-primary border border-primary/40 font-label-sm text-label-sm font-semibold flex items-center justify-center">1</button>
+<button class="w-6 h-6 rounded hover:bg-surface-container text-outline font-label-sm text-label-sm flex items-center justify-center">2</button>
+<button class="w-6 h-6 rounded hover:bg-surface-container text-outline font-label-sm text-label-sm flex items-center justify-center">3</button>
+<button class="p-1 rounded bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

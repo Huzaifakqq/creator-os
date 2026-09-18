@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Reset Password</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed-variant": "#005236",
+            "background": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "tertiary-container": "#00a572",
+            "outline-variant": "#424754",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "surface-dim": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "surface-container": "#1f1f25",
+            "surface-container-lowest": "#0e0e13",
+            "on-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-fixed": "#001a42",
+            "primary": "#adc6ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary": "#002e6a",
+            "inverse-primary": "#005ac2",
+            "surface-container-highest": "#35343a",
+            "tertiary": "#4edea3",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "on-background": "#e4e1e9",
+            "surface-container-high": "#2a292f",
+            "outline": "#8c909f",
+            "secondary-container": "#571bc1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: #07070b;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 4px 20px -2px rgba(59, 130, 246, 0.4), 0 0 12px rgba(139, 92, 246, 0.2);
+    }
+    .custom-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 6px 24px 0px rgba(59, 130, 246, 0.5), 0 0 16px rgba(139, 92, 246, 0.35);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased select-none p-0 sm:p-6">
+<!-- Mobile Device Shell (375x812px strictly tailored for iPhone X/11/12 mini aspect) -->
+<main class="relative w-[375px] h-[812px] bg-[#0A0A0F] rounded-[44px] shadow-[0_25px_70px_rgba(0,0,0,0.85),0_0_0_1px_#1E1E2E] flex flex-col justify-between overflow-hidden">
+<!-- Ambient Halo Glow behind Lock Icon -->
+<div class="pointer-events-none absolute -top-16 left-1/2 -translate-x-1/2 w-[340px] h-[340px] bg-gradient-to-tr from-blue-600/15 to-purple-600/20 rounded-full blur-[72px]"></div>
+<!-- Top Section: Status Bar + Top App Bar -->
+<header class="w-full flex-shrink-0 z-20">
+<!-- iOS Status Bar (44px) -->
+<div class="w-full h-11 px-7 flex items-center justify-between text-on-surface font-label-md text-label-md pt-2">
+<span class="tracking-tight font-semibold">9:41</span>
+<div class="flex items-center space-x-1.5 opacity-90">
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[15px] leading-none" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[18px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar mapped from Shared Components JSON & Destination protocol -->
+<!-- style_bg_color: bg-surface, leading: arrow_back, trailing: Skip, headline: Creator OS -->
+<nav class="flex justify-between items-center w-full px-margin-sm h-14 bg-transparent">
+<a class="w-9 h-9 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</a>
+<span class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-semibold">Creator OS</span>
+<a class="text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors px-2 py-1 active:scale-95" href="#">Skip</a>
+</nav>
+</header>
+<!-- Content Workspace -->
+<section class="flex-1 flex flex-col justify-start px-margin-sm pt-4 pb-2 z-10 overflow-y-auto">
+<!-- Glowing Circular Lock Badge -->
+<div class="flex justify-center mt-2 mb-6">
+<div class="relative flex items-center justify-center">
+<!-- Multi-tier radial luminescence ring -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] opacity-35 blur-xl"></div>
+<div class="absolute -inset-1.5 rounded-full bg-gradient-to-br from-blue-500/20 via-transparent to-purple-600/30"></div>
+<!-- Outer circular bezel -->
+<div class="relative w-20 h-20 rounded-full bg-[#12121A] border border-[#2A2A3E] flex items-center justify-center shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)]">
+<div class="w-14 h-14 rounded-full bg-gradient-to-b from-[#181824] to-[#12121A] border border-[#1E1E2E] flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px] text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-purple-400" data-icon="lock_reset" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock_reset</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Heading Cluster -->
+<div class="text-center mb-6 px-2">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight font-bold">Reset password</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-[280px] mx-auto mt-2 leading-relaxed">
+          Enter your email address and we'll send you a secure verification link to regain access to your workspace.
+        </p>
+</div>
+<!-- Form Card Container -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-space-md shadow-2xl relative">
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Input Group -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-medium" for="email-input">
+              Workspace Email Address
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-on-surface-variant/70 text-[19px] pointer-events-none" data-icon="mail">mail</span>
+<input autocomplete="email" class="w-full h-11 pl-11 pr-4 bg-[#0A0A0F] border border-[#1E1E2E] rounded-lg text-on-surface placeholder:text-[#9CA3AF]/50 font-body-md text-body-md transition-all duration-150 focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] focus:shadow-[0_0_12px_rgba(59,130,246,0.3)]" id="email-input" placeholder="alex@vancefilms.com" required="" type="email"/>
+</div>
+</div>
+<!-- Security Note -->
+<div class="flex items-start gap-2.5 p-3 rounded-lg bg-[#181824]/80 border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px] text-tertiary mt-0.5 flex-shrink-0" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-tight">
+              Reset links expire in 15 minutes for your security.
+            </p>
+</div>
+<!-- Primary Action Button -->
+<button class="custom-gradient-btn w-full h-12 rounded-lg font-label-lg text-label-lg font-semibold text-white flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] mt-2" type="submit">
+<span>Send reset link</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+</div>
+<!-- Additional Context Support Badge -->
+<div class="mt-4 flex items-center justify-center gap-1.5 text-on-surface-variant opacity-80">
+<span class="material-symbols-outlined text-[16px]" data-icon="shield_lock">shield_lock</span>
+<span class="font-label-sm text-label-sm tracking-wide">End-to-end encrypted protocol</span>
+</div>
+</section>
+<!-- Bottom Navigation / Action Section -->
+<footer class="w-full flex-shrink-0 flex flex-col items-center pb-2 z-20">
+<!-- Back to Sign In Link -->
+<div class="py-3">
+<a class="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors active:scale-95 group" href="#">
+<span class="material-symbols-outlined text-[18px] group-hover:-translate-x-0.5 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span>Back to sign in</span>
+</a>
+</div>
+<!-- iOS Home Indicator -->
+<div class="w-full flex justify-center pb-2 pt-1">
+<div class="w-32 h-1 bg-[#424754]/60 rounded-full"></div>
+</div>
+</footer>
+</main>
+</body></html>

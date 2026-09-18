@@ -97,3 +97,7 @@ publish-profiles/
 *.tmp
 *.bak
 *.orig
+
+## Secrets - local config only
+appsettings.json
+appsettings.Development.json

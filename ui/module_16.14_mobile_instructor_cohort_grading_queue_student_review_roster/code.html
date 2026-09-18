@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 16.14 — Mobile Instructor Cohort Grading Queue &amp; Student Review Roster</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-secondary": "#3c0091",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed": "#001a42",
+            "on-primary-fixed-variant": "#004395",
+            "primary-container": "#4d8eff",
+            "surface-bright": "#39383e",
+            "tertiary-container": "#00a572",
+            "on-secondary-fixed": "#23005c",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "secondary": "#d0bcff",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "surface": "#131318",
+            "background": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-low": "#1b1b20",
+            "tertiary-fixed-dim": "#4edea3",
+            "outline": "#8c909f",
+            "error-container": "#93000a",
+            "on-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-container": "#c4abff",
+            "on-error": "#690005",
+            "surface-variant": "#35343a",
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "surface-dim": "#131318",
+            "on-primary-container": "#00285d",
+            "secondary-container": "#571bc1",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "surface-tint": "#adc6ff",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-container": "#00311f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased font-body-md text-body-md flex justify-center min-h-screen">
+<!-- Mobile Container Frame (390px simulated on viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-2xl overflow-x-hidden border-x border-outline-variant/30">
+<!-- 1. System Status Bar -->
+<div class="w-full h-11 px-margin-sm flex justify-between items-center bg-surface-container-lowest text-on-surface z-50 select-none">
+<span class="text-label-md font-label-md font-bold tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-label-md">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-label-md">wifi</span>
+<span class="material-symbols-outlined text-label-md">battery_full</span>
+</div>
+</div>
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="flex justify-between items-center w-full px-margin-sm h-14 sticky top-0 z-40 backdrop-blur-md bg-surface-container-lowest/90 border-b border-outline-variant dark:border-outline-variant shadow-none">
+<div class="flex items-center space-x-2">
+<button class="p-1 rounded-lg text-primary hover:bg-surface-container-high transition-colors duration-150 active:scale-95 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">swap_horiz</span>
+</button>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-none">Cohort Beta-9</span>
+<span class="text-label-sm font-label-sm text-outline leading-tight mt-0.5">Cinematography Masterclass</span>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">search</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+</header>
+<!-- Sub-Header: Active Module & Cohort Selector Pill -->
+<div class="px-margin-sm py-space-sm bg-surface-container-low/60 border-b border-outline-variant/30 flex items-center justify-between">
+<button class="flex items-center space-x-1.5 text-left group">
+<div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+<span class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors">Mod 4: Lighting &amp; Anamorphic Lab</span>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</button>
+<div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded-full bg-primary-container/20 border border-primary/40 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-label-sm font-label-sm font-semibold">24 Pending</span>
+</div>
+</div>
+<!-- Main Scrollable Content Canvas -->
+<main class="flex-1 px-margin-sm py-space-md space-y-space-md">
+<!-- 2. Instructor Cohort Velocity & Triage HUD (Metric Cards Grid) -->
+<section class="grid grid-cols-2 gap-space-sm">
+<!-- Metric 1: Urgent Pending -->
+<div class="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/40 relative overflow-hidden flex flex-col justify-between h-[86px]">
+<div class="flex justify-between items-start">
+<span class="text-label-sm font-label-sm text-outline">Queue / Pending</span>
+<span class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-error-container/40 text-error border border-error/30">
+              6 &lt;4h
+            </span>
+</div>
+<div>
+<div class="flex items-baseline space-x-1">
+<span class="text-headline-md font-headline-md font-bold text-on-surface">24</span>
+<span class="text-label-sm font-label-sm text-outline">/ 64</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 37.5%"></div>
+</div>
+</div>
+</div>
+<!-- Metric 2: Velocity -->
+<div class="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/40 flex flex-col justify-between h-[86px]">
+<div class="flex justify-between items-start">
+<span class="text-label-sm font-label-sm text-outline">Velocity Today</span>
+<span class="material-symbols-outlined text-tertiary text-[16px]">bolt</span>
+</div>
+<div>
+<div class="flex items-baseline space-x-1">
+<span class="text-headline-md font-headline-md font-bold text-tertiary">18</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">graded</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline block mt-0.5">Avg: 3.2m / review</span>
+</div>
+</div>
+<!-- Metric 3: Class Average -->
+<div class="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/40 flex flex-col justify-between h-[74px]">
+<span class="text-label-sm font-label-sm text-outline">Cohort Class Avg</span>
+<div class="flex items-center justify-between">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">91.4%</span>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary border border-outline-variant/50">A- Solid</span>
+</div>
+</div>
+<!-- Metric 4: Merkle Proofs Notarized -->
+<div class="p-space-sm rounded-xl bg-surface-container-low border border-outline-variant/40 flex flex-col justify-between h-[74px]">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">On-Chain Verified</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">verified</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="text-headline-sm font-headline-sm font-bold text-secondary">40 <span class="text-label-sm font-label-sm text-outline">/ 64</span></span>
+<span class="text-[10px] text-outline font-mono">Merkle Valid</span>
+</div>
+</div>
+</section>
+<!-- 3. Queue Filtering & Sorting Segmented Controls -->
+<section class="space-y-space-sm">
+<!-- Horizontal Scrollable Segmented Filter Chips -->
+<div class="flex items-center space-x-2 overflow-x-auto custom-scrollbar pb-1 -mx-margin-sm px-margin-sm">
+<!-- Active Filter -->
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-primary/15 border border-primary/40 text-primary text-label-md font-label-md font-semibold flex items-center space-x-1 shadow-sm">
+<span>Needs Review</span>
+<span class="w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center ml-1">24</span>
+</button>
+<!-- Flagged / Re-grade -->
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-error/40 text-error text-label-md font-label-md flex items-center space-x-1 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px]">flag</span>
+<span>Flagged</span>
+<span class="w-4 h-4 rounded-full bg-error-container text-error text-[10px] font-bold flex items-center justify-center">3</span>
+</button>
+<!-- Graded -->
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md flex items-center space-x-1 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+<span>Graded (37)</span>
+</button>
+<!-- Draft Memos -->
+<button class="shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-outline text-label-md font-label-md hover:bg-surface-container-high transition-colors">
+<span>Drafts (4)</span>
+</button>
+</div>
+<!-- Sort Bar & Quick Filter -->
+<div class="flex items-center justify-between pt-1">
+<button class="flex items-center space-x-1 text-label-sm font-label-sm text-outline hover:text-on-surface transition-colors">
+<span>Urgency / Deadline</span>
+<span class="material-symbols-outlined text-[14px]">arrow_downward</span>
+</button>
+<div class="flex items-center space-x-2">
+<span class="text-label-sm font-label-sm text-outline">Lead: Sarah L.</span>
+<button class="text-label-sm font-label-sm text-primary hover:text-primary-fixed flex items-center space-x-0.5">
+<span class="material-symbols-outlined text-[14px]">checklist</span>
+<span>Batch (4)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 4. Student Review Roster & Submission Queue Cards -->
+<section class="space-y-space-md">
+<!-- Card 1: Urgent Priority - Marcus Kane -->
+<article class="p-space-md rounded-xl bg-surface-container-low border border-primary/40 shadow-[0_4px_20px_rgba(77,142,255,0.08)] relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<!-- Card Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-label-md text-primary">
+                MK
+              </div>
+<div>
+<div class="flex items-center space-x-1.5">
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">Marcus Kane</h3>
+<span class="px-1.5 py-0.2 rounded text-[9px] font-bold bg-secondary-container text-on-secondary-container">PRO</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Submitted 25m ago • Attempt 2/3</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary-container/20 text-primary border border-primary/30 flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+<span>Needs Review</span>
+</span>
+</div>
+<!-- Assignment & Deliverables -->
+<div class="mt-3 space-y-2">
+<p class="text-body-sm font-body-sm text-on-surface-variant font-medium line-clamp-1">
+              Hands-on Lab: Anamorphic Contrast &amp; Lighting Ratio Test
+            </p>
+<!-- Video Clip Preview Strip -->
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center space-x-2 overflow-hidden">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">movie</span>
+</div>
+<div class="truncate">
+<p class="text-label-sm font-label-sm font-medium text-on-surface truncate">Scene04_Keylight_Take2.mov</p>
+<p class="text-[10px] text-outline font-mono">ProRes 4444 XQ • 48MB • 0:42</p>
+</div>
+</div>
+<span class="shrink-0 text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-container text-outline border border-outline-variant/40">
+                0:28 rim fix
+              </span>
+</div>
+<!-- LUT Attachment Badge -->
+<div class="inline-flex items-center space-x-1.5 px-2 py-1 rounded bg-surface-container border border-outline-variant/30 text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[14px]">tune</span>
+<span class="font-mono truncate max-w-[210px]">Arri_LogC4_SkinTone_Fix_v2.cube</span>
+<span class="material-symbols-outlined text-tertiary text-[14px]">verified</span>
+</div>
+<!-- AI Copilot Pre-Scan Pill -->
+<div class="p-2 rounded-lg bg-surface-container-high/40 border border-primary/20 flex items-start space-x-2">
+<span class="material-symbols-outlined text-primary text-[16px] shrink-0 mt-0.5">smart_toy</span>
+<div class="text-[11px] leading-tight text-on-surface-variant">
+<span class="text-primary font-semibold">Copilot Pre-Check:</span> 4:1 key ratio confirmed. Estimated score 92-95/100. Ready for grading.
+              </div>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="mt-3.5 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center space-x-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Voice memo quick draft">
+<span class="material-symbols-outlined text-[18px]">mic</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Direct student chat">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Pin to review dock">
+<span class="material-symbols-outlined text-[18px]">bookmark</span>
+</button>
+</div>
+<button class="px-4 py-2 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-md font-label-md font-semibold text-white flex items-center space-x-1 shadow-sm active:scale-95 transition-all">
+<span>Quick Grade</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Flagged / Regrade Requested - Devon Ross -->
+<article class="p-space-md rounded-xl bg-surface-container-low border border-error/40 shadow-sm relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<!-- Card Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-label-md text-error">
+                DR
+              </div>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">Devon Ross</h3>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Submitted 2h ago • Regrade Request</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-error-container/30 text-error border border-error/30 flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">flag</span>
+<span>Revision</span>
+</span>
+</div>
+<!-- Note excerpt & Context -->
+<div class="mt-3 space-y-2">
+<div class="p-2 rounded-lg bg-surface-container-lowest border-l-2 border-error border-outline-variant/40">
+<p class="text-[11px] text-on-surface-variant italic leading-snug">
+                "Adjusted LUT shoulder curve per voice memo feedback. Removed cyan tint on tungsten rim. Requesting final pass review."
+              </p>
+</div>
+<!-- Media Preview & Vector Scope Badge -->
+<div class="relative rounded-lg overflow-hidden border border-outline-variant/40 h-24 bg-surface-container-lowest flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="Dark cinematic video frame showing an anamorphic color grading test shot with moody golden rim lighting on actor profile and deep shadow falloff in a professional dark studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAHggYJAdwh8aRy_K4_Dr8LcdqESszBxx5LrQyA4LUQ21lrhnXZp_qI0lQ6Z290ZG_FuLneU_srBWW4rh51NwuDgZdbVD8INfWvPVzMWMN18DcvhSQxQPVg7fdeLYmhArNIntd2ThF0mFX2B3FAiieKaZNumEpjhZf93EbSU7qRi9FwyQecmS9DQEOSJqTgppmvOhemSewO0aviuoAvy9PX2A6TgimlZyElq3QmZe2yr2-iycNuF9dSg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant/60 text-[10px] font-mono text-tertiary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">graphic_eq</span>
+<span>Vectorscope Passed</span>
+</div>
+<div class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-[10px] font-mono text-outline">
+                Prev: 78/100 (Pass 80)
+              </div>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="mt-3.5 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between">
+<button class="text-label-sm font-label-sm text-outline hover:text-on-surface flex items-center space-x-1">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>1:1 Chat Note</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface text-label-md font-label-md font-semibold hover:border-primary hover:text-primary transition-colors active:scale-95">
+              Review Revision ▷
+            </button>
+</div>
+</article>
+<!-- Card 3: Ready / Unreviewed - Elena Rostova -->
+<article class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/40 hover:border-outline-variant transition-colors">
+<!-- Card Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-label-md text-on-surface">
+                ER
+              </div>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">Elena Rostova</h3>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Submitted 3h ago • Attempt 1/3</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-surface-container-high text-outline border border-outline-variant/50">
+              Unreviewed
+            </span>
+</div>
+<div class="mt-3 space-y-2">
+<p class="text-body-sm font-body-sm text-on-surface-variant font-medium">
+              LogC4 Dual Key Lighting Setup &amp; Falloff Test
+            </p>
+<div class="flex items-center space-x-2 text-[11px] text-outline">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">videocam</span>
+<span>1:15 runtime</span>
+</span>
+<span>•</span>
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]">image</span>
+<span>3 DRP node graphs</span>
+</span>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="mt-3.5 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-[11px] text-outline">Self-Paced Track</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/60 text-on-surface text-label-md font-label-md font-medium hover:bg-surface-container-high transition-colors active:scale-95">
+              Evaluate Submission ▷
+            </button>
+</div>
+</article>
+<!-- Card 4: Graded & Published - Jordan Lee -->
+<article class="p-space-md rounded-xl bg-surface-container-low/60 border border-outline-variant/30 opacity-90">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center font-bold text-label-md text-tertiary">
+                JL
+              </div>
+<div>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">Jordan Lee</h3>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Graded 1h ago by Sarah Lin</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30 flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]">done_all</span>
+<span>96/100 (A+)</span>
+</span>
+</div>
+<!-- Summary pills -->
+<div class="mt-3 flex flex-wrap gap-1.5">
+<div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-surface-container text-[10px] text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[12px] text-primary">record_voice_over</span>
+<span>Voice Memo (0:48)</span>
+</div>
+<div class="inline-flex items-center space-x-1 px-2 py-0.5 rounded bg-surface-container text-[10px] text-on-surface-variant font-mono">
+<span class="material-symbols-outlined text-[12px] text-secondary">fingerprint</span>
+<span>Merkle: #0x4a9...e1</span>
+</div>
+</div>
+<div class="mt-3 pt-2 border-t border-outline-variant/20 flex items-center justify-between">
+<button class="text-label-sm font-label-sm text-outline hover:text-on-surface">
+              Edit Feedback
+            </button>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center space-x-0.5">
+<span>Published to Gradebook</span>
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+</article>
+</section>
+<!-- 5. Instructor Fast Batch Action Trigger Banner -->
+<section class="p-3 rounded-xl bg-surface-container-high/80 border border-primary/30 backdrop-blur-md flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<div>
+<p class="text-label-sm font-label-sm font-semibold text-on-surface">3 Auto-Scored Submissions</p>
+<p class="text-[10px] text-outline">Rubric Copilot verified ratio specs</p>
+</div>
+</div>
+<button class="px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container text-label-sm font-label-sm font-bold shadow-sm active:scale-95 transition-all">
+          Batch Publish
+        </button>
+</section>
+</main>
+<!-- 6. BottomNavBar (Shared Component Implementation) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-margin-sm py-space-xs bg-surface-container-lowest/95 dark:bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant dark:border-outline-variant shadow-2xl">
+<!-- Destination 1: Grading (ACTIVE) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary font-semibold group py-1">
+<span class="material-symbols-outlined text-[22px] transition-transform duration-150 active:scale-95" style="font-variation-settings: 'FILL' 1;">
+          assignment_turned_in
+        </span>
+<span class="text-label-sm font-label-sm mt-0.5">Grading</span>
+</button>
+<!-- Destination 2: Students -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline group py-1 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[22px] transition-transform duration-150 active:scale-95">
+          group
+        </span>
+<span class="text-label-sm font-label-sm mt-0.5">Students</span>
+</button>
+<!-- Destination 3: Rubrics -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline group py-1 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[22px] transition-transform duration-150 active:scale-95">
+          fact_check
+        </span>
+<span class="text-label-sm font-label-sm mt-0.5">Rubrics</span>
+</button>
+<!-- Destination 4: Insights -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline group py-1 hover:text-primary dark:hover:text-primary transition-colors duration-150">
+<span class="material-symbols-outlined text-[22px] transition-transform duration-150 active:scale-95">
+          analytics
+        </span>
+<span class="text-label-sm font-label-sm mt-0.5">Insights</span>
+</button>
+</nav>
+</div>
+</body></html>

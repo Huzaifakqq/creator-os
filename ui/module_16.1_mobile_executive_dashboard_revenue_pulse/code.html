@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS Mobile — Executive Dashboard &amp; Live Revenue Pulse</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#d0bcff",
+            "on-primary": "#002e6a",
+            "primary": "#adc6ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline": "#8c909f",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-high": "#2a292f",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-lowest": "#0e0e13",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "on-surface": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "inverse-primary": "#005ac2",
+            "surface-bright": "#39383e",
+            "surface-variant": "#35343a",
+            "surface-container-highest": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "on-tertiary": "#003824",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-low": "#1b1b20",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "inverse-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed": "#d8e2ff",
+            "outline-variant": "#424754",
+            "surface-dim": "#131318",
+            "surface": "#131318",
+            "tertiary-fixed": "#6ffbbe",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "on-background": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "background": "#131318",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-container": "#571bc1",
+            "surface-container": "#1f1f25",
+            "on-error": "#690005",
+            "inverse-on-surface": "#303036",
+            "tertiary": "#4edea3",
+            "error-container": "#93000a",
+            "surface-tint": "#adc6ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased font-body-md text-body-md min-h-screen flex justify-center selection:bg-primary/20 selection:text-primary">
+<!-- Mobile Viewport Shell (390px max mobile container) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface-container-lowest flex flex-col relative overflow-hidden pb-24 shadow-2xl">
+<!-- Native Simulated OS Status Bar -->
+<header class="w-full pt-3 px-6 pb-1 flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm select-none z-50">
+<span class="font-semibold tracking-tight text-on-surface">9:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[16px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</header>
+<!-- TopAppBar from Shared Components Specification -->
+<header class="sticky top-0 z-40 flex justify-between items-center w-full px-4 h-14 bg-surface-container-lowest/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+<!-- Leading: Avatar + Studio Context Selector -->
+<div class="flex items-center gap-2.5">
+<button aria-label="User avatar profile trigger" class="relative rounded-full ring-1 ring-outline-variant/60 active:scale-95 transition-transform">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Close up high detail studio headshot portrait of an executive tech creator with subtle indigo backlighting in an obsidian dark room wearing a minimal obsidian black jacket." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClBPjjFGpHAbaDNt-RXbJiSNtWXegLA1XGIBrqYsmkQmFBcYmmm4AjSObme4FqcKhjJ7mjVmo6wy__EsW_a_FC_L_E2-x3bOkhD_WMuBBB8B5aYwM-OQvofoqKcbzywkmsV0uUGqQZsSkYSCYq5SomAlYX7zRbWr6DijoBikfcntsHbX5FJjniwqQLdo83Cnfy0hvCJRZUHoDupq95gZ2T1mCq9OrHVyhiZXsipHBfg6tnPwaUvetQLw"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-lowest"></span>
+</button>
+<div class="flex flex-col text-left cursor-pointer active:scale-95 transition-transform">
+<div class="flex items-center gap-1 font-headline-sm text-headline-sm text-on-surface font-semibold">
+<span class="truncate max-w-[170px]">Acme Media Studio</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_more</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-tertiary">1,420 Online</span>
+<span class="text-outline-variant text-[10px]">•</span>
+<span class="font-label-sm text-label-sm text-outline">Enterprise</span>
+</div>
+</div>
+</div>
+<!-- Trailing: Notifications Icon with indicator dot -->
+<div class="flex items-center gap-1">
+<button aria-label="Notifications" class="relative p-2 rounded-lg text-on-surface hover:bg-surface-container-high transition-colors active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant text-[22px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-container-lowest"></span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-3 space-y-4 overflow-y-auto no-scrollbar">
+<!-- Executive Header Banner -->
+<section class="flex justify-between items-end pt-1 pb-1">
+<div>
+<span class="font-label-sm text-label-sm text-primary tracking-wider uppercase font-semibold">Live Operational Pulse</span>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface font-bold tracking-tight">Executive Studio</h1>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low px-2.5 py-1 rounded-full border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Sync: 1s</span>
+</div>
+</section>
+<!-- Quick Stat Carousel Strip (Horizontal Touch Flow) -->
+<section class="overflow-x-auto no-scrollbar -mx-4 px-4 flex gap-3 snap-x snap-mandatory">
+<!-- Card 1: Today's Revenue with Sparkline -->
+<div class="snap-start shrink-0 w-[240px] p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute -right-6 -top-6 w-24 h-24 rounded-full bg-primary-container/10 blur-xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Today's Revenue</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-0.5 bg-tertiary/10 px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px]">trending_up</span> +18.4%
+            </span>
+</div>
+<div class="my-2">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">$4,850</div>
+<p class="font-label-sm text-label-sm text-outline">vs $4,096 yesterday</p>
+</div>
+<!-- Micro Sparkline SVG Visualization -->
+<div class="w-full h-8 pt-1">
+<svg class="w-full h-full overflow-visible" fill="none" viewbox="0 0 100 30">
+<defs>
+<lineargradient id="gradRevenue" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#4d8eff" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#4d8eff" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<path d="M0 24 Q 15 22, 25 15 T 50 18 T 75 8 T 100 3" stroke="#4d8eff" stroke-linecap="round" stroke-width="2"></path>
+<path d="M0 24 Q 15 22, 25 15 T 50 18 T 75 8 T 100 3 L 100 30 L 0 30 Z" fill="url(#gradRevenue)"></path>
+<circle class="animate-ping" cx="100" cy="3" fill="#adc6ff" r="3"></circle>
+<circle cx="100" cy="3" fill="#adc6ff" r="2.5"></circle>
+</svg>
+</div>
+</div>
+<!-- Card 2: 30D MRR -->
+<div class="snap-start shrink-0 w-[210px] p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">30D Projected MRR</span>
+<span class="material-symbols-outlined text-outline text-[16px]">credit_card</span>
+</div>
+<div class="my-2">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">$142,500</div>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>100% Stripe attributed</span>
+</div>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+<!-- Card 3: Active Members -->
+<div class="snap-start shrink-0 w-[190px] p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Active Members</span>
+<span class="material-symbols-outlined text-outline text-[16px]">groups</span>
+</div>
+<div class="my-2">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">4,820</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active builders online</p>
+</div>
+<div class="flex -space-x-1.5 overflow-hidden">
+<div class="inline-block h-5 w-5 rounded-full ring-1 ring-surface-container-low bg-primary/20 text-[9px] flex items-center justify-center font-bold text-primary">EK</div>
+<div class="inline-block h-5 w-5 rounded-full ring-1 ring-surface-container-low bg-secondary/20 text-[9px] flex items-center justify-center font-bold text-secondary">AV</div>
+<div class="inline-block h-5 w-5 rounded-full ring-1 ring-surface-container-low bg-tertiary/20 text-[9px] flex items-center justify-center font-bold text-tertiary">MK</div>
+<div class="inline-block h-5 w-5 rounded-full ring-1 ring-surface-container-low bg-surface-container-high text-[9px] flex items-center justify-center text-outline">+4k</div>
+</div>
+</div>
+<!-- Card 4: Autonomous Fleet -->
+<div class="snap-start shrink-0 w-[200px] p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Autonomous Fleet</span>
+<span class="material-symbols-outlined text-secondary text-[16px]">smart_toy</span>
+</div>
+<div class="my-2">
+<div class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">8 Agents</div>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>98.4% total uptime</span>
+</div>
+</div>
+<div class="flex gap-1 items-center">
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-tertiary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-secondary rounded-full"></span>
+<span class="h-1.5 flex-1 bg-secondary rounded-full"></span>
+</div>
+</div>
+</section>
+<!-- Autonomous Agent Quick Bar & Approval Card -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">smart_toy</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Autonomous Core</h2>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant/40 text-on-surface-variant">
+            6 Running • <span class="text-secondary font-semibold">2 Require Review</span>
+</span>
+</div>
+<!-- Agent Review Action Card -->
+<div class="p-3.5 rounded-xl bg-gradient-to-b from-surface-container-low to-surface-container border border-outline-variant/50 relative overflow-hidden shadow-lg">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-secondary-container/40 text-secondary flex items-center justify-center shrink-0 border border-secondary/30 mt-0.5">
+<span class="material-symbols-outlined text-[20px]">mark_email_unread</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Review Gate</span>
+<span class="font-label-sm text-label-sm text-outline">Just now</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface font-semibold mt-0.5 truncate">Email Dispatch Agent</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-0.5 leading-snug">
+                Weekly Teardown #85 awaiting send authorization to 14,280 subscribers.
+              </p>
+</div>
+</div>
+<!-- Bottom Action Buttons in Card -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/30 flex items-center gap-2 justify-end">
+<button class="px-3 py-1.5 rounded-lg text-label-sm font-label-sm text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95">
+              Inspect Draft
+            </button>
+<button class="px-4 py-1.5 rounded-lg text-label-sm font-label-sm text-on-primary bg-primary-container hover:brightness-105 active:scale-95 transition-all shadow-[0_0_12px_rgba(77,142,255,0.35)] flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[15px]">done_all</span> Approve
+            </button>
+</div>
+</div>
+</section>
+<!-- Quick Actions Grid (2x2 Touch Micro-Cards) -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Studio Actions</h2>
+<span class="font-label-sm text-label-sm text-outline">Tactical Controls</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Action 1 -->
+<button class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:bg-surface-container-high transition-colors text-left active:scale-95 group">
+<div class="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block truncate">+ Quick Deal</span>
+<span class="font-label-sm text-label-sm text-outline truncate block">Pipeline ingest</span>
+</div>
+</button>
+<!-- Action 2 -->
+<button class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:bg-surface-container-high transition-colors text-left active:scale-95 group">
+<div class="w-8 h-8 rounded-lg bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">cell_tower</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block truncate">Create Broadcast</span>
+<span class="font-label-sm text-label-sm text-outline truncate block">Multi-channel feed</span>
+</div>
+</button>
+<!-- Action 3 (With Amber badge) -->
+<button class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:bg-surface-container-high transition-colors text-left active:scale-95 group relative">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">queue</span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Agent Queue</span>
+<span class="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-secondary text-on-secondary">2</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline truncate block">2 tasks pending</span>
+</div>
+</button>
+<!-- Action 4 -->
+<button class="flex items-center gap-2.5 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:bg-surface-container-high transition-colors text-left active:scale-95 group">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold block truncate">Affiliate Link</span>
+<span class="font-label-sm text-label-sm text-outline truncate block">Generate tag</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Live Revenue & Course Feed Section -->
+<section class="space-y-2.5 pb-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Live Revenue Stream</h2>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-0.5">
+            View Ledger <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<div class="space-y-2">
+<!-- Feed Item 1: Elena Rostova -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-3 hover:bg-surface-container transition-colors">
+<div class="w-9 h-9 rounded-full bg-primary/10 border border-primary/20 text-primary flex items-center justify-center shrink-0 font-semibold text-label-md">
+              ER
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Elena Rostova</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">+$2,000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Enrolled in Next.js AI Mastery Cohort 4
+              </p>
+<div class="flex items-center gap-2 mt-1 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary">check_circle</span> Stripe Connect</span>
+<span>•</span>
+<span>2m ago</span>
+</div>
+</div>
+</div>
+<!-- Feed Item 2: Alex Vance -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-3 hover:bg-surface-container transition-colors">
+<div class="w-9 h-9 rounded-full bg-secondary/10 border border-secondary/20 text-secondary flex items-center justify-center shrink-0 font-semibold text-label-md">
+              AV
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Alex Vance</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">+$18,000</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Signed Q4 Video Sponsorship ($18,000 SOW)
+              </p>
+<div class="flex items-center gap-2 mt-1 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-primary">contract</span> Signed DocuSign</span>
+<span>•</span>
+<span>14m ago</span>
+</div>
+</div>
+</div>
+<!-- Feed Item 3: Marcus Kane -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-start gap-3 hover:bg-surface-container transition-colors">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant/50 text-on-surface-variant flex items-center justify-center shrink-0 font-semibold text-label-md">
+              MK
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Kane</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim font-bold">+$600</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Affiliate Payout logged (commission)
+              </p>
+<div class="flex items-center gap-2 mt-1 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">account_balance_wallet</span> Wise Transfer</span>
+<span>•</span>
+<span>35m ago</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar from Shared Components Specification -->
+<!-- Primary Intent: "Dashboard" is currently active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 pb-safe bg-surface-container-lowest/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-2xl">
+<!-- Nav Item 1: Dashboard (ACTIVE MATCH) -->
+<a aria-label="Dashboard" class="flex flex-col items-center justify-center bg-secondary-container/30 text-primary rounded-xl px-3 py-1.5 ring-1 ring-primary/40 shadow-[0_0_16px_rgba(77,142,255,0.35)] active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-sm text-label-sm font-medium mt-0.5">Dashboard</span>
+</a>
+<!-- Nav Item 2: AI Agents (with badge '2') -->
+<a aria-label="AI Agents" class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95 relative" href="#">
+<div class="relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="absolute -top-1 -right-2 px-1 py-0.2 rounded-full text-[9px] font-bold bg-secondary text-on-secondary ring-2 ring-surface-container-lowest">2</span>
+</div>
+<span class="font-label-sm text-label-sm font-medium mt-0.5">AI Agents</span>
+</a>
+<!-- Nav Item 3: CRM -->
+<a aria-label="CRM" class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contacts">contacts</span>
+<span class="font-label-sm text-label-sm font-medium mt-0.5">CRM</span>
+</a>
+<!-- Nav Item 4: Community -->
+<a aria-label="Community" class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span class="font-label-sm text-label-sm font-medium mt-0.5">Community</span>
+</a>
+<!-- Nav Item 5: Menu -->
+<a aria-label="Menu" class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu">menu</span>
+<span class="font-label-sm text-label-sm font-medium mt-0.5">Menu</span>
+</a>
+</nav>
+</div>
+</body></html>

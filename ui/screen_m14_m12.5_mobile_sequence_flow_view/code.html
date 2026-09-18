@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Mobile Sequence Flow View</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-primary-container": "#00285d",
+            "primary": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "surface-tint": "#adc6ff",
+            "surface-bright": "#39383e",
+            "background": "#131318",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed": "#6ffbbe",
+            "on-surface": "#e4e1e9",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-container": "#00311f",
+            "surface-container-high": "#2a292f",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff",
+            "on-primary": "#002e6a",
+            "surface-container-highest": "#35343a",
+            "error": "#ffb4ab",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed-variant": "#004395",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "primary-fixed-dim": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-variant": "#35343a",
+            "outline": "#8c909f",
+            "surface-dim": "#131318",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      vertical-align: middle;
+    }
+    .glow-line-blue {
+      background: linear-gradient(180deg, rgba(77, 142, 255, 0.8) 0%, rgba(139, 92, 246, 0.5) 100%);
+      box-shadow: 0 0 8px rgba(77, 142, 255, 0.4);
+    }
+    .glow-line-muted {
+      background: linear-gradient(180deg, #424754 0%, #1f1f25 100%);
+    }
+    .glow-pulse {
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.08); }
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex justify-center bg-surface-container-lowest min-h-screen">
+<!-- Mobile Viewport Container (375px bounded canvas) -->
+<div class="w-full max-w-[420px] min-h-screen flex flex-col bg-[#0A0A0F] relative shadow-2xl overflow-x-hidden border-x border-outline-variant/30">
+<!-- TopAppBar (JSON Shared Component Compliant) -->
+<header class="flex justify-between items-center w-full px-space-md h-14 sticky top-0 z-40 bg-surface/90 dark:bg-surface/90 backdrop-blur-md border-b border-outline-variant dark:border-outline-variant">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-tight">
+            Abandoned Cart Sequence
+          </h1>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary shadow-[0_0_6px_#4edea3]"></span>
+<span class="text-label-sm font-label-sm text-tertiary font-medium">Active • 94.2% Delivery</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors active:scale-95 duration-100" title="Toggle Sequence Status">
+<span class="material-symbols-outlined" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors active:scale-95 duration-100">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Workflow Canvas Content -->
+<main class="flex-1 px-space-md pt-3 pb-36 custom-scrollbar">
+<!-- Sequence Overview / Automation Stats Ribbon -->
+<section class="grid grid-cols-3 gap-2 mb-6">
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-2.5 flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-outline">Triggered</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-label-lg font-label-lg font-bold text-on-surface">1,842</span>
+</div>
+<span class="text-[10px] text-tertiary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="trending_up">trending_up</span> +14%
+          </span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-2.5 flex flex-col justify-between">
+<span class="text-label-sm font-label-sm text-outline">Completed</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-label-lg font-label-lg font-bold text-on-surface">1,490</span>
+</div>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">80.9% completion</span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-2.5 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute -right-3 -bottom-3 w-10 h-10 bg-primary-container/10 rounded-full blur-md"></div>
+<span class="text-label-sm font-label-sm text-outline">Recovered</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-label-lg font-label-lg font-bold text-primary">$38,450</span>
+</div>
+<span class="text-[10px] text-primary flex items-center gap-0.5 mt-0.5">
+<span class="material-symbols-outlined text-[12px]" data-icon="bolt">bolt</span> +$6.2k wk
+          </span>
+</div>
+</section>
+<!-- Flowchart Canvas Tree -->
+<div class="relative flex flex-col items-center">
+<!-- 1. TRIGGER NODE -->
+<div class="w-full relative group">
+<!-- Node indicator -->
+<div class="flex items-center gap-2 mb-1.5">
+<div class="w-6 h-6 rounded-full bg-primary/20 border border-primary flex items-center justify-center text-primary shadow-[0_0_12px_rgba(77,142,255,0.6)]">
+<span class="material-symbols-outlined text-sm" data-icon="bolt">bolt</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary tracking-wider uppercase">Event Trigger</span>
+</div>
+<!-- Card Content -->
+<div class="bg-[#12121A] border border-[#1E1E2E] hover:border-primary/50 transition-colors duration-200 rounded-xl p-3.5 shadow-lg relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold flex items-center gap-1.5">
+                  Trigger: Cart Abandoned &gt; 1 Hour
+                </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                  Listens to checkout webhook payload events across store checkout nodes.
+                </p>
+</div>
+<span class="px-2 py-0.5 text-[10px] font-semibold tracking-wide bg-surface-container-high text-primary rounded border border-outline-variant/40">
+                WEBHOOK
+              </span>
+</div>
+<!-- Filter Criteria Chips -->
+<div class="mt-3 pt-2.5 border-t border-[#1E1E2E] flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-[#181824] border border-[#2A2A3E] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="payments">payments</span> Cart Value &gt; $50
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-[#181824] border border-[#2A2A3E] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="check_circle">check_circle</span> Has valid email
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] bg-[#181824] border border-[#2A2A3E] text-on-surface-variant">
+<span class="material-symbols-outlined text-[12px] text-outline" data-icon="block">block</span> Not in sequence
+              </span>
+</div>
+</div>
+</div>
+<!-- Vertical glowing connector line with pulse dot -->
+<div class="h-8 w-0.5 glow-line-blue relative flex items-center justify-center my-0.5">
+<div class="w-2 h-2 rounded-full bg-primary glow-pulse shadow-[0_0_8px_#adc6ff]"></div>
+</div>
+<!-- 2. DELAY STEP -->
+<div class="w-full flex justify-center">
+<div class="inline-flex items-center gap-2 bg-[#181824] border border-[#2A2A3E] rounded-full px-4 py-1.5 shadow-md">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<div class="flex items-center gap-1.5 text-body-sm font-body-sm text-on-surface">
+<span class="font-semibold text-secondary">Wait 2 Hours</span>
+<span class="text-outline text-xs">•</span>
+<span class="text-on-surface-variant text-[11px]">Quiet hours: 9 AM - 8 PM local</span>
+</div>
+</div>
+</div>
+<!-- Vertical glowing connector line -->
+<div class="h-8 w-0.5 glow-line-blue my-0.5"></div>
+<!-- 3. EMAIL STEP 1 -->
+<div class="w-full relative group">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container/20 border border-primary-container flex items-center justify-center text-primary-fixed shadow-[0_0_10px_rgba(77,142,255,0.4)]">
+<span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-medium tracking-wide">STEP 01 — RECOVERY EMAIL</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-high rounded" title="Preview Message">
+<span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-high rounded" title="Edit Template">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-3.5 hover:border-primary/40 transition-all duration-150 shadow-lg">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-label-lg font-label-lg text-on-surface font-semibold">
+                  Email 1: Did you forget something?
+                </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  Dynamic cart contents preview + 1-click restore session.
+                </p>
+</div>
+</div>
+<!-- Email Metrics Ribbon -->
+<div class="mt-3 bg-surface-container-lowest/80 border border-[#1E1E2E] rounded-lg p-2 flex items-center justify-around text-center">
+<div>
+<span class="text-[10px] text-outline block">Open Rate</span>
+<span class="text-label-md font-label-md font-semibold text-tertiary">68.4%</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div>
+<span class="text-[10px] text-outline block">Click Rate</span>
+<span class="text-label-md font-label-md font-semibold text-primary">32.1%</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div>
+<span class="text-[10px] text-outline block">Conversion</span>
+<span class="text-label-md font-label-md font-semibold text-secondary">14.8%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical connector line to condition split -->
+<div class="h-8 w-0.5 glow-line-blue my-0.5"></div>
+<!-- 4. CONDITIONAL BRANCH NODE (Split / Fork) -->
+<div class="w-full relative">
+<!-- Split header pill -->
+<div class="flex justify-center mb-3">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 bg-surface-container-high border border-outline-variant/80 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="call_split">call_split</span>
+<span class="text-label-sm font-label-sm text-on-surface font-medium">Purchased within 24 hours?</span>
+</div>
+</div>
+<!-- Branch Canvas: Split into Left (YES) and Right (NO) -->
+<div class="grid grid-cols-2 gap-3 relative">
+<!-- Crossbar line for branching -->
+<div class="absolute -top-3 left-1/4 right-1/4 h-3 border-t-2 border-outline-variant/70"></div>
+<div class="absolute -top-3 left-1/4 w-0.5 h-3 bg-tertiary"></div>
+<div class="absolute -top-3 right-1/4 w-0.5 h-3 bg-secondary"></div>
+<!-- Branch A: YES (Exit sequence) -->
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1 mb-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_6px_#4edea3]"></span>
+<span class="text-[11px] font-bold text-tertiary tracking-wider">YES (41%)</span>
+</div>
+<div class="w-full bg-[#12121A] border border-tertiary/30 rounded-xl p-2.5 flex flex-col justify-between shadow-md">
+<div>
+<div class="flex items-center gap-1 text-tertiary mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+<span class="text-label-sm font-label-sm font-semibold">Goal Achieved</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-snug">
+                    Tag: <span class="text-tertiary-fixed font-mono bg-tertiary-container/30 px-1 py-0.5 rounded">Recovered</span>
+</p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-[#1E1E2E] flex items-center justify-between text-[10px] text-outline">
+<span>Sequence ends</span>
+<span class="material-symbols-outlined text-xs" data-icon="logout">logout</span>
+</div>
+</div>
+</div>
+<!-- Branch B: NO (Continue sequence) -->
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1 mb-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary shadow-[0_0_6px_#d0bcff]"></span>
+<span class="text-[11px] font-bold text-secondary tracking-wider">NO (59%)</span>
+</div>
+<div class="w-full bg-[#12121A] border border-secondary/30 rounded-xl p-2.5 flex flex-col justify-between shadow-md">
+<div>
+<div class="flex items-center gap-1 text-secondary mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+<span class="text-label-sm font-label-sm font-semibold">Proceed Step 2</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-snug">
+                    Apply VIP incentive funnel segment.
+                  </p>
+</div>
+<div class="mt-2.5 pt-2 border-t border-[#1E1E2E] flex items-center justify-between text-[10px] text-secondary">
+<span>Active Queue</span>
+<span class="text-label-sm font-bold">352 users</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical connector line connecting Branch B to Delay 2 -->
+<div class="h-8 w-0.5 glow-line-blue my-0.5"></div>
+<!-- 5. DELAY STEP 2 -->
+<div class="w-full flex justify-center">
+<div class="inline-flex items-center gap-2 bg-[#181824] border border-[#2A2A3E] rounded-full px-4 py-1 shadow-md">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="hourglass_empty">hourglass_empty</span>
+<span class="text-body-sm font-body-sm font-medium text-on-surface">Wait 24 Hours</span>
+</div>
+</div>
+<!-- Vertical connector line -->
+<div class="h-8 w-0.5 glow-line-blue my-0.5"></div>
+<!-- 6. EMAIL STEP 2 -->
+<div class="w-full relative group">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container/30 border border-secondary flex items-center justify-center text-secondary shadow-[0_0_10px_rgba(208,188,255,0.4)]">
+<span class="material-symbols-outlined text-sm" data-icon="local_offer">local_offer</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary font-medium tracking-wide">STEP 02 — DISCOUNT VOUCHER</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-high rounded" title="Preview Message">
+<span class="material-symbols-outlined text-base" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1 hover:text-on-surface hover:bg-surface-container-high rounded" title="Edit Template">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-3.5 hover:border-secondary/40 transition-all duration-150 shadow-lg">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-label-lg font-label-lg text-on-surface font-semibold">
+                  Email 2: Exclusive 15% VIP Discount Voucher
+                </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  Dynamic unique promo code valid for 48 hours only.
+                </p>
+</div>
+</div>
+<!-- Email 2 Metrics Ribbon -->
+<div class="mt-3 bg-surface-container-lowest/80 border border-[#1E1E2E] rounded-lg p-2 flex items-center justify-around text-center">
+<div>
+<span class="text-[10px] text-outline block">Open Rate</span>
+<span class="text-label-md font-label-md font-semibold text-tertiary">52.1%</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div>
+<span class="text-[10px] text-outline block">Click Rate</span>
+<span class="text-label-md font-label-md font-semibold text-primary">24.6%</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div>
+<span class="text-[10px] text-outline block">Revenue Gen</span>
+<span class="text-label-md font-label-md font-semibold text-tertiary">$18.2k</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Vertical connector line to Add step -->
+<div class="h-6 w-0.5 glow-line-muted my-0.5"></div>
+<!-- 7. ADD SEQUENCE STEP ACTION -->
+<button class="w-full py-3 border border-dashed border-outline-variant hover:border-primary/60 rounded-xl bg-[#12121A]/50 hover:bg-[#181824] transition-all flex items-center justify-center gap-2 group active:scale-[0.99] duration-100">
+<div class="w-6 h-6 rounded-full bg-surface-container-high group-hover:bg-primary group-hover:text-on-primary text-on-surface-variant flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary transition-colors font-medium">Add Sequence Step</span>
+</button>
+</div>
+</main>
+<!-- Floating Bottom Workflow Controls Strip (Docked directly above BottomNavBar) -->
+<div class="fixed bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[420px] px-space-md py-2 bg-[#0A0A0F]/90 backdrop-blur-lg border-t border-outline-variant/40 z-40 flex items-center gap-2">
+<button class="flex-1 h-10 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-md font-label-md font-medium flex items-center justify-center gap-1.5 hover:bg-[#1E1E2E] hover:border-primary transition-all active:scale-95 duration-100">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="send">send</span>
+<span>Test Send</span>
+</button>
+<button class="flex-[1.5] h-10 px-3 rounded-lg text-white text-label-md font-label-md font-semibold flex items-center justify-center gap-1.5 shadow-[0_0_16px_rgba(59,130,246,0.35)] hover:brightness-110 active:scale-95 transition-all duration-100" style="background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">rocket_launch</span>
+<span>Save &amp; Deploy</span>
+</button>
+</div>
+<!-- BottomNavBar (JSON Shared Component Compliant) -->
+<!-- Sequences is actively selected as this is an email sequence workflow canvas -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-sm py-space-xs h-16 bg-surface-container-lowest/95 dark:bg-surface-container-lowest/95 backdrop-blur-md border-t border-outline-variant dark:border-outline-variant">
+<!-- Destination 1: Audience -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95" href="#audience">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-label-sm font-label-sm mt-0.5">Audience</span>
+</a>
+<!-- Destination 2: Sequences (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary rounded-xl px-3 py-1.5 active:scale-95 transition-transform duration-100" href="#sequences">
+<span class="material-symbols-outlined" data-icon="account_tree" data-weight="fill" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-semibold">Sequences</span>
+</a>
+<!-- Destination 3: Approvals -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95" href="#approvals">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="text-label-sm font-label-sm mt-0.5">Approvals</span>
+</a>
+<!-- Destination 4: Analytics -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1.5 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95" href="#analytics">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="text-label-sm font-label-sm mt-0.5">Analytics</span>
+</a>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Cohort Roster &amp; Student Progress Tracker</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-highest": "#35343a",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "outline": "#8c909f",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed-variant": "#004395",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "error-container": "#93000a",
+            "on-primary": "#002e6a",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "surface-bright": "#39383e",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed": "#6ffbbe",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-container": "#00a572",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "surface-dim": "#131318",
+            "error": "#ffb4ab",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-50 flex items-center justify-between h-14 px-gutter w-full bg-surface-container-low border-b border-outline-variant shadow-sm">
+<!-- Left Cluster: Brand & Search -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-[0_0_16px_rgba(59,130,246,0.35)]">
+<span class="material-symbols-outlined text-surface-container-lowest text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</div>
+<!-- Search Bar on Left -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-8 pl-9 pr-3 bg-surface-container text-body-sm font-body-sm text-on-surface placeholder:text-outline border border-outline-variant rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search students, lessons, cohorts..." type="text"/>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-5 ml-2">
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors duration-150" href="#">Marketplace</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors duration-150" href="#">Performance</a>
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-1" href="#">Cohorts</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-colors duration-150" href="#">Studio</a>
+</nav>
+</div>
+<!-- Right Cluster: Actions, Notifications, Profile -->
+<div class="flex items-center gap-3">
+<!-- Tenant Switcher -->
+<button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-label-md font-label-md text-on-surface transition-all duration-150">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Tenant Switcher</span>
+<span class="material-symbols-outlined text-[16px] text-outline">unfold_more</span>
+</button>
+<!-- Primary Action -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md shadow-[0_0_16px_rgba(59,130,246,0.35)] hover:brightness-105 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>Create New</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant mx-1"></div>
+<!-- Icon Actions -->
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest/50 rounded-lg transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest/50 rounded-lg transition-colors" title="Help">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest/50 rounded-lg transition-colors" title="Settings">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+<!-- Profile Avatar -->
+<div class="ml-1 pl-1">
+<img alt="User workspace profile avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional studio director avatar depicted in a sharp cyberpunk neo-noir aesthetic with soft ambient indigo lighting casting refined specular highlights across a cinematic studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpCbDFMWjYTUo42EIq-fz2JuZS-CpTVTehI7Mi2DiO_ec-M_0SgpQpaFFTu9BaFzo65Atmv_0bC9AwxH7PcOwpYzB1p5LhQPMbHgKeoglxoDtXo0FM1ff40fhk99C5num30d8Q6Yf5bxBL2H67NJY0byOKl7CLcpuO9_hdH9sW2kQZIVSJv12BCPtNVfVqXPiEv-9WwT9vXk_qk3Pjsou2_9HB3wdtDaihb3fblm8n06hcLNrdGbTNdg"/>
+</div>
+</div>
+</header>
+<div class="flex min-h-[calc(100vh-3.5rem)]">
+<!-- SideNavBar (Shared Component) -->
+<aside class="fixed top-14 left-0 bottom-0 w-64 flex flex-col justify-between p-space-md bg-surface-container-lowest border-r border-outline-variant z-40">
+<!-- Top Section of Sidebar -->
+<div class="flex flex-col gap-5">
+<!-- Header Profile/Organization Crest -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center text-primary font-headline-sm font-bold">
+<span class="material-symbols-outlined text-primary text-[20px]">movie_edit</span>
+</div>
+<div class="flex flex-col">
+<h2 class="text-headline-sm font-headline-sm text-on-surface leading-tight">Studio Enterprise</h2>
+<p class="text-body-sm font-body-sm text-outline">Creator Production Suite</p>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md shadow-[0_0_16px_rgba(59,130,246,0.3)] hover:brightness-105 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">publish</span>
+<span>Publish Asset</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span>Marketplace Hub</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Listing Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span>Featured Showcase</span>
+</a>
+<!-- Active Tab: Cohort Roster -->
+<a class="flex items-center gap-3 bg-surface-container text-primary border-l-2 border-primary font-label-md text-label-md px-3 py-2.5 rounded-r-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">groups</span>
+<span>Cohort Roster</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+<span>Quiz &amp; Certificate Studio</span>
+</a>
+</nav>
+</div>
+<!-- Footer Section of Sidebar -->
+<div class="pt-4 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- Main Workstation Canvas -->
+<main class="ml-64 flex-1 px-8 py-6 max-w-[1520px] w-full">
+<!-- Cohort Header & Global Switcher Bar -->
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4 pb-6 border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-3 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/30 text-tertiary border border-tertiary/40 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span> Live Term
+            </span>
+<span class="text-body-sm font-body-sm text-outline">Pacing Track • Spring 2025</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg font-bold text-on-surface tracking-tight flex items-center gap-2">
+              DaVinci Resolve Color Grading Masterclass — Cohort 4 (Active)
+              <button class="p-1 text-outline hover:text-on-surface hover:bg-surface-container rounded transition-colors" title="Switch Cohort">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</button>
+</h1>
+</div>
+</div>
+<!-- Cohort Quick Action Buttons -->
+<div class="flex items-center flex-wrap gap-2.5">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 text-on-surface font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-outline">download</span>
+<span>Export Gradebook CSV</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 text-on-surface font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-outline">campaign</span>
+<span>Send Bulk Broadcast</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 text-on-surface font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary">schedule_send</span>
+<span>Manage Drip Schedule</span>
+</button>
+</div>
+</div>
+<!-- Cohort Pacing & Health KPI Strip (4 Cards) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-6">
+<!-- KPI 1: Active Students -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 relative overflow-hidden transition-all hover:border-primary/40 hover:bg-[#181824]">
+<div class="flex items-center justify-between text-outline mb-2">
+<span class="text-label-md font-label-md">Active Students</span>
+<span class="p-1.5 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl font-bold text-on-surface">48 Enrolled</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-tertiary font-label-sm text-label-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">check_circle</span> 100% capacity filled
+            </span>
+<span class="text-outline text-body-sm font-body-sm">• Cap: 48 Seats</span>
+</div>
+<div class="w-full bg-surface-container-highest/40 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-tertiary h-full rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<!-- KPI 2: Average Course Progress -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 relative overflow-hidden transition-all hover:border-primary/40 hover:bg-[#181824]">
+<div class="flex items-center justify-between text-outline mb-2">
+<span class="text-label-md font-label-md">Average Course Progress</span>
+<span class="p-1.5 rounded-lg bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[18px]">timelapse</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl font-bold text-on-surface">68.4%</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-primary font-label-sm text-label-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> On schedule
+            </span>
+<span class="text-outline text-body-sm font-body-sm">• Week 4 of 6</span>
+</div>
+<div class="w-full bg-surface-container-highest/40 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full" style="width: 68.4%;"></div>
+</div>
+</div>
+<!-- KPI 3: Assignment Submission Rate -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 relative overflow-hidden transition-all hover:border-primary/40 hover:bg-[#181824]">
+<div class="flex items-center justify-between text-outline mb-2">
+<span class="text-label-md font-label-md">Assignment Submission Rate</span>
+<span class="p-1.5 rounded-lg bg-surface-container text-tertiary">
+<span class="material-symbols-outlined text-[18px]">task_alt</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl font-bold text-on-surface">92.1%</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-tertiary font-label-sm text-label-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">done_all</span> 44/48 submitted
+            </span>
+<span class="text-outline text-body-sm font-body-sm">• Module 3 Lab</span>
+</div>
+<div class="w-full bg-surface-container-highest/40 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-tertiary-container to-tertiary h-full rounded-full" style="width: 92.1%;"></div>
+</div>
+</div>
+<!-- KPI 4: At-Risk Students -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 relative overflow-hidden transition-all hover:border-amber-500/40 hover:bg-[#181824]">
+<div class="flex items-center justify-between text-outline mb-2">
+<span class="text-label-md font-label-md">At-Risk Students</span>
+<span class="p-1.5 rounded-lg bg-surface-container text-error">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-headline-xl font-headline-xl font-bold text-[#f59e0b]">3 Flagged</span>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="text-amber-400 font-label-sm text-label-sm font-semibold flex items-center">
+<span class="material-symbols-outlined text-[14px]">hourglass_bottom</span> Inactive &gt; 7 days
+            </span>
+<span class="text-outline text-body-sm font-body-sm">• Needs instructor nudge</span>
+</div>
+<div class="w-full bg-surface-container-highest/40 h-1.5 rounded-full mt-3 overflow-hidden">
+<div class="bg-gradient-to-r from-amber-600 to-amber-400 h-full rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+</section>
+<!-- Pacing Timeline Bar (Interactive Milestone Visualization) -->
+<section class="mt-6 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">linear_scale</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Curriculum Drip &amp; Completion Pacing Timeline</h3>
+</div>
+<div class="flex items-center gap-3 text-label-sm font-label-sm">
+<span class="flex items-center gap-1.5 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> Completed
+            </span>
+<span class="flex items-center gap-1.5 text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span> Active Week
+            </span>
+<span class="flex items-center gap-1.5 text-outline">
+<span class="w-2 h-2 rounded-full bg-outline-variant"></span> Scheduled Drip
+            </span>
+</div>
+</div>
+<!-- 6-Week Interactive Progress Grid -->
+<div class="grid grid-cols-6 gap-3">
+<!-- Week 1: Completed -->
+<div class="bg-surface-container-low border border-tertiary/30 p-3.5 rounded-lg relative flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider font-semibold">Week 1</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface font-semibold">Module 1: ACEScc Setup</div>
+<div class="text-body-sm font-body-sm text-outline mt-1">48/48 Cleared (100%)</div>
+<div class="mt-3 h-1 bg-tertiary/20 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-full"></div>
+</div>
+</div>
+<!-- Week 2: Completed -->
+<div class="bg-surface-container-low border border-tertiary/30 p-3.5 rounded-lg relative flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider font-semibold">Week 2</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface font-semibold">Module 2: Primary Correction</div>
+<div class="text-body-sm font-body-sm text-outline mt-1">46/48 Cleared (95.8%)</div>
+<div class="mt-3 h-1 bg-tertiary/20 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[95.8%]"></div>
+</div>
+</div>
+<!-- Week 3: Completed -->
+<div class="bg-surface-container-low border border-tertiary/30 p-3.5 rounded-lg relative flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider font-semibold">Week 3</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">check_circle</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface font-semibold">Module 3: Hue Warpers</div>
+<div class="text-body-sm font-body-sm text-outline mt-1">44/48 Cleared (91.6%)</div>
+<div class="mt-3 h-1 bg-tertiary/20 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-[91.6%]"></div>
+</div>
+</div>
+<!-- Week 4: ACTIVE -->
+<div class="bg-surface-container border-2 border-primary p-3.5 rounded-lg relative flex flex-col justify-between shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-bold">Week 4 • CURRENT</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-bold">ACTIVE</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface font-semibold">Module 4: Film Print Emulation</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant mt-1">32/48 In Progress (66%)</div>
+<div class="mt-3 h-1 bg-primary/20 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[66%]"></div>
+</div>
+</div>
+<!-- Week 5: Scheduled Drip -->
+<div class="bg-surface-container-low/50 border border-outline-variant/40 p-3.5 rounded-lg relative flex flex-col justify-between opacity-75">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Week 5</span>
+<span class="material-symbols-outlined text-outline text-[18px]">lock_clock</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface-variant font-semibold">Module 5: Look Dev &amp; Grain</div>
+<div class="text-body-sm font-body-sm text-outline mt-1">Unlocks in 3 days (May 18)</div>
+<div class="mt-3 h-1 bg-surface-container-highest rounded-full"></div>
+</div>
+<!-- Week 6: Locked Milestone -->
+<div class="bg-surface-container-low/50 border border-outline-variant/40 p-3.5 rounded-lg relative flex flex-col justify-between opacity-75">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Week 6</span>
+<span class="material-symbols-outlined text-outline text-[18px]">lock</span>
+</div>
+<div class="text-label-md font-label-md text-on-surface-variant font-semibold">Module 6: Capstone Showreel</div>
+<div class="text-body-sm font-body-sm text-outline mt-1">Unlocks May 25</div>
+<div class="mt-3 h-1 bg-surface-container-highest rounded-full"></div>
+</div>
+</div>
+</section>
+<!-- Granular Student Cohort Ledger Card -->
+<section class="mt-6 bg-[#12121A] border border-[#1E1E2E] rounded-xl overflow-hidden shadow-2xl">
+<!-- Filter & Search Bar -->
+<div class="p-4 border-b border-outline-variant bg-surface-container-low flex flex-col lg:flex-row items-center justify-between gap-4">
+<!-- Search & Status Filter Pills -->
+<div class="flex flex-wrap items-center gap-3 w-full lg:w-auto">
+<!-- Search student name/email -->
+<div class="relative w-full sm:w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline">search</span>
+<input class="w-full h-9 pl-9 pr-3 bg-surface-container text-body-sm font-body-sm text-on-surface placeholder:text-outline border border-outline-variant rounded-lg focus:outline-none focus:border-primary transition-all duration-150" placeholder="Filter by name or email..." type="text"/>
+</div>
+<!-- Status Filter Pills -->
+<div class="flex items-center gap-1.5 p-1 bg-surface-container rounded-lg border border-outline-variant text-label-sm font-label-sm">
+<button class="px-3 py-1 rounded bg-primary/20 text-primary border border-primary/40 font-semibold transition-all">All Students (48)</button>
+<button class="px-3 py-1 rounded text-outline hover:text-on-surface transition-colors">Ahead of Schedule</button>
+<button class="px-3 py-1 rounded text-outline hover:text-on-surface transition-colors">On Track</button>
+<button class="px-3 py-1 rounded text-amber-400 hover:bg-amber-500/10 transition-colors flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Falling Behind [3]
+              </button>
+</div>
+</div>
+<!-- Sort Selector & Quick View Controls -->
+<div class="flex items-center gap-3 self-end lg:self-auto">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<span>Sort by:</span>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary/50 transition-colors">
+<span>Last Active</span>
+<span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
+</button>
+</div>
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant text-outline hover:text-on-surface transition-colors" title="Customize Columns">
+<span class="material-symbols-outlined text-[18px]">view_column</span>
+</button>
+</div>
+</div>
+<!-- Ledger Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-[#0e0e13]/80 text-outline text-label-sm font-label-sm uppercase tracking-wider">
+<th class="py-3 px-4">
+<div class="flex items-center gap-2">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span>Student Name</span>
+</div>
+</th>
+<th class="py-3 px-4">Enrollment Date</th>
+<th class="py-3 px-4">Current Lesson</th>
+<th class="py-3 px-4">Video Completion %</th>
+<th class="py-3 px-4">Assignment Grade Avg</th>
+<th class="py-3 px-4">Last Active</th>
+<th class="py-3 px-4">Pacing Status</th>
+<th class="py-3 px-4 text-right">Quick Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] text-body-sm font-body-sm">
+<!-- Row 1: Elena Vance -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<img alt="Elena Vance avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A cinematic studio close-up portrait of Elena Vance, a female digital filmmaker with creative modern hairstyle, ambient soft cyan and violet rim lighting reflecting in an atmospheric dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByRlNgX6HFGSU9hxUFBT46VvnvauO65ufVYZfVoeTTi36X3HpHz2o7vbIXLHRfWLf4bLXwetGW3GNRaViYuii6EZjTgAsx6mk_O7TmY-G6dLARfiAD7C8PA0zSrbK5_1Zh8i7j1R8Hiu9b-X_0OV-cV1UvvTHE8Bjs8MY1YA3URKmcx7KDNXvH_DdyPnzFbhkHIUNp4bo0Xed_AnCj5jXreBUDwZxn2hb7Nsk6WyOR_3eGUdDnROdyog"/>
+<div>
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+                        Elena Vance
+                        <span class="material-symbols-outlined text-[16px] text-secondary" title="Cohort Leader">verified</span>
+</div>
+<div class="text-[11px] text-outline">elena.vance@visualgrade.studio</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-outline">Apr 12, 2025</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">
+                    Module 4: 04.3 Film Stock Emulation
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="w-32">
+<div class="flex items-center justify-between text-[11px] mb-1">
+<span class="text-tertiary font-semibold">100%</span>
+<span class="text-outline">48/48 vids</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-tertiary h-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm font-bold bg-secondary-container/40 text-secondary border border-secondary/40">
+                    98.5% (A+)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface font-medium">12m ago</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-secondary/15 text-secondary border border-secondary/30 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Exemplary
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-on-surface hover:text-primary font-label-sm text-label-sm transition-all duration-150">
+                    View Portfolio
+                  </button>
+</td>
+</tr>
+<!-- Row 2: Marcus Brody -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<img alt="Marcus Brody avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A professional studio portrait of Marcus Brody, an experienced cinematographer with short beard and dark studio attire, subtly back-lit by warm golden and cool tungsten tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNt50D-TCmnC3n36MD2wI7UZ-hMzR2tDVGxDNS3zsDKS9MCOS4o-SQNMMidAxNfOjZmQD7arAfH2PeW8DqfMQgUok06294Jq504Vto1EqsEZU3BazHb8laT91JVW-h2JoSxMRjxPsa1ecB2Dt52Bv9Ioi_6uAWQnU11Dlb5TJPbJ7vYt4saoAXMEDakOumM4W0aVfcfftIRntmUZ08y_YUFRF8H58Y4znDd_-3njunt2jOMJCOY_RRpQ"/>
+<div>
+<div class="font-semibold text-on-surface">Marcus Brody</div>
+<div class="text-[11px] text-outline">marcus.b@cinegrade.co</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-outline">Apr 14, 2025</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">
+                    Module 4: 04.1 Halation &amp; Glow
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="w-32">
+<div class="flex items-center justify-between text-[11px] mb-1">
+<span class="text-on-surface font-semibold">82%</span>
+<span class="text-outline">39/48 vids</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[82%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary-container/30 text-tertiary border border-tertiary/40">
+                    91.0% (A)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">2h ago</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> On Track
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-on-surface hover:text-primary font-label-sm text-label-sm transition-all duration-150">
+                    Inspect Lab
+                  </button>
+</td>
+</tr>
+<!-- Row 3: David Chen (At Risk) -->
+<tr class="hover:bg-[#181824] bg-amber-500/[0.02] transition-colors duration-150 group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<img alt="David Chen avatar" class="w-8 h-8 rounded-full border border-amber-500/40 object-cover" data-alt="A moody studio portrait of David Chen, a young video editor with round glasses, captured in a low-key dark aesthetic room with ambient monitor glow illuminating his face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7S2TbKifo40kKdzmIbskfgIBE3NJxrZxP72Jl00zoL-uRnTG1LbbPWkJUgTMcNsOe3tZ3WHnML8hUF5DEZ06DoLP3-XaQ1hwAl02qXb_aLjmxaMJpQvXmqKc5BXiqnBeXSOwRoUYG7YoZ2yo0BtV6uRSlYZhGrhbWb4fFpm8G8IzyB0lQdBOHHRKDKP2zbOPRut5yXigAPlRsqPsYlNhHIEqrO3ndQfcAqBXDkIjGK9qUEE53WZfKNA"/>
+<div>
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+                        David Chen
+                        <span class="material-symbols-outlined text-[15px] text-amber-400" title="Flagged: Inactive">flag</span>
+</div>
+<div class="text-[11px] text-outline">d.chen@motionpost.net</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-outline">Apr 15, 2025</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container text-amber-300/90 font-label-sm text-label-sm border border-amber-500/30">
+                    Module 2: 02.4 Curves Mastery
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="w-32">
+<div class="flex items-center justify-between text-[11px] mb-1">
+<span class="text-amber-400 font-semibold">34%</span>
+<span class="text-outline">16/48 vids</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-amber-400 h-full w-[34%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-outline-variant/30 text-outline border border-outline-variant">
+                    72.0% (C)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-amber-400 font-medium">Inactive 8 days</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> At Risk
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 text-amber-300 font-label-sm text-label-sm transition-all duration-150 flex items-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                    Send DM Nudge
+                  </button>
+</td>
+</tr>
+<!-- Row 4: Aisha Patel -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<img alt="Aisha Patel avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A crisp studio headshot portrait of Aisha Patel, a creative media director wearing sleek modern dark apparel, framed by ambient indigo and deep purple lighting accents in a high-end production space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqne7fxV9BcXZ2oh5wTT3gmYvaTSHPho2rj6M__aycRcLb_uC_no_dGdqrEhAxGYUhXr2pq8p_rnGM5azY5_-cZpWTgD6LM6sRv3stLBWFRZ-aDhfR7Apd1sfnfiYu0djRYFm5X_wZbViGuOxkKt1i1JenQUe2T6KRIPa0UMJ4l30fIwyobOPXAjaFQHClCrJ9UE8H9m0OoP4qIFNUWTX9g5XkIEk4itHFcn0_VsGvJxLc9PbC-L8l2g"/>
+<div>
+<div class="font-semibold text-on-surface">Aisha Patel</div>
+<div class="text-[11px] text-outline">aisha@narrativecut.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-outline">Apr 13, 2025</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm border border-outline-variant">
+                    Module 4: 04.2 Grain &amp; Texture
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="w-32">
+<div class="flex items-center justify-between text-[11px] mb-1">
+<span class="text-on-surface font-semibold">78%</span>
+<span class="text-outline">37/48 vids</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[78%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary-container/30 text-tertiary border border-tertiary/40">
+                    88.0% (B+)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">Active yesterday</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> On Track
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-on-surface hover:text-primary font-label-sm text-label-sm transition-all duration-150">
+                    Inspect Lab
+                  </button>
+</td>
+</tr>
+<!-- Row 5: Leo Maxwell (At Risk) -->
+<tr class="hover:bg-[#181824] bg-amber-500/[0.02] transition-colors duration-150 group">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<input class="rounded bg-surface-container border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<img alt="Leo Maxwell avatar" class="w-8 h-8 rounded-full border border-amber-500/40 object-cover" data-alt="A high contrast portrait of Leo Maxwell, a documentary editor in a minimal studio setting, subtle blue ambient light accentuating facial geometry against a deep obsidian shadow background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIVeEesA6UNrQ4ycn7cF_y8dwC9Z5okVCMD9qmEldR3QCQl8FI0JOqEfcc2k4iq5EtiTebMe37_OjtXEkNJsACkWaW3xUuRwip-wkKJqgMHsx8cS7W7tqy9Q3HJMeShyvAGiUnOnZnyVWBQspqj96r4v3zDgPSR6583oovCCiiuA0T7CNa7E9ZUu6yJ2PWrcG0qjMsYFNWAzzwefXB7576_6W13FaEnWECVhLSZhKPdCSfLSrP5OXjcw"/>
+<div>
+<div class="font-semibold text-on-surface flex items-center gap-1.5">
+                        Leo Maxwell
+                        <span class="material-symbols-outlined text-[15px] text-amber-400" title="Flagged: Inactive">flag</span>
+</div>
+<div class="text-[11px] text-outline">leo.m@grainworks.org</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4 text-outline">Apr 11, 2025</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded bg-surface-container text-amber-300/90 font-label-sm text-label-sm border border-amber-500/30">
+                    Module 2: 02.2 Tone Mapping
+                  </span>
+</td>
+<td class="py-3.5 px-4">
+<div class="w-32">
+<div class="flex items-center justify-between text-[11px] mb-1">
+<span class="text-amber-400 font-semibold">28%</span>
+<span class="text-outline">13/48 vids</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="bg-amber-400 h-full w-[28%]"></div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold bg-outline-variant/30 text-outline border border-outline-variant">
+                    68.5% (D+)
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-amber-400 font-medium">Inactive 9 days</td>
+<td class="py-3.5 px-4">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1 w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> At Risk
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<button class="px-3 py-1.5 rounded-lg bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 text-amber-300 font-label-sm text-label-sm transition-all duration-150 flex items-center gap-1 ml-auto">
+<span class="material-symbols-outlined text-[14px]">send</span>
+                    Send DM Nudge
+                  </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination and Selection Status Bar -->
+<div class="p-3.5 px-5 border-t border-outline-variant bg-[#0e0e13] flex items-center justify-between text-body-sm font-body-sm text-outline">
+<div class="flex items-center gap-3">
+<span>Showing <strong>1–5</strong> of <strong>48</strong> enrolled students</span>
+<span class="text-outline-variant">•</span>
+<span class="text-primary font-medium">3 selected</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-outline hover:text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-bold">1</button>
+<button class="px-3 py-1 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary font-label-sm text-label-sm">2</button>
+<button class="px-3 py-1 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary font-label-sm text-label-sm">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="px-3 py-1 rounded bg-surface-container border border-outline-variant text-on-surface hover:border-primary font-label-sm text-label-sm">10</button>
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Bulk Action Floating Utility Toolbar -->
+<section class="mt-6 p-4 rounded-xl bg-[#181824] border border-[#2A2A3E] shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">notifications_active</span>
+</div>
+<div>
+<div class="text-label-md font-label-md font-semibold text-on-surface">Cohort Intervention Tools</div>
+<div class="text-body-sm font-body-sm text-outline">Automated reachouts and retention triggers for cohort mentors</div>
+</div>
+</div>
+<div class="flex items-center flex-wrap gap-3">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-300 hover:bg-amber-500/25 font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+<span>Send 1-on-1 Calendly link to all At-Risk students</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-on-surface font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-tertiary">more_time</span>
+<span>Grant 48hr Assignment Extension</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+</body></html>

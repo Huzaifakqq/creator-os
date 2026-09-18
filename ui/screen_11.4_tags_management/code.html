@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screen 11.4 — Tags Management (Desktop) | Creator OS</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-lowest": "#0e0e13",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed-dim": "#adc6ff",
+            "outline-variant": "#424754",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "surface-container": "#1f1f25",
+            "surface-variant": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-bright": "#39383e",
+            "inverse-on-surface": "#303036",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary": "#4edea3",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "background": "#131318",
+            "on-tertiary-container": "#00311f",
+            "inverse-primary": "#005ac2",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "secondary-container": "#571bc1",
+            "surface": "#131318"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .btn-gradient-primary {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.4);
+      transition: all 0.15s ease-out;
+    }
+    .btn-gradient-primary:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(59, 130, 246, 0.6);
+    }
+    .btn-gradient-primary:active {
+      transform: scale(0.98);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- ================= TOP UTILITY / NAV BAR ================= -->
+<header class="sticky top-0 right-0 w-full h-14 flex items-center bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm z-30">
+<div class="flex justify-between items-center w-full px-6 h-14">
+<!-- Left Anchor & Breadcrumb Cluster -->
+<div class="flex items-center gap-6">
+<!-- Logo from JSON: Product Name Creator OS -->
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-white text-[20px]" data-icon="hub">hub</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary tracking-tight">Creator OS</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30 hidden md:block"></div>
+<!-- Breadcrumb Navigation -->
+<nav class="hidden md:flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-on-surface transition-colors cursor-pointer">CRM</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Audience</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Tags Management</span>
+</nav>
+</div>
+<!-- Center-Right Navigation Links from JSON: Deals Pipeline, Contacts, Activities -->
+<div class="hidden lg:flex items-center gap-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg pb-4 pt-4 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Deals Pipeline</a>
+<a class="text-primary dark:text-primary border-b-2 border-primary font-label-lg text-label-lg pb-4 pt-4" href="#">Contacts</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg pb-4 pt-4 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Activities</a>
+</div>
+<!-- Right Utility Actions -->
+<div class="flex items-center gap-3">
+<!-- Search Bar -->
+<div class="relative hidden sm:block w-48 xl:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md h-[34px] pl-9 pr-3 text-body-sm font-body-sm text-white placeholder-outline focus:border-[#3B82F6] focus:outline-none focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Global search..." type="text"/>
+</div>
+<!-- Trailing Secondary: Tenant Switcher -->
+<button class="flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6]/50 text-on-surface text-label-sm font-label-sm transition-all">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-medium">Studio Alpha</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="unfold_more">unfold_more</span>
+</button>
+<!-- Trailing Primary Action: Sync Data -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-[#181824] border border-[#1E1E2E] hover:bg-[#1E1E2E] text-on-surface text-label-sm font-label-sm active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="sync">sync</span>
+<span class="hidden sm:inline">Sync Data</span>
+</button>
+<!-- Icon Actions: notifications, help, view_kanban -->
+<div class="flex items-center gap-1 border-l border-outline-variant/30 pl-2">
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-[#EF4444] ring-2 ring-[#0A0A0F]"></span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]" data-icon="view_kanban">view_kanban</span>
+</button>
+</div>
+<!-- Profile Photo -->
+<div class="flex items-center pl-2">
+<img class="w-8 h-8 rounded-full border border-primary/30 object-cover" data-alt="Close up profile photo of a studio director in a dimly lit production space with subtle indigo backlighting and a focused expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBacz7NsmsgmoWqVNQKGbNxNqgzrZdAhfD0t9yCXvCcBzxGZIVC1TkW3Xr0MD5DHLbj2wbP90DEhcb8gMeh75_7Xnqmy_Lym9tK_VWiRfes8nWQkQZ4tFRjqXvuccyXWF__en43Xq0_dmtDitN8WIHYsRJ-fmWQ6s-tHkQWwJZfK3aK4qy3-v6j8m7LIoEAyzsWE8G9DXFUKXfic-Um9I2wLLt7ca61LXVymFPRUCJJ_UYy0mWhyC9ntQ"/>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN APP WRAPPER (SIDEBAR + WORKSPACE CANVAS) ================= -->
+<div class="flex flex-1 overflow-hidden relative">
+<!-- ================= SIDEBAR (SideNavBar Component) ================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant/30 shadow-none z-40">
+<div class="flex flex-col justify-between h-full w-64 p-4 z-40">
+<!-- Top Section: Brand & Quick Action -->
+<div class="flex flex-col gap-4">
+<!-- Org Profile Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<img class="w-9 h-9 rounded-lg border border-outline-variant/30 object-cover" data-alt="A modern geometric studio logo icon featuring a stylized Greek alpha symbol on a dark obsidian badge with metallic cyan accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZMI7u26KFtaxxwq11LPElkam8ooHVVcShDXJQQy9RaA6VkRyR3xG5cKko9hAMycXZV0zl0HBfigY_LSfPe5e6xesx7XhKa5bJqain4stuSWbYkOJw75TO4Y3BuBzbkgFMjCbVuHUvqi2NpUjUPfdRBSfHUZ4X-LQv71j6zb7xqVUftnSd8jY9uimEgJzHz73zM4W6Wre9Tdfr7-q95mdWLRY4HodZGZrjdT_Afe2DMdJmQQbxkpWtsQ"/>
+<div class="flex flex-col min-w-0">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight truncate">Studio Alpha</span>
+<span class="text-label-sm font-label-sm text-outline tracking-normal truncate">Enterprise Tier</span>
+</div>
+</div>
+<!-- CTA Button: Quick Deal + -->
+<button class="w-full btn-gradient-primary rounded-lg py-2.5 px-3 flex items-center justify-center gap-2 text-white font-label-lg text-label-lg active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>Quick Deal +</span>
+</button>
+<!-- Divider -->
+<div class="h-[1px] bg-outline-variant/20 my-1"></div>
+<!-- Tab Navigation List: 6 items -->
+<nav class="flex flex-col gap-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="space_dashboard">space_dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. CRM & Leads [ACTIVE STATE AS CRM TAGS PAGE] -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-label-lg text-label-lg border border-primary/20 active:scale-[0.98] transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="people_alt">people_alt</span>
+<span class="font-semibold">CRM &amp; Leads</span>
+<span class="ml-auto w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</a>
+<!-- 3. Content Studio -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="video_library">video_library</span>
+<span>Content Studio</span>
+</a>
+<!-- 4. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<!-- 5. Monetization -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span>Monetization</span>
+</a>
+<!-- 6. Integrations -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync_alt">sync_alt</span>
+<span>Integrations</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Footer Navigation Links from JSON: Live Telemetry, Settings -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/20 pt-4">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="sensors">sensors</span>
+<span>Live Telemetry</span>
+<span class="ml-auto text-[10px] px-1.5 py-0.5 rounded bg-tertiary-container/30 text-tertiary font-mono">99.9%</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ================= CANVAS CONTENT AREA (Offset by 256px for Sidebar) ================= -->
+<main class="ml-64 flex-1 flex flex-col min-w-0 bg-[#0A0A0F] custom-scrollbar overflow-y-auto min-h-[calc(100vh-56px)]">
+<!-- Subheader / Page Context Bar -->
+<div class="w-full px-8 pt-6 pb-4 border-b border-[#1E1E2E]/60 flex flex-wrap items-center justify-between gap-4 bg-[#0A0A0F]/90 sticky top-0 z-20 backdrop-blur-sm">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="text-headline-lg font-headline-lg text-white font-bold tracking-tight">Tags Management</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#1E1E2E] text-primary border border-primary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#3B82F6]"></span>
+              18 Active Tags
+            </span>
+</div>
+<p class="text-body-sm font-body-sm text-[#9CA3AF] mt-0.5">Organize creator audiences, segment leads for automated drip campaigns, and map cohort engagement tiers.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6]/50 text-white font-label-md text-label-md active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px] text-[#9CA3AF]" data-icon="file_upload">file_upload</span>
+<span>Import CSV</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6]/50 text-white font-label-md text-label-md active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px] text-[#9CA3AF]" data-icon="tune">tune</span>
+<span>Rules Engine</span>
+</button>
+</div>
+</div>
+<!-- Main Workspace 2-Column Grid (approx 420px left, 940px right) -->
+<div class="p-8 grid grid-cols-1 xl:grid-cols-12 gap-6 max-w-[1520px] w-full">
+<!-- ================= LEFT COLUMN: TAG INVENTORY & BUILDER (Col span 4, ~420px) ================= -->
+<section class="xl:col-span-4 flex flex-col gap-5">
+<!-- 1. Create Tag Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-5 shadow-sm">
+<div class="flex items-center justify-between mb-3.5">
+<h2 class="text-headline-sm font-headline-sm text-white font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="label">label</span>
+                Create Tag
+              </h2>
+<span class="text-label-sm font-label-sm text-[#9CA3AF]">Custom Taxonomies</span>
+</div>
+<form class="flex flex-col gap-3.5" onsubmit="event.preventDefault();">
+<!-- Tag Name Field -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-sm font-label-sm text-[#9CA3AF]">Tag Label</label>
+<div class="relative">
+<input class="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-[6px] h-[38px] px-3 text-body-md font-body-md text-white placeholder-[#9CA3AF]/60 focus:border-[#3B82F6] focus:outline-none focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Tag name (e.g. VIP Buyer, Churn Risk)" type="text" value="VIP Buyer"/>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="edit_note">edit_note</span>
+</div>
+</div>
+<!-- Color Picker Dropdown Selector with Preset Dots -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-sm font-label-sm text-[#9CA3AF] flex justify-between items-center">
+<span>Color Accent</span>
+<span class="text-label-sm text-primary font-mono">#F59E0B (Amber)</span>
+</label>
+<div class="flex items-center justify-between p-2 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<!-- Preset Dots -->
+<div class="flex items-center gap-2.5 pl-1">
+<!-- Emerald Green -->
+<button class="w-6 h-6 rounded-full bg-[#10B981] hover:scale-110 active:scale-95 transition-transform flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Emerald Green #10B981" type="button"></button>
+<!-- Indigo Blue -->
+<button class="w-6 h-6 rounded-full bg-[#3B82F6] hover:scale-110 active:scale-95 transition-transform flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Indigo Blue #3B82F6" type="button"></button>
+<!-- Amber Orange (Selected) -->
+<button class="w-6 h-6 rounded-full bg-[#F59E0B] ring-2 ring-white scale-110 flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Amber Orange #F59E0B" type="button">
+<span class="material-symbols-outlined text-black text-[14px] font-bold" data-icon="check">check</span>
+</button>
+<!-- Crimson Red -->
+<button class="w-6 h-6 rounded-full bg-[#EF4444] hover:scale-110 active:scale-95 transition-transform flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Crimson Red #EF4444" type="button"></button>
+<!-- Fuchsia Purple -->
+<button class="w-6 h-6 rounded-full bg-[#D946EF] hover:scale-110 active:scale-95 transition-transform flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Fuchsia Purple #D946EF" type="button"></button>
+<!-- Cyan -->
+<button class="w-6 h-6 rounded-full bg-[#06B6D4] hover:scale-110 active:scale-95 transition-transform flex items-center justify-center focus:outline-none ring-offset-2 ring-offset-[#0A0A0F]" title="Cyan #06B6D4" type="button"></button>
+</div>
+<div class="h-4 w-[1px] bg-[#1E1E2E]"></div>
+<button class="text-label-sm text-[#9CA3AF] hover:text-white px-1.5 py-0.5 rounded flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="palette">palette</span>
+<span class="text-[11px]">More</span>
+</button>
+</div>
+</div>
+<!-- Submit Button -->
+<button class="w-full mt-1 btn-gradient-primary rounded-[8px] h-[40px] text-white font-label-lg text-label-lg flex items-center justify-center gap-2 font-medium" type="submit">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Create Tag</span>
+</button>
+</form>
+</div>
+<!-- 2. Tag Inventory List Card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-5 shadow-sm flex flex-col gap-4">
+<!-- List Header & Bulk Operations Bar -->
+<div class="flex flex-col gap-2.5 pb-3 border-b border-[#1E1E2E]">
+<div class="flex items-center justify-between">
+<span class="text-headline-sm font-headline-sm text-white font-semibold">Active Tag Index</span>
+<span class="text-label-sm font-label-sm text-[#9CA3AF] font-mono">Sorted by Activity</span>
+</div>
+<!-- Bulk Operations Bar -->
+<div class="flex items-center justify-between pt-1 px-1 text-label-sm font-label-sm text-[#9CA3AF]">
+<div class="flex items-center gap-2">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span>Select All</span>
+<span class="px-1.5 py-0.2 rounded bg-[#181824] border border-[#1E1E2E] text-primary text-[10px] font-mono">1 Sel.</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:text-white text-[11px] flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[14px]" data-icon="call_merge">call_merge</span>
+                    Merge
+                  </button>
+<span class="text-outline-variant">|</span>
+<button class="hover:text-[#EF4444] text-[11px] flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-[14px]" data-icon="delete">delete</span>
+                    Delete
+                  </button>
+</div>
+</div>
+</div>
+<!-- Interactive Rows of Tags (Drag handle, Color Swatch, Label, Contact Count, Inline Actions) -->
+<div class="flex flex-col gap-1.5 custom-scrollbar max-h-[460px] overflow-y-auto pr-1">
+<!-- Tag Row 1: VIP Customer (Active / Selected state in right panel) -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#181824] border border-[#3B82F6]/50 shadow-sm hover:border-[#3B82F6] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input checked="" class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#F59E0B] shadow-[0_0_8px_rgba(245,158,11,0.5)] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md font-medium text-white truncate">VIP Customer</span>
+<span class="text-[11px] text-[#9CA3AF]">Tier 1 spenders • Auto-synced</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono font-medium text-primary">1,240</span>
+<div class="flex items-center gap-0.5 opacity-80 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 2: Cohort 4 Student -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#10B981] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">Cohort 4 Student</span>
+<span class="text-[11px] text-[#9CA3AF]">Live Masterclass Enrollees</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">48</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 3: High GMV ($5k+) -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#D946EF] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">High GMV ($5k+)</span>
+<span class="text-[11px] text-[#9CA3AF]">Wholesale &amp; Sponsorships</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">312</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 4: Cart Abandoner -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#EF4444] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">Cart Abandoner</span>
+<span class="text-[11px] text-[#9CA3AF]">Pending checkout recovery</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">890</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 5: Affiliate Partner -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#3B82F6] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">Affiliate Partner</span>
+<span class="text-[11px] text-[#9CA3AF]">15% commission referral tier</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">145</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 6: Newsletter Subscriber -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#06B6D4] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">Newsletter Subscriber</span>
+<span class="text-[11px] text-[#9CA3AF]">Top of funnel weekly blast</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">8,420</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Tag Row 7: Live Stage Attendee -->
+<div class="group flex items-center justify-between p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:bg-[#181824] hover:border-[#2A2A3E] transition-all cursor-pointer">
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="material-symbols-outlined text-[16px] text-outline cursor-grab hover:text-white" data-icon="drag_indicator">drag_indicator</span>
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="w-3 h-3 rounded-full bg-[#8B5CF6] shrink-0"></span>
+<div class="flex flex-col min-w-0">
+<span class="text-body-md font-body-md text-on-surface truncate">Live Stage Attendee</span>
+<span class="text-[11px] text-[#9CA3AF]">Discord Stage 09/24</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<span class="px-2 py-0.5 rounded-full bg-[#0A0A0F] border border-[#1E1E2E] text-[12px] font-mono text-[#9CA3AF]">560</span>
+<div class="flex items-center gap-0.5 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-white rounded hover:bg-[#1E1E2E]" title="Edit Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit">edit</span>
+</button>
+<button class="p-1 hover:text-[#EF4444] rounded hover:bg-[#1E1E2E]" title="Delete Tag">
+<span class="material-symbols-outlined text-[16px]" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary Footnote -->
+<div class="pt-2 border-t border-[#1E1E2E] flex justify-between items-center text-[11px] text-[#9CA3AF]">
+<span>7 shown • 11 archived</span>
+<button class="text-primary hover:underline flex items-center gap-0.5">
+<span>Manage Folders</span>
+<span class="material-symbols-outlined text-[12px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ================= RIGHT COLUMN: TAG ASSIGNMENT & CONTACT MAPPING (Col span 8, ~940px) ================= -->
+<section class="xl:col-span-8 flex flex-col gap-5">
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-6 shadow-sm flex flex-col gap-5">
+<!-- Panel Header with Quick Stats & Focus Banner -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#1E1E2E]">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2.5">
+<span class="text-body-sm font-body-sm text-[#9CA3AF]">Assigning to:</span>
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-[#F59E0B]/10 border border-[#F59E0B]/40">
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B] shadow-[0_0_6px_rgba(245,158,11,0.6)]"></span>
+<span class="text-label-lg font-label-lg font-semibold text-white">VIP Customer</span>
+</div>
+<span class="text-label-md font-label-md font-mono text-primary bg-[#181824] px-2.5 py-0.5 rounded border border-[#1E1E2E]">1,240 Contacts Mapped</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#9CA3AF]">Check contacts below to apply or detach this tag in real-time. Automation trigger will fire on update.</p>
+</div>
+<!-- Quick Micro Metric Pill -->
+<div class="flex items-center gap-3 bg-[#0A0A0F] p-2 rounded-lg border border-[#1E1E2E]">
+<div class="flex flex-col text-right">
+<span class="text-[11px] text-[#9CA3AF]">Cohort LTV</span>
+<span class="text-body-md font-body-md font-mono text-[#10B981] font-semibold">$8,940 avg</span>
+</div>
+<div class="h-6 w-[1px] bg-[#1E1E2E]"></div>
+<div class="flex flex-col text-right">
+<span class="text-[11px] text-[#9CA3AF]">Open Rate</span>
+<span class="text-body-md font-body-md font-mono text-primary font-semibold">68.4%</span>
+</div>
+</div>
+</div>
+<!-- Filter & Search Controls Bar -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+<!-- Search Contacts Input -->
+<div class="md:col-span-7 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-[6px] h-[38px] pl-9 pr-3 text-body-sm font-body-sm text-white placeholder-[#9CA3AF]/60 focus:border-[#3B82F6] focus:outline-none focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Search contacts by name, email, or domain..." type="text"/>
+</div>
+<!-- Filter Dropdowns -->
+<div class="md:col-span-3">
+<select class="w-full bg-[#0A0A0F] border border-[#1E1E2E] rounded-[6px] h-[38px] px-3 text-body-sm font-body-sm text-white focus:border-[#3B82F6] focus:outline-none">
+<option>All Tiers</option>
+<option selected="">Has Purchases ($1k+)</option>
+<option>Active this Month</option>
+<option>Unengaged (&gt;90 days)</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<button class="w-full h-[38px] rounded-[6px] bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6]/50 text-[#FFFFFF] text-label-md font-label-md flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="filter_list">filter_list</span>
+<span>Filters (2)</span>
+</button>
+</div>
+</div>
+<!-- Bulk Actions Bar -->
+<div class="flex flex-wrap items-center justify-between gap-3 px-3 py-2 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-2 text-label-sm font-label-sm text-white cursor-pointer">
+<input checked="" class="w-4 h-4 rounded bg-[#12121A] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="font-medium">Select All (48 shown)</span>
+</label>
+<span class="text-outline-variant">|</span>
+<span class="text-label-sm font-label-sm text-primary">3 contacts selected</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] text-white text-label-sm font-label-sm flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[15px] text-[#10B981]" data-icon="add_circle">add_circle</span>
+<span>Apply Tag</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-[#181824] border border-[#1E1E2E] hover:border-[#EF4444] text-[#EF4444] text-label-sm font-label-sm flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[15px]" data-icon="do_not_disturb_on">do_not_disturb_on</span>
+<span>Remove Tag</span>
+</button>
+<button class="px-2.5 py-1 rounded bg-[#181824] border border-[#1E1E2E] hover:text-white text-[#9CA3AF] text-label-sm font-label-sm flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[15px]" data-icon="download">download</span>
+<span>Export Selected</span>
+</button>
+</div>
+</div>
+<!-- Rich Contacts Table -->
+<div class="overflow-x-auto custom-scrollbar border border-[#1E1E2E] rounded-lg">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#0e0e13] border-b border-[#1E1E2E] text-[11px] font-label-sm text-[#9CA3AF] tracking-wider uppercase">
+<th class="py-3 px-4 w-10 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</th>
+<th class="py-3 px-4">Contact Name</th>
+<th class="py-3 px-4">Email</th>
+<th class="py-3 px-4">Current Tags</th>
+<th class="py-3 px-4 text-right">Total Spend</th>
+<th class="py-3 px-4">Last Active</th>
+<th class="py-3 px-4 text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] text-body-sm font-body-sm text-on-surface">
+<!-- Row 1: Marcus Brody (Selected) -->
+<tr class="bg-[#181824]/60 hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-primary/30 object-cover" data-alt="Portrait of Marcus Brody, an executive creative director with sharp beard styling, wearing a dark minimal turtleneck in a moody industrial loft studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE7XhMUKK5OGoRXiavwpG0R6fRWnzheSBvolCfwRLzV0A1ufqbgch1HygcDadsFoAlSsp9xgg0Xy7Mhn0Lb0CLBsNXs1KfyDLS1Ox8t5_1s384DbGRWzh0y04Adw8XmSQShTvQC7LcmcvApBMljBv0SWpBV7W-zwNiNsznGo5RxDHeK4cewlhqrN3XHHBAN_GfYjjLygxTBdPtHn_qh-F84DRdN6F_LKpWGTFLSfsQR1os3G6dVHjLgg"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Marcus Brody</span>
+<span class="text-[11px] text-[#9CA3AF]">Apex Visuals LLC</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">marcus@apexvisuals.io</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">VIP Customer</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#D946EF]/15 text-[#D946EF] border border-[#D946EF]/30">High GMV</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$12,400</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        12m ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Elena Vance (Selected) -->
+<tr class="bg-[#181824]/60 hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-primary/30 object-cover" data-alt="Portrait of Elena Vance, a digital media producer with sleek pulled-back hair and glasses, positioned against deep slate backdrop with soft rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAk1JKuRnszgGB0MjP-eSUB2AEMaAbClBeKUCoNR8baWmgzepZKAHehitIFvPypnu4JGG-PAUDrby7EOsO7j3ZJeL_wQjGQwOJvbJErKTVU8CCncL4NkA44rTqIuuC1hzGGTz4bany7aTpesILu9b0g9qJE80dHW9Kd6a5MB1tCDHvUPeeHxPS32jiE4J7J6HbDGSBxsi5T9qWitLJI6_INRbcbvExObXcsGS4wplbRRAxc8ZE35Hpfvw"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Elena Vance</span>
+<span class="text-[11px] text-[#9CA3AF]">Vance Media Labs</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">elena@vancemedia.com</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">VIP Customer</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">Cohort 4</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$8,650</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        2h ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Aisha Patel (Selected) -->
+<tr class="bg-[#181824]/60 hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input checked="" class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-primary/30 object-cover" data-alt="Portrait of Aisha Patel, a technology founder with an energetic smile, natural lighting with soft neon magenta accents reflecting on her shoulder." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFb8XcQ4oWqA04ptmne7MD3PMv3Wwi5XuW9GdMPgjKPaquAnAMiZctQV22iECJ6A_3LoYC4QzR2k-SvGMaZG4gVrjEaQXSj2640n-vBgmp2WOQcLwINbDc594AVkSdvnP-G7pEICBp1yFzdnoyvvTnQpPxWlYK7h3BJGfVMdKS5ytvtipnCSJbvYXOVNCzxydIS0rvss8V-EcoVqLZW7cjYNPAYfB37poJgErRVXTG05ZMvTr07R2liw"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Aisha Patel</span>
+<span class="text-[11px] text-[#9CA3AF]">HyperStream Co</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">aisha@hyperstream.co</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">VIP Customer</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#3B82F6]/15 text-[#3B82F6] border border-[#3B82F6]/30">Affiliate</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$6,120</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                        1d ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: David Chen -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline/30 object-cover" data-alt="Portrait of David Chen, a motion designer with sleek dark hair and modern wireframe glasses, sitting in a contemporary workstation with dual ultrawide monitor glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA56QL0uwXmNQ4rQ3afB8hjog1leqG-oLsl0B6BHeiPVS1d5yzIEex8IX5JdvpaRiXy2VAOXM4Rsh9iDB6_2JFa7FnBw741xM2zdwRZhHFcoUu2Ozavi0BPBLi-gu7s2uWxyYbzvWhnlr6ZPeoMr2pCS899Mek1ga6Vevou_AkO8VVlDfMrrSpvxtsWnYP4AWWLXtiLgnwg9MlLbnqXxuldE02tk6r-IgmYH08ZzKa26iiQJF11VgKLvg"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">David Chen</span>
+<span class="text-[11px] text-[#9CA3AF]">Kinetics Studio</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">david.c@kinetics.design</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30">Subscriber</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#8B5CF6]/15 text-[#8B5CF6] border border-[#8B5CF6]/30">Live Stage</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$4,850</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        4h ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Sarah Lin -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline/30 object-cover" data-alt="Portrait of Sarah Lin, a creative strategist with modern bob haircut and warm studio key light casting clean highlights against dark charcoal room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3J6zJSRenxqmq2LqF5JNom221N_FfrGvVAZDLBM_l8XP6PRouR0hBMvRjCIlQBIFXvkQwhnrFfcardRYC3cYXSyufp4UOwWnPPrEh-wHjI1cjd68fGP99IQBrf7WRBZeNHSAexZqqwgYWu2AmvnJp_Zeqox12W87djshwIccAJ-QYC1hHH7pmIjNxy-G-KMe9vTL4_lvaaQNwGj1O1Iobjr-uzxqam4YeFa_VrCHcdEvfMrQd9_K2Dw"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Sarah Lin</span>
+<span class="text-[11px] text-[#9CA3AF]">Prism Brand House</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">slin@prismhouse.co</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">VIP Customer</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30">Cart Abandoner</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$5,320</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                        3d ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Liam Gallagher -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline/30 object-cover" data-alt="Portrait of Liam Gallagher, an audio engineer and podcast creator with headphones resting on neck in an acoustic foam-treated studio booth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1iSJSKNjH2Uc-GMEzfirl6wO1YlhqsAiV6lIhCrYON3ESm5yeRawwM_HgtCBNzquPSl1KAfCuTUAxwTRi399yuDtf2GM0zGk0mkd8rYbnUfs3AXma-y6U1kEYl44YqjdY0Y9Fq3-01pBs0TJ-NvnjOJ0xPUFy5MWHL6cIfZV_4eNe_88U2mdmM1TC8DF88ps-mQkqNUwH58aC3bbpKPW4icC3HtR0wC-5A_mqcs5ei1nN3J_DDdZ8XA"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Liam Gallagher</span>
+<span class="text-[11px] text-[#9CA3AF]">Sonic Frontier</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">liam@sonicfrontier.fm</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">Cohort 4</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#06B6D4]/15 text-[#06B6D4] border border-[#06B6D4]/30">Subscriber</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$2,980</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        18m ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Maya Lin-Torres -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline/30 object-cover" data-alt="Portrait of Maya Lin-Torres, a high-growth brand consultant, softly lit in an executive corner workspace overlooking a night city skyline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNclHu0FBWo7dqrdP1ce8go-eE9y4eEkYvIkhHaK0AFy8n5qhOYwKQlMxA3TfvchV4p8qQF-w48A5I1w3SQU8XfYP6C-bx_EDTkapGkhUow_fke0tHM_QqEWBBgC4X0DnKoZBSRY6XkJj95EgKE4mqJsD_OoYzTGmnK7AvS5zKZs0FnIiQQrgm_rz2mNTSCFBgF22jbWo83vXkZ0jjGucMu5-cNRGomTvXPMt9LRavpAuLCVVvG-QpwQ"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Maya Lin-Torres</span>
+<span class="text-[11px] text-[#9CA3AF]">Elevate Creative</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">maya@elevatecrm.io</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">VIP Customer</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#D946EF]/15 text-[#D946EF] border border-[#D946EF]/30">High GMV</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$15,800</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                        5m ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 8: Julian Rossi -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 text-center">
+<input class="w-4 h-4 rounded bg-[#0A0A0F] border-[#1E1E2E] text-[#3B82F6] focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline/30 object-cover" data-alt="Portrait of Julian Rossi, an independent 3D animator with curly hair and casual denim jacket, smiling softly in front of rendering hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuHtY89IJGNSmbteOOoGxTiuCK-pZ4Wn-NonEr2wMgh8doHwl7eH5doneaanWNCR-ELt14TiN2n_MLYtgrCIaPyszPcz5qf_m5QDS_Zxy_N16ufUY6QYf3q6im-CtoBOGp9hEo608GJDMQbdUlgCQZRaKmrKF6H7o_76gaM1PwOnJafOodUTZtG1zCRqFsT6GL74Tf69-IVMnKM3mZyQkYONqPvr_bOdkVlxAyx406ZGEFHK0pyqs1dw"/>
+<div class="flex flex-col">
+<span class="font-medium text-white">Julian Rossi</span>
+<span class="text-[11px] text-[#9CA3AF]">Rossi VFX</span>
+</div>
+</div>
+</td>
+<td class="py-3 px-4 font-mono text-body-sm text-[#9CA3AF]">julian@rossivfx.com</td>
+<td class="py-3 px-4">
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#3B82F6]/15 text-[#3B82F6] border border-[#3B82F6]/30">Affiliate</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#8B5CF6]/15 text-[#8B5CF6] border border-[#8B5CF6]/30">Live Stage</span>
+</div>
+</td>
+<td class="py-3 px-4 text-right font-mono font-semibold text-white">$3,420</td>
+<td class="py-3 px-4">
+<span class="inline-flex items-center gap-1.5 text-[12px] text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                        6d ago
+                      </span>
+</td>
+<td class="py-3 px-4 text-center">
+<button class="p-1 rounded text-outline hover:text-white hover:bg-[#1E1E2E]">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Bottom Actions Bar & Pagination Controls -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-[#1E1E2E]">
+<!-- Contact Count Info -->
+<span class="text-body-sm font-body-sm text-[#9CA3AF]">
+                Showing <span class="text-white font-medium">1-8</span> of <span class="text-white font-medium">1,240</span> contacts
+              </span>
+<!-- Center Pagination -->
+<div class="flex items-center gap-1.5">
+<button class="px-2.5 py-1.5 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white hover:border-[#3B82F6]/50 text-label-sm font-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+<span>Prev</span>
+</button>
+<button class="w-8 h-8 rounded-[6px] bg-primary text-on-primary font-bold text-label-sm">1</button>
+<button class="w-8 h-8 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6]/50 text-label-sm">2</button>
+<button class="w-8 h-8 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6]/50 text-label-sm">3</button>
+<span class="px-1 text-outline text-label-sm">...</span>
+<button class="w-8 h-8 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6]/50 text-label-sm">155</button>
+<button class="px-2.5 py-1.5 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6]/50 text-label-sm font-label-sm flex items-center gap-1">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+<!-- Prominent Gradient Apply Tag Button -->
+<button class="btn-gradient-primary rounded-[8px] h-[40px] px-5 text-white font-label-lg text-label-lg flex items-center gap-2 font-semibold">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark_add">bookmark_add</span>
+<span>Apply Tag to Selected</span>
+</button>
+</div>
+</div>
+<!-- Auxiliary Operational Audit Log Panel -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-[12px] p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+</span>
+<div class="flex flex-col">
+<span class="text-body-md font-body-md font-medium text-white">Recent Automation Activity</span>
+<span class="text-body-sm font-body-sm text-[#9CA3AF]">Auto-tagging rule "VIP Checkout &gt; $5k" assigned <span class="text-primary font-medium">14 new contacts</span> 22 minutes ago.</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="text-label-sm font-label-sm text-primary hover:underline flex items-center gap-1">
+<span>View Event Stream</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

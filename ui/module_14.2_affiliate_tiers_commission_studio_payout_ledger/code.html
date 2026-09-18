@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Affiliate Tiers, Commission Studio &amp; Payout Ledger</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-primary-fixed": "#001a42",
+            "on-secondary-fixed": "#23005c",
+            "surface-tint": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-on-surface": "#303036",
+            "inverse-surface": "#e4e1e9",
+            "error-container": "#93000a",
+            "outline": "#8c909f",
+            "secondary": "#d0bcff",
+            "surface-container": "#1f1f25",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "surface-container-highest": "#35343a",
+            "on-primary-container": "#00285d",
+            "tertiary": "#4edea3",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary": "#003824",
+            "on-error": "#690005",
+            "on-surface-variant": "#c2c6d6",
+            "on-tertiary-container": "#00311f",
+            "surface-variant": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary": "#002e6a",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-dim": "#131318",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "surface-bright": "#39383e",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#c4abff",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .glow-purple {
+      box-shadow: 0 0 20px -2px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex h-screen overflow-hidden selection:bg-primary selection:text-on-primary-container">
+<!-- Persistent SideNavBar (Shared Component) -->
+<aside class="fixed left-0 top-0 bottom-0 z-30 flex flex-col justify-between p-4 w-64 bg-surface-container-low border-r border-outline-variant select-none">
+<div class="flex flex-col gap-6">
+<!-- Header / Logo -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary font-bold text-headline-sm">
+<span class="material-symbols-outlined text-primary" data-icon="hub">hub</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-0.5">Affiliates &amp; Referrals</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-md text-label-md hover:brightness-105 transition-all glow-primary active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+<span>Invite Partner</span>
+</button>
+<!-- Navigation Tabs -->
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="handshake">handshake</span>
+<span class="text-label-md font-label-md">Partner Roster</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+<span class="text-label-md font-label-md">Link Studio</span>
+</a>
+<!-- Active Tab: Tiers & Rates -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-highest text-primary font-medium border-l-2 border-primary active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="military_tech">military_tech</span>
+<span class="text-label-md font-label-md">Tiers &amp; Rates</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-md font-label-md">Conversion Ledger</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="text-label-md font-label-md">Payouts</span>
+</a>
+</nav>
+</div>
+<!-- Footer Controls -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+<span>Engine Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<!-- Current Admin Badge -->
+<div class="mt-2 p-2 rounded-lg bg-surface-container flex items-center gap-2.5 border border-outline-variant">
+<div class="w-7 h-7 rounded-full bg-primary-container/20 border border-primary/40 flex items-center justify-center text-primary text-label-sm font-label-sm font-bold">
+          HK
+        </div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-label-sm font-label-sm text-on-surface truncate">Huzaifa Khan</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-[10px] leading-tight">Admin • Tier Engine</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Viewport Canvas -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-surface-container-lowest">
+<!-- TopNavBar Utility Header (Shared Component) -->
+<header class="sticky top-0 z-20 flex justify-between items-center h-14 px-6 w-full bg-surface border-b border-outline-variant flex-shrink-0">
+<div class="flex items-center gap-4">
+<!-- Breadcrumb Navigation -->
+<div class="flex items-center gap-2 text-label-md font-label-md">
+<span class="text-on-surface-variant">Creator OS</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface-variant">Affiliates</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Tier Engine &amp; Payout Settlement Studio</span>
+</div>
+<!-- Engine Status Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>Settlement Engine v2.1 • Multi-Currency Active</span>
+</div>
+</div>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Search bar input -->
+<div class="relative w-52">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full h-8 pl-8 pr-3 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-0 focus:outline-none" placeholder="Search affiliates, hashes..." type="text"/>
+</div>
+<button class="h-8 px-3 rounded-lg border border-outline-variant text-on-surface hover:border-primary hover:bg-surface-container text-label-md font-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+<span>Preview Partner Portal</span>
+</button>
+<button class="h-8 px-3.5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white text-label-md font-label-md hover:brightness-110 active:scale-[0.98] transition-all glow-primary flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-[16px]" data-icon="verified">verified</span>
+<span>Approve &amp; Release $18,864 Payout Batch</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors p-1" title="Help">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Workspace Scrollable Area -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+<!-- Section 1: Header Context Banner -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface p-5 rounded-xl border border-outline-variant">
+<div>
+<h1 class="text-headline-md font-headline-md text-on-surface flex items-center gap-2.5">
+<span>Commission Tier Architecture &amp; Automated Settlement</span>
+<span class="px-2 py-0.5 text-label-sm font-label-sm rounded bg-primary-container/20 text-primary border border-primary/30">Dynamic Allocation</span>
+</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Programmatic tier assignment scales commissions based on 30-day trailing revenue and authenticated partner performance.
+          </p>
+</div>
+<div class="flex items-center gap-6 divide-x divide-outline-variant text-right">
+<div class="px-2">
+<span class="text-body-sm font-body-sm text-on-surface-variant block">Trailing 30D GMV</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">$160,920.00</span>
+</div>
+<div class="pl-6">
+<span class="text-body-sm font-body-sm text-on-surface-variant block">Scheduled Payout Pool</span>
+<span class="text-headline-sm font-headline-sm text-tertiary font-semibold">$18,864.00</span>
+</div>
+</div>
+</div>
+<!-- Section 2: Top Tier Architecture Configurator (3 interactive Tier Configuration Cards) -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="military_tech">military_tech</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Active Commission Tiers</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-normal">(Auto-calculated at 00:00 UTC)</span>
+</div>
+<button class="text-primary hover:underline text-label-md font-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_circle">add_circle</span>
+<span>Create Custom Tier</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+<!-- Tier 1: Standard Partner -->
+<div class="bg-surface rounded-xl border border-outline-variant p-5 flex flex-col justify-between hover:border-primary/40 transition-all">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-on-surface-variant px-2 py-0.5 rounded bg-surface-container border border-outline-variant">Entry Level</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">ID: TIER_STD_01</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Tier 1: Standard Partner</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Automatic entry point for new community promoters.</p>
+<!-- Metric Stack -->
+<div class="mt-4 p-3 rounded-lg bg-surface-container-low border border-outline-variant/60 space-y-2.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Qualification</span>
+<span class="text-on-surface font-medium">0–9 active referrals</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Commission Rate</span>
+<span class="text-primary font-semibold">10% on initial sale</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Cookie Duration</span>
+<span class="text-on-surface">30 days</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/40 flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Enrolled Partners</span>
+<span class="text-on-surface font-semibold">50 affiliates <span class="text-on-surface-variant font-normal">($18.4k GMV)</span></span>
+</div>
+</div>
+<!-- Perks -->
+<div class="mt-4">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-semibold tracking-wider">INCLUDED PERKS</span>
+<ul class="mt-2 space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Standard marketing media kit</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Generic affiliate referral link</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Automated monthly payouts ($50 threshold)</span>
+</li>
+</ul>
+</div>
+</div>
+<button class="mt-6 w-full py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+<span>Edit Tier Rules</span>
+</button>
+</div>
+<!-- Tier 2: Pro Promoter (Featured) -->
+<div class="bg-surface rounded-xl border-2 border-primary/60 p-5 flex flex-col justify-between relative shadow-lg glow-primary">
+<!-- Featured Badge -->
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-gradient-to-r from-primary-container to-secondary-container text-white text-label-sm font-label-sm font-bold tracking-wide flex items-center gap-1 shadow">
+<span class="material-symbols-outlined text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+<span>Most Popular</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-3 mt-1">
+<span class="text-label-sm font-label-sm text-primary px-2 py-0.5 rounded bg-primary-container/20 border border-primary/30">Accelerated Growth</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">ID: TIER_PRO_02</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Tier 2: Pro Promoter</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">For active newsletter writers and creative niche educators.</p>
+<!-- Metric Stack -->
+<div class="mt-4 p-3 rounded-lg bg-surface-container-low border border-primary/30 space-y-2.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Qualification</span>
+<span class="text-on-surface font-medium">10–49 active referrals ($5k+ GMV)</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Commission Rate</span>
+<span class="text-tertiary font-semibold">20% recurring for 12 months</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Cookie Duration</span>
+<span class="text-on-surface">60 days</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/40 flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Enrolled Partners</span>
+<span class="text-on-surface font-semibold">68 affiliates <span class="text-on-surface-variant font-normal">($48,200 GMV)</span></span>
+</div>
+</div>
+<!-- Perks -->
+<div class="mt-4">
+<span class="text-label-sm font-label-sm text-primary font-semibold tracking-wider">INCLUDED PERKS</span>
+<ul class="mt-2 space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Dedicated Discord partner channel</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Custom vanity slug (/aff/creatorname)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Priority ticketing &amp; 10% promo audience discount</span>
+</li>
+</ul>
+</div>
+</div>
+<button class="mt-6 w-full py-2 px-3 rounded-lg bg-primary-container text-white hover:brightness-110 font-label-md text-label-md transition-all flex items-center justify-center gap-1.5 shadow">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+<span>Edit Tier Rules</span>
+</button>
+</div>
+<!-- Tier 3: VIP Ambassador -->
+<div class="bg-surface rounded-xl border border-secondary-container p-5 flex flex-col justify-between relative glow-purple">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm text-secondary px-2.5 py-0.5 rounded-full bg-secondary-container/30 border border-secondary/40 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="workspace_premium">workspace_premium</span>
+                  Executive VIP
+                </span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">ID: TIER_VIP_03</span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Tier 3: VIP Ambassador</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">High-volume strategic partners and platform co-marketers.</p>
+<!-- Metric Stack -->
+<div class="mt-4 p-3 rounded-lg bg-surface-container-low border border-secondary/30 space-y-2.5">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Qualification</span>
+<span class="text-on-surface font-medium">50+ referrals or approved partner invite</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Commission Rate</span>
+<span class="text-secondary font-semibold">30% Lifetime Recurring MRR</span>
+</div>
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Cookie Duration</span>
+<span class="text-on-surface">90 days</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/40 flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Enrolled Partners</span>
+<span class="text-on-surface font-semibold">24 affiliates <span class="text-on-surface-variant font-normal">($94,320 GMV)</span></span>
+</div>
+</div>
+<!-- Perks -->
+<div class="mt-4">
+<span class="text-label-sm font-label-sm text-secondary font-semibold tracking-wider">INCLUDED PERKS</span>
+<ul class="mt-2 space-y-1.5 text-body-sm font-body-sm text-on-surface">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Custom co-branded landing page &amp; webinars</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Dedicated manager (Huzaifa Khan direct Slack)</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle">check_circle</span>
+<span>Instant Stripe Connect automated payouts</span>
+</li>
+</ul>
+</div>
+</div>
+<button class="mt-6 w-full py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-secondary/40 text-secondary hover:text-white font-label-md text-label-md transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+<span>Edit Tier Rules</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section 3: Attribution & Fraud Prevention Rules Panel -->
+<div class="bg-surface rounded-xl border border-outline-variant p-5">
+<div class="flex items-center justify-between mb-4 border-b border-outline-variant pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Attribution &amp; Fraud Prevention Engine</h2>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shield">shield</span>
+            Active Protection Protocol
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Cookie Attribution Dropdown -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium block">Attribution Logic Model</label>
+<div class="relative">
+<select class="w-full h-10 pl-3 pr-8 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary focus:ring-0 focus:outline-none appearance-none">
+<option selected="">Last-Touch with 60-day lookback window</option>
+<option>First-Touch with 30-day window</option>
+<option>Linear Multi-Touch (Equal Weight)</option>
+<option>Position-Based (40/40/20 split)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none text-[20px]" data-icon="expand_more">expand_more</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">Credits conversion to the final verified link clicked prior to checkout.</p>
+</div>
+<!-- Minimum Payout Threshold -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium block">Minimum Settlement Threshold</label>
+<div class="relative">
+<input class="w-full h-10 px-3 text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-md text-on-surface focus:border-primary focus:ring-0 focus:outline-none font-mono" type="text" value="$50.00 USD"/>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline-variant text-[18px]" data-icon="lock">lock</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">Unclaimed balances roll over into subsequent billing cycles.</p>
+</div>
+<!-- Payout Schedule -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium block">Settlement Schedule Frequency</label>
+<div class="h-10 px-3 flex items-center bg-surface-container-low border border-outline-variant rounded-md text-on-surface text-body-sm font-body-sm justify-between">
+<span>Net-30 (1st of every calendar month)</span>
+<span class="text-label-sm font-label-sm text-primary font-mono">NEXT: NOV 1</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">30-day clearing window required for chargeback settlement.</p>
+</div>
+<!-- Self-referral prevention switch -->
+<div class="flex items-start justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="space-y-0.5 pr-3">
+<span class="text-label-md font-label-md text-on-surface font-medium block">Self-Referral Prevention</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">Block orders where buyer IP or credit card hash matches partner registry.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Refund & Chargeback Clawback switch -->
+<div class="flex items-start justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="space-y-0.5 pr-3">
+<span class="text-label-md font-label-md text-on-surface font-medium block">Automatic Clawback Ledger</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">Automatically deduct commissions if customer refunds within 30-day warranty.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Rapid Fraud Alert Notification -->
+<div class="flex items-start justify-between p-3.5 rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="space-y-0.5 pr-3">
+<span class="text-label-md font-label-md text-on-surface font-medium block">Velocity Anomaly Guard</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px]">Hold conversions exceeding 15 clicks/min or sudden conversion spikes.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer mt-1">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Section 4: Payout Settlement & Banking Ledger Table -->
+<div class="bg-surface rounded-xl border border-outline-variant flex flex-col overflow-hidden">
+<!-- Ledger Header and Status Filters -->
+<div class="p-5 border-b border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="receipt_long">receipt_long</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Payout Settlement Ledger</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Disbursement batch scheduled for release via connected Stripe &amp; PayPal MassPay pipelines.</p>
+</div>
+<!-- Status Filter Tabs -->
+<div class="flex items-center gap-1.5 p-1 rounded-lg bg-surface-container-low border border-outline-variant overflow-x-auto">
+<button class="px-3 py-1.5 rounded-md bg-surface-container-highest text-primary font-medium text-label-md font-label-md border-l-2 border-primary whitespace-nowrap">
+              Pending Approval ($18,864)
+            </button>
+<button class="px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-label-md font-label-md whitespace-nowrap">
+              Processing ($4,250)
+            </button>
+<button class="px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-label-md font-label-md whitespace-nowrap">
+              Paid ($84,600)
+            </button>
+<button class="px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-label-md font-label-md whitespace-nowrap">
+              Disputed ($0)
+            </button>
+</div>
+</div>
+<!-- Ledger Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant bg-surface-container-low/60 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3 px-4 w-10">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</th>
+<th class="py-3 px-4">Partner Profile</th>
+<th class="py-3 px-4">Payout Method</th>
+<th class="py-3 px-4">Accrual Period</th>
+<th class="py-3 px-4 text-center">Referrals</th>
+<th class="py-3 px-4 text-right">Gross GMV</th>
+<th class="py-3 px-4 text-right">Net Commission Due</th>
+<th class="py-3 px-4 text-center">Tax Verification</th>
+<th class="py-3 px-4 text-center">Status</th>
+<th class="py-3 px-4 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant text-body-sm font-body-sm">
+<!-- Row 1: Alex Vance -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-primary/40 flex items-center justify-center font-bold text-primary text-label-md">
+                      AV
+                    </div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span>Alex Vance</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/30 text-secondary text-[10px] font-semibold">VIP T3</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">@alexvance • alex@vancemedia.io</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-mono text-[12px]">Stripe Express #acct_8492</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle" title="Verified Account">check_circle</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Oct 1 - Oct 31, 2025
+                </td>
+<td class="py-3.5 px-4 text-center font-mono text-on-surface font-medium">
+                  84 sales
+                </td>
+<td class="py-3.5 px-4 text-right font-mono text-on-surface">
+                  $28,400.00
+                </td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-tertiary">
+                  $8,520.00
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+                    W-9 Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary text-label-sm font-label-sm border border-primary/30">
+                    Ready for Release
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:brightness-105 transition-all">Release</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container" title="Audit Conversions">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container" title="Hold">
+<span class="material-symbols-outlined text-[18px]" data-icon="pause_circle">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Elena Rostova -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-secondary/40 flex items-center justify-center font-bold text-secondary text-label-md">
+                      ER
+                    </div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span>Elena Rostova</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-container/30 text-secondary text-[10px] font-semibold">VIP T3</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">@rostovadesign • elena@designsystem.uk</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-mono text-[12px]">Stripe Express #acct_1944</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle" title="Verified Account">check_circle</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Oct 1 - Oct 31, 2025
+                </td>
+<td class="py-3.5 px-4 text-center font-mono text-on-surface font-medium">
+                  64 sales
+                </td>
+<td class="py-3.5 px-4 text-right font-mono text-on-surface">
+                  $21,700.00
+                </td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-tertiary">
+                  $6,510.00
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+                    W-8BEN Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary text-label-sm font-label-sm border border-primary/30">
+                    Ready for Release
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:brightness-105 transition-all">Release</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container" title="Audit Conversions">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container" title="Hold">
+<span class="material-symbols-outlined text-[18px]" data-icon="pause_circle">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Marcus Kane -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-primary text-label-md">
+                      MK
+                    </div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span>Marcus Kane</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container/20 text-primary text-[10px] font-semibold">PRO T2</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">@kaneworks • marcus@thekane.co</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-mono text-[12px]">Stripe Express #acct_3810</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle" title="Verified Account">check_circle</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Oct 1 - Oct 31, 2025
+                </td>
+<td class="py-3.5 px-4 text-center font-mono text-on-surface font-medium">
+                  38 sales
+                </td>
+<td class="py-3.5 px-4 text-right font-mono text-on-surface">
+                  $14,350.00
+                </td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-tertiary">
+                  $2,870.00
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+                    W-9 Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary text-label-sm font-label-sm border border-primary/30">
+                    Ready for Release
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:brightness-105 transition-all">Release</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container" title="Audit Conversions">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container" title="Hold">
+<span class="material-symbols-outlined text-[18px]" data-icon="pause_circle">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: David Finch -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-primary text-label-md">
+                      DF
+                    </div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span>David Finch</span>
+<span class="px-1.5 py-0.2 rounded bg-primary-container/20 text-primary text-[10px] font-semibold">PRO T2</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">@davidfinch • d.finch@substack.com</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="credit_card">credit_card</span>
+<span class="text-on-surface font-mono text-[12px]">Stripe Express #acct_7721</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle" title="Verified Account">check_circle</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Oct 1 - Oct 31, 2025
+                </td>
+<td class="py-3.5 px-4 text-center font-mono text-on-surface font-medium">
+                  26 sales
+                </td>
+<td class="py-3.5 px-4 text-right font-mono text-on-surface">
+                  $9,800.00
+                </td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-tertiary">
+                  $1,960.00
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+                    W-9 Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary text-label-sm font-label-sm border border-primary/30">
+                    Ready for Release
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:brightness-105 transition-all">Release</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container" title="Audit Conversions">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container" title="Hold">
+<span class="material-symbols-outlined text-[18px]" data-icon="pause_circle">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Sarah Lin -->
+<tr class="hover:bg-surface-container-high/40 transition-colors">
+<td class="py-3.5 px-4">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-0 bg-surface-container" type="checkbox"/>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center font-bold text-on-surface-variant text-label-md">
+                      SL
+                    </div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-1.5">
+<span>Sarah Lin</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant text-[10px]">STD T1</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">@sarahlincreative • sarah@slinstudio.com</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="text-on-surface font-mono text-[12px]">PayPal MassPay</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="check_circle" title="Verified Account">check_circle</span>
+</div>
+</td>
+<td class="py-3.5 px-4 text-on-surface-variant whitespace-nowrap">
+                  Oct 1 - Oct 31, 2025
+                </td>
+<td class="py-3.5 px-4 text-center font-mono text-on-surface font-medium">
+                  8 sales
+                </td>
+<td class="py-3.5 px-4 text-right font-mono text-on-surface">
+                  $4,200.00
+                </td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-tertiary">
+                  $420.00
+                </td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-label-sm font-label-sm border border-tertiary/20">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified">verified</span>
+                    W-9 Verified
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/20 text-primary text-label-sm font-label-sm border border-primary/30">
+                    Ready for Release
+                  </span>
+</td>
+<td class="py-3.5 px-4 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm hover:brightness-105 transition-all">Release</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container" title="Audit Conversions">
+<span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+<button class="p-1 rounded text-on-surface-variant hover:text-error hover:bg-surface-container" title="Hold">
+<span class="material-symbols-outlined text-[18px]" data-icon="pause_circle">pause_circle</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Footer Summary -->
+<div class="p-4 bg-surface-container-low border-t border-outline-variant flex items-center justify-between text-body-sm font-body-sm">
+<div class="text-on-surface-variant">
+            Showing <span class="text-on-surface font-medium">5</span> of 142 total verified affiliates awaiting month-end settlement.
+          </div>
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant">Selected 5 Net Payable: <strong class="text-tertiary font-mono font-semibold">$18,864.00 USD</strong></span>
+</div>
+</div>
+</div>
+<!-- Section 5: Bottom Batch Action Bar -->
+<div class="sticky bottom-4 z-20 bg-surface/95 backdrop-blur-md rounded-xl border border-primary/40 p-4 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-4 glow-primary">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 border border-primary/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<div class="text-label-lg font-label-lg text-on-surface font-semibold flex items-center gap-2">
+<span>5 Partners selected for November 1 Batch</span>
+<span class="px-2 py-0.2 rounded bg-tertiary/20 text-tertiary border border-tertiary/30 text-label-sm font-label-sm">Ready to Disburse</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Totaling <span class="text-tertiary font-mono font-semibold">$18,864.00 USD</span> across Stripe Connect Express &amp; PayPal MassPay pipelines.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="h-10 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface text-label-md font-label-md font-medium transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+<span>Download Tax &amp; 1099 Export</span>
+</button>
+<button class="h-10 px-5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white text-label-md font-label-md font-semibold hover:brightness-110 active:scale-[0.98] transition-all shadow-lg flex items-center gap-2 glow-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+<span>Authorize &amp; Transfer via Stripe Connect (2FA Protected)</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

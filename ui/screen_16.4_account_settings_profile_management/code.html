@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Account Settings &amp; Profile Management</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#003824",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "inverse-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "background": "#131318",
+            "on-secondary": "#3c0091",
+            "surface-container": "#1f1f25",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-dim": "#131318",
+            "surface-container-highest": "#35343a",
+            "surface-container-low": "#1b1b20",
+            "primary": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "surface": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "on-background": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-secondary-fixed": "#23005c",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "error": "#ffb4ab",
+            "on-primary-fixed": "#001a42",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "outline": "#8c909f",
+            "on-error": "#690005",
+            "surface-tint": "#adc6ff",
+            "on-primary": "#002e6a",
+            "surface-variant": "#35343a",
+            "primary-container": "#4d8eff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.3);
+      transition: all 0.15s ease-in-out;
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 22px rgba(59, 130, 246, 0.45);
+    }
+    .btn-gradient:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- ========================================================================= -->
+<!-- LEFT SIDE NAVIGATION (Exact Shared Component adherence: 15 primary items) -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface-container-lowest border-r border-outline-variant/30 select-none">
+<div class="flex flex-col justify-between h-full p-4 w-64">
+<!-- Top Section: Brand & Workspace Identity -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-on-surface shadow-md">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight truncate">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase">Enterprise Studio</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-surface-container-high/70 hover:bg-surface-container text-on-surface border border-outline-variant/30 text-label-md font-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add">add</span>
+<span>New Asset</span>
+</button>
+<!-- Navigation Links (Exact 15 labels from Shared Components JSON) -->
+<nav class="flex flex-col gap-0.5 overflow-y-auto max-h-[calc(100vh-280px)] pr-1 custom-scrollbar">
+<!-- Item 1: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Item 2: Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="workspaces">workspaces</span>
+<span class="text-label-md font-label-md">Workspaces</span>
+</a>
+<!-- Item 3: Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="web">web</span>
+<span class="text-label-md font-label-md">Website Builder</span>
+</a>
+<!-- Item 4: App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="apps">apps</span>
+<span class="text-label-md font-label-md">App Builder</span>
+</a>
+<!-- Item 5: Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-label-md font-label-md">Commerce</span>
+</a>
+<!-- Item 6: Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="text-label-md font-label-md">Marketplace</span>
+</a>
+<!-- Item 7: Courses -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span class="text-label-md font-label-md">Courses</span>
+</a>
+<!-- Item 8: Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="card_membership">card_membership</span>
+<span class="text-label-md font-label-md">Memberships</span>
+</a>
+<!-- Item 9: Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="psychology">psychology</span>
+<span class="text-label-md font-label-md">Coaching</span>
+</a>
+<!-- Item 10: CRM -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contacts">contacts</span>
+<span class="text-label-md font-label-md">CRM</span>
+</a>
+<!-- Item 11: Email -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span class="text-label-md font-label-md">Email</span>
+</a>
+<!-- Item 12: AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="text-label-md font-label-md">AI Agents</span>
+</a>
+<!-- Item 13: Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Item 14: Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="text-label-md font-label-md">Affiliates</span>
+</a>
+<!-- Item 15: Settings (ACTIVE PER CONTEXT) -->
+<div class="pt-1">
+<a class="flex items-center justify-between px-3 py-2 text-primary bg-surface-container-high/60 font-semibold rounded-lg border-l-2 border-primary transition-all duration-150" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="expand_more">expand_more</span>
+</a>
+<!-- Sub-navigation for settings context -->
+<div class="ml-4 pl-3 mt-1.5 flex flex-col gap-1 border-l border-outline-variant/30">
+<a class="px-2 py-1.5 rounded-md text-primary bg-primary/10 text-body-sm font-label-md flex items-center justify-between" href="#">
+<span>Account Settings</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+</a>
+<a class="px-2 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm transition-colors" href="#">
+<span>Team &amp; Roles</span>
+</a>
+<a class="px-2 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm transition-colors" href="#">
+<span>Billing &amp; Plans</span>
+</a>
+<a class="px-2 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface text-body-sm font-body-sm transition-colors" href="#">
+<span>API &amp; Integrations</span>
+</a>
+</div>
+</div>
+</nav>
+</div>
+<!-- Footer navigation -->
+<div class="flex flex-col gap-1 pt-3 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+<span>Help &amp; Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-medium rounded-lg text-label-md font-label-md transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CONTAINER -->
+<!-- ========================================================================= -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- TOP NAVIGATION BAR (Exact adherence to JSON TopNavBar) -->
+<header class="sticky top-0 right-0 w-full h-14 z-30 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 flex items-center justify-between px-6">
+<!-- Left side: Breadcrumb & Search Bar -->
+<div class="flex items-center gap-6">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>Settings</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span>Account &amp; Security</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold">Profile &amp; Credentials</span>
+</div>
+<!-- Global Search Input (search_bar: "on_left") -->
+<div class="relative w-64 hidden xl:block">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[16px] text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/40 rounded-lg pl-9 pr-3 py-1.5 text-body-sm text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search settings, preferences, API..." type="text"/>
+</div>
+</div>
+<!-- Center: Navigation Links from JSON -->
+<div class="hidden md:flex items-center gap-6">
+<a class="text-primary font-medium border-b-2 border-primary pb-1 text-label-md font-label-md" href="#">Overview</a>
+<a class="text-on-surface-variant hover:text-on-surface font-medium text-label-md font-label-md transition-colors" href="#">Live Feed</a>
+<a class="text-on-surface-variant hover:text-on-surface font-medium text-label-md font-label-md transition-colors" href="#">Reports</a>
+</div>
+<!-- Right side: Actions, Icons & Profile -->
+<div class="flex items-center gap-3">
+<!-- Workspace Quick Switcher -->
+<button class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-outline-variant text-body-sm text-on-surface transition-all">
+<div class="w-4 h-4 rounded bg-primary-container flex items-center justify-center text-[10px] text-on-primary-container font-bold">A</div>
+<span class="text-label-md font-label-md max-w-[100px] truncate">Acme Studios</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="unfold_more">unfold_more</span>
+</button>
+<!-- Secondary action -->
+<button class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high/60 hover:bg-surface-container text-on-surface text-label-md font-label-md border border-outline-variant/30 transition-all">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="bolt">bolt</span>
+<span>Quick Action</span>
+</button>
+<!-- Primary Action -->
+<button class="btn-gradient px-3.5 py-1.5 rounded-lg text-white text-label-md font-label-md flex items-center gap-1.5 font-semibold">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_circle">add_circle</span>
+<span>Create</span>
+</button>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center border-l border-outline-variant/30 pl-3 gap-1">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors relative" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors" title="Help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/60 transition-colors" title="Settings Tune">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- User Profile Avatar with dropdown cue -->
+<div class="flex items-center gap-2 pl-2 cursor-pointer group">
+<div class="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-primary/40 group-hover:ring-primary transition-all">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Modern cinematic headshot of a male digital creator and creative director with soft studio rim lighting against a moody deep obsidian background. High precision photographic aesthetic with natural skin tones and focused confident expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9w3h-aQDKlGkr4AwZPON1dMHK2G0ldZQgOh7XW0zSFZGVT_fKp1pb2_LujbaAgV8VLa3YVLsMcknlx-AemMLc_51mGLEChW5J_q7MsOPW7rF0PaMBuZhxd7dj2cqsObj3MwF4iZpAmJTkoxhtf0szjWOCDAJZ1vyLL5fUFEAQYgunAJhXhLR9a5g9I92Z6hgfpNRLvDrf742yMOzKBO6GUIvazedAPfzJc7pCP5tcTE6XYLKZePd98g"/>
+</div>
+</div>
+</div>
+</header>
+<!-- CONTENT CANVAS -->
+<main class="flex-1 px-8 py-8 max-w-[1240px] mx-auto w-full pb-32">
+<!-- ===================================================================== -->
+<!-- SETTINGS HEADER & TABS -->
+<!-- ===================================================================== -->
+<div class="flex flex-col gap-6 mb-8">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-white tracking-tight">Account Settings &amp; Creator Identity</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1.5 max-w-2xl">
+            Manage your personal profile, creator display information, contact credentials, and authentication password.
+          </p>
+</div>
+<!-- Secondary Horizontal Tab Bar -->
+<div class="flex items-center gap-2 border-b border-outline-variant/30 pb-px overflow-x-auto">
+<button class="px-4 py-2.5 text-label-md font-label-md font-semibold text-primary border-b-2 border-primary flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="person">person</span>
+<span>General Profile</span>
+</button>
+<button class="px-4 py-2.5 text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container/30 rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="lock">lock</span>
+<span>Security &amp; Password</span>
+</button>
+<button class="px-4 py-2.5 text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container/30 rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications_active">notifications_active</span>
+<span>Notifications</span>
+</button>
+<button class="px-4 py-2.5 text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container/30 rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]" data-icon="link">link</span>
+<span>Connected Accounts</span>
+</button>
+<button class="px-4 py-2.5 text-label-md font-label-md font-medium text-error hover:bg-error-container/20 rounded-t-lg transition-colors flex items-center gap-2 whitespace-nowrap ml-auto">
+<span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+<span>Danger Zone</span>
+</button>
+</div>
+</div>
+<!-- MAIN CONFIGURATION SECTIONS STACK -->
+<div class="flex flex-col gap-8">
+<!-- =================================================================== -->
+<!-- SECTION 1: PUBLIC CREATOR PROFILE & AVATAR -->
+<!-- =================================================================== -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex flex-col gap-1 mb-6 border-b border-[#1E1E2E] pb-4">
+<h2 class="text-headline-sm font-headline-sm text-white">Creator Public Profile</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              This information will be displayed on your store, course certificates, and marketplace listings.
+            </p>
+</div>
+<!-- Avatar Upload Row -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-4 rounded-lg bg-surface-container-lowest/60 border border-[#1E1E2E] mb-6">
+<div class="relative group cursor-pointer">
+<div class="w-20 h-20 rounded-full overflow-hidden ring-2 ring-primary/30 group-hover:ring-primary transition-all">
+<img alt="Creator Avatar" class="w-full h-full object-cover" data-alt="Portrait of digital creator Huzaifa Khan in creative workspace, wearing dark aesthetic clothing with clean minimal backdrop, rim-lit with vivid electric blue and violet lights creating a tech entrepreneur persona." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVqK-vb7neXJmoR3pb2PU1U7wCZRIBOZF7Nr6OtB0MbvuJ0Fg173sUS8UMWIeH_BcMCP_coiriDRDxHQrJvWETKVxO_7uyqU7NLp2CgJMUOw-9FitIa-4fNgTl3WzoVOzgnhibvTh5SFkPi5GDmFy-Wi2LTE0vaJHBy9TQcCYgEua-xrSZuJNjyIVGt9lJmof2QQ8q9118l1P39B8p_BQzDD7g_kyI81vBfzyWxkmTUGd8GNsPpeVyMQ"/>
+</div>
+<div class="absolute inset-0 bg-black/60 rounded-full flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
+<span class="material-symbols-outlined text-white text-[20px]" data-icon="photo_camera">photo_camera</span>
+<span class="text-[9px] font-semibold text-white mt-0.5">Change</span>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex items-center gap-3">
+<button class="btn-gradient text-white text-label-md font-label-md px-4 py-2 rounded-lg font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="cloud_upload">cloud_upload</span>
+<span>Upload New Photo</span>
+</button>
+<button class="bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface-variant hover:text-white px-3.5 py-2 rounded-lg text-label-md font-label-md transition-colors">
+                  Remove
+                </button>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Supported formats: JPG, PNG, WEBP. Max file size: 5MB. Recommended resolution: 800x800px.</p>
+</div>
+</div>
+<!-- 2-Column Inputs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Display Name -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium flex items-center justify-between">
+<span>Display Name</span>
+<span class="text-outline text-[11px]">Publicly visible</span>
+</label>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-3.5 py-2 text-white text-body-md font-body-md outline-none transition-all placeholder:text-outline" type="text" value="Huzaifa Khan"/>
+</div>
+<!-- Creator Handle / Slug -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium flex items-center justify-between">
+<span>Creator Handle / Slug</span>
+<span class="text-outline text-[11px]">Unique store URL</span>
+</label>
+<div class="flex rounded-lg border border-[#1E1E2E] bg-[#12121A] overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="inline-flex items-center px-3 text-body-sm text-outline bg-surface-container-high/40 border-r border-[#1E1E2E] select-none">
+                  creatoros.com/@
+                </span>
+<input class="w-full bg-transparent px-3 py-2 text-white text-body-md font-body-md outline-none border-none focus:ring-0" type="text" value="huzaifa"/>
+</div>
+</div>
+<!-- Primary Email Address -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface font-medium">Primary Email Address</label>
+<a class="text-primary hover:underline text-label-sm font-label-sm" href="#">Change Email</a>
+</div>
+<div class="relative flex items-center">
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg pl-3.5 pr-24 py-2 text-white text-body-md font-body-md outline-none transition-all" type="email" value="huzaifa@acmemedia.studio"/>
+<div class="absolute right-2.5 flex items-center gap-1 px-2 py-0.5 rounded-full bg-tertiary-container/30 border border-tertiary/40 text-tertiary text-[11px] font-semibold">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verified</span>
+</div>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">Phone Number</label>
+<div class="flex rounded-lg border border-[#1E1E2E] bg-[#12121A] overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<div class="flex items-center gap-1.5 px-3 bg-surface-container-high/40 border-r border-[#1E1E2E] text-body-sm text-on-surface select-none">
+<span class="text-base">🇺🇸</span>
+<span class="material-symbols-outlined text-[14px] text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<input class="w-full bg-transparent px-3 py-2 text-white text-body-md font-body-md outline-none border-none focus:ring-0" type="tel" value="+1 (555) 234-5678"/>
+</div>
+</div>
+<!-- Website / Portfolio URL -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">Website / Portfolio URL</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline" data-icon="globe">globe</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg pl-9 pr-3.5 py-2 text-white text-body-md font-body-md outline-none transition-all" type="url" value="https://acmemedia.studio"/>
+</div>
+</div>
+<!-- Timezone -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">Studio Timezone</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-[18px] text-outline" data-icon="schedule">schedule</span>
+<select class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg pl-9 pr-8 py-2 text-white text-body-md font-body-md outline-none transition-all appearance-none cursor-pointer">
+<option selected="">America/Los_Angeles (PST) — UTC-8</option>
+<option>America/New_York (EST) — UTC-5</option>
+<option>Europe/London (GMT) — UTC+0</option>
+<option>Europe/Berlin (CET) — UTC+1</option>
+<option>Asia/Tokyo (JST) — UTC+9</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 text-[18px] text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Bio / Creator Headline (Spans full width) -->
+<div class="md:col-span-2 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface font-medium">Bio / Creator Headline</label>
+<span class="text-outline text-label-sm font-label-sm">114 / 280 characters</span>
+</div>
+<textarea class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg p-3 text-white text-body-md font-body-md outline-none transition-all resize-none" rows="3">Cinematographer, 3D artist, and founder of Acme Studios. Creating educational assets for 100k+ digital creators.</textarea>
+<p class="text-body-sm font-body-sm text-outline">Brief description for your channel header, community hub, and course author info.</p>
+</div>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- SECTION 2: PASSWORD & AUTHENTICATION CREDENTIALS -->
+<!-- =================================================================== -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex flex-col gap-1 mb-6 border-b border-[#1E1E2E] pb-4">
+<div class="flex items-center justify-between">
+<h2 class="text-headline-sm font-headline-sm text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="shield">shield</span>
+<span>Password &amp; Access Security</span>
+</h2>
+<span class="text-label-sm font-label-sm px-2.5 py-1 rounded-full bg-secondary-container/30 text-secondary border border-secondary/30">
+                2FA Enabled (Authenticator App)
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Manage your credentials, master password, and account recovery options.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+<!-- Current Password -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">Current Password</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-3.5 py-2 text-white text-body-md font-body-md outline-none transition-all" type="password" value="supersecretpassword123"/>
+<button class="absolute right-3 text-outline hover:text-white" title="Toggle visibility">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility_off">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- New Password -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">New Password</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] focus:border-primary focus:ring-1 focus:ring-primary rounded-lg px-3.5 py-2 text-white text-body-md font-body-md outline-none transition-all" type="password" value="N3wStudi0P@ssw0rd!"/>
+<button class="absolute right-3 text-outline hover:text-white" title="Toggle visibility">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm New Password -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium">Confirm New Password</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#12121A] border border-tertiary/60 focus:border-tertiary focus:ring-1 focus:ring-tertiary rounded-lg pl-3.5 pr-10 py-2 text-white text-body-md font-body-md outline-none transition-all" type="password" value="N3wStudi0P@ssw0rd!"/>
+<span class="material-symbols-outlined absolute right-3 text-[20px] text-tertiary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Password Strength Indicator & Requirements -->
+<div class="p-4 rounded-lg bg-surface-container-lowest/70 border border-[#1E1E2E] flex flex-col gap-3 mb-6">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface font-medium">Password Strength</span>
+<span class="text-label-sm font-label-sm font-semibold text-tertiary flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                Strong: 16 characters, special symbols included
+              </span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden flex gap-1">
+<div class="h-full bg-tertiary flex-1 rounded-full"></div>
+<div class="h-full bg-tertiary flex-1 rounded-full"></div>
+<div class="h-full bg-tertiary flex-1 rounded-full"></div>
+<div class="h-full bg-tertiary flex-1 rounded-full"></div>
+</div>
+<!-- Requirements Checklist (All checked green) -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>8+ Characters (16)</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Uppercase Letter</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>At least 1 Number</span>
+</div>
+<div class="flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Special Symbol (!@#$)</span>
+</div>
+</div>
+</div>
+<!-- Action Row -->
+<div class="flex items-center justify-between pt-2">
+<div class="flex items-center gap-4">
+<button class="btn-gradient text-white text-label-md font-label-md px-5 py-2.5 rounded-lg font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="key">key</span>
+<span>Update Password</span>
+</button>
+<a class="text-body-sm font-body-sm text-primary hover:underline" href="#">Forgot current password?</a>
+</div>
+<span class="text-body-sm font-body-sm text-outline hidden sm:block">Password last updated 42 days ago</span>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- SECTION 3: SOCIAL & CREATOR PROFILES LINKING -->
+<!-- =================================================================== -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 shadow-sm">
+<div class="flex flex-col gap-1 mb-6 border-b border-[#1E1E2E] pb-4">
+<h2 class="text-headline-sm font-headline-sm text-white">Social &amp; Creator Profiles Linking</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Connect external studio accounts for automated sync, stream badges, and marketplace authentication.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: YouTube (Connected) -->
+<div class="bg-surface-container-lowest/80 border border-[#1E1E2E] hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between gap-4 transition-all group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-500/20 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined text-[24px]" data-icon="play_circle">play_circle</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-white font-semibold">YouTube</h3>
+<span class="text-body-sm font-body-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Connected
+                    </span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/30 rounded-lg px-2.5 py-1.5 text-body-sm font-body-sm text-on-surface truncate">
+                @AcmeMediaLab
+              </div>
+<button class="w-full text-center py-1.5 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:text-error hover:border-error/40 text-label-md font-label-md transition-colors">
+                Unlink
+              </button>
+</div>
+<!-- Card 2: X / Twitter (Connected) -->
+<div class="bg-surface-container-lowest/80 border border-[#1E1E2E] hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between gap-4 transition-all group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-white">
+<span class="text-[18px] font-bold">𝕏</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-white font-semibold">X / Twitter</h3>
+<span class="text-body-sm font-body-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Connected
+                    </span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/30 rounded-lg px-2.5 py-1.5 text-body-sm font-body-sm text-on-surface truncate">
+                @huzaifa_vfx
+              </div>
+<button class="w-full text-center py-1.5 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:text-error hover:border-error/40 text-label-md font-label-md transition-colors">
+                Unlink
+              </button>
+</div>
+<!-- Card 3: GitHub (Not Connected) -->
+<div class="bg-surface-container-lowest/80 border border-[#1E1E2E] hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between gap-4 transition-all group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[22px]" data-icon="code">code</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-white font-semibold">GitHub</h3>
+<span class="text-body-sm font-body-sm text-outline">Not connected</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/20 rounded-lg px-2.5 py-1.5 text-body-sm font-body-sm text-outline italic">
+                None linked
+              </div>
+<button class="w-full text-center py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-white text-label-md font-label-md border border-outline-variant/40 transition-colors flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Connect Account</span>
+</button>
+</div>
+<!-- Card 4: Discord (Connected) -->
+<div class="bg-surface-container-lowest/80 border border-[#1E1E2E] hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between gap-4 transition-all group">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+<span class="material-symbols-outlined text-[22px]" data-icon="forum">forum</span>
+</div>
+<div>
+<h3 class="text-label-lg font-label-lg text-white font-semibold">Discord</h3>
+<span class="text-body-sm font-body-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Connected
+                    </span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high/30 rounded-lg px-2.5 py-1.5 text-body-sm font-body-sm text-on-surface truncate">
+                Huzaifa#0001
+              </div>
+<button class="w-full text-center py-1.5 rounded-lg border border-outline-variant/30 text-on-surface-variant hover:text-error hover:border-error/40 text-label-md font-label-md transition-colors">
+                Unlink
+              </button>
+</div>
+</div>
+</div>
+<!-- =================================================================== -->
+<!-- DANGER ZONE CARD -->
+<!-- =================================================================== -->
+<div class="bg-surface-container-lowest/90 border border-red-500/30 rounded-xl p-6 relative overflow-hidden">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="delete_forever">delete_forever</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="text-headline-sm font-headline-sm text-red-400">Delete Account</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-2xl">
+                  Permanently remove your personal creator account, active subscriptions, and personal API tokens. This action is irreversible.
+                </p>
+</div>
+</div>
+<button class="px-5 py-2.5 rounded-lg border border-red-500/40 hover:bg-red-500/10 text-red-400 hover:text-red-300 text-label-md font-label-md font-semibold transition-all shrink-0">
+              Delete Account...
+            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- ======================================================================= -->
+<!-- STICKY BOTTOM SAVE ACTION BAR -->
+<!-- ======================================================================= -->
+<div class="fixed bottom-0 right-0 w-[calc(100%-16rem)] z-30 bg-[#0E0E13]/90 backdrop-blur-md border-t border-outline-variant/30 px-8 py-3.5 flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-2.5 text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="cloud_done">cloud_done</span>
+<span>Last saved 2 hours ago</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-transparent hover:bg-surface-container/60 text-on-surface-variant hover:text-white text-label-md font-label-md transition-colors">
+          Discard Changes
+        </button>
+<button class="btn-gradient px-6 py-2 rounded-lg text-white font-semibold text-label-md font-label-md flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-[18px]" data-icon="save">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

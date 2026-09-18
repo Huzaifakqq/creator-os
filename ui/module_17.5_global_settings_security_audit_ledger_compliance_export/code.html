@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS / Global Settings / Audit Ledger &amp; Compliance</title>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#4d8eff",
+            "secondary-fixed-dim": "#d0bcff",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-fixed": "#23005c",
+            "on-surface-variant": "#c2c6d6",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary": "#003824",
+            "inverse-primary": "#005ac2",
+            "inverse-on-surface": "#303036",
+            "on-primary-container": "#00285d",
+            "secondary-fixed": "#e9ddff",
+            "on-primary": "#002e6a",
+            "surface-container-highest": "#35343a",
+            "surface-container-high": "#2a292f",
+            "secondary-container": "#571bc1",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed-variant": "#004395",
+            "on-primary-fixed": "#001a42",
+            "outline-variant": "#424754",
+            "primary": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "on-background": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "tertiary-fixed": "#6ffbbe",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "surface-bright": "#39383e",
+            "background": "#131318",
+            "surface": "#131318",
+            "surface-container-lowest": "#0e0e13",
+            "secondary": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "on-error": "#690005",
+            "surface-tint": "#adc6ff",
+            "tertiary": "#4edea3",
+            "on-error-container": "#ffdad6",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0e0e13;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .glass-panel {
+      background: rgba(19, 19, 24, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid #23232e;
+    }
+    .mono-num {
+      font-feature-settings: 'tnum' on, 'lnum' on;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    .glow-primary {
+      box-shadow: 0 0 20px -4px rgba(77, 142, 255, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex min-h-screen selection:bg-primary selection:text-on-primary">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (Strict implementation from JSON & Anchors)  -->
+<!-- ========================================================================= -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-40 flex flex-col p-4 bg-surface-container-low border-r border-outline-variant justify-between">
+<!-- Header / Brand Section -->
+<div class="flex flex-col gap-5">
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-on-primary-container shadow-md font-bold font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-[22px] text-surface-container-lowest" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Creator OS</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+            Enterprise Tier <span class="text-[10px] px-1.5 py-0.2 rounded bg-surface-container text-primary font-mono">SOC-2</span>
+</span>
+</div>
+</div>
+<!-- Quick Tenant Badge: Acme Studios -->
+<div class="px-3 py-2 rounded-lg bg-surface-container flex items-center justify-between border border-outline-variant/60">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-5 h-5 rounded bg-primary-container/20 text-primary flex items-center justify-center font-bold text-xs">A</div>
+<span class="font-label-md text-label-md text-on-surface truncate">Acme Studios HQ</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Main Navigation Menu -->
+<!-- Current Intent is Global Settings > Audit Ledger => "Global Settings" is ACTIVE -->
+<nav class="flex flex-col gap-1">
+<!-- Tab 0: Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Tab 1: Media Vault -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_special">folder_special</span>
+<span class="font-label-md text-label-md">Media Vault</span>
+</a>
+<!-- Tab 2: Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="monitoring">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- Tab 3: Monetization -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Monetization</span>
+</a>
+<!-- Tab 4: Integrations -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="hub">hub</span>
+<span class="font-label-md text-label-md">Integrations</span>
+</a>
+<!-- Tab 5: Global Settings (ACTIVE MATCH) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-medium active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="settings" data-weight="fill" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-md text-label-md font-medium text-primary">Global Settings</span>
+</a>
+</nav>
+<!-- Quick Export Call To Action -->
+<div class="px-2 pt-1">
+<button class="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md transition-all duration-150 hover:bg-surface-container-high active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="bolt">bolt</span>
+<span>Quick Export</span>
+</button>
+</div>
+</div>
+<!-- Footer Meta: Docs, Audit Status, System Uptime & Admin Profile -->
+<div class="flex flex-col gap-3 pt-3 border-t border-outline-variant/50">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center justify-between px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="verified_user">verified_user</span>
+<span class="font-label-md text-label-md">Audit Status</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+</a>
+</div>
+<!-- System Uptime Indicator -->
+<div class="px-3 py-2 rounded-lg bg-surface-container-lowest/80 border border-outline-variant/40 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cluster Uptime</span>
+</div>
+<span class="font-mono text-label-sm text-label-sm text-emerald-400 font-semibold">99.98%</span>
+</div>
+<!-- User Profile Card -->
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="relative">
+<img class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="A professional security studio profile avatar of Huzaifa Khan, illuminated by a deep obsidian cyan rim light in a minimalist dark workstation environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhgx12vagcXdTH9OU1K-4ePLPP_pEha0J0O-NZ_kRfmGOkqd6K5ufrayM5V2cidp63qPGPCcgTkWX9RPaloK6d3nzNIjCpYC5A8vaEU7l_YhmnT_R9v3zCu-foEdouQEX_ANPyYsHQVRluzut8jr_7rnmlsvlREqxZj1jfFl2KzBhx83BH8aa5woGrRmsi3c2J5PvQO34ikrDBudEkTvv94jzTYavsUG_IBHTJg6mL-cGbvf8uvp8M1A"/>
+<div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-tertiary border-2 border-surface-container-low"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate">Huzaifa Khan</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">SecOps Super Admin</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN APPLICATION CANVAS WRAPPER (Padded for Fixed Left Sidebar)            -->
+<!-- ========================================================================= -->
+<div class="flex-1 pl-64 min-w-0 flex flex-col min-h-screen bg-surface-container-lowest">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (Exact layout, links, and styling commands)    -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 right-0 w-full px-6 flex items-center justify-between z-30 h-14 bg-surface border-b border-outline-variant">
+<!-- Left Anchor & Search Bar -->
+<div class="flex items-center gap-6 flex-1 max-w-2xl">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface-variant">Creator OS / Global Settings / Audit Ledger</span>
+</div>
+<div class="relative flex-1 max-w-md hidden sm:block">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span>
+</span>
+<input class="w-full pl-9 pr-12 py-1.5 bg-surface-container border border-outline-variant rounded-md text-on-surface placeholder:text-outline/70 font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search events by Actor, Event ID, IP, or SHA-256 hash..." type="text"/>
+<div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none">
+<kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-surface-container-high text-on-surface-variant rounded border border-outline-variant">⌘K</kbd>
+</div>
+</div>
+</div>
+<!-- Center / Right Top Nav Links & Status Badges -->
+<div class="flex items-center gap-5">
+<nav class="hidden xl:flex items-center gap-4">
+<a class="text-primary border-b-2 border-primary font-medium py-4 font-label-md text-label-md" href="#">All Logs</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors py-4 font-label-md text-label-md" href="#">SIEM Streams</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors py-4 font-label-md text-label-md" href="#">Compliance Vault</a>
+</nav>
+<div class="h-4 w-[1px] bg-outline-variant/60 hidden xl:block"></div>
+<!-- Trailing Actions from JSON and Continuity Context -->
+<div class="flex items-center gap-2.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md flex items-center gap-1.5 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="task_alt">task_alt</span>
+<span>Verify Chain</span>
+</button>
+<button class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-label-md text-label-md flex items-center gap-1.5 shadow-sm active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Export Ledger</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/60"></div>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-md transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high rounded-md transition-colors" title="Documentation Help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- SUB-NAVIGATION BAR (Settings Suite Continuity: Modules 17.1 -> 17.5)       -->
+<!-- ========================================================================= -->
+<div class="bg-surface-container-low px-6 border-b border-outline-variant/70 flex items-center justify-between overflow-x-auto custom-scrollbar">
+<div class="flex items-center gap-1 min-w-max">
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#">General &amp; Profile</a>
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-colors" href="#">
+<span>Team &amp; Seats</span>
+<span class="px-1.5 py-0.5 rounded-full bg-surface-container-high text-[11px] font-mono text-on-surface-variant">12</span>
+</a>
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#">Roles &amp; Permissions</a>
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#">Billing &amp; Plans</a>
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#">Custom Domains &amp; SSL</a>
+<a class="px-3 py-3 text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#">Security &amp; 2FA</a>
+<!-- Active Tab: Audit Ledger & Compliance -->
+<a class="px-3 py-3 text-primary font-medium font-label-md text-label-md border-b-2 border-primary flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="security">security</span>
+<span>Audit Ledger</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</a>
+</div>
+<!-- Real-time Verification Badges on Subnav Strip -->
+<div class="hidden lg:flex items-center gap-3 pl-4">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/40 border border-emerald-800/40 text-emerald-400 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>SOC-2 Type II Validated</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-950/40 border border-blue-800/40 text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="link">link</span>
+<span>Append-Only Merkle Chain: Verified</span>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- CONTENT CANVAS (Scrollable Workspace)                                     -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-6 space-y-6 max-w-[1720px] w-full mx-auto">
+<!-- SECTION 1: Executive Telemetry Strip (4 Top HUD Cards) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Telemetry Card 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md font-medium">Total Audit Events</span>
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="history_toggle_off">history_toggle_off</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface mono-num tracking-tight">142,890</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 flex items-center gap-1.5">
+<span class="text-tertiary font-medium">90-day</span> rolling retention • 100% indexed
+            </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-outline">
+<span>0 dropped packets</span>
+<span class="text-emerald-400 font-mono">Zero loss guarantee</span>
+</div>
+</div>
+<!-- Telemetry Card 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md font-medium">Merkle Hash Integrity</span>
+<span class="material-symbols-outlined text-[20px] text-tertiary" data-icon="shield">shield</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-emerald-400 tracking-tight flex items-center gap-2">
+<span>Intact &amp; Immutable</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 truncate">
+              Block <span class="text-on-surface font-mono">#842,910</span> • Root: <span class="font-mono text-primary">9f8a...3b21</span>
+</p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-outline">
+<span>Verified 4m ago</span>
+<span class="text-tertiary flex items-center gap-0.5">RFC 3161 Timestamped</span>
+</div>
+</div>
+<!-- Telemetry Card 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md font-medium">SIEM Streaming Health</span>
+<span class="material-symbols-outlined text-[20px] text-secondary" data-icon="stream">stream</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">3 Forwarders</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Datadog, Splunk Cloud, S3 Cold Vault
+            </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-outline">
+<span>18ms ingest p99 latency</span>
+<span class="text-emerald-400 font-mono">100% healthy</span>
+</div>
+</div>
+<!-- Telemetry Card 4 -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col justify-between hover:border-outline transition-all duration-150">
+<div class="flex items-center justify-between text-on-surface-variant mb-2">
+<span class="font-label-md text-label-md font-medium">Compliance Readiness</span>
+<span class="material-symbols-outlined text-[20px] text-amber-400" data-icon="verified">verified</span>
+</div>
+<div>
+<div class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">100% Audit Ready</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              SOC-2, ISO 27001, GDPR Right-to-Erasure
+            </p>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/40 flex items-center justify-between text-[11px] text-outline">
+<span>Next review in 14 days</span>
+<span class="text-primary font-medium">Automated Ledger</span>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Main Two-Column Layout (68% Audit Ledger / 32% Frameworks & SIEM) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- ================================================================= -->
+<!-- LEFT COLUMN: Cryptographic Audit Ledger & Event Stream (~68%)    -->
+<!-- ================================================================= -->
+<div class="lg:col-span-8 flex flex-col gap-4">
+<!-- Filter & Query Control Panel -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col gap-3">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<!-- Filter Selectors -->
+<div class="flex flex-wrap items-center gap-2">
+<!-- Date Range -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:border-outline transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="calendar_today">calendar_today</span>
+<span>Last 7 Days (Feb 18 - Feb 25, 2025)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Severity Filter -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:border-outline transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-amber-400" data-icon="filter_alt">filter_alt</span>
+<span>All Severities</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Actor / Member Filter -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:border-outline transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="group">group</span>
+<span>All 12 Members + 8 Agents</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Event Category Filter -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:border-outline transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="category">category</span>
+<span>Auth, RBAC, API, Actions</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Live Streaming Indicator & Ingestion Switch -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<span class="text-tertiary font-medium">Live Streaming (2.4 evt/s)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="pause_circle">pause_circle</span>
+</button>
+<button class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface" title="Customize Columns">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_column">view_column</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cryptographic Event Table Container -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/60 overflow-hidden shadow-xl">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse min-w-[900px]">
+<!-- Table Header -->
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 font-semibold">Timestamp (UTC)</th>
+<th class="py-3 px-3 font-semibold">Severity</th>
+<th class="py-3 px-4 font-semibold">Event Action &amp; Description</th>
+<th class="py-3 px-4 font-semibold">Actor / Entity</th>
+<th class="py-3 px-3 font-semibold">IP &amp; Geolocation</th>
+<th class="py-3 px-4 font-semibold">SHA-256 Hash</th>
+<th class="py-3 px-3 text-right font-semibold">Detail</th>
+</tr>
+</thead>
+<!-- Table Body with 7 Realistic Cryptographic Log Rows -->
+<tbody class="divide-y divide-outline-variant/40 font-body-sm text-body-sm">
+<!-- ROW 1: [Critical] AUTH_SSO_POLICY_UPDATE -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">18:42:09</div>
+<div class="text-[11px] text-outline">4m ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-rose-950/50 text-rose-300 border border-rose-800/50">
+                        Critical
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-primary font-semibold">AUTH_SSO_POLICY_UPDATE</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Modified SAML 2.0 IdP certificate renewal policy from 30d to auto-renew</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-[11px]">HK</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Huzaifa Khan</div>
+<span class="text-[10px] px-1 rounded bg-surface-container-highest text-on-surface-variant">Super Admin</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">142.250.190.24</div>
+<div class="text-[10px] text-outline flex items-center gap-1">
+<span>🇺🇸 San Francisco, US</span>
+<span class="text-tertiary">(HQ CIDR)</span>
+</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">e3b0...c442</span>
+<span class="material-symbols-outlined text-[14px] text-emerald-400" title="Merkle Hash Verified">verified</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 2: [Warning] IMPOSSIBLE_TRAVEL_CHALLENGE -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">18:18:22</div>
+<div class="text-[11px] text-outline">28m ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-950/50 text-amber-300 border border-amber-800/50">
+                        Warning
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-amber-300 font-semibold">IMPOSSIBLE_TRAVEL_CHALLENGE</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Geo-velocity anomaly: Frankfurt 45m after Austin login • Session challenged via WebAuthn</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-secondary-container/40 text-secondary flex items-center justify-center font-bold text-[11px]">SL</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Sarah Lin</div>
+<span class="text-[10px] px-1 rounded bg-surface-container-highest text-on-surface-variant">Lead Engineer</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">194.26.29.110</div>
+<div class="text-[10px] text-amber-400/80">🇩🇪 Frankfurt, DE</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">7d2f...81a0</span>
+<span class="material-symbols-outlined text-[14px] text-amber-400" title="WebAuthn Challenged">shield</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 3: [Critical] SECRETS_ROTATION_API_KEY -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">17:40:02</div>
+<div class="text-[11px] text-outline">1h ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-rose-950/50 text-rose-300 border border-rose-800/50">
+                        Critical
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-primary font-semibold">SECRETS_ROTATION_API_KEY</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Rotated Production Stripe Secret Webhook Signing Key</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-blue-900/40 text-primary-fixed flex items-center justify-center font-bold text-[11px]">AV</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Alex Vance</div>
+<span class="text-[10px] px-1 rounded bg-surface-container-highest text-on-surface-variant">CTO</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">35.240.112.44</div>
+<div class="text-[10px] text-tertiary">VPN Bastion • WireGuard</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">a18b...55fe</span>
+<span class="material-symbols-outlined text-[14px] text-emerald-400" title="Merkle Hash Verified">verified</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 4: [Info] AI_FLEET_AUTONOMOUS_ACTION -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">16:21:49</div>
+<div class="text-[11px] text-outline">2h ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-blue-950/50 text-blue-300 border border-blue-800/50">
+                        Info
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-secondary font-semibold">AI_FLEET_AUTONOMOUS_ACTION</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Lead Closer Agent auto-signed SOW Net-30 contract ($18,000 Supabase) within limit</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-purple-950/60 text-secondary flex items-center justify-center font-bold text-[10px] border border-secondary/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Agent: Lead Closer</div>
+<span class="text-[10px] px-1 rounded bg-secondary-container/40 text-secondary font-mono">agt_08</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">10.0.4.12</div>
+<div class="text-[10px] text-outline">Internal VPC Service Mesh</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">49c2...09e1</span>
+<span class="material-symbols-outlined text-[14px] text-emerald-400" title="Merkle Hash Verified">verified</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 5: [Warning] RBAC_ROLE_ELEVATION -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">15:12:30</div>
+<div class="text-[11px] text-outline">3h ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-950/50 text-amber-300 border border-amber-800/50">
+                        Warning
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-amber-300 font-semibold">RBAC_ROLE_ELEVATION</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Temporary elevation to Billing Admin granted for 2 hours (JIT Policy) by Huzaifa Khan</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-emerald-950 text-tertiary flex items-center justify-center font-bold text-[11px]">ER</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Elena Rostova</div>
+<span class="text-[10px] px-1 rounded bg-amber-950/60 text-amber-300 border border-amber-800/40">JIT Billing Admin</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">185.199.108.0</div>
+<div class="text-[10px] text-outline">🇬🇧 London, UK</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">bc91...67d3</span>
+<span class="text-[10px] text-amber-400 font-mono">Exp: 42m</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 6: [Info] DATA_EXPORT_STUDENT_ROSTER -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">13:04:11</div>
+<div class="text-[11px] text-outline">5h ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-blue-950/50 text-blue-300 border border-blue-800/50">
+                        Info
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-primary font-semibold">DATA_EXPORT_STUDENT_ROSTER</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Encrypted CSV export of 2,400 active cohort student IDs (PII redacted via DLP rules)</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-[11px]">MK</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">Marcus Kane</div>
+<span class="text-[10px] px-1 rounded bg-surface-container-highest text-on-surface-variant">Instructor</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">142.250.190.18</div>
+<div class="text-[10px] text-outline">🇺🇸 Austin, US</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">5f11...32cd</span>
+<span class="material-symbols-outlined text-[14px] text-blue-400" title="DLP Masked">lock</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- ROW 7: [Success] MIGRATION_VAULT_BACKUP -->
+<tr class="hover:bg-surface-container-high/60 transition-colors group">
+<td class="py-3.5 px-4 text-on-surface-variant mono-num whitespace-nowrap">
+<div class="text-on-surface font-medium">12:00:00</div>
+<div class="text-[11px] text-outline">6h ago</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-emerald-950/50 text-emerald-300 border border-emerald-800/50">
+                        Success
+                      </span>
+</td>
+<td class="py-3.5 px-4 max-w-xs">
+<div class="font-mono text-xs text-emerald-400 font-semibold">MIGRATION_VAULT_BACKUP</div>
+<div class="text-on-surface-variant text-[11px] line-clamp-1 mt-0.5">Automated hourly snapshot committed to multi-region cold vault (AES-256-GCM)</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-emerald-950/80 text-tertiary flex items-center justify-center font-bold text-[11px]">
+<span class="material-symbols-outlined text-[14px]" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface">System Daemon</div>
+<span class="text-[10px] px-1 rounded bg-surface-container-highest text-on-surface-variant font-mono">daemon_backup</span>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-3 whitespace-nowrap text-on-surface-variant">
+<div class="mono-num text-[11px] text-on-surface">10.0.1.88</div>
+<div class="text-[10px] text-outline">AWS us-east-1</div>
+</td>
+<td class="py-3.5 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1 font-mono text-[11px] text-on-surface-variant">
+<span class="bg-surface-container px-1.5 py-0.5 rounded text-outline border border-outline-variant/40">00ef...4129</span>
+<span class="text-[10px] text-tertiary font-mono">Root Block</span>
+</div>
+</td>
+<td class="py-3.5 px-3 text-right whitespace-nowrap">
+<button class="p-1 rounded text-outline hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Pagination & Merkle Zero-Tampering Summary -->
+<div class="p-4 bg-surface-container border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-3 text-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="verified_user">verified_user</span>
+<span>Showing <strong class="text-on-surface font-semibold">7</strong> of <strong class="text-on-surface font-semibold">142,890</strong> events • Merkle tree verified with zero tampering</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant text-outline hover:text-on-surface disabled:opacity-50" disabled="">Previous</button>
+<span class="px-2 font-mono text-xs text-on-surface">Page 1 of 20,413</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant text-on-surface hover:border-primary transition-colors">Next</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ================================================================= -->
+<!-- RIGHT COLUMN: Compliance Frameworks & SIEM Pipelines (~32%)       -->
+<!-- ================================================================= -->
+<div class="lg:col-span-4 flex flex-col gap-6">
+<!-- Section 1: One-Click Compliance Report Generator -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="assignment_turned_in">assignment_turned_in</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Compliance Bundles</h3>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-tertiary-container/30 text-tertiary border border-tertiary/40">Audit Ready</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Continuous export packages compiled with cryptographic Merkle proof stamps for regulatory filing.
+            </p>
+<!-- Framework List -->
+<div class="flex flex-col gap-3">
+<!-- Framework 1: SOC-2 Type II -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-2 hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">SOC-2 Type II Audit Package</span>
+<span class="text-[10px] font-mono text-tertiary">Continuous</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+                  Access review, policy change ledger, and tamper-proof hash chain proofs for AICPA auditor ingest.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-outline">Period: Q1 2025 (Rolling)</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container text-[11px] font-medium border border-outline-variant hover:border-primary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="download">download</span>
+<span>PDF + JSON</span>
+</button>
+</div>
+</div>
+<!-- Framework 2: ISO/IEC 27001:2022 -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-2 hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">ISO/IEC 27001:2022 ISMS</span>
+<span class="text-[10px] font-mono text-tertiary">Ready</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+                  Access control matrix, key rotation logbook, and simulated breach drills.
+                </p>
+<div class="pt-1 flex items-center justify-between">
+<span class="text-[10px] text-outline">Evidence count: 812 records</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-primary-container text-on-surface hover:text-on-primary-container text-[11px] font-medium border border-outline-variant hover:border-primary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="download">download</span>
+<span>Generate Bundle</span>
+</button>
+</div>
+</div>
+<!-- Framework 3: GDPR & CCPA -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-2 hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">GDPR / CCPA Erasure Vault</span>
+<span class="text-[10px] font-mono text-tertiary">Automated</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+                  Cryptographic receipts of pseudonymization and Right-to-Erasure execution proofs.
+                </p>
+</div>
+<!-- Framework 4: HIPAA Security Rule -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-2 hover:border-outline transition-colors">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">HIPAA Security Rule Ledger</span>
+<span class="text-[10px] font-mono text-tertiary">Compliant</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">
+                  Strict ePHI transmission logs with end-to-end envelope encryption validation.
+                </p>
+</div>
+</div>
+<!-- Custom Export Configurator -->
+<div class="mt-1 pt-3 border-t border-outline-variant/60 flex flex-col gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Custom Export Format</span>
+<div class="grid grid-cols-4 gap-1.5">
+<button class="py-1.5 rounded bg-primary text-on-primary text-[11px] font-mono font-medium text-center">JSONL</button>
+<button class="py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-[11px] font-mono text-center border border-outline-variant">CSV</button>
+<button class="py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-[11px] font-mono text-center border border-outline-variant">Parquet</button>
+<button class="py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-[11px] font-mono text-center border border-outline-variant">PGP PDF</button>
+</div>
+</div>
+</div>
+<!-- Section 2: Real-Time SIEM & Log Streaming Forwarders -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="sync_alt">sync_alt</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">SIEM Forwarders</h3>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-blue-950/40 text-primary border border-blue-800/40">3 Active</span>
+</div>
+<div class="flex flex-col gap-3">
+<!-- SIEM 1: Splunk HEC -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Splunk Cloud HEC</span>
+</div>
+<span class="font-mono text-[11px] text-tertiary">1.2k eps</span>
+</div>
+<div class="font-mono text-[11px] text-on-surface-variant truncate">hec.acmestudios.splunkcloud.com</div>
+<div class="text-[10px] text-outline">HTTP Event Collector • Channel: sec-audit-prod</div>
+</div>
+<!-- SIEM 2: Datadog Logs API -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Datadog Logs API</span>
+</div>
+<span class="font-mono text-[11px] text-tertiary">850 eps</span>
+</div>
+<div class="font-mono text-[11px] text-on-surface-variant truncate">http-intake.logs.datadoghq.com</div>
+<div class="flex items-center gap-1 text-[10px] text-outline">
+<span class="px-1 rounded bg-surface-container-high">env:production</span>
+<span class="px-1 rounded bg-surface-container-high">tier:enterprise</span>
+</div>
+</div>
+<!-- SIEM 3: AWS S3 Cold Glacier Vault -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant/50 flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">AWS S3 Cold Vault (Glacier)</span>
+</div>
+<span class="font-mono text-[11px] text-primary">WORM Lock</span>
+</div>
+<div class="font-mono text-[11px] text-on-surface-variant truncate">s3://creatoros-audit-vault-us-east/</div>
+<div class="text-[10px] text-tertiary">Object Lock (Compliance Mode) • 7-Year Immutable</div>
+</div>
+</div>
+<button class="w-full py-2 rounded-lg bg-surface-container border border-outline-variant/80 hover:border-primary text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add_circle">add_circle</span>
+<span>Configure New SIEM Destination</span>
+</button>
+</div>
+<!-- Section 3: Cryptographic Merkle Tree Verifier Widget -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/60 flex flex-col gap-3 relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="account_tree">account_tree</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Merkle Tree Verifier</h3>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Every audit record is hashed via SHA-256 and committed into a verifiable cryptographic hash ladder.
+            </p>
+<!-- Micro-Diagram Visualizer -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/50 font-mono text-[11px] space-y-2">
+<div class="flex items-center justify-between text-outline">
+<span>Leaf Event Block</span>
+<span class="text-on-surface-variant">SHA-256 (H0...Hn)</span>
+</div>
+<div class="flex justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_downward">arrow_downward</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-primary/30 flex items-center justify-between">
+<span class="text-on-surface">Merkle Root Hash</span>
+<span class="text-primary font-bold">0x9f8a...3b21</span>
+</div>
+<div class="flex justify-center text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_downward">arrow_downward</span>
+</div>
+<div class="flex items-center justify-between text-[10px] text-tertiary">
+<span>RFC 3161 Oracle Anchor</span>
+<span>Verified Public Ledger</span>
+</div>
+</div>
+<button class="w-full py-2.5 rounded-lg bg-surface-container-high hover:bg-surface-bright border border-outline-variant hover:border-tertiary text-on-surface font-label-md text-label-md flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="flaky">flaky</span>
+<span>Run Zero-Knowledge Proof Check</span>
+</button>
+<div class="flex items-center gap-1.5 text-[11px] text-outline">
+<span class="material-symbols-outlined text-[14px] text-emerald-400" data-icon="check_circle">check_circle</span>
+<span>Chain fully valid across all 142,890 log entries</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

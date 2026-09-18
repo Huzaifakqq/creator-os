@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS - Mobile Course Catalog &amp; Enrollment Checkout Sheet</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#4edea3",
+            "on-secondary": "#3c0091",
+            "outline-variant": "#424754",
+            "on-primary-container": "#00285d",
+            "on-tertiary-container": "#00311f",
+            "background": "#131318",
+            "secondary-fixed": "#e9ddff",
+            "on-error-container": "#ffdad6",
+            "secondary": "#d0bcff",
+            "tertiary-container": "#00a572",
+            "surface-dim": "#131318",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-high": "#2a292f",
+            "inverse-primary": "#005ac2",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container-highest": "#35343a",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline": "#8c909f",
+            "on-primary": "#002e6a",
+            "on-background": "#e4e1e9",
+            "surface": "#131318",
+            "surface-container-low": "#1b1b20",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed-variant": "#004395",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary": "#003824",
+            "surface-bright": "#39383e",
+            "on-error": "#690005",
+            "primary-fixed": "#d8e2ff",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-container": "#571bc1",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "primary-container": "#4d8eff",
+            "surface-container": "#1f1f25",
+            "secondary-fixed-dim": "#d0bcff",
+            "error": "#ffb4ab",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed": "#001a42",
+            "on-surface": "#e4e1e9",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed": "#002113"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom utility styles conforming to Creator OS token rules */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .sheet-glow {
+      box-shadow: 0 -12px 48px -8px rgba(77, 142, 255, 0.18), 0 -4px 20px 0 rgba(0, 0, 0, 0.8);
+    }
+    .cta-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary font-body-md text-body-md overflow-x-hidden">
+<!-- Mobile Screen Container (390px Viewport) -->
+<div class="w-full max-w-[390px] min-h-screen bg-surface-container-lowest relative flex flex-col pb-28 shadow-2xl border-x border-outline-variant/20">
+<!-- 1. iOS Status Bar -->
+<div class="h-11 w-full pt-3 px-6 flex justify-between items-center text-on-surface z-50 select-none bg-surface/90 backdrop-blur-md sticky top-0">
+<span class="font-label-md text-label-md tracking-tight font-bold">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">wifi</span>
+<div class="w-5 h-2.5 border border-on-surface/80 rounded-[3px] p-0.5 flex items-center">
+<div class="bg-on-surface h-full w-3.5 rounded-[1px]"></div>
+</div>
+</div>
+</div>
+<!-- Top App Bar (Shared Component Anchor) -->
+<header class="bg-surface/90 backdrop-blur-md text-primary sticky top-11 z-40 border-b border-outline-variant/30 px-4 h-14 flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<button class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]">menu</span>
+</button>
+<div class="flex items-center space-x-1.5">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<h1 class="text-headline-sm font-headline-sm tracking-tight text-on-surface font-bold">Creator OS</h1>
+</div>
+</div>
+<div class="flex items-center space-x-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 duration-150 relative">
+<span class="material-symbols-outlined text-[20px]">bookmark</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- Subheader Tenant & Filter Chips -->
+<div class="px-4 pt-3 pb-2 flex flex-col space-y-2.5 bg-surface-container-lowest border-b border-outline-variant/20">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Academy Portal</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-tertiary flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Spring 2026 Cohorts Live
+          </span>
+</div>
+<button class="flex items-center space-x-1 bg-surface-container-high px-2 py-0.5 rounded-full border border-outline-variant/40 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[12px]">tune</span>
+<span>Filter</span>
+</button>
+</div>
+<!-- Category Filter Carousel Chips -->
+<div class="flex space-x-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-primary-container/20 border border-primary text-primary font-label-md text-label-md flex items-center space-x-1 shadow-sm">
+<span>All Courses</span>
+<span class="w-4 h-4 rounded-full bg-primary-container text-on-primary-container text-[10px] flex items-center justify-center font-bold">18</span>
+</button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface font-label-md text-label-md flex items-center space-x-1 hover:border-outline transition-colors">
+<span>🔥 Live Cohorts</span>
+</button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">
+<span>Cinematography</span>
+</button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">
+<span>AI &amp; Shaders</span>
+</button>
+<button class="flex-shrink-0 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface-variant font-label-md text-label-md hover:text-on-surface transition-colors">
+<span>Sound Design</span>
+</button>
+</div>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 px-4 pt-3 flex flex-col space-y-4">
+<!-- 2. Featured Masterclass Cohort Hero Card -->
+<section class="rounded-2xl bg-surface-container-low border border-outline-variant/30 overflow-hidden relative group">
+<!-- Accent Ambient Top Edge Glow -->
+<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary via-secondary to-tertiary"></div>
+<!-- Cohort Badge & Urgency Pill -->
+<div class="p-3.5 pb-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm tracking-wider text-primary font-bold uppercase bg-primary-container/20 px-2 py-0.5 rounded-md border border-primary/30">
+            FEATURED COHORT • SPRING 2026
+          </span>
+<div class="flex items-center space-x-1 bg-amber-500/15 border border-amber-500/40 text-amber-300 px-2 py-0.5 rounded-full text-label-sm font-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+<span>4 Seats Left</span>
+</div>
+</div>
+<!-- Thumbnail & Media Section -->
+<div class="px-3.5 relative">
+<div class="w-full h-36 rounded-xl overflow-hidden relative border border-outline-variant/40">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A moody high-end cinematic film set bathed in dramatic neon blue and amber rim lighting featuring an Arri anamorphic cinema camera rig on a mechanical slider surrounded by professional calibrated color monitors in a dark studio stage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7uQSTezrV7dijs6UDnanM2WBRTUuBM5MijWGbV1w7X1ArRvKedruZvPANjctnXC2Ao12tHT1QSEa30CMAvI8K8UqNSASZXR-ShYe3AbpT9NgNFkZGV7jyIr-SHpF4jSwYctWi0pK8rS-pVrqG_83GwMQlhpDUINOuYS_YxDLiAhINNLP85-Peb1XAaTEQqi-HHn-sx3l-RHl8G0f3X4DMYjejVnFXFC4muDRI9iWa-tiqPRKSLamyA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-transparent to-black/20"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1.5 bg-surface-container-lowest/80 backdrop-blur-md px-2 py-0.5 rounded-md border border-outline-variant/40">
+<span class="material-symbols-outlined text-[13px] text-tertiary" style="font-variation-settings: 'FILL' 1;">videocam</span>
+<span class="text-label-sm font-label-sm text-on-surface">12 Live Practicums</span>
+</div>
+<div class="absolute bottom-2 right-2 bg-surface-container-lowest/90 px-2 py-0.5 rounded-md text-label-sm font-label-sm text-primary font-bold border border-primary/20">
+              Starts Nov 12
+            </div>
+</div>
+</div>
+<!-- Cohort Details -->
+<div class="p-3.5 pt-2.5 flex flex-col space-y-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface leading-tight tracking-tight">
+            Mastery in Advanced Cinematography &amp; Color Grading
+          </h2>
+<!-- Instructor Metadata -->
+<div class="flex items-center justify-between pt-0.5">
+<div class="flex items-center space-x-2">
+<div class="w-7 h-7 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="Close-up professional portrait of Sarah Lin, a female director of photography with focused expression wearing dark studio headset against a dark moody film set background with electric violet backlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsQpxbrtaxQrHK4IGjpuAFM4NmM2PfTWpa_5knp29M1Inb5T74eA-Gw0Qm_QPtgWhyT5B6-JBDjZe3byjKwg4XKg8u3TRwGeGPFRa5Z3ebgIlKXys1sT28dAxGwnFcNldUr4aXBbBdyD1VNfKLzoSlJKeMtUMIg7tMc-hGsVmH6dTCRYjZ9HoeOE6bFGTPb1nPz5JaGuM9Sku8oCvCScfGUTx_VAWNmqNhLd-yyzSXArIjOjzIpgJ_QQ"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-1">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Sarah Lin</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline leading-none">Lead DP &amp; Guild Colorist</span>
+</div>
+</div>
+<div class="text-right">
+<div class="flex items-center space-x-0.5 text-amber-400 font-label-md text-label-md font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.98</span>
+<span class="text-outline font-normal text-body-sm">(1.2k alumni)</span>
+</div>
+</div>
+</div>
+<!-- Specs Matrix -->
+<div class="grid grid-cols-3 gap-1.5 py-1.5 bg-surface-container rounded-lg px-2 border border-outline-variant/30 text-center">
+<div>
+<span class="block text-outline font-label-sm text-label-sm">Duration</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">8 Weeks</span>
+</div>
+<div class="border-x border-outline-variant/30">
+<span class="block text-outline font-label-sm text-label-sm">Cohort Ratio</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4:1 Practicum</span>
+</div>
+<div>
+<span class="block text-outline font-label-sm text-label-sm">Credential</span>
+<span class="font-label-md text-label-md font-bold text-tertiary">Merkle Proof</span>
+</div>
+</div>
+<!-- Price & Sheet Trigger Button -->
+<div class="pt-1 flex items-center justify-between">
+<div>
+<span class="block text-headline-sm font-headline-sm text-on-surface font-bold tracking-tight">$1,250</span>
+<span class="block text-label-sm font-label-sm text-outline font-normal">or $340/mo with Klarna</span>
+</div>
+<button class="px-4 py-2 rounded-xl cta-gradient text-white font-label-lg text-label-lg font-semibold flex items-center space-x-1.5 shadow-lg shadow-blue-500/20 active:scale-95 transition-transform duration-100" onclick="document.getElementById('checkoutSheet').scrollIntoView({behavior: 'smooth'})">
+<span>Enroll Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 3. Course Catalog Feed / Grid -->
+<section class="flex flex-col space-y-3 pt-1">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Upcoming Courses</h3>
+<button class="text-primary font-label-md text-label-md hover:underline flex items-center">
+            View All (18)
+            <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+<!-- Course Card 1 -->
+<article class="p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex space-x-3 items-center hover:border-secondary/40 transition-colors">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 relative border border-outline-variant/40">
+<img class="w-full h-full object-cover" data-alt="High quality anamorphic lens flare displaying horizontal blue and violet streaks across a dark film set background with precise studio lighting equipment and soft specular bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq6DfvNNjdvrYRDg4aUPe-VMv51lBGVBB3S1KSonDXGuefunmPxe_b55leSUD05IN1u7SjMN6jTtZ5Mr3QyWT71dfcUvJU0rqkXTgRZ_WhK3sd3wJL403zbaFtJJZcebrk6_-6BjzxccVmaUCqYAZsAPInK8eDMiF6Zl0gw5RdPDFGP_HdKiwYhrRNaBIII6cLwCltNwtT6qNFjTpY0QBNwU3hsOzDZB5isChK71FEGbRtT0W-sYQ99w"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/80 text-[9px] font-bold text-on-surface px-1 rounded">14h</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-[10px] uppercase font-bold text-secondary tracking-wider">Live Stage Access</span>
+<span class="flex items-center text-amber-400 text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+              </span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">Lighting Masterclass &amp; Anamorphic</h4>
+<p class="text-outline text-body-sm font-body-sm truncate">Sarah Lin &amp; Alex Vance</p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$850</span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-primary text-label-sm font-label-sm font-semibold border border-primary/20 hover:bg-primary/10">
+                Details
+              </button>
+</div>
+</div>
+</article>
+<!-- Course Card 2 -->
+<article class="p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex space-x-3 items-center hover:border-secondary/40 transition-colors">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 relative border border-outline-variant/40">
+<img class="w-full h-full object-cover" data-alt="Unreal Engine 5 virtual production stage with immense curved LED volume wall displaying photorealistic virtual alien landscape behind cinematic film camera and tracking sensors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-v-tBGoe3dn1qi0N-BENgQJUs4Bw0hPVMyY1JCeQECTvhf2ShO2D20TbH7SYWFY87jjJe-a06R-SwBwV_h-A27okSdBZApjdiG7InhwhQQpujSXwqkfVeZjQ-Kvqo-sVg6QlR-bV12IGB4SAwIYu-ctp76CZV7LPx6H3ULumqNmHpK2xAoZZqwDQ8_c1JPFJ7xCDtR9l5JxerTp1EHoUZQNGVnUaBiwm0MW6-YmpRTR_Sg4PdEVsAag"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/80 text-[9px] font-bold text-tertiary px-1 rounded">Dual Cert</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">6 Seats Left</span>
+<span class="flex items-center text-amber-400 text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.95
+              </span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">UE 5.5 Virtual Production &amp; LEDs</h4>
+<p class="text-outline text-body-sm font-body-sm truncate">Elena Rostova • Epic Fellow</p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$1,450</span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-primary text-label-sm font-label-sm font-semibold border border-primary/20 hover:bg-primary/10">
+                Details
+              </button>
+</div>
+</div>
+</article>
+<!-- Course Card 3 -->
+<article class="p-3 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex space-x-3 items-center hover:border-secondary/40 transition-colors">
+<div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 relative border border-outline-variant/40">
+<img class="w-full h-full object-cover" data-alt="Professional spatial audio mixing console with illuminated multi-channel faders and 3D sound hemisphere monitor visualizations in a dark acoustic control room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjYiQVbOR5cUidMfPQth-Fga7qVo9UROfQ6qXCJu5KqL6llzhV9hQ4WuzBedU9dA3-b2Ptv8EaVeT8mtEhjbUj5c58kTvgyMrzRDV4KI8Y0R5sTiWIIkcTGzKW_7gbbnWS3jL6Gl_SEwHOybRShvlfC9ywbk4yzFj6A0--1wiP7A3fngtvrNXavYX7RFpHJr6UGbm2LgKB0N00w7RNY5OlQoXD0n36i7bBKNj015cLJZx2DDxF8QzEoA"/>
+<span class="absolute bottom-1 right-1 bg-surface-container-lowest/80 text-[9px] font-bold text-on-surface px-1 rounded">Self-Paced</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-[10px] uppercase font-bold text-primary tracking-wider">18 DAW Presets</span>
+<span class="flex items-center text-amber-400 text-label-sm font-label-sm font-bold">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+              </span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-on-surface truncate">Modern Sound &amp; Spatial Audio</h4>
+<p class="text-outline text-body-sm font-body-sm truncate">Marcus Kane • Grammy Nominee</p>
+<div class="flex items-center justify-between pt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">$490</span>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container text-primary text-label-sm font-label-sm font-semibold border border-primary/20 hover:bg-primary/10">
+                Details
+              </button>
+</div>
+</div>
+</article>
+</section>
+<!-- 4. Interactive Mobile Enrollment Checkout Sheet (Docked Modal Pattern) -->
+<section class="mt-4 rounded-3xl bg-surface-container border border-outline-variant/40 p-4 sheet-glow relative flex flex-col space-y-3.5" id="checkoutSheet">
+<!-- Sheet Centered Drag Handle -->
+<div class="w-12 h-1 bg-outline-variant/60 rounded-full mx-auto -mt-1 mb-1"></div>
+<!-- Sheet Header with Selected Course Thumbnail -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+<div class="flex items-center space-x-2.5">
+<div class="w-10 h-10 rounded-lg overflow-hidden border border-outline-variant/50 flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Macro camera monitor showing waveform monitors and vector scopes in a darkened studio environment with electric neon blue and purple backlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRR71kMZAH4eFO6nAG5L82voLT4zhm0tp8suJHF9XplxF11U0X108_N2f_lc5hQig0H80NQHnVdQ2v0--wNYDLAwb3QIwpKs4m_FdrHtTDnKMxCf1A1QKys4vocDsLumeddCQx-SucYudpd8DYuqD7Z_f8cw2utUXrfbo10ghH1Ahpp3cMjvrY4Blf0AMG2JncGqOIqdV4oofP846RQgc0Gkj0lir3waSxOqh0vlPFBudAYx_ZKDEpzA"/>
+</div>
+<div>
+<span class="text-label-sm font-label-sm uppercase font-bold text-primary tracking-wider">Checkout &amp; Seat Reservation</span>
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface leading-snug truncate max-w-[210px]">
+                Mastery in Advanced Cinematography
+              </h3>
+</div>
+</div>
+<button class="w-7 h-7 rounded-full bg-surface-container-high flex items-center justify-center text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- Tier / Plan Radio Selector -->
+<div class="flex flex-col space-y-2.5">
+<span class="font-label-sm text-label-sm text-outline font-bold uppercase tracking-wider">Select Enrollment Tier</span>
+<!-- Tier A (Recommended Active Selection) -->
+<label class="p-3 rounded-xl bg-surface-container-low border-2 border-primary relative cursor-pointer block transition-all shadow-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-5 h-5 rounded-full bg-primary flex items-center justify-center text-on-primary mt-0.5">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Cohort + 1:1 Mentorship</span>
+<span class="bg-primary-container text-on-primary-container text-[10px] font-bold px-1.5 py-0.2 rounded">POPULAR</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant pt-0.5">
+                    8 weekly live labs, Sarah Lin direct 1:1 DM channel, and 12 graded film reviews.
+                  </p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface block">$1,250</span>
+</div>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-tertiary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified Merkle Audit Diploma
+              </span>
+<span class="text-amber-400 font-semibold">Only 4 slots left</span>
+</div>
+</label>
+<!-- Tier B (Self Paced) -->
+<label class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 relative cursor-pointer block opacity-75 hover:opacity-100 transition-opacity">
+<div class="flex items-start justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center mt-0.5"></div>
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Self-Paced Curriculum</span>
+<p class="text-body-sm font-body-sm text-outline pt-0.5">
+                    Full video archive access, downloadable exercise files, community access.
+                  </p>
+</div>
+</div>
+<div class="text-right flex-shrink-0 ml-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface block">$590</span>
+</div>
+</div>
+</label>
+</div>
+<!-- Promo Code Input Row -->
+<div class="pt-1">
+<div class="flex items-center space-x-2 bg-surface-container-lowest p-1.5 pl-3 rounded-xl border border-tertiary/40">
+<span class="material-symbols-outlined text-tertiary text-[18px]">confirmation_number</span>
+<div class="flex-1">
+<span class="font-label-sm text-label-sm font-bold text-tertiary block leading-none">CREATOR_OS_LAUNCH</span>
+<span class="text-[10px] text-outline">$150 Early Bird discount applied</span>
+</div>
+<div class="flex items-center space-x-1 pr-2">
+<span class="material-symbols-outlined text-tertiary text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">-$150</span>
+</div>
+</div>
+</div>
+<!-- Order Summary & Due Calculation -->
+<div class="bg-surface-container-low p-3 rounded-xl border border-outline-variant/30 space-y-1.5">
+<div class="flex justify-between text-body-sm font-body-sm text-outline">
+<span>Course Tuition (Cohort Tier)</span>
+<span class="text-on-surface font-medium">$1,250.00</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm text-tertiary">
+<span>Launch Code Discount</span>
+<span>-$150.00</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm text-outline">
+<span>Merkle Certification Fee</span>
+<span class="text-tertiary font-medium">FREE</span>
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex justify-between items-baseline">
+<div>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">Total Due Today</span>
+<span class="block text-[11px] text-outline">or 3 payments of $380 with Klarna</span>
+</div>
+<span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">$1,100.00</span>
+</div>
+</div>
+<!-- Trust Badges & Guarantee Callouts -->
+<div class="grid grid-cols-2 gap-2 text-center py-0.5">
+<div class="flex items-center justify-center space-x-1 bg-surface-container-lowest/60 p-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-tertiary text-[16px]">verified_user</span>
+<span class="text-[10px] font-semibold text-on-surface-variant">14-Day 100% Refund</span>
+</div>
+<div class="flex items-center justify-center space-x-1 bg-surface-container-lowest/60 p-1.5 rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-secondary text-[16px]">token</span>
+<span class="text-[10px] font-semibold text-on-surface-variant">On-Chain Audit Cert</span>
+</div>
+</div>
+<!-- 1-Tap Checkout Buttons -->
+<div class="space-y-2 pt-1">
+<!-- Apple Pay CTA Button -->
+<button class="w-full h-11 rounded-xl bg-white text-black font-bold flex items-center justify-center space-x-1 active:scale-[0.98] transition-transform duration-150 shadow-md">
+<span class="text-body-md font-body-md">Pay with</span>
+<!-- Stylized Apple Pay text representation -->
+<span class="font-black tracking-tight text-body-lg font-body-lg flex items-center">
+              Pay
+            </span>
+</button>
+<!-- Primary Gradient Card / Klarna CTA Button -->
+<button class="w-full h-12 rounded-xl cta-gradient text-white font-label-lg text-label-lg font-bold flex items-center justify-center space-x-2 shadow-lg shadow-blue-500/25 active:scale-[0.98] transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Pay $1,100 with Card / Klarna</span>
+</button>
+</div>
+<!-- Encrypted Footnote -->
+<div class="flex items-center justify-center space-x-1.5 text-outline font-label-sm text-label-sm text-center pt-1">
+<span class="material-symbols-outlined text-[12px]">enhanced_encryption</span>
+<span>256-Bit SSL Encrypted • Instant Access Unlocked</span>
+</div>
+</section>
+</main>
+<!-- 5. Standard Fixed Bottom Navigation Bar (Shared Component Anchor) -->
+<!-- Destination Rule: Top Level Navigation Destination: 'Courses' is active -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest/95 backdrop-blur-lg border-t border-outline-variant/20 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex justify-around items-center h-16 px-2 max-w-[390px] mx-auto">
+<!-- Tab 1: Explore -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-normal py-1 hover:text-primary transition-colors duration-150 active:scale-90 flex-1" href="#explore">
+<span class="material-symbols-outlined text-[22px]">explore</span>
+<span class="text-label-sm font-label-sm mt-0.5">Explore</span>
+</a>
+<!-- Tab 2: Courses (ACTIVE MATCH) -->
+<a class="flex flex-col items-center justify-center text-primary font-semibold py-1 hover:text-primary transition-colors duration-150 active:scale-90 flex-1" href="#courses">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-label-sm font-label-sm mt-0.5">Courses</span>
+</a>
+<!-- Tab 3: Cohorts -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-normal py-1 hover:text-primary transition-colors duration-150 active:scale-90 flex-1" href="#cohorts">
+<span class="material-symbols-outlined text-[22px]">groups</span>
+<span class="text-label-sm font-label-sm mt-0.5">Cohorts</span>
+</a>
+<!-- Tab 4: Account -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant font-normal py-1 hover:text-primary transition-colors duration-150 active:scale-90 flex-1" href="#account">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Account</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

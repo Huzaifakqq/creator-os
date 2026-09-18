@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Create Community Post</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#adc6ff",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "on-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "surface-dim": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-primary": "#005ac2",
+            "surface-container-lowest": "#0e0e13",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "surface": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "on-background": "#e4e1e9",
+            "on-error-container": "#ffdad6",
+            "on-tertiary": "#003824",
+            "on-primary-fixed": "#001a42",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary": "#002e6a",
+            "surface-container-high": "#2a292f",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "primary-container": "#4d8eff",
+            "on-error": "#690005",
+            "on-secondary-container": "#c4abff",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "surface-variant": "#35343a",
+            "inverse-on-surface": "#303036",
+            "surface-container-low": "#1b1b20",
+            "background": "#131318",
+            "outline": "#8c909f",
+            "error": "#ffb4ab",
+            "surface-tint": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "outline-variant": "#424754",
+            "on-tertiary-container": "#00311f",
+            "tertiary-container": "#00a572",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed-dim": "#adc6ff",
+            "secondary-fixed": "#e9ddff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #FFFFFF;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+    
+    .bg-gradient-accent {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    
+    .glow-accent {
+      box-shadow: 0 0 20px -2px rgba(59, 130, 246, 0.4);
+    }
+    
+    .glow-accent-subtle {
+      box-shadow: 0 0 14px -3px rgba(139, 92, 246, 0.3);
+    }
+
+    /* Custom scrollbar for instrument feel */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E1E2E;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2A2A3E;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex bg-[#0A0A0F] text-[#FFFFFF] antialiased selection:bg-primary selection:text-on-primary-container">
+<!-- ==================== SHARED SIDEBAR NAV ==================== -->
+<!-- Conforms to SideNavBar specifications from JSON with 'Memberships' (Community context) active -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-50 flex flex-col justify-between p-space-md bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant dark:border-outline-variant overflow-y-auto shrink-0 select-none">
+<!-- Top Branding Anchor -->
+<div>
+<div class="flex items-center gap-space-sm px-space-sm mb-space-lg">
+<div class="w-8 h-8 rounded-lg bg-gradient-accent flex items-center justify-center font-bold text-white text-base shadow-sm">
+          Δ
+        </div>
+<div>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface leading-tight">Creator OS</div>
+<div class="text-label-sm font-label-sm text-[#9CA3AF]">Acme Studios</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<nav class="space-y-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-label-md font-label-md">Dashboard</span>
+</a>
+<!-- Workspaces -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">workspaces</span>
+<span class="text-label-md font-label-md">Workspaces</span>
+</a>
+<!-- Website Builder -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">web</span>
+<span class="text-label-md font-label-md">Website Builder</span>
+</a>
+<!-- App Builder -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">developer_mode</span>
+<span class="text-label-md font-label-md">App Builder</span>
+</a>
+<!-- Commerce -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="text-label-md font-label-md">Commerce</span>
+</a>
+<!-- Marketplace -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="text-label-md font-label-md">Marketplace</span>
+</a>
+<!-- Courses -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="text-label-md font-label-md">Courses</span>
+</a>
+<!-- Memberships / Community (ACTIVE STATE) -->
+<a class="flex items-center gap-space-sm bg-primary-container text-on-primary-container rounded-lg px-space-md py-space-sm font-medium shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-label-md font-label-md font-semibold">Memberships</span>
+</a>
+<!-- Coaching -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span class="text-label-md font-label-md">Coaching</span>
+</a>
+<!-- CRM -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">contacts</span>
+<span class="text-label-md font-label-md">CRM</span>
+</a>
+<!-- Email -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="text-label-md font-label-md">Email</span>
+</a>
+<!-- AI Agents -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="text-label-md font-label-md">AI Agents</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-label-md font-label-md">Analytics</span>
+</a>
+<!-- Affiliates -->
+<a class="flex items-center gap-space-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">loyalty</span>
+<span class="text-label-md font-label-md">Affiliates</span>
+</a>
+</nav>
+</div>
+<!-- Sidebar Footer -->
+<div class="pt-space-md border-t border-outline-variant/60">
+<div class="p-3 mb-space-sm rounded-lg bg-[#12121A] border border-[#1E1E2E]">
+<div class="flex items-center justify-between mb-1.5">
+<span class="text-label-sm font-label-sm text-[#9CA3AF]">Tier Plan</span>
+<span class="px-1.5 py-0.5 rounded bg-gradient-accent text-[10px] font-bold tracking-wider text-white">PRO STUDIO</span>
+</div>
+<button class="w-full text-center py-1.5 px-space-sm rounded bg-surface-container hover:bg-surface-container-high text-primary text-label-sm font-label-sm transition-colors duration-150">
+          Upgrade Plan
+        </button>
+</div>
+<a class="flex items-center gap-space-sm text-on-surface-variant hover:text-on-surface px-space-md py-space-sm rounded-lg hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+</div>
+</aside>
+<!-- ==================== MAIN WORKSPACE CONTAINER ==================== -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- Shared Top Utility Header -->
+<header class="flex justify-between items-center w-full px-space-lg h-14 bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-outline-variant dark:border-outline-variant sticky top-0 z-40">
+<!-- Left Section: Search & Breadcrumb -->
+<div class="flex items-center gap-space-lg flex-1 max-w-xl">
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-8 pl-9 pr-3 rounded bg-[#12121A] border border-[#1E1E2E] text-body-sm font-body-sm text-white placeholder:text-[#9CA3AF]/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search posts, channels, topics..." type="text"/>
+</div>
+<!-- Breadcrumbs Navigation -->
+<div class="hidden lg:flex items-center gap-2 text-label-sm font-label-sm text-[#9CA3AF]">
+<span class="hover:text-white transition-colors cursor-pointer">Community</span>
+<span class="text-outline-variant">/</span>
+<span class="text-[#c2c6d6] hover:text-white transition-colors cursor-pointer">General</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium">Create New Post</span>
+</div>
+</div>
+<!-- Right Utility Actions -->
+<div class="flex items-center gap-space-md">
+<div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#12121A] border border-[#1E1E2E] text-[11px] text-[#9CA3AF]">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Telemetry Live: 1,420 Online</span>
+</div>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-[#9CA3AF] hover:text-white hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-[#9CA3AF] hover:text-white hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<div class="h-5 w-px bg-[#1E1E2E]"></div>
+<!-- Creator Profile Anchor -->
+<div class="flex items-center gap-2.5 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full ring-1 ring-primary/40 overflow-hidden bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait photograph of creative director Huzaifa Khan in modern studio lighting, muted cinematic violet-blue tones, sharp high-fidelity focus, professional dark mode aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH64MmlcxrrZIQ5cizA3xLSq-jppkOBVc3Sg0DyXbnLoDJcAzubSAB9JrUixNsjFrj7Hpv-WDGsK87LEwHzoco41O-QY2eXzP-MzOPKmli7e6DHfqpLca1oZ7qAM4MjEckBLpZMdD0zo_TS2-o1yj_u-tf1yI-C3MoVN3gzgi3Lka3TUmGNr1tBAM8Ua8Ic-z50ar7Kk6Qwac6i9xaTyDQ5PMOqq51Cg31Bw2myclBFy9DnvjNzJmjGA"/>
+</div>
+<div class="hidden md:block text-left leading-tight">
+<div class="text-label-sm font-label-sm font-semibold text-white">Huzaifa Khan</div>
+<div class="text-[10px] text-[#9CA3AF]">Lead Director</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas (Grid Workspace) -->
+<main class="p-space-lg max-w-[1520px] mx-auto w-full">
+<!-- Canvas Header & Master Control Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-space-lg mb-space-lg border-b border-[#1E1E2E]">
+<div>
+<a class="inline-flex items-center gap-1.5 text-label-sm font-label-sm text-[#9CA3AF] hover:text-primary transition-colors duration-150 mb-2" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+            Back to Community Feed
+          </a>
+<h1 class="text-headline-lg font-headline-lg text-white tracking-tight">Create Community Post</h1>
+<p class="text-body-md font-body-md text-[#9CA3AF] mt-1 max-w-2xl">
+            Share tutorials, launch announcements, behind-the-scenes footage, or prompt a discussion with your community.
+          </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="h-10 px-4 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 text-white text-label-md font-label-md flex items-center gap-2 transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-[#9CA3AF]">drafts</span>
+            Save as Draft
+          </button>
+<button class="h-10 px-5 rounded-lg bg-gradient-accent glow-accent hover:brightness-110 text-white text-label-md font-label-md font-medium flex items-center gap-2 transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">send</span>
+            Publish Post
+          </button>
+</div>
+</div>
+<!-- Two-Column Workstation Layout (Composer + Live Preview) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left 8 Columns: Composer & Configuration -->
+<div class="xl:col-span-8 space-y-space-lg">
+<!-- Post Configuration Strip Card -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] shadow-sm space-y-space-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Channel Selector -->
+<div>
+<label class="block text-label-sm font-label-sm text-[#9CA3AF] mb-1.5">Destination Channel</label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E] text-body-md font-body-md text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option selected=""># announcements (Pinned)</option>
+<option># general-chat</option>
+<option># cinematography-critique</option>
+<option># lut-presets</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Audience & Tier Gating -->
+<div>
+<label class="block text-label-sm font-label-sm text-[#9CA3AF] mb-1.5">Audience &amp; Access Gating</label>
+<div class="relative">
+<select class="w-full h-10 px-3 pr-8 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E] text-body-md font-body-md text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option>All Members (Free &amp; Paid)</option>
+<option selected="">Pro &amp; VIP Members Only</option>
+<option>VIP Inner Circle Only</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">lock</span>
+</div>
+</div>
+</div>
+<!-- Post Type Radio Pills -->
+<div>
+<label class="block text-label-sm font-label-sm text-[#9CA3AF] mb-2">Post Format</label>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm">
+<!-- Standard Discussion -->
+<button class="flex items-center justify-center gap-2 p-2.5 rounded-lg border border-[#1E1E2E] bg-[#181824] hover:bg-[#1E1E2E] text-on-surface-variant transition-all text-label-md font-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+<span>Standard Discussion</span>
+</button>
+<!-- Official Announcement (Selected) -->
+<button class="flex items-center justify-center gap-2 p-2.5 rounded-lg border border-primary/80 bg-primary/10 text-white ring-1 ring-primary/40 glow-accent-subtle transition-all text-label-md font-label-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">campaign</span>
+<span>Official Announcement</span>
+</button>
+<!-- Resource Asset Drop -->
+<button class="flex items-center justify-center gap-2 p-2.5 rounded-lg border border-[#1E1E2E] bg-[#181824] hover:bg-[#1E1E2E] text-on-surface-variant transition-all text-label-md font-label-md" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_zip</span>
+<span>Resource / Asset Drop</span>
+</button>
+</div>
+</div>
+<!-- Options Toggles Bar -->
+<div class="pt-space-sm border-t border-[#1E1E2E] flex flex-wrap items-center justify-between gap-4">
+<!-- Toggle 1: Pin Announcement -->
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-[#181824] border border-[#1E1E2E] peer-checked:bg-gradient-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all relative"></div>
+<span class="text-label-sm font-label-sm text-white flex items-center gap-1">
+<span>📌 Pin to top of feed</span>
+</span>
+</label>
+<!-- Toggle 2: Push Notifications -->
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-[#181824] border border-[#1E1E2E] peer-checked:bg-gradient-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all relative"></div>
+<span class="text-label-sm font-label-sm text-white flex items-center gap-1">
+<span>🔔 Send push &amp; in-app alerts</span>
+</span>
+</label>
+<!-- Toggle 3: Threaded Replies -->
+<label class="flex items-center gap-2.5 cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-[#181824] border border-[#1E1E2E] peer-checked:bg-gradient-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all relative"></div>
+<span class="text-label-sm font-label-sm text-white flex items-center gap-1">
+<span>💬 Allow comments &amp; replies</span>
+</span>
+</label>
+</div>
+</div>
+<!-- Rich Post Composer Card -->
+<div class="rounded-xl bg-[#12121A] border border-[#1E1E2E] overflow-hidden shadow-sm flex flex-col">
+<!-- Title Input Field -->
+<div class="p-space-md border-b border-[#1E1E2E] bg-[#12121A]">
+<input class="w-full text-headline-sm font-headline-sm bg-transparent border-0 text-white font-semibold focus:ring-0 focus:outline-none placeholder:text-[#9CA3AF]/50 tracking-tight" placeholder="Write an engaging post headline..." type="text" value="🚀 Major Studio Update: DaVinci Resolve Masterclass Cohort 4 Kickoff &amp; Asset Drop!"/>
+</div>
+<!-- WYSIWYG / TipTap Style Toolbar -->
+<div class="px-space-md py-2 bg-[#181824] border-b border-[#1E1E2E] flex flex-wrap items-center gap-1">
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Bold">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Italic">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Strikethrough">
+<span class="material-symbols-outlined text-[18px]">format_strikethrough</span>
+</button>
+<div class="h-4 w-px bg-[#2A2A3E] mx-1"></div>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Heading 1">
+<span class="material-symbols-outlined text-[18px]">format_h1</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Heading 2">
+<span class="material-symbols-outlined text-[18px]">format_h2</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Blockquote">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-primary bg-primary/10 transition-colors" title="Code Block">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</button>
+<div class="h-4 w-px bg-[#2A2A3E] mx-1"></div>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Bullet List">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Number List">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Hyperlink">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<div class="h-4 w-px bg-[#2A2A3E] mx-1"></div>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Image Upload">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Video Embed">
+<span class="material-symbols-outlined text-[18px]">smart_display</span>
+</button>
+<button class="p-1.5 rounded hover:bg-[#2A2A3E] text-[#9CA3AF] hover:text-white transition-colors" title="Emoji">
+<span class="material-symbols-outlined text-[18px]">mood</span>
+</button>
+<div class="ml-auto text-[11px] text-[#9CA3AF] font-medium pr-1">
+                Markdown Supported
+              </div>
+</div>
+<!-- Editor Body Workspace -->
+<div class="p-space-lg space-y-4 min-h-[320px] bg-[#12121A] text-body-lg font-body-lg text-[#e4e1e9]">
+<p>Hey everyone! Extremely thrilled to welcome all <strong>Cohort 4</strong> fellows to the workspace. We’re kicking off our deep-dive 6-week intensive into high-end cinematic color grading and tone management.</p>
+<div class="p-3.5 rounded-lg bg-[#181824] border-l-2 border-primary">
+<p class="text-body-md font-body-md text-white font-medium mb-1">Key Live Sessions Schedule:</p>
+<ul class="text-body-sm font-body-sm text-[#9CA3AF] space-y-1 pl-4 list-disc">
+<li><strong>Nov 12, 10:00 AM PST:</strong> Color Space Transforms (ACEScc vs DWG/Intermediate)</li>
+<li><strong>Nov 15, 02:00 PM PST:</strong> Split-Toning, Hue Warper &amp; Subtractive Color Design</li>
+<li><strong>Nov 19, 11:00 AM PST:</strong> Real-time Film Print Emulation Breakdown (35mm 5219)</li>
+</ul>
+</div>
+<!-- Embedded Video Preview Mockup inside Editor -->
+<div class="rounded-lg overflow-hidden border border-[#1E1E2E] bg-[#0A0A0F] relative group">
+<div class="h-44 bg-surface-container flex items-center justify-center relative overflow-hidden">
+<img class="w-full h-full object-cover opacity-60" data-alt="Cinematic production studio monitor displaying advanced DaVinci Resolve color wheels and waveform scopes in a dark ambient grading suite with violet backlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWKcZPlghF7AZUu4o-TfZjJruP-MBjBDIxtaksHlLKo0_fMRkE3tLELsQW1sh40L7qQitWbRyhMXOCwUKbCQgCaw1_rRYpeWcryQz_OsTWWAJ1UTCVRXM1UCeZJ7-iYlkU5mAyTCt8p72sBCUvbOmVoHmy058Q1-7epTUUS8iuPbc47bmtGq0Rmi_kU1yHaQkjmPN3QiUI-rUqRTJq-C5b3AmAIFAiLICAkrtVX1Nm1R0DCcvC4rsdtQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0A0A0F] via-transparent to-transparent"></div>
+<div class="w-12 h-12 rounded-full bg-primary/90 text-on-primary-container flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[26px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="p-3 flex items-center justify-between bg-[#181824]">
+<div>
+<div class="text-label-md font-label-md font-medium text-white">Cohort 4 Orientation Video &amp; Pipeline Overview</div>
+<div class="text-[11px] text-[#9CA3AF]">Vimeo Private Stream • 14 mins 20 secs</div>
+</div>
+<span class="text-label-sm font-label-sm text-primary">Embedded</span>
+</div>
+</div>
+<!-- Code Snippet -->
+<div class="rounded-lg overflow-hidden border border-[#1E1E2E] bg-[#0A0A0F]">
+<div class="flex items-center justify-between px-3 py-1.5 bg-[#181824] border-b border-[#1E1E2E] text-[11px] text-[#9CA3AF]">
+<span>bash — LUT Directory Injector</span>
+<button class="hover:text-white transition-colors">Copy snippet</button>
+</div>
+<pre class="p-3 text-xs text-primary font-mono overflow-x-auto leading-relaxed"><code># Install custom Creator OS LUT pack into DaVinci LUT tree
+cp -r ./Anamorphic_LUT_Pack_v4/ ~/Library/Application\ Support/Blackmagic\ Design/DaVinci\ Resolve/LUT/
+echo "LUT Cache updated successfully!"</code></pre>
+</div>
+</div>
+</div>
+<!-- Media & Attachment Upload Zone -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] shadow-sm space-y-space-md">
+<div class="flex items-center justify-between">
+<h3 class="text-headline-sm font-headline-sm text-white">Attachments &amp; Downloadable Assets</h3>
+<span class="text-label-sm font-label-sm text-[#9CA3AF]">3 files attached (44.4 MB total)</span>
+</div>
+<!-- Drag & Drop Zone -->
+<div class="border-2 border-dashed border-[#1E1E2E] hover:border-primary/60 rounded-xl p-6 text-center bg-[#0A0A0F]/50 transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-[#181824] border border-[#1E1E2E] flex items-center justify-center mx-auto mb-3 group-hover:border-primary/50 group-hover:bg-primary/10 transition-all">
+<span class="material-symbols-outlined text-[24px] text-primary">cloud_upload</span>
+</div>
+<p class="text-body-md font-body-md text-white font-medium">
+                Drag &amp; drop high-res images, PDF syllabus, or ZIP asset packs
+              </p>
+<p class="text-body-sm font-body-sm text-[#9CA3AF] mt-1">
+                Supports ProRes, DNG, CUBE, PDF, ZIP up to 500MB per file
+              </p>
+</div>
+<!-- Attached Files Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+<!-- File 1 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded bg-[#571bc1]/20 border border-secondary/30 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">filter_vintage</span>
+</div>
+<div class="truncate">
+<div class="text-label-md font-label-md font-medium text-white truncate">Anamorphic_LUT_Pack_v4.cube</div>
+<div class="text-[11px] text-[#9CA3AF]">42.0 MB • .CUBE 3D Mesh</div>
+</div>
+</div>
+<button class="p-1 hover:bg-[#2A2A3E] rounded text-[#9CA3AF] hover:text-white transition-colors ml-2">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<!-- File 2 -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-9 h-9 rounded bg-primary/20 border border-primary/30 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<div class="text-label-md font-label-md font-medium text-white truncate">Cohort4_Master_Schedule.pdf</div>
+<div class="text-[11px] text-[#9CA3AF]">2.4 MB • Official Syllabus</div>
+</div>
+</div>
+<button class="p-1 hover:bg-[#2A2A3E] rounded text-[#9CA3AF] hover:text-white transition-colors ml-2">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Attached Image Thumbnail Breakdown -->
+<div class="relative rounded-lg overflow-hidden border border-[#1E1E2E] bg-[#181824] flex items-center p-2.5 gap-3">
+<div class="w-16 h-14 rounded bg-surface-container overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Detailed overhead studio lighting diagram showing key light, rim light, diffusion flags, and cinema camera setup for documentary interview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCpMzJ_vJBXHEHfIofi3_YEb7o2CjLOr_2Z3FeDTXHvUN8D2-0IQp-2P0vR9KeLlf7gh8uqIZBHg4Jn1Bhs1sqf3SlGtUDJSGxzBO_hvwXwOuV_X2HRJpP2xj1YhhKgL22hU6DN0ILGswKrcvhfOwhgmnnUVftJZE_jRNArWj7Aee6XgUIC_WqpdBl3DiCDtyTqoMB4Zhte2OhaCoz8N9PAscwP-0CTBc2shq7MCZzdzN7OX9yQ0qYLg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-label-md font-label-md text-white font-medium truncate">Lighting_Breakdown_Diagram_Setup.png</div>
+<div class="text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+                  Ready to publish inline
+                </div>
+</div>
+<button class="h-8 px-2.5 rounded bg-[#12121A] border border-[#1E1E2E] hover:border-error/50 hover:text-error text-[11px] text-[#9CA3AF] transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+                Remove
+              </button>
+</div>
+</div>
+</div>
+<!-- Right 4 Columns: Sticky Live Feed Preview Drawer -->
+<div class="xl:col-span-4 sticky top-20 space-y-space-md">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">visibility</span>
+<span class="text-headline-sm font-headline-sm text-white">Live Feed Preview</span>
+</div>
+<span class="text-[11px] px-2 py-0.5 rounded-full bg-secondary/15 border border-secondary/30 text-secondary font-medium">
+              Member Stream View
+            </span>
+</div>
+<!-- Preview Card Simulating Live Member Feed Output -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] shadow-2xl space-y-space-md relative overflow-hidden">
+<!-- Atmospheric back-glow for announcement -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Card Header -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full ring-2 ring-primary/30 overflow-hidden bg-[#181824]">
+<img class="w-full h-full object-cover" data-alt="Editorial portrait of cinema instructor Elena Vance in creative workshop studio with soft neon blue backlight and neutral expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3OYe-pj8z0UY-Ih1gPWIJvQwUR7QlX5NZOn2XdDrcqM_uHo-LmrT6HWdgCYKF-Gtk9Vul8p4fnEBujLqgxOoiRby9Qvqa4CAv8U3cu6LNckL2ahD4H14vkY6eo6f1-BowoV-Q--AtXRZEnUZkOos3TlicGz7hJi8NzSYUZLKkuDozD1TV8fWTe64MNC7l9C0hCApRLcs6s-QAufi2Q7G4dhKyR5e0Q3UaWBTPjW9xa8ujRz0GMbS7yw"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-label-md font-label-md font-semibold text-white">Elena Vance</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="text-[11px] text-[#9CA3AF]">Apex Studios • Just now</div>
+</div>
+</div>
+<!-- Pinned & Announcement Badges -->
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" title="Pinned Announcement">push_pin</span>
+<span class="px-2 py-0.5 rounded bg-primary/20 border border-primary/40 text-[10px] font-bold text-primary tracking-wider">
+                  ANNOUNCEMENT
+                </span>
+</div>
+</div>
+<!-- Post Headline Preview -->
+<div>
+<div class="text-[10px] font-semibold text-secondary uppercase tracking-wider mb-1"># announcements</div>
+<h4 class="text-headline-sm font-headline-sm text-white font-bold leading-snug">
+                🚀 Major Studio Update: DaVinci Resolve Masterclass Cohort 4 Kickoff &amp; Asset Drop!
+              </h4>
+</div>
+<!-- Body Snippet Preview -->
+<p class="text-body-md font-body-md text-[#c2c6d6] line-clamp-3 leading-relaxed">
+              Hey everyone! Extremely thrilled to welcome all Cohort 4 fellows to the workspace. We’re kicking off our deep-dive 6-week intensive into high-end cinematic color grading...
+            </p>
+<!-- Attachment Pill Inside Feed Preview -->
+<div class="p-2.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-white truncate">
+<span class="material-symbols-outlined text-[18px] text-secondary">filter_vintage</span>
+<span class="truncate">Anamorphic_LUT_Pack_v4.cube</span>
+</div>
+<span class="text-[11px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
+                Download (42MB)
+              </span>
+</div>
+<!-- Post Interaction Metric Bar -->
+<div class="pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-[#9CA3AF] text-body-sm font-body-sm">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1.5 hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">favorite</span>
+<span>0</span>
+</div>
+<div class="flex items-center gap-1.5 hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>0</span>
+</div>
+<div class="flex items-center gap-1.5 hover:text-white cursor-pointer">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-[11px] text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Pro &amp; VIP Gated
+              </div>
+</div>
+</div>
+<!-- Helper Micro-Card -->
+<div class="p-4 rounded-xl bg-[#12121A] border border-[#1E1E2E] flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">tips_and_updates</span>
+<div>
+<div class="text-label-sm font-label-sm text-white font-medium">Auto-Distribution Enabled</div>
+<div class="text-[11px] text-[#9CA3AF] mt-0.5">
+                Publishing this post triggers an automated digest email to 3,840 eligible Pro Members at 08:00 AM UTC.
+              </div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

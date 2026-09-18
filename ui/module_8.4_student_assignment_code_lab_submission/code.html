@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Student Assignment &amp; Code Lab Submission</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter & JetBrains Mono for Code Precision -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-container": "#4d8eff",
+            "error": "#ffb4ab",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#004395",
+            "surface-variant": "#35343a",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "background": "#131318",
+            "inverse-primary": "#005ac2",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed-dim": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "outline": "#8c909f",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "surface-container-highest": "#35343a",
+            "surface-tint": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "secondary": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#131318",
+            "surface-bright": "#39383e",
+            "tertiary-container": "#00a572",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary": "#002e6a",
+            "inverse-on-surface": "#303036",
+            "surface-container-lowest": "#0e0e13",
+            "surface-dim": "#131318",
+            "on-secondary-fixed": "#23005c",
+            "surface-container": "#1f1f25",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-secondary-container": "#c4abff",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#1b1b20",
+            "inverse-surface": "#e4e1e9",
+            "outline-variant": "#424754",
+            "secondary-container": "#571bc1",
+            "primary": "#adc6ff",
+            "on-primary-fixed": "#001a42"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "mono": ["'JetBrains Mono'", "monospace"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Custom scrollbar for IDE look */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-primary selection:text-on-primary overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- 1. GLOBAL TOP NAVIGATION (Shared Component Anchor)                        -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-50 h-14 w-full flex items-center justify-between px-6 bg-surface border-b border-outline-variant/30 backdrop-blur-md">
+<!-- Left: Brand / Cohort Context -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white text-base">school</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">Creator OS</span>
+<span class="font-label-sm text-label-sm text-outline -mt-1">Acme Studios</span>
+</div>
+</div>
+<div class="h-4 w-px bg-outline-variant/40 mx-1"></div>
+<!-- Course & Cohort Selector Tag -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-xs font-mono">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span class="font-medium text-on-surface">Cohort 4: Full-Stack Next.js 14 &amp; AI</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-semibold">Lab 2.4</span>
+</div>
+</div>
+<!-- Center: Search Command Bar -->
+<div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 w-72 text-outline focus-within:border-primary focus-within:text-on-surface transition-all">
+<span class="material-symbols-outlined text-lg">search</span>
+<input class="bg-transparent text-xs w-full focus:outline-none placeholder:text-outline/60 text-on-surface" placeholder="Search rubric, docs, Inngest API... (⌘K)" type="text"/>
+</div>
+<!-- Right: Status / Actions / Student Profile -->
+<div class="flex items-center gap-3">
+<!-- Fast Actions -->
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors text-xs font-label-md">
+<span class="material-symbols-outlined text-base">help</span>
+<span>Quick Help</span>
+</button>
+<button class="relative p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+</div>
+<div class="h-5 w-px bg-outline-variant/40"></div>
+<!-- Student Profile -->
+<div class="flex items-center gap-2.5 pl-1">
+<div class="relative">
+<img class="w-8 h-8 rounded-full border border-primary/40 object-cover" data-alt="Professional studio portrait of Sarah Lin, a female full-stack AI engineer wearing dark spectacles and casual navy crewneck, against a deep ambient obsidian background with soft blue edge lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAk_m6DR86w24UsmzeFqibC3bwpKNJ8i-kuz8HzrUl9DhHyT4FXm_wEMLDU8WykCR_SVGiRt70GS4Ik46FEZgvoWdmDSiJyYZ2kcKIJhrWtUU5k1xEWrkWsuc8z_L74TcDtMrCGIjboLI_vYOvLenAuAzzngXlL8fRUSzSIgJO1ODIU8EbHEXEVxOh4fPtuxtobZkIJJVY-G5uV6YttbTVo0Z_l_AvYJbEMtdtEoLNCAMBBynbtjiStw"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border-2 border-surface rounded-full"></span>
+</div>
+<div class="hidden xl:flex flex-col text-left">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface leading-tight">Sarah Lin</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-mono bg-secondary-container/40 text-secondary border border-secondary/30">PRO</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">sarah.lin@creators.io</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. ASSIGNMENT HEADER / HERO CONTROL BAR                                   -->
+<!-- ========================================================================= -->
+<section class="border-b border-outline-variant/30 bg-surface px-6 py-4">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-4">
+<!-- Left: Breadcrumb & Title & Badges -->
+<div class="space-y-1.5">
+<!-- Breadcrumb hierarchy -->
+<nav class="flex items-center gap-1.5 text-xs text-outline font-label-md flex-wrap">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">school</span>
+            Courses
+          </a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#">Full-Stack Next.js 14 &amp; AI Engineering (Cohort 4)</a>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface-variant">Module 2: AI Autonomous Agent Pipeline</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium">Lesson 2.4: Code Lab Assignment</span>
+</nav>
+<!-- Main Title & Meta Stats -->
+<div class="flex flex-wrap items-center gap-3 pt-0.5">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight flex items-center gap-2.5">
+<span class="w-7 h-7 rounded-md bg-primary-container/20 text-primary flex items-center justify-center text-sm border border-primary-container/30">
+<span class="material-symbols-outlined text-base">code</span>
+</span>
+            Lesson 2.4 — Build Real-Time Autonomous Agent Feed with Inngest &amp; LangChain
+          </h1>
+<div class="flex items-center gap-2 flex-wrap">
+<!-- Due Date Pill -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-label-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
+<span class="material-symbols-outlined text-xs">schedule</span>
+              Due Sunday 11:59 PM EST • 3 days left
+            </span>
+<!-- Max Points -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-label-md bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+<span class="material-symbols-outlined text-xs text-primary">stars</span>
+              100 Pts Possible
+            </span>
+<!-- Grading Breakdown -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-label-md bg-surface-container-high text-on-surface-variant border border-outline-variant/30">
+<span class="material-symbols-outlined text-xs text-outline">fact_check</span>
+              Automated Tests (60%) + Peer Review (40%)
+            </span>
+<!-- Submission Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-secondary-container/20 text-secondary border border-secondary-container/40">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+              Draft In Progress • 3/5 Tests Passing (60 Pts)
+            </span>
+</div>
+</div>
+</div>
+<!-- Right: Action Buttons Group -->
+<div class="flex items-center gap-2.5 self-start xl:self-center">
+<!-- Reset Code Template -->
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface-variant hover:text-on-surface hover:border-outline transition-all text-xs font-label-md">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+<span>Reset Template</span>
+</button>
+<!-- Run All Tests (CMD + Enter) -->
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-bright border border-primary/40 text-primary font-label-md text-xs transition-all shadow-sm active:scale-95 group">
+<span class="material-symbols-outlined text-base group-hover:rotate-180 transition-transform duration-300">play_arrow</span>
+<span class="font-semibold">Run All Tests</span>
+<kbd class="px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-[10px] text-outline font-mono">⌘↵</kbd>
+</button>
+<!-- Submit Assignment (Vibrant Gradient Button) -->
+<button class="relative flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-label-md text-xs font-semibold shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:brightness-110 active:scale-98 transition-all">
+<span class="material-symbols-outlined text-base">cloud_upload</span>
+<span>Submit Assignment</span>
+<span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+</button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. MAIN WORKSPACE CANVAS (SPLIT 30% / 70%)                                -->
+<!-- ========================================================================= -->
+<main class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+<!-- --------------------------------------------------------------------- -->
+<!-- LEFT PANE: ASSIGNMENT BRIEF, CHECKLIST, RUBRIC & DELIVERABLES (30%)    -->
+<!-- --------------------------------------------------------------------- -->
+<section class="w-full lg:w-[32%] xl:w-[30%] border-r border-outline-variant/30 bg-surface-container-lowest flex flex-col overflow-y-auto max-h-[calc(100vh-122px)]">
+<!-- Sub-Tabs Switcher -->
+<div class="sticky top-0 z-20 bg-surface border-b border-outline-variant/30 flex items-center px-4 pt-2">
+<button class="px-3 py-2 text-xs font-label-md font-semibold text-primary border-b-2 border-primary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">description</span>
+          Instructions &amp; Specs
+        </button>
+<button class="px-3 py-2 text-xs font-label-md text-outline hover:text-on-surface border-b-2 border-transparent transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">rule</span>
+          Grading Rubric
+          <span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-[10px] text-outline">100pt</span>
+</button>
+<button class="px-3 py-2 text-xs font-label-md text-outline hover:text-on-surface border-b-2 border-transparent transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">lightbulb</span>
+          Starter Docs
+        </button>
+</div>
+<div class="p-5 space-y-6">
+<!-- Objective & System Architecture Brief -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/30 p-4 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-xs font-mono uppercase tracking-wider text-primary font-bold">Lab Objective</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono bg-blue-500/10 text-primary border border-primary/20">Module 2.4</span>
+</div>
+<p class="text-xs text-on-surface leading-relaxed">
+            Construct an asynchronous streaming agent queue using <strong class="text-white font-semibold">Inngest step functions</strong> and a <strong class="text-white font-semibold">LangChain LCEL parser</strong>. The system must intake user prompt dispatches, manage token generation loops with rate-limiting backpressure, and publish delta events onto a real-time Redis Pub/Sub stream for Next.js 14 Server Component hydration.
+          </p>
+<!-- Architecture Flow Diagram Card -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/30 space-y-2">
+<div class="text-[11px] font-mono text-outline flex items-center justify-between">
+<span>PIPELINE ARCHITECTURE</span>
+<span class="material-symbols-outlined text-xs">account_tree</span>
+</div>
+<div class="flex items-center justify-between text-[10px] font-mono text-center gap-1 py-1">
+<div class="px-2 py-1 rounded bg-surface-container border border-outline-variant/40 text-on-surface">Client Dispatch</div>
+<span class="text-outline">→</span>
+<div class="px-2 py-1 rounded bg-blue-950/40 border border-primary/40 text-primary">Inngest Step</div>
+<span class="text-outline">→</span>
+<div class="px-2 py-1 rounded bg-purple-950/40 border border-secondary/40 text-secondary">LangChain LCEL</div>
+<span class="text-outline">→</span>
+<div class="px-2 py-1 rounded bg-emerald-950/40 border border-emerald-500/40 text-emerald-400">Redis Stream</div>
+</div>
+</div>
+</div>
+<!-- Interactive Requirements Checklist -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-label-md font-semibold text-on-surface uppercase tracking-wider">Implementation Requirements</h3>
+<span class="text-[11px] font-mono text-outline">2/5 Done</span>
+</div>
+<div class="space-y-2">
+<!-- Requirement 1: Complete -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-surface-container/50 border border-outline-variant/30 hover:bg-surface-container transition-colors group">
+<div class="w-4 h-4 rounded mt-0.5 bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-medium text-on-surface line-through opacity-70">1. Configure Inngest client with event schema `agent/run.dispatched`</p>
+<span class="text-[10px] font-mono text-emerald-400/80">Completed • Verified by Test #1</span>
+</div>
+</div>
+<!-- Requirement 2: Complete -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-surface-container/50 border border-outline-variant/30 hover:bg-surface-container transition-colors group">
+<div class="w-4 h-4 rounded mt-0.5 bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+<span class="material-symbols-outlined text-xs">check</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-medium text-on-surface line-through opacity-70">2. Implement step.run for LLM streaming token generator</p>
+<span class="text-[10px] font-mono text-emerald-400/80">Completed • Verified by Test #2</span>
+</div>
+</div>
+<!-- Requirement 3: In Progress / Failing -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-surface-container border border-amber-500/40 shadow-sm shadow-amber-500/5">
+<div class="w-4 h-4 rounded mt-0.5 bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-300">
+<span class="material-symbols-outlined text-xs animate-spin">sync</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-medium text-on-surface">3. Pipe tokens into Redis pub/sub with backpressure handling</p>
+<p class="text-[10px] text-amber-300/90 font-mono mt-0.5">Failing Test #4: Buffer exceeded 64KB threshold</p>
+</div>
+</div>
+<!-- Requirement 4: Pending -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-surface-container/30 border border-outline-variant/20 hover:bg-surface-container transition-colors">
+<div class="w-4 h-4 rounded mt-0.5 bg-surface-container-highest border border-outline flex items-center justify-center text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs text-on-surface-variant">4. Build frontend React Server Component stream fallback with &lt;Suspense&gt;</p>
+<span class="text-[10px] font-mono text-outline">Pending Implementation</span>
+</div>
+</div>
+<!-- Requirement 5: Pending -->
+<div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-surface-container/30 border border-outline-variant/20 hover:bg-surface-container transition-colors">
+<div class="w-4 h-4 rounded mt-0.5 bg-surface-container-highest border border-outline flex items-center justify-center text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-xs text-on-surface-variant">5. Handle rate-limit retry backoff with exponential jitter</p>
+<span class="text-[10px] font-mono text-outline">Pending Implementation</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Grading Rubric Breakdown -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-label-md font-semibold text-on-surface uppercase tracking-wider">Evaluation Rubric</h3>
+<span class="text-[11px] font-mono text-primary font-bold">100 Points Total</span>
+</div>
+<div class="grid grid-cols-2 gap-2 text-xs">
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Unit &amp; Integration</span>
+<span class="font-mono text-primary font-semibold">50 pts</span>
+</div>
+<p class="text-[11px] text-outline">Automated vitest suite passing all 5 test assertions.</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Edge Handling</span>
+<span class="font-mono text-primary font-semibold">20 pts</span>
+</div>
+<p class="text-[11px] text-outline">Graceful network drops, token limits, and backpressure.</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Code Elegance</span>
+<span class="font-mono text-primary font-semibold">15 pts</span>
+</div>
+<p class="text-[11px] text-outline">TypeScript strict mode compliance and clean LCEL structure.</p>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/30 space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Video &amp; Architecture</span>
+<span class="font-mono text-primary font-semibold">15 pts</span>
+</div>
+<p class="text-[11px] text-outline">Loom 3-min walkthrough explaining streaming lifecycle.</p>
+</div>
+</div>
+</div>
+<!-- Submission Deliverables & Links -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/30">
+<div class="flex items-center justify-between">
+<h3 class="text-xs font-label-md font-semibold text-on-surface uppercase tracking-wider">Submission Deliverables</h3>
+<span class="text-[11px] text-emerald-400 font-mono flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Git Synced
+            </span>
+</div>
+<div class="space-y-2.5">
+<!-- GitHub Repo Sync -->
+<div class="space-y-1">
+<label class="text-[11px] font-medium text-outline flex items-center justify-between">
+<span>GitHub Repository</span>
+<span class="text-primary hover:underline cursor-pointer">Re-sync commit</span>
+</label>
+<div class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-sm">code</span>
+<input class="w-full pl-8 pr-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-xs font-mono text-on-surface focus:outline-none" readonly="" type="text" value="https://github.com/sarahlin/nextjs-agent-feed"/>
+</div>
+<select class="px-2 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-xs font-mono text-on-surface focus:outline-none">
+<option>main</option>
+<option>feat/redis-stream</option>
+</select>
+</div>
+</div>
+<!-- Loom Walkthrough URL -->
+<div class="space-y-1">
+<label class="text-[11px] font-medium text-outline flex items-center justify-between">
+<span>Loom Video Walkthrough (Required 3-min demo)</span>
+<span class="text-emerald-400 text-[10px] font-mono">Validated ✓</span>
+</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-sm">videocam</span>
+<input class="w-full pl-8 pr-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-xs font-mono text-on-surface focus:border-primary focus:outline-none" type="url" value="https://loom.com/share/9a8bc47f29104a0e9b0128"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- --------------------------------------------------------------------- -->
+<!-- CENTER/RIGHT PANE: INTEGRATED BROWSER CODE EDITOR & TEST RUNNER (70%)  -->
+<!-- --------------------------------------------------------------------- -->
+<section class="flex-1 flex flex-col bg-surface-container-lowest overflow-hidden">
+<!-- Editor Top Bar: File Tabs & Tools -->
+<div class="h-10 bg-surface border-b border-outline-variant/30 flex items-center justify-between px-3 select-none">
+<!-- Left: File Tabs -->
+<div class="flex items-center h-full overflow-x-auto">
+<!-- Active Tab -->
+<div class="flex items-center gap-2 px-3.5 h-full bg-surface-container-lowest border-r border-outline-variant/30 border-t-2 border-t-primary text-xs font-mono font-medium text-on-surface">
+<span class="material-symbols-outlined text-sm text-blue-400">javascript</span>
+<span>inngest/functions.ts</span>
+<span class="w-2 h-2 rounded-full bg-amber-400 ml-1" title="Unsaved changes"></span>
+</div>
+<!-- Inactive Tab 2 -->
+<div class="flex items-center gap-2 px-3.5 h-full hover:bg-surface-container/40 border-r border-outline-variant/30 text-xs font-mono text-outline hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm text-blue-400">javascript</span>
+<span>agent/stream-pipeline.ts</span>
+</div>
+<!-- Inactive Tab 3 -->
+<div class="flex items-center gap-2 px-3.5 h-full hover:bg-surface-container/40 border-r border-outline-variant/30 text-xs font-mono text-outline hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm text-cyan-400">code</span>
+<span>components/AgentFeed.tsx</span>
+</div>
+<!-- Inactive Tab 4 (Tests) -->
+<div class="flex items-center gap-2 px-3.5 h-full hover:bg-surface-container/40 border-r border-outline-variant/30 text-xs font-mono text-outline hover:text-on-surface transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm text-emerald-400">fact_check</span>
+<span>tests/agent.test.ts</span>
+</div>
+</div>
+<!-- Right: Environment Tags & Editor Controls -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-2 px-2 py-0.5 rounded bg-surface-container text-[11px] font-mono text-outline">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+<span>Node 20.x</span>
+<span class="text-outline-variant">•</span>
+<span>Next.js 14.2</span>
+<span class="text-outline-variant">•</span>
+<span>TS 5.4</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Format Code (Prettier)">
+<span class="material-symbols-outlined text-sm">auto_fix_high</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Toggle Git Diff">
+<span class="material-symbols-outlined text-sm">difference</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container transition-colors" title="Full Screen Canvas">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Main Split Area: Code Editor (Top 62%) + Test Suite / Terminal (Bottom 38%) -->
+<div class="flex-1 flex flex-col overflow-hidden">
+<!-- CODE EDITOR PANEL (IDE Syntax Highlighted) -->
+<div class="flex-1 bg-[#0c0c11] overflow-y-auto p-4 font-mono text-[13px] leading-relaxed text-slate-300 relative selection:bg-primary/30">
+<div class="table w-full">
+<!-- Line 1 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs w-10">1</span>
+<span class="table-cell"><span class="text-purple-400">import</span> { inngest } <span class="text-purple-400">from</span> <span class="text-emerald-300">"@/inngest/client"</span>;</span>
+</div>
+<!-- Line 2 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">2</span>
+<span class="table-cell"><span class="text-purple-400">import</span> { redisPubSub } <span class="text-purple-400">from</span> <span class="text-emerald-300">"@/lib/redis-cluster"</span>;</span>
+</div>
+<!-- Line 3 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">3</span>
+<span class="table-cell"><span class="text-purple-400">import</span> { LangChainAgentExecutor } <span class="text-purple-400">from</span> <span class="text-emerald-300">"@/agent/stream-pipeline"</span>;</span>
+</div>
+<!-- Line 4 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">4</span>
+<span class="table-cell text-outline/50">// Rate limit concurrency: max 5 concurrent LLM stream workers</span>
+</div>
+<!-- Line 5 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">5</span>
+<span class="table-cell"><span class="text-purple-400">export const</span> <span class="text-blue-300 font-semibold">streamAgentExecution</span> = inngest.<span class="text-yellow-300">createFunction</span>(</span>
+</div>
+<!-- Line 6 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">6</span>
+<span class="table-cell pl-4">{ id: <span class="text-emerald-300">"agent-feed-orchestrator"</span>, concurrency: { limit: <span class="text-amber-400">5</span>, key: <span class="text-emerald-300">"event.data.userId"</span> } },</span>
+</div>
+<!-- Line 7 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">7</span>
+<span class="table-cell pl-4">{ event: <span class="text-emerald-300">"agent/run.dispatched"</span> },</span>
+</div>
+<!-- Line 8 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">8</span>
+<span class="table-cell pl-4"><span class="text-purple-400">async</span> ({ event, step }) <span class="text-purple-400">=&gt;</span> {</span>
+</div>
+<!-- Line 9 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">9</span>
+<span class="table-cell pl-8"><span class="text-purple-400">const</span> { runId, prompt, workspaceId } = event.data;</span>
+</div>
+<!-- Line 10 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">10</span>
+<span class="table-cell pl-8"></span>
+</div>
+<!-- Line 11 -->
+<div class="table-row group bg-primary-container/5 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-primary select-none text-xs">11</span>
+<span class="table-cell pl-8"><span class="text-purple-400">const</span> agentPipeline = <span class="text-purple-400">await</span> step.<span class="text-yellow-300">run</span>(<span class="text-emerald-300">"init-langchain-lcel"</span>, <span class="text-purple-400">async</span> () <span class="text-purple-400">=&gt;</span> {</span>
+</div>
+<!-- Line 12 -->
+<div class="table-row group bg-primary-container/5 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-primary select-none text-xs">12</span>
+<span class="table-cell pl-12"><span class="text-purple-400">return new</span> <span class="text-blue-300">LangChainAgentExecutor</span>({ workspaceId, model: <span class="text-emerald-300">"claude-3-5-sonnet"</span> });</span>
+</div>
+<!-- Line 13 -->
+<div class="table-row group bg-primary-container/5 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-primary select-none text-xs">13</span>
+<span class="table-cell pl-8">});</span>
+</div>
+<!-- Line 14 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">14</span>
+<span class="table-cell pl-8"></span>
+</div>
+<!-- Line 15 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">15</span>
+<span class="table-cell pl-8 text-outline/50">// Stream token buffer with Redis backpressure</span>
+</div>
+<!-- Line 16 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">16</span>
+<span class="table-cell pl-8"><span class="text-purple-400">await</span> step.<span class="text-yellow-300">run</span>(<span class="text-emerald-300">"stream-tokens-to-redis"</span>, <span class="text-purple-400">async</span> () <span class="text-purple-400">=&gt;</span> {</span>
+</div>
+<!-- Line 17 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">17</span>
+<span class="table-cell pl-12"><span class="text-purple-400">const</span> stream = <span class="text-purple-400">await</span> agentPipeline.<span class="text-yellow-300">stream</span>({ input: prompt });</span>
+</div>
+<!-- Line 18 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">18</span>
+<span class="table-cell pl-12"><span class="text-purple-400">let</span> buffer = [];</span>
+</div>
+<!-- Line 19 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">19</span>
+<span class="table-cell pl-12"><span class="text-purple-400">for await</span> (<span class="text-purple-400">const</span> chunk <span class="text-purple-400">of</span> stream) {</span>
+</div>
+<!-- Line 20 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">20</span>
+<span class="table-cell pl-16">buffer.<span class="text-yellow-300">push</span>(chunk.content);</span>
+</div>
+<!-- Line 21 -->
+<div class="table-row group bg-amber-500/10 border-l-2 border-amber-400 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-amber-400 select-none text-xs">21</span>
+<span class="table-cell pl-16"><span class="text-purple-400">await</span> redisPubSub.<span class="text-yellow-300">publish</span>(<span class="text-emerald-300">`feed:${runId}`</span>, JSON.<span class="text-yellow-300">stringify</span>(chunk));</span>
+</div>
+<!-- Line 22: Issue highlighted -->
+<div class="table-row group bg-red-500/10 border-l-2 border-red-500 -mx-4 px-4">
+<span class="table-cell pr-6 text-right text-red-400 select-none text-xs">22</span>
+<span class="table-cell pl-16 text-red-300/80">// FIXME: Memory overflow! Buffer is never drained or flushed when exceeding 64KB threshold!</span>
+</div>
+<!-- Line 23 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">23</span>
+<span class="table-cell pl-12">}</span>
+</div>
+<!-- Line 24 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">24</span>
+<span class="table-cell pl-8">});</span>
+</div>
+<!-- Line 25 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">25</span>
+<span class="table-cell pl-8"></span>
+</div>
+<!-- Line 26: Ghost Autocomplete Line -->
+<div class="table-row group relative">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">26</span>
+<span class="table-cell pl-8">
+<span class="text-purple-400">return</span> { status: <span class="text-emerald-300">"dispatched"</span>, runId };
+                <!-- Ghost Copilot Prompt Inline -->
+<span class="inline-flex items-center gap-1.5 ml-4 px-2 py-0.5 rounded bg-surface-container-high/80 border border-primary/30 text-outline text-[11px] select-none">
+<span class="material-symbols-outlined text-xs text-primary">psychology</span>
+<span class="text-outline">Press <kbd class="text-white font-semibold">Tab</kbd> to accept Claude 3.5 Sonnet:</span>
+<span class="text-primary font-mono">await step.sendEvent('agent/completed', { runId })</span>
+</span>
+</span>
+</div>
+<!-- Line 27 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">27</span>
+<span class="table-cell pl-4">}</span>
+</div>
+<!-- Line 28 -->
+<div class="table-row group">
+<span class="table-cell pr-6 text-right text-outline/40 select-none text-xs">28</span>
+<span class="table-cell">);</span>
+</div>
+</div>
+</div>
+<!-- BOTTOM PANEL: AUTOMATED TEST SUITE & TERMINAL DRAWER (Split Tab) -->
+<div class="h-64 border-t border-outline-variant/30 bg-surface-container-low flex flex-col">
+<!-- Test Suite Header Bar -->
+<div class="h-9 bg-surface border-b border-outline-variant/30 px-4 flex items-center justify-between select-none">
+<div class="flex items-center gap-3">
+<!-- Tab 1: Test Results Active -->
+<button class="flex items-center gap-1.5 text-xs font-label-md font-semibold text-primary border-b-2 border-primary py-1.5">
+<span class="material-symbols-outlined text-sm">assignment_turned_in</span>
+<span>Test Suite Results</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container-high text-[10px] text-on-surface">3/5</span>
+</button>
+<!-- Tab 2: Terminal / Console Log -->
+<button class="flex items-center gap-1.5 text-xs font-label-md text-outline hover:text-on-surface py-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">terminal</span>
+<span>Inngest Dev Server (Port 8288)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+</button>
+<!-- Tab 3: Redis Feed Monitor -->
+<button class="flex items-center gap-1.5 text-xs font-label-md text-outline hover:text-on-surface py-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm">sensors</span>
+<span>Redis Pub/Sub Stream</span>
+</button>
+</div>
+<!-- Test Summary Pill & Timing -->
+<div class="flex items-center gap-2.5">
+<span class="text-xs font-mono text-outline">Executed in <strong class="text-on-surface">1,240ms</strong></span>
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[11px] font-mono font-medium">3 Passed</span>
+<span class="px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/20 text-[11px] font-mono font-medium">2 Failed</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary border border-primary/20 text-[11px] font-mono font-semibold">60 / 100 Pts</span>
+</div>
+</div>
+</div>
+<!-- Test Case Runner Output Body -->
+<div class="flex-1 overflow-y-auto p-3 space-y-2 font-mono text-xs">
+<!-- Passed Test 1 -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+<span class="text-on-surface font-medium">Test 1: Inngest event schema validation passed</span>
+<span class="text-[10px] text-outline">`agent/run.dispatched` matches Zod schema</span>
+</div>
+<span class="text-outline text-[11px]">15ms</span>
+</div>
+<!-- Passed Test 2 -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+<span class="text-on-surface font-medium">Test 2: LangChain LCEL pipe resolves token stream correctly</span>
+<span class="text-[10px] text-outline">yields initial delta chunks</span>
+</div>
+<span class="text-outline text-[11px]">142ms</span>
+</div>
+<!-- Passed Test 3 -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/20 hover:border-outline-variant/40 transition-colors">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-400 text-base">check_circle</span>
+<span class="text-on-surface font-medium">Test 3: Concurrency throttle limits parallel execution to 5 workers</span>
+<span class="text-[10px] text-outline">per-workspace queue intact</span>
+</div>
+<span class="text-outline text-[11px]">320ms</span>
+</div>
+<!-- Failed Test 4 (With Expandable Error Stack & Debug Hint) -->
+<div class="p-2.5 rounded bg-red-950/20 border border-red-500/30 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-red-400 text-base">cancel</span>
+<span class="text-red-300 font-semibold">Test 4: Redis pub/sub backpressure buffer flush when buffer exceeds 64KB</span>
+</div>
+<span class="text-red-400 font-mono text-[11px]">540ms • FAILED</span>
+</div>
+<!-- Error Assertion & Trace -->
+<div class="pl-6 text-[11px] text-red-200/90 space-y-1">
+<p class="font-mono"><span class="text-red-400 font-bold">AssertionError:</span> expected buffer length &lt;= 65536 bytes (64KB), but received 84210 bytes (82.2KB).</p>
+<div class="p-2 rounded bg-surface-container-lowest border border-red-900/40 text-[10px] text-slate-300 font-mono">
+                  at step.run (/tests/agent.test.ts:48:19)<br/>
+                  at processTicksAndRejections (node:internal/process/task_queues:95:5)
+                </div>
+</div>
+<!-- Actionable Debug Hint -->
+<div class="pl-6 flex items-center gap-2 text-[11px] text-amber-300/90">
+<span class="material-symbols-outlined text-sm">tips_and_updates</span>
+<span><strong>Hint:</strong> Add an internal flush condition inside the token stream loop: <code>if (buffer.length &gt; 64 * 1024) await flushBufferToRedis(buffer);</code></span>
+</div>
+</div>
+<!-- Failed Test 5: Pending Run -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-lowest border border-outline-variant/20 opacity-60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base">pending</span>
+<span class="text-on-surface-variant font-medium">Test 5: Graceful error fallback triggers retry step</span>
+<span class="text-[10px] text-outline">Blocked by Test #4</span>
+</div>
+<span class="text-outline text-[11px]">Pending rerun</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ========================================================================= -->
+<!-- 4. FLOATING AI TEACHING ASSISTANT DOCK (CREATOR OS AGENT CO-PILOT)       -->
+<!-- ========================================================================= -->
+<aside class="fixed bottom-5 right-6 z-40 max-w-sm w-full">
+<div class="rounded-xl bg-surface-container border border-primary/30 shadow-2xl shadow-black/80 backdrop-blur-xl p-3.5 space-y-3">
+<!-- AI Header -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-md bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+</div>
+<div>
+<h4 class="text-xs font-semibold text-on-surface">AI Teaching Assistant</h4>
+<span class="text-[10px] text-emerald-400 font-mono">Cohort 4 Context Aware</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-high transition-colors" title="Minimize Drawer">
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Contextual Observation -->
+<div class="text-xs text-on-surface space-y-2">
+<p class="leading-relaxed text-slate-300">
+<span class="text-primary font-semibold">Observation on Line 21:</span> Notice how your Redis buffer keeps accumulating streaming chunks in memory without draining before acknowledging each Inngest step.
+        </p>
+<div class="p-2 rounded bg-surface-container-lowest border border-outline-variant/30 text-[11px] font-mono text-outline-variant text-slate-400">
+          "Check the official Inngest docs on <span class="text-primary">step.run pagination</span> to flush bytes asynchronously every 500ms."
+        </div>
+</div>
+<!-- Quick Action Prompt Button -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-xs font-semibold hover:brightness-105 transition-all">
+<span class="material-symbols-outlined text-sm">auto_fix_normal</span>
+<span>Apply Buffer Fix</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high text-on-surface-variant hover:text-on-surface text-xs font-label-md transition-colors">
+          Ask Details
+        </button>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- 5. MICRO-INTERACTION SCRIPT FOR HOTKEYS & RUN SIMULATION                -->
+<!-- ========================================================================= -->
+<script>
+    // Keyboard shortcut listener for CMD+Enter (Run All Tests)
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+        e.preventDefault();
+        const runBtn = document.querySelector('button:has(kbd)');
+        if (runBtn) {
+          runBtn.classList.add('ring-2', 'ring-primary', 'scale-95');
+          setTimeout(() => {
+            runBtn.classList.remove('ring-2', 'ring-primary', 'scale-95');
+          }, 300);
+        }
+      }
+    });
+  </script>
+</body></html>

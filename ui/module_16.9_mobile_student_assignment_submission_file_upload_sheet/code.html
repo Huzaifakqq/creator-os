@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS - Assignment Submission Sheet</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-bright": "#39383e",
+            "secondary-container": "#571bc1",
+            "surface-container-highest": "#35343a",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-error": "#690005",
+            "surface-dim": "#131318",
+            "on-tertiary-container": "#00311f",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary": "#3c0091",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed": "#002113",
+            "inverse-primary": "#005ac2",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed": "#001a42",
+            "background": "#131318",
+            "surface-container": "#1f1f25",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-surface": "#e4e1e9",
+            "outline": "#8c909f",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "primary-container": "#4d8eff",
+            "on-primary-container": "#00285d",
+            "secondary": "#d0bcff",
+            "on-primary-fixed-variant": "#004395",
+            "on-error-container": "#ffdad6",
+            "surface": "#131318",
+            "on-secondary-fixed": "#23005c",
+            "on-primary": "#002e6a",
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-variant": "#35343a",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "primary": "#adc6ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed": "#e9ddff",
+            "surface-container-high": "#2a292f",
+            "primary-fixed": "#d8e2ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Container (390px reference frame) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface-container-lowest relative flex flex-col shadow-2xl overflow-x-hidden border-x border-outline-variant/30 pb-28">
+<!-- Top Glow Accent Layer -->
+<div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-44 bg-primary-container/20 blur-[90px] rounded-full"></div>
+<!-- 1. iOS Status Bar -->
+<header class="w-full pt-3 px-6 flex items-center justify-between z-50 select-none">
+<span class="text-label-md font-label-md font-semibold text-on-surface tracking-tight">9:41</span>
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_alt</span>
+<span class="text-[10px] font-bold tracking-widest text-on-surface-variant font-label-sm">5G</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[19px]">battery_full</span>
+</div>
+</header>
+<!-- Modal Drag Handle Indicator -->
+<div class="w-full flex justify-center items-center pt-2 pb-1">
+<div class="w-9 h-1 bg-outline-variant/60 rounded-full"></div>
+</div>
+<!-- TopAppBar Component (from Shared Components JSON Blueprint) -->
+<section class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-4 bg-surface-container-lowest/90 backdrop-blur-md">
+<div class="flex items-center gap-2 overflow-hidden">
+<button aria-label="Close sheet" class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-all duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-primary tracking-wide">CINEMATOGRAPHY MASTERCLASS</span>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface truncate max-w-[200px]">Module 4: Lighting Setup</h1>
+</div>
+</div>
+<button class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-all duration-150 active:scale-95" title="Rubric &amp; Guidelines">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+</button>
+</section>
+<!-- Main Content Stream -->
+<div class="px-4 space-y-4 pt-2">
+<!-- Status Countdown Chip Banner -->
+<div class="flex items-center justify-between px-3 py-2 rounded-lg bg-surface-container-low border border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#F59E0B] animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-[#F59E0B]">Due in 6 hours • 11:59 PM PST</span>
+</div>
+<div class="px-2 py-0.5 rounded-full bg-surface-container-highest border border-outline-variant/40 text-[10px] font-label-sm text-on-surface-variant font-medium">
+          Attempt 1 of 3
+        </div>
+</div>
+<!-- 2. Assignment Overview & Requirements Brief -->
+<section class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/40 shadow-sm relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-secondary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between gap-2 mb-2">
+<h2 class="text-headline-sm font-headline-sm font-bold text-on-surface leading-snug">
+            Hands-on Lab: Anamorphic Contrast &amp; Lighting Ratio Test
+          </h2>
+</div>
+<!-- Instructor Attribution & Criteria -->
+<div class="flex items-center justify-between py-2 border-y border-outline-variant/20 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container/30 border border-primary/40 flex items-center justify-center text-primary text-label-sm font-bold">
+              SL
+            </div>
+<div>
+<span class="text-label-sm font-label-sm text-on-surface">Sarah Lin</span>
+<span class="text-[10px] text-tertiary-fixed-dim bg-tertiary-container/20 px-1 rounded ml-1 font-label-sm">Instructor</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">
+            Weight: <strong class="text-on-surface">25%</strong> • <span class="text-tertiary">80/100 Pts</span>
+</span>
+</div>
+<!-- Collapsible Rubric Checklist Card -->
+<div class="rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm font-semibold text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+              Evaluation Rubric (3 Items)
+            </div>
+<span class="text-[11px] font-label-sm text-primary">70/100 Pts Met</span>
+</div>
+<div class="space-y-1.5 text-body-sm font-body-sm">
+<!-- Item 1: Complete -->
+<label class="flex items-start gap-2.5 p-1.5 rounded-lg bg-surface-container-low/50 cursor-pointer">
+<input checked="" class="mt-0.5 rounded border-outline-variant/60 text-primary-container focus:ring-0 focus:ring-offset-0 w-4 h-4 bg-surface-container" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center text-on-surface">
+<span class="text-body-sm font-body-sm text-on-surface">Key-to-Fill 4:1 low-key test clip</span>
+<span class="text-label-sm font-label-sm text-tertiary font-semibold ml-2">+35 pts</span>
+</div>
+</label>
+<!-- Item 2: Complete -->
+<label class="flex items-start gap-2.5 p-1.5 rounded-lg bg-surface-container-low/50 cursor-pointer">
+<input checked="" class="mt-0.5 rounded border-outline-variant/60 text-primary-container focus:ring-0 focus:ring-offset-0 w-4 h-4 bg-surface-container" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center text-on-surface">
+<span class="text-body-sm font-body-sm text-on-surface">Custom Rec.709 / LogC4 LUT curve</span>
+<span class="text-label-sm font-label-sm text-tertiary font-semibold ml-2">+35 pts</span>
+</div>
+</label>
+<!-- Item 3: Pending -->
+<label class="flex items-start gap-2.5 p-1.5 rounded-lg bg-surface-container-low/30 cursor-pointer opacity-90">
+<input class="mt-0.5 rounded border-outline-variant/60 text-primary-container focus:ring-0 focus:ring-offset-0 w-4 h-4 bg-surface-container" type="checkbox"/>
+<div class="flex-1 flex justify-between items-center text-on-surface-variant">
+<span class="text-body-sm font-body-sm">Color pipeline snippet / DRP project</span>
+<span class="text-label-sm font-label-sm text-outline font-medium ml-2">Max 30</span>
+</div>
+</label>
+</div>
+</div>
+</section>
+<!-- 3. File Upload Hub & Media Attachment Dropzone -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">upload_file</span>
+<h3 class="text-label-lg font-label-lg font-bold text-on-surface">Media Attachments</h3>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">2 files staged</span>
+</div>
+<!-- File 1: Upload Complete Video Card with Thumbnail -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 transition-colors">
+<div class="flex gap-3 items-center">
+<!-- Visual Thumbnail Preview -->
+<div class="relative w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high border border-outline-variant/40">
+<div class="w-full h-full bg-cover bg-center" data-alt="A cinematic low-key film frame showing high contrast chiaroscuro portrait lighting on a character against dark studio shadows. The atmospheric setup emphasizes anamorphic blue flare highlights, deep charcoal tones, and soft amber skin rim lights with professional film color grading." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRuaW3UnKoU0l2gzQjMi9ggivR45E1rQ4LNs8K1I_epowrLVuxVUWdz3cZZrZ0VbdPjRgUNC2mZWaTs59bReSn3FgfH64_k5o5whT327y0SwFqfSpQDJfgynxNx9iNTutBvDiw_aCIjX1HVNHfid1wOqkwZ4m3HR01KAnomMOlIdPVilhrNiMOVm2ACcuqQIcXn8PPhmogXsw3pSdshuWVx3ZuI26qHfLW1rEOsA7sfEEBWfSjtI8HiA')"></div>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<div class="w-6 h-6 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-1 right-1 px-1 py-0.2 rounded bg-black/80 text-[8px] font-label-sm font-mono text-white">
+                0:42
+              </div>
+</div>
+<!-- Details -->
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-label-md font-label-md font-semibold text-on-surface truncate">Scene04_Keylight_Take2.mov</h4>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-1 hover:text-primary transition-colors" title="Replace file">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+</button>
+<button class="p-1 hover:text-error transition-colors" title="Remove file">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+</div>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">ProRes 422 HQ • 24fps • 48.2 MB</p>
+<div class="mt-1.5 flex items-center gap-1.5 text-tertiary">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-[11px] font-label-sm">100% Uploaded • Transcoding ready</span>
+</div>
+</div>
+</div>
+</div>
+<!-- File 2: Active Uploading LUT File Card -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-primary/30 relative overflow-hidden">
+<div class="flex gap-3 items-center">
+<!-- 3D LUT Cube Icon Badge -->
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 flex items-center justify-center border border-outline-variant/30 text-secondary">
+<span class="material-symbols-outlined text-[24px]">view_in_ar</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<h4 class="text-label-md font-label-md font-semibold text-on-surface truncate">Arri_LogC4_SkinTone_Fix_v2.cube</h4>
+<button class="text-on-surface-variant hover:text-error p-1" title="Cancel upload">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+</button>
+</div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">3D 33-point LUT • 4.2 MB</p>
+<!-- Progress Bar Track -->
+<div class="mt-2 w-full">
+<div class="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full rounded-full transition-all duration-300" style="width: 84%"></div>
+</div>
+<div class="flex items-center justify-between mt-1 text-[10px] font-label-sm">
+<span class="text-primary font-semibold">84% Uploading</span>
+<span class="text-on-surface-variant font-mono">12.4 MB/s • 2s left</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick Add File Dropzone / Button -->
+<button class="w-full py-3.5 px-3 rounded-xl border border-dashed border-outline-variant hover:border-primary/80 bg-surface-container-lowest/60 hover:bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-2 transition-all group">
+<span class="material-symbols-outlined text-[18px] text-primary group-hover:scale-110 transition-transform">add_circle</span>
+<span class="text-label-sm font-label-sm font-medium">Attach Additional Files (DaVinci DRP, PDF, DNG up to 500MB)</span>
+</button>
+</section>
+<!-- 4. Project Repository / Cloud Link Input -->
+<section class="space-y-2">
+<label class="text-label-sm font-label-sm font-semibold text-on-surface flex items-center justify-between">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">link</span>
+            Cloud Review / Repository Link
+          </span>
+<span class="text-[10px] text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+            Link Verified
+          </span>
+</label>
+<div class="relative flex items-center">
+<div class="absolute left-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">movie_edit</span>
+</div>
+<input class="w-full pl-9 pr-8 h-10 rounded-lg bg-surface-container-low border border-outline-variant/50 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder:text-outline-variant text-sm font-mono" placeholder="Frame.io, Google Drive, or GitHub link" type="url" value="https://frame.io/r/acme-studios-m4-marcus"/>
+<div class="absolute right-2.5 flex items-center text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</section>
+<!-- 5. Student Submission Notes & Self-Reflection -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">rate_review</span>
+            Student Reflection &amp; Pipeline Notes
+          </label>
+<span class="text-[10px] font-label-sm text-on-surface-variant">Markdown supported</span>
+</div>
+<div class="relative">
+<textarea class="w-full p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary resize-none placeholder:text-outline leading-relaxed" rows="3">Struggled with secondary rim spill catching the 4000K practical lamp at 14:28, but applied the secondary curve fix suggested by Sarah in 1:1 DMs. Verified on DaVinci waveform monitor.</textarea>
+</div>
+<!-- Quick Context Pill Tags -->
+<div class="flex flex-wrap gap-1.5 pt-1">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant/40 text-on-surface-variant">
+            #AnamorphicContrast
+          </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant/40 text-on-surface-variant">
+            #ArriLogC4
+          </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant/40 text-on-surface-variant">
+            #DaVinciResolve
+          </span>
+</div>
+</section>
+</div>
+<!-- 6. Sticky Bottom Action Dock -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[390px] bg-surface-container-lowest/95 backdrop-blur-xl border-t border-outline-variant/30 p-4 space-y-2.5 z-50">
+<div class="flex items-center gap-2">
+<!-- Save Draft Button -->
+<button class="h-11 px-3 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-1.5 transition-all text-label-md font-label-md active:scale-95">
+<span class="material-symbols-outlined text-[18px]">cloud_done</span>
+<span class="text-[11px] whitespace-nowrap">Draft Saved</span>
+</button>
+<!-- Primary Gradient Submit Button with Glow & Ripple styling -->
+<button class="flex-1 h-11 px-4 rounded-lg bg-gradient-to-r from-primary to-secondary text-on-primary font-bold text-label-lg font-label-lg shadow-[0_0_20px_rgba(77,142,255,0.35)] hover:brightness-105 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Submit Assignment (2 Files)</span>
+</button>
+</div>
+<!-- Merkle Ledger Verification Disclaimer -->
+<p class="text-[9.5px] font-label-sm text-center text-outline tracking-tight">
+        Submission timestamp will be hashed and verified via Creator OS Merkle Ledger.
+      </p>
+<!-- iOS Home Indicator -->
+<div class="w-full flex justify-center pt-1">
+<div class="w-32 h-1 bg-on-surface-variant/40 rounded-full"></div>
+</div>
+</div>
+</main>
+</body></html>

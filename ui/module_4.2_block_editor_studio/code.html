@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Module 4.2 Block Editor Studio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "tertiary": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-low": "#1b1b20",
+            "surface-tint": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container-high": "#2a292f",
+            "on-error": "#690005",
+            "primary-container": "#4d8eff",
+            "inverse-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#93000a",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "on-primary-container": "#00285d",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "surface": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-variant": "#35343a",
+            "background": "#131318",
+            "tertiary-container": "#00a572",
+            "primary": "#adc6ff",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-primary": "#005ac2",
+            "on-secondary": "#3c0091",
+            "secondary-fixed": "#e9ddff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .accent-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #35343a;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md overflow-hidden antialiased select-none h-screen flex flex-col">
+<!-- TOP APP NAV BAR -->
+<header class="h-14 w-full flex items-center justify-between px-4 bg-[#12121A] border-b border-[#1E1E2E] z-50 shrink-0 select-none">
+<!-- Left Section: Brand & Breadcrumbs & Controls -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 pr-3 border-r border-[#1E1E2E]">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[18px]">web</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight hidden lg:inline-block">Creator OS</span>
+</div>
+<!-- Breadcrumbs & Switcher -->
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
+          Website Builder
+          <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</span>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#181824] border border-[#1E1E2E] hover:border-outline-variant hover:text-on-surface transition-colors duration-150">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md font-medium text-on-surface">Homepage</span>
+<span class="material-symbols-outlined text-[16px] text-outline">expand_more</span>
+</button>
+</div>
+<!-- Undo / Redo & Save State -->
+<div class="flex items-center gap-1 pl-2 border-l border-[#1E1E2E]">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-[#181824] transition-colors" title="Undo (Cmd+Z)">
+<span class="material-symbols-outlined text-[18px]">undo</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-[#181824] transition-colors" title="Redo (Cmd+Y)">
+<span class="material-symbols-outlined text-[18px]">redo</span>
+</button>
+<div class="flex items-center gap-1.5 ml-2 px-2 py-0.5 rounded-full bg-[#181824]/60 border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[13px] text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Saved 1m ago</span>
+</div>
+</div>
+</div>
+<!-- Center Section: Viewport Device Switcher & Zoom -->
+<div class="flex items-center gap-3">
+<div class="flex items-center p-0.5 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E]">
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#181824] text-primary border border-primary/30 shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">desktop_windows</span>
+<span>Desktop</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">tablet_mac</span>
+</button>
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">smartphone</span>
+</button>
+</div>
+<div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface-variant text-label-sm font-label-sm">
+<span>100%</span>
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</div>
+</div>
+<!-- Right Section: Actions (Copilot, Preview, Glowing Publish) -->
+<div class="flex items-center gap-2.5">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181824] border border-[#2A2A3E] text-secondary hover:border-secondary/40 hover:bg-[#1E1E2E] transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] text-secondary">auto_awesome</span>
+<span class="font-label-md text-label-md font-medium">AI Copilot</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface hover:text-white hover:bg-[#1E1E2E] transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">visibility</span>
+<span class="font-label-md text-label-md font-medium">Preview</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-medium shadow-[0_0_16px_rgba(59,130,246,0.4)] hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]">rocket_launch</span>
+<span>Publish Changes</span>
+</button>
+</div>
+</header>
+<!-- MAIN STUDIO WORKSPACE (Three-Column Layout) -->
+<main class="flex-1 flex overflow-hidden w-full relative">
+<!-- 1. LEFT PANEL: Block Palette & Tree Navigator (280px) -->
+<aside class="w-[280px] bg-[#12121A] border-r border-[#1E1E2E] flex flex-col shrink-0 z-20 overflow-hidden">
+<!-- Tabs Header -->
+<div class="flex border-b border-[#1E1E2E] bg-[#0E0E13] px-2 pt-2 gap-1">
+<button class="flex-1 flex items-center justify-center gap-2 py-2 px-3 border-b-2 border-primary text-primary font-label-md text-label-md font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">widgets</span>
+<span>Blocks</span>
+</button>
+<button class="flex-1 flex items-center justify-center gap-2 py-2 px-3 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">account_tree</span>
+<span>Layers / Tree</span>
+</button>
+</div>
+<!-- AI Prompt Box -->
+<div class="p-3 border-b border-[#1E1E2E]">
+<div class="relative rounded-lg p-[1px] bg-gradient-to-r from-blue-500/40 via-purple-500/40 to-blue-500/40 group">
+<div class="bg-[#181824] rounded-lg p-2.5 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">magic_button</span>
+                AI Generate Custom Block
+              </span>
+<span class="text-[10px] uppercase font-bold text-outline px-1.5 py-0.5 rounded bg-[#12121A]">Beta</span>
+</div>
+<div class="relative">
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md px-2.5 py-1.5 text-xs text-on-surface placeholder:text-outline/70 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all pr-8" placeholder="e.g. 'Interactive tier comparison table with ROI toggle'..." type="text"/>
+<button class="absolute right-1.5 top-1/2 -translate-y-1/2 p-1 text-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[16px]">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Search Input -->
+<div class="p-3 pb-1">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-2.5 text-[16px] text-outline">search</span>
+<input class="w-full h-8 pl-8 pr-3 bg-[#181824] border border-[#1E1E2E] rounded-md text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:border-primary focus:outline-none transition-all" placeholder="Search blocks &amp; components..." type="text"/>
+<span class="absolute right-2 text-[10px] text-outline font-mono border border-[#2A2A3E] px-1 rounded">⌘K</span>
+</div>
+</div>
+<!-- Scrollable Blocks Directory -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-3 space-y-4">
+<!-- Category: Layout -->
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-2 px-1">
+<span>Layout</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">web_stories</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Hero Section</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">view_column_2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">2-Col Grid</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">view_column</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">3-Col Feature</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">crop_free</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Container</span>
+</div>
+</div>
+</div>
+<!-- Category: Content -->
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-2 px-1">
+<span>Content</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">title</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Headline</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">format_align_left</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Rich Text</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">photo_library</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Image Gallery</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">smart_display</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Video Player</span>
+</div>
+</div>
+</div>
+<!-- Category: Interactive & Forms -->
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-2 px-1">
+<span>Interactive &amp; Forms</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">mail</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Email Capture</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">smart_button</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">CTA Button</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group col-span-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline group-hover:text-primary text-[20px]">quiz</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">FAQ Accordion</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Category: Commerce -->
+<div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-2 px-1">
+<span>Commerce</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">price_change</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Pricing Table</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group">
+<span class="material-symbols-outlined text-outline group-hover:text-primary mb-1 text-[20px]">shopping_cart</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface text-center">Product Card</span>
+</div>
+<div class="flex flex-col items-center justify-center p-2.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary/50 hover:bg-[#1E1E2E] cursor-grab active:cursor-grabbing transition-all group col-span-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline group-hover:text-primary text-[20px]">reviews</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant group-hover:text-on-surface">Testimonials Carousel</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- 2. CENTER CANVAS: Responsive Preview Area -->
+<section class="flex-1 bg-[#0A0A0F] overflow-y-auto custom-scrollbar flex flex-col items-center p-6 relative">
+<!-- Background subtle grid canvas guide lines -->
+<div class="absolute inset-0 bg-[radial-gradient(#1E1E2E_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+<!-- Canvas Frame (Simulating 1280px Desktop Page) -->
+<div class="w-full max-w-[1020px] bg-[#0E0E17] border border-[#1E1E2E] rounded-xl shadow-2xl overflow-hidden relative transition-all pb-16">
+<!-- Top Canvas Mock Navigation Header -->
+<div class="h-16 px-8 flex items-center justify-between border-b border-[#1E1E2E]/60 bg-[#12121A]/80 backdrop-blur-md">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs">C</div>
+<span class="font-bold text-sm tracking-tight text-white">CRAFT.AI</span>
+</div>
+<div class="hidden sm:flex items-center gap-6 text-xs text-on-surface-variant">
+<span class="text-white font-medium">Features</span>
+<span>Solutions</span>
+<span>Pricing</span>
+<span>Showcase</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-on-surface-variant cursor-pointer">Sign In</span>
+<button class="px-3 py-1.5 text-xs font-medium rounded-md bg-white text-black hover:bg-slate-200 transition">Get Started</button>
+</div>
+</div>
+<!-- ACTIVE SELECTED BLOCK: Hero Section #hero-1 -->
+<div class="relative m-4 rounded-xl border-2 border-primary/90 ring-4 ring-primary/10 transition-all group">
+<!-- Block Identifier Tag and Resize Handles -->
+<div class="absolute -top-3.5 left-4 z-30 flex items-center gap-1.5 bg-primary text-on-primary font-label-sm text-label-sm px-2.5 py-0.5 rounded shadow-md">
+<span class="material-symbols-outlined text-[13px]">web_stories</span>
+<span class="font-semibold">Hero Section #hero-1</span>
+<span class="text-[10px] opacity-75 ml-1">1280 × 580</span>
+</div>
+<!-- Bounding Box Corner Handles -->
+<div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<div class="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-2 border-primary rounded-sm shadow z-30"></div>
+<!-- Floating Quick Action Bar -->
+<div class="absolute -top-11 right-4 z-30 flex items-center bg-[#181824] border border-[#2A2A3E] rounded-lg shadow-xl p-1 gap-0.5">
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-[#2A2A3E] rounded transition" title="Move Up">
+<span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-[#2A2A3E] rounded transition" title="Move Down">
+<span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+</button>
+<div class="w-[1px] h-4 bg-[#2A2A3E] mx-1"></div>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-[#2A2A3E] rounded transition" title="Duplicate (Cmd+D)">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-[#2A2A3E] rounded transition" title="Save as Template">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+</button>
+<button class="p-1.5 text-error hover:bg-error-container/20 rounded transition" title="Delete Block">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+</button>
+<div class="w-[1px] h-4 bg-[#2A2A3E] mx-1"></div>
+<button class="flex items-center gap-1 px-2 py-1 bg-[#1E1E2E] text-primary rounded text-xs font-medium hover:bg-primary hover:text-on-primary transition">
+<span class="material-symbols-outlined text-[14px]">tune</span>
+<span>Settings</span>
+</button>
+</div>
+<!-- Hero Block Rendered Content Canvas -->
+<div class="relative px-8 py-20 bg-[#0E0E17] rounded-lg overflow-hidden text-center flex flex-col items-center">
+<!-- Subtle internal gradient blur -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[480px] h-[260px] bg-gradient-to-tr from-blue-600/15 via-purple-600/15 to-transparent blur-3xl pointer-events-none"></div>
+<!-- Pill Tag -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181824] border border-[#2A2A3E] mb-6">
+<span class="flex h-2 w-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="text-xs font-medium text-secondary">Creator OS v4.2 Release</span>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+</div>
+<!-- Bold Headline -->
+<h1 class="font-headline-xl text-headline-xl md:text-[44px] md:leading-[52px] font-extrabold text-white max-w-2xl tracking-tight mb-4">
+              Monetize Your Craft With <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Autonomous Intelligence</span>
+</h1>
+<!-- Subtitle -->
+<p class="text-on-surface-variant font-body-lg text-body-lg max-w-xl mx-auto mb-8">
+              The high-performance studio-grade environment tailored for modern digital creators, autonomous AI agents, and frictionless audience monetization.
+            </p>
+<!-- Email Lead Magnet Form Component -->
+<div class="w-full max-w-md bg-[#12121A] border border-[#1E1E2E] rounded-xl p-1.5 shadow-2xl flex items-center gap-2 mb-8 focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline pl-2 text-[20px]">mail</span>
+<input class="bg-transparent text-sm text-white placeholder:text-outline/70 border-none focus:ring-0 flex-1 outline-none" placeholder="Enter your creator work email..." type="text"/>
+<button class="px-5 py-2.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-semibold hover:brightness-110 active:scale-95 transition-all shadow-md">
+                Claim Invite
+              </button>
+</div>
+<!-- Social Proof Avatar Cluster -->
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2 overflow-hidden">
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0E0E17] object-cover" data-alt="Close up studio portrait of a young professional digital creator wearing headphones in ambient neon lighting, deep obsidian studio background with blue and violet rim light, hyperrealistic modern software user profile photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA07sDZQwv9mUUv5Yc5B432DjJVrqSjU8XLzmMvmB6u95z-Z7Ey2zJiQT-OvWt7S9qUVX-gCCaTa_www7kFCDpOYVr3962tiKmqyCuXZiVq8MmFToutVySs8qyfLfndLJrh2ujYJX9Iyxe2bxRo5dl4183shYbOQ_mPMBVTYWPIZ3O6M1wUyH7RkGmrtEdwZxjJgqq1UqPTeiyukYbN-FwyZPc2F2JsreaAQ3Wr05ctIjRZfGPeERusIA"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0E0E17] object-cover" data-alt="Portrait of an innovative product designer in a modern dark-themed creative office environment with soft futuristic neon illumination and clean aesthetic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ_HfMh02NDJjAK5S-FyBddBaxOmGMf59XHk38TabunVGtF4VuywJf5blTgZTfbDxR9-g4Z84lgPZxUWY1lh_PV3-tRLJpdTkHIv1Wdjx6la65uc4ptGSGXERBmNOpHr5XoJMSEGEpfV69iOfDx9l23xRFH06ex6EgLAk30SD2jzqmDEoOTn5Pv0KISYySUHZdS1kDDEQdNobOw5h011Nc4RvW6xGGEGlVViEQ8V0T11fIaBboyBp1Ew"/>
+<img class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0E0E17] object-cover" data-alt="Professional headshot of a modern media entrepreneur smiling softly with clean studio lighting and dark slate architectural background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7tNcR7NXZFWvbNdOVgYlv5TeI6etcHqGuzJno70J0NpfEO3QhaZDxpoZRmr-eYQeU15awdP1Pj5dgTYmeRgGxVxWnYvFCfuOiHw4QhATyBoUdSBhj-BcqAUME-ofB-bdlQKU1-2m-nWwZ9BOXIJAtTWhUvcOFeIg7TBwTNBobnYu6CycIJfDvABnNjbkk1-jzXEaupajGJDT4FsZmmPujgnSwrOdJRhWuGaX9Wczqw3k_uyTxnbszeg"/>
+<div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#181824] text-[11px] font-bold text-primary ring-2 ring-[#0E0E17]">+4k</div>
+</div>
+<div class="text-left">
+<div class="flex text-amber-400 text-xs">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trusted by 4,200+ elite media architects</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Subsequent Block 1: Social Proof Logo Wall -->
+<div class="mx-4 my-6 p-6 rounded-xl border border-dashed border-[#1E1E2E] bg-[#12121A]/40 text-center relative hover:border-[#2A2A3E] transition-colors cursor-pointer group">
+<div class="absolute -top-3 left-4 hidden group-hover:flex items-center gap-1 bg-[#181824] text-outline text-[11px] px-2 py-0.5 rounded border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[12px]">storefront</span>
+<span>Logo Wall Block</span>
+</div>
+<span class="text-xs uppercase tracking-widest text-outline font-semibold block mb-4">POWERING PRODUCTION TEAMS AT</span>
+<div class="flex flex-wrap items-center justify-center gap-8 opacity-60 grayscale group-hover:grayscale-0 group-hover:opacity-80 transition-all">
+<span class="font-black tracking-tighter text-base text-white">POLYMEDIA</span>
+<span class="font-black tracking-wider text-base text-white">NEXUS·LAB</span>
+<span class="font-bold tracking-tight text-base text-white">HYPERION</span>
+<span class="font-semibold tracking-widest text-base text-white">VORTEX.IO</span>
+<span class="font-bold tracking-normal text-base text-white">SYNTHETIX</span>
+</div>
+</div>
+<!-- Subsequent Block 2: Feature Grid Block -->
+<div class="mx-4 my-6 p-8 rounded-xl border border-dashed border-[#1E1E2E] bg-[#12121A]/30 relative hover:border-[#2A2A3E] transition-colors cursor-pointer group">
+<div class="absolute -top-3 left-4 hidden group-hover:flex items-center gap-1 bg-[#181824] text-outline text-[11px] px-2 py-0.5 rounded border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[12px]">view_column</span>
+<span>3-Column Feature Block</span>
+</div>
+<div class="text-center max-w-lg mx-auto mb-8">
+<h3 class="font-headline-sm text-headline-sm font-bold text-white mb-2">Engineered for Autonomous Velocity</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Deploy native web experiences paired with self-tuning commerce funnels.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="p-4 rounded-lg bg-[#181824]/80 border border-[#1E1E2E]">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-white mb-1">Ultra Fast Edge Edge</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global distributed static deployments with 0ms cold starts.</p>
+</div>
+<div class="p-4 rounded-lg bg-[#181824]/80 border border-[#1E1E2E]">
+<div class="w-8 h-8 rounded bg-secondary/10 text-secondary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[18px]">smart_toy</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-white mb-1">Autonomous CRM</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Auto-segment leads and automate subscriber onboarding journeys.</p>
+</div>
+<div class="p-4 rounded-lg bg-[#181824]/80 border border-[#1E1E2E]">
+<div class="w-8 h-8 rounded bg-tertiary/10 text-tertiary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-[18px]">currency_exchange</span>
+</div>
+<h4 class="font-label-lg text-label-lg font-bold text-white mb-1">Multi-Currency</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Accept payments, subscriptions, and affiliate commissions globally.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Add New Block Canvas Hover Button -->
+<button class="mt-4 flex items-center gap-2 px-4 py-2 rounded-lg bg-[#181824] border border-dashed border-[#2A2A3E] text-on-surface-variant hover:text-primary hover:border-primary transition-all font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Insert New Section Below</span>
+</button>
+</section>
+<!-- 3. RIGHT PANEL: Property Inspector (320px) -->
+<aside class="w-[320px] bg-[#12121A] border-l border-[#1E1E2E] flex flex-col shrink-0 z-20 overflow-hidden">
+<!-- Tabs Header -->
+<div class="flex border-b border-[#1E1E2E] bg-[#0E0E13] px-2 pt-2">
+<button class="flex-1 py-2 text-center border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors">
+          Content
+        </button>
+<button class="flex-1 py-2 text-center border-b-2 border-primary text-primary font-label-md text-label-md font-medium transition-colors">
+          Style
+        </button>
+<button class="flex-1 py-2 text-center border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors">
+          Interactions
+        </button>
+</div>
+<!-- Selected Component Info Banner -->
+<div class="px-4 py-2.5 bg-[#181824] border-b border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary"></span>
+<span class="font-label-md text-label-md font-semibold text-white">Hero Section</span>
+<span class="text-xs text-outline font-mono">#hero-1</span>
+</div>
+<button class="text-outline hover:text-on-surface transition">
+<span class="material-symbols-outlined text-[16px]">more_horiz</span>
+</button>
+</div>
+<!-- Inspector Property Accordions (Scrollable) -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-6">
+<!-- Accordion 1: Layout & Spacing -->
+<div class="space-y-3">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">aspect_ratio</span>
+              Layout &amp; Spacing
+            </span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer">expand_less</span>
+</div>
+<!-- Padding Slider -->
+<div class="space-y-1.5 bg-[#181824] p-2.5 rounded-lg border border-[#1E1E2E]">
+<div class="flex items-center justify-between text-xs">
+<span class="text-on-surface-variant">Padding Top/Bottom</span>
+<span class="font-mono text-white font-medium bg-[#12121A] px-1.5 py-0.5 rounded border border-[#1E1E2E]">120px</span>
+</div>
+<input class="w-full accent-primary h-1 bg-[#12121A] rounded-lg cursor-pointer" max="240" min="40" type="range" value="120"/>
+</div>
+<!-- Max Width Dropdown -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Max Width Container</label>
+<div class="relative">
+<select class="w-full bg-[#181824] border border-[#1E1E2E] rounded-md px-3 py-1.5 text-xs text-white appearance-none focus:border-primary outline-none cursor-pointer">
+<option selected="">1280px (Standard Desktop)</option>
+<option>1024px (Narrow Focused)</option>
+<option>1440px (Studio Wide)</option>
+<option>100% (Fluid Stretch)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-[16px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Alignment -->
+<div class="space-y-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Content Alignment</label>
+<div class="grid grid-cols-3 gap-1 bg-[#0E0E13] p-1 rounded-md border border-[#1E1E2E]">
+<button class="py-1 flex justify-center text-outline hover:text-white rounded hover:bg-[#181824] transition">
+<span class="material-symbols-outlined text-[16px]">format_align_left</span>
+</button>
+<button class="py-1 flex justify-center text-primary bg-[#181824] border border-primary/30 rounded transition">
+<span class="material-symbols-outlined text-[16px]">format_align_center</span>
+</button>
+<button class="py-1 flex justify-center text-outline hover:text-white rounded hover:bg-[#181824] transition">
+<span class="material-symbols-outlined text-[16px]">format_align_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Accordion 2: Background -->
+<div class="space-y-3 pt-3 border-t border-[#1E1E2E]">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">palette</span>
+              Background
+            </span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer">expand_less</span>
+</div>
+<!-- Color Picker Item -->
+<div class="flex items-center justify-between bg-[#181824] p-2 rounded-lg border border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded border border-outline/40 bg-[#0E0E17] shadow-inner"></div>
+<span class="font-mono text-xs text-white">#0E0E17</span>
+</div>
+<span class="text-xs text-outline font-mono">100%</span>
+</div>
+<!-- Gradient Toggle -->
+<div class="flex items-center justify-between py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Radial Gradient Aura</span>
+<button class="w-9 h-5 bg-primary rounded-full p-0.5 transition-colors relative flex items-center justify-end">
+<div class="w-4 h-4 rounded-full bg-white shadow-md"></div>
+</button>
+</div>
+<!-- Noise Texture Overlay Toggle -->
+<div class="flex items-center justify-between py-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Noise Texture Overlay</span>
+<button class="w-9 h-5 bg-[#2A2A3E] rounded-full p-0.5 transition-colors relative flex items-center justify-start">
+<div class="w-4 h-4 rounded-full bg-outline shadow-md"></div>
+</button>
+</div>
+</div>
+<!-- Accordion 3: Typography -->
+<div class="space-y-3 pt-3 border-t border-[#1E1E2E]">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary">match_case</span>
+              Typography
+            </span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="space-y-2">
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-1 block">Font Family</label>
+<div class="bg-[#181824] border border-[#1E1E2E] rounded px-2 py-1.5 text-xs text-white flex justify-between items-center">
+<span>Inter Display</span>
+<span class="material-symbols-outlined text-[14px] text-outline">expand_more</span>
+</div>
+</div>
+<div>
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-1 block">Weight</label>
+<div class="bg-[#181824] border border-[#1E1E2E] rounded px-2 py-1.5 text-xs text-white flex justify-between items-center">
+<span>Bold (700)</span>
+<span class="material-symbols-outlined text-[14px] text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between bg-[#181824] p-2 rounded-lg border border-[#1E1E2E]">
+<span class="text-xs text-on-surface-variant">Headline Color</span>
+<div class="flex items-center gap-1.5">
+<div class="w-4 h-4 rounded-full bg-white border border-[#2A2A3E]"></div>
+<span class="font-mono text-xs text-white">#FFFFFF</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Accordion 4: Border & Radius -->
+<div class="space-y-3 pt-3 border-t border-[#1E1E2E]">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">rounded_corner</span>
+              Border &amp; Radius
+            </span>
+<span class="material-symbols-outlined text-[16px] text-outline cursor-pointer">expand_less</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="bg-[#181824] p-2 rounded-lg border border-[#1E1E2E] flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Corner Radius</span>
+<span class="font-mono text-xs text-white font-medium">16px</span>
+</div>
+<div class="bg-[#181824] p-2 rounded-lg border border-[#1E1E2E] flex items-center justify-between">
+<span class="text-xs text-on-surface-variant">Border Width</span>
+<span class="font-mono text-xs text-white font-medium">1px</span>
+</div>
+</div>
+</div>
+<!-- Accordion 5: Responsive Visibility Toggles -->
+<div class="space-y-2.5 pt-3 border-t border-[#1E1E2E]">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">visibility</span>
+              Responsive Visibility
+            </span>
+</div>
+<div class="bg-[#181824] p-2.5 rounded-lg border border-[#1E1E2E] space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-xs text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">desktop_windows</span>
+                Show on Desktop
+              </span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<div class="flex items-center justify-between border-t border-[#1E1E2E] pt-2">
+<span class="text-xs text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">tablet_mac</span>
+                Show on Tablet
+              </span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+<div class="flex items-center justify-between border-t border-[#1E1E2E] pt-2">
+<span class="text-xs text-white flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">smartphone</span>
+                Show on Mobile
+              </span>
+<span class="material-symbols-outlined text-[18px] text-tertiary" style="font-variation-settings: 'FILL' 1;">check_box</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Quick Status -->
+<div class="p-3 bg-[#0E0E13] border-t border-[#1E1E2E] flex items-center justify-between text-xs text-outline font-mono">
+<span>CSS Class: .section-hero</span>
+<button class="text-primary hover:underline">Copy CSS</button>
+</div>
+</aside>
+</main>
+</body></html>

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - Marketplace VFX &amp; Cinematic Color Assets</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-highest": "#35343a",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "outline": "#8c909f",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed-variant": "#004395",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "error-container": "#93000a",
+            "on-primary": "#002e6a",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "surface-bright": "#39383e",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed": "#6ffbbe",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-container": "#00a572",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "surface-dim": "#131318",
+            "error": "#ffb4ab",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 9999px;
+      background: #adc6ff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(77, 142, 255, 0.5);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar (Shared Component) -->
+<header class="sticky top-0 z-50 flex items-center justify-between h-14 px-gutter w-full bg-surface-container-low border-b border-outline-variant shadow-sm">
+<!-- Left Section: Logo, Tenant & Search -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-3">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="deployed_code">deployed_code</span>
+          Creator OS
+        </span>
+<span class="bg-surface-container border border-outline-variant text-primary font-label-sm text-label-sm px-2 py-0.5 rounded">STUDIO</span>
+</div>
+<!-- Tenant Switcher Action -->
+<button class="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface border border-outline-variant transition-all duration-150">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md">Tenant Switcher</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</button>
+<!-- Global Left Search Bar -->
+<div class="relative w-80">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-outline">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full h-8 pl-9 pr-4 bg-surface-container-lowest border border-outline-variant rounded-lg text-body-sm font-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Search marketplace shaders, LUTs, presets..." type="text"/>
+</div>
+</div>
+<!-- Center Navigation Links -->
+<nav class="hidden lg:flex items-center space-x-6 h-full">
+<!-- Active Item: Marketplace -->
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-1 h-full flex items-center transition-all duration-150 ease-out active:scale-98" href="#">
+        Marketplace
+      </a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">
+        Performance
+      </a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">
+        Cohorts
+      </a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">
+        Studio
+      </a>
+</nav>
+<!-- Trailing Actions & Profile -->
+<div class="flex items-center space-x-3">
+<button class="bg-primary-container text-on-primary-container font-label-md text-label-md px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-all duration-150 ease-out active:scale-98 hover:brightness-105 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+        Create New
+      </button>
+<div class="flex items-center space-x-1 border-l border-outline-variant pl-3">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Help Center">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Settings">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="flex items-center pl-2">
+<img class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="Close up modern studio producer workspace profile avatar framed within an illuminated circular ring with a glowing cyber dark ambient background tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArQJlDBqhF0i0cjhrhD0zKV1neYqWs7BS2NVtdhXFdjoZgBME9UN4Trxx8rVmygs9NUKIREXqtuBv-NRNrP_Ur8F1Ulfc4WtxbXEog8D6MLBMbvwqiKXHOKRdpR1eNxpy6KAFnY7qrVOSgLydzacy1LQFLGDNNFCwja7vXK_03k5wEHlY1pStQ0BRhH_B1OcdZFkwStB3ztw2i5ok4mFHYzZboTk6rNkkBpVFtI30LzYQmb4ir6fBA4g"/>
+</div>
+</div>
+</header>
+<!-- Workspace Shell Container -->
+<div class="flex flex-1 overflow-hidden">
+<!-- Secondary Category & Studio Nav Drawer (Fixed docked left bar) -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant flex flex-col justify-between shrink-0 overflow-y-auto">
+<div class="p-space-md">
+<!-- Sub-header context -->
+<div class="flex items-center gap-3 px-2 py-2 mb-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="w-7 h-7 rounded bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="storefront">storefront</span>
+</div>
+<div>
+<div class="font-headline-sm text-[13px] leading-tight text-on-surface font-semibold">Studio Enterprise</div>
+<div class="font-body-sm text-label-sm text-outline">Creator Production Suite</div>
+</div>
+</div>
+<!-- Marketplace Specific Categories -->
+<div class="mb-4">
+<span class="px-3 font-label-sm text-label-sm text-outline tracking-wider block mb-2 uppercase">Marketplace Catalogs</span>
+<nav class="space-y-1">
+<a class="bg-surface-container text-primary border-l-2 border-primary font-label-md text-label-md px-3 py-2 rounded-r-lg flex items-center justify-between" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="palette">palette</span>
+                LUTs &amp; Presets
+              </span>
+<span class="text-xs bg-surface-container-high px-1.5 py-0.5 rounded text-primary">348</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center justify-between transition-colors" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="token">token</span>
+                3D Assets &amp; Shaders
+              </span>
+<span class="text-xs text-outline">512</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center justify-between transition-colors" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="movie_filter">movie_filter</span>
+                Video Templates
+              </span>
+<span class="text-xs text-outline">284</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center justify-between transition-colors" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="graphic_eq">graphic_eq</span>
+                Audio Plugins
+              </span>
+<span class="text-xs text-outline">193</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center justify-between transition-colors" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+                Code Boilerplates
+              </span>
+<span class="text-xs text-outline">120</span>
+</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center justify-between transition-colors" href="#">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="dashboard_customize">dashboard_customize</span>
+                Notion &amp; Figma Kits
+              </span>
+<span class="text-xs text-outline">410</span>
+</a>
+</nav>
+</div>
+<!-- Global Studio Suite items from JSON -->
+<div>
+<span class="px-3 font-label-sm text-label-sm text-outline tracking-wider block mb-2 uppercase">Platform Navigation</span>
+<nav class="space-y-1">
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="storefront">storefront</span>
+              Marketplace Hub
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="analytics">analytics</span>
+              Listing Analytics
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+              Featured Showcase
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="groups">groups</span>
+              Cohort Roster
+            </a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg flex items-center gap-2 transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="workspace_premium">workspace_premium</span>
+              Quiz &amp; Certificate Studio
+            </a>
+</nav>
+</div>
+</div>
+<!-- Left Sidebar Footer Area -->
+<div class="p-space-md border-t border-outline-variant space-y-2">
+<button class="w-full py-2 px-3 rounded-lg bg-primary-container/20 border border-primary/40 text-primary font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary-container/30 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="publish">publish</span>
+          Publish Asset
+        </button>
+<div class="flex items-center justify-between pt-1">
+<a class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="menu_book">menu_book</span>
+            Documentation
+          </a>
+<a class="text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="tune">tune</span>
+            Settings
+          </a>
+</div>
+</div>
+</aside>
+<!-- Facet Filter Sidebar -->
+<aside class="w-72 bg-surface-container-low border-r border-outline-variant shrink-0 overflow-y-auto p-space-md space-y-6">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="filter_alt">filter_alt</span>
+<span class="font-headline-sm text-[15px] font-semibold text-on-surface">Filter Facets</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline">Reset Facets</button>
+</div>
+<!-- Asset Format / Compatibility -->
+<div>
+<div class="flex items-center justify-between mb-2.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Compatibility</span>
+<span class="text-outline text-xs">5 Options</span>
+</div>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="flex items-center gap-2 text-on-surface">
+<input checked="" class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+              DaVinci Resolve 19
+            </span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-primary font-medium">142</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="flex items-center gap-2 text-on-surface-variant group-hover:text-on-surface">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+              Premiere Pro
+            </span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-outline">98</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="flex items-center gap-2 text-on-surface-variant group-hover:text-on-surface">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+              Blender 4.x
+            </span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-outline">76</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="flex items-center gap-2 text-on-surface-variant group-hover:text-on-surface">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+              Unreal Engine 5.4
+            </span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-outline">54</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="flex items-center gap-2 text-on-surface-variant group-hover:text-on-surface">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+              After Effects
+            </span>
+<span class="text-xs px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-outline">89</span>
+</label>
+</div>
+</div>
+<!-- Licensing Type -->
+<div class="pt-4 border-t border-outline-variant">
+<span class="font-label-md text-label-md font-semibold text-on-surface block mb-2.5">Licensing Type</span>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Standard Commercial
+          </label>
+<label class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface cursor-pointer">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Extended Studio License
+          </label>
+<label class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface cursor-pointer">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Free / Open Source
+          </label>
+</div>
+</div>
+<!-- Price Range Slider & Quick Pills -->
+<div class="pt-4 border-t border-outline-variant">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Price Range</span>
+<span class="font-label-sm text-label-sm text-primary">$0 – $350</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="350" min="0" type="range" value="180"/>
+<div class="flex gap-1.5 mt-3">
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-on-surface-variant">Under $25</button>
+<button class="px-2 py-1 rounded bg-surface-container-high border border-primary/40 font-label-sm text-label-sm text-primary">$25–$75</button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-on-surface-variant">$75+</button>
+</div>
+</div>
+<!-- Creator Tier Filter -->
+<div class="pt-4 border-t border-outline-variant">
+<span class="font-label-md text-label-md font-semibold text-on-surface block mb-2.5">Creator Tier</span>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified">verified</span>
+              Verified Studios
+            </span>
+</label>
+<label class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface cursor-pointer">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Pro Creators
+          </label>
+<label class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface cursor-pointer">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Community Contributors
+          </label>
+</div>
+</div>
+<!-- Minimum Rating -->
+<div class="pt-4 border-t border-outline-variant">
+<span class="font-label-md text-label-md font-semibold text-on-surface block mb-2.5">Minimum Rating</span>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center justify-between text-on-surface cursor-pointer">
+<span class="flex items-center gap-2">
+<input checked="" class="border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" name="rating" type="radio"/>
+              4.5★ &amp; above
+            </span>
+<span class="text-xs text-outline">189</span>
+</label>
+<label class="flex items-center justify-between text-on-surface-variant hover:text-on-surface cursor-pointer">
+<span class="flex items-center gap-2">
+<input class="border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" name="rating" type="radio"/>
+              4.0★ &amp; above
+            </span>
+<span class="text-xs text-outline">284</span>
+</label>
+</div>
+</div>
+<!-- Update Recency -->
+<div class="pt-4 border-t border-outline-variant">
+<span class="font-label-md text-label-md font-semibold text-on-surface block mb-2.5">Update Recency</span>
+<div class="space-y-2 font-body-sm text-body-sm">
+<label class="flex items-center gap-2 text-on-surface cursor-pointer">
+<input class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            Last 30 days
+          </label>
+<label class="flex items-center gap-2 text-on-surface-variant hover:text-on-surface cursor-pointer">
+<input checked="" class="rounded border-outline-variant bg-surface-container-lowest text-primary focus:ring-0" type="checkbox"/>
+            2025 releases
+          </label>
+</div>
+</div>
+</aside>
+<!-- Main Workspace Content Canvas -->
+<main class="flex-1 overflow-y-auto bg-surface p-gutter space-y-6">
+<!-- Breadcrumbs Path -->
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<a class="hover:text-on-surface transition-colors" href="#">Creator OS</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<a class="hover:text-on-surface transition-colors" href="#">Marketplace</a>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">VFX &amp; Color Grading Tools</span>
+</div>
+<!-- Workspace Header: Title, Counts, Sorting, View Switcher -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-outline-variant">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">VFX &amp; Cinematic Color Assets</h1>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-primary font-label-sm text-label-sm">
+              348 Verified Tools
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+            Production-grade look-up tables, ACES transforms, DCTL shaders, and lens grain textures calibrated for film mastering.
+          </p>
+</div>
+<div class="flex items-center gap-3">
+<!-- Sort Dropdown -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Sort by:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-low border border-outline-variant rounded-lg px-3 py-1.5 pr-8 font-label-md text-label-md text-on-surface focus:outline-none focus:border-primary cursor-pointer">
+<option selected="">Most Popular</option>
+<option>Highest Rated</option>
+<option>Recently Updated</option>
+<option>Price: Low to High</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-outline absolute right-2 top-2 pointer-events-none" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<!-- View Switcher -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant rounded-lg p-0.5">
+<button class="p-1.5 rounded bg-surface-container-high text-primary" title="Grid View">
+<span class="material-symbols-outlined text-[18px]" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-1.5 rounded text-outline hover:text-on-surface" title="List View">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_list">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Active Filter Chips Bar -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline mr-1">Active Filters:</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-sm text-label-sm">
+          DaVinci Resolve 19
+          <button class="hover:text-on-surface"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-sm text-label-sm">
+          Commercial License
+          <button class="hover:text-on-surface"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-label-sm text-label-sm">
+          4.5+ Rating
+          <button class="hover:text-on-surface"><span class="material-symbols-outlined text-[14px]" data-icon="close">close</span></button>
+</span>
+<button class="font-label-sm text-label-sm text-outline hover:text-error ml-2 transition-colors">
+          Clear All
+        </button>
+</div>
+<!-- Rich 3-Column Asset Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Asset 1: ACES 1.3 Master Film Emulation LUTs -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Cinematic high contrast film emulation still featuring neon teal and deep amber color graded shadows in an urban night scene with high dynamic range and pristine film grain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc35wskwDfBJKT6GJ9kDDz52_Bj9_CK1WUi6YDZZKPbWfAmPzOfqoLiMqZaQNz0pG9NvLB7GviKhkWyoVNKUVmpi0q3bV-41yZ8pFyezx9PR9Trn7fhhXhBIvxNW4tGUi0pW0nca8RvuAH3Oktx5SSXxUCJLgqxCvlM7FIkIlEjB0VVwYGVHykgY4O2TbeuucRz6-YXknBZQxRJI_0sCn5gIqMUAcBMHVjMR3hHrsvkhbRvdjmzbszag"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold tracking-wide uppercase">Bestseller</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">16-bit DNG / ARRI LogC4</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> Apex Studios
+                </span>
+<span class="text-xs text-outline">1.2k downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                ACES 1.3 Master Film Emulation LUTs
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Engineered for strict color reproduction across Kodak 2383 and Fuji Eterna print stocks with full gamut preservation.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                4.9
+              </span>
+<span class="text-xs text-outline">(184 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$68</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset 2: Cyberpunk Anamorphic Lens Flare Suite -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Vibrant optical horizontal anamorphic lens flare with electric blue and magenta streaks across an obsidian deep black cinematic backdrop with subtle lens aberration" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0wfGBn3ya0Hye-1xwSa5vcnt47Rthm9FZe8PnCQfqjEbH3wlA_UTGvONkBu_sPUxOvjFZUnlUc1lCN6gg3845NzP9yGDPvbRyoANPeifDr5ILPWoYi7ipzGcmjSAMHvyy2i42ixyhTIC5s0AnvWnf9RVj8sN6nzlMZ7QeCIbqway6mTKxQG6JQbV7ZqFie6RxGdOLI6r0g2lpEP_Oz6nPJpz-0PjPaTwHKaCoy0oDy3o01lV4qe0G6g"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold tracking-wide uppercase">Staff Pick</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">4K ProRes 4444 Alpha</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> NeoVFX
+                </span>
+<span class="text-xs text-outline">850 downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Cyberpunk Anamorphic Lens Flare Suite
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                High-end optical captures utilizing genuine Isco and Kowa anamorphic glass elements with native transparency channels.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                4.8
+              </span>
+<span class="text-xs text-outline">(92 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$45</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset 3: Filmic Halation & Grain Shader Node -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close macro shot of organic 35mm optical film halation around red edge highlights on actor silhouette against cool studio dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMNKTJvnGTiiuEztwYt63nltuQ2LXhbLoeBoT3YaV4G8AoOPY2FJi2WgfUbfUXCG7T4oeoo7ek3eqFPACYelSF32xBHAHeg48utv6bisyJH0EEKuFj8r-p06v207L8f2LqIq1gBEKeZBygjAyMXRuQnyiWysPLUMDrIcLbb7G00qMaZYpUm5UNfWDE4VxWSuD1sxhiB_w80BNFA2ZFIsoOGcr-4CXOjU_N2XUIUe51zNUaINcciP6RIg"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container text-on-tertiary font-label-sm text-label-sm font-semibold tracking-wide uppercase">Trending</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">GPU DCTL</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span> Kenji Sato
+                </span>
+<span class="text-xs text-outline">620 downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Filmic Halation &amp; Grain Shader Node
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Non-destructive real-time GPU shader mathematically modeling red wavelength bleeding and random chemical emulsion grains.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                5.0
+              </span>
+<span class="text-xs text-outline">(64 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$34</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset 4: Vintage 16mm Bolex Textures & Mattes -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Authentic 16mm film sprocket holes, edge code typography, dust scratches and vintage warm color tone borders framed in a moody dark room view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCumXqb80MnTddcSP-YHN0I8mRCEfvOB5aqXtKTwPcpI7wb1sEvu5GHGpN_ZYSs2_qXcIKvrCWLrGWH7IRFxYTo_p-wQSFpZy7hkZNPnaq6w3phwmHLLBp2aKGm6ikodsMsqqkxktDmkLb5B3PLRkzcUy0qIOMs6p2t8i86xAUGrggYEkZ-lv6erbV6ClffZJEgasA0abO0cWgQnCha2IRq511ybt7QyRSuK_geNkGfGR0YSACs-gs-Mg"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">4K Scans</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="movie">movie</span> RetroGrade
+                </span>
+<span class="text-xs text-outline">410 downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Vintage 16mm Bolex Textures &amp; Mattes
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Hand-scanned analog archival rolls featuring authentic gate weave, perforation holes, and chemical scratches.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                4.7
+              </span>
+<span class="text-xs text-outline">(52 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$29</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset 5: Broadcast Motion Graphics Lower Thirds Kit -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Sleek geometric broadcast lower thirds graphic with frosted glass translucent container and clean modern sans-serif typography on a dark broadcast stage setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeKueW1kIkxLVq8Nk4H3dqZ_C3uW7KOxmc3fgJTnX0O4TKnugyRilw-Qov-M32CeAvc2ky2F_n9QQDM1FmPyOQ32Jfaqsk_aljW8s6EBeME0PCfS9mBxJVDZdcTiexkGI41WCCoDgy-A9kWOKLv1GNhHUZb22SPzI1Hxm8I1S9QSiUYnNGRBf_5oBgMyY9_fH9x35C0W5ABQH9O31UpE0G29KDyALEbWYgODNmrDoZP23dkKBQhbOyKg"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">Mogrt + Resolve</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span> Studio Nexus
+                </span>
+<span class="text-xs text-outline">620 downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Broadcast Motion Graphics Lower Thirds Kit
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                40 responsive kinetic title templates built with modular in/out animations and dynamic text reflow parameters.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                4.9
+              </span>
+<span class="text-xs text-outline">(118 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$49</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+<!-- Asset 6: Complete Cinema Rig Blueprint 3D Model -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl overflow-hidden transition-all duration-200 hover:shadow-lg flex flex-col justify-between">
+<div>
+<div class="relative h-48 w-full overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Detailed 3D hard surface model of a cinema camera rig with matte box, follow focus, wireless video transmitter, and carbon fiber rods on dark studio floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfamq3SxuPqMRApahz-wocReF0LWNnxNwkZnWpty4On3nRc9ZuzMLcQUW4g8jpqozwcO2YmjyxZdNACySbaIlrOpzcqDO-y0Twyc7D0Wem3q47hhJ4cgvpEDnbrx8yIeNpq_ohq5DtF_nHgQ1JW1caKZLuGLykK3YXS4UwW2VLxNhlki79yovvKqx41AB4L2phlOdnN7VjqZ6CM89EwytNBfUJ3PJQkayrVxKYTxgW0v2VqwHcM0V8AQ"/>
+<div class="absolute top-3 left-3 flex gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant text-on-surface font-label-sm text-label-sm">FBX + Blender</span>
+</div>
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm border border-outline-variant flex items-center justify-center text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="bookmark">bookmark</span>
+</button>
+</div>
+<div class="p-space-md">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="view_in_ar">view_in_ar</span> HardSurface Lab
+                </span>
+<span class="text-xs text-outline">330 downloads</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Complete Cinema Rig Blueprint 3D Model
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                Subdivision-ready topology with 8K PBR textured mechanical components for realistic VFX film set representations.
+              </p>
+</div>
+</div>
+<div class="px-space-md pb-space-md pt-2 border-t border-outline-variant/60 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="text-tertiary flex items-center font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="star" data-weight="fill">star</span>
+                4.8
+              </span>
+<span class="text-xs text-outline">(78 reviews)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$89</span>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-primary font-label-md text-label-md transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="shopping_bag">shopping_bag</span>
+                Get
+              </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination Component Bar -->
+<div class="pt-6 pb-4 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-4">
+<span class="font-body-sm text-body-sm text-outline">
+          Showing <span class="text-on-surface font-medium">1-12</span> of <span class="text-on-surface font-medium">348</span> assets
+        </span>
+<div class="flex items-center gap-1.5">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-outline hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+            Previous
+          </button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center justify-center">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center justify-center">3</button>
+<span class="text-outline px-1">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center justify-center">29</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-primary hover:bg-surface-container-high font-label-md text-label-md flex items-center gap-1">
+            Next Page
+            <span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

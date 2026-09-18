@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>API &amp; Webhooks - Developer Settings</title>
+<!-- Material Symbols Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "secondary": "#d0bcff",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container": "#1f1f25",
+            "surface": "#131318",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "primary": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-container": "#00285d",
+            "background": "#131318",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-primary": "#005ac2",
+            "surface-bright": "#39383e",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#004395",
+            "surface-dim": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "primary-container": "#4d8eff",
+            "on-tertiary": "#003824",
+            "surface-container-low": "#1b1b20",
+            "error-container": "#93000a",
+            "on-secondary-fixed": "#23005c",
+            "outline": "#8c909f",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "mono": ["JetBrains Mono", "monospace"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.35);
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.25);
+    }
+    body {
+      background-color: #0A0A0F;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col justify-between">
+<!-- Outer Mobile Viewport Frame (375x812 design spec) -->
+<div class="w-full max-w-md mx-auto min-h-screen flex flex-col relative bg-[#0A0A0F] border-x border-[#1E1E2E]/60 shadow-2xl">
+<!-- TopAppBar Component (from JSON + Prompt customization) -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary docked full-width top-0 sticky shadow-sm dark:shadow-none z-40">
+<div class="flex justify-between items-center h-14 w-full px-4 max-w-md mx-auto">
+<div class="flex items-center space-x-2">
+<button aria-label="Go Back" class="text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform duration-100 p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<h1 class="text-headline-sm font-headline-sm font-semibold text-on-surface dark:text-on-surface tracking-tight">API &amp; Webhooks</h1>
+</div>
+<!-- Trailing action: + Key -->
+<button class="custom-gradient-btn text-white text-label-md font-label-md px-3 py-1.5 rounded-lg flex items-center space-x-1 active:scale-95 transition-transform duration-100">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Key</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Canvas Content -->
+<main class="flex-1 px-4 py-4 space-y-5 pb-24 overflow-y-auto">
+<!-- SECTION 1: Developer Status Overview (Bento Glass Card) -->
+<section class="rounded-xl p-4 bg-[#12121A] border border-[#1E1E2E] relative overflow-hidden ambient-glow">
+<!-- Ambient radial glow behind card -->
+<div class="absolute -right-8 -top-8 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center space-x-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center border border-[#1E1E2E] text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="flex items-center space-x-1.5">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<h2 class="text-label-lg font-label-lg text-on-surface font-semibold">API Status: Operational</h2>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Global Edge CDN &amp; Gateway</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30">
+            v1.4 Production
+          </span>
+</div>
+<!-- Latency & Metric Badges Bar -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1E1E2E]">
+<div class="flex items-center space-x-1 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="speed">speed</span>
+<span>Latency:</span>
+<span class="font-mono text-tertiary font-medium">18ms avg</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">99.98% Uptime</span>
+</div>
+<!-- Quick Metric Chips Cluster -->
+<div class="grid grid-cols-3 gap-2 mt-3 pt-2">
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-2 flex flex-col items-center justify-center text-center">
+<span class="text-label-sm font-label-sm text-outline">Active Keys</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold mt-0.5">3</span>
+</div>
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-2 flex flex-col items-center justify-center text-center">
+<span class="text-label-sm font-label-sm text-outline">Webhooks</span>
+<span class="text-headline-sm font-headline-sm text-primary font-semibold mt-0.5">4</span>
+</div>
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-2 flex flex-col items-center justify-center text-center">
+<span class="text-label-sm font-label-sm text-outline">Today Req.</span>
+<span class="text-label-lg font-label-lg text-tertiary font-semibold mt-1">12,480</span>
+</div>
+</div>
+</section>
+<!-- SECTION 2: Active API Keys -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="key">key</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">API Keys</h3>
+</div>
+<button class="text-label-md font-label-md text-primary hover:text-primary-fixed transition-colors flex items-center space-x-0.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_circle">add_circle</span>
+<span>+ Generate Key</span>
+</button>
+</div>
+<!-- Key Card 1: Production Zapier & Make -->
+<div class="rounded-xl p-3.5 bg-[#12121A] border border-[#1E1E2E] hover:border-primary-container/50 transition-all duration-150 space-y-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Zapier &amp; Make Automation Key</span>
+</div>
+<span class="inline-block mt-0.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-container/20 text-primary border border-primary-container/30">Production</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="more_vert">more_vert</span>
+</div>
+<!-- Monospace token with actions -->
+<div class="flex items-center justify-between bg-[#181824] border border-[#1E1E2E] px-2.5 py-1.5 rounded-lg">
+<code class="font-mono text-body-sm font-body-sm text-primary tracking-wider select-all">sk_live_9942••••••••••••x7Q9</code>
+<div class="flex items-center space-x-1 text-on-surface-variant">
+<button aria-label="Copy Key" class="p-1 hover:text-on-surface active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+<button aria-label="Reveal Key" class="p-1 hover:text-on-surface active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Scope & Creation Date -->
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline pt-1">
+<div class="flex items-center space-x-1">
+<span class="text-on-surface-variant font-medium">Scope:</span>
+<span class="text-on-surface">Read/Write (Orders, Contacts)</span>
+</div>
+</div>
+<div class="text-label-sm font-label-sm text-outline flex items-center space-x-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="calendar_today">calendar_today</span>
+<span>Created: Oct 12, 2026</span>
+</div>
+</div>
+<!-- Key Card 2: Mobile App Client Readonly -->
+<div class="rounded-xl p-3.5 bg-[#12121A] border border-[#1E1E2E] hover:border-primary-container/50 transition-all duration-150 space-y-2.5">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Mobile App Client Readonly</span>
+</div>
+<span class="inline-block mt-0.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant/40">Read Only</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-on-surface transition-colors" data-icon="more_vert">more_vert</span>
+</div>
+<!-- Monospace token with copy action -->
+<div class="flex items-center justify-between bg-[#181824] border border-[#1E1E2E] px-2.5 py-1.5 rounded-lg">
+<code class="font-mono text-body-sm font-body-sm text-on-surface tracking-wider select-all">pk_live_4102••••••••••••92Km</code>
+<div class="flex items-center space-x-1 text-on-surface-variant">
+<button aria-label="Copy Key" class="p-1 hover:text-on-surface active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Scope -->
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline pt-1">
+<div class="flex items-center space-x-1">
+<span class="text-on-surface-variant font-medium">Scope:</span>
+<span class="text-on-surface">Read (Catalog, Courses)</span>
+</div>
+<span class="text-outline">Created: Sep 04, 2026</span>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Webhook Endpoints -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[20px] text-tertiary" data-icon="webhook">webhook</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Webhooks</h3>
+</div>
+<button class="text-label-md font-label-md text-primary hover:text-primary-fixed transition-colors flex items-center space-x-0.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_link">add_link</span>
+<span>+ Add Endpoint</span>
+</button>
+</div>
+<!-- Webhook Item 1 -->
+<div class="rounded-xl p-3.5 bg-[#12121A] border border-[#1E1E2E] space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate max-w-[230px]">
+<span class="w-2 h-2 rounded-full bg-tertiary flex-shrink-0"></span>
+<span class="font-mono text-body-sm font-body-sm text-on-surface truncate font-medium">https://api.acmemedia.com/v1/orders</span>
+</div>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm bg-[#181824] hover:bg-[#1E1E2E] text-primary border border-[#1E1E2E] active:scale-95 transition-all">
+              Test Ping
+            </button>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-tertiary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Healthy (200 OK)</span>
+</span>
+<span class="text-on-surface-variant font-mono">2 min ago</span>
+</div>
+<div class="pt-1.5 border-t border-[#1E1E2E] flex flex-wrap gap-1.5 items-center">
+<span class="text-label-sm font-label-sm text-outline mr-1">Events:</span>
+<span class="bg-[#181824] px-2 py-0.5 rounded text-label-sm font-label-sm text-secondary font-mono border border-[#1E1E2E]">order.completed</span>
+<span class="bg-[#181824] px-2 py-0.5 rounded text-label-sm font-label-sm text-secondary font-mono border border-[#1E1E2E]">cart.abandoned</span>
+</div>
+</div>
+<!-- Webhook Item 2 -->
+<div class="rounded-xl p-3.5 bg-[#12121A] border border-[#1E1E2E] space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5 truncate max-w-[230px]">
+<span class="w-2 h-2 rounded-full bg-tertiary flex-shrink-0"></span>
+<span class="font-mono text-body-sm font-body-sm text-on-surface truncate font-medium">https://hooks.slack.com/services/T00/B00/X</span>
+</div>
+<button class="px-2.5 py-1 rounded text-label-sm font-label-sm bg-[#181824] hover:bg-[#1E1E2E] text-primary border border-[#1E1E2E] active:scale-95 transition-all">
+              Test Ping
+            </button>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span class="text-tertiary flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Healthy</span>
+</span>
+<span class="text-on-surface-variant font-mono">14 min ago</span>
+</div>
+<div class="pt-1.5 border-t border-[#1E1E2E] flex flex-wrap gap-1.5 items-center">
+<span class="text-label-sm font-label-sm text-outline mr-1">Events:</span>
+<span class="bg-[#181824] px-2 py-0.5 rounded text-label-sm font-label-sm text-secondary font-mono border border-[#1E1E2E]">ai_agent.task_failed</span>
+<span class="bg-[#181824] px-2 py-0.5 rounded text-label-sm font-label-sm text-secondary font-mono border border-[#1E1E2E]">payout.initiated</span>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Event Delivery Logs -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[20px] text-secondary" data-icon="receipt_long">receipt_long</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Event Delivery Logs</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline font-mono">Live Feed</span>
+</div>
+<div class="rounded-xl bg-[#12121A] border border-[#1E1E2E] divide-y divide-[#1E1E2E]">
+<!-- Event 1 -->
+<div class="p-3 flex items-center justify-between hover:bg-[#181824] transition-colors duration-150">
+<div class="flex items-center space-x-2.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<span class="font-mono text-body-sm font-body-sm text-on-surface font-medium">order.created</span>
+<div class="flex items-center space-x-2 mt-0.5 text-label-sm font-label-sm text-outline">
+<span>12m ago</span>
+<span>•</span>
+<span class="font-mono">42ms</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm font-mono bg-tertiary/10 text-tertiary border border-tertiary/20">200 OK</span>
+</div>
+<!-- Event 2 -->
+<div class="p-3 flex items-center justify-between hover:bg-[#181824] transition-colors duration-150">
+<div class="flex items-center space-x-2.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<span class="font-mono text-body-sm font-body-sm text-on-surface font-medium">customer.subscribed</span>
+<div class="flex items-center space-x-2 mt-0.5 text-label-sm font-label-sm text-outline">
+<span>48m ago</span>
+<span>•</span>
+<span class="font-mono">38ms</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm font-mono bg-tertiary/10 text-tertiary border border-tertiary/20">200 OK</span>
+</div>
+<!-- Event 3 -->
+<div class="p-3 flex items-center justify-between hover:bg-[#181824] transition-colors duration-150">
+<div class="flex items-center space-x-2.5">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<div>
+<span class="font-mono text-body-sm font-body-sm text-on-surface font-medium">ai.approval_needed</span>
+<div class="flex items-center space-x-2 mt-0.5 text-label-sm font-label-sm text-outline">
+<span>1h ago</span>
+<span>•</span>
+<span class="font-mono">29ms</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm font-mono bg-tertiary/10 text-tertiary border border-tertiary/20">200 OK</span>
+</div>
+</div>
+<!-- Event stream footer link -->
+<a class="block text-center py-2 text-label-md font-label-md text-primary hover:text-primary-fixed transition-colors" href="#">
+          View Full Event Log Stream →
+        </a>
+</section>
+</main>
+<!-- BottomNavBar Component (Executed verbatim from JSON + Semantic Active Lock for Settings) -->
+<nav class="bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-md text-primary dark:text-primary docked full-width bottom-0 shadow-lg dark:shadow-[0_-4px_24px_rgba(0,0,0,0.6)] fixed bottom-0 left-0 right-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-md mx-auto">
+<!-- Overview Item (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="text-label-sm font-label-sm mt-0.5">Overview</span>
+</a>
+<!-- Products Item (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-sm font-label-sm mt-0.5">Products</span>
+</a>
+<!-- Billing Item (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="receipt_long">receipt_long</span>
+<span class="text-label-sm font-label-sm mt-0.5">Billing</span>
+</a>
+<!-- Settings Item (ACTIVE - Selected according to developer settings intent) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary bg-primary-container/20 dark:bg-primary-container/20 rounded-xl px-3 py-1 hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-semibold">Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

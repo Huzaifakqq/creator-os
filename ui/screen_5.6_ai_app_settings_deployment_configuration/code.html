@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>App Settings &amp; Deployment Configuration — Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#131318",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-dim": "#131318",
+            "on-background": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary": "#4edea3",
+            "on-primary-fixed": "#001a42",
+            "outline": "#8c909f",
+            "surface-container-high": "#2a292f",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "tertiary-container": "#00a572",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "surface-container-highest": "#35343a",
+            "surface-bright": "#39383e",
+            "on-surface": "#e4e1e9",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-fixed-variant": "#004395",
+            "on-primary": "#002e6a",
+            "surface-container-lowest": "#0e0e13",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-secondary": "#3c0091",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed": "#e9ddff",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-on-surface": "#303036",
+            "error": "#ffb4ab",
+            "on-primary-container": "#00285d",
+            "primary": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "on-secondary-fixed": "#23005c",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#4d8eff",
+            "surface-variant": "#35343a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .glow-primary {
+      box-shadow: 0 0 20px -2px rgba(59, 130, 246, 0.4);
+    }
+    .glow-danger {
+      box-shadow: 0 0 24px -4px rgba(239, 68, 68, 0.25);
+    }
+    input[type=range]::-webkit-slider-thumb {
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 9999px;
+      background: #adc6ff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(173, 198, 255, 0.6);
+      border: 2px solid #0e0e13;
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      border-radius: 9999px;
+      background: #adc6ff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(173, 198, 255, 0.6);
+      border: 2px solid #0e0e13;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased min-h-screen selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Anchor Component -->
+<aside class="fixed top-0 left-0 h-screen w-64 z-50 flex flex-col bg-surface-container-lowest border-r border-outline-variant/30 select-none">
+<div class="flex flex-col justify-between h-full p-space-md">
+<!-- Workspace Brand Anchor -->
+<div class="space-y-4">
+<div class="flex items-center gap-3 px-2 py-1.5 rounded-lg bg-surface-container-low/60 border border-outline-variant/20">
+<div class="w-9 h-9 rounded-md bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-on-surface shadow-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="text-headline-sm font-headline-sm font-semibold text-on-surface tracking-tight truncate">Creator OS</span>
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+              Studio Pro
+            </span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full h-9 rounded-lg bg-surface-container-high/80 hover:bg-surface-container-highest text-on-surface border border-outline-variant/30 flex items-center justify-between px-3 text-label-md font-label-md active:scale-98 transition-all duration-150" type="button">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="bolt">bolt</span>
+            Quick Action
+          </span>
+<span class="text-label-sm font-label-sm text-outline border border-outline-variant/50 px-1.5 py-0.5 rounded bg-surface-container-lowest">⌘K</span>
+</button>
+<!-- Navigation Tabs (AI Agents active as semantic builder anchor) -->
+<nav class="space-y-0.5 overflow-y-auto max-h-[calc(100vh-340px)] pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="web">web</span>
+<span>Website Builder</span>
+</a>
+<!-- 3. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="storefront">storefront</span>
+<span>Commerce</span>
+</a>
+<!-- 4. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="school">school</span>
+<span>Courses</span>
+</a>
+<!-- 5. Community -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="forum">forum</span>
+<span>Community</span>
+</a>
+<!-- 6. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="contacts">contacts</span>
+<span>CRM</span>
+</a>
+<!-- 7. Email -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span>
+<span>Email</span>
+</a>
+<!-- 8. AI Agents (AI App Builder Intent - ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2 bg-surface-container text-primary font-medium rounded-lg border-l-2 border-primary text-label-md font-label-md transition-all duration-150 active:scale-98 shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="smart_toy" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="flex-1">AI Agents</span>
+<span class="text-label-sm font-label-sm bg-primary/10 text-primary px-1.5 py-0.5 rounded">Active</span>
+</a>
+<!-- 9. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<!-- 10. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="loyalty">loyalty</span>
+<span>Affiliates</span>
+</a>
+<!-- 11. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<!-- 12. Admin -->
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Admin</span>
+</a>
+</nav>
+</div>
+<!-- Footer Anchor Tabs -->
+<div class="border-t border-outline-variant/30 pt-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="help_outline">help_outline</span>
+<span>Support</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-lg text-label-md font-label-md transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="description">description</span>
+<span>Documentation</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Shell Wrapper -->
+<div class="pl-64 flex flex-col min-h-screen bg-[#0A0A0F]">
+<!-- TopNavBar Web Header Anchor Component -->
+<header class="docked full-width top-0 sticky z-40 h-14 bg-surface-container-lowest border-b border-outline-variant/30 shadow-sm flex items-center justify-between px-gutter w-full select-none backdrop-blur-md bg-opacity-95">
+<!-- Left: Brand / Search Cluster -->
+<div class="flex items-center gap-6 flex-1 max-w-xl">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight flex items-center gap-2">
+<span>Creator OS</span>
+<span class="text-outline-variant/60 font-normal">/</span>
+<span class="text-label-md font-label-md text-on-surface-variant font-normal">App Builder Engine</span>
+</span>
+<!-- Search bar on left -->
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined text-[18px] text-outline absolute left-3 top-1/2 -translate-y-1/2" data-icon="search">search</span>
+<input class="w-full h-8 pl-9 pr-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-on-surface text-body-sm font-body-sm placeholder-outline/60 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" placeholder="Search parameters, configs, keys..." type="text"/>
+</div>
+</div>
+<!-- Right: Utility Actions & Avatar Profile -->
+<div class="flex items-center gap-3">
+<!-- Trailing icon actions -->
+<div class="flex items-center gap-1 border-r border-outline-variant/30 pr-3">
+<button aria-label="Sensors" class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="sensors">sensors</span>
+</button>
+<button aria-label="Notifications" class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-colors duration-150 relative" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</button>
+<button aria-label="Help" class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface active:scale-98 transition-colors duration-150" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+</button>
+</div>
+<!-- Trailing primary action -->
+<button class="h-8 px-3 rounded-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md flex items-center gap-1.5 hover:brightness-105 active:scale-98 glow-primary transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+          Create New
+        </button>
+<!-- User profile avatar -->
+<div class="flex items-center pl-2">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/40 object-cover" data-alt="A refined high-contrast portrait of a digital technical director set against a deep obsidian architectural backdrop with muted violet edge illumination. Clean corporate cyberpunk creative vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1tXy67QHE1A3j_tUWSXnUB4hI3tqaKqzvvQ-Hurx6OKSZb34zisBcqW3-28svjXuJmOciBFpRjNlDG7rpgrji3HdhcsfVWlOgY1gclP5OE_Hr73PWwayOmTnuM30omLFGZC8hqSydsAYj4gAf9AXWzP1uM1JS557k9YHZkHISy-5Ag2QLVdW5iyDJrqCbyScyDFdIkpqz93IBA0KA8XECC5QXiGH4BPmd942JAauvRJOmkQkxMV0aTQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-8 max-w-[1360px] w-full mx-auto space-y-6">
+<!-- Top Action Bar & Header Breadcrumb Area -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-[#1E1E2E]">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 text-label-md font-label-md text-primary">
+<span class="material-symbols-outlined text-[16px]" data-icon="deployed_code">deployed_code</span>
+<span>AI Apps &amp; Workspaces</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface-variant">Apex Studio</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">App Settings &amp; Deployment Configuration</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Manage domain routing, compute environment, security policies, and lifecycle stages for Apex Studio.</p>
+</div>
+<!-- Top Action Cluster -->
+<div class="flex items-center gap-3 self-start md:self-auto shrink-0">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#12121A] border border-[#1E1E2E] text-label-sm font-label-sm text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="font-medium text-on-surface">Production Active</span>
+<span class="text-outline-variant">•</span>
+<span class="text-outline font-mono">v1.8.4</span>
+</div>
+<button class="h-10 px-4 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white text-label-md font-label-md hover:border-primary hover:bg-[#1E1E2E] active:scale-98 transition-all" type="button">
+            Discard
+          </button>
+<button class="h-10 px-5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md flex items-center gap-2 hover:brightness-105 active:scale-98 glow-primary transition-all font-semibold" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="cloud_done">cloud_done</span>
+            Save Changes
+          </button>
+</div>
+</div>
+<!-- Settings Grid Sections -->
+<div class="grid grid-cols-12 gap-6">
+<!-- SECTION 1: General Specification (8 Cols) -->
+<section class="col-span-12 lg:col-span-8 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-space-lg space-y-5">
+<div class="flex items-center justify-between border-b border-[#1E1E2E] pb-4">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">General Specification</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Core identity, autonomous architecture profile, and metadata descriptors.</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span>
+              Autonomous Web Application • Next.js 15 SSR
+            </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- App Name -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">App Name</label>
+<div class="relative">
+<input class="w-full h-[38px] px-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all" type="text" value="Apex Studio Community Hub"/>
+<span class="material-symbols-outlined text-[16px] text-tertiary absolute right-3 top-1/2 -translate-y-1/2" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Slug / App ID -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">Unique Slug / App ID</label>
+<div class="flex rounded-md border border-[#1E1E2E] bg-[#0E0E13] overflow-hidden focus-within:border-primary">
+<span class="inline-flex items-center px-3 text-label-sm font-label-sm text-outline border-r border-[#1E1E2E]">creator-os.sh/</span>
+<input class="w-full h-[38px] px-3 bg-transparent text-primary text-body-md font-body-md border-0 focus:ring-0 focus:outline-none" type="text" value="apex-studio-pro"/>
+</div>
+</div>
+</div>
+<!-- Description with Character Count -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface">Application Description</label>
+<span class="text-label-sm font-label-sm text-outline">142 / 280 characters</span>
+</div>
+<textarea class="w-full p-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md placeholder-outline/50 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all resize-none" rows="3">High-performance hub for Apex Studio members, providing gated community workflows, unified course pipelines, real-time audio rooms, and on-demand CRM sync.</textarea>
+</div>
+<!-- Avatar / App Icon Uploader -->
+<div class="pt-2 border-t border-[#1E1E2E]/60 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="relative group">
+<div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-primary-container to-secondary-container p-0.5 shadow-lg">
+<div class="w-full h-full bg-[#12121A] rounded-[10px] flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-[28px] text-primary" data-icon="view_in_ar">view_in_ar</span>
+</div>
+</div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-[#181824] border border-[#1E1E2E] flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[12px]" data-icon="edit">edit</span>
+</div>
+</div>
+<div class="space-y-0.5">
+<div class="text-label-md font-label-md text-on-surface">Application Brand Icon</div>
+<div class="text-body-sm font-body-sm text-outline">SVG, PNG or WebP up to 2MB (Recommended: 512x512px).</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-[34px] px-3 rounded-md bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-md font-label-md hover:border-primary transition-all" type="button">
+                Replace File
+              </button>
+<button class="h-[34px] px-3 rounded-md bg-transparent text-outline hover:text-error text-label-md font-label-md transition-colors" type="button">
+                Remove
+              </button>
+</div>
+</div>
+</section>
+<!-- SECTION 4: Compute & Resource Limits (4 Cols, paired side by side in Bento) -->
+<section class="col-span-12 lg:col-span-4 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-space-lg flex flex-col justify-between space-y-4">
+<div class="space-y-3">
+<div class="flex items-center gap-2.5 border-b border-[#1E1E2E] pb-3">
+<span class="w-8 h-8 rounded-lg bg-secondary-container/30 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="memory">memory</span>
+</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Compute &amp; Limits</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Serverless runtime provisioning.</p>
+</div>
+</div>
+<!-- Memory Slider -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between text-label-md font-label-md">
+<span class="text-on-surface">Memory Allocation</span>
+<span class="text-primary font-mono font-semibold bg-primary/10 px-2 py-0.5 rounded">2.0 GB</span>
+</div>
+<input class="w-full h-1.5 bg-[#1E1E2E] rounded-lg appearance-none cursor-pointer" max="8" min="0.5" step="0.5" type="range" value="2"/>
+<div class="flex justify-between text-label-sm font-label-sm text-outline">
+<span>512 MB</span>
+<span>4 GB</span>
+<span>8 GB (Max)</span>
+</div>
+</div>
+<!-- Serverless Function Timeout -->
+<div class="space-y-1.5 pt-2">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface">Function Timeout</label>
+<span class="text-label-sm font-label-sm text-outline-variant font-mono">Default: 15s</span>
+</div>
+<div class="relative">
+<input class="w-full h-[38px] px-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" type="text" value="30s"/>
+<span class="material-symbols-outlined text-[16px] text-outline absolute right-3 top-1/2 -translate-y-1/2" data-icon="timer">timer</span>
+</div>
+</div>
+<!-- Auto-scaling Ceiling -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface">Auto-scaling Max Instances</label>
+<span class="text-label-sm font-label-sm text-tertiary">99.98% SLA target</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-1 flex items-center justify-between px-3 h-[38px] rounded-md bg-[#0E0E13] border border-[#1E1E2E]">
+<span class="text-body-md font-body-md text-white font-mono">10 instances</span>
+<span class="text-label-sm font-label-sm text-outline">Concurrency: 1,000 req/s</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="info">info</span>
+<span>Resource changes take effect during the next build deployment.</span>
+</div>
+</section>
+<!-- SECTION 2: Custom Domain & DNS Engine (12 Cols full width) -->
+<section class="col-span-12 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-space-lg space-y-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#1E1E2E] pb-4">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-lg bg-tertiary-container/20 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="language">language</span>
+</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Custom Domain &amp; DNS Engine</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Configure automated edge routing, origin proxying, and cryptographic TLS certificates.</p>
+</div>
+</div>
+<!-- SSL Status Pill -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-[#181824] border border-tertiary/40 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]" data-icon="lock" data-weight="fill" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>Active • TLS 1.3 Strict Encrypted</span>
+</div>
+</div>
+<!-- Domain Config Input Row -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-end">
+<div class="md:col-span-7 space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">Production FQDN Hostname</label>
+<div class="relative">
+<input class="w-full h-[38px] pl-3 pr-24 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none font-mono" type="text" value="community.apexstudio.tv"/>
+<div class="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-sans">Resolved</span>
+</div>
+</div>
+</div>
+<div class="md:col-span-3 space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">Target Edge Cluster</label>
+<select class="w-full h-[38px] px-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none">
+<option selected="">Global Anycast (280+ PoPs)</option>
+<option>US-East Priority (Ashburn)</option>
+<option>EU-Central Sovereign (Frankfurt)</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<button class="w-full h-[38px] px-4 rounded-md bg-[#181824] border border-[#1E1E2E] hover:border-primary text-white text-label-md font-label-md flex items-center justify-center gap-2 active:scale-98 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="refresh">refresh</span>
+                Check DNS
+              </button>
+</div>
+</div>
+<!-- DNS Records Table -->
+<div class="border border-[#1E1E2E] rounded-lg overflow-hidden bg-[#0E0E13]">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-[#181824]/80 text-outline border-b border-[#1E1E2E] text-label-sm font-label-sm uppercase tracking-wider">
+<tr>
+<th class="py-2.5 px-4 font-medium" scope="col">Type</th>
+<th class="py-2.5 px-4 font-medium" scope="col">Host / Name</th>
+<th class="py-2.5 px-4 font-medium" scope="col">Target Value / Destination</th>
+<th class="py-2.5 px-4 font-medium" scope="col">TTL</th>
+<th class="py-2.5 px-4 font-medium text-right" scope="col">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] text-on-surface">
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 font-mono font-semibold text-primary">CNAME</td>
+<td class="py-3 px-4 font-mono">community</td>
+<td class="py-3 px-4 font-mono text-on-surface-variant flex items-center justify-between">
+<span>cname.creator-os.sh</span>
+<button class="text-outline hover:text-white" title="Copy to clipboard" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3 px-4 font-mono text-outline">Auto (300s)</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      Verified
+                    </span>
+</td>
+</tr>
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-4 font-mono font-semibold text-secondary">A</td>
+<td class="py-3 px-4 font-mono">@</td>
+<td class="py-3 px-4 font-mono text-on-surface-variant flex items-center justify-between">
+<span>76.76.21.21</span>
+<button class="text-outline hover:text-white" title="Copy to clipboard" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+</td>
+<td class="py-3 px-4 font-mono text-outline">Auto (300s)</td>
+<td class="py-3 px-4 text-right">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                      Verified
+                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECTION 3: Publishing & Lifecycle (12 Cols) -->
+<section class="col-span-12 bg-[#12121A] border border-[#1E1E2E] rounded-xl p-space-lg space-y-5">
+<div class="flex items-center justify-between border-b border-[#1E1E2E] pb-4">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]" data-icon="published_with_changes">published_with_changes</span>
+</span>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Publishing &amp; Lifecycle</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Target release pipelines, traffic routing gates, and scheduled version promotions.</p>
+</div>
+</div>
+<!-- Environment Switcher Pill Selector -->
+<div class="flex items-center p-1 rounded-lg bg-[#0E0E13] border border-[#1E1E2E]">
+<button class="px-3 py-1 rounded-md text-label-sm font-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm" type="button">
+                Production
+              </button>
+<button class="px-3 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-white transition-colors" type="button">
+                Staging
+              </button>
+<button class="px-3 py-1 rounded-md text-label-sm font-label-sm text-on-surface-variant hover:text-white transition-colors" type="button">
+                Development
+              </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Left Controls: Accessibility & Date Picker -->
+<div class="space-y-4">
+<!-- Publicly Accessible Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<div class="space-y-0.5">
+<div class="text-label-md font-label-md text-on-surface">Publicly Accessible</div>
+<div class="text-body-sm font-body-sm text-outline">Permit unauthenticated world access through standard ingress.</div>
+</div>
+<!-- Toggle Switch -->
+<button class="w-11 h-6 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full relative p-0.5 transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="block w-5 h-5 bg-white rounded-full shadow-md transform translate-x-5 transition-transform duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Scheduled Publish Date Picker -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">Scheduled Release Window</label>
+<div class="relative">
+<input class="w-full h-[38px] pl-10 pr-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none font-mono text-sm" type="text" value="2025-04-15 00:00 UTC (Next Major Cutover)"/>
+<span class="material-symbols-outlined text-[18px] text-outline absolute left-3 top-1/2 -translate-y-1/2" data-icon="event">event</span>
+</div>
+</div>
+</div>
+<!-- Right Controls: Maintenance Mode & Custom Banner -->
+<div class="space-y-4">
+<!-- Maintenance Mode Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E]">
+<div class="space-y-0.5">
+<div class="text-label-md font-label-md text-on-surface">Maintenance Mode</div>
+<div class="text-body-sm font-body-sm text-outline">Intercept incoming user requests with an atomic downtime screen.</div>
+</div>
+<!-- Inactive Toggle Switch -->
+<button class="w-11 h-6 bg-[#1E1E2E] rounded-full relative p-0.5 transition-colors duration-200 ease-in-out focus:outline-none" type="button">
+<span class="block w-5 h-5 bg-outline rounded-full shadow-md transform translate-x-0 transition-transform duration-200 ease-in-out"></span>
+</button>
+</div>
+<!-- Maintenance Banner Text Input -->
+<div class="space-y-1.5">
+<label class="text-label-md font-label-md text-on-surface">Maintenance Custom Announcement</label>
+<div class="relative">
+<input class="w-full h-[38px] px-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-white text-body-md font-body-md placeholder-outline/40 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none" placeholder="Apex Studio is undergoing scheduled system upgrades. We will return online shortly." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: Danger Zone (12 Cols) -->
+<section class="col-span-12 bg-[#12121A] border border-red-900/60 rounded-xl p-space-lg glow-danger relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-error/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<span class="w-10 h-10 rounded-xl bg-error-container/30 border border-error/30 text-error flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[24px]" data-icon="warning">warning</span>
+</span>
+<div class="space-y-1">
+<h2 class="text-headline-sm font-headline-sm text-error font-semibold flex items-center gap-2">
+<span>Danger Zone: Delete this application</span>
+</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                  Permanently remove all code repos, database instances, and custom domains. This action cannot be undone and will immediately disrupt user traffic.
+                </p>
+</div>
+</div>
+<div class="shrink-0 flex items-center">
+<button class="h-10 px-5 rounded-lg bg-error-container hover:bg-error-container/80 text-on-error-container border border-error/40 text-label-md font-label-md font-semibold flex items-center gap-2 active:scale-98 transition-all shadow-md" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete_forever">delete_forever</span>
+                Delete Application
+              </button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Sub-Utility Bar -->
+<footer class="pt-6 pb-8 border-t border-[#1E1E2E]/60 flex items-center justify-between text-body-sm font-body-sm text-outline">
+<div class="flex items-center gap-4">
+<span>Engine Instance ID: <span class="font-mono text-on-surface-variant">eng_apex_99x82</span></span>
+<span>•</span>
+<span>Region: <span class="font-mono text-on-surface-variant">iad1 (US-East)</span></span>
+</div>
+<div class="flex items-center gap-6 text-label-sm font-label-sm">
+<a class="hover:text-on-surface transition-colors" href="#">API Keys</a>
+<a class="hover:text-on-surface transition-colors" href="#">Audit Logs</a>
+<a class="hover:text-on-surface transition-colors" href="#">Rollback Version</a>
+<a class="hover:text-on-surface transition-colors" href="#">System Status</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

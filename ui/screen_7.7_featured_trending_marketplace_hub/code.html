@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - Featured &amp; Trending Marketplace Hub</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-highest": "#35343a",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "outline": "#8c909f",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed-variant": "#004395",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "error-container": "#93000a",
+            "on-primary": "#002e6a",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "surface-bright": "#39383e",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed": "#6ffbbe",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-container": "#00a572",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "surface-dim": "#131318",
+            "error": "#ffb4ab",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .custom-glow-hover:hover {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary min-h-screen flex flex-col">
+<!-- TOP APP BAR (Shared Component Anchored) -->
+<header class="sticky top-0 z-50 flex items-center justify-between h-14 px-gutter w-full bg-surface-container-low border-b border-outline-variant shadow-sm">
+<!-- Left: Brand Logo & Global Search -->
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-space-sm cursor-pointer">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</div>
+<!-- Global Search Bar -->
+<div class="relative w-80 hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-9 pr-8 py-1.5 text-body-sm font-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search 8K assets, DaVinci trees, UI kits..." type="text"/>
+<div class="absolute right-2.5 top-1/2 -translate-y-1/2 px-1.5 py-0.5 rounded bg-surface-container-highest border border-outline-variant text-[10px] text-on-surface-variant font-mono">⌘K</div>
+</div>
+</div>
+<!-- Center: Global Navigation Links (Exact Shared Component Logic: 'Marketplace' Active) -->
+<nav class="hidden lg:flex items-center gap-space-lg">
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-1 transition-all duration-150 ease-out active:scale-98" href="#">Marketplace</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-all duration-150 ease-out active:scale-98" href="#">Performance</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-all duration-150 ease-out active:scale-98" href="#">Cohorts</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface transition-all duration-150 ease-out active:scale-98" href="#">Studio</a>
+</nav>
+<!-- Right: Secondary Actions, Tenant Switcher, Icons & Profile -->
+<div class="flex items-center gap-space-md">
+<!-- Tenant Switcher Dropdown Button -->
+<button class="hidden sm:flex items-center gap-space-xs px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high transition-colors text-body-sm font-body-sm text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-md text-label-md">Studio Enterprise</span>
+<span class="material-symbols-outlined text-sm text-outline">unfold_more</span>
+</button>
+<!-- Primary CTA: Create New -->
+<button class="custom-gradient-btn custom-glow-hover text-white font-label-md text-label-md px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-all duration-150 ease-out active:scale-[0.98]">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Create New</span>
+</button>
+<!-- Icon Actions -->
+<div class="flex items-center gap-1 border-l border-outline-variant pl-space-sm text-outline">
+<button class="p-1.5 rounded-lg hover:bg-surface-container-highest/50 hover:text-on-surface transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container-highest/50 hover:text-on-surface transition-colors" title="Help">
+<span class="material-symbols-outlined text-xl">help</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container-highest/50 hover:text-on-surface transition-colors" title="Settings">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</div>
+<!-- User Avatar -->
+<div class="w-8 h-8 rounded-full border border-primary/40 overflow-hidden cursor-pointer hover:ring-2 hover:ring-primary transition-all">
+<img alt="User workspace profile avatar" class="w-full h-full object-cover" data-alt="A striking portrait photo of an elite digital creative director wearing sleek obsidian studio headphones, softly backlit with vibrant blue and violet cinematic edge lighting in a minimalist, darkened editing suite." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7uGIKMZHBBQ804Di7NLzBqX24XlDnT_nH7Z3qsP8nka5y3UzAIX5IXM_WMEQnxfGZSDEVvmHfdJjjqH62TNT-FcoqjS_cck5hWwmBhPfmbLuMrxCkzieaqAsu4MYwszrK3qwtDTdQW486TDLKs0QgOKn7bbQkGZ80g61YnroRN333cE4mS9bSXzNqK3KccOWTRNM9702uJ3bIFN0Yx7-NWQ9OBw62XFB6S1zNKXV7D2X4DTCd8FXSzA"/>
+</div>
+</div>
+</header>
+<!-- SECONDARY CATEGORY SUB-HEADER -->
+<div class="w-full bg-surface-container-lowest border-b border-outline-variant px-margin py-2.5">
+<div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-space-md">
+<!-- Category Pill Chips -->
+<div class="flex items-center gap-2 overflow-x-auto py-0.5">
+<button class="px-3 py-1 rounded-full bg-primary/10 border border-primary/40 text-primary font-label-md text-label-md flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+          Featured
+        </button>
+<button class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:text-on-surface hover:border-outline transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+          Trending Now
+        </button>
+<button class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:text-on-surface hover:border-outline transition-colors">
+          Top Paid
+        </button>
+<button class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:text-on-surface hover:border-outline transition-colors">
+          Free Essentials
+        </button>
+<button class="px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant font-label-md text-label-md hover:text-on-surface hover:border-outline transition-colors">
+          Creator Spotlights
+        </button>
+</div>
+<!-- Seller Action Link -->
+<div class="flex items-center gap-space-sm">
+<span class="text-body-sm font-body-sm text-outline hidden sm:inline">Got digital assets to distribute?</span>
+<a class="font-label-md text-label-md text-secondary hover:text-on-surface flex items-center gap-1 transition-colors" href="#">
+<span>Become a Seller</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- MAIN WORKSPACE CANVAS -->
+<main class="flex-1 w-full max-w-[1440px] mx-auto px-margin py-space-xl space-y-12">
+<!-- HERO CURATED SPOTLIGHT SECTION -->
+<section class="relative rounded-2xl overflow-hidden border border-outline-variant bg-surface-container-low shadow-2xl">
+<!-- Background Ambient Glow & Layered Imagery -->
+<div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-cover bg-right object-cover opacity-45 mix-blend-screen" data-alt="A sprawling ultra-widescreen cinematic studio backdrop showing dark atmospheric mist, modular film node trees, high-tech waveform synthesizers, and deep neon blue and purple ambient backlighting across high-end production hardware." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRjXtvoeN5OyqxKlDuzicvKtORVb5xC1-qSlEUJgXGxDSnuCtHuumleMsauXfQqQlRUWpCkjKpwNHQXsHu1TskHZC_XNIJ8hdWxKC9saZG8AGqdIVrOJLDLARj4OgEt1pc44LSqAG2V0HUCmqyX8ZF9yQz5hs5K1LkROj-QVjai1WEq-Vo4IX8KJ_NU8cxDEITJbaBM2OQGgB50JQ1MPaBI0Es0d8ZGpq4_zIFy45mp6hA4nSWwME1rQ')"></div>
+<div class="relative z-20 p-space-xl md:p-12 lg:w-3/5 space-y-6">
+<!-- Badge & Velocity Ticker -->
+<div class="flex flex-wrap items-center gap-3">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/60 border border-secondary text-secondary font-label-sm text-label-sm uppercase tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">stars</span>
+            Editorial Master Drop
+          </span>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span>Limited Release: <strong class="text-on-surface">240 / 500</strong> remaining</span>
+<span class="text-outline-variant">•</span>
+<span class="text-tertiary">38 hours left</span>
+</div>
+</div>
+<!-- Headline & Editorial Copy -->
+<div class="space-y-3">
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg text-on-surface tracking-tight leading-tight">
+            Creator OS Winter Masterclass &amp; Cinematic Asset Drop 2025
+          </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Featuring certified 8K ARRI RAW color-calibrated cinematic textures, advanced DaVinci Resolve node trees, and 45 modular analog synthwave audio suites created exclusively for visionary editors.
+          </p>
+</div>
+<!-- Metric micro-details -->
+<div class="flex flex-wrap items-center gap-6 pt-1 text-label-md font-label-md text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+<span>Studio Master Verified</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-base">folder_zip</span>
+<span>42.8 GB Raw Stems Included</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base">license</span>
+<span>Commercial Extended License</span>
+</div>
+</div>
+<!-- Action CTAs -->
+<div class="flex flex-wrap items-center gap-4 pt-4">
+<button class="custom-gradient-btn custom-glow-hover text-white font-label-lg text-label-lg px-6 py-3 rounded-lg flex items-center gap-2 transition-all duration-150 ease-out active:scale-98">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Explore Curated Pack ($149)</span>
+</button>
+<button class="bg-surface-container border border-outline-variant hover:border-primary hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg px-5 py-3 rounded-lg flex items-center gap-2 transition-all duration-150 ease-out">
+<span class="material-symbols-outlined text-primary">play_circle</span>
+<span>Preview 4K Reel</span>
+</button>
+</div>
+</div>
+</section>
+<!-- TRENDING NOW SECTION (Real-Time Velocity Cards) -->
+<section class="space-y-space-md">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bolt</span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Trending Velocity</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Fastest moving assets in the creator ecosystem over the past 48 hours.</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- 4-Card Responsive Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-lg">
+<!-- Trending Card 1 -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl p-space-md flex flex-col justify-between transition-all duration-200 hover:-translate-y-1">
+<div class="space-y-space-md">
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Ultra-Real CRT &amp; VHS Glitch Engine preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Close-up visual of a retro 90s CRT analog cathode-ray television monitor glitching with neon electric blue and magenta scan lines, analog fuzz, phosphor artifacts, and sharp chromatic aberrations against dark obsidian background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGx1CHGL-HVNaIxHEihuTcz4Lng4UmjBby5lxxMocJnXNRJfcsbkfKHULvcuFiz_FrQkKY9VssrQbJnGrpvGdfxX0HYtNLY8YsbliHWQ3XwlKsWwusl5TD5xI2GttCizqKWeP3iV_TYyIbwsK3dXH0wv6VeuIIyTKSK8dkpOU_53RLtI259YH24ZzV400S-t3fiFo_wk299h9cfQZ5tBOXa5vzFzzVLPCx8_W_OjCj8dBlhdl6C7R_NA"/>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 border border-outline-variant backdrop-blur-md flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">trending_up</span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">+310% velocity</span>
+</div>
+<div class="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-surface-container-lowest/80 text-outline hover:text-on-surface backdrop-blur-md cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">VFX / SHADERS</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-sm text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-outline">(128)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Ultra-Real CRT &amp; VHS Glitch Engine
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">
+                Pixel-accurate cathode-ray emulation with custom tape drift algorithms and optical bloom.
+              </p>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/60 flex items-center justify-between">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">$38</span>
+<span class="text-body-sm font-body-sm text-outline ml-1">one-time</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-label-md font-label-md text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Acquire</span>
+</button>
+</div>
+</div>
+<!-- Trending Card 2 -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl p-space-md flex flex-col justify-between transition-all duration-200 hover:-translate-y-1">
+<div class="space-y-space-md">
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Next.js 15 SaaS Multi-Tenant Boilerplate preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A clean, high-precision software architecture schematic and dark mode dashboard UI mockups floating in isometric perspective, accented by crisp cobalt blue borders, code brackets, and modern micro-metrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkidiywtuiIrvZG7APOusgzM_4u9ko0W6Z3vWzSnieSYLpLFH1rOfkY1-8fWI-L6p4lWb4MncXtaHr_140ghBpBNF1PO9V9-O3ogo2SptayQXfy_qlCVftWtngNMbm_gHYAsGiaUXrF2Anc5rbahpt7QmwJe9e2TpHAnJCA3FAD8qLn2S1yc4gh3CShgZ7-jKA6h4jV6LEPrAtZndqSC_oWsGTTw36Ie4eak3JhBJK84RGGohSTz6m-Q"/>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 border border-outline-variant backdrop-blur-md flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary">trending_up</span>
+<span class="text-label-sm font-label-sm text-tertiary font-bold">+180% velocity</span>
+</div>
+<div class="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-surface-container-lowest/80 text-outline hover:text-on-surface backdrop-blur-md cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">CODE / BOILERPLATE</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-sm text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>5.0</span>
+<span class="text-outline">(84)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Next.js 15 SaaS Multi-Tenant Boilerplate
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">
+                Production-ready authentication, Stripe subscriptions, team workspaces, and Tailwind v3 tokens.
+              </p>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/60 flex items-center justify-between">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">$99</span>
+<span class="text-body-sm font-body-sm text-outline ml-1">developer</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-label-md font-label-md text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Acquire</span>
+</button>
+</div>
+</div>
+<!-- Trending Card 3 -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl p-space-md flex flex-col justify-between transition-all duration-200 hover:-translate-y-1">
+<div class="space-y-space-md">
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Minimalist 3D Ceramic UI Icon Set preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A curated set of matte clay and porcelain finished 3D geometric icons floating effortlessly, illuminated by soft studio softbox lighting with pure obsidian background and delicate soft violet floor reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnbUWnq4n_azTVWhbg3-WF4EHw9EHzP-hPqm99Zyzd_wRxOHRwhoWypud1Q8wTfMDUapRRbYPKUjpSp88Jm4UXgjLm_Djd9HieIK0q3Z_ZZKBtbx6XIaSQXPius74nfTmTl2XOAwMofgi4JladxtlHolkd3iofXTCom2fBSVUaL_QiDB6oXjUTjUsbwUdM7RE7Y-obfh7LYnjm3CaSzopavb_1UcBfPRLc9qsM84mFvGhxPyKqZp4urQ"/>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 border border-outline-variant backdrop-blur-md flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary">download</span>
+<span class="text-label-sm font-label-sm text-primary font-bold">350+ in 48h</span>
+</div>
+<div class="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-surface-container-lowest/80 text-outline hover:text-on-surface backdrop-blur-md cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">3D GRAPHICS</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-sm text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-outline">(62)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Minimalist 3D Ceramic UI Icon Set
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">
+                Over 180 handcrafted Blender source files with Figma master library and pre-rendered transparent PNGs.
+              </p>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/60 flex items-center justify-between">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">$24</span>
+<span class="text-body-sm font-body-sm text-outline ml-1">per team</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-label-md font-label-md text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Acquire</span>
+</button>
+</div>
+</div>
+<!-- Trending Card 4 -->
+<div class="group bg-surface-container-low border border-outline-variant hover:border-primary/50 rounded-xl p-space-md flex flex-col justify-between transition-all duration-200 hover:-translate-y-1">
+<div class="space-y-space-md">
+<div class="relative h-44 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Cinematic Soundscapes &amp; Braams Vol. 2 preview" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="An expressive visual representation of cinematic sound waves, deep sub-bass vibrations rippling through dark acoustic dampening materials, glowing with neon purple and deep cyan luminescence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeVF3EcGVgR_rLSVaNw5pequa35O3hDbYx8j-XJ53jA6FUYpw2woT_3jjQn5h92v4AyVqsWAj4t8EE3wMrOHr8iXQvaoHTyFmVowpWkfSSuRpL--7B1lMc50twMMYM_y4xMP8yAbjieAp_3cPHUh7VaWjJvkZ6opCEYs53zrMTZSVqTRGYEtHKva09GthrQ3FlinOCdq7Fe5SKX1OSt194ZhX2CB06niCHKhSEiHotGX4vIetvCBbmZg"/>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 border border-outline-variant backdrop-blur-md flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">equalizer</span>
+<span class="text-label-sm font-label-sm text-secondary font-bold">Hollywood Standard</span>
+</div>
+<div class="absolute top-2.5 right-2.5 p-1.5 rounded-full bg-surface-container-lowest/80 text-outline hover:text-on-surface backdrop-blur-md cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">AUDIO DESIGN</span>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-sm text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-outline">(215)</span>
+</div>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Cinematic Soundscapes &amp; Braams Vol. 2
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">
+                Heavy distorted analog horns, massive impacts, and sub-bass textures mixed for theatrical sound systems.
+              </p>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/60 flex items-center justify-between">
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-bold">$55</span>
+<span class="text-body-sm font-body-sm text-outline ml-1">wav stems</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-primary hover:text-on-primary border border-outline-variant text-label-md font-label-md text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+<span>Acquire</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- CREATOR OF THE MONTH SPOTLIGHT -->
+<section class="rounded-2xl border border-outline-variant bg-surface-container-lowest p-space-lg md:p-space-xl relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+<!-- Creator Bio & Stats (Left Column) -->
+<div class="lg:col-span-5 space-y-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-400">workspace_premium</span>
+<span class="text-label-sm font-label-sm tracking-wider uppercase text-yellow-400 font-bold">Creator of the Month</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-2xl border-2 border-primary/60 overflow-hidden shadow-lg p-0.5 bg-surface-container">
+<img alt="Apex Studios Creator Logo" class="w-full h-full object-cover rounded-xl" data-alt="Sleek geometric monogram insignia for a world-class visual agency named Apex Studios, glowing in platinum white and soft blue against a deep black metallic field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaPwOC8dxhfw-rBgWJMeFFxCle4CbhiKErOXzuDLzCpOKkjRu-2GLd3s18bQ-bAlxR3MZ5oS7FXDHqPBGi_n2Wcz3zTMXp_cF1SxN-EwJEZITl9miq94SjBoGJxNIfmxb7vfxEBidZML6fjOtusDO38m3eJDyd-ocV2rIwFVs-wBmqayF7LnArkc1ORtvyCYY_To42_nAWJ9oDizubMu1hT1SonG3pawapEaW43g6hUhxs9rZPWKTZpw"/>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="text-headline-md font-headline-md text-on-surface font-bold">Apex Studios</h3>
+<span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="px-2 py-0.5 text-[10px] font-bold rounded bg-yellow-400/10 text-yellow-400 border border-yellow-400/30">GOLD SELLER</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Post-Production Tools &amp; Cinema Shaders</p>
+</div>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+            Apex Studios has been the bedrock for over 14,000 film and digital creators worldwide. Based in Vancouver, they specialize in real-time camera simulation systems and modular color science.
+          </p>
+<!-- Real Metric Boxes -->
+<div class="grid grid-cols-3 gap-3">
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline block">Total Volume</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">14.8k</span>
+<span class="text-[10px] text-tertiary block mt-0.5">verified sales</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline block">Market GMV</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface">$280k</span>
+<span class="text-[10px] text-outline block mt-0.5">gross creator value</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline block">Rating</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface flex items-center gap-1">
+                4.98
+                <span class="material-symbols-outlined text-xs text-yellow-400" style="font-variation-settings: 'FILL' 1;">star</span>
+</span>
+<span class="text-[10px] text-outline block mt-0.5">850+ reviews</span>
+</div>
+</div>
+<!-- CTAs -->
+<div class="flex items-center gap-3 pt-2">
+<button class="custom-gradient-btn custom-glow-hover text-white font-label-md text-label-md px-5 py-2.5 rounded-lg flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span>Follow Creator</span>
+</button>
+<button class="bg-surface-container border border-outline-variant hover:border-primary text-on-surface font-label-md text-label-md px-4 py-2.5 rounded-lg transition-colors flex items-center gap-1.5">
+<span>View Full Catalog</span>
+<span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+<!-- Flagship Showcase Carousel (Right Column) -->
+<div class="lg:col-span-7 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Flagship Work From Apex</span>
+<span class="text-body-sm font-body-sm text-primary cursor-pointer hover:underline">See all 24 releases</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<!-- Apex Work 1 -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-3 space-y-2 hover:border-outline transition-colors">
+<div class="h-28 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Film LUT Master Suite preview" class="w-full h-full object-cover" data-alt="Cinematic frame capture from a 35mm film camera showcasing warm film grain, deep shadows, and rich amber highlights in a moody urban nocturnal scene." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu5QMWKhTt9tCcTy-h8i8L7cf0FlDsvpBXDA2zkycJVKYXr5zO_9Moky0z5vyhS578Oqu9DxOsAuchIo4RjPAfIh6ea5abcBT-8vuuFJyoecSngxujkZnOE4YN0cVNQmPJZx0a_URiQBB0Kjn1IB7l9AH1Xr1eAA3pcCppmiWUXfcGV17ClGHa_wVIB-vRrx8Og8unqWPBZKYb7-q57pYKLve5FnHaXCBFNnvi0Cf-Sqs10Kckt08wjQ"/>
+</div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold truncate">35mm Film LUT Suite</h4>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-tertiary">$49</span>
+<span class="text-outline">4.2k sales</span>
+</div>
+</div>
+<!-- Apex Work 2 -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-3 space-y-2 hover:border-outline transition-colors">
+<div class="h-28 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Anamorphic Flare Pack preview" class="w-full h-full object-cover" data-alt="Brilliant horizontal anamorphic blue streak light leak flares slicing through pitch-black space with optical hexagonal lens dust bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNyfsd8UwCgskMEaL0qZ7ceyIb9WAyxCE9-_lDch5vGyZdOI_CAJEbmuZxeasxdhSiMyBgaG2cQzOeJFdtHAFnESlAJcqe8_2D-MMlZLI4IT8upqFvssixVpwyj8pLC9vMA7JuPHAL0anGxnkxYcyH5EsE-16uuQw1kLlxv1vTILpGSLq_X1Bu8wxmDYOcv4UnDuIK7w-pZp4KN_34Z4oVHdr0uQ8SrtPHWr782cXgIMoUUtNzQI6Ikg"/>
+</div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold truncate">Anamorphic Flares 8K</h4>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-tertiary">$64</span>
+<span class="text-outline">3.1k sales</span>
+</div>
+</div>
+<!-- Apex Work 3 -->
+<div class="bg-surface-container border border-outline-variant rounded-xl p-3 space-y-2 hover:border-outline transition-colors">
+<div class="h-28 rounded-lg overflow-hidden bg-surface-container-lowest">
+<img alt="Grain &amp; Halation Node Tree preview" class="w-full h-full object-cover" data-alt="Digital node flow graph displaying color grading nodes interconnected with red halation bloom controls on an editor timeline." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4XUbm1Q8dGOBzzkuoX4pe2ytw5-fdRKYk8RbxqpQKqVYWFOFoobXCC-sJcnErqlkqWkhGE6fpGoQh1bMRhzZy--fcpPXE2ugPUyIwyEz6mSyBESys5eeXVghnEO-7GVaAF2v0rBkArlP2NO5tQZh906HxfDRi4mI79lpI78GWhVuiXyplNFxaNMoVwXceltbMEpeoOUcX6ftdRI63oIvduRhUJH0oc7IEkP77w5e8EDNlHv521LCR8g"/>
+</div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold truncate">Halation Node Rig</h4>
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-tertiary">$32</span>
+<span class="text-outline">5.9k sales</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMMUNITY TOP CHARTS & BENTO GRID COLLECTIONS -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Charts &amp; Curated Collections</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Hand-picked developer and creator stacks vetted by senior editors.</p>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left 5-Cols: Top Grossing Leaderboard -->
+<div class="lg:col-span-5 bg-surface-container-low border border-outline-variant rounded-xl p-space-lg flex flex-col justify-between">
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">leaderboard</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Top Grossing This Month</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Real-time GMV</span>
+</div>
+<!-- Leaderboard Items -->
+<div class="space-y-2.5">
+<!-- Rank 1 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-yellow-400/20 text-yellow-400 font-bold text-label-md flex items-center justify-center border border-yellow-400/40">
+                    #1
+                  </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">Cinema Grade DaVinci Trees</h4>
+<span class="text-[11px] text-outline">Color Grading System</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-md font-label-md font-bold text-on-surface">$42.4k</span>
+<span class="text-[10px] text-tertiary block">+14% vs lw</span>
+</div>
+</div>
+<!-- Rank 2 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-outline/20 text-on-surface-variant font-bold text-label-md flex items-center justify-center border border-outline/40">
+                    #2
+                  </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">SaaS Vector Master Kit v4</h4>
+<span class="text-[11px] text-outline">Design System &amp; UI</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-md font-label-md font-bold text-on-surface">$31.9k</span>
+<span class="text-[10px] text-tertiary block">+22% vs lw</span>
+</div>
+</div>
+<!-- Rank 3 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-amber-700/20 text-amber-500 font-bold text-label-md flex items-center justify-center border border-amber-600/40">
+                    #3
+                  </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">Analog Drum Synthesizer VST</h4>
+<span class="text-[11px] text-outline">Audio Engine Plugin</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-md font-label-md font-bold text-on-surface">$28.1k</span>
+<span class="text-[10px] text-tertiary block">+8% vs lw</span>
+</div>
+</div>
+<!-- Rank 4 -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 hover:border-primary/40 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-surface-container text-outline font-bold text-label-md flex items-center justify-center border border-outline-variant">
+                    #4
+                  </div>
+<div>
+<h4 class="text-label-md font-label-md text-on-surface font-semibold">Procedural Cyber City Assets</h4>
+<span class="text-[11px] text-outline">Unreal Engine 5 Environments</span>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-md font-label-md font-bold text-on-surface">$19.5k</span>
+<span class="text-[10px] text-tertiary block">+5% vs lw</span>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant mt-4">
+<a class="text-label-md font-label-md text-primary hover:underline flex items-center justify-between" href="#">
+<span>View complete Top 100 Revenue Index</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Right 7-Cols: Bento Curated Collections -->
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-space-lg">
+<!-- Bento Card 1 (Span 2 columns on wide) -->
+<div class="sm:col-span-2 relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container p-6 group hover:border-primary transition-all">
+<div class="absolute inset-0 bg-cover bg-center opacity-25 group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist startup founder workstation setup in a dimly lit industrial loft with glowing multi-screen displays showing code, analytics dashboards, and architectural layouts." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSvhiB7nq3R_nHPuylDIHus6vtBSyT8gzdqxr7sHI_4eTGLR3N_2igKkReWc8IDUzjxmfQHqIe3ohf4xIM2Zw43Ru0PVKRsb7VIge3gM9uTo47aUAb8o_9G5UB7RJWe4vYChL80r2Am8sWrKIl7CdvszUKquYpMQxmMBzzb92p75S6F7Y7C6t9-Jec1NSrHP3NKvPA5TFu800XiChAh8JSm4WSg8sZbhmMdCd_vkuh590ZrewUMiKOQw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+<div class="relative z-10 space-y-3">
+<span class="px-2.5 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 text-label-sm font-label-sm font-semibold">
+                CURATED BUNDLE
+              </span>
+<h3 class="text-headline-md font-headline-md text-on-surface font-bold">
+                Solo Founder Starter Stack
+              </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-lg">
+                Includes Next.js template, Stripe billing automations, pitch deck templates, and a complete dark-mode Figma asset collection to ship before sunrise.
+              </p>
+<div class="flex items-center gap-4 pt-2">
+<span class="text-headline-sm font-headline-sm font-bold text-tertiary">$179 <span class="text-body-sm font-body-sm text-outline line-through">$340</span></span>
+<button class="bg-surface-container-highest/80 hover:bg-primary hover:text-on-primary border border-outline-variant px-4 py-1.5 rounded-lg text-label-md font-label-md text-on-surface transition-colors">
+                  Explore 5 Assets
+                </button>
+</div>
+</div>
+</div>
+<!-- Bento Card 2 -->
+<div class="relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container p-5 group hover:border-secondary transition-all">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 group-hover:scale-105 transition-transform duration-500" data-alt="Cinema production film set showing director monitor, camera rigs, and high-contrast anamorphic cinema lights reflecting on matte black equipment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAn6g1OQA7D7S0ZAXmpyYWYEMwBpt_pw-51cv2B-ee725Hf8j3X-QHPUJDCl9LdG7no0_2SZTyoUJ-bKlFCYaJqU_r0LtI0xzSNkkGBAynXlZYaylZOV64NncfQsNH6UPqs3TgT-i05OHxWsbjzEhBPEF0yzPnIIxj5guUy9w3E3V2nmxfk_l37bJZ-qDEaMRiyYHEcmzLhxgaNXyRAMphbdQJqwY6Aw-7qJLloFpCMnNhhsz7vopzuHw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/90 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<span class="text-label-sm font-label-sm text-secondary font-semibold uppercase tracking-wider">FILMMAKING</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Film Festival Post-Production Pack</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">4K film grain overlays, seamless title credits, and theatrical DCP color matrices.</p>
+<div class="pt-3">
+<a class="text-label-md font-label-md text-secondary hover:underline flex items-center gap-1" href="#">
+<span>Browse Collection</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Bento Card 3 -->
+<div class="relative rounded-xl overflow-hidden border border-outline-variant bg-surface-container p-5 group hover:border-tertiary transition-all">
+<div class="absolute inset-0 bg-cover bg-center opacity-20 group-hover:scale-105 transition-transform duration-500" data-alt="A sublime dark mode software interface UI layout showing neon accents, elegant micro-typography, glass containers, and obsidian cards floating over deep space background." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvRW2UTvbLw__kt6CthCTNg1PVeJuVTmYklOpHvNTYTlfwkundDSjOvGF3bgHA746kwMTJNyXlzux0pHCtR_JyNV1k9MOK9_1VymPO6vjjXd-g_FlQQPKLQ9lIHlfVjkGhwR7oAFNOgsvsqm0QrsEP9ZhzFvlIu60Ej2Fpz63LDWtIbkMXSJ8nkrP-3lzOd2VTDIikZaAeDLWn3bauKw7pL0mXw-w-oyymRAwmL7HtfHcYnpySTEga6g')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/90 to-transparent"></div>
+<div class="relative z-10 space-y-2">
+<span class="text-label-sm font-label-sm text-tertiary font-semibold uppercase tracking-wider">DESIGN EXCELLENCE</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Dark Mode UI Mastery</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Obsidian elevation systems, token definitions, and accessible contrast palettes.</p>
+<div class="pt-3">
+<a class="text-label-md font-label-md text-tertiary hover:underline flex items-center gap-1" href="#">
+<span>Browse Collection</span>
+<span class="material-symbols-outlined text-xs">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- MARKETPLACE PERSISTENT BOTTOM FOOTER -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant mt-16 px-margin py-8">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md text-body-sm font-body-sm text-outline">
+<div class="flex items-center gap-space-md">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+<span>•</span>
+<span>Marketplace Engine v7.7</span>
+<span>•</span>
+<span>Distributed Creator Economics</span>
+</div>
+<div class="flex items-center gap-space-lg text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Seller Protocol</a>
+<a class="hover:text-on-surface transition-colors" href="#">Licensing Terms</a>
+<a class="hover:text-on-surface transition-colors" href="#">Dispute Guarantee</a>
+<a class="hover:text-on-surface transition-colors" href="#">Developer API</a>
+</div>
+</div>
+</footer>
+</body></html>

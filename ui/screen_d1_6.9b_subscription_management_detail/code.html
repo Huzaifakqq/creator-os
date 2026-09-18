@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — 6.9b Subscription Management Detail</title>
+<!-- Google Fonts & Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#1b1b20",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed": "#002113",
+            "on-surface": "#e4e1e9",
+            "on-error": "#690005",
+            "tertiary": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary": "#003824",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#303036",
+            "surface-dim": "#131318",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-container": "#571bc1",
+            "error": "#ffb4ab",
+            "on-background": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary-fixed": "#001a42",
+            "surface-container-highest": "#35343a",
+            "on-primary": "#002e6a",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "surface": "#131318",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container-lowest": "#0e0e13",
+            "primary": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "surface-tint": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "background": "#131318",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary-fixed-variant": "#005236"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Brand Gradient button & accent glows */
+    .brand-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .brand-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .brand-glow-sm {
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+    }
+    .level-1-card {
+      background: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .level-2-surface {
+      background: #181824;
+      border: 1px solid #2A2A3E;
+    }
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E1E2E;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased min-h-screen flex selection:bg-primary-container selection:text-on-primary-container">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar                                              -->
+<!-- Semantic Active Tab: Subscriptions                                        -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 z-40 border-r border-outline-variant/30 bg-surface-container-lowest flex flex-col justify-between p-4">
+<!-- Top Brand & Navigation Cluster -->
+<div class="flex flex-col gap-6">
+<!-- Brand & Workspace Selector -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-md shadow-blue-500/20 text-white font-bold text-lg">
+<span class="material-symbols-outlined text-[22px]" data-icon="token">token</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-tight">Creator OS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-normal">Commerce Suite</span>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full h-10 px-4 rounded-lg brand-gradient text-white font-label-lg text-label-lg flex items-center justify-center gap-2 brand-glow-sm hover:brightness-110 active:scale-[0.98] transition-all duration-150 shadow-sm">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>New Product</span>
+</button>
+<!-- Primary Navigation Tabs -->
+<nav aria-label="Main Navigation" class="flex flex-col gap-1.5">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- Catalog & Inventory -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-label-md text-label-md">Catalog &amp; Inventory</span>
+</a>
+<!-- Pricing & Tiers -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Pricing &amp; Tiers</span>
+</a>
+<!-- Subscriptions (ACTIVE TAB - EXACT SPEC MATCH) -->
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary-container/15 text-primary border border-primary/30 font-medium active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="autorenew">autorenew</span>
+<span class="font-label-md text-label-md">Subscriptions</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+</a>
+<!-- Orders & Invoicing -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-label-md text-label-md">Orders &amp; Invoicing</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Secondary Navigation & Workspace Telemetry -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/20">
+<!-- Tenant Switcher pill -->
+<div class="p-2.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] flex items-center justify-between hover:border-[#2A2A3E] transition-colors cursor-pointer mb-1">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-6 h-6 rounded bg-purple-500/20 text-secondary flex items-center justify-center font-bold text-xs">
+            VA
+          </div>
+<div class="truncate">
+<p class="font-label-md text-label-md text-on-surface font-medium truncate">Vance Studio Pro</p>
+<p class="font-label-sm text-label-sm text-outline">Production Tier</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="unfold_more">unfold_more</span>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN APPLICATION CANVAS WRAPPER (Offset by SideNav w-64)                   -->
+<!-- ========================================================================= -->
+<div class="flex-1 pl-64 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="sticky top-0 right-0 h-14 w-full z-30 border-b border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-md flex justify-between items-center px-6">
+<!-- Left side: Breadcrumb & Search Bar -->
+<div class="flex items-center gap-6 flex-1 max-w-2xl">
+<!-- Breadcrumb navigation -->
+<nav class="flex items-center gap-2 text-on-surface-variant font-label-md text-label-md whitespace-nowrap">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Commerce</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Subscriptions</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Management Detail</span>
+</nav>
+<!-- Quick Global Search -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline pointer-events-none text-[18px]" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-md bg-[#12121A] border border-[#1E1E2E] text-on-surface placeholder-outline font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search subscriptions, IDs, plans..." type="text"/>
+<kbd class="absolute right-2.5 top-2 px-1.5 py-0.5 rounded bg-surface-container-high border border-outline-variant/40 font-label-sm text-label-sm text-outline">⌘K</kbd>
+</div>
+</div>
+<!-- Right side: Quick filters, Actions & Profile -->
+<div class="flex items-center gap-3.5">
+<!-- Date Range Filter Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] text-on-surface font-label-md text-label-md hover:border-[#2A2A3E] cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="calendar_month">calendar_month</span>
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Export CSV Secondary Button -->
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface hover:text-white hover:border-primary font-label-md text-label-md flex items-center gap-2 transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+<span>Export Subscriptions CSV</span>
+</button>
+<!-- Primary Gradient Action -->
+<button class="h-9 px-4 rounded-lg brand-gradient text-white font-label-md text-label-md flex items-center gap-1.5 brand-glow-sm hover:brightness-110 active:scale-[0.98] transition-all duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>New Subscription</span>
+</button>
+<!-- Vertical Divider -->
+<div class="h-6 w-px bg-outline-variant/30 mx-1"></div>
+<!-- System Icons Cluster -->
+<div class="flex items-center gap-1">
+<button aria-label="Notifications" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<button aria-label="Help" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button aria-label="Settings" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<img class="w-8 h-8 rounded-full border border-primary/40 object-cover" data-alt="A clean modern digital creator profile headshot in a dark-mode studio with moody ambient purple and blue cinematic lighting, sharp focus, professional tech workspace backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlNspd-omul9Z6fj-lUp-qnIkI9B5_ms0aiNrHWcTbTEooZOLX7Q0LsMNJeCICE9kTzjuO8G0u3Rl05HYAEF5CyUUyJdYYvoDNYEydKit7_pgvXgFs_EOWwzPHKPOVpXY_RyWxkr52kPHh2KW2G3qApv53xqOgu4v4yQ8Jw1xOdpFZ5ydMdpkFBw_znTfmjct-pc72zA6p3cB13CJXEb98FFXyW3nTWMV9V9OW5_0ddeHHtOJbr4HcZg"/>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- WORKSPACE CANVAS CONTENT                                                  -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-8 flex flex-col gap-6 max-w-[1440px] w-full mx-auto">
+<!-- PAGE TITLE & SUBTITLE HEADER -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg font-semibold text-white tracking-tight">
+              Subscription Management &amp; Recurring Ledger
+            </h1>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-label-sm uppercase tracking-wider bg-primary/10 border border-primary/30 text-primary font-semibold">
+              Live Billing Sync
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+            Monitor customer recurring revenue, automated billing cycles, and churn telemetry across multi-tiered media memberships.
+          </p>
+</div>
+<!-- Real-time Status Badge Indicator -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] text-on-surface-variant font-label-md text-label-md self-start lg:self-auto">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span>Gateway: <strong class="text-white font-medium">Stripe Connect • Active</strong></span>
+</div>
+</section>
+<!-- TOP KPI SUMMARY CARDS (3 CARDS GRID) -->
+<section aria-label="Key Subscription Metrics" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- KPI Card 1: Active Subscriptions -->
+<div class="level-1-card rounded-xl p-6 relative overflow-hidden transition-all duration-200 hover:border-primary/40 group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Active Subscriptions</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-xl text-headline-xl text-white font-bold tracking-tight">2,842</span>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#10B981] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span>+8.4% MoM</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>94 new this month</span>
+<span class="text-outline">Net +71 post-churn</span>
+</div>
+</div>
+<!-- KPI Card 2: MRR -->
+<div class="level-1-card rounded-xl p-6 relative overflow-hidden transition-all duration-200 hover:border-purple-500/40 group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Monthly Recurring Revenue (MRR)</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-xl text-headline-xl text-white font-bold tracking-tight">$148,650.00</span>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#10B981] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span>
+<span>+$12.3k vs last cycle</span>
+</div>
+</div>
+<!-- Mini sparkline visual (inline SVG with gradient stroke) -->
+<div class="mt-3 pt-3 border-t border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span>Run-rate: <strong class="text-white">$1.78M ARR</strong></span>
+</div>
+<!-- High-precision sparkline stroke -->
+<svg class="w-24 h-6 overflow-visible" fill="none" viewbox="0 0 100 24">
+<defs>
+<lineargradient id="mrrSparkGrad" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#3B82F6"></stop>
+<stop offset="100%" stop-color="#8B5CF6"></stop>
+</lineargradient>
+</defs>
+<path d="M0 20 L15 17 L30 19 L45 12 L60 14 L75 8 L90 10 L100 2" stroke="url(#mrrSparkGrad)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+</div>
+</div>
+<!-- KPI Card 3: Subscription Churn Rate -->
+<div class="level-1-card rounded-xl p-6 relative overflow-hidden transition-all duration-200 hover:border-primary/40 group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Subscription Churn Rate</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-[#4edea3] group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield_with_heart">shield_with_heart</span>
+</div>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="font-headline-xl text-headline-xl text-white font-bold tracking-tight">1.82%</span>
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[#10B981] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_downward">arrow_downward</span>
+<span>-0.35% delta improvement</span>
+</div>
+</div>
+<div class="mt-3 pt-3 border-t border-[#1E1E2E] flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#10B981]"></span>
+<span>Safe threshold &lt; 2.5%</span>
+</div>
+<span class="text-outline">Industry avg: 4.1%</span>
+</div>
+</div>
+</section>
+<!-- FILTER CONTROLS BAR -->
+<section class="level-1-card rounded-xl p-4 flex flex-wrap items-center justify-between gap-4">
+<!-- Search by subscriber name/email -->
+<div class="relative flex-1 min-w-[240px] max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-md bg-[#181824] border border-[#1E1E2E] text-white placeholder-outline font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Search by subscriber name, email, or customer ID..." type="text"/>
+</div>
+<!-- Filter Dropdowns Cluster -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Status Filter -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Status:</span>
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-md bg-[#181824] border border-[#1E1E2E] text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none focus:border-primary">
+<option selected="">All Statuses (2,842)</option>
+<option>Active (2,710)</option>
+<option>Past Due (48)</option>
+<option>Paused (34)</option>
+<option>Canceled (50)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-3 pointer-events-none text-outline text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Plan Tier Filter -->
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Tier:</span>
+<div class="relative">
+<select class="h-10 pl-3 pr-8 rounded-md bg-[#181824] border border-[#1E1E2E] text-on-surface font-label-md text-label-md appearance-none cursor-pointer focus:outline-none focus:border-primary">
+<option selected="">All Plan Tiers</option>
+<option>Creator Masterclass [Pro Monthly]</option>
+<option>Enterprise Studio Tier [Annual]</option>
+<option>VFX Asset Vault [Monthly]</option>
+<option>VIP Backstage Pass</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-3 pointer-events-none text-outline text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Date Range Filter -->
+<div class="flex items-center gap-2 px-3 h-10 rounded-md bg-[#181824] border border-[#1E1E2E] text-on-surface font-label-md text-label-md hover:border-[#2A2A3E] cursor-pointer">
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="date_range">date_range</span>
+<span>Oct 1 - Oct 31, 2026</span>
+</div>
+<!-- Reset Filter Button -->
+<button class="h-10 w-10 rounded-md bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white hover:border-[#2A2A3E] flex items-center justify-center transition-colors" title="Clear Filters">
+<span class="material-symbols-outlined text-[18px]" data-icon="filter_alt_off">filter_alt_off</span>
+</button>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- MAIN SUBSCRIPTION LEDGER TABLE                                            -->
+<!-- ========================================================================= -->
+<section class="level-1-card rounded-xl overflow-hidden border border-[#1E1E2E] flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<!-- Table Header -->
+<thead>
+<tr class="border-b border-[#1E1E2E] bg-[#181824]/60 text-outline font-label-sm text-label-sm uppercase tracking-wider select-none">
+<th class="py-3.5 px-6 font-semibold">Customer</th>
+<th class="py-3.5 px-4 font-semibold">Product / Plan</th>
+<th class="py-3.5 px-4 font-semibold">Status</th>
+<th class="py-3.5 px-4 font-semibold">Start Date</th>
+<th class="py-3.5 px-4 font-semibold">Next Billing Date</th>
+<th class="py-3.5 px-4 font-semibold">Monthly Value</th>
+<th class="py-3.5 px-6 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<!-- Table Body with 6 Diverse Subscription States -->
+<tbody class="divide-y divide-[#1E1E2E] font-body-md text-body-md text-on-surface">
+<!-- ROW 1: Active Subscription (Alex Vance) -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<!-- Customer info -->
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-[#2A2A3E]" data-alt="Cinematic portrait avatar of Alex Vance, a video director with glasses and dark crewneck sweater in an edit suite illuminated by subtle cyan edge lighting, studio grade photograph." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCENAbTbeaTifOsZcaqwt2gFqCMH2qOqY-_b0fz0SnjIaS7l2i9w2oq056GWHmYhv3VovbPTQiSw1CmGkSxuBrkwRwXlnl3wOikAzBOaKjxFWLx5TjEZolp6oxkKARVNzwYxXYlWz8qeZFroTovlaaSqFXZ2j-FxE7TDumc7hBp15s62nFBa2pk720kB2n1fbDOEgeo3KUMxpoaq6G7tB1gm9DJJYIoI4HFfJ04AVn3iDSsoaGoS3ItnA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-white truncate group-hover:text-primary transition-colors">Alex Vance</span>
+<span class="font-body-sm text-body-sm text-outline truncate">alex@vancefilms.com</span>
+</div>
+</div>
+</td>
+<!-- Product / Plan -->
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-white font-medium">Creator Masterclass All-Access</span>
+<span class="font-body-sm text-body-sm text-outline">Pro Monthly Tier • Auto-renew</span>
+</div>
+</td>
+<!-- Status Badge -->
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                    Active
+                  </span>
+</td>
+<!-- Start Date -->
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Jan 14, 2025
+                </td>
+<!-- Next Billing Date -->
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium">Nov 14, 2026</span>
+<span class="font-body-sm text-body-sm text-outline">In 14 days • Visa ••4242</span>
+</div>
+</td>
+<!-- Monthly Value -->
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white font-headline-sm text-[15px]">$199.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<!-- Actions -->
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors" title="Pause billing cycle">
+                      Pause
+                    </button>
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-red-950/40 hover:text-red-400 border border-[#1E1E2E] hover:border-red-800/40 text-on-surface text-xs font-medium transition-colors">
+                      Cancel
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors" title="View Invoices">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt">receipt</span>
+</button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors" title="More options">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Enterprise Tier (Elena Rostova) -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-[#2A2A3E]" data-alt="Professional studio portrait of Elena Rostova, a creative media agency director in high-contrast cinematic lighting with dark graphite tones and subtle purple backlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtYqwSGi6Ji22xg2jz6wIlo656NwROZR-RU35eHXS-fl5ONdPrDrhOmrif_5SW9cBTAlMdo1mfi6x4iqy0DNZKFBKW4aLKRptlSHbGchl-alLD_iXq_ABP--oRvf2tztKRh3QSGbyNPkZgAREgjCrB2S9xlJHrNeIcyCmg6HRKieX0DF576EIbW8mu_viC2nj2Lfr9vnu2OIq9W5-MXnOwigyYoEumL0sP73DjOBV7cB72Hw3ah_tX0g"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-medium text-white truncate group-hover:text-primary transition-colors">Elena Rostova</span>
+<span class="material-symbols-outlined text-amber-400 text-[15px]" data-icon="verified" title="Enterprise Client">verified</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline truncate">elena@rostovamedia.io</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-white font-medium">Enterprise Studio Tier</span>
+<span class="font-body-sm text-body-sm text-secondary">Annual Contract (10 Seats)</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Mar 22, 2025
+                </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium">Mar 22, 2027</span>
+<span class="font-body-sm text-body-sm text-outline">ACH Direct • Verified</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white font-headline-sm text-[15px]">$1,250.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Pause
+                    </button>
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-red-950/40 hover:text-red-400 border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Cancel
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors" title="View Invoices">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt">receipt</span>
+</button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Past Due with Retry Count (Marcus Brody) -->
+<tr class="hover:bg-[#181824] bg-amber-500/[0.02] transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-amber-500/40" data-alt="Close up avatar photo of Marcus Brody, 3D artist in technical headphones against a subtle neon blue studio background, ultra-sharp detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTgonX5zijiAEnqR1JyIfqHkuACSaOVL9MDLr81DBDFc0nmbizMHNVKVgKoxFuGmdGb9tGGXqC8P7h1cv092WhcKLdh8a-IzjKEJBF16UQKom-4f78aOWA_X_vbeycYegB0dNF0m5DMxjEpY5WPXl9-pICrtycZssDKUr3UyNZdEvFPGZPLLlnRqIqJrZ82bf215ddthNwEo9SXRTAYwohiF_0tfE6nj7CD6auJCPUqiDUx0Ty6ajE2Q"/>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-white truncate group-hover:text-primary transition-colors">Marcus Brody</span>
+<span class="font-body-sm text-body-sm text-outline truncate">marcus@brodydesign.co</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-white font-medium">VFX Asset Vault</span>
+<span class="font-body-sm text-body-sm text-outline">Monthly Creator Pass</span>
+</div>
+</td>
+<!-- Warning Status Badge -->
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#F59E0B]/15 text-[#F59E0B] border border-[#F59E0B]/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+                    Past Due (Retry #2)
+                  </span>
+</td>
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Jun 08, 2025
+                </td>
+<!-- Next Billing / Retry State -->
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-amber-400 font-medium">Retry: Tomorrow (08:00 AM)</span>
+<span class="font-body-sm text-body-sm text-outline">Mastercard ••8812 expired</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white font-headline-sm text-[15px]">$49.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-medium transition-colors" title="Send manual payment reminder">
+                      Dunning Link
+                    </button>
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-red-950/40 hover:text-red-400 border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Cancel
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Paused until Nov 1st (Sophia Chen) -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-[#2A2A3E]" data-alt="Editorial portrait avatar of Sophia Chen, documentary filmmaker with soft cinematic lighting, neutral expressions, clean dark studio backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZo0_C31qT0HuMNKMhlrri8bJCHtUxXyp56jv5wyqW4Vo0AbJrPtSt44MN9mZRrJ15P8UQKTXDmcfOikzn0tvNHB-YgheWRjfB-OcNApSXnUELmaeukkDcfxHX6aAPFOAekNgVc5E5k_HrIW1MTujxG-flsRl0TlzJfZd8ARLnMSL_SI1hnPZJa1QlWGsCr1WJ00XR7jlxYou42ZgGqDehdMHCL78eClR1V_hnJbVpXR0dDWWzKPrBEA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-white truncate group-hover:text-primary transition-colors">Sophia Chen</span>
+<span class="font-body-sm text-body-sm text-outline truncate">sophia.chen@northlight.tv</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-white font-medium">Creator Masterclass All-Access</span>
+<span class="font-body-sm text-body-sm text-outline">Standard Monthly Tier</span>
+</div>
+</td>
+<!-- Paused Status Badge -->
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#6B7280]/20 text-gray-300 border border-gray-600/40">
+<span class="material-symbols-outlined text-[14px]" data-icon="pause_circle">pause_circle</span>
+                    Paused
+                  </span>
+</td>
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Feb 19, 2025
+                </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-gray-300 font-medium">Resumes: Nov 1, 2026</span>
+<span class="font-body-sm text-body-sm text-outline">Paused by subscriber</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white font-headline-sm text-[15px]">$199.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 text-blue-400 text-xs font-medium transition-colors">
+                      Resume
+                    </button>
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-red-950/40 hover:text-red-400 border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Cancel
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Canceled with reason 'Price sensitivity' (David O'Connor) -->
+<tr class="hover:bg-[#181824] bg-red-500/[0.01] transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-[#2A2A3E] grayscale opacity-80" data-alt="Authentic creator headshot of David O'Connor in a moody podcast studio with warm mic boom arm blurred in foreground, dark aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR_6vDojwbXtmfpAcPjluQjeD6l6Tlt7PyLdsSiJz77e1B1GghWJTaqSWJfY0e_7IDRZ-VzKb44T_JOTPKfAAvfS1bGOLIypi1Us_0FraIGlkYKdCm-fYbpVWTBob__gwsEatST0zAFEwG_tF7t-ncfypTEqOM6JR7ZF7kZR2UeBZDf4UDLxPEq4WnJk1daYSUFLXKr1tkg5GIQwIH__jbRC3R5p8labVfbbbHmpDV7PghAhv5gebO7Q"/>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-white/80 truncate">David O'Connor</span>
+<span class="font-body-sm text-body-sm text-outline truncate">david@oconnormedia.com</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col opacity-80">
+<span class="text-white font-medium">VIP Soundpack Library</span>
+<span class="font-body-sm text-body-sm text-outline">Quarterly Pass • Revoked</span>
+</div>
+</td>
+<!-- Canceled Badge -->
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#EF4444]/15 text-[#EF4444] border border-[#EF4444]/30">
+<span class="material-symbols-outlined text-[14px]" data-icon="cancel">cancel</span>
+                    Canceled
+                  </span>
+</td>
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Aug 11, 2025
+                </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-rose-400 font-medium">Ended on Oct 12</span>
+<span class="font-body-sm text-body-sm text-outline">Reason: Price sensitivity</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white/70 line-through font-headline-sm text-[15px]">$89.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-300 text-xs font-medium transition-colors">
+                      Win-back Offer
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors" title="Audit Log">
+<span class="material-symbols-outlined text-[18px]" data-icon="history">history</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 6: Active Subscription (Kavita Sharma) -->
+<tr class="hover:bg-[#181824] transition-colors duration-150 group">
+<td class="py-4 px-6">
+<div class="flex items-center gap-3">
+<img class="w-9 h-9 rounded-full object-cover border border-[#2A2A3E]" data-alt="Sharp portrait of Kavita Sharma, virtual production designer sitting by an ultrawide monitor glowing with color grading curves, cinematic lighting tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJlJzLcWG_Gb5ADEy0Z269FttE6l-__kpkfLJ5yl1EW_9qQ-7ixdReMco-hRG00ikv08PWW9bodoMLigt8Y-2gFyDT9ofJFo82eD7ppjcDbLvIZEpmsItNZXxGzZIHi8Z4Lg3_t1n1xrvgliCdSeElX03l3l10TWAkLzTMTGq1GH8_dMuqyl5sKKlv_1wTD9idhOQ9w-5sANWHhG31cxypVFfHXdvcivKd7RLjwzURHmhZlziONROHhA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-medium text-white truncate group-hover:text-primary transition-colors">Kavita Sharma</span>
+<span class="font-body-sm text-body-sm text-outline truncate">kavita@chromastudio.art</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-white font-medium">Virtual Production Suite</span>
+<span class="font-body-sm text-body-sm text-outline">Monthly Pro Studio License</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+                    Active
+                  </span>
+</td>
+<td class="py-4 px-4 text-outline font-body-sm text-body-sm whitespace-nowrap">
+                  Dec 02, 2025
+                </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex flex-col">
+<span class="text-white font-medium">Nov 02, 2026</span>
+<span class="font-body-sm text-body-sm text-outline">In 2 days • Amex ••3009</span>
+</div>
+</td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="font-semibold text-white font-headline-sm text-[15px]">$450.00</span>
+<span class="font-body-sm text-body-sm text-outline">/mo</span>
+</td>
+<td class="py-4 px-6 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Pause
+                    </button>
+<button class="px-2.5 py-1 rounded bg-[#181824] hover:bg-red-950/40 hover:text-red-400 border border-[#1E1E2E] text-on-surface text-xs font-medium transition-colors">
+                      Cancel
+                    </button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors" title="View Invoices">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt">receipt</span>
+</button>
+<button class="p-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- TABLE BOTTOM PAGINATION & SUMMARY -->
+<div class="px-6 py-4 border-t border-[#1E1E2E] bg-[#12121A] flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3 text-outline font-body-sm text-body-sm">
+<span>Showing <strong class="text-white font-medium">1 to 6</strong> of <strong class="text-white font-medium">2,842</strong> subscribers</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span>Ledger Cycle: <span class="text-primary font-medium">Daily Synchronized</span></span>
+</div>
+<!-- Pagination Controls -->
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white hover:border-[#2A2A3E] font-label-md text-label-md flex items-center gap-1 disabled:opacity-40 transition-colors" disabled="">
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_left">chevron_left</span>
+<span>Previous</span>
+</button>
+<!-- Numeric pagination buttons -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded bg-primary/15 border border-primary/40 text-primary font-label-md text-label-md font-semibold">1</button>
+<button class="w-8 h-8 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface font-label-md text-label-md transition-colors">2</button>
+<button class="w-8 h-8 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface font-label-md text-label-md transition-colors">3</button>
+<span class="text-outline px-1">...</span>
+<button class="w-8 h-8 rounded bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] text-on-surface font-label-md text-label-md transition-colors">474</button>
+</div>
+<button class="h-8 px-3 rounded bg-[#181824] border border-[#1E1E2E] text-on-surface hover:text-white hover:border-[#2A2A3E] font-label-md text-label-md flex items-center gap-1 transition-colors">
+<span>Next</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- BOTTOM CONTEXTUAL WORKSPACE ASSISTANT: Quick Dunning & Health Banner -->
+<section class="level-1-card rounded-xl p-5 border border-[#1E1E2E] flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#12121A] to-[#181824]">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[26px]" data-icon="auto_mode">auto_mode</span>
+</div>
+<div>
+<h4 class="text-white font-headline-sm text-[16px] font-semibold">Smart Dunning &amp; Recovery Agent Active</h4>
+<p class="text-outline font-body-sm text-body-sm mt-0.5">
+              Creator OS automatically retried 41 past-due invoices this week, successfully recovering <span class="text-emerald-400 font-medium">$5,820.00</span> in recurring revenue.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface hover:text-white hover:border-primary font-label-md text-label-md transition-all">
+            Configure Fallback Rules
+          </button>
+<button class="h-9 px-4 rounded-lg bg-primary-container/20 border border-primary/40 text-primary hover:bg-primary-container/30 font-label-md text-label-md font-medium transition-all">
+            View Recovery Log
+          </button>
+</div>
+</section>
+</main>
+</div>
+</body></html>

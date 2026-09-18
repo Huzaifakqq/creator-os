@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Coaching Session Studio #CS-8921</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "surface": "#131318",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-highest": "#35343a",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary": "#d0bcff",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed-variant": "#005236",
+            "background": "#131318",
+            "on-background": "#e4e1e9",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "primary-fixed": "#d8e2ff",
+            "on-primary-fixed": "#001a42",
+            "surface-bright": "#39383e",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-fixed-dim": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed-variant": "#004395",
+            "inverse-on-surface": "#303036",
+            "outline": "#8c909f",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Custom scrollbar for high-density IDE feel */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .emerald-glow {
+      box-shadow: 0 0 20px -2px rgba(0, 165, 114, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- Fixed SideNavBar Anchor -->
+<aside class="fixed left-0 top-0 bottom-0 h-full w-64 flex flex-col justify-between p-space-md z-30 bg-surface-container-low border-r border-outline-variant">
+<div class="flex flex-col gap-space-md">
+<!-- Studio Emblem Header -->
+<div class="flex items-center gap-3 px-2 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest/60">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center font-headline-sm text-headline-sm font-bold text-white shadow-inner">
+<span class="material-symbols-outlined text-white" style="font-size: 20px;">layers</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface truncate">Studio Nexus</div>
+<div class="font-label-sm text-label-sm text-tertiary truncate flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>
+            Creator Pro Tier
+          </div>
+</div>
+</div>
+<!-- Quick Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 h-9 px-3 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant font-label-md text-label-md transition-all active:scale-98">
+<span class="material-symbols-outlined text-primary" style="font-size: 16px;">bolt</span>
+<span>Quick Session</span>
+</button>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1 mt-2">
+<!-- Overview -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">dashboard</span>
+<span class="font-label-md text-label-md">Overview</span>
+</a>
+<!-- Community -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">group</span>
+<span class="font-label-md text-label-md">Community</span>
+</a>
+<!-- Moderation -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">shield</span>
+<span class="font-label-md text-label-md">Moderation</span>
+</a>
+<!-- Coaching (ACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container text-primary font-medium border-l-2 border-primary active:scale-98" href="#">
+<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md">Coaching</span>
+<span class="ml-auto px-1.5 py-0.5 rounded text-[10px] font-semibold bg-tertiary-container/30 text-tertiary">LIVE</span>
+</a>
+<!-- Calendar -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 20px;">calendar_today</span>
+<span class="font-label-md text-label-md">Calendar</span>
+</a>
+</nav>
+</div>
+<!-- SideNavBar Footer -->
+<div class="flex flex-col gap-1 border-t border-outline-variant pt-space-sm">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-medium hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 active:scale-98" href="#">
+<span class="material-symbols-outlined" style="font-size: 18px;">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+</div>
+</aside>
+<!-- Main Viewport Canvas (offset by 256px for SideNavBar) -->
+<div class="ml-64 flex flex-col h-screen overflow-hidden bg-surface-container-lowest">
+<!-- TopNavBar Web Header Anchor -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-space-lg h-14 bg-surface border-b border-outline-variant shadow-sm shrink-0">
+<!-- Left: Brand + Breadcrumbs -->
+<div class="flex items-center gap-4">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight flex items-center gap-2">
+<span>Creator OS</span>
+<span class="text-outline text-body-sm font-normal">/</span>
+</div>
+<nav class="flex items-center space-x-2 text-body-sm font-body-sm text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Coaching</a>
+<span class="text-outline">/</span>
+<a class="hover:text-on-surface transition-colors" href="#">Bookings</a>
+<span class="text-outline">/</span>
+<span class="text-on-surface font-label-md text-label-md px-2 py-0.5 rounded bg-surface-container border border-outline-variant text-primary">Session #CS-8921 (Elena Vance)</span>
+</nav>
+</div>
+<!-- Center Live Indicator Banner -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary -ml-3 inline-block"></span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Starts in 24m</span>
+<span class="text-outline text-label-sm">•</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">videocam</span>
+          Zoom Linked
+        </span>
+</div>
+<!-- Right Trailing Controls & Profile -->
+<div class="flex items-center gap-3">
+<button class="h-8 px-3 rounded-lg bg-tertiary-container hover:bg-tertiary text-on-tertiary font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-all shadow-sm active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 16px;">video_call</span>
+<span>Join Video Call</span>
+</button>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">help</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" style="font-size: 18px;">settings</span>
+</button>
+</div>
+<img alt="Creator studio profile avatar" class="w-8 h-8 rounded-full border border-primary-container object-cover" data-alt="Close up professional portrait of a tech studio coach with ambient violet studio lighting in the background, sharp detail, confident expression, cinematic color grading" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs13uhV8iFIp5cjSomo1a0T1eeFpGO-TRX07wfSfndolAl4FwzsH_9O8-k6mLDANKPMY6M1p6ZUwVteChteoLPvwlR8yPK-vXMv9gI808uSefdy1uci0W6K35rq3td4sbjqGZ-xcFkWxljno6nndDmFbX1OdbRaQzkPSdPU6Is37dodH_zzezMAw3_jjKDgKV6X6PJNvZmjH87ZmhKJMM2UZ0sb8S4B3ZxfueoDztm_8P1nnyDw-bIKw"/>
+</div>
+</header>
+<!-- Page Sub-Header & Global Session Control Bar -->
+<div class="bg-surface-container-low border-b border-outline-variant px-space-lg py-3 flex items-center justify-between shrink-0">
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center gap-3">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface tracking-tight">Coaching Session Studio: Elena Vance</h1>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-container/20 border border-primary text-primary font-semibold">ACES Migration</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant text-on-surface-variant">Resolve 19 Studio</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-2">
+<span>60-Min Color Pipeline Audit</span>
+<span class="text-outline">•</span>
+<span>DaVinci Resolve ACEScc Migration</span>
+<span class="text-outline">•</span>
+<span class="text-on-surface font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">schedule</span>
+            Scheduled for Today, 2:00 PM - 3:00 PM EST
+          </span>
+</p>
+</div>
+<!-- Action Button Group -->
+<div class="flex items-center gap-2">
+<!-- Join Video Room Primary Emerald CTA -->
+<button class="h-9 px-4 rounded-lg bg-gradient-to-r from-tertiary-container to-tertiary hover:brightness-110 text-on-tertiary font-label-md text-label-md font-semibold flex items-center gap-2 emerald-glow transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 18px;">videocam</span>
+<span>Join Video Room</span>
+</button>
+<!-- Session Controls Dropdown -->
+<div class="relative inline-block text-left">
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined" style="font-size: 16px;">tune</span>
+<span>Session Controls</span>
+<span class="material-symbols-outlined text-outline" style="font-size: 16px;">expand_more</span>
+</button>
+</div>
+<!-- Export Summary PDF -->
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined" style="font-size: 16px;">picture_as_pdf</span>
+<span>Export Session Summary (PDF)</span>
+</button>
+<!-- Mark as Completed -->
+<button class="h-9 px-4 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:brightness-110 text-white font-label-md text-label-md font-semibold flex items-center gap-1.5 ambient-glow transition-all active:scale-95">
+<span class="material-symbols-outlined" style="font-size: 16px;">check_circle</span>
+<span>Mark as Completed</span>
+</button>
+</div>
+</div>
+<!-- Three-Column Interactive Studio Layout Canvas -->
+<main class="flex-1 overflow-y-auto p-4 grid grid-cols-12 gap-4 bg-surface-container-lowest">
+<!-- LEFT COLUMN: Client Context & Intake Dossier (28% width ~ col-span-3) -->
+<section class="col-span-12 xl:col-span-3 flex flex-col gap-4">
+<!-- Client Profile Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<img alt="Elena Vance client avatar" class="w-12 h-12 rounded-xl object-cover border border-outline-variant shadow-md" data-alt="Editorial portrait of Elena Vance a professional female digital colorist in a dark post-production suite with calibrated grading displays glowing softly in deep blues and amber tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlqEFlp5OmFMZqCyxHCnJ9o5zKfXwsJ7k9dyYzIIMz0XPY7EqSL0CFSqMpxI4YYT313lt1XGcPohjl08-2ymm1AgvCWcSTrW6JGepEEvFeDDuebaH2FgGbybe7-Up4fGveOmDf6MLGqazIJgu9np0UPuD-PHPtbyv123AWcSSamPA3YFHifKr__BkfKpj8zPkd5rx0Zzmow0WvuDS1eUaDdLXKkVQX3wuKS_rLxYNRJXPR144QMMuG-w"/>
+<div class="flex flex-col">
+<div class="font-headline-sm text-headline-sm font-bold text-on-surface flex items-center gap-1.5">
+<span>Elena Vance</span>
+<span class="material-symbols-outlined text-primary" style="font-size: 16px;" title="Verified Pro Client">verified</span>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Head of Color @ Apex Studios</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold bg-secondary-container/40 text-secondary border border-secondary/30">VIP Member</span>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-2 border-t border-outline-variant/60">
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40">
+<div class="font-label-sm text-label-sm text-outline">Member Since</div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">Jan 2024</div>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/40">
+<div class="font-label-sm text-label-sm text-outline">Completed Sessions</div>
+<div class="font-label-md text-label-md font-semibold text-on-surface">3 Sessions</div>
+</div>
+</div>
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface-container-high/60 border border-outline-variant/40">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Client Rating &amp; Trust</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-tertiary" style="font-size: 16px; font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">5.0</span>
+<span class="text-outline text-label-sm">(3 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Session Details Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">receipt_long</span>
+              Booking Parameters
+            </h3>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Paid via Stripe
+            </span>
+</div>
+<div class="space-y-2 text-body-sm font-body-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Duration</span>
+<span class="text-on-surface font-semibold">60 Minutes</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Consultation Fee</span>
+<span class="text-on-surface font-semibold">$175.00 <span class="text-outline font-normal">(#inv_9921)</span></span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>Platform</span>
+<span class="text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">link</span>
+                zoom.us/j/884219...
+              </span>
+</div>
+</div>
+</div>
+<!-- Intake Summary Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 18px;">assignment</span>
+              Intake Dossier
+            </h3>
+<span class="px-2 py-0.5 rounded text-[10px] bg-surface-container border border-outline-variant text-outline">Pre-Call Questionnaire</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline font-medium">Core Challenge &amp; Goal:</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-relaxed">
+              "We migrated our Alexa 35 footage into ACEScc inside DaVinci 19, but vendor creative LUTs clip highlights harshly at 85 IRE. Need pipeline node structure verification."
+            </p>
+</div>
+<!-- Attached intake files -->
+<div class="flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-outline">Client Uploaded Assets:</span>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">movie</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">aces_gamut_problem.ari</span>
+<span class="text-outline text-label-sm">(140 MB)</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 transition-colors">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-secondary" style="font-size: 18px;">filter_vintage</span>
+<span class="font-label-sm text-label-sm text-on-surface truncate">master_lut_v2.cube</span>
+<span class="text-outline text-label-sm">(2.4 MB)</span>
+</div>
+<button class="text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+</button>
+</div>
+<button class="w-full mt-1 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant font-label-sm text-label-sm flex items-center justify-center gap-1 transition-all">
+<span class="material-symbols-outlined" style="font-size: 16px;">folder_zip</span>
+<span>Download All Client Assets (.zip)</span>
+</button>
+</div>
+</div>
+<!-- Past Session History -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3">
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-outline" style="font-size: 18px;">history</span>
+            Past Session History
+          </h3>
+<div class="relative border-l border-outline-variant ml-2.5 pl-3 space-y-3">
+<div class="relative">
+<div class="absolute -left-[17px] top-1 w-2 h-2 rounded-full bg-primary border-2 border-surface"></div>
+<div class="font-label-sm text-label-sm text-outline">Session 2 • Oct 12, 2024</div>
+<div class="font-body-sm text-body-sm text-on-surface font-medium">Film print emulation curve analysis</div>
+<span class="text-[11px] text-tertiary">Resolved: Custom DCI-P3 target LUT</span>
+</div>
+<div class="relative">
+<div class="absolute -left-[17px] top-1 w-2 h-2 rounded-full bg-outline border-2 border-surface"></div>
+<div class="font-label-sm text-label-sm text-outline">Session 1 • Aug 04, 2024</div>
+<div class="font-body-sm text-body-sm text-on-surface font-medium">Monitor calibration workflow</div>
+<span class="text-[11px] text-outline">Resolved: CalMAN + Ultrastudio 4K 12G</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CENTER COLUMN: Live Session Workspace & Scratchpad (44% width ~ col-span-6) -->
+<section class="col-span-12 xl:col-span-6 flex flex-col gap-4">
+<!-- Live Video Feed / Screen Share Bridge Banner -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden relative shadow-md">
+<!-- Status Banner Top -->
+<div class="h-9 px-3 bg-surface-container flex items-center justify-between border-b border-outline-variant">
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface font-semibold">Virtual Studio Bridge</span>
+<span class="text-outline">|</span>
+<span class="text-tertiary font-medium">Meeting Ready (Signal 1080p 60fps)</span>
+</div>
+<!-- Live Elapsed Timer -->
+<div class="flex items-center gap-2 px-2.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant font-mono text-label-sm">
+<span class="text-outline">TIMER:</span>
+<span class="text-primary font-bold">00:00</span>
+<span class="text-outline">/ 60:00</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</div>
+</div>
+<!-- Video Canvas Placeholder with Technical Overlay -->
+<div class="h-56 bg-surface-container-lowest relative flex items-center justify-center p-4">
+<!-- Subtle Grid Background -->
+<div class="absolute inset-0 bg-[radial-gradient(#1e1e2e_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+<div class="relative z-10 flex flex-col items-center text-center max-w-sm gap-2">
+<div class="w-12 h-12 rounded-2xl bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shadow-lg">
+<span class="material-symbols-outlined" style="font-size: 26px;">cast_connected</span>
+</div>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Elena Vance's Screen Bridge Waiting</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct NDI / OBS virtual camera input linked to DaVinci Resolve Master Display output.</p>
+<div class="flex items-center gap-2 mt-1">
+<button class="h-7 px-3 rounded bg-surface-container border border-outline-variant hover:bg-surface-bright text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-tertiary" style="font-size: 14px;">settings_ethernet</span>
+<span>Connect OBS / Virtual Cam</span>
+</button>
+<button class="h-7 px-3 rounded bg-primary-container/20 border border-primary text-primary hover:bg-primary-container/40 font-label-sm text-label-sm flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined" style="font-size: 14px;">fullscreen</span>
+<span>Pop-out Monitor</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-2 right-3 font-mono text-[10px] text-outline flex items-center gap-2">
+<span>LATENCY: 14ms</span>
+<span>AUDIO: 48kHz Stereo</span>
+<span class="text-tertiary">ACES COLOR TAG: PASSTHROUGH</span>
+</div>
+</div>
+</div>
+<!-- Rich Markdown Notes Editor (WYSIWYG IDE Canvas) -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl flex-1 flex flex-col overflow-hidden shadow-sm">
+<!-- Editor Title & Auto-sync bar -->
+<div class="px-4 py-2.5 bg-surface-container border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">edit_note</span>
+<h2 class="font-label-lg text-label-lg font-bold text-on-surface">Live Session Notes &amp; Technical Observations</h2>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-outline">
+<span class="inline-flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined" style="font-size: 14px;">cloud_done</span>
+                Synced 12s ago
+              </span>
+<span>•</span>
+<button class="hover:text-on-surface transition-colors">Markdown Mode</button>
+</div>
+</div>
+<!-- WYSIWYG Toolbar -->
+<div class="px-3 py-1.5 bg-surface-container-lowest border-b border-outline-variant flex items-center gap-1 flex-wrap">
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center font-bold text-xs" title="Bold">B</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center italic text-xs" title="Italic">I</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center text-xs underline" title="Underline">U</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center font-mono text-xs" title="Heading 1">H1</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center font-mono text-xs" title="Heading 2">H2</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Bulleted List">
+<span class="material-symbols-outlined" style="font-size: 16px;">format_list_bulleted</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Numbered List">
+<span class="material-symbols-outlined" style="font-size: 16px;">format_list_numbered</span>
+</button>
+<button class="w-7 h-7 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center" title="Code Block">
+<span class="material-symbols-outlined" style="font-size: 16px;">code</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<button class="h-7 px-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-label-sm font-label-sm" title="Insert Timestamp">
+<span class="material-symbols-outlined text-primary" style="font-size: 14px;">alarm_add</span>
+<span>Insert Timestamp [14:02]</span>
+</button>
+<button class="h-7 px-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center gap-1 text-label-sm font-label-sm ml-auto" title="Insert PowerGrade Reference">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">schema</span>
+<span>+ CST Diagram</span>
+</button>
+</div>
+<!-- Structured Notes Interactive Workspace -->
+<div class="p-4 flex-1 overflow-y-auto space-y-4 font-body-md text-body-md text-on-surface bg-surface-container-low/50 leading-relaxed">
+<!-- Objective Callout -->
+<div class="p-3 rounded-lg bg-surface-container-high border-l-4 border-primary">
+<div class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Session Objective</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+                Resolve ACEScc DaVinci highlight clipping when applying third-party camera vendor creative LUTs. Maintain full 16-bit float dynamic range roll-off from Alexa 35 ARRI LogC4 without gamut shearing.
+              </p>
+</div>
+<!-- Finding 1 Section -->
+<div class="space-y-1.5">
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-2">
+<span class="w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center text-xs font-mono text-tertiary">01</span>
+                Diagnostic Finding &amp; Root Cause
+              </h4>
+<p class="text-on-surface-variant font-body-md text-body-md">
+                Client’s project was set to ACEScc AP1 timeline working space, but the creative vendor LUT was authored in standard <strong>Rec.709 Gamma 2.4</strong>. Applying this LUT directly inside an ACEScc timeline crushes values &gt; 1.0 down to hard 100 IRE clipping point.
+              </p>
+</div>
+<!-- Formula / CST Code Block -->
+<div class="rounded-lg bg-surface-container-lowest border border-outline-variant p-3 font-mono text-xs space-y-2">
+<div class="flex items-center justify-between text-outline pb-1 border-b border-outline-variant/40">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined" style="font-size: 14px;">data_object</span>
+                  Color Space Transform (CST) Sandwich Node Config
+                </span>
+<button class="text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 14px;">content_copy</span>
+                  Copy Node Settings
+                </button>
+</div>
+<div class="text-on-surface-variant space-y-1">
+<div><span class="text-tertiary">NODE 01 (Pre-LUT CST):</span> Input: ACEScc / AP1 ──► Output: DaVinci Wide Gamut / Intermediate</div>
+<div><span class="text-primary">NODE 02 (Vendor Creative LUT):</span> Rec.709 Gamma 2.4 emulated inside DWG sandwich wrapper</div>
+<div><span class="text-secondary">NODE 03 (Post-LUT CST):</span> Input: DWG / Intermediate ──► Output: ACEScc / AP1 (Tone Mapping: Davinci, Gamut: Saturation Compress)</div>
+</div>
+</div>
+<!-- Step by Step Node Tree outline -->
+<div class="space-y-2">
+<h4 class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-2">
+<span class="w-5 h-5 rounded bg-surface-container-highest flex items-center justify-center text-xs font-mono text-tertiary">02</span>
+                Recommended Resolve Node Tree Structure
+              </h4>
+<ul class="space-y-1.5 pl-4 text-on-surface-variant list-disc">
+<li><strong class="text-on-surface">Node 01: Exposure &amp; Balance</strong> (Linear gain trim prior to tone mapping).</li>
+<li><strong class="text-on-surface">Node 02: Highlight Cushion</strong> (Soft knee compression via Curves from 0.85 to 1.15 floating space).</li>
+<li><strong class="text-on-surface">Compound Node 'SANDWICH_CST':</strong> Contains the 3-node transformation block specified above.</li>
+<li><strong class="text-on-surface">Node 05: Film Grain &amp; Halation:</strong> Applied in Log space before final Rec.709 display delivery.</li>
+</ul>
+</div>
+<!-- Dynamic live typing scratch area -->
+<div class="pt-2 border-t border-outline-variant/60">
+<textarea class="w-full bg-transparent border-0 p-0 text-on-surface placeholder:text-outline/60 focus:ring-0 text-body-md font-body-md resize-none" placeholder="Type live coaching feedback, shortcuts, or real-time timestamps here during the call..." rows="3"></textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Action Items, Deliverables & Follow-up (28% width ~ col-span-3) -->
+<section class="col-span-12 xl:col-span-3 flex flex-col gap-4">
+<!-- Post-Session Action Items Checklist -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3 shadow-sm">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-size: 18px;">checklist</span>
+              Action Items
+            </h3>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-primary-container/20 text-primary border border-primary/30">1 of 3 Done</span>
+</div>
+<!-- Checklist Items -->
+<div class="space-y-2.5">
+<!-- Item 1 -->
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant/60 cursor-pointer hover:bg-surface-container transition-all">
+<input checked="" class="mt-0.5 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface-variant line-through">Review ACES gamut mapping bug</span>
+<span class="text-[11px] text-outline">Completed in pre-session audit</span>
+</div>
+</label>
+<!-- Item 2 -->
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-0.5 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Send custom ACES-to-DWG CST node template to Elena</span>
+<span class="text-[11px] text-primary">High Priority • Due Today</span>
+</div>
+</label>
+<!-- Item 3 -->
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-0.5 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Provide DaVinci Resolve .drx powergrade export</span>
+<span class="text-[11px] text-outline">Attached in dossier vault</span>
+</div>
+</label>
+<!-- Item 4 -->
+<label class="flex items-start gap-2.5 p-2 rounded-lg bg-surface-container-lowest border border-outline-variant cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-0.5 w-4 h-4 rounded bg-surface-container border-outline-variant text-primary focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-medium">Recommend monitor ICC profile adjustment</span>
+<span class="text-[11px] text-outline">For Flanders XMP310 reference monitor</span>
+</div>
+</label>
+</div>
+<!-- Add Item input -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/60">
+<input class="flex-1 bg-surface-container border border-outline-variant rounded-lg px-2.5 py-1 text-label-sm font-label-sm text-on-surface placeholder:text-outline focus:border-primary focus:ring-0" placeholder="+ Add Action Item..." type="text"/>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-sm text-label-sm font-medium border border-outline-variant">
+              Add
+            </button>
+</div>
+</div>
+<!-- Shared Deliverables & Vault Uploads -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary" style="font-size: 18px;">cloud_upload</span>
+              Deliverables &amp; Vault
+            </h3>
+<span class="font-label-sm text-label-sm text-outline">Client Access: Enabled</span>
+</div>
+<!-- Drag and Drop Dropzone -->
+<div class="border-2 border-dashed border-outline-variant hover:border-primary/60 rounded-xl p-4 flex flex-col items-center justify-center text-center gap-1.5 bg-surface-container-lowest/60 hover:bg-surface-container/30 transition-all cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-size: 18px;">upload_file</span>
+</div>
+<div class="font-label-sm text-label-sm font-semibold text-on-surface">Drop files to instantly share into client's private dossier</div>
+<p class="text-[11px] text-outline">Supports .cube, .drx, .xml, .pdf, ProRes clips up to 2GB</p>
+</div>
+<!-- Active Shared File -->
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2.5 truncate">
+<div class="w-8 h-8 rounded bg-primary-container/20 border border-primary/40 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined" style="font-size: 18px;">grain</span>
+</div>
+<div class="flex flex-col truncate">
+<span class="font-label-sm text-label-sm font-medium text-on-surface truncate">aces_fixed_powergrade.drx</span>
+<span class="text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined" style="font-size: 12px;">lock_open</span>
+                  Shared with Client (1.2 MB)
+                </span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="text-outline hover:text-on-surface p-1" title="Download">
+<span class="material-symbols-outlined" style="font-size: 16px;">download</span>
+</button>
+<button class="text-outline hover:text-error p-1" title="Revoke access">
+<span class="material-symbols-outlined" style="font-size: 16px;">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Follow-up Automation & Email Dispatch -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-4 flex flex-col gap-3">
+<h3 class="font-label-lg text-label-lg font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-size: 18px;">forward_to_inbox</span>
+            Post-Session Automation
+          </h3>
+<!-- Automation Toggle Card -->
+<div class="p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/60 flex items-center justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Auto-Dispatch Client Summary</span>
+<span class="text-[11px] text-outline leading-tight">Automatically email session notes &amp; deliverables upon completion</span>
+</div>
+<!-- Emerald Switch Active -->
+<button class="w-10 h-6 rounded-full bg-tertiary-container p-0.5 flex items-center justify-end shrink-0 transition-colors">
+<div class="w-5 h-5 rounded-full bg-on-tertiary shadow-md transform"></div>
+</button>
+</div>
+<!-- Follow-up Recommendation Upsell -->
+<div class="p-3 rounded-lg bg-surface-container border border-secondary/30 flex flex-col gap-2 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-bold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary" style="font-size: 14px;">auto_awesome</span>
+                Recommended Next Step
+              </span>
+<span class="text-label-sm font-bold text-on-surface">$95</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Book 30-min Follow-up Check-in in 2 weeks to verify live grade rollout on feature film project.
+            </p>
+<button class="w-full py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface border border-outline-variant font-label-sm text-label-sm font-medium flex items-center justify-center gap-1.5 transition-all active:scale-98">
+<span class="material-symbols-outlined text-secondary" style="font-size: 16px;">send</span>
+<span>Insert Follow-up Link into Client Dossier</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Persistent Studio Footer Status Bar -->
+<footer class="h-8 bg-surface-container-low border-t border-outline-variant px-space-lg flex items-center justify-between text-body-sm font-body-sm text-outline shrink-0">
+<div class="flex items-center gap-4 text-[11px]">
+<span class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary" style="font-size: 14px;">lock</span>
+          Creator OS Secure Session Studio
+        </span>
+<span>•</span>
+<span class="text-on-surface-variant">End-to-End Encrypted Storage (AES-256)</span>
+<span>•</span>
+<span class="text-outline">Session Hash: e7f8-9921-ac55</span>
+</div>
+<div class="flex items-center gap-3 text-[11px]">
+<div class="flex items-center gap-1.5">
+<span>Studio Cloud Vault:</span>
+<div class="w-24 h-1.5 rounded-full bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 8.4%;"></div>
+</div>
+<span class="text-on-surface font-medium">4.2 GB / 50 GB</span>
+</div>
+<span>•</span>
+<span class="text-tertiary flex items-center gap-1 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          All Systems Operational
+        </span>
+</div>
+</footer>
+</div>
+</body></html>

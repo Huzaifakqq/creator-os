@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — SEO, OpenGraph &amp; Custom Domain Studio</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-dim": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "tertiary": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-low": "#1b1b20",
+            "surface-tint": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container-high": "#2a292f",
+            "on-error": "#690005",
+            "primary-container": "#4d8eff",
+            "inverse-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "error": "#ffb4ab",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#93000a",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-surface": "#e4e1e9",
+            "on-primary-container": "#00285d",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "surface": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-variant": "#35343a",
+            "background": "#131318",
+            "tertiary-container": "#00a572",
+            "primary": "#adc6ff",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "inverse-primary": "#005ac2",
+            "on-secondary": "#3c0091",
+            "secondary-fixed": "#e9ddff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Precision custom scrollbar & dark canvas aesthetic */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -3px rgba(59, 130, 246, 0.4);
+      transition: all 0.15s ease-out;
+    }
+    .custom-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(59, 130, 246, 0.55);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen overflow-x-hidden">
+<!-- ================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (Active: Website Builder)             -->
+<!-- ================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 bg-surface dark:bg-surface border-r border-outline-variant dark:border-outline-variant shadow-none select-none">
+<!-- Brand / Workspace Header -->
+<div class="p-4 flex items-center gap-3 border-b border-outline-variant/40">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center border border-outline-variant/60 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px]">layers</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight truncate">Creator OS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Acme Studios</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px] cursor-pointer hover:text-on-surface">unfold_more</span>
+</div>
+<!-- Quick CTA -->
+<div class="px-3 pt-3 pb-1">
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-surface-container border border-outline-variant hover:border-primary/50 text-on-surface text-label-md font-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px] text-primary">add</span>
+<span>New Project</span>
+</button>
+</div>
+<!-- Main Navigation List (15 items from JSON Blueprint) -->
+<div class="flex-1 overflow-y-auto px-3 py-2 space-y-0.5">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">folder_shared</span>
+<span class="font-label-md text-label-md">Workspaces</span>
+</a>
+<!-- 3. Website Builder (ACTIVE - Strict Match) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-medium border-l-2 border-primary transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px] text-primary">web</span>
+<span class="font-label-md text-label-md font-semibold">Website Builder</span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[19px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+<!-- Footer Links from JSON -->
+<div class="p-3 border-t border-outline-variant/40 space-y-1">
+<a class="flex items-center gap-3 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-body-sm font-body-sm transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">support</span>
+<span>Help Center</span>
+</a>
+</div>
+</aside>
+<!-- ================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (Fixed / Sticky Header)               -->
+<!-- ================================================================= -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant dark:border-outline-variant bg-surface dark:bg-surface pl-64 transition-all duration-150">
+<div class="h-14 w-full flex items-center justify-between px-6">
+<!-- Search Input on Left -->
+<div class="flex items-center gap-3 w-80">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-[38px] pl-9 pr-3 rounded-[6px] bg-surface-container-low border border-outline-variant text-on-surface text-body-sm font-body-sm placeholder-on-surface-variant/50 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search pages, SEO meta, domains... (⌘K)" type="text"/>
+</div>
+</div>
+<!-- Center / Contextual Badge -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-body-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Production Site: <strong class="text-on-surface font-medium">studio.acmestudios.com</strong></span>
+</div>
+<!-- Right Trailing Actions & HK Profile -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-body-sm font-body-sm transition-colors duration-150">
+<span class="material-symbols-outlined text-[18px]">help</span>
+<span>Quick Help</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<div class="h-5 w-[1px] bg-outline-variant/60"></div>
+<!-- User Profile (Huzaifa Khan Avatar HK) -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center text-on-primary-container font-headline-sm font-bold text-[12px] shadow-sm">
+            HK
+          </div>
+<span class="hidden md:inline font-label-md text-label-md text-on-surface font-medium">Huzaifa Khan</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px]">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================================================================= -->
+<!-- MAIN WORKSPACE CANVAS (Offset by 256px for persistent side drawer)-->
+<!-- ================================================================= -->
+<main class="pl-64 pb-28 min-h-[calc(100vh-56px)] bg-surface-container-lowest">
+<div class="max-w-[1440px] mx-auto px-6 py-6 space-y-6">
+<!-- Breadcrumbs & Meta Status Row -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<nav class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">web</span>
+<span>Website Builder</span>
+</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Site Settings</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-medium">SEO &amp; Domains</span>
+</nav>
+<div class="flex items-center gap-3">
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Sync Engine: Auto-Push Active
+          </span>
+<span class="text-body-sm text-on-surface-variant">Last deployed 14 mins ago</span>
+</div>
+</div>
+<!-- Page Title & Header Section -->
+<div class="border-b border-outline-variant/30 pb-5">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<div>
+<h1 class="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">
+              SEO, Meta &amp; Custom Domain Settings
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+              Optimize search engine discovery, social sharing previews, and custom domain routing for <code class="px-1.5 py-0.5 rounded bg-surface-container text-primary font-mono text-[13px]">studio.acmestudios.com</code>
+</p>
+</div>
+<div class="flex items-center gap-2.5 self-start md:self-auto">
+<button class="h-9 px-3 rounded-lg border border-outline-variant bg-surface-container hover:bg-surface-container-high text-on-surface text-body-sm font-body-sm flex items-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[17px]">visibility</span>
+<span>Test Live Snippet</span>
+</button>
+<button class="h-9 px-3 rounded-lg border border-outline-variant bg-surface-container hover:bg-surface-container-high text-on-surface text-body-sm font-body-sm flex items-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[17px]">sync</span>
+<span>Re-index Site</span>
+</button>
+</div>
+</div>
+<!-- Studio Category Tab Navigation -->
+<div class="flex items-center gap-2 overflow-x-auto mt-6 pt-1 border-b border-outline-variant/40 -mb-[1px]">
+<!-- Active Tab -->
+<button class="px-4 py-2.5 border-b-2 border-primary text-primary font-label-lg text-label-lg font-semibold flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+<span>Search Engine Optimization (SEO)</span>
+</button>
+<button class="px-4 py-2.5 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>OpenGraph &amp; Social Sharing</span>
+</button>
+<button class="px-4 py-2.5 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">dns</span>
+<span>Custom Domains &amp; DNS</span>
+</button>
+<button class="px-4 py-2.5 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">alt_route</span>
+<span>Sitemap &amp; Robots.txt</span>
+</button>
+<button class="px-4 py-2.5 border-b-2 border-transparent text-on-surface-variant hover:text-on-surface font-label-lg text-label-lg transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">monitoring</span>
+<span>Analytics &amp; Tracking Pixels</span>
+</button>
+</div>
+</div>
+<!-- =============================================================== -->
+<!-- TWO COLUMN WORKSPACE GRID: Left (65%) | Right (35%)             -->
+<!-- =============================================================== -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- ============================================================= -->
+<!-- LEFT / MAIN COLUMN (approx 65% width: lg:col-span-8)          -->
+<!-- ============================================================= -->
+<div class="lg:col-span-8 space-y-6">
+<!-- 1. GENERAL SEO METADATA CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-6 shadow-sm relative overflow-hidden">
+<!-- Atmospheric accent bar -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-transparent"></div>
+<div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary border border-outline-variant/40">
+<span class="material-symbols-outlined text-[20px]">manage_search</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">General SEO Metadata</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Core head tags injected into every rendered workspace canvas.</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-md text-label-sm font-label-sm bg-surface-container text-on-surface-variant border border-outline-variant">
+                Global Fallback: Enabled
+              </span>
+</div>
+<div class="space-y-5">
+<!-- Meta Title -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1.5" for="metaTitle">
+<span>Meta Title</span>
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant cursor-help" title="Primary browser title and Google headline">info</span>
+</label>
+<span class="text-label-sm font-label-sm text-tertiary">
+<span class="font-semibold" id="titleCounter">53</span> / 60 chars recommended
+                  </span>
+</div>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="metaTitle" type="text" value="Acme Studios | High-Performance Creator OS &amp; AI Workflows"/>
+<p class="mt-1 text-body-sm font-body-sm text-on-surface-variant/80">Appears in tab header, search results, and external link aggregators.</p>
+</div>
+<!-- Meta Description -->
+<div>
+<div class="flex justify-between items-center mb-1.5">
+<label class="font-label-md text-label-md text-on-surface font-medium flex items-center gap-1.5" for="metaDesc">
+<span>Meta Description</span>
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant cursor-help" title="Summary snippet shown below the clickable link">info</span>
+</label>
+<span class="text-label-sm font-label-sm text-tertiary">
+<span class="font-semibold" id="descCounter">142</span> / 160 chars recommended
+                  </span>
+</div>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface text-body-md font-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none transition-all" id="metaDesc" rows="3">The all-in-one operating platform engineered for modern digital creators, high-converting digital product storefronts, courses, and autonomous AI-assisted workflows.</textarea>
+<p class="mt-1 text-body-sm font-body-sm text-on-surface-variant/80">Keep within 160 characters to prevent truncation across Google mobile &amp; desktop cards.</p>
+</div>
+<!-- Target Keywords with Tag Pills -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1.5">Target Keywords</label>
+<div class="min-h-[44px] p-2 rounded-lg bg-surface-container-low border border-outline-variant flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+<span>creator economy</span>
+<button class="hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+<span>ai agent platform</span>
+<button class="hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30">
+<span>digital downloads</span>
+<button class="hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30">
+<span>headless website builder</span>
+<button class="hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<input class="bg-transparent text-on-surface text-body-sm font-body-sm placeholder-on-surface-variant/50 focus:outline-none flex-1 min-w-[150px] px-2 py-0.5" placeholder="+ Add keyword and hit enter" type="text"/>
+</div>
+</div>
+<!-- Canonical URL -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1.5" for="canonicalUrl">Canonical URL</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">link</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface font-mono text-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" id="canonicalUrl" type="url" value="https://studio.acmestudios.com"/>
+</div>
+<p class="mt-1 text-body-sm font-body-sm text-on-surface-variant/80">Resolves duplicate content penalties when routing multiple domain mirrors.</p>
+</div>
+<!-- Indexing Robots Directives -->
+<div class="pt-4 border-t border-outline-variant/40 space-y-3">
+<span class="font-label-md text-label-md text-on-surface font-medium block">Search Engine Directives (Robots Meta)</span>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<!-- Toggle 1: Indexing -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container border border-outline-variant/50">
+<div class="pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Allow indexing</span>
+<span class="text-body-sm text-on-surface-variant">Uncheck to apply <code class="text-secondary text-[11px]">noindex</code></span>
+</div>
+<!-- Custom Styled Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Toggle 2: Follow links -->
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container border border-outline-variant/50">
+<div class="pr-2">
+<span class="font-body-md text-body-md text-on-surface font-medium block">Follow outbound links</span>
+<span class="text-body-sm text-on-surface-variant">Uncheck to append <code class="text-secondary text-[11px]">nofollow</code></span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. OPENGRAPH & SOCIAL CARD PREVIEW CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-6 shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary border border-outline-variant/40">
+<span class="material-symbols-outlined text-[20px]">share_reviews</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">OpenGraph &amp; Social Assets</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Control how cards display on X/Twitter, LinkedIn, Slack, and iMessage.</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded border border-outline-variant">
+<span class="material-symbols-outlined text-[15px] text-tertiary">aspect_ratio</span>
+<span>1200 × 630 px (1.91:1)</span>
+</div>
+</div>
+<!-- Auto-generate toggle bar -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/70">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px]">auto_awesome</span>
+<div>
+<span class="font-body-md text-body-md text-on-surface font-medium block">Auto-generate dynamic OpenGraph card</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Generates branded social imagery automatically using live page title, author HK, and studio badges.</span>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Upload & Generated Canvas Preview Split -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Upload dropzone -->
+<div class="md:col-span-5 border-2 border-dashed border-outline-variant rounded-xl p-4 flex flex-col items-center justify-center text-center hover:border-primary/60 transition-colors bg-surface-container-low/40 group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary group-hover:scale-105 transition-transform mb-3">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface font-medium">Upload custom banner</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-1">PNG, WEBP or JPG up to 5MB. Optimal resolution: 1200x630.</span>
+<button class="mt-4 px-3 py-1.5 rounded-md bg-surface-container-high hover:bg-surface-bright text-body-sm text-on-surface font-medium border border-outline-variant" type="button">
+                  Browse Files
+                </button>
+</div>
+<!-- Generated 1200x630 Preview Card -->
+<div class="md:col-span-7 rounded-xl border border-outline-variant overflow-hidden bg-surface-container-lowest relative group">
+<div class="relative aspect-[1200/630] w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A studio-grade dark mode OpenGraph showcase banner for Acme Studios Creator OS with ambient violet and electric blue glowing gradients. The composition features sleek glassmorphism panels, minimalist geometric data overlays, and typography rendered in crisp white and soft slate tones. The overall aesthetic feels cinematic, precise, and high performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZrVIkVvhG-g_qyjVYSPHBO5Cg3R-4SZ1b726ia0ogTr8KjQ1eIIxeQtleDmOJ1XICKe_ybg7xjvRAfs0vNfhLFyAY4Ms9iwj5RSpfhXAQa41LgKBJbT7raYT0QRjr7vsWx7VZbP4uDMmUBJGofOvHiLpzp4Sf1sNCzIMmAt4-Nb69C6m3rp6SDEbvgUsmlNmPby0-IcFSceSZN4hfyftzlwsVDh7_F6wAxtC6M9g510I0QOwQDdyp_A"/>
+<!-- Overlay gradient text banner simulating dynamic template -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/40 to-transparent p-5 flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-1 rounded-md bg-surface/80 backdrop-blur-md text-label-sm font-label-sm text-primary border border-outline-variant/60 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span>Dynamic Preview Engine</span>
+</span>
+<span class="text-body-sm text-on-surface-variant bg-surface/70 backdrop-blur-md px-2 py-0.5 rounded font-mono text-[11px]">1200 × 630</span>
+</div>
+<div>
+<span class="text-secondary text-label-sm font-label-sm tracking-wider uppercase">Acme Studios Workspace</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold mt-1 line-clamp-1">Creator OS &amp; AI Workflows</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">studio.acmestudios.com</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Form fields for OG Title & Description Override -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1.5">OpenGraph Title Override</label>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Defaults to Meta Title if blank..." type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface font-medium mb-1.5">OpenGraph Description Override</label>
+<input class="w-full h-10 px-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface text-body-sm font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Defaults to Meta Description if blank..." type="text"/>
+</div>
+</div>
+</section>
+<!-- 3. CUSTOM DOMAIN & SSL ROUTING CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-6 shadow-sm space-y-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary border border-outline-variant/40">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</div>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Custom Domain &amp; Edge SSL Routing</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Global anycast CDN edge distribution with automated Let's Encrypt certificates.</p>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-primary/40 text-primary hover:bg-primary/10 text-label-md font-label-md flex items-center gap-1.5 transition-colors self-start sm:self-auto">
+<span class="material-symbols-outlined text-[16px]">add_link</span>
+<span>Connect Domain</span>
+</button>
+</div>
+<!-- Connected Domain Badge & SSL Card -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">lock</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">studio.acmestudios.com</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/20 text-primary border border-primary/30">Primary Production</span>
+</div>
+<div class="flex items-center gap-3 mt-1 text-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+<span>SSL Active (Auto-renews Oct 2025)</span>
+</span>
+<span>•</span>
+<span>Edge: Cloudflare Anycast (Tier 1)</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-md bg-surface-container hover:bg-surface-container-high border border-outline-variant text-body-sm text-on-surface transition-colors">
+                  Purge Edge Cache
+                </button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- DNS Routing Table -->
+<div class="space-y-2">
+<div class="flex items-center justify-between text-label-md font-label-md text-on-surface-variant px-1">
+<span>Required DNS Records for Acme Studio Routing</span>
+<span class="text-tertiary flex items-center gap-1 text-[12px]">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                  All 3 Records Verified
+                </span>
+</div>
+<div class="rounded-lg border border-outline-variant overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container text-body-sm font-label-md text-on-surface-variant border-b border-outline-variant">
+<th class="py-2.5 px-4">Type</th>
+<th class="py-2.5 px-4">Host / Name</th>
+<th class="py-2.5 px-4">Target / Value</th>
+<th class="py-2.5 px-4">TTL</th>
+<th class="py-2.5 px-4 text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/40 font-mono text-body-sm text-on-surface">
+<!-- Row 1: CNAME -->
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-semibold text-primary">CNAME</td>
+<td class="py-3 px-4">studio</td>
+<td class="py-3 px-4 text-on-surface-variant flex items-center gap-2">
+<span>proxy-cdn.creator-os.app</span>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[15px]">content_copy</span></button>
+</td>
+<td class="py-3 px-4 text-on-surface-variant">Auto</td>
+<td class="py-3 px-4 text-right font-sans">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+<!-- Row 2: TXT Verification -->
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-semibold text-secondary">TXT</td>
+<td class="py-3 px-4">_creator-verify</td>
+<td class="py-3 px-4 text-on-surface-variant flex items-center gap-2">
+<span>cos-site-id=88319fbc7412</span>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[15px]">content_copy</span></button>
+</td>
+<td class="py-3 px-4 text-on-surface-variant">3600</td>
+<td class="py-3 px-4 text-right font-sans">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+<!-- Row 3: Apex A Record -->
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="py-3 px-4 font-semibold text-primary">A</td>
+<td class="py-3 px-4">@</td>
+<td class="py-3 px-4 text-on-surface-variant flex items-center gap-2">
+<span>76.76.21.21</span>
+<button class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined text-[15px]">content_copy</span></button>
+</td>
+<td class="py-3 px-4 text-on-surface-variant">Auto</td>
+<td class="py-3 px-4 text-right font-sans">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Verified</span>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</div>
+<!-- ============================================================= -->
+<!-- RIGHT COLUMN (approx 35% width: lg:col-span-4)                -->
+<!-- ============================================================= -->
+<div class="lg:col-span-4 space-y-6">
+<!-- 1. GOOGLE SEARCH SNIPPET LIVE PREVIEW CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[19px]">search_check</span>
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold">Google Search Preview</h3>
+</div>
+<!-- Device toggle tab -->
+<div class="flex items-center p-0.5 rounded-lg bg-surface-container border border-outline-variant text-[12px]">
+<button class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">desktop_windows</span>
+<span>Desktop</span>
+</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">smartphone</span>
+<span>Mobile</span>
+</button>
+</div>
+</div>
+<!-- Realistic Google Preview Container -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/80 font-sans space-y-1.5">
+<!-- Favicon + Domain Breadcrumb -->
+<div class="flex items-center gap-2 text-[12px] text-on-surface-variant">
+<div class="w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center text-[10px] text-primary font-bold">
+                  A
+                </div>
+<span class="text-on-surface truncate">studio.acmestudios.com</span>
+<span class="text-on-surface-variant/60">› site › home</span>
+</div>
+<!-- Clickable Headline (Google Blue link) -->
+<a class="block text-[#8ab4f8] hover:underline font-headline-sm text-[17px] leading-[22px] font-medium pt-0.5" href="#">
+                Acme Studios | High-Performance Creator OS &amp; AI Workflows
+              </a>
+<!-- Search Snippet Description -->
+<p class="text-[13px] leading-[19px] text-[#bdc1c6] pt-0.5">
+                The all-in-one operating platform engineered for modern digital creators, high-converting digital product storefronts, courses, and autonomous AI-assisted workflows.
+              </p>
+<!-- Rich Sitelinks Micro-Preview -->
+<div class="pt-2 mt-2 border-t border-outline-variant/30 grid grid-cols-2 gap-2 text-[12px]">
+<div>
+<span class="text-[#8ab4f8] hover:underline block truncate font-medium">Digital Storefront</span>
+<span class="text-on-surface-variant text-[11px] block truncate">Instant checkout builder</span>
+</div>
+<div>
+<span class="text-[#8ab4f8] hover:underline block truncate font-medium">AI Agent Studio</span>
+<span class="text-on-surface-variant text-[11px] block truncate">Automate social workflows</span>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-body-sm text-on-surface-variant px-1">
+<span>SERP Rank Projection: <strong class="text-tertiary">Top 3 Index</strong></span>
+<span class="text-primary cursor-pointer hover:underline text-[12px]">View SERP heatmaps</span>
+</div>
+</section>
+<!-- 2. TWITTER / X & LINKEDIN LIVE SHARE PREVIEW CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-5 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[19px]">satellite_alt</span>
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold">Social Share Card Preview</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">
+                X &amp; LinkedIn
+              </span>
+</div>
+<!-- Social Card Mockup -->
+<div class="rounded-xl border border-outline-variant/80 overflow-hidden bg-surface-container-low shadow-sm">
+<!-- Thumbnail Banner -->
+<div class="relative aspect-[1.91/1] w-full bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A professional social media sharing preview card with modern dark-mode aesthetic. High contrast typography highlights Acme Studios Creator OS against deep midnight-navy backdrops with subtle laser-blue gradients, glowing isometric UI widgets, and rounded neon chips." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB981JLe52tGfzwh2ZqxKbZVRetm7bKmw623z4pPW9ykFlEmjVjQEOFt2ip-AEw6MPDWcSsCafj_NlsXeIxVZOv9di2XUfVD3yKPdzHpeYwE1hNnTqIiT0PJrhobE0MxsC6S_BV1CvwFVCY8qVuS-MrU8VrY-QpKaYuxZDOI6Ut5LxbMytvpvgqnodTNM4FeZEpt3A1Rq62Qgoi85sKy4RL7jWu1C_fKTIkp20NIBG2Tz06Tsv9EpMFrg"/>
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-md text-white text-[10px] font-mono">
+                  OG:IMAGE • 1200x630
+                </div>
+</div>
+<!-- Metadata content footer -->
+<div class="p-3 bg-surface-container border-t border-outline-variant/50 space-y-1">
+<span class="text-on-surface-variant text-[11px] uppercase tracking-wider block font-mono">studio.acmestudios.com</span>
+<h4 class="font-headline-sm text-[14px] leading-snug font-semibold text-on-surface line-clamp-1">
+                  Acme Studios | High-Performance Creator OS &amp; AI Workflows
+                </h4>
+<p class="font-body-sm text-[12px] text-on-surface-variant line-clamp-2 leading-relaxed">
+                  The all-in-one operating platform engineered for modern digital creators, high-converting digital storefronts, and AI automation.
+                </p>
+</div>
+</div>
+<!-- Preview Mode Picker -->
+<div class="flex items-center justify-center gap-3 pt-1 text-label-sm font-label-sm text-on-surface-variant">
+<span class="text-primary font-medium cursor-pointer">X (Twitter Summary Large)</span>
+<span>•</span>
+<span class="cursor-pointer hover:text-on-surface">LinkedIn Pulse</span>
+<span>•</span>
+<span class="cursor-pointer hover:text-on-surface">Facebook Graph</span>
+</div>
+</section>
+<!-- 3. SEO AUDIT & HEALTH CHECKLIST CARD -->
+<section class="rounded-xl border border-outline-variant/60 bg-surface p-5 shadow-sm space-y-5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">health_and_safety</span>
+<h3 class="font-headline-sm text-[16px] text-on-surface font-semibold">SEO Audit &amp; Site Health</h3>
+</div>
+<span class="text-body-sm text-on-surface-variant">Live Parser</span>
+</div>
+<!-- Health Score Ring & Status Header -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant flex items-center gap-4">
+<!-- Radial Progress Ring SVG -->
+<div class="relative w-16 h-16 flex items-center justify-center flex-shrink-0">
+<svg class="w-16 h-16 transform -rotate-90" viewbox="0 0 36 36">
+<!-- Background Ring -->
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<!-- Filled Arc 94% -->
+<path class="text-tertiary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="94, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<div class="absolute flex flex-col items-center justify-center text-center">
+<span class="text-[16px] font-bold text-on-surface leading-none">94</span>
+<span class="text-[9px] text-on-surface-variant leading-none mt-0.5">/ 100</span>
+</div>
+</div>
+<!-- Score Summary Text -->
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">Excellent</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary/15 text-tertiary font-semibold">Grade A+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  5/6 core optimization audits passed. Ready for automated search spider crawling.
+                </p>
+</div>
+</div>
+<!-- Dynamic SEO Checklist -->
+<ul class="space-y-3 font-body-sm text-body-sm">
+<!-- Item 1: Title tag -->
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium block">Title tag within optimal length</span>
+<span class="text-on-surface-variant text-[11px]">53 characters (recommended range: 50 - 60 chars)</span>
+</div>
+</li>
+<!-- Item 2: Meta description -->
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium block">Meta description configured</span>
+<span class="text-on-surface-variant text-[11px]">142 characters with primary high-intent keywords</span>
+</div>
+</li>
+<!-- Item 3: OG image -->
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium block">OpenGraph image configured (1200×630)</span>
+<span class="text-on-surface-variant text-[11px]">High density WebP asset generated automatically</span>
+</div>
+</li>
+<!-- Item 4: H1 Unique -->
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium block">H1 tag unique across homepage</span>
+<span class="text-on-surface-variant text-[11px]">Structured semantic document hierarchy confirmed</span>
+</div>
+</li>
+<!-- Item 5: SSL / HTTPS -->
+<li class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5">check_circle</span>
+<div class="flex-1">
+<span class="text-on-surface font-medium block">SSL / HTTPS enabled &amp; HSTS enforced</span>
+<span class="text-on-surface-variant text-[11px]">Zero mixed-content HTTP scripts detected</span>
+</div>
+</li>
+<!-- Item 6: Warning - Missing Alt Tags -->
+<li class="flex items-start gap-2.5 p-2.5 rounded-lg bg-error-container/20 border border-error/20">
+<span class="material-symbols-outlined text-error text-[19px] mt-0.5">warning</span>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-on-surface font-medium">Image alt tags missing</span>
+<a class="text-primary hover:underline text-label-sm font-label-sm font-medium" href="#">Fix now</a>
+</div>
+<span class="text-on-surface-variant text-[11px] block mt-0.5">2 hero image thumbnails missing accessibility descriptions</span>
+</div>
+</li>
+</ul>
+<!-- Micro Audit Button -->
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-body-sm font-body-sm text-on-surface flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+<span>Re-run Full Lighthouse Audit</span>
+</button>
+</section>
+</div>
+</div>
+</div>
+</main>
+<!-- ================================================================= -->
+<!-- PERSISTENT BOTTOM ACTION BAR (Sticky Studio Controls)            -->
+<!-- ================================================================= -->
+<footer class="fixed bottom-0 right-0 left-64 h-20 z-40 bg-surface/90 backdrop-blur-xl border-t border-outline-variant/60 px-8 flex items-center justify-between shadow-2xl">
+<!-- State status indicator on Left -->
+<div class="flex items-center gap-3">
+<div class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></div>
+<div>
+<span class="font-body-md text-body-md text-on-surface font-medium block">Unsaved Configuration Changes</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Modified Meta Title, Robots Directives, and DNS Target Host</span>
+</div>
+</div>
+<!-- Action Buttons Cluster -->
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md transition-colors active:scale-[0.98]" type="button">
+        Discard Changes
+      </button>
+<button class="h-10 px-5 rounded-lg custom-gradient-btn text-white font-label-md text-label-md font-semibold flex items-center gap-2 active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+<span>Save &amp; Deploy SEO Settings</span>
+</button>
+</div>
+</footer>
+<!-- Micro-interaction JS for live character counters & reactive preview -->
+<script>
+    const metaTitleInput = document.getElementById('metaTitle');
+    const titleCounter = document.getElementById('titleCounter');
+    const metaDescInput = document.getElementById('metaDesc');
+    const descCounter = document.getElementById('descCounter');
+
+    if (metaTitleInput && titleCounter) {
+      metaTitleInput.addEventListener('input', (e) => {
+        const len = e.target.value.length;
+        titleCounter.textContent = len;
+        if (len > 60) {
+          titleCounter.classList.add('text-error');
+          titleCounter.classList.remove('text-tertiary');
+        } else {
+          titleCounter.classList.remove('text-error');
+          titleCounter.classList.add('text-tertiary');
+        }
+      });
+    }
+
+    if (metaDescInput && descCounter) {
+      metaDescInput.addEventListener('input', (e) => {
+        const len = e.target.value.length;
+        descCounter.textContent = len;
+        if (len > 160) {
+          descCounter.classList.add('text-error');
+          descCounter.classList.remove('text-tertiary');
+        } else {
+          descCounter.classList.remove('text-error');
+          descCounter.classList.add('text-tertiary');
+        }
+      });
+    }
+  </script>
+</body></html>

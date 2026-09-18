@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — AI App Builder</title>
+<!-- Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#8c909f",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#303036",
+            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "primary-container": "#4d8eff",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-background": "#e4e1e9",
+            "error": "#ffb4ab",
+            "on-secondary-fixed": "#23005c",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary-container": "#c4abff",
+            "surface-container-high": "#2a292f",
+            "surface": "#131318",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-lowest": "#0e0e13",
+            "on-tertiary-container": "#00311f",
+            "surface-bright": "#39383e",
+            "outline-variant": "#424754",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "background": "#131318",
+            "on-primary": "#002e6a",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-fixed": "#002113",
+            "surface-dim": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "primary": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "inverse-primary": "#005ac2",
+            "on-secondary": "#3c0091",
+            "on-primary-fixed-variant": "#004395",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-container": "#571bc1",
+            "on-primary-container": "#00285d",
+            "on-secondary-fixed-variant": "#5516be"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #424754;
+      border-radius: 9999px;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 45px -5px rgba(139, 92, 246, 0.18), 0 0 20px -5px rgba(59, 130, 246, 0.2);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Component -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 border-r border-outline-variant shadow-none bg-surface">
+<div class="w-64 h-full flex flex-col justify-between p-4 bg-surface">
+<!-- Top Workspace Brand Anchor -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center flex-shrink-0 text-primary">
+<span class="material-symbols-outlined" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight truncate">Creator OS</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Acme Studios</span>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full flex items-center justify-center gap-2 h-10 px-3 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-primary text-base" data-icon="add">add</span>
+<span>New Project</span>
+</button>
+<!-- Navigation Tab Scroll Container -->
+<nav class="flex flex-col gap-0.5 overflow-y-auto max-h-[calc(100vh-280px)] custom-scrollbar pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_shared">folder_shared</span>
+<span class="font-label-md text-label-md">Workspaces</span>
+</a>
+<!-- 3. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="web">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<!-- 4. App Builder (Active) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-medium transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px] text-primary" data-icon="developer_mode" style="font-variation-settings: 'FILL' 1;">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+<span class="ml-auto w-1.5 h-1.5 rounded-full bg-primary"></span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="school">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="card_membership">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sports_kabaddi">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="contact_page">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="mail">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="smart_toy">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="handshake">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Help & Documentation Links -->
+<div class="pt-4 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="menu_book">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="support">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Component -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant shadow-none bg-surface">
+<div class="h-14 w-full flex items-center justify-between px-6 pl-70 bg-surface">
+<!-- Global Search & System Status Pill -->
+<div class="flex items-center gap-5 flex-1 max-w-2xl">
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-8 pl-9 pr-3 rounded bg-surface-container-low border border-outline-variant text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:border-primary focus:ring-0 transition-colors" placeholder="Search commands, templates, code (⌘K)..." type="text"/>
+</div>
+<!-- Environment Status Indicator Badge -->
+<div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span>AI Synthesis Engine: <strong class="text-on-surface font-medium">Online</strong> • Claude 3.5 / Gemini 1.5 Pro</span>
+</div>
+</div>
+<!-- Right Trailing Controls & Profile Avatar -->
+<div class="flex items-center gap-3">
+<!-- Quick Help Secondary Action -->
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md">
+<span class="material-symbols-outlined text-base" data-icon="help">help</span>
+<span>Quick Help</span>
+</button>
+<!-- Notifications Action with Badge -->
+<button class="relative p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-primary text-on-primary font-label-sm text-[10px] flex items-center justify-center font-bold">3</span>
+</button>
+<div class="h-5 w-[1px] bg-outline-variant mx-1"></div>
+<!-- User Avatar & Profile Badge -->
+<div class="flex items-center gap-2 cursor-pointer p-1 rounded-lg hover:bg-surface-container transition-colors">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md font-bold flex items-center justify-center border border-outline-variant" title="Huzaifa Khan Avatar HK">
+            HK
+          </div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content Area -->
+<main class="ml-64 flex-1 p-8 bg-surface-container-lowest min-h-[calc(100vh-56px)] flex flex-col items-center">
+<div class="w-full max-w-6xl flex flex-col gap-8">
+<!-- Breadcrumbs & Section Title Header -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">App Builder</a>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-medium">New Autonomous App</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Generate an Application with Autonomous AI</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">
+              Describe your idea, workflows, and integrations. Creator OS synthesizes full-stack architectures, databases, and dynamic interfaces in real-time.
+            </p>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant font-label-sm text-label-sm text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="bolt">bolt</span>
+              Autonomous Orchestrator v2.4
+            </span>
+</div>
+</div>
+</div>
+<!-- Hero Generation Studio Card -->
+<div class="relative w-full rounded-xl bg-surface-container-low border border-outline-variant p-7 ambient-glow overflow-hidden">
+<!-- Subtle Top Aesthetic Accent Gradient Line -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-primary-container opacity-80"></div>
+<form class="flex flex-col gap-6" onsubmit="event.preventDefault();">
+<!-- Section 1: Prompt Input Area & Enhancer Bar -->
+<div class="flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-2" for="ai-app-prompt">
+<span class="material-symbols-outlined text-primary text-base" data-icon="auto_awesome">auto_awesome</span>
+                App Blueprint &amp; Architecture Description
+              </label>
+<!-- AI Prompt Enhancer Action -->
+<button class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface-container-high border border-outline-variant text-primary hover:border-primary transition-all duration-150 font-label-md text-label-md active:scale-95" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="magic_button">magic_button</span>
+                AI Prompt Enhancer
+              </button>
+</div>
+<!-- Rich Textarea -->
+<div class="relative group">
+<textarea class="w-full rounded-lg bg-surface-container-lowest border border-outline-variant p-4 font-body-md text-body-md text-on-surface placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none shadow-inner" id="ai-app-prompt" rows="4">Build a client portal and high-ticket membership hub for private coaching clients. Include a weekly progress tracker, video module library with DRM protection, Stripe Connect recurring billing at $499/mo, and an AI accountability coach that checks in via automated SMS/Telegram.</textarea>
+<div class="absolute bottom-3 right-3 flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant">
+                  284 chars
+                </span>
+</div>
+</div>
+<!-- Template Prompt Quick-Tags -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-1">Use Template Prompt:</span>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-primary text-label-sm font-label-sm transition-colors" type="button">
+                + SaaS Client Portal
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-primary text-label-sm font-label-sm transition-colors" type="button">
+                + Subscription Micro-Tool
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-primary text-label-sm font-label-sm transition-colors" type="button">
+                + Community Directory
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-primary text-label-sm font-label-sm transition-colors" type="button">
+                + Digital Asset Marketplace
+              </button>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant opacity-60"></div>
+<!-- Section 2: App Type Selector Cards (4 Columns) -->
+<div class="flex flex-col gap-3">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold">Primary Architecture Archetype</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+<!-- 1. Web Application -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all duration-150 flex flex-col gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="web_asset">web_asset</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-semibold text-on-surface">Web Application</h4>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Custom SaaS workflows, forms, and analytical dashboards.</p>
+</div>
+</div>
+<!-- 2. Client Portal & Storefront (Active Highlight) -->
+<div class="p-3.5 rounded-lg bg-surface-container-high border-2 border-primary cursor-pointer transition-all duration-150 flex flex-col gap-2 relative ring-2 ring-primary/20 shadow-md">
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-primary"></span>
+<div class="w-8 h-8 rounded bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-lg" data-icon="store">store</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-semibold text-primary">Client Portal &amp; Storefront</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">High-touch customer space, billing gateways &amp; DRM locks.</p>
+</div>
+</div>
+<!-- 3. Micro-SaaS Tool -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all duration-150 flex flex-col gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="extension">extension</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-semibold text-on-surface">Micro-SaaS Tool</h4>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Single-purpose utility, calculator, or automated micro-service.</p>
+</div>
+</div>
+<!-- 4. Community Hub & LMS -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant hover:border-outline cursor-pointer transition-all duration-150 flex flex-col gap-2">
+<div class="w-8 h-8 rounded bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="groups">groups</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg font-semibold text-on-surface">Community Hub &amp; LMS</h4>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Curriculum paths, member directory, and feed discussions.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Design & Aesthetic Selector -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<label class="font-label-md text-label-md text-on-surface font-medium">Design &amp; Aesthetic Theme</label>
+<div class="flex flex-wrap items-center gap-2">
+<!-- Active Aesthetic -->
+<button class="px-3 py-1.5 rounded-full bg-primary/20 border border-primary text-primary font-label-md text-label-md flex items-center gap-1.5 font-medium" type="button">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+                Modern Dark &amp; Tech
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-outline font-label-md text-label-md transition-colors" type="button">
+                Minimalist Editorial
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-outline font-label-md text-label-md transition-colors" type="button">
+                Cyberpunk High Contrast
+              </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-outline font-label-md text-label-md transition-colors" type="button">
+                Clean Glassmorphism
+              </button>
+</div>
+</div>
+<!-- Section 4: Integrated Capabilities / Features Checklist -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="integration_instructions">integration_instructions</span>
+                Integrated Full-Stack Capabilities &amp; Services
+              </label>
+<span class="font-label-sm text-label-sm text-outline">5 of 8 selected</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+<!-- Item 1: Multi-tenant Auth [Checked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Multi-tenant Auth</span>
+<span class="font-label-sm text-label-sm text-outline">Google, Magic Link</span>
+</div>
+</label>
+<!-- Item 2: Stripe Payments & Invoicing [Checked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Stripe Payments</span>
+<span class="font-label-sm text-label-sm text-outline">Billing &amp; Invoicing</span>
+</div>
+</label>
+<!-- Item 3: Relational Database [Checked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Relational Database</span>
+<span class="font-label-sm text-label-sm text-outline">PostgreSQL Instance</span>
+</div>
+</label>
+<!-- Item 4: Autonomous AI Copilot [Checked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">AI Copilot / Agent</span>
+<span class="font-label-sm text-label-sm text-outline">Autonomous Actions</span>
+</div>
+</label>
+<!-- Item 5: Custom Domain & SSL [Checked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container border border-outline-variant cursor-pointer hover:border-primary/50 transition-colors">
+<input checked="" class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Custom Domain &amp; SSL</span>
+<span class="font-label-sm text-label-sm text-outline">Edge Proxy Routing</span>
+</div>
+</label>
+<!-- Item 6: Vector Search & RAG [Unchecked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/60 cursor-pointer hover:border-outline transition-colors opacity-75">
+<input class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Vector Search &amp; RAG</span>
+<span class="font-label-sm text-label-sm text-outline">Embeddings Storage</span>
+</div>
+</label>
+<!-- Item 7: File Storage (S3 / CDN) [Unchecked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/60 cursor-pointer hover:border-outline transition-colors opacity-75">
+<input class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">File Storage (S3 / CDN)</span>
+<span class="font-label-sm text-label-sm text-outline">Signed Media Bucket</span>
+</div>
+</label>
+<!-- Item 8: Webhook Event Triggers [Unchecked] -->
+<label class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-lowest border border-outline-variant/60 cursor-pointer hover:border-outline transition-colors opacity-75">
+<input class="w-4 h-4 rounded border-outline-variant text-primary bg-surface-container-high focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-medium text-on-surface">Webhook Triggers</span>
+<span class="font-label-sm text-label-sm text-outline">Zapier / Webhook endpoints</span>
+</div>
+</label>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant opacity-60"></div>
+<!-- Section 5: Target Output Model & Action Footer -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-2">
+<!-- Model & Compute Options -->
+<div class="flex flex-wrap items-center gap-4">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline">Target AI Synthesis Model</span>
+<div class="relative">
+<select class="h-9 pl-3 pr-8 rounded-lg bg-surface-container-high border border-outline-variant font-label-md text-label-md text-on-surface focus:border-primary focus:ring-0 appearance-none cursor-pointer">
+<option selected="">Claude 3.5 Sonnet (Advanced Reasoning)</option>
+<option>Gemini 1.5 Pro (Deep Context)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-base" data-icon="unfold_more">unfold_more</span>
+</div>
+</div>
+<!-- Token Budget Estimate -->
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline">Token Budget Estimate</span>
+<div class="h-9 px-3 rounded-lg bg-surface-container-high border border-outline-variant flex items-center gap-2 font-label-md text-label-md text-on-surface">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="memory">memory</span>
+<span>Est: <strong>14,200</strong> tokens</span>
+</div>
+</div>
+</div>
+<!-- Primary Action Cluster -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-3 lg:justify-end">
+<a class="font-label-md text-label-md text-outline hover:text-on-surface transition-colors underline-offset-4 hover:underline text-center sm:text-right" href="#">
+                Or start from 12 pre-built production blueprints
+              </a>
+<button class="h-11 px-6 rounded-lg bg-gradient-to-r from-primary via-secondary to-primary text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:brightness-110 active:scale-[0.98] transition-all duration-150" type="submit">
+<span class="material-symbols-outlined text-lg" data-icon="auto_stars" style="font-variation-settings: 'FILL' 1;">video_search</span>
+<span>Generate Full-Stack App</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+<!-- Recent AI Generation History Section -->
+<div class="flex flex-col gap-4 pt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="history">history</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Recent AI Generation History</h2>
+</div>
+<a class="font-label-md text-label-md text-primary hover:underline flex items-center gap-1" href="#">
+<span>View All Deployments</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Card 1: Apex Video Review Platform -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant hover:border-outline transition-all duration-150 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/15 border border-tertiary/40 font-label-sm text-label-sm text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Live Staging
+                </span>
+<span class="font-label-sm text-label-sm text-outline">Generated 2h ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-1 truncate">Apex Video Review Platform</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Synchronized frame annotations with multi-reviewer permission trees and automatic HLS transcoding.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between font-label-md text-label-md">
+<span class="text-outline font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                8 screens
+              </span>
+<div class="flex items-center gap-1.5">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Launch Preview">
+<span class="material-symbols-outlined text-base" data-icon="open_in_new">open_in_new</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Edit App">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: LeadGen ROI Calculator -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant hover:border-outline transition-all duration-150 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full bg-primary/15 border border-primary/40 font-label-sm text-label-sm text-primary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Published
+                </span>
+<span class="font-label-sm text-label-sm text-outline">Generated yesterday</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-1 truncate">LeadGen ROI Calculator</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Interactive dynamic lead magnet with PDF report generation, webhook sync to HubSpot and Stripe Checkout.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between font-label-md text-label-md">
+<span class="text-outline font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                2 screens
+              </span>
+<div class="flex items-center gap-1.5">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Launch Preview">
+<span class="material-symbols-outlined text-base" data-icon="open_in_new">open_in_new</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Edit App">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Founder Cohort Intake Pipeline -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant hover:border-outline transition-all duration-150 flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Draft
+                </span>
+<span class="font-label-sm text-label-sm text-outline">Generated 3 days ago</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mt-1 truncate">Founder Cohort Intake Pipeline</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Multi-stage application scoring with automated calendar invite triggers and applicant analytics dashboard.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant flex items-center justify-between font-label-md text-label-md">
+<span class="text-outline font-medium flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="layers">layers</span>
+                5 screens
+              </span>
+<div class="flex items-center gap-1.5">
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Resume Prompt">
+<span class="material-symbols-outlined text-base" data-icon="refresh">refresh</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Edit App">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

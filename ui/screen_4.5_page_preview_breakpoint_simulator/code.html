@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Page Preview &amp; Responsive Breakpoint Simulator</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#131318",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-dim": "#131318",
+            "on-background": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-fixed": "#6ffbbe",
+            "tertiary": "#4edea3",
+            "on-primary-fixed": "#001a42",
+            "outline": "#8c909f",
+            "surface-container-high": "#2a292f",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "tertiary-container": "#00a572",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "surface-container-highest": "#35343a",
+            "surface-bright": "#39383e",
+            "on-surface": "#e4e1e9",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-fixed-variant": "#004395",
+            "on-primary": "#002e6a",
+            "surface-container-lowest": "#0e0e13",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-secondary": "#3c0091",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed": "#e9ddff",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary": "#003824",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-on-surface": "#303036",
+            "error": "#ffb4ab",
+            "on-primary-container": "#00285d",
+            "primary": "#adc6ff",
+            "surface-container": "#1f1f25",
+            "on-secondary-fixed": "#23005c",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#4d8eff",
+            "surface-variant": "#35343a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    /* Ambient backglow utility */
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .glow-button {
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.4);
+    }
+    .glow-success {
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+    }
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex flex-col overflow-hidden font-body-md select-none">
+<!-- TOP BAR CONTROLS (Breakpoint & Simulator Control Header) -->
+<header class="h-14 bg-surface-container-lowest border-b border-outline-variant flex items-center justify-between px-gutter relative z-40 shrink-0">
+<!-- Left Section: Navigation & Document Status -->
+<div class="flex items-center gap-space-md">
+<a class="flex items-center gap-space-xs text-on-surface-variant hover:text-on-surface px-space-sm py-1 rounded hover:bg-surface-container-high transition-colors duration-150 group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-on-surface text-[18px]">arrow_back</span>
+<span class="font-label-md text-label-md">Back to editor</span>
+</a>
+<div class="h-4 w-px bg-outline-variant"></div>
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Homepage (v2.4 Live)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-[11px] font-label-sm border border-outline-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Auto-saved 2m ago
+        </span>
+</div>
+</div>
+<!-- Center Section: Breakpoint Simulator & Scale Controls -->
+<div class="flex items-center gap-space-sm bg-surface-container-low p-1 rounded-lg border border-outline-variant">
+<div class="flex items-center gap-0.5">
+<!-- Desktop Option (Active) -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white shadow-sm glow-button transition-all" id="btn-desktop">
+<span class="material-symbols-outlined text-[18px]">desktop_windows</span>
+<span class="font-label-md text-label-md font-semibold">1440px</span>
+</button>
+<!-- Tablet Option -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" id="btn-tablet">
+<span class="material-symbols-outlined text-[18px]">tablet_mac</span>
+<span class="font-label-md text-label-md">768px</span>
+</button>
+<!-- Mobile Option -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" id="btn-mobile">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+<span class="font-label-md text-label-md">375px</span>
+</button>
+</div>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<!-- Zoom Selector -->
+<div class="relative">
+<button class="flex items-center gap-1 px-2.5 py-1.5 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md">
+<span>100%</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Right Section: Collaboration, Testing & Publish Actions -->
+<div class="flex items-center gap-space-md">
+<!-- Share Link -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-on-surface-variant hover:text-on-surface transition-all duration-150 font-label-md text-label-md active:scale-98">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+<span>Share preview</span>
+</button>
+<!-- QR Code Mobile Toggle -->
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-outline transition-all duration-150 active:scale-98" title="Scan QR Code on Physical Device">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+</button>
+<!-- Publish Action CTA (Green Prominent) -->
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#10B981] hover:bg-[#0fa976] text-[#002e1b] font-label-lg text-label-lg font-bold glow-success transition-all duration-150 active:scale-98">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
+<span>Publish Page</span>
+</button>
+</div>
+</header>
+<!-- MAIN CANVAS & WORKSPACE SIMULATION STAGE -->
+<main class="flex-1 bg-[#0A0A0F] relative overflow-hidden flex items-center justify-center p-6">
+<!-- Subtle Background Ambient Studio Grid Lines -->
+<div class="absolute inset-0 bg-[radial-gradient(#1E1E2E_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none"></div>
+<!-- Simulated Viewport Hardware Bezel & Canvas Frame -->
+<div class="w-[1280px] max-w-full h-[760px] bg-[#12121A] rounded-xl border border-[#1E1E2E] flex flex-col shadow-[0_24px_64px_-12px_rgba(0,0,0,0.85)] relative overflow-hidden transition-all duration-300" id="viewport-frame">
+<!-- Simulated Device Browser Chrome Strip -->
+<div class="h-9 bg-[#181824] border-b border-[#1E1E2E] flex items-center justify-between px-4 shrink-0">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]/70"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#10B981]/70"></span>
+<div class="ml-3 flex items-center gap-1.5 text-outline text-xs">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+<span class="font-mono text-[11px] text-on-surface-variant">https://alex-studio.creatoros.live/</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-outline">
+<span class="material-symbols-outlined text-[16px] hover:text-on-surface cursor-pointer">refresh</span>
+<span class="material-symbols-outlined text-[16px] hover:text-on-surface cursor-pointer">open_in_new</span>
+</div>
+</div>
+<!-- Live Interactive Landing Page Preview Content (Scrollable Container) -->
+<div class="flex-1 overflow-y-auto bg-[#0A0A0F] selection:bg-primary-container selection:text-white">
+<!-- Live Page Hero Section -->
+<section class="relative pt-16 pb-20 px-8 max-w-6xl mx-auto flex flex-col items-center text-center">
+<!-- Announcement Pill -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181824] border border-[#2A2A3E] mb-6 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Autonomous Media Engine v4.2 Released</span>
+<span class="material-symbols-outlined text-[16px] text-primary">arrow_forward</span>
+</div>
+<!-- Hero Main Title -->
+<h1 class="font-display-lg text-display-lg text-white max-w-4xl tracking-tight leading-tight mb-6">
+            Build &amp; Scale Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#D946EF]">Sovereign Digital Empire</span>
+</h1>
+<!-- Hero Subtitle -->
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-10">
+            Multi-tenant streaming studios, monetize exclusive masterclasses, and command your audience data without platform intermediaries.
+          </p>
+<!-- CTAs -->
+<div class="flex flex-wrap items-center justify-center gap-4 mb-16">
+<button class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-semibold glow-button hover:brightness-110 active:scale-98 transition-all">
+              Launch Sovereign Node
+            </button>
+<button class="px-6 py-3 rounded-lg bg-[#181824] hover:bg-[#1E1E2E] border border-[#1E1E2E] hover:border-[#3B82F6] text-white font-label-lg text-label-lg font-semibold transition-all">
+              Explore Architecture
+            </button>
+</div>
+<!-- Bento Metric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 w-full text-left mb-16">
+<!-- Metric Card 1 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 relative overflow-hidden group hover:border-[#3B82F6]/50 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Gross Creator Volume</span>
+<span class="p-1.5 rounded-md bg-[#181824] text-tertiary">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-white font-bold tracking-tight mb-1">$42.8M</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="text-tertiary font-semibold">+34.2%</span> vs last calendar quarter
+              </p>
+</div>
+<!-- Metric Card 2 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 relative overflow-hidden group hover:border-[#8B5CF6]/50 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Direct Settlement</span>
+<span class="p-1.5 rounded-md bg-[#181824] text-primary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-white font-bold tracking-tight mb-1">99.99%</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Instant payouts via smart rails</p>
+</div>
+<!-- Metric Card 3 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 relative overflow-hidden group hover:border-[#D946EF]/50 transition-colors">
+<div class="flex items-center justify-between mb-4">
+<span class="font-label-md text-label-md text-on-surface-variant">Platform Extortion</span>
+<span class="p-1.5 rounded-md bg-[#181824] text-tertiary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+</div>
+<div class="font-headline-xl text-headline-xl text-white font-bold tracking-tight mb-1">0%</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero hidden fees or algorithmic taxes</p>
+</div>
+</div>
+<!-- Feature Spotlight Showcase Section -->
+<div class="w-full text-left">
+<h3 class="font-headline-lg text-headline-lg text-white font-semibold mb-6">Autonomous Creator Infrastructure</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Feature 1 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 hover:bg-[#181824]/50 transition-colors">
+<div class="h-40 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E] mb-5 overflow-hidden flex items-center justify-center relative group">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-300" data-alt="A futuristic digital media broadcast workstation interface with high-contrast audio waveforms, low-latency video streaming pipelines, and deep obsidian glassmorphism panels glowing with cyan and blue illumination in a studio darkroom setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlr3lZH1e2H5cBslCKw7d3yObX50Sb4M5l7vuE2VY_QS0oqUHs65cR-R8LQXO5EIyDs9sXZLY_dsFM3Q0cUP66aof7YyvA93lKlBRfiLkA959gQ-CASnU6xiBHsTj6iVENYRASpOWwckDhn1WoCrhdvHE9h1gJuJm5q2BN0v5gwpu6WmScXixtT6R_izsEF9jFSlSJjCKFyZ0FtUWc7lgoem5C6P8IRquyM2fuhLyV4RWIgXKldG4Fzg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-transparent"></div>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-white font-semibold mb-2">Ultra-Low Latency Media Studio</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Stream multi-cast 4K feeds directly to registered community members with decentralized edge storage distribution.</p>
+</div>
+<!-- Feature 2 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 hover:bg-[#181824]/50 transition-colors">
+<div class="h-40 rounded-lg bg-[#0A0A0F] border border-[#1E1E2E] mb-5 overflow-hidden flex items-center justify-center relative group">
+<img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-300" data-alt="A visual representation of an artificial intelligence neural engine managing personalized creator audience cohorts, surrounded by geometric vector charts, deep purple glowing node connections, and dark minimalist aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6GIqvKRXaLgWVi8wDhKV6j9bvuz_1jA2tlNTzBUtr0aixKA_j3yIwG3p4NhgbTolhrlz2X4UwvhPs6Xq_VuGvr1Nq1WNzeC8Ou1W51HewALtUAhW-wlQaoqzf4cSUNkboH6Hg3nT8zzgaBoRKCujL3ujoMPWww4Cyd8LAw46yeHKd618dTaCgH_RwQAZJnAEyWfLB6fzJC2x9S3bgh7bANhaYZABRFWED3cXgbtgrYQ2DzKFy1hl-WQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-transparent"></div>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-white font-semibold mb-2">Autonomous Audience Agents</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Deploy custom LLM co-hosts that engage subscribers, convert course inquiries, and execute personalized retention offers 24/7.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- FLOATING SIMULATOR OVERLAY BAR (Bottom Floating Hud) -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3 px-4 py-2 rounded-full bg-[#181824]/90 backdrop-blur-md border border-white/10 shadow-[0_12px_32px_-4px_rgba(0,0,0,0.7)] text-on-surface">
+<!-- Dimensions Badge -->
+<div class="flex items-center gap-1.5 text-on-surface font-label-md text-label-md font-mono">
+<span class="w-2 h-2 rounded-full bg-[#3B82F6]"></span>
+<span>1440 × 900</span>
+<span class="text-outline">•</span>
+<span class="text-on-surface-variant font-sans">100% Scale</span>
+</div>
+<div class="h-3.5 w-px bg-outline-variant"></div>
+<!-- Orientation Toggle -->
+<button class="flex items-center gap-1 px-2 py-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors font-label-md text-label-md" title="Toggle Orientation">
+<span class="material-symbols-outlined text-[16px]">screen_rotation</span>
+<span>Landscape</span>
+</button>
+<div class="h-3.5 w-px bg-outline-variant"></div>
+<!-- Inspected Element Diagnostic Tooltip -->
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant bg-[#12121A] px-2.5 py-1 rounded-full border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[14px] text-tertiary">code</span>
+<span class="font-mono text-[11px] text-primary">section.hero-header</span>
+<span class="text-outline text-[10px]">1240 × 680px</span>
+</div>
+</div>
+</main>
+<!-- Interactive Breakpoint Switcher Script -->
+<script>
+    const frame = document.getElementById('viewport-frame');
+    const btnDesktop = document.getElementById('btn-desktop');
+    const btnTablet = document.getElementById('btn-tablet');
+    const btnMobile = document.getElementById('btn-mobile');
+
+    const resetButtons = () => {
+      [btnDesktop, btnTablet, btnMobile].forEach(btn => {
+        btn.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150";
+      });
+    };
+
+    btnDesktop.addEventListener('click', () => {
+      resetButtons();
+      btnDesktop.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white shadow-sm glow-button transition-all";
+      frame.style.width = '1280px';
+      frame.style.height = '760px';
+    });
+
+    btnTablet.addEventListener('click', () => {
+      resetButtons();
+      btnTablet.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white shadow-sm glow-button transition-all";
+      frame.style.width = '768px';
+      frame.style.height = '760px';
+    });
+
+    btnMobile.addEventListener('click', () => {
+      resetButtons();
+      btnMobile.className = "flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white shadow-sm glow-button transition-all";
+      frame.style.width = '375px';
+      frame.style.height = '720px';
+    });
+  </script>
+</body></html>

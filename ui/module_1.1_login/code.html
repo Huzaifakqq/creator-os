@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Sign In</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "background": "#131318",
+            "primary": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-dim": "#131318",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "surface-bright": "#39383e",
+            "surface-container-low": "#1b1b20",
+            "primary-container": "#4d8eff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#c4abff",
+            "surface-container-highest": "#35343a",
+            "surface-container": "#1f1f25",
+            "error": "#ffb4ab",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary": "#002e6a",
+            "surface-tint": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "inverse-primary": "#005ac2",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "outline-variant": "#424754",
+            "on-secondary-fixed": "#23005c",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .bg-mesh-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .custom-auth-card {
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 40px -10px rgba(77, 142, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen relative overflow-x-hidden flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Anchor (Shared Component JSON) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-14 max-w-7xl mx-auto border-b border-outline-variant/40 dark:border-outline-variant/40 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-lg shadow-primary-container/20">
+<span class="material-symbols-outlined text-white text-[20px]" data-icon="hub">hub</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Documentation</a>
+<a class="text-label-md font-label-md text-on-surface-variant dark:text-on-surface-variant font-medium hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Help Center</a>
+</nav>
+<div class="flex items-center gap-3">
+<a class="text-label-md font-label-md text-primary dark:text-primary font-medium hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 px-3 py-1.5 active:scale-[0.98]" href="#">Sign In</a>
+<a class="text-label-md font-label-md bg-gradient-to-r from-primary-container to-secondary-container text-white px-4 py-1.5 rounded-lg font-medium hover:brightness-110 shadow-md shadow-primary-container/25 transition-all duration-150 active:scale-[0.98]" href="#">Get Started</a>
+</div>
+</header>
+<!-- Ambient Light Orbs & Subtle Grid Backing -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-container/10 rounded-full blur-[140px]"></div>
+<div class="absolute top-1/3 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-secondary-container/15 rounded-full blur-[130px]"></div>
+<div class="absolute bottom-1/4 right-1/3 w-[350px] h-[350px] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute inset-0 bg-mesh-grid opacity-60"></div>
+</div>
+<!-- Primary Workspace / Center Canvas -->
+<main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 pt-24 pb-12 w-full">
+<!-- Branding Header Accent -->
+<div class="text-center mb-6 max-w-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/30 text-label-sm font-label-sm text-primary mb-3 backdrop-blur-sm shadow-inner">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+        Enterprise Node • v2.4 Active
+      </div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Creator OS</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">The all-in-one operating system for modern creators</p>
+</div>
+<!-- Centered Authentication Card (460px desktop width) -->
+<section class="w-full max-w-[460px] bg-surface-container-low/95 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-8 custom-auth-card transition-all">
+<!-- Heading block -->
+<div class="mb-6">
+<h2 class="text-headline-md font-headline-md text-on-surface">Welcome back</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Sign in to manage your empire, courses, and AI agents</p>
+</div>
+<!-- Login Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Email Input -->
+<div class="space-y-1.5">
+<label class="block text-label-md font-label-md text-on-surface-variant" for="email">Email address</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]" data-icon="mail">mail</span>
+<input class="w-full h-[42px] bg-surface-container border border-outline-variant/50 rounded-lg pl-10 pr-3 text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/40 transition-colors" id="email" name="email" placeholder="you@creator.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input with interactive show/hide toggle -->
+<div class="space-y-1.5">
+<label class="block text-label-md font-label-md text-on-surface-variant" for="password">Password</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3 text-outline pointer-events-none text-[20px]" data-icon="lock">lock</span>
+<input class="w-full h-[42px] bg-surface-container border border-outline-variant/50 rounded-lg pl-10 pr-10 text-body-md font-body-md text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container/40 transition-colors" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-2.5 text-outline hover:text-on-surface p-1 rounded transition-colors flex items-center justify-center focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="visibility" id="eyeIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Row: Remember me + Forgot password -->
+<div class="flex items-center justify-between pt-1">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input class="w-4 h-4 rounded border-outline-variant bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0 transition-colors cursor-pointer" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface-variant hover:text-on-surface transition-colors">Remember me</span>
+</label>
+<a class="text-label-md font-label-md text-primary hover:underline hover:text-primary-fixed transition-colors" href="#">Forgot password?</a>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-2">
+<button class="relative group overflow-hidden w-full h-[44px] rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-lg font-medium shadow-lg shadow-primary-container/25 hover:shadow-primary-container/40 hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+<!-- Ambient hover sheen -->
+<div class="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/15 to-transparent"></div>
+</button>
+</div>
+</form>
+<!-- Divider -->
+<div class="relative my-6 flex items-center justify-center">
+<div class="w-full border-t border-outline-variant/30"></div>
+<span class="absolute px-3 bg-surface-container-low text-label-sm font-label-sm text-outline uppercase tracking-wider">or continue with</span>
+</div>
+<!-- Social Login: Google -->
+<button class="w-full h-[42px] rounded-lg border border-outline-variant/40 bg-surface-container/60 hover:bg-surface-container hover:border-outline-variant/80 text-on-surface font-label-md font-medium flex items-center justify-center gap-3 transition-all active:scale-[0.98]" type="button">
+<svg aria-hidden="true" class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.26v3.15C3.25 21.36 7.33 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.26C.46 8.16 0 9.99 0 12s.46 3.84 1.26 5.42l4.02-3.15z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.33 0 3.25 2.64 1.26 6.58l4.02 3.15c.95-2.83 3.6-4.98 6.72-4.98z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<!-- Footer Prompt Inside Card -->
+<div class="mt-6 text-center">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+          Don't have an account? 
+          <a class="font-medium text-primary hover:text-primary-fixed hover:underline transition-colors ml-1" href="#">Sign up</a>
+</p>
+</div>
+</section>
+<!-- Bottom Corner Trust Indicators -->
+<div class="mt-8 flex items-center justify-center gap-2 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="lock">lock</span>
+<span>Protected with 256-bit encryption</span>
+<span class="text-outline-variant">•</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="verified_user">verified_user</span>
+<span>SOC-2 Certified</span>
+</div>
+</main>
+<!-- Footer Anchor (Shared Component JSON) -->
+<footer class="w-full py-6 px-6 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-outline-variant/30 dark:border-outline-variant/30 bg-surface-container-lowest dark:bg-surface-container-lowest relative z-10">
+<div class="flex items-center gap-2">
+<span class="text-body-sm font-body-sm text-on-surface-variant dark:text-on-surface-variant">© 2025 Creator OS Inc. All rights reserved.</span>
+</div>
+<div class="flex items-center flex-wrap justify-center gap-6">
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Terms of Service</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Status</a>
+<a class="text-label-sm font-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">Support</a>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+    const passwordField = document.getElementById('password');
+    const toggleButton = document.getElementById('togglePassword');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    if (toggleButton && passwordField && eyeIcon) {
+      toggleButton.addEventListener('click', () => {
+        const isPassword = passwordField.getAttribute('type') === 'password';
+        passwordField.setAttribute('type', isPassword ? 'text' : 'password');
+        eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+  </script>
+</body></html>

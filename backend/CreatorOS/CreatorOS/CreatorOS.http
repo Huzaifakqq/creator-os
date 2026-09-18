@@ -1,0 +1,6 @@
+@CreatorOS_HostAddress = http://localhost:5083
+
+GET {{CreatorOS_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

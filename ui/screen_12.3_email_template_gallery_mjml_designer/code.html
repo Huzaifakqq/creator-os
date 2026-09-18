@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Email Template Gallery &amp; MJML Designer</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-tint": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed": "#002113",
+            "on-error": "#690005",
+            "on-primary-container": "#00285d",
+            "outline": "#8c909f",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed": "#e9ddff",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "secondary-fixed-dim": "#d0bcff",
+            "secondary-container": "#571bc1",
+            "surface-bright": "#39383e",
+            "on-tertiary": "#003824",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "tertiary": "#4edea3",
+            "tertiary-container": "#00a572",
+            "on-background": "#e4e1e9",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-lowest": "#0e0e13",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-primary": "#005ac2",
+            "surface-container-high": "#2a292f",
+            "background": "#131318",
+            "surface-container-highest": "#35343a",
+            "primary": "#adc6ff",
+            "error-container": "#93000a",
+            "on-surface": "#e4e1e9",
+            "surface-dim": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error": "#ffb4ab",
+            "outline-variant": "#424754",
+            "on-secondary": "#3c0091",
+            "on-primary": "#002e6a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Obsidian dark studio aesthetic custom scrollbars */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .glow-subtle {
+      box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen overflow-x-hidden flex">
+<!-- ==================== LEFT SIDENAVBAR (SHARED COMPONENT ANCHOR) ==================== -->
+<aside class="fixed top-0 left-0 h-screen w-64 z-40 bg-surface-container-lowest border-r border-surface-container-low flex flex-col justify-between p-4 select-none">
+<!-- Header / Brand -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center text-on-primary shadow-md">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-tight">Creator OS</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Studio Enterprise</span>
+</div>
+</div>
+<!-- Action Button CTA -->
+<button class="w-full h-10 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 flex items-center justify-center gap-2 font-label-md text-label-md transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="add_circle">add_circle</span>
+<span>New Project</span>
+</button>
+<!-- Navigation Links -->
+<nav class="flex flex-col gap-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Media Studio -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="video_library">video_library</span>
+<span>Media Studio</span>
+</a>
+<!-- Email Marketing / Sequences (Expanded category group) -->
+<div class="pt-2 pb-1">
+<div class="px-3 py-1 text-[10px] tracking-wider uppercase font-semibold text-outline">Email Engine</div>
+<a class="flex items-center gap-3 px-3 py-2 mt-1 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="send">send</span>
+<span>Broadcasts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="account_tree">account_tree</span>
+<span>Sequences</span>
+</a>
+<!-- ACTIVE ITEM: Templates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md transition-colors duration-150 border-l-2 border-primary-container" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="draft" style="font-variation-settings: 'FILL' 1;">draft</span>
+<span class="font-semibold">Templates</span>
+<span class="ml-auto px-1.5 py-0.5 rounded-full bg-primary-container/20 text-primary text-[10px] font-bold">48</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified_user">verified_user</span>
+<span>Deliverability</span>
+</a>
+</div>
+<!-- Monetization -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+<span>Monetization</span>
+</a>
+<!-- Audience -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+<span>Audience</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Sidenav Footer -->
+<div class="border-t border-outline-variant/30 pt-3 flex flex-col gap-1">
+<div class="flex items-center justify-between px-3 py-1.5 mb-1 bg-surface-container rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-[11px] font-label-sm text-on-surface">MJML Engine v4.0.3</span>
+</div>
+<span class="text-[10px] text-tertiary font-mono bg-tertiary-container/30 px-1.5 py-0.5 rounded">Ready</span>
+</div>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="wifi_tethering">wifi_tethering</span>
+<span>Status</span>
+</a>
+</div>
+</aside>
+<!-- ==================== MAIN CONTENT WRAPPER ==================== -->
+<div class="pl-64 flex-1 flex flex-col min-w-0 bg-surface">
+<!-- ==================== TOP NAV BAR ==================== -->
+<header class="sticky top-0 h-14 w-full z-30 bg-surface/90 backdrop-blur-md border-b border-surface-container-high px-6 flex items-center justify-between">
+<!-- Breadcrumb & Left side Search -->
+<div class="flex items-center gap-6 flex-1 max-w-2xl">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 font-label-md text-label-md whitespace-nowrap">
+<span class="text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Email Marketing</span>
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Template Gallery</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/40"></div>
+<!-- Search Bar Input -->
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface placeholder:text-outline/70 font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search 48 templates, MJML components, variables..." type="text"/>
+<span class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] text-outline bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant/30 font-mono">⌘K</span>
+</div>
+</div>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center gap-3">
+<!-- Secondary Action: Import -->
+<button class="h-9 px-3.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface font-label-md text-label-md hover:bg-surface-container-high hover:border-primary/50 flex items-center gap-2 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="file_upload">file_upload</span>
+<span>Import MJML / HTML</span>
+</button>
+<!-- Primary Action CTA -->
+<button class="h-9 px-4 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-105 text-white font-label-md text-label-md flex items-center gap-2 glow-primary transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span class="font-semibold">+ Create Custom Template</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/40 mx-1"></div>
+<!-- Notification & Help Icon buttons -->
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+</div>
+<!-- User Profile Avatar -->
+<div class="w-8 h-8 rounded-full ring-1 ring-outline-variant/60 overflow-hidden bg-surface-container-high flex items-center justify-center ml-1">
+<img class="w-full h-full object-cover" data-alt="Close up portrait photograph of an innovative digital product creator and studio director with subtle neon ambient reflections, crisp high-end lighting, dark modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl81JznM6KrfSX6ElUYhiI0fnzipyO75tEDMIQNBpNrVCowuyNOxzrgZ2-Z9mZr0OWD52n8_kYOupsL0kYztqGKBi7HnFy0Zl23V0a3CtB8iAPaMxo3hxiMeHcMXwqC1u4KvK_IB5jsGvGC8MIFzi3yRLgpCUgyAr4egUNWY-KIcuxKCofH54UTRO8K3DwE_CFxIWtNDs0eBjxlOF3jfzaB9fj-oCJb3IejnRwix2Z-y-oIGZnpZDQ_A"/>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN WORKSPACE CANVAS ==================== -->
+<main class="p-8 flex flex-col gap-6 max-w-[1680px] w-full mx-auto">
+<!-- SECTION 1: HEADER & FILTER BAR -->
+<div class="flex flex-col gap-5">
+<!-- Top Row Title + MJML Engine Badge -->
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex flex-col">
+<h1 class="font-headline-xl text-headline-xl font-semibold text-on-surface tracking-tight flex items-center gap-3">
+              Email Template Gallery
+              <span class="text-xs px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-primary-container/15 text-primary border border-primary-container/30">
+                Studio Pro
+              </span>
+</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+              Production-tested MJML responsive frameworks, modular layout blocks, and automated drip assets.
+            </p>
+</div>
+<!-- MJML 4.0 Compatibility Badge -->
+<div class="flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 shadow-sm">
+<div class="flex items-center gap-1.5">
+<span class="text-amber-400 font-bold text-xs">⚡</span>
+<span class="font-label-md text-label-md font-medium text-on-surface">MJML 4.0 Engine</span>
+</div>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>100% Responsive Verified</span>
+</div>
+</div>
+</div>
+<!-- Filter Pill Bar, Layout Toggle & Sorter -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-b border-surface-container-high pb-4">
+<!-- Category Pills -->
+<div class="flex flex-wrap items-center gap-2">
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-primary-container text-on-primary-container font-semibold transition-all shadow-sm">
+              All Templates <span class="ml-1 opacity-80">(48)</span>
+</button>
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all">
+              Welcome Sequences <span class="ml-1 text-outline">(12)</span>
+</button>
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all">
+              Product Launch <span class="ml-1 text-outline">(14)</span>
+</button>
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all">
+              Weekly Digest / Newsletter <span class="ml-1 text-outline">(9)</span>
+</button>
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all">
+              Course Cohort Drip <span class="ml-1 text-outline">(8)</span>
+</button>
+<button class="h-8 px-3.5 rounded-full font-label-md text-label-md bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-all">
+              Re-engagement <span class="ml-1 text-outline">(5)</span>
+</button>
+</div>
+<!-- Controls: View Toggles & Sort Dropdown -->
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-surface-container p-0.5 rounded-lg border border-outline-variant/40">
+<button class="p-1.5 rounded-md bg-surface-container-high text-primary shadow-xs" title="Grid View">
+<span class="material-symbols-outlined text-[18px]" data-icon="grid_view">grid_view</span>
+</button>
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface transition-colors" title="List View">
+<span class="material-symbols-outlined text-[18px]" data-icon="view_list">view_list</span>
+</button>
+</div>
+<div class="flex items-center gap-2 bg-surface-container border border-outline-variant/40 rounded-lg px-3 py-1.5">
+<span class="material-symbols-outlined text-outline text-[16px]" data-icon="sort">sort</span>
+<span class="text-outline font-label-sm text-label-sm">Sort:</span>
+<select class="bg-transparent border-none p-0 pr-6 text-on-surface font-label-md text-label-md focus:ring-0 cursor-pointer">
+<option class="bg-surface-container" value="popular">Most Popular</option>
+<option class="bg-surface-container" value="conversion">Highest Conversion</option>
+<option class="bg-surface-container" value="modified">Recently Modified</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- MAIN CONTENT BENTO GRID: 3-COLUMN TEMPLATES + INSPECTOR PALETTE -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- LEFT 9-COLUMNS: 6 HIGH-FIDELITY TEMPLATE CARDS -->
+<div class="col-span-12 xl:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- CARD 1: Obsidian Creator Digest (Featured) -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-primary/30 hover:border-primary/60 transition-all duration-200 overflow-hidden glow-subtle hover:translate-y-[-2px]">
+<div class="absolute top-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container text-[11px] font-bold uppercase tracking-wider shadow-lg">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+              Featured
+            </div>
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 text-tertiary text-[11px] font-mono font-medium">
+              68.4% open avg
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<!-- Mock Email Header -->
+<div class="flex items-center justify-between border-b border-surface-container pb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[9px] font-bold text-on-surface tracking-wider">THE OBSIDIAN DISPATCH</span>
+</div>
+<span class="text-[8px] text-outline font-mono">#Issue 142</span>
+</div>
+<!-- Hero Block in Mockup -->
+<div class="h-16 rounded bg-gradient-to-r from-surface-container to-surface-container-high p-2 flex flex-col justify-end border border-outline-variant/20">
+<div class="w-2/3 h-2 rounded bg-primary/40 mb-1"></div>
+<div class="w-1/2 h-1.5 rounded bg-outline-variant/40"></div>
+</div>
+<!-- Editorial 2-Col preview -->
+<div class="grid grid-cols-2 gap-2 mt-0.5">
+<div class="p-1.5 rounded bg-surface-container/50 border border-outline-variant/20">
+<div class="w-3/4 h-1.5 bg-on-surface/50 rounded mb-1"></div>
+<div class="w-full h-1 bg-outline-variant/30 rounded"></div>
+</div>
+<div class="p-1.5 rounded bg-surface-container/50 border border-outline-variant/20">
+<div class="w-3/4 h-1.5 bg-on-surface/50 rounded mb-1"></div>
+<div class="w-full h-1 bg-outline-variant/30 rounded"></div>
+</div>
+</div>
+<!-- Mock Button -->
+<div class="w-24 h-4 mx-auto rounded bg-primary-container mt-1 flex items-center justify-center text-[7px] text-white font-bold">
+                  Read Full Issue →
+                </div>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Obsidian Creator Digest</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Minimalist high-contrast dark aesthetic tailored for tech creators, deep-dive essays, and curation roundups.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Newsletter</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Dark Mode</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary-container/20 text-tertiary border border-tertiary-container/30">High Click-through</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-primary hover:bg-primary-fixed text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" title="Preview in MJML">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 2: Masterclass Course Drop & Early Bird -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-outline-variant/30 hover:border-secondary/50 transition-all duration-200 overflow-hidden hover:translate-y-[-2px]">
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 text-secondary text-[11px] font-mono font-medium">
+              42.1% CTR
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<!-- Cinematic Banner Mockup -->
+<div class="h-16 rounded bg-gradient-to-r from-secondary-container via-surface-container-high to-surface-container p-2 flex items-center justify-between border border-secondary/30">
+<div class="flex flex-col">
+<div class="text-[8px] font-bold text-secondary tracking-widest uppercase">ENROLLMENT OPEN</div>
+<div class="w-24 h-2 rounded bg-white/70 mt-0.5"></div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="school">school</span>
+</div>
+<!-- Countdown timer widget mockup -->
+<div class="flex justify-center gap-1.5 py-1 bg-surface-container/60 rounded border border-outline-variant/20">
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-center">
+<span class="text-[9px] font-bold font-mono text-primary">02</span>
+<span class="block text-[6px] text-outline">DAYS</span>
+</div>
+<span class="text-[10px] text-outline">:</span>
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-center">
+<span class="text-[9px] font-bold font-mono text-primary">14</span>
+<span class="block text-[6px] text-outline">HOURS</span>
+</div>
+<span class="text-[10px] text-outline">:</span>
+<div class="px-1.5 py-0.5 rounded bg-surface-container-lowest text-center">
+<span class="text-[9px] font-bold font-mono text-primary">55</span>
+<span class="block text-[6px] text-outline">MINS</span>
+</div>
+</div>
+<!-- Pricing tiers block -->
+<div class="grid grid-cols-2 gap-1.5">
+<div class="p-1 rounded bg-surface-container/30 border border-outline-variant/20 flex flex-col items-center">
+<span class="text-[7px] text-outline">Standard</span>
+<span class="text-[9px] font-bold text-on-surface">$299</span>
+</div>
+<div class="p-1 rounded bg-secondary-container/20 border border-secondary/40 flex flex-col items-center">
+<span class="text-[7px] text-secondary">VIP Cohort</span>
+<span class="text-[9px] font-bold text-secondary">$599</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-secondary transition-colors">Masterclass Course Drop</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  High-urgency launch sequence featuring responsive countdown timers and embedded pricing tiers.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Product Launch</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Cohort</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Scarcity</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" title="Live Code Preview">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 3: Cohort Welcome & Onboarding Guide -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all duration-200 overflow-hidden hover:translate-y-[-2px]">
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 text-tertiary text-[11px] font-mono font-medium">
+              84.2% completion
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-full bg-tertiary-container/40 text-tertiary flex items-center justify-center text-[11px] font-bold">1</span>
+<div class="w-32 h-2 rounded bg-on-surface/80"></div>
+</div>
+<!-- Checklist items -->
+<div class="flex flex-col gap-1.5 mt-1 bg-surface-container/40 p-2 rounded border border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded bg-tertiary/30 border border-tertiary flex items-center justify-center text-[8px] text-tertiary">✓</span>
+<div class="w-36 h-1.5 rounded bg-outline-variant/40"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded border border-outline flex items-center justify-center"></span>
+<div class="w-28 h-1.5 rounded bg-outline-variant/40"></div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded border border-outline flex items-center justify-center"></span>
+<div class="w-32 h-1.5 rounded bg-outline-variant/40"></div>
+</div>
+</div>
+<!-- Discord + Calendar Action button preview -->
+<div class="grid grid-cols-2 gap-1.5 mt-1">
+<div class="h-5 rounded bg-[#5865F2]/20 border border-[#5865F2]/40 text-[#5865F2] flex items-center justify-center text-[7px] font-semibold">
+                    Join Discord
+                  </div>
+<div class="h-5 rounded bg-surface-container border border-outline-variant/40 text-on-surface flex items-center justify-center text-[7px] font-semibold">
+                    Add to Google Cal
+                  </div>
+</div>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Cohort Welcome Guide</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Sequential checklist layout with integrated community invites and automated milestone tracking.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Onboarding</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Automation</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Community</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" title="Live Code Preview">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 4: VIP Mastermind Weekly Briefing -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all duration-200 overflow-hidden hover:translate-y-[-2px]">
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-secondary-container/20 border border-secondary/30 text-secondary text-[10px] font-semibold uppercase tracking-wider">
+              VIP Gated
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<div class="flex items-center justify-between">
+<span class="text-[8px] font-mono text-outline">EPISODE #38 AUDIO BRIEF</span>
+<span class="material-symbols-outlined text-[14px] text-amber-400" data-icon="lock">lock</span>
+</div>
+<!-- Audio Player Embed Mockup -->
+<div class="p-2 rounded bg-surface-container border border-outline-variant/30 flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center text-[10px]">▶</div>
+<div class="flex-1 flex flex-col gap-1">
+<div class="w-full h-1 bg-primary/30 rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-primary"></div>
+</div>
+<div class="flex justify-between text-[6px] text-outline">
+<span>08:42</span>
+<span>24:10</span>
+</div>
+</div>
+</div>
+<!-- Bulleted takeaways -->
+<div class="flex flex-col gap-1 mt-1">
+<div class="flex items-start gap-1.5">
+<span class="text-primary text-[8px]">•</span>
+<div class="w-40 h-1.5 bg-outline-variant/40 rounded mt-0.5"></div>
+</div>
+<div class="flex items-start gap-1.5">
+<span class="text-primary text-[8px]">•</span>
+<div class="w-36 h-1.5 bg-outline-variant/40 rounded mt-0.5"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">VIP Mastermind Briefing</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Minimalist typographic layout with simulated embedded audio podcast player and member token gates.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Podcasts</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Editorial</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 5: Flash Sale & Coupon Drop 48h -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all duration-200 overflow-hidden hover:translate-y-[-2px]">
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-error-container/20 border border-error/30 text-error text-[11px] font-mono font-medium">
+              48H Urgent
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<!-- Coupon Code Card with dashed border -->
+<div class="p-2.5 rounded-lg border border-dashed border-primary-container/60 bg-primary-container/10 flex flex-col items-center justify-center text-center">
+<span class="text-[7px] tracking-widest text-outline uppercase font-semibold">YOUR EXCLUSIVE VOUCHER</span>
+<span class="text-[12px] font-mono font-bold text-primary tracking-wider mt-0.5">STUDIO50</span>
+<span class="text-[7px] text-outline-variant">Tap to copy code &amp; save 50%</span>
+</div>
+<!-- Product showcase tiles -->
+<div class="grid grid-cols-2 gap-1.5 mt-1">
+<div class="p-1 rounded bg-surface-container/50 border border-outline-variant/20 flex flex-col gap-0.5">
+<div class="h-8 rounded bg-surface-container-high"></div>
+<div class="w-12 h-1 bg-outline-variant/50 rounded"></div>
+<span class="text-[8px] font-bold text-on-surface">$49 <span class="line-through text-[6px] text-outline">$99</span></span>
+</div>
+<div class="p-1 rounded bg-surface-container/50 border border-outline-variant/20 flex flex-col gap-0.5">
+<div class="h-8 rounded bg-surface-container-high"></div>
+<div class="w-12 h-1 bg-outline-variant/50 rounded"></div>
+<span class="text-[8px] font-bold text-on-surface">$79 <span class="line-through text-[6px] text-outline">$150</span></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Flash Sale 48H Promo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Dashed coupon code copy containers, urgent header ribbons, and modular ecommerce showcase grid.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Promotional</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Ecommerce</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+</div>
+</div>
+</div>
+<!-- CARD 6: Re-engagement: We Miss You -->
+<div class="group relative flex flex-col bg-surface-container-low rounded-xl border border-outline-variant/30 hover:border-primary/40 transition-all duration-200 overflow-hidden hover:translate-y-[-2px]">
+<div class="absolute top-3 right-3 z-10 px-2 py-0.5 rounded-md bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 text-outline text-[11px] font-mono font-medium">
+              Winback Flow
+            </div>
+<!-- Email Live Mockup Window -->
+<div class="w-full h-56 bg-surface-container-lowest p-3 border-b border-outline-variant/30 flex items-center justify-center overflow-hidden relative">
+<div class="w-[92%] h-[120%] bg-[#0e0e13] rounded-t-lg border border-outline-variant/40 shadow-2xl p-3 flex flex-col items-center text-center gap-2 transform -translate-y-2 group-hover:scale-[1.02] transition-transform duration-300">
+<!-- Soft ambient icon & message -->
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-primary/20 to-secondary/20 flex items-center justify-center text-primary mt-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="waving_hand">waving_hand</span>
+</div>
+<div class="w-3/4 h-2 rounded bg-on-surface/80"></div>
+<div class="w-full h-1 bg-outline-variant/40 rounded"></div>
+<!-- Preference Center & One-click discount -->
+<div class="w-full p-2 rounded bg-surface-container/40 border border-outline-variant/20 mt-1 flex flex-col items-center gap-1">
+<div class="text-[7px] text-tertiary font-medium">Claim free month of Pro Studio</div>
+<div class="w-24 h-4 rounded bg-primary text-[7px] text-on-primary font-bold flex items-center justify-center">
+                    Keep My Subscription
+                  </div>
+</div>
+<span class="text-[6px] text-outline underline mt-1">Adjust email delivery frequency</span>
+</div>
+</div>
+<!-- Card Metadata -->
+<div class="p-4 flex flex-col justify-between flex-1 gap-3">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface group-hover:text-primary transition-colors">Re-engagement: We Miss You</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 line-clamp-2">
+                  Retention automation flow with 1-click subscription pause and newsletter cadence preferences.
+                </p>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Re-engagement</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-surface-container text-on-surface-variant border border-outline-variant/30">Churn Defense</span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-2 border-t border-outline-variant/20">
+<button class="flex-1 h-9 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/40 font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="edit_document">edit_document</span>
+<span>Use Template</span>
+</button>
+<button class="h-9 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="code">code</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 3-COLUMNS: MJML DRAG-AND-DROP DRAWER & COMPONENT INSPECTOR -->
+<div class="col-span-12 xl:col-span-3 flex flex-col gap-6">
+<!-- MJML Component Palette Drawer -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/40 p-4 flex flex-col gap-4 shadow-sm">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="dashboard_customize">dashboard_customize</span>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">MJML Components</h3>
+</div>
+<span class="text-[10px] font-mono text-outline bg-surface-container px-1.5 py-0.5 rounded">Drag &amp; Drop</span>
+</div>
+<!-- Draggable Component Blocks -->
+<div class="flex flex-col gap-2">
+<div class="text-[11px] uppercase tracking-wider text-outline font-semibold">Layout Primitives</div>
+<div class="grid grid-cols-2 gap-2">
+<!-- Section -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="view_stream">view_stream</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Section</span>
+<span class="text-[9px] text-outline">&lt;mj-section&gt;</span>
+</div>
+</div>
+<!-- Column -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="view_column">view_column</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Column</span>
+<span class="text-[9px] text-outline">&lt;mj-column&gt;</span>
+</div>
+</div>
+<!-- Hero Image -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="image">image</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Hero Image</span>
+<span class="text-[9px] text-outline">&lt;mj-hero&gt;</span>
+</div>
+</div>
+<!-- Markdown Text -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="notes">notes</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Markdown</span>
+<span class="text-[9px] text-outline">&lt;mj-text&gt;</span>
+</div>
+</div>
+<!-- Button CTA -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="smart_button">smart_button</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Button CTA</span>
+<span class="text-[9px] text-outline">&lt;mj-button&gt;</span>
+</div>
+</div>
+<!-- Social Share -->
+<div class="p-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 hover:border-primary/50 cursor-grab flex items-center gap-2 transition-all active:cursor-grabbing">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant" data-icon="share">share</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Social Share</span>
+<span class="text-[9px] text-outline">&lt;mj-social&gt;</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Dynamic Variables Drawer -->
+<div class="flex flex-col gap-2 pt-2 border-t border-outline-variant/20">
+<div class="flex items-center justify-between">
+<span class="text-[11px] uppercase tracking-wider text-outline font-semibold">Dynamic Variables</span>
+<span class="text-[10px] text-primary hover:underline cursor-pointer">View all (24)</span>
+</div>
+<div class="flex flex-col gap-1.5 font-mono text-xs">
+<div class="p-2 rounded bg-surface-container border border-outline-variant/20 flex items-center justify-between text-on-surface hover:border-primary/40 cursor-pointer group">
+<span class="text-primary group-hover:text-primary-fixed transition-colors">{{subscriber.first_name}}</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/20 flex items-center justify-between text-on-surface hover:border-primary/40 cursor-pointer group">
+<span class="text-secondary group-hover:text-secondary-fixed transition-colors">{{course.title}}</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+<div class="p-2 rounded bg-surface-container border border-outline-variant/20 flex items-center justify-between text-on-surface hover:border-primary/40 cursor-pointer group">
+<span class="text-tertiary group-hover:text-tertiary-fixed transition-colors">{{discount.voucher_code}}</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity" data-icon="content_copy">content_copy</span>
+</div>
+</div>
+</div>
+</div>
+<!-- CLIENT COMPATIBILITY MATRIX CARD -->
+<div class="bg-surface-container-low rounded-xl border border-outline-variant/40 p-4 flex flex-col gap-3 shadow-sm">
+<div class="flex items-center justify-between pb-1 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="verified">verified</span>
+<h4 class="font-label-lg text-label-lg font-semibold text-on-surface">Client Compatibility</h4>
+</div>
+<span class="text-[10px] text-tertiary font-bold">Passed (Litmus)</span>
+</div>
+<div class="flex flex-col gap-2.5 pt-1">
+<!-- Outlook 365 -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-label-md text-label-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    Outlook 365 / Desktop
+                  </span>
+<span class="font-mono text-on-surface font-semibold">99%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="w-[99%] h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+<!-- Apple Mail -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-label-md text-label-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+                    Apple Mail (iOS &amp; macOS)
+                  </span>
+<span class="font-mono text-tertiary font-semibold">100%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="w-[100%] h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+<!-- Gmail Web & Mobile -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-label-md text-label-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                    Gmail Web &amp; Mobile Apps
+                  </span>
+<span class="font-mono text-tertiary font-semibold">100%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="w-[100%] h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+<!-- Yahoo Mail -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between text-xs font-label-md text-label-md">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                    Yahoo! Mail &amp; AOL
+                  </span>
+<span class="font-mono text-on-surface font-semibold">98%</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="w-[98%] h-full bg-tertiary rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container/60 border border-outline-variant/20 mt-1 flex items-center justify-between text-[11px] text-outline">
+<span>Dark mode inversions verified</span>
+<span class="text-tertiary font-bold">✓ Ready</span>
+</div>
+</div>
+<!-- Quick Test Dispatch Drawer Banner -->
+<div class="p-4 rounded-xl bg-gradient-to-br from-surface-container to-surface-container-high border border-outline-variant/40 flex flex-col gap-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="send_and_archive">send_and_archive</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Live Send Test Inbox</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Simulate render preview on physical devices before publishing.
+            </p>
+<div class="flex items-center gap-2 mt-1">
+<input class="w-full h-8 px-2.5 bg-surface-container-lowest border border-outline-variant/40 rounded text-xs text-on-surface placeholder:text-outline focus:outline-none focus:border-primary" placeholder="dev@creator.studio" type="email"/>
+<button class="h-8 px-3 rounded bg-surface-container-highest hover:bg-outline text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors">
+                Send
+              </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

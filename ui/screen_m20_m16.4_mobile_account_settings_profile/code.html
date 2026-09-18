@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS - Account Settings &amp; Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#571bc1",
+            "surface-tint": "#adc6ff",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "primary-container": "#4d8eff",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed": "#23005c",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed": "#6ffbbe",
+            "background": "#131318",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "on-tertiary-fixed": "#002113",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "on-tertiary-container": "#00311f",
+            "surface-bright": "#39383e",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "surface-variant": "#35343a",
+            "on-secondary-container": "#c4abff",
+            "primary-fixed-dim": "#adc6ff",
+            "error-container": "#93000a",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Hide scrollbars while allowing swipe */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary-container">
+<!-- Mobile Viewport Container 375x812 frame preview on desktop, full mobile display -->
+<div class="w-full max-w-[375px] min-h-screen bg-surface-container-lowest flex flex-col relative overflow-x-hidden border-x border-outline-variant/20 shadow-2xl">
+<!-- TopAppBar Component (from JSON anchor) -->
+<header class="sticky top-0 w-full z-40 bg-surface-container-lowest/90 backdrop-blur-md flex justify-between items-center h-14 px-margin-sm border-b border-outline-variant/30 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface tracking-tight">Account &amp; Profile</span>
+</div>
+<!-- Action: Save button -->
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-surface font-label-md text-label-md shadow-[0_0_16px_rgba(77,142,255,0.3)] hover:brightness-110 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Save</span>
+</button>
+</header>
+<!-- Main Scrollable Canvas -->
+<main class="flex-1 overflow-y-auto no-scrollbar px-margin-sm pt-space-md pb-24 space-y-space-lg">
+<!-- Top Profile Header (Bento Glass Card) -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-space-lg relative overflow-hidden shadow-lg">
+<!-- Ambient Luminescence glow in corner -->
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -bottom-10 -left-10 w-28 h-28 bg-secondary-container/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<!-- Avatar with Camera Badge -->
+<div class="relative mb-3 group cursor-pointer">
+<div class="w-20 h-20 rounded-full p-[2px] bg-gradient-to-tr from-primary-container via-secondary to-tertiary-fixed shadow-[0_0_20px_rgba(77,142,255,0.25)]">
+<img class="w-full h-full rounded-full object-cover bg-surface-container" data-alt="Cinematic portrait of a male film director with subtle ambient blue and violet backlighting, short dark hair, thoughtful gaze, captured on medium format camera in a dark studio setting with soft atmospheric mist." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXqSlfeJ7-SbyFYWkBQtq7U7D25PFswDBcsegbqsOO_Ljci3fc1412omgGoaVj1HnVhgmqOay1twWzwaPhX7HIWGoOGjbVQ2314OOnAMO6lHVclr4CbKCl_3tuahKERbX3uS2w9zcFe1itdhKCZfnmOmfIz_xlUPYlUta-dlu3u91F-hgJvo4JAzBSGG5M5k5E33MBtSWX7MNa2wLQKBd2LDNsOa8CY_imvWbWkSyT2hoEvWhphqvA-g"/>
+</div>
+<button aria-label="Change Profile Photo" class="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary shadow-md hover:bg-surface-bright active:scale-90 transition-all duration-150">
+<span class="material-symbols-outlined text-[15px]">photo_camera</span>
+</button>
+</div>
+<!-- User Details -->
+<h1 class="font-headline-sm text-headline-sm font-bold text-on-surface">Alex Vance</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 tracking-tight">
+            @alexvance <span class="mx-1 opacity-40">•</span> alex@vancefilms.com
+          </p>
+<!-- Role Pill -->
+<div class="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/30">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-surface-tint font-medium tracking-wide">Workspace Owner • Enterprise Tier</span>
+</div>
+</div>
+</section>
+<!-- Account Details Form Section -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between px-1">
+<h2 class="font-label-lg text-label-lg text-on-surface font-semibold tracking-tight">General Information</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">ID: US-92841</span>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-space-md space-y-space-md">
+<!-- Name Inputs Grid -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">First Name</label>
+<input class="w-full h-10 px-3 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-150" type="text" value="Alex"/>
+</div>
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Last Name</label>
+<input class="w-full h-10 px-3 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-150" type="text" value="Vance"/>
+</div>
+</div>
+<!-- Display Bio -->
+<div class="space-y-1">
+<div class="flex justify-between items-center">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Display Bio</label>
+<span class="font-label-sm text-label-sm text-outline">86/160</span>
+</div>
+<textarea class="w-full p-3 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-on-surface font-body-md text-body-md leading-relaxed focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-150 resize-none" rows="3">Independent filmmaker, director of photography, and creator of Cinematic Masterclasses.</textarea>
+</div>
+<!-- Timezone selector -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Timezone</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+<select class="w-full h-10 pl-9 pr-8 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none appearance-none transition-all duration-150">
+<option selected="">(UTC-07:00) Pacific Time (US &amp; Canada)</option>
+<option>(UTC-05:00) Eastern Time (US &amp; Canada)</option>
+<option>(UTC+00:00) UTC Universal Time</option>
+<option>(UTC+01:00) Central European Time</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Currency selector -->
+<div class="space-y-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Payout &amp; Billing Currency</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+<select class="w-full h-10 pl-9 pr-8 bg-surface-container-lowest border border-outline-variant/30 rounded-lg text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none appearance-none transition-all duration-150">
+<option selected="">USD ($) United States Dollar</option>
+<option>EUR (€) Euro</option>
+<option>GBP (£) British Pound</option>
+<option>CAD ($) Canadian Dollar</option>
+</select>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Security & Preferences Navigation List -->
+<section class="space-y-space-sm">
+<div class="px-1">
+<h2 class="font-label-lg text-label-lg text-on-surface font-semibold tracking-tight">Security &amp; Preferences</h2>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 rounded-xl divide-y divide-outline-variant/20 overflow-hidden">
+<!-- Row 1: Login Security & 2FA -->
+<a class="flex items-center justify-between p-3.5 hover:bg-surface-container transition-colors duration-150 active:scale-[0.99] group" href="#2fa">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">security</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface leading-snug">Login Security &amp; 2FA</p>
+<span class="inline-block mt-0.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary-fixed font-label-sm text-[10px] leading-tight border border-tertiary-container/30">
+                  Enabled (Authenticator App)
+                </span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Row 2: Password & Authentication -->
+<a class="flex items-center justify-between p-3.5 hover:bg-surface-container transition-colors duration-150 active:scale-[0.99] group" href="#password">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface leading-snug">Password &amp; Authentication</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80">Updated 42 days ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Row 3: Email & Push Notification Matrix -->
+<a class="flex items-center justify-between p-3.5 hover:bg-surface-container transition-colors duration-150 active:scale-[0.99] group" href="#notifications">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface leading-snug">Email &amp; Push Matrix</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80">Instant alerts for sales &amp; DMs</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Row 4: Connected Accounts -->
+<a class="flex items-center justify-between p-3.5 hover:bg-surface-container transition-colors duration-150 active:scale-[0.99] group" href="#connections">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">hub</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-medium text-on-surface leading-snug">Connected Accounts</p>
+<div class="flex items-center gap-1.5 mt-0.5 text-on-surface-variant">
+<span class="inline-flex items-center justify-center w-4 h-4 rounded bg-surface-container-high text-[10px] font-bold">G</span>
+<span class="inline-flex items-center justify-center w-4 h-4 rounded bg-surface-container-high text-[10px] font-bold">GH</span>
+<span class="inline-flex items-center justify-center w-4 h-4 rounded bg-surface-container-high text-[10px] font-bold text-primary">S</span>
+<span class="font-label-sm text-[10px] text-outline ml-1">3 active</span>
+</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+<!-- Row 5: Active Sessions -->
+<a class="flex items-center justify-between p-3.5 hover:bg-surface-container transition-colors duration-150 active:scale-[0.99] group" href="#sessions">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">devices</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<p class="font-body-md text-body-md font-medium text-on-surface leading-snug">Active Sessions</p>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant/80 truncate max-w-[210px]">
+                  iPhone 16 Pro (This device) • San Francisco, CA
+                </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-[20px] group-hover:text-primary transition-colors">chevron_right</span>
+</a>
+</div>
+</section>
+<!-- Danger Zone -->
+<section class="space-y-space-sm">
+<div class="px-1 flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<h2 class="font-label-lg text-label-lg font-semibold tracking-tight">Danger Zone</h2>
+</div>
+<div class="bg-error-container/10 border border-error-container/30 rounded-xl p-space-sm space-y-space-xs">
+<!-- Sign Out of All Devices -->
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-error-container/20 active:scale-[0.98] transition-all text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[18px]">logout</span>
+<div>
+<p class="font-body-md text-body-md font-medium text-error">Sign Out of All Devices</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">Revoke tokens on active mobile &amp; studio web sessions</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-error/60 text-[18px]">chevron_right</span>
+</button>
+<!-- Deactivate Workspace -->
+<button class="w-full flex items-center justify-between p-3 rounded-lg hover:bg-error-container/20 active:scale-[0.98] transition-all text-left">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-[18px]">delete_forever</span>
+<div>
+<p class="font-body-md text-body-md font-medium text-error">Deactivate Workspace</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70">Archive creator portfolio, subscriptions and media vaults</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-error/60 text-[18px]">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Build Info Footer -->
+<div class="text-center pt-2 pb-4">
+<p class="font-label-sm text-label-sm text-outline-variant/60 tracking-wider uppercase">Creator OS Studio v4.19.2 (Build 2049)</p>
+</div>
+</main>
+<!-- BottomNavBar Component (Immutable Content from JSON Anchor) -->
+<!-- Destination 4: "Settings" is selected as ACTIVE matching this screen's context -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-gutter-sm pb-safe bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-8px_24px_rgba(0,0,0,0.6)]">
+<!-- Tab 1: Overview (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#overview">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-label-sm text-label-sm">Overview</span>
+</a>
+<!-- Tab 2: Products (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#products">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="font-label-sm text-label-sm">Products</span>
+</a>
+<!-- Tab 3: Billing (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100" href="#billing">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="font-label-sm text-label-sm">Billing</span>
+</a>
+<!-- Tab 4: Settings (Active - mapped by destination and contextual relevance) -->
+<a class="flex flex-col items-center justify-center text-primary font-medium gap-1 hover:text-primary transition-colors duration-150 active:scale-95 duration-100 relative" href="#settings">
+<!-- Ambient highlight dot -->
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+<span class="absolute -top-1 w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_#adc6ff]"></span>
+</a>
+</nav>
+</div>
+</body></html>

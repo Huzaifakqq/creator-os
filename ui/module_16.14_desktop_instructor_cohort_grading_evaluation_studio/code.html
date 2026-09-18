@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Module 16.14 Desktop Instructor Cohort Grading Studio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#002e6a",
+            "on-tertiary": "#003824",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "tertiary-container": "#00a572",
+            "background": "#131318",
+            "secondary-fixed": "#e9ddff",
+            "surface": "#131318",
+            "tertiary": "#4edea3",
+            "surface-variant": "#35343a",
+            "surface-container-high": "#2a292f",
+            "surface-tint": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "outline": "#8c909f",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "error-container": "#93000a",
+            "on-primary-fixed-variant": "#004395",
+            "primary": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-dim": "#131318",
+            "secondary-container": "#571bc1",
+            "surface-container-lowest": "#0e0e13",
+            "surface-container-highest": "#35343a",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary-fixed": "#002113",
+            "primary-fixed": "#d8e2ff",
+            "surface-bright": "#39383e",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "on-secondary-container": "#c4abff",
+            "on-error-container": "#ffdad6",
+            "on-error": "#690005",
+            "on-secondary-fixed": "#23005c",
+            "inverse-primary": "#005ac2",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "secondary": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #35343a;
+      height: 4px;
+      border-radius: 9999px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: #adc6ff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(173, 198, 255, 0.5);
+    }
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-hidden selection:bg-primary-container selection:text-on-primary">
+<div class="flex h-screen w-screen overflow-hidden bg-surface">
+<!-- Shared Component: SideNavBar -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-50 flex flex-col justify-between py-space-md px-space-sm bg-surface-container-lowest border-r border-outline-variant select-none">
+<div class="flex flex-col gap-space-md">
+<!-- Brand / Studio Organization Header -->
+<div class="flex items-center gap-space-sm px-space-sm py-space-xs">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">view_in_ar</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm text-primary font-bold">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Enterprise Space</span>
+</div>
+</div>
+<!-- Quick Record CTA from JSON -->
+<div class="px-space-xs">
+<button class="w-full flex items-center justify-center gap-space-sm py-2 px-space-md rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface border border-outline-variant font-label-md text-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">fiber_manual_record</span>
+<span>Quick Record</span>
+</button>
+</div>
+<!-- Primary Navigation Links (Active: Classroom) -->
+<nav class="flex flex-col gap-1 mt-2">
+<!-- 1: Dashboard -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2: Studio -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">palette</span>
+<span>Studio</span>
+</a>
+<!-- 3: Broadcast -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">sensors</span>
+<span>Broadcast</span>
+</a>
+<!-- 4: Classroom (ACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-high text-primary font-label-md text-label-md border-l-2 border-primary transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-semibold text-on-surface">Classroom</span>
+<span class="ml-auto text-label-sm font-label-sm px-1.5 py-0.5 rounded-full bg-primary-container text-on-primary">16</span>
+</a>
+<!-- 5: Community -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Community</span>
+</a>
+<!-- 6: CRM -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">contact_mail</span>
+<span>CRM</span>
+</a>
+<!-- 7: Analytics -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Analytics</span>
+</a>
+<!-- 8: Settings -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- SideNavBar Footer Tabs -->
+<div class="flex flex-col gap-1 border-t border-outline-variant pt-space-sm">
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined">signal_cellular_alt</span>
+<span class="flex-1">Status</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</a>
+</div>
+</aside>
+<!-- Main Content Container with Left Nav Offset -->
+<div class="flex-1 ml-64 flex flex-col h-screen overflow-hidden bg-background">
+<!-- Shared Component: TopNavBar -->
+<header class="flex justify-between items-center w-full px-space-lg h-14 sticky top-0 z-40 bg-surface-container-low border-b border-outline-variant">
+<!-- Search Bar on Left -->
+<div class="flex items-center gap-space-md w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface placeholder:text-outline text-body-sm font-body-sm pl-10 pr-4 py-1.5 rounded-lg border border-outline-variant focus:outline-none focus:border-primary" placeholder="Search cohorts, assignments, or student submissions (⌘K)..." type="text"/>
+</div>
+</div>
+<!-- Trailing Actions Cluster -->
+<div class="flex items-center gap-space-md">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-highest text-on-surface text-label-md font-label-md transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-error text-[18px]">cell_tower</span>
+<span>Go Live</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-container hover:brightness-105 text-on-primary font-label-md text-label-md transition-all duration-150 active:scale-[0.98] shadow-[0_0_16px_rgba(77,142,255,0.3)]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Create New</span>
+</button>
+<div class="h-5 w-[1px] bg-outline-variant"></div>
+<!-- JSON Trailing Icon Actions: notifications, tune, help -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button class="p-2 rounded-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="p-2 rounded-lg hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<!-- User profile avatar -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline object-cover" data-alt="High-resolution circular portrait of an expert cinema instructor in a dark obsidian studio setting, wearing charcoal headphones, illuminated by soft blue and neon violet rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm0V5u1FEq7ttL0Sa4UFUSGSXMKrDKPZGHfuJNLtGCgOLnfCrdiuMPzSAtRoxMJJjB-qjV66GxxSc-slyt-imk0252RBv064C2kVTTcolSiJmstgFqaP4ntrCuQ7ptuHPV43BLCfnkG1ULKXTU2TA-RoczjGfDBN_RomwwHl78ASnI0CdZAdfgNQwhz5FLmvLmplJP9QozP1lGyRaopdUCRYRI6IKTF3TwkRvXmc29eUcznv7MWKXwCA"/>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">Prof. Marcus Vance</span>
+<span class="text-[10px] text-tertiary">Senior Evaluator</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Sub-Header: Studio Context & Breadcrumbs -->
+<div class="px-space-lg py-2.5 bg-surface-container border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span>Cohort 24B</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span>Module 16: Cinematic Lighting &amp; Camera Motion</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">16.14 Studio Grading &amp; Evaluation Console</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-highest border border-outline-variant text-on-surface-variant">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Auto-Sync Enabled
+          </span>
+<span class="text-label-sm font-label-sm text-outline">Due: Oct 28, 2024</span>
+</div>
+</div>
+<!-- DUAL-PANE EVALUATION MASTER CONSOLE -->
+<main class="flex-1 flex overflow-hidden">
+<!-- LEFT PANE: Cohort Submission Queue & Distribution (380px fixed) -->
+<section class="w-[380px] border-r border-outline-variant bg-surface-container-lowest flex flex-col h-full flex-shrink-0">
+<!-- Assignment Meta & Micro Grade Distribution Chart -->
+<div class="p-4 border-b border-outline-variant bg-surface-container-low">
+<div class="flex items-start justify-between mb-2">
+<div>
+<h1 class="text-headline-sm font-headline-sm text-on-surface font-bold">16.14 Lab Submissions</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Anamorphic Key Framing &amp; Three-Point Setup</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm font-semibold">Active Studio</span>
+</div>
+<!-- Grade Distribution Micro-Chart Widget -->
+<div class="mt-3 p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<div class="flex justify-between items-center text-label-sm font-label-sm mb-1.5">
+<span class="text-on-surface-variant">Cohort Grade Curve</span>
+<span class="text-tertiary font-semibold">Avg: 88.4 / 100</span>
+</div>
+<!-- Bars container -->
+<div class="flex items-end gap-1.5 h-10 w-full pt-1 px-1">
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[20%] group relative">
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-1.5 py-0.5 bg-surface-bright text-[10px] rounded text-on-surface z-20">F (&lt;60)</div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[35%] group relative">
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-1.5 py-0.5 bg-surface-bright text-[10px] rounded text-on-surface z-20">D (60-69)</div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-sm h-[55%] group relative">
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-1.5 py-0.5 bg-surface-bright text-[10px] rounded text-on-surface z-20">C (70-79)</div>
+</div>
+<div class="flex-1 bg-primary-container rounded-t-sm h-[85%] group relative">
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-1.5 py-0.5 bg-surface-bright text-[10px] rounded text-on-surface z-20">B (80-89)</div>
+</div>
+<div class="flex-1 bg-tertiary rounded-t-sm h-[70%] group relative">
+<div class="hidden group-hover:block absolute bottom-full left-1/2 -translate-x-1/2 mb-1 px-1.5 py-0.5 bg-surface-bright text-[10px] rounded text-on-surface z-20">A (90-100)</div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-outline mt-1 font-mono">
+<span>&lt;60</span>
+<span>70</span>
+<span>80</span>
+<span>90</span>
+<span>100</span>
+</div>
+</div>
+<!-- Search and Filter Bar -->
+<div class="mt-3 flex flex-col gap-2">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[16px]">search</span>
+<input class="w-full bg-surface-container text-on-surface placeholder:text-outline text-body-sm font-body-sm pl-8 pr-3 py-1.5 rounded border border-outline-variant focus:outline-none focus:border-primary" placeholder="Filter cohort (e.g., Sarah Jenkins)..." type="text"/>
+</div>
+<!-- Status filter pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto text-label-sm font-label-sm pt-0.5">
+<button class="px-2.5 py-1 rounded-full bg-primary/20 text-primary border border-primary/40 font-semibold shrink-0">
+                  All (28)
+                </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0">
+                  Pending Review (7)
+                </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0">
+                  Graded (18)
+                </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant border border-outline-variant shrink-0">
+                  Resubmitted (3)
+                </button>
+</div>
+</div>
+</div>
+<!-- Student Submission List (Scrollable) -->
+<div class="flex-1 overflow-y-auto divide-y divide-outline-variant/60">
+<!-- Item 1: ACTIVE SELECTED (Elena Rostova) -->
+<div class="p-3 bg-surface-container-high/90 border-l-4 border-primary cursor-pointer transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Elena Rostova Avatar" class="w-9 h-9 rounded-full object-cover border border-primary" data-alt="Headshot of a female digital cinema student with sleek dark hair and creative glasses against a minimalist charcoal studio backdrop with subtle blue lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjuq4U53RlFKYb0R_J3O8JRwLiVgJSaETxX-JEkR9vPnGdWVNwhthbdxu3KQkqemEKwuyyyxH-TeLnGJhQv3FTKNYd0F6eIBAtX_xOJM43Z7Vce3o7_rsR2a_2mcVxZMAZohn73M-BNksMnkwxrdbUm4OY9kyT5wHkDVYEsrGF8Dy4uOb2PoKEJtyfv6zR8Wb7pz41rKwc1i70DKTk_O-duN4SyVBsRrqk5dZV3sNJJL85xSv4zJBJmg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-primary ring-2 ring-surface-container-high"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md font-semibold text-on-surface truncate">Elena Rostova</span>
+<span class="text-label-sm font-label-sm font-bold text-tertiary bg-tertiary-container/30 px-1.5 py-0.5 rounded border border-tertiary/40">94/100 (A)</span>
+</div>
+<div class="flex items-center justify-between mt-0.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="truncate text-outline">v2_Final_GradingCut.mp4</span>
+<span class="text-[11px] text-outline">12m ago</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">HDR10 Pro</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">3 Assets</span>
+<span class="text-primary font-medium ml-auto flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">edit_note</span> Evaluating
+                </span>
+</div>
+</div>
+<!-- Item 2: Pending Review (Marcus Chen) -->
+<div class="p-3 hover:bg-surface-container-high/40 cursor-pointer transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Marcus Chen Avatar" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="Portrait of an Asian male student in audio and video engineering with casual dark hoodie and amber ambient studio lighting in a dark room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Flk4cqGfxKGgcdcdGgvcBoMm_yc4BOOnY97WxKmfIxdVNX9nwWtnvwwOQCOQ8H0htCDPrJHUHw1Qn2tDpjPaXhF63TO2giYN4DXe2AcuSDooP3wDbGecBewP0IpJSrZf5d4TR0fpPOmjsK7-DuOA1LTTvKw9BnW3uzU-kzMHK8j52YNWKjKwR1nF_5R_Gxsu_QKSQyPQaB661cWQbLCnruhMWgjMxnDps-h6xUaV5stehP7v15ZmvA"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-outline ring-2 ring-surface-container-low"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md font-medium text-on-surface truncate">Marcus Chen</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant">Pending</span>
+</div>
+<div class="flex items-center justify-between mt-0.5 text-body-sm font-body-sm text-outline">
+<span class="truncate">ColorPass_Render_v1.mov</span>
+<span class="text-[11px]">42m ago</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">Rec.709</span>
+<span class="text-outline ml-auto">Needs Rubric Review</span>
+</div>
+</div>
+<!-- Item 3: Resubmitted (Siddharth Nair) -->
+<div class="p-3 hover:bg-surface-container-high/40 cursor-pointer transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Siddharth Nair Avatar" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="Portrait of a young male creative director with neatly styled hair in a modern editing room illuminated with emerald and indigo ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXeNHghMcEmoSvgHIPN-_gyGqWc6uFyiGyi_g1NleM8JymdJBVvkrOHHY1L8i_fksPmIBqJJp_FtematXh5n-RsnsmnWMlc1_Z-cl6tM-PZUkXI_Gr8Ec2gh8F5jQtzQ9fGSsjOHrzUalrEFFu9vzvP4P-plwWLAlRS2oFX3sReuIjMnsAf366CbRqzgJEtASFA2TF_2GLoi8rhWH5T6yMyuRftyELCRj8pQ41yCG8mJUMdXnHVWykjQ"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface-container-low"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md font-medium text-on-surface truncate">Siddharth Nair</span>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-container/40 px-1.5 py-0.5 rounded border border-secondary-container">Resubmitted</span>
+</div>
+<div class="flex items-center justify-between mt-0.5 text-body-sm font-body-sm text-outline">
+<span class="truncate">Revision_LumaKey_Fixed.mov</span>
+<span class="text-[11px]">2h ago</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">Prev: 78/100</span>
+<span class="text-secondary ml-auto font-medium">Updated Code Diff</span>
+</div>
+</div>
+<!-- Item 4: Graded (Aaliyah Patel) -->
+<div class="p-3 hover:bg-surface-container-high/40 cursor-pointer transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="Aaliyah Patel Avatar" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="Portrait of a creative South Asian woman in a dark workspace studio looking directly at the camera with sharp professional soft rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDui7VAbQ5-6dCSNW7z7ToghyhNIhw1MCT3_Ee0mfCeuJaGYX5H3uV7s68UjFcpJCY86V8oD7pMDAq0nLz7f22Ksk9BsicezjbhQvtg8Jrx_x2eJi85ZZQR3UVR3LTDQSenMNKWfDBFaovhWG8alxOUUEP6XfrirQkbwsBofib_n_CEA27QGlmZcY1odeZA_1o63Hd5tzhIn2St-iUH8rIga4vnptwEGwAmUGJcJPe05zszR7qG7c7LUg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md font-medium text-on-surface truncate">Aaliyah Patel</span>
+<span class="text-label-sm font-label-sm font-bold text-tertiary bg-tertiary-container/30 px-1.5 py-0.5 rounded border border-tertiary/40">98/100 (A+)</span>
+</div>
+<div class="flex items-center justify-between mt-0.5 text-body-sm font-body-sm text-outline">
+<span class="truncate">MasterExport_DCI4K.mp4</span>
+<span class="text-[11px]">3h ago</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">Graded by Vance</span>
+<span class="text-tertiary ml-auto flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]">check_circle</span> Published
+                </span>
+</div>
+</div>
+<!-- Item 5: Pending Review (David Kim) -->
+<div class="p-3 hover:bg-surface-container-high/40 cursor-pointer transition-colors">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img alt="David Kim Avatar" class="w-9 h-9 rounded-full object-cover border border-outline-variant" data-alt="Portrait of a male multimedia design student in a dark room with purple backlighting and focused creative expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEmACcwLCrV0Kl1-A8bUK12sUIaF3lBsz7pCmaCr-PY0FhAFhtqSj0hTmVNbc5YwhmVxOytkfSTWC_IZQiLerljEjyAdchwfEqoYar1GDC1gsS19LyPci9Cj79ZjjM4WPPQDz11wkxESJK_w3g3Hyh-eRACXoWXWVrh8PXg-vQgGawUchKY1PsDzL_s8uByh4uvJAppjXi2KIMYiqeYNqAB45NqHPRYkgQBfRRKFYesulkm1lJ51FM1Q"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-md font-body-md font-medium text-on-surface truncate">David Kim</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded border border-outline-variant">Pending</span>
+</div>
+<div class="flex items-center justify-between mt-0.5 text-body-sm font-body-sm text-outline">
+<span class="truncate">Scene_ShadingPass_04.mov</span>
+<span class="text-[11px]">4h ago</span>
+</div>
+</div>
+</div>
+<div class="mt-2 flex items-center gap-2 text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant border border-outline-variant">LUT Attached</span>
+<span class="text-outline ml-auto">Needs Rubric Review</span>
+</div>
+</div>
+</div>
+<!-- Queue Footer Status -->
+<div class="p-3 bg-surface-container-low border-t border-outline-variant flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Showing 5 of 28 records</span>
+<button class="text-primary hover:underline flex items-center gap-0.5">
+<span>Next Cohort</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- CENTER / RIGHT PANE: Deep Evaluation Studio Workspace (Scrollable Canvas) -->
+<section class="flex-1 flex flex-col h-full overflow-hidden bg-background">
+<!-- Workspace Student Context Ribbon -->
+<div class="px-6 py-3 bg-surface-container-low border-b border-outline-variant flex items-center justify-between shrink-0">
+<div class="flex items-center gap-4">
+<img alt="Elena Rostova Context" class="w-10 h-10 rounded-full border border-primary object-cover" data-alt="Close up profile picture of student Elena Rostova in dark film production studio, with studio monitor reflections and ambient obsidian glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5-rVJqrI_3IwoAkhHecoOXrYiSo0OxIrZrIwTObQcvNfJOD3Dtg8S9uXzhoEPM-S7rVyTM51ssVG1dUoxMaj4pUlMGX3E4yH6byMHikunv-wDqji30vg_U9eLQyca5CjM81ABeGRKlZRv7x5HL68AxhEhIbsYfdQR_zNwpFoL66uLpyqP1duV4KjAxD5r3eOHZg4x37JCi_el9-ccEpBK5X60fBB3q0QunaPYDB5KTgrhSjGj7_6JCg"/>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold">Elena Rostova</h2>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant text-[11px] font-mono border border-outline-variant">ID: ST-88491</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary border border-tertiary/40 text-[11px] font-semibold">Ready for Final Sign-Off</span>
+</div>
+<div class="flex items-center gap-3 text-body-sm font-body-sm text-outline mt-0.5">
+<span>Submitted: Oct 26, 2024 · 14:32 PST</span>
+<span>•</span>
+<span>Attempt 2 of 3</span>
+<span>•</span>
+<a class="text-primary hover:underline flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[14px]">history</span> Revision History (3)
+                  </a>
+</div>
+</div>
+</div>
+<!-- Header Quick Jump Actions -->
+<div class="flex items-center gap-2">
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface" title="Previous Student">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface" title="Next Student">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high text-label-md font-label-md">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Download Assets (.zip)</span>
+</button>
+</div>
+</div>
+<!-- Main Scrollable Canvas: Artifact Viewer + Rubric & Feedback Studio -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6">
+<!-- BENTO ROW 1: Artifact Inspection Workspace (Media Player & Code/Asset Tabs) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Video Artifact Player with Timestamped Feedback Markers (8 cols) -->
+<div class="col-span-12 xl:col-span-8 rounded-xl bg-surface-container-lowest border border-outline-variant overflow-hidden flex flex-col shadow-2xl">
+<!-- Media Player Top Utility Bar -->
+<div class="px-4 py-2.5 bg-surface-container-low border-b border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">videocam</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Render Playback: Cinematic Sequence Final</span>
+<span class="text-body-sm font-body-sm text-outline font-mono">00:03:42:18 / 00:05:12:00</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container border border-outline-variant text-tertiary">4K ProRes 422 HQ</span>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[18px]">settings</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-on-surface"><span class="material-symbols-outlined text-[18px]">fullscreen</span></button>
+</div>
+</div>
+<!-- Video Viewport Frame -->
+<div class="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
+<img alt="Student Video Render" class="w-full h-full object-cover" data-alt="High quality film still of a dramatic cinematic interior sci-fi scene with blue volumetric rim lighting, deep obsidian shadows, warm practical tungsten backlight, and sharp depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuDpsVYWTxvUXQATrjaI6I-vTOXl090kQD7d-qM3Klg20Y9cMd4XUdVayIa600bsRjHHR-Cp9gSjusk8C4y3NT9HPz57Vlklnywq0QpqoLRzZ_QKn5_6tQ1v8WGtkA85S2Ju2Ghv7Dw1vSflSAe301qvH8_oazjryTw8BnvYduN1PPoiy8RAdV1v_qCRdDwd_WlDNas0sSJYMb4BmIB17EascRPwh_-IUVMqzT51GuJnHf0DyAf_UW2Q"/>
+<!-- Video Overlay Heads Up Display -->
+<div class="absolute top-3 left-3 px-2 py-1 rounded bg-black/70 backdrop-blur-md border border-white/10 text-label-sm font-label-sm text-on-surface font-mono flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span>REC 709 · F/1.8 · 5600K</span>
+</div>
+<!-- Central Play / Scrub trigger -->
+<button class="w-14 h-14 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border border-white/20 text-white flex items-center justify-center transition-transform transform group-hover:scale-110 shadow-lg">
+<span class="material-symbols-outlined text-[32px] ml-1" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Timestamped Review Marker Pins pinned on preview overlay -->
+<div class="absolute bottom-12 left-1/4 -translate-x-1/2 flex flex-col items-center group/pin">
+<div class="hidden group-hover/pin:flex px-2 py-1 rounded bg-surface-bright text-white text-[11px] font-sans shadow-lg mb-1 whitespace-nowrap border border-white/10">
+<span>01:14 — "Lighting ratio drops 2 stops here"</span>
+</div>
+<div class="w-3.5 h-3.5 rounded-full bg-primary ring-4 ring-primary/30 flex items-center justify-center cursor-pointer">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+</div>
+<div class="absolute bottom-12 left-2/3 -translate-x-1/2 flex flex-col items-center group/pin2">
+<div class="hidden group-hover/pin2:flex px-2 py-1 rounded bg-surface-bright text-white text-[11px] font-sans shadow-lg mb-1 whitespace-nowrap border border-white/10">
+<span>03:22 — "Camera pan stabilization is immaculate!"</span>
+</div>
+<div class="w-3.5 h-3.5 rounded-full bg-tertiary ring-4 ring-tertiary/30 flex items-center justify-center cursor-pointer">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+</div>
+</div>
+<!-- Video Controls Bar -->
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-3 flex flex-col gap-1.5">
+<!-- Progress track with markers -->
+<div class="relative w-full h-1.5 bg-white/20 rounded-full cursor-pointer flex items-center">
+<div class="h-full bg-primary rounded-full w-[65%]"></div>
+<div class="absolute left-[25%] w-2 h-2 rounded-full bg-primary-fixed ring-2 ring-black"></div>
+<div class="absolute left-[65%] w-3 h-3 rounded-full bg-white shadow-md"></div>
+<div class="absolute left-[78%] w-2 h-2 rounded-full bg-tertiary ring-2 ring-black"></div>
+</div>
+<!-- Transport buttons -->
+<div class="flex items-center justify-between text-white text-xs pt-1">
+<div class="flex items-center gap-3">
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[20px]">replay_10</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[22px]">play_arrow</span></button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[20px]">forward_10</span></button>
+<span class="font-mono text-white/80">03:22 / 05:12</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1 px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 text-white text-[11px]">
+<span class="material-symbols-outlined text-[14px]">add_comment</span> Add Marker
+                        </button>
+<button class="hover:text-primary"><span class="material-symbols-outlined text-[18px]">volume_up</span></button>
+</div>
+</div>
+</div>
+</div>
+<!-- Timeline Marker Legend & Quick Jump Strip -->
+<div class="px-4 py-2 bg-surface-container-low border-t border-outline-variant flex items-center justify-between text-body-sm font-body-sm">
+<div class="flex items-center gap-4 text-outline">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-primary"></span> 2 Instructor Markers
+                    </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span> 1 Student Question Marker
+                    </span>
+</div>
+<button class="text-primary hover:underline text-label-sm font-label-sm flex items-center gap-1">
+<span>Jump to Next Anomaly</span>
+<span class="material-symbols-outlined text-[14px]">skip_next</span>
+</button>
+</div>
+</div>
+<!-- Artifact Submissions & Code Diff Inspector (4 cols) -->
+<div class="col-span-12 xl:col-span-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex flex-col shadow-xl">
+<!-- Segmented Tabs -->
+<div class="flex border-b border-outline-variant bg-surface-container-low">
+<button class="flex-1 py-2.5 px-3 text-center font-label-md text-label-md font-semibold text-primary border-b-2 border-primary bg-surface-container-high/40 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">code</span>
+<span>Shader Code Diff</span>
+</button>
+<button class="flex-1 py-2.5 px-3 text-center font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">folder_zip</span>
+<span>Master Assets (4)</span>
+</button>
+</div>
+<!-- Code Submissions Inline Diff View -->
+<div class="flex-1 p-3 overflow-y-auto font-mono text-[12px] bg-[#0A0A0F] text-on-surface leading-relaxed">
+<div class="text-outline text-[11px] pb-2 mb-2 border-b border-outline-variant flex justify-between">
+<span>lighting_lut_matrix.glsl (v1 vs v2)</span>
+<span class="text-tertiary">+14 lines</span>
+</div>
+<!-- Diff Lines -->
+<div class="space-y-0.5">
+<div class="text-outline opacity-50">12  uniform mat4 u_WorldMatrix;</div>
+<div class="text-outline opacity-50">13  uniform vec3 u_KeyLightDirection;</div>
+<div class="bg-error/15 text-error px-1 -mx-1 rounded-sm flex">
+<span class="w-5 select-none text-error/60">-14</span>
+<span>float diffuse = max(dot(norm, u_KeyLightDirection), 0.0);</span>
+</div>
+<div class="bg-tertiary/15 text-tertiary px-1 -mx-1 rounded-sm flex">
+<span class="w-5 select-none text-tertiary/60">+14</span>
+<span>// Adjusted falloff curve for anamorphic bloom</span>
+</div>
+<div class="bg-tertiary/15 text-tertiary px-1 -mx-1 rounded-sm flex">
+<span class="w-5 select-none text-tertiary/60">+15</span>
+<span>float diffuse = pow(max(dot(norm, u_KeyLightDirection), 0.0), 1.8);</span>
+</div>
+<div class="bg-tertiary/15 text-tertiary px-1 -mx-1 rounded-sm flex">
+<span class="w-5 select-none text-tertiary/60">+16</span>
+<span>vec3 specularTerm = cookTorranceSpecular(norm, viewDir, 0.45);</span>
+</div>
+<div class="text-outline opacity-50">17  color.rgb += diffuse * u_KeyLightColor;</div>
+<div class="text-outline opacity-50">18  color.rgb += specularTerm * 0.85;</div>
+<div class="text-outline opacity-50">19  gl_FragColor = vec4(aces_tonemap(color.rgb), 1.0);</div>
+</div>
+</div>
+<!-- Attached File Summary Cards -->
+<div class="p-3 bg-surface-container-low border-t border-outline-variant space-y-2">
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container border border-outline-variant">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-primary text-[18px]">description</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Lighting_Diagram_Rostova.pdf</span>
+</div>
+<span class="text-[11px] text-outline">2.4 MB</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container border border-outline-variant">
+<div class="flex items-center gap-2 min-w-0">
+<span class="material-symbols-outlined text-tertiary text-[18px]">brush</span>
+<span class="text-label-sm font-label-sm text-on-surface truncate">Grade_Profile_Cube.cube</span>
+</div>
+<span class="text-[11px] text-outline">18 KB</span>
+</div>
+</div>
+</div>
+</div>
+<!-- BENTO ROW 2: Interactive Multi-Criteria Rubric & Real-Time Matrix -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant p-6 shadow-xl">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b border-outline-variant">
+<div>
+<h3 class="text-headline-md font-headline-md text-on-surface font-bold">Interactive Evaluation Rubric</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Allocated weighting mapped directly to Module 16 Learning Objectives</p>
+</div>
+<!-- Rubric quick preset & calculation badge -->
+<div class="flex items-center gap-3">
+<button class="px-3 py-1 rounded bg-surface-container-highest hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant">
+                    Apply Standard Grading Benchmark
+                  </button>
+<div class="px-3 py-1.5 rounded-lg bg-surface-container-lowest border border-primary/40 flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-outline">Subtotal:</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">94.0</span>
+<span class="text-label-sm font-label-sm text-outline">/ 100 pts</span>
+</div>
+</div>
+</div>
+<!-- Rubric Criteria Matrix Rows -->
+<div class="mt-5 space-y-4">
+<!-- Criteria 1: Lighting Ratio & Key-to-Fill Calibration (Weight: 30%) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-outline transition-colors">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-label-sm font-label-sm font-semibold">30 pts</span>
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Key-to-Fill Contrast Ratio &amp; High-Key Accuracy</h4>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Calibration of primary 3:1 illumination balance, specular roll-off, and elimination of secondary spill.</p>
+</div>
+<!-- Slider & Numeric Point Allocation Input -->
+<div class="flex items-center gap-4 min-w-[280px]">
+<input class="flex-1 accent-primary" max="30" min="0" oninput="this.nextElementSibling.children[0].value = this.value" type="range" value="28"/>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-outline-variant">
+<input class="w-10 bg-transparent text-center text-label-md font-label-md font-bold text-primary border-none p-0 focus:ring-0" max="30" min="0" type="number" value="28"/>
+<span class="text-[12px] text-outline">/ 30</span>
+</div>
+</div>
+</div>
+<!-- Quick Level Pills -->
+<div class="mt-3 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="text-outline text-[11px]">Quick Benchmarks:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Deficient (15)</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Proficient (24)</button>
+<button class="px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold">Exemplary (28)</button>
+</div>
+</div>
+<!-- Criteria 2: Color Temperature & ACES Grade Pipeline (Weight: 30%) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-outline transition-colors">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-label-sm font-label-sm font-semibold">30 pts</span>
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">ACES Color Pipeline Integrity &amp; Skin Tone Vector</h4>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Proper Rec.709/ACEScc transform, chromatic alignment across consecutive shots, and skin line adherence.</p>
+</div>
+<!-- Slider & Numeric Point Allocation Input -->
+<div class="flex items-center gap-4 min-w-[280px]">
+<input class="flex-1 accent-primary" max="30" min="0" type="range" value="29"/>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-outline-variant">
+<input class="w-10 bg-transparent text-center text-label-md font-label-md font-bold text-primary border-none p-0 focus:ring-0" max="30" min="0" type="number" value="29"/>
+<span class="text-[12px] text-outline">/ 30</span>
+</div>
+</div>
+</div>
+<!-- Quick Level Pills -->
+<div class="mt-3 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="text-outline text-[11px]">Quick Benchmarks:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Deficient (18)</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Proficient (25)</button>
+<button class="px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold">Mastery (29)</button>
+</div>
+</div>
+<!-- Criteria 3: Camera Motion Consistency & Framing Geometry (Weight: 25%) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-outline transition-colors">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-label-sm font-label-sm font-semibold">25 pts</span>
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Gimbal/Dolly Rig Smoothness &amp; Composition Grid</h4>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Pacing of rotational pan, dynamic focal depth shifts, and subject tracking consistency.</p>
+</div>
+<!-- Slider & Numeric Point Allocation Input -->
+<div class="flex items-center gap-4 min-w-[280px]">
+<input class="flex-1 accent-primary" max="25" min="0" type="range" value="23"/>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-outline-variant">
+<input class="w-10 bg-transparent text-center text-label-md font-label-md font-bold text-primary border-none p-0 focus:ring-0" max="25" min="0" type="number" value="23"/>
+<span class="text-[12px] text-outline">/ 25</span>
+</div>
+</div>
+</div>
+<!-- Quick Level Pills -->
+<div class="mt-3 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="text-outline text-[11px]">Quick Benchmarks:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Passable (18)</button>
+<button class="px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold">High Pass (23)</button>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Distinction (25)</button>
+</div>
+</div>
+<!-- Criteria 4: Technical Asset Hygiene & Documentation (Weight: 15%) -->
+<div class="p-4 rounded-lg bg-surface-container-lowest border border-outline-variant hover:border-outline transition-colors">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-primary/20 text-primary text-label-sm font-label-sm font-semibold">15 pts</span>
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Code Modularity, LUT Packaging &amp; Documentation</h4>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-1">Naming conventions, shader comment readability, PDF schematic completeness.</p>
+</div>
+<!-- Slider & Numeric Point Allocation Input -->
+<div class="flex items-center gap-4 min-w-[280px]">
+<input class="flex-1 accent-primary" max="15" min="0" type="range" value="14"/>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-outline-variant">
+<input class="w-10 bg-transparent text-center text-label-md font-label-md font-bold text-primary border-none p-0 focus:ring-0" max="15" min="0" type="number" value="14"/>
+<span class="text-[12px] text-outline">/ 15</span>
+</div>
+</div>
+</div>
+<!-- Quick Level Pills -->
+<div class="mt-3 flex items-center gap-2 text-label-sm font-label-sm">
+<span class="text-outline text-[11px]">Quick Benchmarks:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container text-outline hover:text-on-surface">Standard (10)</button>
+<button class="px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/30 font-semibold">Exceptional (14)</button>
+</div>
+</div>
+</div>
+</div>
+<!-- BENTO ROW 3: Dual Feedback Matrix (Rich Text Presets + Audio Voice Critique + Grade Summary) -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Left Section: Instructor Private Feedback & Rich Presets (8 cols) -->
+<div class="col-span-12 xl:col-span-8 rounded-xl bg-surface-container-low border border-outline-variant p-6 flex flex-col justify-between shadow-xl">
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">rate_review</span>
+<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold">Instructor Comprehensive Critique</h4>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Markdown Supported</span>
+</div>
+<!-- Quick Feedback Snippet Presets -->
+<div class="mb-3">
+<span class="text-[11px] text-outline block mb-1.5 uppercase tracking-wider font-semibold">One-Click Studio Presets:</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary">add</span>
+<span>Great lighting ratio</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">add</span>
+<span>Refine color balance</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">add</span>
+<span>Shadow roll-off is smooth</span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm border border-outline-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-error">add</span>
+<span>Watch tungsten clip at 02:18</span>
+</button>
+</div>
+</div>
+<!-- Text Feedback Editor -->
+<div class="rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden focus-within:border-primary">
+<div class="px-3 py-2 bg-surface-container border-b border-outline-variant flex items-center gap-2 text-outline">
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">format_bold</span></button>
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">format_italic</span></button>
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">code</span></button>
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[16px]">link</span></button>
+<span class="ml-auto text-[11px] text-outline">Private to Student &amp; TAs</span>
+</div>
+<textarea class="w-full bg-transparent p-3 text-body-md font-body-md text-on-surface placeholder:text-outline border-none focus:ring-0 focus:outline-none resize-none leading-relaxed" placeholder="Provide qualitative feedback, suggestions for the master portfolio cut, and next steps..." rows="4">Elena, sensational work on this second iteration. The adjustment to the shader specular coefficient (lines 14-16) completely resolved the plastic highlight issue from submission v1. Your three-point key ratio holds up wonderfully even in the low-key corridor sequence. Highly recommend locking this grade for your capstone showcase.</textarea>
+</div>
+</div>
+<!-- Integrated Audio Voice Critique Recorder -->
+<div class="mt-4 p-3 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="w-9 h-9 rounded-full bg-error hover:brightness-110 text-white flex items-center justify-center transition-transform active:scale-95 shadow-[0_0_12px_rgba(239,68,68,0.4)]">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-semibold text-on-surface">Voice Critique Note</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-[11px] font-mono text-tertiary">01:18 recorded</span>
+</div>
+<span class="text-[11px] text-outline">Waveform attached to submission feedback packet</span>
+</div>
+</div>
+<!-- Waveform Mockup -->
+<div class="flex items-center gap-1 h-6 px-3 bg-surface-container-lowest rounded border border-outline-variant">
+<div class="w-1 bg-tertiary h-2 rounded-full"></div>
+<div class="w-1 bg-tertiary h-5 rounded-full"></div>
+<div class="w-1 bg-tertiary h-3 rounded-full"></div>
+<div class="w-1 bg-tertiary h-6 rounded-full"></div>
+<div class="w-1 bg-tertiary h-4 rounded-full"></div>
+<div class="w-1 bg-tertiary h-2 rounded-full"></div>
+<div class="w-1 bg-tertiary h-5 rounded-full"></div>
+<div class="w-1 bg-tertiary h-3 rounded-full"></div>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<button class="p-1 hover:text-on-surface"><span class="material-symbols-outlined text-[18px]">play_arrow</span></button>
+<button class="p-1 hover:text-error"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+</div>
+</div>
+</div>
+<!-- Right Section: Grade Summary Calculation Widget & Sticky Actions (4 cols) -->
+<div class="col-span-12 xl:col-span-4 rounded-xl bg-surface-container-low border border-outline-variant p-6 flex flex-col justify-between shadow-xl">
+<div>
+<h4 class="text-headline-sm font-headline-sm text-on-surface font-bold mb-1">Final Grade Summary</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">Module 16 Weighted Evaluation</p>
+<!-- Giant Score Indicator with Emerald Badge -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Final Calculation</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-display-lg font-display-lg font-bold text-tertiary">94</span>
+<span class="text-headline-sm font-headline-sm text-outline">/ 100</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span> Top 5% of Cohort
+                      </span>
+</div>
+<!-- Grade Letter Pill -->
+<div class="flex flex-col items-center justify-center w-20 h-20 rounded-2xl bg-tertiary-container/20 border-2 border-tertiary/40 shadow-[0_0_20px_rgba(78,222,163,0.15)]">
+<span class="text-display-lg font-display-lg font-extrabold text-tertiary">A</span>
+<span class="text-[10px] uppercase font-bold text-tertiary/80 tracking-wider">Honors</span>
+</div>
+</div>
+<!-- Breakdown List -->
+<div class="mt-4 space-y-2 text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex justify-between py-1 border-b border-outline-variant/40">
+<span>Lighting &amp; High-Key:</span>
+<span class="font-mono text-on-surface font-semibold">28 / 30</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/40">
+<span>ACES &amp; Color Pipeline:</span>
+<span class="font-mono text-on-surface font-semibold">29 / 30</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/40">
+<span>Camera Motion &amp; Rig:</span>
+<span class="font-mono text-on-surface font-semibold">23 / 25</span>
+</div>
+<div class="flex justify-between py-1">
+<span>Asset Modularity &amp; Docs:</span>
+<span class="font-mono text-on-surface font-semibold">14 / 15</span>
+</div>
+</div>
+</div>
+<!-- Sticky Primary Submission Actions -->
+<div class="mt-6 pt-4 border-t border-outline-variant space-y-2.5">
+<button class="w-full py-3 px-4 rounded-lg bg-primary-container hover:brightness-105 text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 transition-all duration-150 active:scale-[0.98] shadow-[0_0_24px_rgba(77,142,255,0.4)]">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Publish Grade &amp; Feedback</span>
+</button>
+<div class="flex gap-2">
+<button class="flex-1 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center justify-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-outline text-[16px]">cached</span>
+<span>Request Revision</span>
+</button>
+<button class="px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-outline hover:text-on-surface transition-colors" title="Save as Draft">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+</body></html>

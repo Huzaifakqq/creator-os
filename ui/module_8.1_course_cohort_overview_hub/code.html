@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Courses &amp; Educational Cohorts — Creator OS</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#8c909f",
+            "on-surface": "#e4e1e9",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "primary": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "primary-container": "#4d8eff",
+            "surface-container-high": "#2a292f",
+            "primary-fixed": "#d8e2ff",
+            "on-primary": "#002e6a",
+            "on-primary-container": "#00285d",
+            "on-primary-fixed": "#001a42",
+            "surface-tint": "#adc6ff",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "secondary": "#d0bcff",
+            "on-background": "#e4e1e9",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-error": "#690005",
+            "on-tertiary-fixed": "#002113",
+            "error": "#ffb4ab",
+            "on-tertiary-container": "#00311f",
+            "inverse-on-surface": "#303036",
+            "tertiary": "#4edea3",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "outline-variant": "#424754",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "secondary-container": "#571bc1",
+            "surface": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#6ffbbe",
+            "error-container": "#93000a",
+            "surface-container-highest": "#35343a",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container": "#1f1f25",
+            "surface-container-lowest": "#0e0e13",
+            "background": "#131318"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased min-h-screen flex selection:bg-primary selection:text-on-primary">
+<!-- ================= SIDEBAR NAVIGATION (SHARED COMPONENT: SideNavBar) ================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 border-r border-outline-variant dark:border-outline-variant shadow-none bg-surface dark:bg-surface">
+<div class="w-64 h-full flex flex-col justify-between p-4 bg-surface dark:bg-surface">
+<!-- Top Workspace / Brand Block -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 py-1.5">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-headline-sm text-headline-sm font-bold text-primary">
+            OS
+          </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Acme Studios</span>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium shadow-[0_0_16px_rgba(59,130,246,0.35)] hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+          New Project
+        </button>
+<!-- Navigation Links (15 tabs, 'Courses' active) -->
+<nav class="flex flex-col gap-1 custom-scrollbar overflow-y-auto max-h-[calc(100vh-280px)] pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">folder_shared</span>
+<span class="font-label-md text-label-md">Workspaces</span>
+</a>
+<!-- 3. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses (ACTIVE ITEM) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-medium transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="font-label-md text-label-md font-medium">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Help & Documentation Links -->
+<div class="pt-3 border-t border-outline-variant/60 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ================= MAIN VIEWPORT CANVAS ================= -->
+<div class="flex-1 flex flex-col min-w-0 pl-64">
+<!-- ================= TOP NAV BAR (SHARED COMPONENT: TopNavBar) ================= -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant dark:border-outline-variant bg-surface dark:bg-surface flex items-center justify-between px-6 backdrop-blur-md bg-opacity-95">
+<!-- Search on Left -->
+<div class="flex items-center gap-3 w-80">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md h-[34px] pl-9 pr-3 text-white placeholder-outline text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search cohorts, students, lessons..." type="text"/>
+</div>
+</div>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-4">
+<!-- Quick Help Action -->
+<button class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container text-label-md font-label-md transition-colors">
+<span class="material-symbols-outlined text-[16px]">help</span>
+          Quick Help
+        </button>
+<!-- Notification Icon -->
+<button class="p-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant/60"></div>
+<!-- User Avatar & Identifier -->
+<div class="flex items-center gap-2.5 cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] p-[1.5px]">
+<div class="w-full h-full rounded-full bg-[#12121A] flex items-center justify-center text-primary font-bold text-label-sm">
+              HK
+            </div>
+</div>
+<span class="text-on-surface font-label-md text-label-md hidden sm:inline-block">Huzaifa Khan</span>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- ================= MAIN SCROLLABLE CONTENT CANVAS ================= -->
+<main class="flex-1 p-6 md:p-8 space-y-6 max-w-[1360px] mx-auto w-full">
+<!-- Breadcrumbs & Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-[#1E1E2E]/80">
+<div class="space-y-1.5">
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-outline">
+<a class="hover:text-primary transition-colors" href="#">Courses</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface">All Courses &amp; Cohorts</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight">Courses &amp; Educational Cohorts</h1>
+<p class="font-body-md text-body-md text-outline max-w-3xl">
+            Create structured learning tracks, manage cohort admissions, track student engagement, and monetize live bootcamps.
+          </p>
+</div>
+<!-- Top Action Buttons -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="flex items-center gap-2 h-10 px-4 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:bg-[#1E1E2E] text-label-md font-label-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">download</span>
+            Export Student CSV
+          </button>
+<button class="flex items-center gap-2 h-10 px-4 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:bg-[#1E1E2E] text-label-md font-label-md transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[18px]">insights</span>
+            Curriculum Analytics
+          </button>
+<button class="flex items-center gap-2 h-10 px-4 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium shadow-[0_0_20px_-4px_rgba(59,130,246,0.4)] hover:brightness-105 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+            + Create New Course
+          </button>
+</div>
+</div>
+<!-- ================= KPI METRICS ROW (4 Cards) ================= -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1: Total Enrolled Students -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[#3B82F6]/50 transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-outline">Total Enrolled Students</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 border border-tertiary/40 text-tertiary">
+<span class="material-symbols-outlined text-[12px]">trending_up</span>
+              +18.4%
+            </span>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">3,842</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">Across 6 active curriculums</p>
+</div>
+</div>
+<!-- Card 2: Course Revenue (LTV) -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[#3B82F6]/50 transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-outline">Course Revenue (LTV)</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/40 text-primary">
+              +$14.2k this cohort
+            </span>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">$142,850</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">Average student spend $285</p>
+</div>
+</div>
+<!-- Card 3: Avg. Completion Rate -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[#3B82F6]/50 transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-outline">Avg. Completion Rate</span>
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 border border-tertiary/40 text-tertiary">
+<span class="material-symbols-outlined text-[12px]">arrow_upward</span>
+              +6.2%
+            </span>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">74.6%</div>
+<p class="font-body-sm text-body-sm text-outline mt-1">Industry benchmark 18%</p>
+</div>
+</div>
+<!-- Card 4: Active Video Watch Time -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[#3B82F6]/50 transition-all flex flex-col justify-between">
+<div class="flex items-start justify-between">
+<span class="font-label-md text-label-md text-outline">Active Video Watch Time</span>
+<span class="material-symbols-outlined text-outline text-[18px]">play_circle</span>
+</div>
+<div class="mt-3">
+<div class="font-headline-lg text-headline-lg font-bold text-white tracking-tight">12,480 hrs</div>
+<div class="mt-2 flex items-center gap-2">
+<div class="flex-1 h-1.5 bg-[#1E1E2E] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full" style="width: 82%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-primary">82% on pace</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= TABS & FILTER CONTROLS BAR ================= -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-3 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<!-- Category Segmented Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto pb-1 lg:pb-0 custom-scrollbar">
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-md text-label-md font-medium border border-[#3B82F6]/30 whitespace-nowrap">
+            All Courses (6)
+          </button>
+<button class="px-3.5 py-1.5 rounded-lg text-outline hover:text-white hover:bg-surface-container font-label-md text-label-md transition-colors whitespace-nowrap">
+            Active Cohorts (2)
+          </button>
+<button class="px-3.5 py-1.5 rounded-lg text-outline hover:text-white hover:bg-surface-container font-label-md text-label-md transition-colors whitespace-nowrap">
+            Self-Paced (3)
+          </button>
+<button class="px-3.5 py-1.5 rounded-lg text-outline hover:text-white hover:bg-surface-container font-label-md text-label-md transition-colors whitespace-nowrap">
+            Drafts (1)
+          </button>
+<button class="px-3.5 py-1.5 rounded-lg text-outline hover:text-white hover:bg-surface-container font-label-md text-label-md transition-colors whitespace-nowrap">
+            Archived
+          </button>
+</div>
+<!-- Filter Controls Cluster -->
+<div class="flex flex-wrap items-center gap-2.5">
+<!-- Search input -->
+<div class="relative min-w-[200px]">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">search</span>
+<input class="w-full bg-[#181824] border border-[#1E1E2E] rounded-lg h-9 pl-8 pr-3 text-white placeholder-outline text-body-sm focus:outline-none focus:border-primary" placeholder="Filter by title/instructor..." type="text"/>
+</div>
+<!-- Status Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 h-9 px-3 bg-[#181824] border border-[#1E1E2E] rounded-lg text-body-sm text-white hover:border-outline transition-colors">
+<span class="text-outline">Status:</span>
+<span>All</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Price Range Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 h-9 px-3 bg-[#181824] border border-[#1E1E2E] rounded-lg text-body-sm text-white hover:border-outline transition-colors">
+<span class="text-outline">Price:</span>
+<span>Any</span>
+<span class="material-symbols-outlined text-[16px]">tune</span>
+</button>
+</div>
+<!-- Sort By Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-2 h-9 px-3 bg-[#181824] border border-[#1E1E2E] rounded-lg text-body-sm text-white hover:border-outline transition-colors">
+<span class="text-outline">Sort:</span>
+<span>Highest Revenue</span>
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= DETAILED COURSE CARDS / ROWS ================= -->
+<div class="space-y-4">
+<!-- Course 1 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[rgba(139,92,246,0.4)] hover:bg-[#151520] transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1">
+<!-- Thumbnail preview -->
+<div class="relative w-full sm:w-44 h-28 rounded-lg overflow-hidden border border-[#1E1E2E] shrink-0 bg-[#181824]">
+<img class="w-full h-full object-cover" data-alt="A cinematic coding environment on a high-resolution dark mode screen displaying modern Next.js 14 code, reactive state components, and neon-highlighted neural network diagrams. The setting exudes an ultra-sleek developer studio aesthetic with crisp violet and electric blue backlighting, sharp geometry, and soft obsidian shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXkduelU060DNC5SmZphyHu9Dn6Y7ScZUZiBsC0whfohdOLf5_PfxK7EkFEdJUtBgsbUJEVwxScwRdFoXkpyN4m_Pj3jA5cO36WLZsMHNUqrmV6R-dkKPpb3cAB4_7n2-0twzOvqWOcx3RvFrPr49NGVgQnl65PwU9I9NUJ5eftXqF3fPAc5563WJd4bOjt4vONHeg24GGt7cNIvr1H6h7UxTjC2wrwOPpGiAqRuhl5uNiGB8O9OYtEA"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-black/70 text-white backdrop-blur-sm uppercase tracking-wider">
+                Cohort
+              </div>
+</div>
+<!-- Content details -->
+<div class="space-y-1.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Status tag -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 border border-tertiary/40 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                  Cohort 4 — In Session
+                </span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#1E1E2E] text-white border border-[#2A2A3E]">
+                  Live Mastermind
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold truncate hover:text-primary transition-colors cursor-pointer">
+                Full-Stack Next.js 14 &amp; AI Engineering
+              </h2>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-3">
+<span>18 Modules</span>
+<span>•</span>
+<span>64 Lessons</span>
+<span>•</span>
+<span>28h Total Time</span>
+</p>
+<div class="flex flex-wrap items-center gap-4 pt-1 text-body-sm text-outline">
+<div class="flex items-center gap-1 text-white">
+<span class="material-symbols-outlined text-[16px] text-[#FBBF24]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-medium">4.95</span>
+<span class="text-outline text-label-sm">(142 reviews)</span>
+</div>
+<span>•</span>
+<span class="text-tertiary font-medium">94% Student Retention</span>
+</div>
+</div>
+</div>
+<!-- Mid metrics & Progress -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 xl:px-6 xl:border-l xl:border-r border-[#1E1E2E]/80">
+<!-- Enrollment Progress -->
+<div class="w-full sm:w-36 space-y-1.5">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-outline">Enrollment</span>
+<span class="text-white font-semibold">48 / 50</span>
+</div>
+<div class="h-2 w-full bg-[#1E1E2E] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full" style="width: 96%;"></div>
+</div>
+<span class="text-[11px] text-tertiary block text-right font-medium">96% filled</span>
+</div>
+<!-- Pricing & Total Revenue -->
+<div class="text-left sm:text-right min-w-[120px]">
+<div class="font-headline-sm text-headline-sm font-bold text-white">$1,299 <span class="font-body-sm text-body-sm font-normal text-outline">/ student</span></div>
+<div class="font-label-sm text-label-sm text-primary font-medium mt-0.5">Rev: $62,352</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Manage Curriculum
+            </button>
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Student Roster
+            </button>
+<button class="h-9 w-9 rounded-lg bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Course 2 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[rgba(139,92,246,0.4)] hover:bg-[#151520] transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1">
+<!-- Thumbnail preview -->
+<div class="relative w-full sm:w-44 h-28 rounded-lg overflow-hidden border border-[#1E1E2E] shrink-0 bg-[#181824]">
+<img class="w-full h-full object-cover" data-alt="A modern abstract 3D visualization of autonomous AI agent architecture and neural workflow nodes floating in a dark studio. Glowing cyan and deep violet data lines connect multifaceted geometric nodes against a deep obsidian background with subtle volumetric lighting and depth of field." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqYudsOV0390U1cayWDcyLdNANaplKV0dMLqvDp8-tew7glSq6ps6Dg07TzfzATYD8ReQf5f3jLkYIfu8h8bkl6VA3oQRABiXl1S-cg3J9Mrba-6826wBcGlCE5VmxKXjsv_tVSzLy81xEQQvb8_Wl7ugMcYLhqctmd3JErAd-PPTf56Uxa9J3PcS-dNUtZl5OxAI0Y1Es90waZW7zqWjwv8kmf4PGTgDnPugUa1Z0wb-20UalLf1x3Q"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-black/70 text-white backdrop-blur-sm uppercase tracking-wider">
+                Cohort
+              </div>
+</div>
+<!-- Content details -->
+<div class="space-y-1.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Status tag -->
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-[#3B82F6]/15 border border-[#3B82F6]/40 text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-[#3B82F6]"></span>
+                  Cohort 2 — Enrolling
+                </span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-error-container/30 text-error border border-error/30 font-medium">
+                  Closing in 3 days
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold truncate hover:text-primary transition-colors cursor-pointer">
+                Autonomous AI Agent Architecture
+              </h2>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-3">
+<span>12 Modules</span>
+<span>•</span>
+<span>42 Lessons</span>
+<span>•</span>
+<span>18h Total Time</span>
+</p>
+<div class="flex flex-wrap items-center gap-4 pt-1 text-body-sm text-outline">
+<div class="flex items-center gap-1 text-white">
+<span class="material-symbols-outlined text-[16px] text-[#FBBF24]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-medium">4.88</span>
+<span class="text-outline text-label-sm">(89 reviews)</span>
+</div>
+<span>•</span>
+<span class="text-tertiary font-medium">91% Student Retention</span>
+</div>
+</div>
+</div>
+<!-- Mid metrics & Progress -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 xl:px-6 xl:border-l xl:border-r border-[#1E1E2E]/80">
+<!-- Enrollment Progress -->
+<div class="w-full sm:w-36 space-y-1.5">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-outline">Enrollment</span>
+<span class="text-white font-semibold">34 / 40</span>
+</div>
+<div class="h-2 w-full bg-[#1E1E2E] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full" style="width: 85%;"></div>
+</div>
+<span class="text-[11px] text-primary block text-right font-medium">6 seats left</span>
+</div>
+<!-- Pricing & Total Revenue -->
+<div class="text-left sm:text-right min-w-[120px]">
+<div class="font-headline-sm text-headline-sm font-bold text-white">$899 <span class="font-body-sm text-body-sm font-normal text-outline">/ student</span></div>
+<div class="font-label-sm text-label-sm text-primary font-medium mt-0.5">Rev: $30,566</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Manage Curriculum
+            </button>
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Student Roster
+            </button>
+<button class="h-9 w-9 rounded-lg bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Course 3 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[rgba(139,92,246,0.4)] hover:bg-[#151520] transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1">
+<!-- Thumbnail preview -->
+<div class="relative w-full sm:w-44 h-28 rounded-lg overflow-hidden border border-[#1E1E2E] shrink-0 bg-[#181824]">
+<img class="w-full h-full object-cover" data-alt="A clean dark-themed UI design canvas showing a complex design system library with neatly organized design tokens, typography scales, interactive buttons, and atomic components. Ambient purple and deep indigo backlight accentuates crisp borders and soft glass surfaces in a high-end designer workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCajqwiJebUnGuzSXlUR9SV5K6iVr92zZfFEbYsgtfjdl_CMiGhDvxgLLscbqEJWSpDa0akbZtCk-y4M-4MkWmfR3iwGgNeeEraYENDsr35hqEGO21lQIlpuCUHrpy724EaSkJrUgrzc9qorFhQLhW3vJVbfxud0dGIIuAffY6yClrqDf81__0DKaD_4U6USmGRBcflOIccmFKQ6Tqh1ou-aEnW3YVFz0SdchtDWd1Fw1HDCKk0T1ZdA"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-black/70 text-white backdrop-blur-sm uppercase tracking-wider">
+                Video Track
+              </div>
+</div>
+<!-- Content details -->
+<div class="space-y-1.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Status tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/30 border border-secondary/40 text-secondary">
+                  Self-Paced Evergreen
+                </span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-[#8B5CF6]/20 text-[#D0BCFF] border border-[#8B5CF6]/40 font-medium">
+                  Bestseller
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold truncate hover:text-primary transition-colors cursor-pointer">
+                Design Systems &amp; Modern UI/UX Masterclass
+              </h2>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-3">
+<span>16 Modules</span>
+<span>•</span>
+<span>88 Lessons</span>
+<span>•</span>
+<span>34h Total Time</span>
+</p>
+<div class="flex flex-wrap items-center gap-4 pt-1 text-body-sm text-outline">
+<div class="flex items-center gap-1 text-white">
+<span class="material-symbols-outlined text-[16px] text-[#FBBF24]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-medium">4.92</span>
+<span class="text-outline text-label-sm">(610 reviews)</span>
+</div>
+<span>•</span>
+<span class="text-outline font-medium">68% Completion Rate</span>
+</div>
+</div>
+</div>
+<!-- Mid metrics & Progress -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 xl:px-6 xl:border-l xl:border-r border-[#1E1E2E]/80">
+<!-- Enrollment Total -->
+<div class="w-full sm:w-36 space-y-1">
+<span class="text-outline font-label-sm text-label-sm block">Total Enrolled</span>
+<div class="font-headline-sm text-headline-sm font-bold text-white">2,140</div>
+<span class="text-[11px] text-tertiary block font-medium">+142 this week</span>
+</div>
+<!-- Pricing & Total Revenue -->
+<div class="text-left sm:text-right min-w-[120px]">
+<div class="font-headline-sm text-headline-sm font-bold text-white">$249</div>
+<div class="font-label-sm text-label-sm text-primary font-medium mt-0.5">Rev: $48,220</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Manage Curriculum
+            </button>
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Student Roster
+            </button>
+<button class="h-9 w-9 rounded-lg bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Course 4 -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-5 hover:border-[rgba(139,92,246,0.4)] hover:bg-[#151520] transition-all flex flex-col xl:flex-row xl:items-center justify-between gap-5">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1">
+<!-- Thumbnail preview -->
+<div class="relative w-full sm:w-44 h-28 rounded-lg overflow-hidden border border-[#1E1E2E] shrink-0 bg-[#181824]">
+<img class="w-full h-full object-cover" data-alt="A dark-themed analytics screen displaying cold outreach funnel statistics, high open-rate conversion charts, and automated email sequences in an executive SaaS dashboard. Atmospheric ambient blue glows illuminate glassmorphic chart cards set against a structured dark canvas." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoEypPiuQ-NUFZPI2KiZ2CN6fmadw3kqjYq2PEqqLmRtWe93Kim8hw1Jd3FfMaU2opv3rq4Crh6QIlDf9FHRNmJKCUT1eu7woeoiVEAoMn6BOxLpBz0JOgD4yAzJFkfGshXmogLe7Vh3dTneXGtIf-hLAfVUkgYTC1ZoJLvGQmgdv7BK6U-YBAvlQbjyBxKCPTVHY-2j-ljuS_N6oTDVtdTZCqwpN6w6TtoiIYwdl80jGfmxzshfc_dQ"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-black/70 text-white backdrop-blur-sm uppercase tracking-wider">
+                Video Track
+              </div>
+</div>
+<!-- Content details -->
+<div class="space-y-1.5 flex-1 min-w-0">
+<div class="flex flex-wrap items-center gap-2">
+<!-- Status tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/30 border border-secondary/40 text-secondary">
+                  Self-Paced Evergreen
+                </span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-white font-semibold truncate hover:text-primary transition-colors cursor-pointer">
+                Micro-SaaS Cold Outreach &amp; Funnel Monetization
+              </h2>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-3">
+<span>8 Modules</span>
+<span>•</span>
+<span>24 Lessons</span>
+<span>•</span>
+<span>9h Total Time</span>
+</p>
+<div class="flex flex-wrap items-center gap-4 pt-1 text-body-sm text-outline">
+<div class="flex items-center gap-1 text-white">
+<span class="material-symbols-outlined text-[16px] text-[#FBBF24]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-medium">4.79</span>
+<span class="text-outline text-label-sm">(94 reviews)</span>
+</div>
+<span>•</span>
+<span class="text-outline font-medium">54% Completion Rate</span>
+</div>
+</div>
+</div>
+<!-- Mid metrics & Progress -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-6 xl:px-6 xl:border-l xl:border-r border-[#1E1E2E]/80">
+<!-- Enrollment Total -->
+<div class="w-full sm:w-36 space-y-1">
+<span class="text-outline font-label-sm text-label-sm block">Total Enrolled</span>
+<div class="font-headline-sm text-headline-sm font-bold text-white">820</div>
+<span class="text-[11px] text-outline block">Organic search</span>
+</div>
+<!-- Pricing & Total Revenue -->
+<div class="text-left sm:text-right min-w-[120px]">
+<div class="font-headline-sm text-headline-sm font-bold text-white">$179</div>
+<div class="font-label-sm text-label-sm text-primary font-medium mt-0.5">Rev: $14,678</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-2 shrink-0">
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Manage Curriculum
+            </button>
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] text-white hover:border-[#3B82F6] hover:text-primary font-label-md text-label-md transition-all">
+              Student Roster
+            </button>
+<button class="h-9 w-9 rounded-lg bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- ================= BOTTOM SECTION: STUDENT ENGAGEMENT & DROP-OFF TELEMETRY ================= -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<h3 class="font-headline-sm text-headline-sm font-semibold text-white tracking-tight flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">ssid_chart</span>
+              Student Engagement &amp; Drop-off Telemetry
+            </h3>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">
+              Aggregated retention across all active curriculum progression gates.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-outline">Audience Scope:</span>
+<span class="px-2.5 py-1 rounded bg-[#181824] border border-[#1E1E2E] text-label-sm text-white font-medium">All Cohorts Combined</span>
+</div>
+</div>
+<!-- Funnel Progression Bars -->
+<div class="grid grid-cols-1 md:grid-cols-5 gap-3 pt-2">
+<!-- Step 1 -->
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-3.5 space-y-2 relative overflow-hidden">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-outline">Module 1</span>
+<span class="text-tertiary font-bold">98%</span>
+</div>
+<div class="h-2 w-full bg-[#12121A] rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 98%;"></div>
+</div>
+<div class="text-[11px] text-outline truncate">Foundations &amp; Onboarding</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-3.5 space-y-2 relative overflow-hidden">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-outline">Module 2</span>
+<span class="text-tertiary font-bold">91%</span>
+</div>
+<div class="h-2 w-full bg-[#12121A] rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 91%;"></div>
+</div>
+<div class="text-[11px] text-outline truncate">Core System Architecture</div>
+</div>
+<!-- Step 3 (Drop-off highlighted) -->
+<div class="bg-[#181824] border border-error/40 rounded-lg p-3.5 space-y-2 relative overflow-hidden">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-white font-medium flex items-center gap-1">
+                Module 3
+                <span class="material-symbols-outlined text-[14px] text-error">warning</span>
+</span>
+<span class="text-error font-bold">84%</span>
+</div>
+<div class="h-2 w-full bg-[#12121A] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-error rounded-full" style="width: 84%;"></div>
+</div>
+<div class="text-[11px] text-error/90 truncate font-medium">-7% friction point</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-3.5 space-y-2 relative overflow-hidden">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-outline">Module 4</span>
+<span class="text-primary font-bold">78%</span>
+</div>
+<div class="h-2 w-full bg-[#12121A] rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 78%;"></div>
+</div>
+<div class="text-[11px] text-outline truncate">Advanced Production Ops</div>
+</div>
+<!-- Final Capstone -->
+<div class="bg-[#181824] border border-[#1E1E2E] rounded-lg p-3.5 space-y-2 relative overflow-hidden">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-outline">Capstone Project</span>
+<span class="text-primary font-bold">74%</span>
+</div>
+<div class="h-2 w-full bg-[#12121A] rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-full" style="width: 74%;"></div>
+</div>
+<div class="text-[11px] text-outline truncate">Certified Graduation</div>
+</div>
+</div>
+<!-- AI Recommendation Callout -->
+<div class="bg-[#181824]/90 border border-primary/30 rounded-xl p-4 flex items-start gap-3.5 backdrop-blur-sm">
+<div class="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-semibold text-white">AI Curriculum Intelligence</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] uppercase font-bold bg-primary/20 text-primary">Insight</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Module 3 Quiz has a 12% drop-off rate. Suggest shortening lesson 3.4 or adding a practice checkpoint.
+            </p>
+</div>
+<button class="shrink-0 text-label-sm font-label-sm text-primary hover:text-white px-3 py-1.5 rounded-md bg-surface hover:bg-surface-container border border-outline-variant/40 transition-colors">
+            Auto-Split Lesson
+          </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

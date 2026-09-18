@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS Classroom - Mobile Video Player</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#005ac2",
+            "surface-container-low": "#1b1b20",
+            "on-primary": "#002e6a",
+            "primary-fixed": "#d8e2ff",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#303036",
+            "secondary": "#d0bcff",
+            "outline-variant": "#424754",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed": "#e9ddff",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#00a572",
+            "surface-container-lowest": "#0e0e13",
+            "on-primary-fixed": "#001a42",
+            "surface-dim": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "primary": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed-dim": "#d0bcff",
+            "background": "#131318",
+            "on-error": "#690005",
+            "secondary-container": "#571bc1",
+            "on-error-container": "#ffdad6",
+            "on-surface": "#e4e1e9",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed": "#002113",
+            "surface-bright": "#39383e",
+            "on-secondary-fixed": "#23005c",
+            "surface-container": "#1f1f25",
+            "primary-container": "#4d8eff",
+            "surface-variant": "#35343a",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "on-primary-fixed-variant": "#004395",
+            "surface-tint": "#adc6ff",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "surface": "#131318",
+            "on-secondary": "#3c0091",
+            "surface-container-highest": "#35343a",
+            "on-tertiary": "#003824",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Hide scrollbars for clean studio appearance */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    @keyframes equalizer {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+    .eq-bar-1 { animation: equalizer 0.8s ease-in-out infinite; }
+    .eq-bar-2 { animation: equalizer 0.6s ease-in-out 0.2s infinite; }
+    .eq-bar-3 { animation: equalizer 0.9s ease-in-out 0.4s infinite; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container flex justify-center min-h-screen">
+<!-- Mobile Viewport Container (390px Max Standard iPhone Form Factor) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface-container-lowest flex flex-col relative pb-24 shadow-2xl border-x border-outline-variant/20">
+<!-- 1. Mobile Status Bar (9:41, 5G, Battery) -->
+<header class="w-full h-11 px-6 flex items-center justify-between bg-surface-container-lowest/90 backdrop-blur-md sticky top-0 z-50 select-none">
+<span class="text-label-md font-label-md text-on-surface font-semibold tracking-tight">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="text-label-sm font-label-sm tracking-tighter font-bold ml-0.5">5G</span>
+<span class="material-symbols-outlined text-[17px] ml-1" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- TopAppBar (from Shared Components JSON - styled and mapped) -->
+<section class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-4 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex items-center space-x-2 truncate">
+<button aria-label="Back" class="text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-100 p-1 flex items-center" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col truncate">
+<span class="text-label-sm font-label-sm text-outline truncate leading-tight">Cinematography Masterclass 2026</span>
+<h1 class="text-label-lg font-label-lg text-on-surface font-bold truncate leading-tight">Creator OS Classroom</h1>
+</div>
+</div>
+<div class="flex items-center space-x-2 shrink-0">
+<!-- Offline Storage Badge -->
+<div class="flex items-center space-x-1 bg-tertiary-container/20 text-tertiary border border-tertiary-container/30 px-2 py-0.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="offline_pin" style="font-variation-settings: 'FILL' 1;">offline_pin</span>
+<span class="text-label-sm font-label-sm font-semibold tracking-tight">1080p</span>
+</div>
+<button aria-label="Settings" class="text-on-surface-variant hover:text-primary transition-colors duration-150 active:scale-95 transition-transform duration-100 p-1 flex items-center" type="button">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</section>
+<!-- 2. Immersive Mobile Video Player Viewport (16:9 Cinema Aspect) -->
+<section class="w-full relative aspect-video bg-black overflow-hidden group select-none shadow-lg">
+<!-- High-production Studio Lighting Background Image -->
+<img class="absolute inset-0 w-full h-full object-cover opacity-75" data-alt="A moody high-end film studio set with a cinematic lighting rig illuminating an anamorphic lens camera on a track. The room has volumetric haze caught in warm amber tungsten key light and cool cyan rim lights, creating striking chiaroscuro contrast against deep shadows and industrial textured studio walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAML-u6YgGBBLXXYnyOWy6_-J2ZEYBb7GgKpOGXQoFjcEv6LxQ5ON4aexC5M0Xo7kUSuK8cT2i0LwicTSMRZwqfv3mn8DK_0anLPlmDYFkZpsrT2m_4XZPKMjux9-ahCxnPAra3tTSqy6WOdNhBFshwP8cNUvyAmjPThwSFBmJa4QynWR7FB2FXLB6wKf3-85lY2mqOVgwDkrejRM5jPpQj_8t4UnWy2zcfFaNhVu_EGYRsXfNbLsxTAQ"/>
+<!-- Ambient Studio Gradient Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/60 pointer-events-none"></div>
+<!-- Top Overlay Lesson Floating Pill -->
+<div class="absolute top-2.5 left-3 right-3 flex items-center justify-between z-10 pointer-events-none">
+<span class="bg-surface-container-lowest/80 backdrop-blur-md text-on-surface-variant text-label-sm font-label-sm px-2.5 py-1 rounded-full border border-outline-variant/30 flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>4.2 Dynamic Keylighting</span>
+</span>
+<span class="bg-surface-container-high/80 backdrop-blur-md text-primary text-label-sm font-label-sm font-semibold px-2 py-0.5 rounded border border-primary/20">
+          HEVC HDR
+        </span>
+</div>
+<!-- Center Playback Controls with ambient luminescence -->
+<div class="absolute inset-0 flex items-center justify-center space-x-7 z-10">
+<!-- Rewind 10s -->
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest/60 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-primary transition-colors active:scale-95 border border-outline-variant/30" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="replay_10">replay_10</span>
+</button>
+<!-- Play/Pause Glow Ring Toggle -->
+<button class="w-14 h-14 rounded-full bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center text-on-primary-container shadow-[0_0_24px_rgba(77,142,255,0.55)] active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[30px]" data-icon="pause" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<!-- Fast-Forward 10s -->
+<button class="w-9 h-9 rounded-full bg-surface-container-lowest/60 backdrop-blur-md text-on-surface flex items-center justify-center hover:text-primary transition-colors active:scale-95 border border-outline-variant/30" type="button">
+<span class="material-symbols-outlined text-[19px]" data-icon="forward_10">forward_10</span>
+</button>
+</div>
+<!-- Scrubbing Bar & Timeline Controls -->
+<div class="absolute bottom-0 inset-x-0 p-3 pt-6 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent z-10 flex flex-col space-y-1.5">
+<!-- Progress scrubber track -->
+<div class="relative w-full h-1.5 bg-outline-variant/40 rounded-full cursor-pointer flex items-center group/track">
+<!-- Buffered line -->
+<div class="absolute left-0 h-full bg-on-surface-variant/40 rounded-full w-[78%]"></div>
+<!-- Emerald Playback Progress Line -->
+<div class="absolute left-0 h-full bg-tertiary rounded-full w-[50.2%] shadow-[0_0_8px_rgba(78,222,163,0.6)]"></div>
+<!-- Scrubber Thumb -->
+<div class="absolute left-[50.2%] -translate-x-1/2 w-3.5 h-3.5 bg-tertiary-fixed rounded-full shadow-md border-2 border-surface-container-lowest transform scale-100 transition-transform"></div>
+</div>
+<!-- Video Time & Quick Function Bar -->
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant pt-1">
+<div class="flex items-center space-x-1.5 font-medium">
+<span class="text-on-surface font-semibold">14:28</span>
+<span class="text-outline">/</span>
+<span>28:50</span>
+</div>
+<!-- Quick Actions Cluster -->
+<div class="flex items-center space-x-2">
+<!-- Speed Selector Pill -->
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high text-primary font-bold text-[10px] tracking-wide border border-outline-variant/40 hover:bg-surface-variant" type="button">
+              1.25x
+            </button>
+<!-- Subtitles Toggle -->
+<button class="px-1.5 py-0.5 rounded bg-surface-container-high/70 text-on-surface text-[10px] font-semibold tracking-wide border border-outline-variant/40 flex items-center space-x-0.5" type="button">
+<span>EN</span>
+<span class="text-tertiary font-bold">[CC]</span>
+</button>
+<!-- AirPlay/Cast -->
+<button aria-label="Cast" class="text-on-surface-variant hover:text-on-surface p-0.5" type="button">
+<span class="material-symbols-outlined text-[17px]" data-icon="cast">cast</span>
+</button>
+<!-- Fullscreen -->
+<button aria-label="Fullscreen" class="text-on-surface-variant hover:text-on-surface p-0.5" type="button">
+<span class="material-symbols-outlined text-[17px]" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Scrollable Workspace Canvas -->
+<div class="flex-1 overflow-y-auto px-4 pt-3.5 space-y-4">
+<!-- 3. Offline Mode & Storage Management Card -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 shadow-sm">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20">
+<div class="flex items-center space-x-2">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<span class="text-label-md font-label-md text-on-surface font-semibold tracking-tight">Offline Mode Active</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline font-medium">1.4 GB / 64 GB free</span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-body-sm">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="wifi_protected_setup">wifi_protected_setup</span>
+<span class="text-on-surface text-label-md font-label-md">Auto-download next 2 lessons</span>
+</div>
+<!-- Switch Toggle Active -->
+<button class="w-9 h-5 bg-primary rounded-full relative p-0.5 transition-colors focus:outline-none shadow-[0_0_12px_rgba(77,142,255,0.4)]" type="button">
+<div class="w-4 h-4 rounded-full bg-on-primary-container translate-x-4 transition-transform"></div>
+</button>
+</div>
+<!-- Quality & Verification Pill -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center space-x-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-tertiary text-[15px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>1080p High-Efficiency HEVC</span>
+</div>
+<span class="text-tertiary font-semibold">100% Verified Checksum</span>
+</div>
+</section>
+<!-- 4. Lesson Details & Progress Header -->
+<section class="bg-surface-dim border border-outline-variant/30 rounded-xl p-3.5 space-y-3 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-primary font-semibold tracking-wide uppercase">
+            Module 4: Lighting Dynamic Studios • 2 of 8
+          </span>
+<span class="text-label-sm font-label-sm text-outline">68% Done</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-bold leading-tight">
+          Mastering High-Key vs Low-Key Ratios &amp; Anamorphic Contrast
+        </h2>
+<!-- Module Progress bar -->
+<div class="w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full w-[68%]"></div>
+</div>
+<!-- Instructor & Action Bar -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center space-x-2.5">
+<img class="w-9 h-9 rounded-full object-cover border border-outline-variant/50" data-alt="Close up professional portrait of instructor Sarah Lin, an Asian woman cinematographer wearing dark studio apparel with headphones around her neck, smiling confidently in front of soft out-of-focus film lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPFwU1TqD0eg7IaYKYCGmkTRwoZq3gK-Cqwt2CIfr-t2VZgHhGm6gO7hPVaLyYC3CSjgmCwF4QUhl5dV2Z5JJvLaKTmmQm1RojOFDMZVj-EcaBm0Nco6uvMxek0JEOnanVNbCXFCABqDbNYzbR3Z2k6B3QKKtaQnWHkI6pLUK__TJBN3skWp40eLgwfPxJdIJPGQt4udYJfPiP6EGPmePJUKl4MJIqRNCAXavp2ZzXY9adMdwMKK_4DQ"/>
+<div>
+<p class="text-label-md font-label-md font-semibold text-on-surface leading-tight">Sarah Lin</p>
+<p class="text-label-sm font-label-sm text-outline leading-tight">Dir. of Photography • Acme</p>
+</div>
+</div>
+<!-- Mark as Completed Button -->
+<button class="flex items-center space-x-1 bg-surface-container-high hover:bg-surface-variant text-on-surface border border-outline-variant/40 px-3 py-1.5 rounded-lg text-label-sm font-label-sm font-semibold transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Completed</span>
+</button>
+</div>
+</section>
+<!-- 5. Interactive Tab Switcher -->
+<nav aria-label="Lesson Sections" class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar py-0.5 select-none">
+<!-- Active Tab -->
+<button class="whitespace-nowrap px-3.5 py-1.5 rounded-full text-label-md font-label-md font-semibold bg-primary-container text-on-primary-container shadow-[0_0_12px_rgba(77,142,255,0.3)]" type="button">
+          Chapters (7)
+        </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low border border-outline-variant/30 transition-colors" type="button">
+          Lesson Notes (12)
+        </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low border border-outline-variant/30 transition-colors" type="button">
+          Code &amp; Assets
+        </button>
+<button class="whitespace-nowrap px-3 py-1.5 rounded-full text-label-md font-label-md font-medium text-on-surface-variant hover:text-on-surface bg-surface-container-low border border-outline-variant/30 transition-colors" type="button">
+          Cohort Q&amp;A (24)
+        </button>
+</nav>
+<!-- 6. Tab Content: Interactive Timecoded Chapters & Syllabus -->
+<section class="space-y-2">
+<!-- Chapter item 1 (Finished) -->
+<div class="flex items-center justify-between p-2.5 bg-surface-dim/80 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center space-x-3 truncate">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface truncate">Intro: Inverse Square Law &amp; Falloff</p>
+<p class="text-label-sm font-label-sm text-outline">00:00 - 04:15</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary p-1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Chapter item 2 (Finished) -->
+<div class="flex items-center justify-between p-2.5 bg-surface-dim/80 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center space-x-3 truncate">
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface truncate">Three-Point Ratios in Low Key</p>
+<p class="text-label-sm font-label-sm text-outline">04:15 - 12:40</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary p-1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Chapter item 3 (NOW PLAYING - Active Emerald Card with pulsing equalizer) -->
+<div class="flex items-center justify-between p-3 bg-surface-container border-2 border-tertiary rounded-xl shadow-[0_0_20px_rgba(78,222,163,0.15)] relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-center space-x-3 truncate pl-1">
+<!-- Pulsing audio equalizer -->
+<div class="flex items-end space-x-0.5 h-4 w-4 shrink-0 pb-0.5">
+<div class="w-1 bg-tertiary rounded-full eq-bar-1"></div>
+<div class="w-1 bg-tertiary rounded-full eq-bar-2"></div>
+<div class="w-1 bg-tertiary rounded-full eq-bar-3"></div>
+</div>
+<div class="truncate">
+<div class="flex items-center space-x-1.5">
+<span class="text-[10px] font-bold tracking-wider uppercase text-tertiary bg-tertiary/10 px-1.5 py-0.2 rounded">NOW PLAYING</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface font-semibold truncate mt-0.5">Anamorphic Flare &amp; Bokeh Separation</p>
+<p class="text-label-sm font-label-sm text-tertiary-fixed-dim">12:40 - 18:20 (Playing at 14:28)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[20px]" data-icon="pause_circle" style="font-variation-settings: 'FILL' 1;">pause_circle</span>
+</div>
+<!-- Chapter item 4 (Downloaded) -->
+<div class="flex items-center justify-between p-2.5 bg-surface-dim/80 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center space-x-3 truncate">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="download_done">download_done</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface truncate">Practical Gelled Rim Lighting</p>
+<p class="text-label-sm font-label-sm text-outline">18:20 - 24:10</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary p-1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+<!-- Chapter item 5 (Downloaded) -->
+<div class="flex items-center justify-between p-2.5 bg-surface-dim/80 border border-outline-variant/20 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="flex items-center space-x-3 truncate">
+<span class="material-symbols-outlined text-outline text-[20px]" data-icon="download_done">download_done</span>
+<div class="truncate">
+<p class="text-label-md font-label-md text-on-surface truncate">Hands-on Assignment Breakdown</p>
+<p class="text-label-sm font-label-sm text-outline">24:10 - 28:50</p>
+</div>
+</div>
+<button class="text-outline hover:text-primary p-1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="play_arrow">play_arrow</span>
+</button>
+</div>
+</section>
+<!-- 7. Quick Timecoded Student Note & Bookmark Drawer -->
+<section class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-3 space-y-2.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="edit_note">edit_note</span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Timecoded Note</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-medium bg-primary/10 px-2 py-0.5 rounded">Current @ 14:28</span>
+</div>
+<!-- Quick Note Input Pill -->
+<div class="flex items-center bg-surface-container-lowest border border-outline-variant/40 rounded-lg px-2.5 py-1.5 focus-within:border-primary transition-colors">
+<input class="bg-transparent text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 w-full focus:outline-none" placeholder="Type a sync note for 14:28..." type="text"/>
+<button class="text-primary hover:text-primary-fixed p-1" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="send">send</span>
+</button>
+</div>
+<!-- Quick Tag Suggestion Chips -->
+<div class="flex items-center space-x-1.5 overflow-x-auto no-scrollbar">
+<button class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary border border-outline-variant/30 transition-colors shrink-0" type="button">
+            #LightingSetup
+          </button>
+<button class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary border border-outline-variant/30 transition-colors shrink-0" type="button">
+            #ExamTip
+          </button>
+<button class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container text-on-surface-variant hover:text-primary hover:border-primary border border-outline-variant/30 transition-colors shrink-0" type="button">
+            #LensRatio
+          </button>
+</div>
+<!-- Recent Pinned Student Note -->
+<div class="mt-2 p-2.5 bg-surface-dim rounded-lg border border-outline-variant/20 flex flex-col space-y-1">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary font-semibold cursor-pointer hover:underline flex items-center space-x-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span>
+<span>12:45 Key Drop Strategy</span>
+</span>
+<span class="text-[10px] text-outline">Pinned</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            At 12:45 note how Sarah drops key to 40% when switching to 50mm T1.5 cine lens.
+          </p>
+</div>
+</section>
+<!-- 8. Downloadable Lesson Resources & Code/LUTs -->
+<section class="space-y-2 pb-4">
+<h3 class="text-label-md font-label-md text-on-surface font-semibold flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[18px] text-outline" data-icon="folder_zip">folder_zip</span>
+<span>Lesson Assets (Offline Available)</span>
+</h3>
+<!-- Asset Card 1 -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low border border-outline-variant/20 rounded-xl">
+<div class="flex items-center space-x-2.5 truncate">
+<div class="w-8 h-8 rounded bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+</div>
+<div class="truncate">
+<p class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Arri_LogC4_Contrast_LUT_Pack.cube</p>
+<p class="text-label-sm font-label-sm text-outline">4.2 MB • Ready</p>
+</div>
+</div>
+<button class="text-tertiary p-1.5 hover:text-tertiary-fixed transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+<!-- Asset Card 2 -->
+<div class="flex items-center justify-between p-2.5 bg-surface-container-low border border-outline-variant/20 rounded-xl">
+<div class="flex items-center space-x-2.5 truncate">
+<div class="w-8 h-8 rounded bg-secondary/10 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="picture_as_pdf">picture_as_pdf</span>
+</div>
+<div class="truncate">
+<p class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Lighting_Schematic_PDF_v2.pdf</p>
+<p class="text-label-sm font-label-sm text-outline">12.8 MB • Ready</p>
+</div>
+</div>
+<button class="text-tertiary p-1.5 hover:text-tertiary-fixed transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</button>
+</div>
+</section>
+</div>
+<!-- 9. Bottom Sticky App Navigation (BottomNavBar from Shared Components JSON) -->
+<!-- Mapped Active Item: 'Classroom' according to primary context -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-2 bg-surface-container-lowest/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg">
+<div class="w-full max-w-[390px] mx-auto flex justify-around items-center">
+<!-- Tab 1: Classroom (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary bg-surface-container-high/60 rounded-xl px-3 py-1.5 active:scale-95 transition-transform duration-100" href="#classroom">
+<span class="material-symbols-outlined text-[20px]" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-label-sm font-label-sm mt-0.5 font-semibold">Classroom</span>
+</a>
+<!-- Tab 2: Lessons -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100" href="#lessons">
+<span class="material-symbols-outlined text-[20px]" data-icon="play_lesson">play_lesson</span>
+<span class="text-label-sm font-label-sm mt-0.5">Lessons</span>
+</a>
+<!-- Tab 3: Notes -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100" href="#notes">
+<span class="material-symbols-outlined text-[20px]" data-icon="edit_note">edit_note</span>
+<span class="text-label-sm font-label-sm mt-0.5">Notes</span>
+</a>
+<!-- Tab 4: Discussion -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100" href="#discussion">
+<span class="material-symbols-outlined text-[20px]" data-icon="forum">forum</span>
+<span class="text-label-sm font-label-sm mt-0.5">Discussion</span>
+</a>
+<!-- Tab 5: Resources -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline px-3 py-1.5 hover:text-on-surface transition-colors duration-150 active:scale-95 transition-transform duration-100" href="#resources">
+<span class="material-symbols-outlined text-[20px]" data-icon="folder_open">folder_open</span>
+<span class="text-label-sm font-label-sm mt-0.5">Resources</span>
+</a>
+</div>
+</nav>
+</main>
+</body></html>

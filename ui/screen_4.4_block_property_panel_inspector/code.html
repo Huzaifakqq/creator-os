@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Website Builder Property Panel &amp; Inspector</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#131318",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-tint": "#adc6ff",
+            "secondary": "#d0bcff",
+            "inverse-surface": "#e4e1e9",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary-fixed-variant": "#004395",
+            "error": "#ffb4ab",
+            "surface-variant": "#35343a",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-high": "#2a292f",
+            "on-surface": "#e4e1e9",
+            "background": "#131318",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#571bc1",
+            "on-tertiary": "#003824",
+            "on-background": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "primary-fixed-dim": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "on-secondary-container": "#c4abff",
+            "primary": "#adc6ff",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "on-primary-container": "#00285d",
+            "on-tertiary-container": "#00311f",
+            "on-secondary": "#3c0091",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed": "#d8e2ff",
+            "error-container": "#93000a",
+            "surface-container-low": "#1b1b20",
+            "on-primary-fixed": "#001a42",
+            "surface-container": "#1f1f25",
+            "outline": "#8c909f",
+            "inverse-on-surface": "#303036",
+            "outline-variant": "#424754",
+            "surface-container-highest": "#35343a",
+            "surface-dim": "#131318",
+            "surface-bright": "#39383e",
+            "tertiary": "#4edea3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-xl": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      font-size: 18px;
+      line-height: 1;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    
+    /* Custom Studio Scrollbars */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+
+    /* Ambient selection glow */
+    .selection-bounding-box {
+      box-shadow: 0 0 0 1.5px #3B82F6, 0 0 20px 2px rgba(59, 130, 246, 0.4);
+    }
+    .neon-glow-btn {
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.4);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased font-body-md text-body-md overflow-hidden h-screen flex flex-col select-none">
+<!-- ==================== TOP NAVIGATION BAR ==================== -->
+<!-- Conforms to TopNavBar shared component schema with Website Builder workflow controls -->
+<header class="flex justify-between items-center w-full px-space-lg h-14 sticky top-0 z-40 bg-surface-container-low border-b border-outline-variant shrink-0">
+<!-- Left Cluster: Brand & Breadcrumb -->
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-sm pr-space-md border-r border-outline-variant">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center shadow-lg shadow-blue-500/20">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">palette</span>
+</div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight">Creator OS</span>
+</div>
+<!-- Studio Breadcrumbs -->
+<nav class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Website Builder</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Pages</span>
+<span class="material-symbols-outlined text-outline">chevron_right</span>
+<span class="text-primary font-medium flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[15px] text-tertiary">view_carousel</span>
+          Pricing Section
+        </span>
+</nav>
+</div>
+<!-- Center: Device Switcher Toolbar -->
+<div class="flex items-center bg-surface-container-lowest p-1 rounded-lg border border-outline-variant">
+<button class="flex items-center justify-center w-8 h-8 rounded bg-surface-container-high text-primary transition-all duration-150 active:scale-[0.98] shadow-sm" title="Desktop View (1440px)">
+<span class="material-symbols-outlined">desktop_windows</span>
+</button>
+<button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" title="Tablet View (768px)">
+<span class="material-symbols-outlined">tablet_mac</span>
+</button>
+<button class="flex items-center justify-center w-8 h-8 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150" title="Mobile View (390px)">
+<span class="material-symbols-outlined">smartphone</span>
+</button>
+<div class="h-4 w-px bg-outline-variant mx-1"></div>
+<span class="px-2 font-label-sm text-label-sm text-outline">100%</span>
+</div>
+<!-- Right Cluster: Actions & Shared Profile Items -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-1 mr-2 text-on-surface-variant">
+<button class="p-2 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Inspector Tune">
+<span class="material-symbols-outlined">tune</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container-highest hover:text-on-surface transition-colors duration-150" title="Help &amp; Docs">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+<button class="px-space-md py-1.5 rounded-lg border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors duration-150 active:scale-[0.98]">
+        Discard
+      </button>
+<button class="px-space-md py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md neon-glow-btn hover:brightness-105 transition-all duration-150 active:scale-[0.98] flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-[16px]">cloud_done</span>
+        Save Changes
+      </button>
+<div class="ml-2 pl-2 border-l border-outline-variant flex items-center">
+<img class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="Close up profile portrait of a creative design director in a futuristic dark mode digital workspace illuminated by cool blue and purple ambient backlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMPkAe6lXNM-oZl1WVNMkjQnQf31VWtve1fDlHYuszR_mP_IK1owu0fTet4aqZ6kVJElrsReoevhiKlNSmDr2UHs4zLy5PtByIwtCLXz_PmKmQ80m2j7e05NDCkRO7P6dHciyUhYDSdkCSZnTx2JwMm5QAD31zw2fW6ZDj1OhcBdEisNTDQmOLhLwbOLf7dW6H3BIUImRl0o_8CGiYXcY7sjzb1nzxv3gpV-xxDAqq3mRhN9vBiWboQ"/>
+</div>
+</div>
+</header>
+<!-- ==================== MAIN WORKSPACE ==================== -->
+<div class="flex-1 flex overflow-hidden">
+<!-- SLIM LEFT ACTION BAR -->
+<aside class="w-16 bg-surface-container-lowest border-r border-outline-variant flex flex-col items-center py-space-md justify-between shrink-0 z-30">
+<div class="flex flex-col items-center gap-space-sm w-full px-2">
+<button class="w-11 h-11 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors group" title="Page Tree &amp; Hierarchy">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">account_tree</span>
+<span class="text-[9px] font-label-sm text-outline mt-0.5">Pages</span>
+</button>
+<button class="w-11 h-11 rounded-lg flex flex-col items-center justify-center bg-surface-container-high text-primary border-l-2 border-primary transition-colors group" title="Elements &amp; Components">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">widgets</span>
+<span class="text-[9px] font-label-sm text-primary font-semibold mt-0.5">Blocks</span>
+</button>
+<button class="w-11 h-11 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors group" title="Global Styles &amp; Tokens">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">format_paint</span>
+<span class="text-[9px] font-label-sm text-outline mt-0.5">Styles</span>
+</button>
+<button class="w-11 h-11 rounded-lg flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors group" title="Media &amp; Asset Library">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">photo_library</span>
+<span class="text-[9px] font-label-sm text-outline mt-0.5">Assets</span>
+</button>
+</div>
+<div class="flex flex-col items-center gap-3 w-full px-2">
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="CMS Collections">
+<span class="material-symbols-outlined">database</span>
+</button>
+<button class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Settings">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</aside>
+<!-- CENTER CANVAS: LIVE WEBSITE PREVIEW (Selected Pricing Block) -->
+<main class="flex-1 bg-surface-container-lowest relative overflow-y-auto flex flex-col items-center p-8 bg-[radial-gradient(#1f1f25_1px,transparent_1px)] [background-size:24px_24px]">
+<!-- Canvas Status Indicator Bar -->
+<div class="w-full max-w-5xl flex items-center justify-between mb-4 px-2">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Canvas: 1440px Viewport • Live Editor</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="bg-surface-container px-2 py-1 rounded border border-outline-variant">Section: Hero Pricing</span>
+<span class="text-outline">Scale: 100%</span>
+</div>
+</div>
+<!-- Preview Webpage Mock Sheet -->
+<div class="w-full max-w-5xl bg-[#0A0A0F] border border-outline-variant rounded-xl shadow-2xl p-10 flex flex-col items-center relative overflow-hidden min-h-[780px]">
+<!-- Header Text of the Webpage Canvas -->
+<div class="text-center max-w-xl mx-auto mb-12">
+<div class="inline-block px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm border border-outline-variant mb-3">
+            Flexible Tiering Plans
+          </div>
+<h2 class="text-headline-xl font-headline-xl text-on-surface font-bold tracking-tight mb-2">
+            Accelerate your creative empire
+          </h2>
+<p class="text-body-md font-body-md text-on-surface-variant">
+            Zero hidden transaction fees. Instant distribution across 32 global media channels.
+          </p>
+</div>
+<!-- Pricing Cards Grid on Live Canvas -->
+<div class="grid grid-cols-3 gap-6 w-full items-stretch">
+<!-- Card 1: Starter (Unselected) -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 flex flex-col justify-between opacity-70 hover:opacity-100 transition-opacity">
+<div>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium">Starter</span>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-headline-lg font-headline-lg text-on-surface font-bold">$29</span>
+<span class="text-body-sm font-body-sm text-outline">/ mo</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Essential toolset for independent solo authors.</p>
+<ul class="mt-6 space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  1 Active Creator Workspace
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  Up to 10k monthly video stream mins
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  Community Member CRM (500)
+                </li>
+</ul>
+</div>
+<button class="mt-8 w-full py-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+              Get Starter
+            </button>
+</div>
+<!-- Card 2: SELECTED PRICING CARD BLOCK (ACTIVE INSPECTOR FOCUS) -->
+<div class="relative group">
+<!-- Active Selection Box & Corner Resizing Handles -->
+<div class="absolute -inset-1 rounded-xl selection-bounding-box pointer-events-none z-20">
+<!-- Corner Handles -->
+<span class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-[#3B82F6] rounded-[2px]"></span>
+<span class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-white border-2 border-[#3B82F6] rounded-[2px]"></span>
+<span class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-white border-2 border-[#3B82F6] rounded-[2px]"></span>
+<span class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border-2 border-[#3B82F6] rounded-[2px]"></span>
+<!-- Middle Handles -->
+<span class="absolute top-1/2 -left-1.5 -translate-y-1/2 w-2 h-3 bg-white border border-[#3B82F6] rounded-[1px]"></span>
+<span class="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2 h-3 bg-white border border-[#3B82F6] rounded-[1px]"></span>
+</div>
+<!-- Floating Block Tag Badge -->
+<div class="absolute -top-7 left-0 z-30 flex items-center gap-1.5 bg-[#3B82F6] text-white px-2 py-0.5 rounded font-label-sm text-label-sm shadow-md">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">widgets</span>
+<span>Pricing Card (Selected)</span>
+<span class="text-blue-200 text-[10px]">#card_prc_942</span>
+</div>
+<!-- Actual Selected Card Content -->
+<div class="h-full bg-[#12121A] border border-[#2A2A3E] rounded-xl p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden bg-gradient-to-b from-[#181824] to-[#12121A]">
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-2xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">Pro Member</span>
+<span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-[#adc6ff] border border-blue-500/40 text-[11px] font-label-sm font-semibold tracking-wide">
+                    Most Popular
+                  </span>
+</div>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-display-lg font-display-lg text-white font-bold leading-none">$79</span>
+<span class="text-body-md font-body-md text-on-surface-variant">/ month</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">
+                  Full studio suite for scaling streaming teams &amp; digital academies.
+                </p>
+<div class="h-px bg-outline-variant/60 my-6"></div>
+<ul class="space-y-3 font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span>Unlimited 4K Studio Broadcasting</span>
+</li>
+<li class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span>Automated AI Subtitles &amp; Clip Cutting</span>
+</li>
+<li class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span>White-Label Academy Classroom</span>
+</li>
+<li class="flex items-center gap-2.5">
+<div class="w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span>Direct CRM Export &amp; Webhooks</span>
+</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="w-full py-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2">
+<span>Start 14-Day Free Trial</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3: Enterprise (Unselected) -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 flex flex-col justify-between opacity-70 hover:opacity-100 transition-opacity">
+<div>
+<span class="text-label-md font-label-md text-on-surface-variant font-medium">Enterprise Space</span>
+<div class="mt-4 flex items-baseline gap-1">
+<span class="text-headline-lg font-headline-lg text-on-surface font-bold">$249</span>
+<span class="text-body-sm font-body-sm text-outline">/ mo</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-2">Dedicated nodes, bespoke SLA, &amp; tailored multi-tenant sync.</p>
+<ul class="mt-6 space-y-3 font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  Unlimited Co-Host Stations
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  Dedicated Cloud Media CDN
+                </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+                  24/7 Priority Live Operations
+                </li>
+</ul>
+</div>
+<button class="mt-8 w-full py-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+              Talk to Enterprise
+            </button>
+</div>
+</div>
+</div>
+</main>
+<!-- ==================== DEDICATED RIGHT SIDEBAR PANEL: PROPERTY INSPECTOR (320px) ==================== -->
+<aside class="w-[320px] bg-surface-container-low border-l border-outline-variant flex flex-col shrink-0 h-full z-30">
+<!-- Panel Header -->
+<div class="p-space-md border-b border-outline-variant flex items-center justify-between bg-surface-container-lowest shrink-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">tune</span>
+<div>
+<h3 class="font-headline-sm text-[15px] font-semibold text-on-surface leading-none">Pricing Card Block</h3>
+<span class="text-[10px] font-mono text-outline leading-tight">#card_prc_942</span>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="w-7 h-7 rounded flex items-center justify-center text-outline hover:text-error hover:bg-error-container/20 transition-colors" title="Delete block">
+<span class="material-symbols-outlined text-[17px]">delete</span>
+</button>
+<button class="w-7 h-7 rounded flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Close inspector">
+<span class="material-symbols-outlined text-[17px]">close</span>
+</button>
+</div>
+</div>
+<!-- Inspector Tabs Bar -->
+<div class="flex items-center border-b border-outline-variant bg-surface-container-lowest text-label-sm font-label-sm shrink-0">
+<button class="flex-1 py-2.5 text-center text-primary border-b-2 border-primary font-medium bg-surface-container-high/40 transition-colors">
+          Content
+        </button>
+<button class="flex-1 py-2.5 text-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/20 transition-colors">
+          Style
+        </button>
+<button class="flex-1 py-2.5 text-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/20 transition-colors">
+          Responsive
+        </button>
+<button class="flex-1 py-2.5 text-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/20 transition-colors">
+          Animation
+        </button>
+</div>
+<!-- Scrollable Tab Form Body -->
+<div class="flex-1 overflow-y-auto p-4 space-y-5 text-body-sm font-body-sm">
+<!-- SECTION 1: CONTENT TAB -->
+<div class="space-y-3.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">Block Content</span>
+<span class="text-[11px] text-primary hover:underline cursor-pointer">Reset Default</span>
+</div>
+<!-- Tier Name Input -->
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Tier Name</label>
+<div class="relative">
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md px-3 py-1.5 text-white font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="Pro Member"/>
+<span class="material-symbols-outlined absolute right-2.5 top-2 text-outline text-[16px]">edit</span>
+</div>
+</div>
+<!-- Price & Billing Cycle Fields -->
+<div class="grid grid-cols-2 gap-2">
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Price &amp; Currency</label>
+<div class="relative flex items-center">
+<span class="absolute left-2.5 text-outline font-medium">$</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md pl-6 pr-2 py-1.5 text-white font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" type="text" value="79"/>
+</div>
+</div>
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Interval</label>
+<select class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md px-2.5 py-1.5 text-white font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option selected="">per month</option>
+<option>per year</option>
+<option>one-time</option>
+</select>
+</div>
+</div>
+<!-- Badge Pill Input -->
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Badge Pill Text</label>
+<div class="flex items-center gap-2">
+<input class="flex-1 bg-[#12121A] border border-[#1E1E2E] rounded-md px-3 py-1.5 text-white font-body-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none" type="text" value="Most Popular"/>
+<div class="w-7 h-7 rounded border border-[#1E1E2E] bg-blue-500/20 flex items-center justify-center text-primary" title="Badge Active Color">
+<span class="w-3 h-3 rounded-full bg-blue-500"></span>
+</div>
+</div>
+</div>
+<!-- Feature List Editor -->
+<div class="pt-1">
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-[11px] font-label-md text-on-surface-variant">Feature List Items (4)</label>
+<span class="text-[10px] text-outline">Drag to reorder</span>
+</div>
+<div class="space-y-1.5">
+<div class="flex items-center gap-1.5 bg-[#12121A] p-1.5 rounded border border-[#1E1E2E] group">
+<span class="material-symbols-outlined text-outline cursor-grab text-[14px]">drag_indicator</span>
+<input class="flex-1 bg-transparent border-0 p-0 text-[12px] text-on-surface focus:ring-0" type="text" value="Unlimited 4K Studio Broadcasting"/>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-error transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 bg-[#12121A] p-1.5 rounded border border-[#1E1E2E] group">
+<span class="material-symbols-outlined text-outline cursor-grab text-[14px]">drag_indicator</span>
+<input class="flex-1 bg-transparent border-0 p-0 text-[12px] text-on-surface focus:ring-0" type="text" value="Automated AI Subtitles &amp; Clip Cutting"/>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-error transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 bg-[#12121A] p-1.5 rounded border border-[#1E1E2E] group">
+<span class="material-symbols-outlined text-outline cursor-grab text-[14px]">drag_indicator</span>
+<input class="flex-1 bg-transparent border-0 p-0 text-[12px] text-on-surface focus:ring-0" type="text" value="White-Label Academy Classroom"/>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-error transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5 bg-[#12121A] p-1.5 rounded border border-[#1E1E2E] group">
+<span class="material-symbols-outlined text-outline cursor-grab text-[14px]">drag_indicator</span>
+<input class="flex-1 bg-transparent border-0 p-0 text-[12px] text-on-surface focus:ring-0" type="text" value="Direct CRM Export &amp; Webhooks"/>
+<button class="opacity-0 group-hover:opacity-100 text-outline hover:text-error transition-opacity">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+</div>
+<!-- Add Feature Row Button -->
+<button class="mt-2 w-full py-1.5 rounded border border-dashed border-outline-variant hover:border-primary text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center gap-1 text-[11px] font-label-sm">
+<span class="material-symbols-outlined text-[14px]">add</span>
+              Add Feature Row
+            </button>
+</div>
+<!-- CTA Button Text & Destination Link -->
+<div class="space-y-2 pt-2 border-t border-outline-variant">
+<label class="block text-[11px] font-label-md text-on-surface-variant">Primary CTA Setup</label>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md px-3 py-1.5 text-white font-body-sm focus:border-primary outline-none" placeholder="Button Label" type="text" value="Start 14-Day Free Trial"/>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[16px]">link</span>
+<input class="flex-1 bg-[#12121A] border border-[#1E1E2E] rounded-md px-2.5 py-1 text-white font-body-sm focus:border-primary outline-none text-[11px]" placeholder="Target Destination Link" type="text" value="/checkout?plan=pro-monthly"/>
+</div>
+</div>
+</div>
+<!-- SECTION 2: STYLE ATTRIBUTES (Integrated View) -->
+<div class="pt-4 border-t border-outline-variant space-y-3.5">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">Box Model &amp; Appearance</span>
+<!-- Background Swatch Picker -->
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Background Surface</label>
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded border border-outline-variant bg-[#12121A] flex items-center justify-center shadow-inner relative">
+<span class="w-4 h-4 rounded bg-[#12121A] border border-white/20"></span>
+</div>
+<input class="w-24 bg-[#12121A] border border-[#1E1E2E] rounded px-2 py-1 text-[12px] text-white font-mono" type="text" value="#12121A"/>
+<div class="flex-1 flex items-center gap-1">
+<span class="text-[10px] text-outline">100%</span>
+<input class="w-full accent-primary h-1 bg-surface-container-highest rounded" type="range" value="100"/>
+</div>
+</div>
+</div>
+<!-- Padding 4-Way Box Model -->
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Padding (4-Way Matrix)</label>
+<div class="grid grid-cols-4 gap-1.5 text-center">
+<div class="bg-[#12121A] border border-[#1E1E2E] p-1.5 rounded">
+<span class="text-[9px] text-outline block">TOP</span>
+<span class="text-[11px] font-mono text-white">32px</span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] p-1.5 rounded">
+<span class="text-[9px] text-outline block">RIGHT</span>
+<span class="text-[11px] font-mono text-white">24px</span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] p-1.5 rounded">
+<span class="text-[9px] text-outline block">BOTTOM</span>
+<span class="text-[11px] font-mono text-white">32px</span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] p-1.5 rounded">
+<span class="text-[9px] text-outline block">LEFT</span>
+<span class="text-[11px] font-mono text-white">24px</span>
+</div>
+</div>
+</div>
+<!-- Border Radius & Shadow Dropdown -->
+<div class="grid grid-cols-2 gap-2">
+<div>
+<div class="flex justify-between text-[11px] font-label-md text-on-surface-variant mb-1">
+<span>Radius</span>
+<span class="text-primary font-mono">12px</span>
+</div>
+<input class="w-full accent-primary h-1 bg-surface-container-highest rounded" max="32" min="0" type="range" value="12"/>
+</div>
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Shadow Depth</label>
+<select class="w-full bg-[#12121A] border border-[#1E1E2E] rounded px-2 py-1 text-[11px] text-white focus:border-primary outline-none">
+<option selected="">Glow / Elevation 2</option>
+<option>None (Flat)</option>
+<option>Level 1 (Crisp)</option>
+<option>Level 3 (Modal Blur)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- SECTION 3: RESPONSIVE BEHAVIOR -->
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">Device Visibility</span>
+<div class="space-y-1.5">
+<label class="flex items-center gap-2 bg-[#12121A] p-2 rounded border border-[#1E1E2E] cursor-pointer hover:border-outline transition-colors">
+<input checked="" class="rounded w-4 h-4 bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px] text-outline">desktop_windows</span>
+<span class="text-[12px] text-on-surface">Show on Desktop</span>
+</label>
+<label class="flex items-center gap-2 bg-[#12121A] p-2 rounded border border-[#1E1E2E] cursor-pointer hover:border-outline transition-colors">
+<input checked="" class="rounded w-4 h-4 bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px] text-outline">tablet_mac</span>
+<span class="text-[12px] text-on-surface">Show on Tablet</span>
+</label>
+<label class="flex items-center gap-2 bg-[#12121A] p-2 rounded border border-[#1E1E2E] cursor-pointer hover:border-outline transition-colors">
+<input checked="" class="rounded w-4 h-4 bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+<span class="material-symbols-outlined text-[16px] text-outline">smartphone</span>
+<span class="text-[12px] text-on-surface">Show on Mobile</span>
+</label>
+</div>
+</div>
+<!-- SECTION 4: ANIMATION ENTRANCE -->
+<div class="pt-4 border-t border-outline-variant space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider font-semibold">Motion Transition</span>
+<span class="material-symbols-outlined text-primary text-[16px]">play_circle</span>
+</div>
+<div>
+<label class="block text-[11px] font-label-md text-on-surface-variant mb-1">Entrance Animation</label>
+<select class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md px-3 py-1.5 text-white font-body-sm focus:border-primary outline-none">
+<option selected="">Slide Up - 0.4s ease</option>
+<option>Fade In - 0.3s linear</option>
+<option>Zoom In - 0.5s cubic</option>
+<option>None</option>
+</select>
+</div>
+</div>
+</div>
+<!-- BOTTOM STICKY ACTION BAR -->
+<div class="p-space-md border-t border-outline-variant bg-surface-container-lowest space-y-3 shrink-0">
+<!-- Apply to all similar blocks checkbox -->
+<label class="flex items-center gap-2 cursor-pointer select-none">
+<input checked="" class="rounded w-4 h-4 bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Apply to all similar blocks</span>
+</label>
+<!-- Update Block Primary Gradient CTA -->
+<button class="w-full py-2.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-semibold neon-glow-btn hover:brightness-105 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[17px]">sync</span>
+          Update Block
+        </button>
+</div>
+</aside>
+</div>
+</body></html>

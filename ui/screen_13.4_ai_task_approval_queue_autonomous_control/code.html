@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — AI Task Approval Queue</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "primary": "#adc6ff",
+            "on-primary": "#002e6a",
+            "inverse-primary": "#005ac2",
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface-variant": "#35343a",
+            "surface-bright": "#39383e",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "on-primary-fixed-variant": "#004395",
+            "surface": "#131318",
+            "on-secondary-container": "#c4abff",
+            "tertiary-container": "#00a572",
+            "on-tertiary": "#003824",
+            "error-container": "#93000a",
+            "on-surface-variant": "#c2c6d6",
+            "primary-container": "#4d8eff",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container-low": "#1b1b20",
+            "background": "#131318",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-on-surface": "#303036",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "surface-container-high": "#2a292f",
+            "secondary-fixed": "#e9ddff",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface": "#e4e1e9",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container": "#1f1f25",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "secondary-container": "#571bc1",
+            "surface-container-highest": "#35343a",
+            "on-error-container": "#ffdad6",
+            "inverse-surface": "#e4e1e9",
+            "error": "#ffb4ab"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .accent-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
+    }
+    .accent-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    .card-surface {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .card-surface:hover {
+      border-color: rgba(139, 92, 246, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased overflow-x-hidden">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (desktop_collapsible, AI Agents Active)       -->
+<!-- ========================================================================= -->
+<aside class="fixed left-0 top-0 z-50 flex flex-col h-screen w-64 bg-surface-container-low border-r border-outline-variant px-3 py-4 overflow-y-auto">
+<!-- Header / Brand Identity -->
+<div class="flex items-center gap-3 px-3 pb-5 mb-2 border-b border-outline-variant">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center text-primary font-headline-sm text-headline-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="font-label-sm text-label-sm text-outline mt-1 uppercase tracking-wider">Enterprise Suite</span>
+</div>
+</div>
+<!-- Navigation Tabs (12 Tabs from JSON, 'AI Agents' is Active) -->
+<nav class="flex-1 space-y-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="web">web</span>
+<span>Website Builder</span>
+</a>
+<!-- 3. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="storefront">storefront</span>
+<span>Commerce</span>
+</a>
+<!-- 4. Courses -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="school">school</span>
+<span>Courses</span>
+</a>
+<!-- 5. Community -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="forum">forum</span>
+<span>Community</span>
+</a>
+<!-- 6. CRM -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="contacts">contacts</span>
+<span>CRM</span>
+</a>
+<!-- 7. Email -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="mail">mail</span>
+<span>Email</span>
+</a>
+<!-- 8. AI Agents (ACTIVE TAB - MATCHES INTENT EXACTLY) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high text-primary font-medium border border-outline-variant shadow-sm transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="smart_toy">smart_toy</span>
+<span class="flex-1">AI Agents</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</a>
+<!-- 9. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<!-- 10. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="handshake">handshake</span>
+<span>Affiliates</span>
+</a>
+<!-- 11. Settings -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<!-- 12. Admin -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 ease-out font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="admin_panel_settings">admin_panel_settings</span>
+<span>Admin</span>
+</a>
+</nav>
+<!-- Workspace Upgrade Banner & Footer Navigation -->
+<div class="mt-4 pt-4 border-t border-outline-variant space-y-2">
+<div class="p-3 rounded-lg bg-surface-container-high border border-outline-variant mb-2">
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span>Tier: Pro Titan</span>
+<span class="text-tertiary font-label-sm text-label-sm">Active</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline mt-1 mb-2.5 leading-snug">Scaling 8 sub-agents across multi-tenant feeds.</p>
+<button class="w-full py-1.5 px-2.5 rounded bg-surface-variant hover:bg-surface-bright text-on-surface border border-outline-variant font-label-sm text-label-sm transition-all duration-150">
+          Upgrade Workspace
+        </button>
+</div>
+<!-- Footer Tabs: Documentation, Support -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-outline" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN CONTAINER (Left margin for SideNav)                                  -->
+<!-- ========================================================================= -->
+<div class="pl-64 flex flex-col min-h-screen">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (desktop_utility)                              -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full h-14 px-6 bg-surface border-b border-outline-variant">
+<!-- Left side: Product Name + Search -->
+<div class="flex items-center gap-6">
+<span class="font-headline-sm text-headline-sm font-semibold text-on-surface">Creator OS</span>
+<!-- Search Input with Left Orientation -->
+<div class="relative w-72">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="search">search</span>
+<input class="w-full h-8 pl-9 pr-3 rounded-md bg-surface-container-lowest border border-outline-variant text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search tasks, agents, prompts..." type="text"/>
+</div>
+<!-- Navigation Links from JSON -->
+<nav class="hidden xl:flex items-center gap-4 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-on-surface transition-all" href="#">Workspace</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-all" href="#">Studio Production</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-all" href="#">Analytics Overview</a>
+</nav>
+</div>
+<!-- Right side: Agent Status, Actions, Icons, Avatar -->
+<div class="flex items-center gap-4">
+<!-- Agent Health / Operational Pill -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span>7 Agents Autonomous</span>
+<span class="text-outline">•</span>
+<span class="text-error">1 Paused</span>
+</div>
+<!-- Trailing Secondary & Primary Actions -->
+<button class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-variant text-on-surface font-label-md text-label-md border border-outline-variant transition-all">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_circle">check_circle</span>
+<span>System Operational</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white font-label-md text-label-md font-medium accent-gradient-btn transition-all duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+<span>Create New</span>
+</button>
+<!-- Trailing Icons: notifications, help, tune -->
+<div class="flex items-center gap-1 border-l border-outline-variant pl-3">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" title="Notifications">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" title="Help">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" title="Tune Settings">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- User profile avatar -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant">
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-primary/50 object-cover" data-alt="A sophisticated studio creator headshot lit with ambient neon purple and soft cyan backlight in a high-tech obsidian control room setting, displaying supreme modern confidence and clean photographic sharpness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbvmOR2IeRl2-P49YR7xDPqBdlQrdCXAXOVIaVN9zgYBGdE8xw5DKpcTZYlPpftMZWzuIlLKWoPQs2e-J8B6wNyXz17a1XhVowmQ4fzC6UcfP2Wf85OhDjjXftEuNppr_xRepeV18Vvq6HysbS_Omkab6-TnDZ4dkfk_UZUTYsN8j74wvsK-8zPaRkMawYdUQVSNBc9ibiLlSyHmXNEG8v3EKUFb6AfcNx-JnJw3U3lfn2ECR865QiJA"/>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- WORKSPACE CANVAS / PAGE CONTENT                                            -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-6 lg:p-8 space-y-6 max-w-[1440px] mx-auto w-full">
+<!-- ======================================================================= -->
+<!-- SECTION 1: Header Area & Batch Action Bar                                -->
+<!-- ======================================================================= -->
+<section class="space-y-4">
+<!-- Title & Counter & Subtitle -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight">AI Task Approval Queue</h1>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                5 Tasks Awaiting Sign-off
+              </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+              Review and approve high-impact autonomous actions before live execution or public dispatch.
+            </p>
+</div>
+<!-- Quick Telemetry Overview Mini Badge -->
+<div class="flex items-center gap-2 bg-surface-container-high border border-outline-variant px-3 py-2 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="bolt">bolt</span>
+<div class="text-left">
+<p class="font-label-sm text-label-sm text-outline">Autonomous Safeguard Level</p>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Strict Human-in-the-Loop</p>
+</div>
+</div>
+</div>
+<!-- Batch Action Bar -->
+<div class="card-surface rounded-xl p-4 flex flex-wrap items-center justify-between gap-4 shadow-sm">
+<div class="flex items-center gap-4">
+<!-- Select All Checkbox -->
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-low text-primary focus:ring-primary focus:ring-offset-0" type="checkbox"/>
+<span class="font-label-md text-label-md font-medium text-on-surface">Select All (3 Pending High Priority)</span>
+</label>
+<div class="h-4 w-px bg-outline-variant"></div>
+<!-- Auto-approve toggle switch -->
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant">Auto-approve low risk (&lt;$50 impact)</span>
+</label>
+</div>
+<!-- Batch Action Buttons -->
+<div class="flex items-center gap-2.5">
+<button class="px-3.5 py-1.5 rounded-lg border border-error/50 hover:bg-error-container/20 text-error font-label-md text-label-md font-medium transition-all duration-150 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+<span>Reject All</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg text-white font-label-md text-label-md font-medium accent-gradient-btn transition-all duration-150 active:scale-[0.98] flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm" data-icon="done_all">done_all</span>
+<span>Approve All Selected (3)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ======================================================================= -->
+<!-- SECTION 2: Filter & Category Pills                                       -->
+<!-- ======================================================================= -->
+<section class="space-y-3">
+<!-- Filter Row 1: By Agent -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider w-24">Filter Agent:</span>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md font-medium bg-primary/15 border border-primary/40 text-primary transition-all">
+            All Agents (8)
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all">
+            Growth Agent
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all">
+            Copywriter Agent
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all">
+            CRM Lead Agent
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all">
+            Support Sentinel
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all">
+            Sales Bot
+          </button>
+</div>
+<!-- Filter Row 2: By Impact Level -->
+<div class="flex flex-wrap items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider w-24">Impact Tier:</span>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md font-medium bg-primary/15 border border-primary/40 text-primary transition-all">
+            All Levels
+          </button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>High Risk</span>
+</button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Financial</span>
+</button>
+<button class="px-3 py-1 rounded-full font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant hover:bg-surface-container-high transition-all flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Content Broadcast</span>
+</button>
+</div>
+</section>
+<!-- ======================================================================= -->
+<!-- SECTION 3 & 4: 2-Column Layout (Task Queue Stack + Right Stats Mini-Panel) -->
+<!-- ======================================================================= -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT/CENTER: Task Cards Stack (8 Columns) -->
+<div class="lg:col-span-8 space-y-5">
+<!-- TASK CARD 1: Broadcast Campaign (High Impact) -->
+<article class="card-surface rounded-xl p-6 relative overflow-hidden transition-all duration-200">
+<!-- Accent stripe indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-secondary to-primary"></div>
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-low text-primary focus:ring-primary" type="checkbox"/>
+<!-- Agent Avatar / Badge -->
+<div class="w-10 h-10 rounded-lg bg-secondary-container/40 border border-secondary/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Email Marketing Agent (Nexus-9)</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30">Autonomous Level 4</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Target: 14,280 verified subscribers • Segment: VIP Creators</span>
+</div>
+</div>
+<!-- High Risk Tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-error/15 text-error border border-error/30">
+<span class="material-symbols-outlined text-xs" data-icon="warning">warning</span>
+                Content Broadcast (High Risk)
+              </span>
+</div>
+<!-- Task Title -->
+<div class="mb-4">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                Bulk Email Campaign Dispatch — Cohort Beta Launch
+              </h3>
+</div>
+<!-- AI Output Preview Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 mb-4 space-y-3">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline border-b border-outline-variant pb-2">
+<span>Subject Preview: <strong class="text-on-surface">"Final Call: Anamorphic Masterclass Doors Close Midnight"</strong></span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                  Spam Score: 0.02 (Optimal)
+                </span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant space-y-2 leading-relaxed">
+<p>Hey {{first_name}}, the cohort enrollment deadline is in exactly 6 hours. Over 450 cinema artists have already claimed their seat.</p>
+<div class="py-2">
+<span class="inline-block px-4 py-2 rounded bg-primary text-on-primary font-label-sm font-semibold shadow">
+                    Claim Final 10% Seat Discount →
+                  </span>
+</div>
+<p class="text-xs text-outline italic">Personalized dynamic merge tags verified against 14,280 records.</p>
+</div>
+</div>
+<!-- Telemetry & Action Footer -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-outline-variant">
+<!-- Telemetry Pill -->
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="memory">memory</span>
+                  4,120 tokens ($0.082 cost)
+                </span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+                  Confidence Score: 98.4%
+                </span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="edit">edit</span>
+<span>Edit &amp; Approve</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-error/20 text-error border border-error/40 font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+<span>Reject</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-label-md text-label-md font-medium transition-all shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+<span>Approve &amp; Send</span>
+</button>
+</div>
+</div>
+</article>
+<!-- TASK CARD 2: Financial - Pricing Adjustment -->
+<article class="card-surface rounded-xl p-6 relative overflow-hidden transition-all duration-200">
+<!-- Accent stripe indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-tertiary"></div>
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-low text-primary focus:ring-primary" type="checkbox"/>
+<!-- Agent Avatar / Badge -->
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/30 border border-tertiary/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">Dynamic Pricing Optimizer (Vault-4)</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/15 text-tertiary border border-tertiary/30">Finance Guard</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Target: Cart Abandoners (&gt;2 hrs) • Predicted Lift: +$2,400 GMV</span>
+</div>
+</div>
+<!-- Financial Impact Tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30">
+<span class="material-symbols-outlined text-xs" data-icon="payments">payments</span>
+                Financial Adjustment
+              </span>
+</div>
+<!-- Task Title -->
+<div class="mb-4">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                Flash Discount Coupon Generation (<code class="text-primary font-mono font-medium">#SPRING25</code>)
+              </h3>
+</div>
+<!-- AI Output Preview Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 mb-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center border-b border-outline-variant pb-3 mb-3">
+<div class="bg-surface-container-low p-2.5 rounded border border-outline-variant">
+<p class="font-label-sm text-label-sm text-outline">Proposed Markdown</p>
+<p class="font-headline-sm text-headline-sm font-bold text-on-surface">20% OFF</p>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded border border-outline-variant">
+<p class="font-label-sm text-label-sm text-outline">Eligible SKU</p>
+<p class="font-headline-sm text-headline-sm font-semibold text-primary">Master LUT Pack</p>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded border border-outline-variant">
+<p class="font-label-sm text-label-sm text-outline">Expected Recovery</p>
+<p class="font-headline-sm text-headline-sm font-bold text-tertiary">+$2,400 GMV</p>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Autonomous logic detected a 14% bounce increase on the checkout pipeline during peak weekend traffic. Model recommends deploying coupon for a strictly capped 48-hour window.
+              </p>
+</div>
+<!-- Telemetry & Action Footer -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-outline-variant">
+<!-- Telemetry Pill -->
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="memory">memory</span>
+                  1,840 tokens ($0.036 cost)
+                </span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+                  Confidence Score: 94.1%
+                </span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+<span>Adjust Discount</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-error/20 text-error border border-error/40 font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+<span>Reject</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-label-md text-label-md font-medium transition-all shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+<span>Approve</span>
+</button>
+</div>
+</div>
+</article>
+<!-- TASK CARD 3: CRM - High Value Outreach -->
+<article class="card-surface rounded-xl p-6 relative overflow-hidden transition-all duration-200">
+<!-- Accent stripe indicator -->
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
+<div class="flex items-start justify-between gap-4 mb-4">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded border-outline-variant bg-surface-container-low text-primary focus:ring-primary" type="checkbox"/>
+<!-- Agent Avatar / Badge -->
+<div class="w-10 h-10 rounded-lg bg-primary-container/30 border border-primary/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="smart_toy">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-semibold text-on-surface">CRM Lead Concierge (Echo-3)</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/15 text-primary border border-primary/30">Enterprise Deal Desk</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline">Lead: Studio Paramount / Director of Production • Deal Value: $12,000/yr</span>
+</div>
+</div>
+<!-- High Value Tag -->
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-label-sm font-label-sm font-semibold bg-primary/15 text-primary border border-primary/30">
+<span class="material-symbols-outlined text-xs" data-icon="star">star</span>
+                High-Value Enterprise
+              </span>
+</div>
+<!-- Task Title -->
+<div class="mb-4">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface">
+                Custom High-Ticket Enterprise Contract Proposal
+              </h3>
+</div>
+<!-- AI Output Preview Container -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-lg p-4 mb-4 space-y-2.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm border-b border-outline-variant pb-2">
+<span class="text-on-surface font-medium">Deliverable Summary: Annual Licensing &amp; Dedicated Video Compute Cluster</span>
+<span class="text-secondary">$12,000 ARR Tier</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                "Hello Marcus, based on Paramount’s 4K render pipeline logs from last month, we have drafted a custom enterprise sponsorship package ensuring 99.9% GPU compute availability and 24/7 dedicated creator engineering access."
+              </p>
+<div class="flex items-center gap-2 pt-1 text-xs text-outline">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="attachment">attachment</span>
+<span>Attachment: Contract_Proposal_Paramount_Echo3_v2.pdf (Encrypted)</span>
+</div>
+</div>
+<!-- Telemetry & Action Footer -->
+<div class="flex flex-wrap items-center justify-between gap-4 pt-2 border-t border-outline-variant">
+<!-- Telemetry Pill -->
+<div class="flex items-center gap-3 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="memory">memory</span>
+                  6,250 tokens ($0.125 cost)
+                </span>
+<span>•</span>
+<span class="flex items-center gap-1 text-tertiary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="analytics">analytics</span>
+                  Confidence Score: 96.8%
+                </span>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+<span>Open in CRM</span>
+</button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-error/20 text-error border border-error/40 font-label-md text-label-md transition-all flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+<span>Reject</span>
+</button>
+<button class="px-4 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-label-md text-label-md font-medium transition-all shadow-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="approval">approval</span>
+<span>Approve &amp; Dispatch</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- RIGHT SIDE: Quick Stats Mini-Panel (4 Columns) -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Today's Approval Stats Card -->
+<div class="card-surface rounded-xl p-6 shadow-sm space-y-5">
+<div class="flex items-center justify-between border-b border-outline-variant pb-4">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="query_stats">query_stats</span>
+                Today's Approval Stats
+              </h2>
+<span class="font-label-sm text-label-sm text-outline">Real-time</span>
+</div>
+<!-- Metric Cards Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Approved -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-3">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-sm text-label-sm">Approved</span>
+<span class="material-symbols-outlined text-emerald-400 text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">42</div>
+<span class="font-body-sm text-body-sm text-emerald-400 font-medium">+18% vs yesterday</span>
+</div>
+<!-- Rejected -->
+<div class="bg-surface-container-low border border-outline-variant rounded-lg p-3">
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="font-label-sm text-label-sm">Rejected</span>
+<span class="material-symbols-outlined text-error text-sm" data-icon="cancel">cancel</span>
+</div>
+<div class="font-headline-xl text-headline-xl font-bold text-on-surface">3</div>
+<span class="font-body-sm text-body-sm text-outline">Prompt tuned</span>
+</div>
+</div>
+<!-- Deep Stats Breakdown -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-primary/15 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-base" data-icon="speed">speed</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Average Review Time</p>
+<p class="font-label-lg text-label-lg font-semibold text-on-surface">1.8 mins</p>
+</div>
+</div>
+<span class="text-tertiary font-label-sm text-label-sm">-45s faster</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container-lowest border border-outline-variant">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+<span class="material-symbols-outlined text-base" data-icon="shield">shield</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-outline">Total Prevented Risk</p>
+<p class="font-label-lg text-label-lg font-semibold text-emerald-400">$8.4k</p>
+</div>
+</div>
+<span class="text-outline font-label-sm text-label-sm">Protected</span>
+</div>
+</div>
+<!-- Audit Trail & SLA -->
+<div class="pt-2 border-t border-outline-variant space-y-2">
+<div class="flex items-center justify-between text-xs text-outline">
+<span>Queue SLA Target</span>
+<span class="text-on-surface font-medium">&lt; 15 mins (98.9% met)</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-tertiary h-full w-[94%]"></div>
+</div>
+</div>
+</div>
+<!-- Active Agents Quick Status Widget -->
+<div class="card-surface rounded-xl p-5 space-y-4">
+<h3 class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center justify-between">
+<span>Agent Autonomy Guardrails</span>
+<span class="material-symbols-outlined text-outline text-base" data-icon="info">info</span>
+</h3>
+<div class="space-y-3 font-body-sm text-body-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">Nexus-9 (Marketing)</span>
+</div>
+<span class="text-outline text-xs">Human Gate Active</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">Vault-4 (Finance)</span>
+</div>
+<span class="text-outline text-xs">Threshold &gt; $500</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span class="text-on-surface">Crawler-7 (Scraper)</span>
+</div>
+<span class="text-error text-xs">Paused by Policy</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+</div>
+</body></html>

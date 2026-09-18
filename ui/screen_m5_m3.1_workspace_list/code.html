@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Workspaces</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-variant": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary": "#002e6a",
+            "tertiary": "#4edea3",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "background": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "primary": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-primary": "#005ac2",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "surface": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "secondary-fixed": "#e9ddff",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-fixed": "#002113",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .obsidian-base { background-color: #0A0A0F; }
+    .obsidian-card { background-color: #12121A; }
+    .obsidian-border { border-color: #1E1E2E; }
+    .obsidian-hover { background-color: #181824; }
+    .gradient-accent-bg {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .gradient-accent-text {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .glow-active-card {
+      box-shadow: 0 0 28px -6px rgba(59, 130, 246, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    /* Hide scrollbar for neat mobile canvas */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary">
+<!-- Mobile Viewport Wrapper (375px max centered) -->
+<div class="relative w-full max-w-[375px] mx-auto min-h-screen obsidian-base flex flex-col shadow-2xl overflow-x-hidden pb-24">
+<!-- Ambient Subtle Background Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary-container/10 rounded-full blur-3xl pointer-events-none -z-0"></div>
+<div class="absolute top-96 right-[-20%] w-60 h-60 bg-secondary-container/15 rounded-full blur-3xl pointer-events-none -z-0"></div>
+<!-- TopAppBar (Shared Component Implementation) -->
+<header class="bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-md text-primary dark:text-primary docked full-width top-0 sticky z-40 shadow-sm flex items-center justify-between h-14 px-4 w-full border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<button aria-label="Menu navigation" class="flex items-center justify-center w-8 h-8 rounded-lg hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 text-on-surface">
+<span class="material-symbols-outlined text-[22px]">menu</span>
+</button>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-on-surface dark:text-on-surface">Creator OS</span>
+</div>
+</div>
+<!-- Right cluster: Unread Notification & User Avatar (Alex Vance) -->
+<div class="flex items-center gap-2">
+<button aria-label="Notifications" class="relative flex items-center justify-center w-8 h-8 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface-container-lowest"></span>
+</button>
+<div class="flex items-center pl-1">
+<div class="relative w-8 h-8 rounded-full overflow-hidden ring-1 ring-outline-variant/60 flex items-center justify-center bg-surface-container-high text-on-surface font-label-md text-label-md">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Alex Vance, a creative studio director with thoughtful expression in soft studio twilight lighting against a sleek minimal architectural workspace background, with dark obsidian aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABD2FOdPGqZIK375NYnSx10iQYIbZfCXa1_FpK4bGW6OLdHezrZQjbMU_yiTrUe_x_ek0Zjz_9YbrvIu7CkLyhuW6NshaBYA1Il0sr_SoKB85hzxfynTwIgvzE6s1UIF1q1Fi_wo4bvjP8R92J6TjCHj91n5x6uPdf_BegE9z98Jjebj7P5C5HF_ML8eW9leU-eHU7Xr4TDguD5hDLaFhiEtf7B0_4YF8TUw2i4jcE4BjO7DyR8iFN6A"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 pb-2 z-10 flex flex-col gap-4">
+<!-- Title Header Section -->
+<section class="flex flex-col gap-1">
+<div class="flex items-baseline justify-between">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">Workspaces</h1>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">3 active</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+          Manage and switch between your production studios and brand environments.
+        </p>
+</section>
+<!-- Search and Filter Bar -->
+<section class="flex items-center gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-[38px] pl-9 pr-3 rounded-[6px] obsidian-card border obsidian-border text-on-surface placeholder:text-on-surface-variant/60 text-body-md font-body-md focus:outline-none focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6] transition-all" placeholder="Search workspaces..." type="text"/>
+</div>
+<button aria-label="Filter workspaces" class="h-[38px] w-[38px] flex items-center justify-center rounded-[6px] obsidian-card border obsidian-border text-on-surface-variant hover:text-on-surface hover:border-outline transition-all active:scale-95">
+<span class="material-symbols-outlined text-[19px]">tune</span>
+</button>
+</section>
+<!-- Workspace Cards Stack -->
+<section class="flex flex-col gap-3.5 mt-1">
+<!-- Card 1: Active Workspace (Acme Media Studio) -->
+<article class="relative obsidian-card border obsidian-border rounded-xl p-4 glow-active-card border-primary/40 transition-all hover:border-primary/60 group">
+<!-- Active Indicator Bar Accent -->
+<div class="absolute top-0 left-4 right-4 h-[2px] bg-gradient-to-r from-tertiary to-primary rounded-full"></div>
+<!-- Top Row: Name + Badges -->
+<div class="flex items-start justify-between gap-2 mb-1.5 pt-1">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Acme Media Studio</h2>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant/80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                acmemedia.creatoros.com
+              </span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary border border-tertiary/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                Active Studio
+              </span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant/40">
+                Owner
+              </span>
+</div>
+</div>
+<!-- Metrics Bento Grid (Key Stats Row) -->
+<div class="grid grid-cols-4 gap-1.5 py-3 my-2.5 border-y obsidian-border">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Websites</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">3</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Courses</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">5</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Members</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">14.8k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">MRR</span>
+<span class="text-body-md font-body-md font-semibold text-primary mt-0.5">$48.2k</span>
+</div>
+</div>
+<!-- Footer: Updated timestamp & Action -->
+<div class="flex items-center justify-between pt-0.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+              Updated 12m ago
+            </span>
+<button class="gradient-accent-bg glow-primary text-white h-9 px-3.5 rounded-lg text-label-md font-label-md flex items-center gap-1.5 hover:brightness-105 active:scale-95 transition-all">
+<span>Open Workspace</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Cinematography Lab -->
+<article class="obsidian-card border obsidian-border rounded-xl p-4 transition-all hover:border-secondary/40 hover:bg-[#181824] group">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Cinematography Lab</h2>
+<span class="text-body-sm font-body-sm text-on-surface-variant/80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                cinemalab.creatoros.com
+              </span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-secondary-container/40 text-secondary-fixed border border-secondary/30">
+                Pro Tier
+              </span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant/40">
+                Admin
+              </span>
+</div>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-4 gap-1.5 py-3 my-2.5 border-y obsidian-border">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Websites</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">1</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Courses</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">2</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Members</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">4.2k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">MRR</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">$16.5k</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="flex items-center justify-between pt-0.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+              Updated 2h ago
+            </span>
+<button class="obsidian-hover border obsidian-border text-on-surface h-9 px-3.5 rounded-lg text-label-md font-label-md flex items-center gap-1.5 hover:border-primary hover:text-primary active:scale-95 transition-all">
+<span>Switch Workspace</span>
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Creator Academy EU -->
+<article class="obsidian-card border obsidian-border rounded-xl p-4 transition-all hover:border-primary/40 hover:bg-[#181824] group">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex flex-col">
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Creator Academy EU</h2>
+<span class="text-body-sm font-body-sm text-on-surface-variant/80 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">link</span>
+                academy-eu.creatoros.com
+              </span>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-primary/15 text-primary border border-primary/30">
+                Enterprise
+              </span>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-surface-variant text-on-surface-variant border border-outline-variant/40">
+                Editor
+              </span>
+</div>
+</div>
+<!-- Metrics Bento Grid -->
+<div class="grid grid-cols-4 gap-1.5 py-3 my-2.5 border-y obsidian-border">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Websites</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">2</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Courses</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">8</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Members</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">29.1k</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-on-surface-variant">MRR</span>
+<span class="text-body-md font-body-md font-semibold text-on-surface mt-0.5">$89.0k</span>
+</div>
+</div>
+<!-- Footer -->
+<div class="flex items-center justify-between pt-0.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant/70 flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">schedule</span>
+              Updated 1d ago
+            </span>
+<button class="obsidian-hover border obsidian-border text-on-surface h-9 px-3.5 rounded-lg text-label-md font-label-md flex items-center gap-1.5 hover:border-primary hover:text-primary active:scale-95 transition-all">
+<span>Switch Workspace</span>
+<span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Prominent Create New Workspace Card -->
+<article class="relative rounded-xl border border-dashed border-[#2A2A3E] hover:border-primary/60 bg-[#12121A]/60 p-4 flex flex-col items-center text-center transition-all group overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="w-11 h-11 rounded-full gradient-accent-bg p-[1px] mb-2.5 glow-primary">
+<div class="w-full h-full rounded-full bg-[#12121A] flex items-center justify-center text-primary group-hover:text-white group-hover:bg-transparent transition-all">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Deploy New Studio</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-[280px] mt-1 mb-3.5 leading-snug">
+            Spin up a dedicated tenant with isolated domain, member roster, and billing.
+          </p>
+<button class="gradient-accent-bg text-white h-9 px-4 rounded-lg text-label-md font-label-md flex items-center gap-1.5 shadow-md hover:brightness-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>New Workspace</span>
+</button>
+</article>
+</section>
+<!-- Storage and Quota Info Strip -->
+<section class="mt-1 mb-2">
+<div class="obsidian-card border obsidian-border rounded-lg px-3 py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">cloud_done</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">
+              3 of 5 Workspace Slots used
+            </span>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary-fixed border border-secondary/20">
+            Pro Tier
+          </span>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component Implementation) -->
+<!-- Active State Logic: Context is "Workspaces" -> exactly matches label_texts[0] -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around h-16 px-2 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg">
+<!-- Item 1: Workspaces (ACTIVE) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary dark:text-primary active:scale-90 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="text-label-sm font-label-sm">Workspaces</span>
+</a>
+<!-- Item 2: Templates (INACTIVE) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[20px]">web</span>
+<span class="text-label-sm font-label-sm">Templates</span>
+</a>
+<!-- Item 3: Editor (INACTIVE) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="text-label-sm font-label-sm">Editor</span>
+</a>
+<!-- Item 4: Catalog (INACTIVE) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface transition-colors duration-150 active:scale-90" href="#">
+<span class="material-symbols-outlined text-[20px]">inventory_2</span>
+<span class="text-label-sm font-label-sm">Catalog</span>
+</a>
+</nav>
+</div>
+</body></html>

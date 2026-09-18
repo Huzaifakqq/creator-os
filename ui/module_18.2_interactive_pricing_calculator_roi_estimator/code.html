@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Interactive Pricing Calculator &amp; ROI Estimator</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#005ac2",
+            "inverse-on-surface": "#303036",
+            "error": "#ffb4ab",
+            "on-secondary-fixed": "#23005c",
+            "primary-fixed": "#d8e2ff",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-high": "#2a292f",
+            "surface-tint": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary": "#002e6a",
+            "on-primary-fixed": "#001a42",
+            "surface-container-lowest": "#0e0e13",
+            "outline": "#8c909f",
+            "on-surface-variant": "#c2c6d6",
+            "error-container": "#93000a",
+            "on-tertiary-container": "#00311f",
+            "surface-variant": "#35343a",
+            "secondary-fixed": "#e9ddff",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "tertiary-container": "#00a572",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-secondary-container": "#c4abff",
+            "secondary-container": "#571bc1",
+            "background": "#131318",
+            "primary-container": "#4d8eff",
+            "on-tertiary": "#003824",
+            "outline-variant": "#424754",
+            "inverse-surface": "#e4e1e9",
+            "secondary": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "primary": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-highest": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "surface": "#131318",
+            "on-secondary": "#3c0091",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "on-tertiary-fixed-variant": "#005236",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "surface-dim": "#131318"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "display-lg": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Studio Range Slider Customization */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 6px;
+      cursor: pointer;
+      background: #1f1f25;
+      border-radius: 9999px;
+      border: 1px solid #424754;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #adc6ff;
+      cursor: pointer;
+      -webkit-appearance: none;
+      margin-top: -8px;
+      box-shadow: 0 0 12px rgba(77, 142, 255, 0.6);
+      border: 2px solid #0e0e13;
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 18px rgba(77, 142, 255, 0.9);
+    }
+    
+    .gradient-primary-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.4);
+      transition: all 0.2s ease;
+    }
+    .gradient-primary-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 26px -2px rgba(139, 92, 246, 0.6);
+      transform: translateY(-1px);
+    }
+    .gradient-primary-btn:active {
+      transform: scale(0.98);
+    }
+
+    .emerald-glow-box {
+      box-shadow: 0 0 35px -8px rgba(16, 185, 129, 0.25), inset 0 0 20px -10px rgba(16, 185, 129, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased selection:bg-primary selection:text-on-primary min-h-screen flex flex-col justify-between relative overflow-x-hidden">
+<!-- Ambient Glow Canvas Spots -->
+<div class="absolute top-0 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-40 right-10 w-[30rem] h-[30rem] bg-tertiary-container/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute bottom-60 left-1/3 w-[26rem] h-[26rem] bg-secondary-container/15 rounded-full blur-[130px] pointer-events-none -z-10"></div>
+<!-- 1. TopNavBar (Shared Component from JSON Blueprint) -->
+<header class="bg-surface/80 dark:bg-surface/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-outline-variant/30 dark:border-outline-variant/30 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 md:px-8 max-w-7xl mx-auto h-16">
+<!-- Brand & Version Tag -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center shadow-md shadow-primary-container/20 border border-outline-variant/40">
+<span class="material-symbols-outlined text-on-surface text-base" data-icon="deployed_code" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight">Creator OS</span>
+</a>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high border border-outline-variant/40 text-tertiary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse mr-1.5"></span>
+          v3.0 Live
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Product</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Features</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Pricing</a>
+<!-- Active Nav Item -->
+<a class="text-primary dark:text-primary font-label-lg text-label-lg border-b-2 border-primary pb-1 flex items-center gap-1.5" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="calculate">calculate</span>
+          ROI Calculator
+        </a>
+</nav>
+<!-- Trailing Action Buttons -->
+<div class="flex items-center space-x-4">
+<a class="text-on-surface-variant hover:text-on-surface text-label-lg font-label-lg transition-colors px-2 py-1" href="#">Sign In</a>
+<a class="gradient-primary-btn text-white text-label-lg font-label-lg px-4 py-2 rounded-lg flex items-center gap-1.5" href="#">
+<span>Start Free Trial</span>
+<span class="text-xs opacity-75">($0 today)</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Canvas Content -->
+<main class="w-full max-w-7xl mx-auto px-6 md:px-8 py-10 flex-grow space-y-12">
+<!-- 2. Hero Header & Mission -->
+<div class="text-center max-w-4xl mx-auto space-y-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 shadow-inner">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="bolt">bolt</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Real-Time Economic Simulator • Creator OS ROI Engine</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-on-surface tracking-tight">
+        Calculate Your Consolidation Savings &amp; <span class="bg-gradient-to-r from-primary via-primary-container to-secondary text-transparent bg-clip-text">Autonomous Leverage</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+        See how much you save by replacing 6+ fragmented SaaS subscriptions and manual virtual assistant hours with Creator OS's all-in-one autonomous platform.
+      </p>
+<!-- Quick Presets Pill Bar -->
+<div class="pt-4 flex flex-wrap items-center justify-center gap-2 text-label-md font-label-md">
+<span class="text-outline text-xs mr-1">Presets:</span>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface transition-all flex items-center gap-1.5 hover:border-primary/50" onclick="applyPreset('course')">
+<span>🎥</span> YouTuber / Course (50k)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface transition-all flex items-center gap-1.5 hover:border-primary/50" onclick="applyPreset('newsletter')">
+<span>✍️</span> Newsletter &amp; Community (20k)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface transition-all flex items-center gap-1.5 hover:border-primary/50" onclick="applyPreset('studio')">
+<span>🚀</span> Software &amp; Studio (100k+)
+        </button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface transition-all flex items-center gap-1.5 hover:border-primary/50" onclick="applyPreset('agency')">
+<span>🎙️</span> Podcast &amp; Agency
+        </button>
+</div>
+</div>
+<!-- 3. Two-Column Interactive Financial Studio (Grid Layout) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column (58% ~ 7 cols): Tech Stack & Operations -->
+<div class="lg:col-span-7 bg-surface-container-low border border-outline-variant/40 rounded-xl p-6 md:p-8 space-y-8 shadow-md">
+<!-- Header -->
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-4">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Your Current Tech Stack &amp; Operations</h2>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Stage 1: Calibration</span>
+</div>
+<!-- Range Sliders Section -->
+<div class="space-y-6">
+<!-- Slider 1: Revenue -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-label-lg font-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="payments">payments</span>
+                Monthly Revenue / GMV
+              </label>
+<div class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-primary font-headline-sm text-headline-sm tracking-tight" id="badge-gmv">
+                $28,500<span class="text-xs text-outline font-normal">/mo</span>
+</div>
+</div>
+<input class="w-full h-2" id="slider-gmv" max="250000" min="2000" step="500" type="range" value="28500"/>
+<div class="flex justify-between text-label-sm font-label-sm text-outline px-1">
+<span>$2,000</span>
+<span>$50,000</span>
+<span>$125,000</span>
+<span>$250,000+</span>
+</div>
+</div>
+<!-- Slider 2: Subscribers & Community -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-label-lg font-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="groups">groups</span>
+                Email Subscribers &amp; Community Members
+              </label>
+<div class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-secondary font-headline-sm text-headline-sm tracking-tight" id="badge-subs">
+                35,000 <span class="text-xs text-outline font-normal">members</span>
+</div>
+</div>
+<input class="w-full h-2" id="slider-subs" max="200000" min="1000" step="1000" type="range" value="35000"/>
+<div class="flex justify-between text-label-sm font-label-sm text-outline px-1">
+<span>1k</span>
+<span>25k</span>
+<span>75k</span>
+<span>200k+</span>
+</div>
+</div>
+<!-- Slider 3: Agent Workload -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-label-lg font-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="smart_toy">smart_toy</span>
+                Monthly Autonomous Agent Workload (Reclaimed Labor)
+              </label>
+<div class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-tertiary font-headline-sm text-headline-sm tracking-tight" id="badge-hours">
+                65 <span class="text-xs text-outline font-normal">hrs/mo</span>
+</div>
+</div>
+<input class="w-full h-2" id="slider-hours" max="200" min="10" step="5" type="range" value="65"/>
+<div class="flex justify-between text-label-sm font-label-sm text-outline px-1">
+<span>10 hrs</span>
+<span>50 hrs</span>
+<span>100 hrs</span>
+<span>200 hrs/mo</span>
+</div>
+</div>
+</div>
+<!-- Current SaaS Subscriptions Selected Grid -->
+<div class="space-y-3 pt-2">
+<div class="flex items-center justify-between">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">Active Fragmented Subscriptions</span>
+<span class="text-label-sm font-label-sm text-outline">Click to toggle current tools</span>
+</div>
+<div class="space-y-2.5">
+<!-- Tool 1 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-course" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">Course &amp; Digital Commerce</div>
+<div class="text-body-sm font-body-sm text-outline">Kajabi / Teachable / Podia</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">$199<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-error font-medium">+2% Stripe fee penalty</div>
+</div>
+</label>
+<!-- Tool 2 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-community" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">Community &amp; Chat Platform</div>
+<div class="text-body-sm font-body-sm text-outline">Circle / Skool</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">$99<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-outline font-normal">Standard 5k tier</div>
+</div>
+</label>
+<!-- Tool 3 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-email" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">Email Marketing &amp; Newsletters</div>
+<div class="text-body-sm font-body-sm text-outline">ConvertKit / ActiveCampaign</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold" id="label-email-cost">$310<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-outline font-normal">Scales with audience</div>
+</div>
+</label>
+<!-- Tool 4 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-crm" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">CRM &amp; Deal Pipeline</div>
+<div class="text-body-sm font-body-sm text-outline">HubSpot / Pipedrive</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">$120<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-outline font-normal">2 team seats</div>
+</div>
+</label>
+<!-- Tool 5 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-zapier" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">Automation &amp; Glue Webhooks</div>
+<div class="text-body-sm font-body-sm text-outline">Zapier Pro / Make (Task overages)</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold">$149<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-outline font-normal">50,000 tasks/mo</div>
+</div>
+</label>
+<!-- Tool 6 -->
+<label class="flex items-center justify-between p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary/40 cursor-pointer transition-all">
+<div class="flex items-center gap-3">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline text-primary focus:ring-0 focus:ring-offset-0" id="chk-ai" onchange="calculateROI()" type="checkbox"/>
+<div>
+<div class="text-body-md font-body-md text-on-surface font-medium">AI Workspaces &amp; Virtual Assistants</div>
+<div class="text-body-sm font-body-sm text-outline">ChatGPT Team + Claude + VA Ops hours</div>
+</div>
+</div>
+<div class="text-right">
+<span class="text-label-lg font-label-lg text-on-surface font-semibold" id="label-ai-cost">$850<span class="text-xs text-outline font-normal">/mo</span></span>
+<div class="text-[10px] text-outline font-normal">Labor &amp; token tokens</div>
+</div>
+</label>
+</div>
+<!-- Total Fragmented Bar -->
+<div class="flex items-center justify-between p-4 rounded-lg bg-surface-container-highest/60 border border-outline-variant/50">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Current Fragmented Total</span>
+<div class="text-headline-sm font-headline-sm text-on-surface font-bold" id="total-fragmented-monthly">$1,727<span class="text-xs font-normal text-outline">/month</span></div>
+</div>
+<div class="text-right">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Annual Tool Spend</span>
+<div class="text-headline-sm font-headline-sm text-error font-bold" id="total-fragmented-yearly">$20,724<span class="text-xs font-normal text-outline">/yr</span></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (42% ~ 5 cols): ROI & Impact Ledger -->
+<div class="lg:col-span-5 sticky top-24 space-y-6">
+<!-- Main Ledger Glass Card -->
+<div class="bg-surface-container-low/90 backdrop-blur-xl border-2 border-tertiary/50 rounded-xl p-6 md:p-8 space-y-6 emerald-glow-box">
+<!-- Card Header & Badge -->
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4">
+<div>
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-widest font-bold flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+                Autonomous Impact Ledger
+              </span>
+<h3 class="text-headline-md font-headline-md text-on-surface tracking-tight mt-0.5">Your Creator OS Net Gain</h3>
+</div>
+<span class="px-2.5 py-1 rounded bg-tertiary-container/30 text-tertiary text-label-sm font-label-sm font-semibold border border-tertiary/40">
+              91.4% Saved
+            </span>
+</div>
+<!-- Highlight Hero Metric -->
+<div class="bg-surface-container-lowest/80 rounded-xl p-5 border border-outline-variant/30 text-center space-y-1 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-24 h-24 bg-tertiary/10 rounded-full blur-xl pointer-events-none"></div>
+<span class="text-label-md font-label-md text-outline">Net Direct Cash Saved</span>
+<div class="text-display-lg font-display-lg text-tertiary font-bold tracking-tight" id="hero-net-annual">
+              $18,936 <span class="text-headline-sm font-headline-sm text-tertiary/80 font-normal">/ year</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant pt-1" id="hero-hours-reclaimed">
+              + <strong class="text-on-surface font-semibold">780 hours</strong> of manual labor reclaimed annually
+            </p>
+</div>
+<!-- Monthly Comparison Breakdown Bar -->
+<div class="space-y-2">
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-outline">Fragmented Stack: <span class="text-on-surface line-through" id="comp-frag">$1,727/mo</span></span>
+<span class="text-outline">Creator OS Pro: <span class="text-primary font-semibold">$149/mo</span></span>
+</div>
+<!-- Visual progress bar comparison -->
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 8.6%;"></div>
+<div class="bg-tertiary h-full" style="width: 91.4%;" title="Savings Margin"></div>
+</div>
+<div class="flex justify-between text-[11px] text-outline pt-0.5">
+<span class="text-primary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span> OS Cost ($149)</span>
+<span class="text-tertiary flex items-center gap-1 font-semibold" id="comp-saved-mo"><span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span> Save $1,578/mo</span>
+</div>
+</div>
+<!-- 2x2 Mini Metric Breakdown Grid -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="delete_sweep">delete_sweep</span>
+                Software Cut
+              </div>
+<div class="text-headline-sm font-headline-sm text-on-surface font-bold" id="grid-cost-cut">$18,936<span class="text-xs text-outline font-normal">/yr</span></div>
+<div class="text-[11px] text-on-surface-variant">6 SaaS cancelled</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="schedule">schedule</span>
+                Time Reclaimed
+              </div>
+<div class="text-headline-sm font-headline-sm text-on-surface font-bold" id="grid-time-reclaimed">65 hrs<span class="text-xs text-outline font-normal">/mo</span></div>
+<div class="text-[11px] text-on-surface-variant">8 AI Agents working</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="trending_up">trending_up</span>
+                Gross Margin
+              </div>
+<div class="text-headline-sm font-headline-sm text-tertiary font-bold">+14.2%</div>
+<div class="text-[11px] text-on-surface-variant">0% platform take</div>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 space-y-1">
+<div class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary-fixed" data-icon="speed">speed</span>
+                Payback Velocity
+              </div>
+<div class="text-headline-sm font-headline-sm text-on-surface font-bold">3.2 Days</div>
+<div class="text-[11px] text-on-surface-variant">Instant breakeven</div>
+</div>
+</div>
+<!-- Recommended Plan Banner with Toggle -->
+<div class="p-4 rounded-lg bg-surface-container border border-primary/40 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-[10px] uppercase font-bold tracking-wider text-primary">Optimal Architecture</span>
+<h4 class="text-body-lg font-body-lg text-on-surface font-bold">Pro Creator Suite</h4>
+</div>
+<span class="text-headline-sm font-headline-sm text-primary font-bold">$149<span class="text-xs text-outline font-normal">/mo</span></span>
+</div>
+<ul class="text-body-sm font-body-sm text-on-surface-variant space-y-1.5">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                All 8 Autonomous AI Agents Fleet Included
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Unlimited Courses, Memberships &amp; 0% Platform Fee
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                Native CRM &amp; 99.4% Deliverability Email Engine
+              </li>
+</ul>
+<!-- Billing Toggle -->
+<div class="pt-2 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Billing Schedule:</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-surface-bright text-tertiary border border-outline-variant/30 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Bill Annually (20% Off Locked)
+              </span>
+</div>
+</div>
+<!-- Main Conversion CTA -->
+<div class="space-y-3 pt-1">
+<a class="gradient-primary-btn w-full py-3.5 px-4 rounded-lg text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 text-center group" href="#">
+<span id="cta-button-text">Switch to Creator OS — Claim $18,936 Savings</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<div class="flex items-center justify-center gap-4 text-[11px] text-outline text-center">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-tertiary" data-icon="verified_user">verified_user</span>
+                14-Day Risk-Free Trial
+              </span>
+<span>•</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="move_group">move_group</span>
+                1-Click Zero-Downtime Migration
+              </span>
+</div>
+</div>
+</div>
+<!-- Micro-Trust Quote Pill -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/30 flex items-start gap-3.5 shadow-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/40 flex-shrink-0 flex items-center justify-center font-bold text-primary text-sm">
+            AV
+          </div>
+<div class="space-y-1">
+<p class="text-body-sm font-body-sm text-on-surface italic">
+              "The calculator was actually conservative. We cut $2,100/mo in tool sprawl and the Autonomous TA agent alone grades 800+ student lab submissions each month."
+            </p>
+<div class="text-label-sm font-label-sm text-outline">
+<strong class="text-on-surface font-semibold">Alex Vance</strong> — Founder @ DevPulse (420k tech subs)
+            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Detailed Savings & Tool Replacement Ledger Table -->
+<section class="space-y-5 pt-6">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-semibold">System-by-System Dissection</span>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">The Consolidation Matrix</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">See the exact 1:1 functional replacements included inside your unified workspace.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary mr-1.5"></span> All 6 Modules Active
+          </span>
+</div>
+</div>
+<!-- Precision Data Table -->
+<div class="border border-outline-variant/40 rounded-xl overflow-hidden bg-surface-container-low">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant/40 text-label-sm font-label-sm text-outline uppercase tracking-wider">
+<th class="py-3.5 px-5">Operational Layer</th>
+<th class="py-3.5 px-5">Legacy Fragmented Tool</th>
+<th class="py-3.5 px-5">Old Cost</th>
+<th class="py-3.5 px-5">Creator OS Native Engine</th>
+<th class="py-3.5 px-5">New Cost</th>
+<th class="py-3.5 px-5 text-right">Autonomous Advantage</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="school">school</span>
+                  LMS &amp; Courses
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">Kajabi / Teachable</td>
+<td class="py-4 px-5 text-error font-medium">$199 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">Creator OS Course Studio</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">0% transaction tax, interactive code sandboxes</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="mark_email_read">mark_email_read</span>
+                  Email &amp; Broadcasts
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">ConvertKit / ActiveCampaign</td>
+<td class="py-4 px-5 text-error font-medium">$310 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">Native SES / Resend Infrastructure</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">99.4% deliverability + auto-subject line optimizer</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="forum">forum</span>
+                  Community Hub
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">Circle / Skool</td>
+<td class="py-4 px-5 text-error font-medium">$99 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">Unified Channels &amp; Discord Bridge</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">Zero member tier lockouts, live co-working rooms</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-base" data-icon="handshake">handshake</span>
+                  CRM &amp; Sponsors
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">HubSpot / Pipedrive</td>
+<td class="py-4 px-5 text-error font-medium">$120 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">Brand Deal Kanban &amp; Contract Auto-Sign</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">Automatic media kit generation &amp; Stripe invoice sync</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="hub">hub</span>
+                  Automations
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">Zapier Pro / Make</td>
+<td class="py-4 px-5 text-error font-medium">$149 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">Inngest Internal Queues</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">Zero webhook dropouts, native database triggers</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5 font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="smart_toy">smart_toy</span>
+                  AI &amp; Operations
+                </td>
+<td class="py-4 px-5 text-on-surface-variant">2x ChatGPT Teams + VA Staff</td>
+<td class="py-4 px-5 text-error font-medium">$850 / mo</td>
+<td class="py-4 px-5 text-on-surface font-semibold">8 Autonomous Specialized Agent Fleet</td>
+<td class="py-4 px-5 text-tertiary font-bold">Included ($0)</td>
+<td class="py-4 px-5 text-right text-on-surface-variant">24/7 autonomous TA, lead triage &amp; draft generation</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- 5. Bottom Final Conversion Strip -->
+<div class="rounded-2xl bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-lowest border border-outline-variant/40 p-8 md:p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
+<div class="absolute -left-20 -bottom-20 w-80 h-80 bg-primary-container/20 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="space-y-3 max-w-xl text-center md:text-left">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider font-semibold">Zero Complexity Migration Guarantee</span>
+<h3 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">Ready to simplify your creator empire?</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Export your Kajabi contacts, ConvertKit lists, and Circle members with a single authorization token. Our concierge engineers migrate your full archive in under 4 hours.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
+<a class="gradient-primary-btn text-white text-label-lg font-label-lg font-semibold px-6 py-3.5 rounded-lg w-full sm:w-auto text-center flex items-center justify-center gap-2" href="#">
+<span>Start 14-Day Free Trial</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="px-5 py-3.5 rounded-lg bg-surface-container-high hover:bg-surface-bright border border-outline-variant/40 text-on-surface text-label-lg font-label-lg font-medium w-full sm:w-auto text-center transition-colors" href="#">
+          Book Concierge Migration
+        </a>
+</div>
+</div>
+</main>
+<!-- 6. Footer (Shared Component from JSON Blueprint) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/30 dark:border-outline-variant/30 flat no shadows mt-16">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-6 md:px-8 py-8 max-w-7xl mx-auto gap-4">
+<!-- Brand & Copyright -->
+<div class="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface dark:text-on-surface">Creator OS</span>
+<span class="hidden sm:inline text-outline">•</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">© 2025 Creator OS Inc. All rights reserved.</span>
+</div>
+<!-- Navigation Links -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Security</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface transition-colors flex items-center gap-1" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>
+          System Status
+        </a>
+<a class="text-on-surface-variant dark:text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface dark:hover:text-on-surface transition-colors" href="#">Contact Sales</a>
+</div>
+</div>
+</footer>
+<!-- Interactive ROI Engine Micro-Script -->
+<script>
+    const sliderGmv = document.getElementById('slider-gmv');
+    const sliderSubs = document.getElementById('slider-subs');
+    const sliderHours = document.getElementById('slider-hours');
+
+    const badgeGmv = document.getElementById('badge-gmv');
+    const badgeSubs = document.getElementById('badge-subs');
+    const badgeHours = document.getElementById('badge-hours');
+
+    const chkCourse = document.getElementById('chk-course');
+    const chkCommunity = document.getElementById('chk-community');
+    const chkEmail = document.getElementById('chk-email');
+    const chkCrm = document.getElementById('chk-crm');
+    const chkZapier = document.getElementById('chk-zapier');
+    const chkAi = document.getElementById('chk-ai');
+
+    const labelEmailCost = document.getElementById('label-email-cost');
+    const labelAiCost = document.getElementById('label-ai-cost');
+
+    const totalFragMonthly = document.getElementById('total-fragmented-monthly');
+    const totalFragYearly = document.getElementById('total-fragmented-yearly');
+    const heroNetAnnual = document.getElementById('hero-net-annual');
+    const heroHoursReclaimed = document.getElementById('hero-hours-reclaimed');
+    const compFrag = document.getElementById('comp-frag');
+    const compSavedMo = document.getElementById('comp-saved-mo');
+    const gridCostCut = document.getElementById('grid-cost-cut');
+    const gridTimeReclaimed = document.getElementById('grid-time-reclaimed');
+    const ctaButtonText = document.getElementById('cta-button-text');
+
+    const CREATOR_OS_PRO_MONTHLY = 149;
+
+    function formatCurrency(val) {
+      return '$' + Math.round(val).toLocaleString();
+    }
+
+    function calculateROI() {
+      const gmv = parseInt(sliderGmv.value, 10);
+      const subs = parseInt(sliderSubs.value, 10);
+      const hours = parseInt(sliderHours.value, 10);
+
+      // Update Slider Badges
+      badgeGmv.innerHTML = `$${gmv.toLocaleString()}<span class="text-xs text-outline font-normal">/mo</span>`;
+      badgeSubs.innerHTML = `${subs.toLocaleString()} <span class="text-xs text-outline font-normal">members</span>`;
+      badgeHours.innerHTML = `${hours} <span class="text-xs text-outline font-normal">hrs/mo</span>`;
+
+      // Dynamic pricing scaling for email (like ConvertKit pricing bands)
+      let dynamicEmailCost = 29;
+      if (subs > 100000) dynamicEmailCost = 879;
+      else if (subs > 50000) dynamicEmailCost = 450;
+      else if (subs > 25000) dynamicEmailCost = 310;
+      else if (subs > 10000) dynamicEmailCost = 149;
+      else if (subs > 5000) dynamicEmailCost = 79;
+      labelEmailCost.innerHTML = `$${dynamicEmailCost}<span class="text-xs text-outline font-normal">/mo</span>`;
+
+      // Dynamic AI + VA pricing scaling (based on hours requested @ $12/hr blended + $70 base AI seats)
+      const dynamicAiCost = 70 + (hours * 12);
+      labelAiCost.innerHTML = `$${Math.round(dynamicAiCost)}<span class="text-xs text-outline font-normal">/mo</span>`;
+
+      // Compute total monthly fragmented stack
+      let monthlyTotal = 0;
+      if (chkCourse.checked) monthlyTotal += 199;
+      if (chkCommunity.checked) monthlyTotal += 99;
+      if (chkEmail.checked) monthlyTotal += dynamicEmailCost;
+      if (chkCrm.checked) monthlyTotal += 120;
+      if (chkZapier.checked) monthlyTotal += 149;
+      if (chkAi.checked) monthlyTotal += dynamicAiCost;
+
+      const annualTotal = monthlyTotal * 12;
+      const annualCreatorOS = CREATOR_OS_PRO_MONTHLY * 12;
+      const annualNetSavings = Math.max(0, annualTotal - annualCreatorOS);
+      const monthlyNetSavings = Math.max(0, monthlyTotal - CREATOR_OS_PRO_MONTHLY);
+      const annualHours = hours * 12;
+
+      // Update Visuals
+      totalFragMonthly.innerHTML = `${formatCurrency(monthlyTotal)}<span class="text-xs font-normal text-outline">/month</span>`;
+      totalFragYearly.innerHTML = `${formatCurrency(annualTotal)}<span class="text-xs font-normal text-outline">/yr</span>`;
+      
+      heroNetAnnual.innerHTML = `${formatCurrency(annualNetSavings)} <span class="text-headline-sm font-headline-sm text-tertiary/80 font-normal">/ year</span>`;
+      heroHoursReclaimed.innerHTML = `+ <strong class="text-on-surface font-semibold">${annualHours.toLocaleString()} hours</strong> of manual labor reclaimed annually`;
+
+      compFrag.innerText = `${formatCurrency(monthlyTotal)}/mo`;
+      compSavedMo.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span> Save ${formatCurrency(monthlyNetSavings)}/mo`;
+
+      gridCostCut.innerHTML = `${formatCurrency(annualNetSavings)}<span class="text-xs text-outline font-normal">/yr</span>`;
+      gridTimeReclaimed.innerHTML = `${hours} hrs<span class="text-xs text-outline font-normal">/mo</span>`;
+
+      ctaButtonText.innerText = `Switch to Creator OS — Claim ${formatCurrency(annualNetSavings)} Savings`;
+    }
+
+    // Quick Presets Handler
+    function applyPreset(type) {
+      if (type === 'course') {
+        sliderGmv.value = 35000;
+        sliderSubs.value = 50000;
+        sliderHours.value = 75;
+      } else if (type === 'newsletter') {
+        sliderGmv.value = 14000;
+        sliderSubs.value = 20000;
+        sliderHours.value = 40;
+      } else if (type === 'studio') {
+        sliderGmv.value = 120000;
+        sliderSubs.value = 110000;
+        sliderHours.value = 140;
+      } else if (type === 'agency') {
+        sliderGmv.value = 45000;
+        sliderSubs.value = 30000;
+        sliderHours.value = 95;
+      }
+      calculateROI();
+    }
+
+    // Event Listeners
+    sliderGmv.addEventListener('input', calculateROI);
+    sliderSubs.addEventListener('input', calculateROI);
+    sliderHours.addEventListener('input', calculateROI);
+
+    // Initial Execution
+    calculateROI();
+  </script>
+</body></html>

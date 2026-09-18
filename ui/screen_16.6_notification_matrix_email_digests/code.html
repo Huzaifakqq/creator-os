@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Screen 16.6 — Notification Matrix &amp; Email Digests | Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "secondary": "#d0bcff",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#003824",
+            "surface": "#131318",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed": "#001a42",
+            "on-surface-variant": "#c2c6d6",
+            "on-background": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "on-error": "#690005",
+            "secondary-container": "#571bc1",
+            "on-primary": "#002e6a",
+            "primary": "#adc6ff",
+            "tertiary": "#4edea3",
+            "error-container": "#93000a",
+            "background": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-surface": "#e4e1e9",
+            "outline": "#8c909f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased min-h-screen flex overflow-x-hidden">
+<!-- Left Persistent Desktop Sidebar (SideNavBar Component Blueprint) -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-low border-r border-outline-variant select-none">
+<div class="flex flex-col h-full justify-between p-space-md">
+<!-- Top Workspace Cluster -->
+<div class="space-y-space-md">
+<!-- Logo & Header -->
+<div class="flex items-center gap-3 px-2 py-1">
+<div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-surface-container-lowest font-bold text-xl" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight block">Creator OS</span>
+<span class="text-label-sm font-label-sm text-outline block">Enterprise Suite</span>
+</div>
+</div>
+<!-- Tenant / Workspace Selector -->
+<div class="p-2 bg-surface-container rounded-lg border border-outline-variant flex items-center justify-between cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-2.5 overflow-hidden">
+<div class="w-6 h-6 rounded bg-primary-container/20 border border-primary-container/40 flex items-center justify-center text-primary text-label-sm font-bold">
+              AS
+            </div>
+<div class="truncate">
+<span class="block text-label-md font-label-md text-on-surface truncate">Acme Studios</span>
+<span class="block text-label-sm font-label-sm text-on-surface-variant/70 truncate">Production Org</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-lg" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- CTA Action -->
+<button class="w-full h-9 rounded-lg bg-surface-container-high hover:bg-surface-variant border border-outline-variant text-on-surface flex items-center justify-center gap-2 text-label-md font-label-md transition-colors active:scale-95 duration-100 ease-out">
+<span class="material-symbols-outlined text-primary text-base" data-icon="rocket_launch">rocket_launch</span>
+          Deploy Project
+        </button>
+<!-- Navigation Group -->
+<div class="pt-2">
+<div class="px-2 pb-1.5 text-label-sm font-label-sm text-outline tracking-wider uppercase">Settings &amp; Ops</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="space_dashboard">space_dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="shield">shield</span>
+<span>Security &amp; Sessions</span>
+</a>
+<!-- Active Tab: Notifications -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-primary bg-surface-container border-l-2 border-primary font-medium text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="notifications" style="font-variation-settings: 'FILL' 1;">notifications</span>
+<span>Notifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="privacy_tip">privacy_tip</span>
+<span>Privacy &amp; GDPR</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="webhook">webhook</span>
+<span>API &amp; Integrations</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Footer Nav Cluster -->
+<div class="pt-4 border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Wrapper -->
+<div class="pl-64 flex-1 flex flex-col min-w-0 bg-surface-container-lowest">
+<!-- Top Utility Bar (TopNavBar Blueprint) -->
+<header class="sticky top-0 right-0 w-full h-14 z-20 bg-surface border-b border-outline-variant flex items-center justify-between px-space-lg select-none">
+<!-- Breadcrumbs & Status Indicator -->
+<div class="flex items-center gap-4">
+<nav class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer">Settings</span>
+<span class="text-outline">/</span>
+<span class="hover:text-on-surface cursor-pointer">Preferences</span>
+<span class="text-outline">/</span>
+<span class="text-primary font-semibold">Notification Matrix</span>
+</nav>
+<span class="h-4 w-px bg-outline-variant"></span>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-container/20 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          Notification Dispatcher Active
+        </div>
+</div>
+<!-- Trailing Controls & User Identity -->
+<div class="flex items-center gap-3">
+<button class="px-2.5 py-1 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Docs</button>
+<button class="px-2.5 py-1 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">API Status</button>
+<button class="px-2.5 py-1 text-label-md font-label-md text-on-surface-variant hover:text-on-surface transition-colors">Help</button>
+<span class="h-4 w-px bg-outline-variant"></span>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="dark_mode">dark_mode</span>
+</button>
+<button class="h-8 px-3 rounded-lg bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high transition-colors">
+          Switch Org
+        </button>
+<!-- Profile Avatar -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant cursor-pointer">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A refined studio portrait photograph of a media director in their creative loft workspace, cinematic rim lighting in cool teal and soft violet tones, conveying focus, executive authority, and hyper-modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMRMLR2wKm8Q6NbbNKryq5IApsx3gFmmJHw7ZBgFFC1Ke7BF2E7T12y8Dr6ofbE1ae2mGd2CUVm_deOZjBTtf-amPQvl9ySbGCdDhuqAboRM52GCCHNSXtdPF97aToMuGJ4Tk0r9owQWt6R5QRPPddS7YsYf8rzLtBfXK2wOESO0U_GNAuJDbiM9UB52zuG5OFoJCKMhkm1irAvY994h7SiBT1WuM_vrhSZ4lqc-_cykeCPJzFR0EvPg"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary ring-2 ring-surface"></span>
+</div>
+<div class="hidden xl:block text-left">
+<span class="block text-label-md font-label-md text-on-surface font-semibold leading-tight">Huzaifa V.</span>
+<span class="block text-label-sm font-label-sm text-outline leading-tight">Owner</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Container with bottom padding for sticky bar -->
+<main class="flex-1 px-space-xl py-space-lg max-w-7xl w-full mx-auto pb-28 space-y-space-lg">
+<!-- Screen Header -->
+<section class="space-y-1">
+<h1 class="text-headline-lg font-headline-lg text-on-surface font-bold tracking-tight">Notification Preferences &amp; Communication Matrix</h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-4xl">Configure granular delivery channels (In-App, Email, SMS, Discord/Slack webhooks) and digest schedules for creator events.</p>
+</section>
+<!-- Quick Controls Banner -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Do Not Disturb Master Toggle -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant text-primary mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="do_not_disturb_on">do_not_disturb_on</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">Do Not Disturb</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-container/15 border border-primary-container/30 text-primary text-label-sm font-label-sm">Scheduled</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Mute instant non-critical pushes and alert broadcasts</p>
+<div class="mt-2 flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+<span>Active: Every day 10:00 PM – 8:00 AM PST</span>
+<button class="text-primary hover:underline ml-1">Edit</button>
+</div>
+</div>
+</div>
+<!-- Toggle Button -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Primary Delivery Email Address -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant text-secondary mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="mail">mail</span>
+</div>
+<div>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold block">Email Delivery Destination</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Primary email address routed for critical digests and statements</p>
+<div class="mt-2 flex items-center gap-2 text-body-sm font-body-sm">
+<span class="font-mono text-on-surface bg-surface-container px-2 py-0.5 rounded border border-outline-variant">huzaifa@acmemedia.studio</span>
+<span class="inline-flex items-center gap-1 text-tertiary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+                  Verified
+                </span>
+</div>
+</div>
+</div>
+<button class="px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-primary text-label-md font-label-md transition-colors">
+            Change
+          </button>
+</div>
+</section>
+<!-- Section 1: Granular Notification Matrix (Interactive Grid Table) -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Granular Notification Matrix</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Configure direct delivery targets for individual system event triggers</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface text-label-sm font-label-sm hover:bg-surface-container-high transition-colors">
+              Expand All
+            </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-on-surface text-label-sm font-label-sm hover:bg-surface-container-high transition-colors">
+              Mute All Non-Essential
+            </button>
+</div>
+</div>
+<div class="rounded-xl border border-outline-variant bg-surface-container-low overflow-hidden shadow-2xl">
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container border-b border-outline-variant text-label-md font-label-md text-on-surface-variant">
+<th class="py-3 px-space-lg w-2/5">Event Category &amp; Description</th>
+<th class="py-3 px-3 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary" data-icon="notifications">notifications</span>
+<span>In-App Bell</span>
+</div>
+</th>
+<th class="py-3 px-3 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary" data-icon="mail">mail</span>
+<span>Instant Email</span>
+</div>
+</th>
+<th class="py-3 px-3 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary" data-icon="summarize">summarize</span>
+<span>Daily Digest</span>
+</div>
+</th>
+<th class="py-3 px-3 text-center">
+<div class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary" data-icon="sms">sms</span>
+<span>SMS Alert</span>
+</div>
+</th>
+<th class="py-3 px-space-lg text-center">
+<div class="inline-flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base text-primary" data-icon="hub">hub</span>
+<span>Webhook / Discord</span>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/60 text-body-sm font-body-sm">
+<!-- Category 1: Commerce & Revenue -->
+<tr class="bg-surface-container/40">
+<td class="py-2.5 px-space-lg" colspan="6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-primary" data-icon="payments">payments</span>
+<span class="text-label-md font-label-md text-primary uppercase tracking-wider font-semibold">Commerce &amp; Revenue</span>
+<span class="text-label-sm font-label-sm text-outline">4 Events Configured</span>
+</div>
+</td>
+</tr>
+<!-- Row 1.1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">New Order / Digital Product Sale</div>
+<div class="text-label-sm font-label-sm text-outline">Instant notification when a customer purchases digital templates or packs</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 1.2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Subscription Renewal &amp; Tier Upgrade</div>
+<div class="text-label-sm font-label-sm text-outline">Monthly recurring membership transitions or tier step-ups</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 1.3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-error flex items-center gap-1.5">
+<span>Failed Payment / Chargeback Alert</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container/40 text-error text-[10px] font-bold">URGENT</span>
+</div>
+<div class="text-label-sm font-label-sm text-outline">Immediate dispatch when merchant processor rejects subscription transaction</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 1.4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Abandoned Cart Recovered</div>
+<div class="text-label-sm font-label-sm text-outline">Triggered when automated email flow closes previously dropped cart</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Category 2: Courses & Community -->
+<tr class="bg-surface-container/40">
+<td class="py-2.5 px-space-lg" colspan="6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="school">school</span>
+<span class="text-label-md font-label-md text-secondary uppercase tracking-wider font-semibold">Courses &amp; Community</span>
+<span class="text-label-sm font-label-sm text-outline">4 Events Configured</span>
+</div>
+</td>
+</tr>
+<!-- Row 2.1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">New Student Course Enrollment</div>
+<div class="text-label-sm font-label-sm text-outline">Student claims seat in Masterclass or Cohort series</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 2.2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Student Assignment Submitted (Grading Queue)</div>
+<div class="text-label-sm font-label-sm text-outline">Deliverables uploaded needing creator instructor critique</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 2.3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Community Mention or @Direct Message</div>
+<div class="text-label-sm font-label-sm text-outline">Creator mentioned in community feed comments or private inbox</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 2.4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Forum Flag / Moderation Alert</div>
+<div class="text-label-sm font-label-sm text-outline">Automated toxic filter or member report on forum thread</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Category 3: Autonomous AI & System -->
+<tr class="bg-surface-container/40">
+<td class="py-2.5 px-space-lg" colspan="6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-tertiary" data-icon="smart_toy">smart_toy</span>
+<span class="text-label-md font-label-md text-tertiary uppercase tracking-wider font-semibold">Autonomous AI &amp; System</span>
+<span class="text-label-sm font-label-sm text-outline">3 Events Configured</span>
+</div>
+</td>
+</tr>
+<!-- Row 3.1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">AI Agent Execution Completed</div>
+<div class="text-label-sm font-label-sm text-outline">Background rendering, automated video transcription, and subtitle packaging</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 3.2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">AI Task Approval Pending Review</div>
+<div class="text-label-sm font-label-sm text-outline">Agent scheduled newsletter draft or social distribution sequence awaits human sign-off</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+<!-- Row 3.3 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-3 px-space-lg">
+<div class="font-medium text-on-surface">Resource Quota Warning (&gt;80% consumed)</div>
+<div class="text-label-sm font-label-sm text-outline">Video CDN bandwidth, AI tokens, or cloud asset storage threshold near ceiling</div>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-3 text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+<td class="py-3 px-space-lg text-center">
+<input checked="" class="w-4 h-4 rounded bg-surface-container border-outline-variant text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Section 2: Scheduled Digests & Summaries -->
+<section class="space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Scheduled Digests &amp; Periodic Summaries</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Batch aggregated performance metrics and operations updates directly to team emails</p>
+</div>
+<span class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-label-sm font-label-sm text-outline">
+            Timezone: America/Los_Angeles (PST)
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Card 1: Daily Briefing -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary border border-outline-variant">
+<span class="material-symbols-outlined text-lg" data-icon="wb_sunny">wb_sunny</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Daily Morning Executive Briefing</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Condensed morning summary delivered at 08:00 AM PST.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/60 space-y-1.5">
+<div class="text-label-sm font-label-sm text-outline uppercase font-semibold tracking-wider">Payload Attributes:</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Yesterday's Net GMV</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Top Community Posts</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Pending AI Approvals</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-4 flex items-center justify-between text-label-sm font-label-sm border-t border-outline-variant/40">
+<span class="text-outline">Schedule: Daily 08:00 AM PST</span>
+<button class="text-primary hover:underline">Preview HTML</button>
+</div>
+</div>
+<!-- Card 2: Weekly Performance -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex flex-col justify-between hover:border-secondary/40 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary border border-outline-variant">
+<span class="material-symbols-outlined text-lg" data-icon="insights">insights</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Weekly Studio Performance Digest</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Deep analysis dispatched every Monday at 09:00 AM PST.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/60 space-y-1.5">
+<div class="text-label-sm font-label-sm text-outline uppercase font-semibold tracking-wider">Payload Attributes:</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">7-Day Trailing GMV</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Churn &amp; Retention</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Affiliate Leaderboard</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-4 flex items-center justify-between text-label-sm font-label-sm border-t border-outline-variant/40">
+<span class="text-outline">Schedule: Mondays 09:00 AM PST</span>
+<button class="text-secondary hover:underline">Preview HTML</button>
+</div>
+</div>
+<!-- Card 3: Monthly Financial Statement -->
+<div class="p-space-lg rounded-xl bg-surface-container-low border border-outline-variant flex flex-col justify-between hover:border-tertiary/40 transition-colors">
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-tertiary border border-outline-variant">
+<span class="material-symbols-outlined text-lg" data-icon="receipt_long">receipt_long</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Monthly Tax &amp; Financial Statement</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Official accounting roll-up sent 1st of every calendar month.</p>
+</div>
+<div class="pt-2 border-t border-outline-variant/60 space-y-1.5">
+<div class="text-label-sm font-label-sm text-outline uppercase font-semibold tracking-wider">Payload Attributes:</div>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">PDF P&amp;L Statement</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Sales Tax Collected</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-label-sm font-label-sm text-on-surface-variant border border-outline-variant">Stripe Payout Logs</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-4 flex items-center justify-between text-label-sm font-label-sm border-t border-outline-variant/40">
+<span class="text-outline">Schedule: 1st of Month 00:01 PST</span>
+<button class="text-tertiary hover:underline">Preview HTML</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Sticky Controls Bar -->
+<footer class="fixed bottom-0 right-0 left-64 h-16 bg-surface/90 backdrop-blur-md border-t border-outline-variant z-20 px-space-xl flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-outline">
+<span class="material-symbols-outlined text-base" data-icon="cloud_sync">cloud_sync</span>
+<span>Auto-sync enabled for 4 workspace team members</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface text-label-md font-label-md transition-colors active:scale-95 duration-100 ease-out">
+          Reset to Enterprise Defaults
+        </button>
+<button class="h-10 px-6 rounded-lg bg-gradient-to-r from-primary-container to-secondary text-surface-container-lowest font-semibold text-label-md font-label-md shadow-[0_0_20px_rgba(77,142,255,0.3)] hover:brightness-105 transition-all active:scale-95 duration-100 ease-out flex items-center gap-2">
+<span class="material-symbols-outlined text-base font-bold" data-icon="check_circle">check_circle</span>
+          Save Notification Matrix
+        </button>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Import / Export Contacts</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Config -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-lowest": "#0e0e13",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed-dim": "#adc6ff",
+            "outline-variant": "#424754",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "surface-container": "#1f1f25",
+            "surface-variant": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-bright": "#39383e",
+            "inverse-on-surface": "#303036",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary": "#4edea3",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "background": "#131318",
+            "on-tertiary-container": "#00311f",
+            "inverse-primary": "#005ac2",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "secondary-container": "#571bc1",
+            "surface": "#131318"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Custom Brand Accent Glows & Gradient Utilities */
+    .brand-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .brand-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT 1: SideNavBar                                            -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col bg-surface-container-lowest border-r border-outline-variant/30 shadow-none z-40">
+<div class="flex flex-col justify-between h-full w-64 p-4 z-40">
+<!-- Top Brand Anchor & Quick Action -->
+<div class="space-y-6">
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="w-9 h-9 rounded-lg brand-gradient flex items-center justify-center text-white font-bold shadow-md">
+<span class="material-symbols-outlined text-xl" data-icon="token">token</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Studio Alpha</span>
+<span class="text-label-sm font-label-sm text-outline">Enterprise Tier</span>
+</div>
+</div>
+<button class="w-full h-10 brand-gradient text-white rounded-lg flex items-center justify-center gap-2 font-label-lg text-label-lg brand-glow hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-sm font-bold" data-icon="add">add</span>
+          Quick Deal +
+        </button>
+<!-- Main Navigation Tabs: Exact JSON labels & icons. CRM & Leads is ACTIVE -->
+<nav class="space-y-1">
+<!-- Dashboard (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="space_dashboard">space_dashboard</span>
+            Dashboard
+          </a>
+<!-- CRM & Leads (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high text-primary font-label-lg text-label-lg border border-primary/20 hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="people_alt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">people_alt</span>
+            CRM &amp; Leads
+          </a>
+<!-- Content Studio (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="video_library">video_library</span>
+            Content Studio
+          </a>
+<!-- Analytics (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="insights">insights</span>
+            Analytics
+          </a>
+<!-- Monetization (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="payments">payments</span>
+            Monetization
+          </a>
+<!-- Integrations (Inactive) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sync_alt">sync_alt</span>
+            Integrations
+          </a>
+</nav>
+</div>
+<!-- Footer Navigation Items (JSON items) -->
+<div class="border-t border-outline-variant/30 pt-3 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="sensors">sensors</span>
+          Live Telemetry
+        </a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container hover:text-on-surface transition-all duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+          Settings
+        </a>
+<div class="mt-3 pt-3 border-t border-outline-variant/20 flex items-center justify-between px-2">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+<span class="text-label-sm font-label-sm text-outline">v2.4.8 High Perf</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="shield">shield</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CONTAINER (Offset by 256px for Sidebar)                    -->
+<!-- ========================================================================= -->
+<div class="pl-64 flex flex-col flex-1 min-w-0">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT 2: TopNavBar                                             -->
+<!-- ========================================================================= -->
+<header class="sticky top-0 right-0 w-full h-14 flex items-center bg-surface/80 backdrop-blur-md border-b border-outline-variant/20 shadow-sm z-30">
+<div class="flex justify-between items-center w-full px-6 h-14 z-30">
+<!-- Left: Product Brand / Breadcrumbs / Global Search -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Creator OS</span>
+<span class="text-outline-variant text-sm">/</span>
+<div class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant">
+<span>CRM</span>
+<span class="text-outline-variant">/</span>
+<span>Contacts</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-medium">Import &amp; Export Data</span>
+</div>
+</div>
+<!-- Utility Bar Navigation Links from JSON -->
+<div class="hidden xl:flex items-center gap-4 ml-2 pl-4 border-l border-outline-variant/20">
+<a class="text-on-surface-variant font-label-lg text-label-lg pb-4 pt-4 hover:text-on-surface transition-colors duration-150" href="#">Deals Pipeline</a>
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-4 pt-4" href="#">Contacts</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg pb-4 pt-4 hover:text-on-surface transition-colors duration-150" href="#">Activities</a>
+</div>
+</div>
+<!-- Right: Search, Utility Actions, Notification, Tenant, Profile -->
+<div class="flex items-center gap-3">
+<!-- Search Input -->
+<div class="relative w-56">
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-base" data-icon="search">search</span>
+<input class="w-full h-9 pl-9 pr-3 rounded-[6px] bg-[#12121A] border border-[#1E1E2E] text-on-surface text-label-md placeholder-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search contacts or IDs..." type="text"/>
+</div>
+<!-- JSON Actions: Sync Data -->
+<button class="h-9 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface flex items-center gap-1.5 font-label-md text-label-md hover:border-primary-container hover:bg-[#1E1E2E] transition-all">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sync">sync</span>
+            Sync Data
+          </button>
+<!-- JSON Action: Tenant Switcher -->
+<div class="flex items-center gap-2 px-2.5 py-1.5 rounded-[6px] bg-[#181824] border border-[#1E1E2E] cursor-pointer hover:border-[#2A2A3E] transition-colors">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-md font-label-md text-on-surface">Alpha Media EU</span>
+<span class="material-symbols-outlined text-xs text-outline" data-icon="expand_more">expand_more</span>
+</div>
+<!-- JSON Trailing Icon Actions: notifications, help, view_kanban -->
+<div class="flex items-center gap-1 text-on-surface-variant border-l border-outline-variant/30 pl-2">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="view_kanban">view_kanban</span>
+</button>
+</div>
+<!-- User Profile Avatar -->
+<div class="flex items-center gap-2 pl-2">
+<img class="w-8 h-8 rounded-full border border-outline-variant/50 object-cover" data-alt="Close up portrait of a digital workspace manager wearing a sleek minimalist dark sweater against a soft atmospheric violet studio ambient light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi6xdrJGvwbYmf3g45IJPd6xa_zF1VNbm3jSfNQoXe3vYYGP5zc_6czCRyhtSyznABj2By_KcEdov4ElY8XmGBt6U6xTE-_knF5FCwLJvEMZ25Mudmw0JlDq5kN8tJHrz6LjSisXaeTz8eyYuJlNrQ9nTbRV4TdYRQAJqbLiNT8JsCgfdSfNcMmznjNn9J0kvAfKWlp9dJNRqAf63TJU0I6woWsT_610cRrhj75OGQQWqPQ6a5YWLY9A"/>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CANVAS                                                     -->
+<!-- ========================================================================= -->
+<main class="flex-1 p-8 space-y-8 max-w-[1440px] mx-auto w-full">
+<!-- Canvas Header & Mode Switcher -->
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 pb-2 border-b border-[#1E1E2E]">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">
+              Multi-Source Pipeline v2.4
+            </span>
+<span class="text-outline text-label-sm font-label-sm">• Schema v4 Verified</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg font-bold text-on-surface tracking-tight">
+            Contact Data Migration &amp; Synchronization
+          </h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+            Seamlessly import bulk CSVs with intelligent auto-mapping or export custom audience segments.
+          </p>
+</div>
+<!-- Dual Top Tabs (Pill style, active state highlighted) -->
+<div class="flex items-center p-1 rounded-xl bg-[#12121A] border border-[#1E1E2E] shadow-inner">
+<button class="flex items-center gap-2 px-5 py-2 rounded-lg bg-surface-container-high text-white font-label-lg text-label-lg shadow-sm border border-primary/30">
+<span class="material-symbols-outlined text-primary text-base" data-icon="file_upload">file_upload</span>
+            Import Contacts
+            <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+</button>
+<button class="flex items-center gap-2 px-5 py-2 rounded-lg text-on-surface-variant font-label-lg text-label-lg hover:text-white transition-colors">
+<span class="material-symbols-outlined text-base" data-icon="file_download">file_download</span>
+            Export Contacts
+          </button>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- SECTION 1 & SECTION 2: Bento Grid Layout for Import Engine & Quick Export -->
+<!-- ========================================================================= -->
+<div class="grid grid-cols-12 gap-6 items-start">
+<!-- PRIMARY SECTION: IMPORT ENGINE WORKSPACE (8 Columns) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<!-- 1.1 Upload Card Zone -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary text-label-sm font-bold">1</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Data Source &amp; CSV Ingestion</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Supported: RFC 4180 CSV, UTF-8 Encoded</span>
+</div>
+<!-- Drag & Drop Container -->
+<div class="border-2 border-dashed border-[#2A2A3E] hover:border-primary/50 transition-colors rounded-[12px] p-6 text-center bg-[#0e0e13]/60 flex flex-col items-center justify-center cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform mb-3 shadow-inner">
+<span class="material-symbols-outlined text-2xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface mb-1">
+                Drop your CSV, XLSX or vCard here, or <span class="text-primary underline cursor-pointer">Browse Files</span>
+</p>
+<p class="text-body-sm font-body-sm text-outline">
+                Max 50MB, up to 100,000 records per upload batch. Encrypted end-to-end.
+              </p>
+</div>
+<!-- Uploaded File State Card -->
+<div class="flex items-center justify-between p-3.5 rounded-lg bg-[#181824] border border-tertiary-container/30">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-xl" data-icon="task_alt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">task_alt</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-white font-medium">creators_q4_subscribers_full.csv</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/20">Ready for Mapping</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">4.2 MB • 14,820 records detected • Header parsed successfully</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="text-label-md font-label-md text-primary hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="cached">cached</span>
+                  Replace file
+                </button>
+<button class="text-outline hover:text-error transition-colors p-1">
+<span class="material-symbols-outlined text-base" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- 1.2 Intelligent Auto-Mapping Matrix -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary text-label-sm font-bold">2</span>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Field Mapping Matrix</h3>
+<p class="text-body-sm font-body-sm text-outline">Verify auto-matched database attributes with source column headers</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-tertiary/15 text-tertiary border border-tertiary/30 font-medium">
+                  6 of 6 auto-matched (100% confidence)
+                </span>
+</div>
+</div>
+<!-- Mapping Table -->
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#1E1E2E] text-outline text-label-sm font-label-sm">
+<th class="py-2.5 px-3">CSV HEADER COLUMN</th>
+<th class="py-2.5 px-3">SAMPLE VALUE (ROW 1)</th>
+<th class="py-2.5 px-3">CREATOR OS SYSTEM FIELD</th>
+<th class="py-2.5 px-3 text-right">ACTION</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] text-body-sm font-body-sm">
+<!-- Row 1: Full_Name -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Full_Name
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">Elena Vance</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Name (String)</option>
+<option>First Name</option>
+<option>Last Name</option>
+<option>Company Name</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+<!-- Row 2: Email_Address -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Email_Address
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">elena@visualgrade.studio</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Email (Unique Identifier)</option>
+<option>Secondary Email</option>
+<option>Billing Email</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+<!-- Row 3: Phone_Number -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Phone_Number
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">+1 (555) 234-5678</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Phone (E.164 Format)</option>
+<option>Mobile</option>
+<option>WhatsApp</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+<!-- Row 4: Lifetime_Value -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Lifetime_Value
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">$1,450.00</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Total Spend (Currency)</option>
+<option>MRR Contribution</option>
+<option>Deal Value</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+<!-- Row 5: Sign_Up_Date -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Sign_Up_Date
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">2024-11-12</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Created At (ISO Date)</option>
+<option>Custom Date Field</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+<!-- Row 6: Customer_Tags -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-sm" data-icon="drag_indicator">drag_indicator</span>
+                      Customer_Tags
+                    </td>
+<td class="py-3 px-3 text-on-surface-variant font-mono text-xs">VIP, Masterclass</td>
+<td class="py-3 px-3">
+<div class="flex items-center gap-2">
+<select class="h-8 pl-2 pr-7 rounded-[6px] bg-[#12121A] border border-[#2A2A3E] text-on-surface text-label-md focus:border-primary-container focus:ring-0">
+<option selected="">Tags (Comma Separated)</option>
+<option>Segment Label</option>
+<option>Notes</option>
+</select>
+<span class="text-tertiary material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+</td>
+<td class="py-3 px-3 text-right">
+<span class="text-label-sm text-outline hover:text-white cursor-pointer">Unlink</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 1.3 Preview Table (First 5 Rows) -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary/20 text-primary text-label-sm font-bold">3</span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Data Parsing Preview</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Displaying records 1–5 of 14,820</span>
+</div>
+<div class="overflow-x-auto custom-scrollbar border border-[#1E1E2E] rounded-lg">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead class="bg-[#181824] text-outline text-label-sm font-label-sm">
+<tr>
+<th class="py-2.5 px-3">RECORD #</th>
+<th class="py-2.5 px-3">NAME</th>
+<th class="py-2.5 px-3">EMAIL</th>
+<th class="py-2.5 px-3">TOTAL SPEND</th>
+<th class="py-2.5 px-3">TAGS</th>
+<th class="py-2.5 px-3">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] font-mono text-xs">
+<!-- Row 1 -->
+<tr class="hover:bg-[#181824]/50">
+<td class="py-2 px-3 text-outline">#0001</td>
+<td class="py-2 px-3 text-white font-sans font-medium">Elena Vance</td>
+<td class="py-2 px-3 text-on-surface-variant">elena@visualgrade.studio</td>
+<td class="py-2 px-3 text-tertiary">$1,450.00</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-[#181824] border border-[#2A2A3E] text-[11px] text-primary">VIP</span>
+</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[11px] border border-tertiary/20">Valid</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-[#181824]/50">
+<td class="py-2 px-3 text-outline">#0002</td>
+<td class="py-2 px-3 text-white font-sans font-medium">Marcus Zhao</td>
+<td class="py-2 px-3 text-on-surface-variant">marcus@lumina.io</td>
+<td class="py-2 px-3 text-tertiary">$3,200.00</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-[#181824] border border-[#2A2A3E] text-[11px] text-primary">Enterprise</span>
+</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[11px] border border-tertiary/20">Valid</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#181824]/50">
+<td class="py-2 px-3 text-outline">#0003</td>
+<td class="py-2 px-3 text-white font-sans font-medium">Sarah Jenkins</td>
+<td class="py-2 px-3 text-on-surface-variant">s.jenkins@cinecut.com</td>
+<td class="py-2 px-3 text-tertiary">$490.00</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-[#181824] border border-[#2A2A3E] text-[11px] text-primary">Creator Pro</span>
+</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[11px] border border-tertiary/20">Valid</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#181824]/50">
+<td class="py-2 px-3 text-outline">#0004</td>
+<td class="py-2 px-3 text-white font-sans font-medium">David Kalu</td>
+<td class="py-2 px-3 text-on-surface-variant">davidk@archlight.agency</td>
+<td class="py-2 px-3 text-tertiary">$840.00</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-[#181824] border border-[#2A2A3E] text-[11px] text-primary">Inbound Q3</span>
+</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[11px] border border-tertiary/20">Valid</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-[#181824]/50">
+<td class="py-2 px-3 text-outline">#0005</td>
+<td class="py-2 px-3 text-white font-sans font-medium">Chloe Dupont</td>
+<td class="py-2 px-3 text-on-surface-variant">chloe@vogueart.fr</td>
+<td class="py-2 px-3 text-tertiary">$2,100.00</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-[#181824] border border-[#2A2A3E] text-[11px] text-primary">VIP, Beta</span>
+</td>
+<td class="py-2 px-3 font-sans">
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary text-[11px] border border-tertiary/20">Valid</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 1.4 Execution Control Bar -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-5">
+<h4 class="font-label-lg text-label-lg text-white">Import Configuration &amp; Conflict Rules</h4>
+<div class="space-y-3">
+<!-- Option 1 -->
+<label class="flex items-start gap-3 cursor-pointer">
+<input checked="" class="mt-0.5 w-[18px] h-[18px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-primary focus:ring-offset-0" type="checkbox"/>
+<div>
+<span class="font-label-md text-label-md text-on-surface">Update existing contacts if email matches</span>
+<p class="text-body-sm font-body-sm text-outline">Prevents duplicate records by enriching existing profile with newly supplied fields.</p>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="flex items-start gap-3 cursor-pointer">
+<input checked="" class="mt-0.5 w-[18px] h-[18px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-primary focus:ring-offset-0" type="checkbox"/>
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface">Apply tag to all imported contacts:</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/20 text-primary border border-primary/30 font-mono">Q4 Inbound</span>
+<span class="text-primary text-xs hover:underline cursor-pointer">Change tag</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Allows clean segmentation for retrospective analytics and automation triggers.</p>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="flex items-start gap-3 cursor-pointer">
+<input class="mt-0.5 w-[18px] h-[18px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-primary focus:ring-offset-0" type="checkbox"/>
+<div>
+<span class="font-label-md text-label-md text-on-surface">Trigger welcome email sequence</span>
+<p class="text-body-sm font-body-sm text-outline">Dispatches onboarding drip to contacts not previously enrolled in workflow.</p>
+</div>
+</label>
+</div>
+<!-- Execution Action Bar -->
+<div class="pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center gap-2 text-outline text-label-md">
+<span class="material-symbols-outlined text-base" data-icon="lock">lock</span>
+<span>Idempotent execution guarantee</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-10 px-4 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface-variant hover:text-white transition-colors text-label-lg font-label-lg">
+                  Cancel Batch
+                </button>
+<button class="h-10 px-6 rounded-lg brand-gradient text-white flex items-center gap-2 font-label-lg text-label-lg brand-glow hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="upload_file">upload_file</span>
+                  Import 14,820 Contacts
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- SECTION 2: EXPORT DRAWER / COMPANION PANEL (4 Columns)                    -->
+<!-- ========================================================================= -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Quick Export Segment Card -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-5">
+<div class="flex items-center justify-between pb-2 border-b border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Quick Export Engine</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30">
+                Ready
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">
+              Select specific schema columns and audience filters to export bespoke CSV or JSON datasets.
+            </p>
+<!-- Column Selection -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase font-semibold">Include Fields</span>
+<div class="grid grid-cols-2 gap-2.5">
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Name
+                </label>
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Email
+                </label>
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Phone
+                </label>
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Tags
+                </label>
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Total Spent
+                </label>
+<label class="flex items-center gap-2 text-label-md text-on-surface cursor-pointer">
+<input checked="" class="w-[16px] h-[16px] rounded-[4px] bg-[#12121A] border-[#1E1E2E] text-primary focus:ring-0" type="checkbox"/>
+                  Order Count
+                </label>
+</div>
+</div>
+<!-- Filter Rules Configuration -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase font-semibold">Segment Filter Rule</span>
+<div class="p-3 rounded-lg bg-[#181824] border border-[#2A2A3E] space-y-2">
+<div class="flex items-center justify-between text-xs text-outline">
+<span>Rule: Metric Threshold</span>
+<span class="text-tertiary">Active Filter</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="flex-1 h-8 px-2 rounded-[6px] bg-[#12121A] border border-[#1E1E2E] flex items-center text-xs font-mono text-white">
+                    Spent &gt; $100.00
+                  </div>
+<button class="w-8 h-8 rounded-[6px] bg-[#12121A] border border-[#1E1E2E] flex items-center justify-center text-outline hover:text-white">
+<span class="material-symbols-outlined text-sm" data-icon="tune">tune</span>
+</button>
+</div>
+<div class="text-[11px] text-outline">
+                  Matching Audience: <strong class="text-white">8,920 records</strong>
+</div>
+</div>
+</div>
+<!-- Export Format Selector -->
+<div class="space-y-2">
+<span class="text-label-sm font-label-sm text-outline tracking-wider uppercase font-semibold">Format &amp; Compression</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-1.5 px-2 rounded-[6px] bg-surface-container-high border border-primary/30 text-primary text-xs font-medium">CSV (UTF-8)</button>
+<button class="py-1.5 px-2 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-outline text-xs hover:text-white">Excel (XLSX)</button>
+<button class="py-1.5 px-2 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-outline text-xs hover:text-white">JSONL</button>
+</div>
+</div>
+<!-- Export Button -->
+<button class="w-full h-10 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary-container text-white flex items-center justify-center gap-2 font-label-lg text-label-lg transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="download">download</span>
+              Export CSV (8,920 contacts)
+            </button>
+</div>
+<!-- Documentation & Quick Tips Card -->
+<div class="p-5 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-3">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-base" data-icon="tips_and_updates">tips_and_updates</span>
+<h4 class="font-label-lg text-label-lg text-white">Migration Best Practices</h4>
+</div>
+<p class="text-body-sm font-body-sm text-outline">
+              Ensure phone numbers include country codes for SMS pipeline integration. Custom fields can also be created on the fly during upload.
+            </p>
+<a class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary hover:underline" href="#">
+              Download sample template (CSV)
+              <span class="material-symbols-outlined text-xs" data-icon="north_east">north_east</span>
+</a>
+</div>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- SECTION 3: RECENT IMPORT/EXPORT HISTORY AUDIT LOG                         -->
+<!-- ========================================================================= -->
+<div class="p-6 rounded-[12px] bg-[#12121A] border border-[#1E1E2E] space-y-4">
+<div class="flex items-center justify-between pb-2 border-b border-[#1E1E2E]">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface">Data Transmission Audit History</h3>
+<p class="text-body-sm font-body-sm text-outline">Recent synchronization logs, schema validations, and execution archives.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="h-8 px-3 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white text-label-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+              Filter Logs
+            </button>
+<button class="h-8 px-3 rounded-[6px] bg-[#181824] border border-[#1E1E2E] text-outline hover:text-white text-label-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+              Refresh
+            </button>
+</div>
+</div>
+<!-- History Table -->
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-[#1E1E2E] text-outline text-label-sm font-label-sm">
+<th class="py-3 px-3">DATE &amp; TIME</th>
+<th class="py-3 px-3">FILENAME / TARGET</th>
+<th class="py-3 px-3">OPERATION</th>
+<th class="py-3 px-3">RECORDS COUNT</th>
+<th class="py-3 px-3">MAPPED FIELDS</th>
+<th class="py-3 px-3">STATUS</th>
+<th class="py-3 px-3 text-right">AUDIT LOG</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#1E1E2E] text-body-sm font-body-sm">
+<!-- Log Row 1: Completed Import -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 text-outline font-mono text-xs">Today, 14:32:10 UTC</td>
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="description">description</span>
+                  creators_q4_subscribers_full.csv
+                </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-primary text-label-md">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span>
+                    Import
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono font-medium text-white">14,820</td>
+<td class="py-3 px-3 text-outline">6 / 6 System Fields</td>
+<td class="py-3 px-3">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary-container/20 text-primary-container border border-primary-container/40 flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span>
+                    Processing (Stage 2)
+                  </span>
+</td>
+<td class="py-3 px-3 text-right">
+<a class="text-label-md font-label-md text-primary hover:underline inline-flex items-center gap-1" href="#">
+                    Live Stream
+                    <span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Log Row 2: Completed Export -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 text-outline font-mono text-xs">Yesterday, 18:15:44 UTC</td>
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="folder_zip">folder_zip</span>
+                  active_subscribers_filtered_ltd.csv
+                </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-secondary text-label-md">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_downward">arrow_downward</span>
+                    Export
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono font-medium text-white">8,900</td>
+<td class="py-3 px-3 text-outline">8 Custom Columns</td>
+<td class="py-3 px-3">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary-container/30 flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    Completed
+                  </span>
+</td>
+<td class="py-3 px-3 text-right">
+<a class="text-label-md font-label-md text-outline hover:text-white inline-flex items-center gap-1" href="#">
+                    Download Log
+                    <span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+</a>
+</td>
+</tr>
+<!-- Log Row 3: Successful Bulk Import -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 text-outline font-mono text-xs">Nov 18, 09:40:12 UTC</td>
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="description">description</span>
+                  event_attendees_sync_q3.csv
+                </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-primary text-label-md">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span>
+                    Import
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono font-medium text-white">2,400</td>
+<td class="py-3 px-3 text-outline">5 System Fields</td>
+<td class="py-3 px-3">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary-container/30 flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    Completed
+                  </span>
+</td>
+<td class="py-3 px-3 text-right">
+<a class="text-label-md font-label-md text-outline hover:text-white inline-flex items-center gap-1" href="#">
+                    Download Log
+                    <span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+</a>
+</td>
+</tr>
+<!-- Log Row 4: Failed Ingestion with schema mismatch -->
+<tr class="hover:bg-[#181824] transition-colors duration-150">
+<td class="py-3 px-3 text-outline font-mono text-xs">Nov 15, 22:04:31 UTC</td>
+<td class="py-3 px-3 font-medium text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-sm" data-icon="error_outline">error_outline</span>
+                  legacy_crm_export_raw.csv
+                </td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 text-primary text-label-md">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span>
+                    Import
+                  </span>
+</td>
+<td class="py-3 px-3 font-mono font-medium text-white">5,120</td>
+<td class="py-3 px-3 text-outline">Malformed Row 412</td>
+<td class="py-3 px-3">
+<span class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-error-container/20 text-error border border-error-container/40 flex items-center gap-1 w-max">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                    Failed
+                  </span>
+</td>
+<td class="py-3 px-3 text-right">
+<a class="text-label-md font-label-md text-error hover:underline inline-flex items-center gap-1" href="#">
+                    Error Diagnostic
+                    <span class="material-symbols-outlined text-xs" data-icon="bug_report">bug_report</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<!-- Bottom Margin / Footer Pad -->
+<footer class="mt-auto px-8 py-4 border-t border-[#1E1E2E] flex items-center justify-between text-label-sm text-outline bg-surface-container-lowest">
+<div class="flex items-center gap-4">
+<span>Creator OS Enterprise © 2025</span>
+<span>•</span>
+<span>Contact Ingestion API v2.4</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+          Cluster: eu-central-alpha-1
+        </span>
+<span>•</span>
+<a class="hover:text-white transition-colors" href="#">API Docs</a>
+</div>
+</footer>
+</div>
+</body></html>

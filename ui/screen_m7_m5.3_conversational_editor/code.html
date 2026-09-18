@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>M5.3 Conversational Editor — Creator OS</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-variant": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary": "#002e6a",
+            "tertiary": "#4edea3",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "background": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "primary": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-primary": "#005ac2",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "surface": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "secondary-fixed": "#e9ddff",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-fixed": "#002113",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Material Symbol helper */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    
+    /* Studio obsidian gradient accents */
+    .brand-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    
+    .brand-glow {
+      box-shadow: 0 0 20px -3px rgba(59, 130, 246, 0.4);
+    }
+    
+    .emerald-glow {
+      box-shadow: 0 0 16px -2px rgba(16, 185, 129, 0.45);
+    }
+
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased font-body-md flex justify-center selection:bg-primary-container selection:text-on-primary">
+<!-- Mobile Viewport Shell (375px max on desktop, full on mobile) -->
+<div class="relative w-full max-w-[375px] min-h-screen h-[812px] bg-[#0A0A0F] flex flex-col overflow-hidden border-x border-outline-variant/20 shadow-2xl">
+<!-- TopAppBar (Structured as per Shared Components JSON & Mobile Specifics) -->
+<header class="docked full-width top-0 sticky z-40 bg-surface-container-lowest/80 backdrop-blur-md shadow-sm border-b border-outline-variant/30 flex items-center justify-between h-14 px-3 w-full">
+<!-- Left: Back action & Title / Autosave Indicator -->
+<div class="flex items-center gap-2 min-w-0">
+<button aria-label="Go Back" class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col truncate">
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm-mobile font-headline-sm-mobile font-semibold tracking-tight text-on-surface truncate text-sm">AI App Editor</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-tertiary tracking-normal scale-95 origin-left">Auto-saving</span>
+</div>
+</div>
+</div>
+<!-- Right Actions: Version Pill, Code Mode, Live Run Pill -->
+<div class="flex items-center gap-1.5">
+<!-- Version History -->
+<button class="flex items-center gap-0.5 px-1.5 py-1 rounded bg-surface-container-high/60 hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="history">history</span>
+<span class="text-label-sm font-label-sm text-on-surface">v1.4</span>
+</button>
+<!-- Code Toggle -->
+<button class="px-2 py-1 rounded bg-surface-container-high/60 hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors active:scale-95 text-label-sm font-label-sm" type="button">
+          Code
+        </button>
+<!-- Live Run CTA -->
+<button class="brand-gradient brand-glow text-white px-2.5 py-1 rounded-lg flex items-center gap-1 text-label-sm font-label-sm font-semibold active:scale-95 transition-transform duration-100" type="button">
+<span class="material-symbols-outlined text-[13px]" data-icon="play_arrow" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span>Live Run</span>
+</button>
+</div>
+</header>
+<!-- Revision Alert Sub-Banner -->
+<div class="w-full bg-surface-container/95 border-b border-outline-variant/30 px-3 py-1.5 flex items-center justify-between z-20 backdrop-blur-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="truncate text-[11px]">2 revisions unapplied</span>
+</div>
+<button class="text-primary hover:text-primary-fixed text-label-sm font-label-sm flex items-center gap-0.5 tracking-tight transition-colors" type="button">
+<span>Revert to v1.3</span>
+<span class="material-symbols-outlined text-[13px]" data-icon="undo">undo</span>
+</button>
+</div>
+<!-- Main Conversational Timeline Canvas (Scrollable) -->
+<main aria-label="Conversation canvas" class="flex-1 overflow-y-auto px-3 py-3 space-y-4 pb-44" role="region">
+<!-- Timeline Date/Status Divider -->
+<div class="flex items-center justify-center my-1">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-outline text-[10px] font-label-sm border border-outline-variant/30">
+          Session started at 10:12 AM
+        </span>
+</div>
+<!-- 1. User Prompt Bubble (Right aligned) -->
+<div class="flex flex-col items-end space-y-1">
+<div class="max-w-[84%] bg-[#1E1E2E] border border-outline-variant/40 rounded-2xl rounded-tr-xs p-3 text-on-surface shadow-md">
+<p class="text-body-sm font-body-sm leading-relaxed text-[#e4e1e9]">
+            Add a live revenue counter on the top hero, change the primary CTA color to emerald green, and connect the Stripe checkout button.
+          </p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-outline font-label-sm pr-1">
+<span>10:14 AM</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- 2. AI Copilot Response Bubble (Left aligned) -->
+<div class="flex items-start gap-2 max-w-[96%]">
+<!-- AI Avatar Sparkle -->
+<div class="w-6 h-6 rounded-lg brand-gradient flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="smart_toy">smart_toy</span>
+</div>
+<div class="flex-1 flex flex-col space-y-2">
+<!-- Text response card -->
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-2xl rounded-tl-xs p-3.5 space-y-2.5 shadow-lg">
+<div class="flex items-center justify-between border-b border-outline-variant/20 pb-1.5">
+<span class="text-label-sm font-label-sm text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                Copilot Studio v1.4
+              </span>
+<span class="text-[10px] text-outline font-label-sm">Diff Ready</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface leading-snug">
+              I've updated the component tree:
+            </p>
+<ol class="space-y-1.5 text-body-sm font-body-sm text-on-surface-variant bg-surface-container-lowest/60 p-2.5 rounded-lg border border-outline-variant/20">
+<li class="flex items-start gap-1.5 text-[11px] leading-relaxed">
+<span class="text-primary font-bold">1.</span>
+<span>Added animated <code class="text-secondary font-mono bg-surface-container px-1 py-0.5 rounded text-[10px]">&lt;RevenueCounter&gt;</code> at top hero with real-time websocket listener.</span>
+</li>
+<li class="flex items-start gap-1.5 text-[11px] leading-relaxed">
+<span class="text-primary font-bold">2.</span>
+<span>Updated button token to emerald (<span class="inline-block w-2 h-2 rounded-full bg-[#10B981] align-middle"></span> <code class="text-tertiary-fixed font-mono bg-surface-container px-1 py-0.5 rounded text-[10px]">#10B981</code>) with hover glow.</span>
+</li>
+<li class="flex items-start gap-1.5 text-[11px] leading-relaxed">
+<span class="text-primary font-bold">3.</span>
+<span>Bound Stripe API event handler <code class="text-primary font-mono bg-surface-container px-1 py-0.5 rounded text-[10px]">onCheckoutClick()</code>.</span>
+</li>
+</ol>
+<p class="text-[11px] text-outline italic">
+              Previewing changes on mobile preview window below:
+            </p>
+<!-- Embedded Interactive Mobile Screen Preview Snapshot -->
+<div class="relative w-full rounded-xl overflow-hidden border border-[#2A2A3E] bg-[#0A0A0F] shadow-inner p-2.5 space-y-2.5">
+<!-- Mini Browser Device Chrome -->
+<div class="flex items-center justify-between pb-1.5 border-b border-outline-variant/20">
+<div class="flex items-center gap-1">
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-outline"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div>
+</div>
+<div class="bg-surface-container-high px-2 py-0.5 rounded-full text-[9px] text-on-surface-variant font-mono">
+                  creator-os.app/preview
+                </div>
+<span class="material-symbols-outlined text-outline text-[12px]" data-icon="open_in_new">open_in_new</span>
+</div>
+<!-- Modified Hero Card Inside Snapshot -->
+<div class="rounded-lg bg-surface-container-low border border-[#1E1E2E] p-3 space-y-2 relative overflow-hidden">
+<!-- Ambient Subtle Glow Background -->
+<div class="absolute -top-10 -right-10 w-24 h-24 bg-primary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<!-- 1. Revenue Counter Component -->
+<div class="flex items-center justify-between bg-[#12121A] p-2 rounded-md border border-outline-variant/30">
+<div class="flex items-center gap-1.5">
+<div class="w-5 h-5 rounded bg-tertiary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-[12px]" data-icon="monitoring">monitoring</span>
+</div>
+<div>
+<div class="text-[9px] text-outline font-label-sm uppercase tracking-wider">Live Revenue (USD)</div>
+<div class="text-label-md font-bold text-on-surface font-mono tracking-tight flex items-center gap-1">
+<span>$14,892.40</span>
+<span class="text-[9px] text-tertiary font-normal bg-tertiary-container/30 px-1 rounded">+18.4%</span>
+</div>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary animate-ping"></span>
+</div>
+<!-- Hero Copy -->
+<div class="space-y-0.5">
+<h4 class="text-label-md font-semibold text-on-surface">Creator Pro All-Access Pass</h4>
+<p class="text-[10px] text-on-surface-variant line-clamp-1">Automated AI workflows, unlimited team seats, &amp; API keys.</p>
+</div>
+<!-- Glowing Emerald Green Primary CTA with Stripe Integration -->
+<button class="w-full bg-[#10B981] hover:bg-[#059669] text-white py-2 px-3 rounded-md emerald-glow flex items-center justify-center gap-1.5 font-label-sm font-semibold transition-all active:scale-98" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="shopping_bag">shopping_bag</span>
+<span>Subscribe Now — $49/mo</span>
+<span class="material-symbols-outlined text-[12px] opacity-80" data-icon="bolt">bolt</span>
+</button>
+</div>
+<!-- Action Buttons Row: Diff & Apply -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<button class="py-1.5 px-2.5 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors flex items-center justify-center gap-1 text-label-sm font-label-sm active:scale-95" type="button">
+<span class="material-symbols-outlined text-[13px]" data-icon="compare_arrows">compare_arrows</span>
+<span>Inspect Diff</span>
+</button>
+<button class="py-1.5 px-2.5 rounded-lg brand-gradient text-white brand-glow flex items-center justify-center gap-1 text-label-sm font-label-sm font-semibold hover:brightness-110 active:scale-95 transition-all" type="button">
+<span>Apply Changes</span>
+<span class="material-symbols-outlined text-[13px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="text-[10px] text-outline font-label-sm pl-1">10:14 AM</div>
+</div>
+</div>
+<!-- 3. User Reply Bubble (Right aligned) -->
+<div class="flex flex-col items-end space-y-1">
+<div class="max-w-[80%] bg-[#1E1E2E] border border-outline-variant/40 rounded-2xl rounded-tr-xs p-3 text-on-surface shadow-md">
+<p class="text-body-sm font-body-sm leading-relaxed text-[#e4e1e9]">
+            Looks good! Now make the price card expandable on tap.
+          </p>
+</div>
+<div class="flex items-center gap-1 text-[10px] text-outline font-label-sm pr-1">
+<span>10:15 AM</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="done_all">done_all</span>
+</div>
+</div>
+<!-- 4. AI Generating Indicator Bubble -->
+<div class="flex items-start gap-2 max-w-[85%]">
+<div class="w-6 h-6 rounded-lg brand-gradient flex items-center justify-center shrink-0 mt-0.5 shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-white text-[14px]" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div class="bg-[#12121A] border border-[#1E1E2E] rounded-2xl rounded-tl-xs px-3.5 py-2.5 flex items-center gap-2.5 shadow-sm">
+<div class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-bounce"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-bounce [animation-delay:0.15s]"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-bounce [animation-delay:0.3s]"></span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant italic">Copilot is writing layout updates...</span>
+</div>
+</div>
+</main>
+<!-- Bottom Fixed Input Dock Area -->
+<div class="absolute bottom-0 left-0 w-full z-40 bg-[#0E0E13]/95 backdrop-blur-xl border-t border-outline-variant/30 p-2.5 space-y-2">
+<!-- Fast Quick Action Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5 px-0.5">
+<button class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-[11px] text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[12px]" data-icon="view_carousel">view_carousel</span>
+<span>+ Testimonial carousel</span>
+</button>
+<button class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-[11px] text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[12px]" data-icon="palette">palette</span>
+<span>Dark/light toggle</span>
+</button>
+<button class="whitespace-nowrap px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-[11px] text-on-surface-variant hover:text-on-surface hover:border-primary transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[12px]" data-icon="analytics">analytics</span>
+<span>Add Meta Pixel</span>
+</button>
+</div>
+<!-- Main Input Box with Controls -->
+<div class="bg-[#12121A] border border-[#1E1E2E] focus-within:border-[#3B82F6] focus-within:shadow-[0_0_0_1px_#3B82F6,0_0_12px_rgba(59,130,246,0.25)] rounded-xl p-1.5 flex flex-col gap-1 transition-all">
+<!-- Multi-line prompt text field -->
+<textarea class="w-full bg-transparent border-none text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:ring-0 resize-none p-1.5 leading-relaxed outline-none" placeholder="Describe changes (e.g., 'add a student testimonial carousel')..." rows="2"></textarea>
+<!-- Bottom Row Controls inside Dock -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/15">
+<!-- Left Action Icons (Clip & Mic) -->
+<div class="flex items-center gap-1 text-on-surface-variant">
+<button aria-label="Attach context file or screenshot" class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="attach_file">attach_file</span>
+</button>
+<button aria-label="Voice input" class="w-8 h-8 rounded-lg flex items-center justify-center hover:bg-surface-container hover:text-on-surface transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="mic">mic</span>
+</button>
+<span class="h-4 w-px bg-outline-variant/30 mx-0.5"></span>
+<button class="text-label-sm font-label-sm text-outline hover:text-on-surface flex items-center gap-1 px-1" type="button">
+<span class="material-symbols-outlined text-[13px]" data-icon="tune">tune</span>
+<span class="text-[10px]">GPT-4o</span>
+</button>
+</div>
+<!-- Right Send Button with Gradient Icon Arrow -->
+<button aria-label="Send prompt" class="brand-gradient text-white w-8 h-8 rounded-lg brand-glow flex items-center justify-center active:scale-90 transition-transform duration-150" type="submit">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_upward">arrow_upward</span>
+</button>
+</div>
+</div>
+<!-- Safe area spacer for modern phone gestures -->
+<div class="h-2 w-full"></div>
+</div>
+</div>
+</body></html>

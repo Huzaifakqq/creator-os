@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 8.5 — Instructor Grading &amp; Feedback Studio | Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary-container": "#00a572",
+          "outline": "#8c909f",
+          "on-secondary-fixed-variant": "#5516be",
+          "background": "#131318",
+          "on-primary-fixed-variant": "#004395",
+          "secondary-fixed-dim": "#d0bcff",
+          "on-background": "#e4e1e9",
+          "surface-container": "#1f1f25",
+          "inverse-primary": "#005ac2",
+          "primary-container": "#4d8eff",
+          "on-error": "#690005",
+          "secondary": "#d0bcff",
+          "primary-fixed-dim": "#adc6ff",
+          "inverse-surface": "#e4e1e9",
+          "primary": "#adc6ff",
+          "surface-bright": "#39383e",
+          "error": "#ffb4ab",
+          "surface": "#131318",
+          "on-secondary-fixed": "#23005c",
+          "surface-container-highest": "#35343a",
+          "surface-container-lowest": "#0e0e13",
+          "on-surface-variant": "#c2c6d6",
+          "surface-container-high": "#2a292f",
+          "tertiary-fixed": "#6ffbbe",
+          "on-primary": "#002e6a",
+          "on-primary-container": "#00285d",
+          "surface-dim": "#131318",
+          "on-tertiary-container": "#00311f",
+          "on-secondary": "#3c0091",
+          "on-surface": "#e4e1e9",
+          "inverse-on-surface": "#303036",
+          "on-tertiary-fixed-variant": "#005236",
+          "error-container": "#93000a",
+          "outline-variant": "#424754",
+          "secondary-container": "#571bc1",
+          "surface-tint": "#adc6ff",
+          "tertiary-fixed-dim": "#4edea3",
+          "secondary-fixed": "#e9ddff",
+          "surface-container-low": "#1b1b20",
+          "primary-fixed": "#d8e2ff",
+          "on-error-container": "#ffdad6",
+          "on-tertiary-fixed": "#002113",
+          "tertiary": "#4edea3",
+          "on-tertiary": "#003824",
+          "on-primary-fixed": "#001a42",
+          "surface-variant": "#35343a",
+          "on-secondary-container": "#c4abff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem",
+          "margin": "2rem",
+          "gutter": "1.5rem",
+          "gutter-sm": "1rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "margin-sm": "1rem",
+          "space-xl": "2rem"
+        },
+        "fontFamily": {
+          "label-sm": ["Inter"],
+          "label-md": ["Inter"],
+          "headline-sm": ["Inter"],
+          "display-lg-mobile": ["Inter"],
+          "headline-lg": ["Inter"],
+          "label-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "headline-xl": ["Inter"],
+          "headline-xl-mobile": ["Inter"],
+          "display-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "headline-md": ["Inter"],
+          "body-lg": ["Inter"],
+          "mono": ["JetBrains Mono", "monospace"]
+        },
+        "fontSize": {
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+          "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+          "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+          "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+          "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+          "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+          "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+  </script>
+<style>
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .electric-glow {
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.45);
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased h-screen overflow-hidden flex flex-col selection:bg-primary selection:text-on-primary-fixed">
+<!-- TOP APP BAR / BRAND HEADER -->
+<header class="h-14 w-full flex items-center justify-between px-5 bg-[#0E0E13] border-b border-outline-variant/30 shrink-0 z-30">
+<!-- Left: Identity & Breadcrumbs -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 pr-3 border-r border-outline-variant/40">
+<div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[18px]">school</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">Creator OS</span>
+</div>
+<!-- Compact Breadcrumb Trail -->
+<nav class="flex items-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="hover:text-primary cursor-pointer transition-colors duration-150">Courses</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors duration-150">Full-Stack Next.js 14 &amp; AI Engineering (Cohort 4)</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="hover:text-primary cursor-pointer transition-colors duration-150">Grading Center</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-on-surface font-medium px-2 py-0.5 rounded bg-surface-container-high border border-outline-variant/40">Lab 2.4: Inngest &amp; LangChain</span>
+</nav>
+</div>
+<!-- Center: Cohort Overview Pill & Student Switcher -->
+<div class="flex items-center gap-3">
+<div class="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-surface-container-low border border-outline-variant/40 text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-on-surface font-medium">Cohort 4 • 48 Students</span>
+<span class="text-outline">|</span>
+<span class="text-tertiary font-semibold">24/48 Graded (50%)</span>
+</div>
+<!-- Quick Submission Switcher [J / K] -->
+<div class="flex items-center bg-surface-container-low border border-outline-variant/40 rounded-lg p-0.5">
+<button class="flex items-center gap-1 px-2 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Previous Submission (J)">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span class="text-[10px] font-mono px-1 py-0.2 rounded bg-surface-container-highest text-outline">J</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/40 mx-0.5"></div>
+<button class="flex items-center gap-1 px-2 py-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Next Submission (K)">
+<span class="text-[10px] font-mono px-1 py-0.2 rounded bg-surface-container-highest text-outline">K</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Right: Current Student Quick Indicator & Primary Global Actions -->
+<div class="flex items-center gap-3">
+<!-- Active Student Badge -->
+<div class="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-surface-container-low border border-outline-variant/40">
+<div class="relative">
+<img class="w-6 h-6 rounded-full object-cover border border-[#3B82F6]/50" data-alt="A refined photorealistic portrait headshot of Sarah Lin, a focused Asian female software engineer in her late twenties wearing minimalist dark attire, captured with soft rim lighting against an obsidian workspace backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa1f5pwGrgXrJFSR6tdvbnvw05apWEeEdJY8nzAY7VmKBV6fhin9PdCxG7pWLYiuxAJfjt9rCsCUMyln-M7OvVgvhM2FGJ3drNtZSA-DURifYd-9OyykRyUZEQaCJR9roB8RsQx6j4ISlOboMiaunJPiKEFb-mTnj_tw8sv2ou3LxVd7TRUfPRl-71GQvqNWosXc-L5pBdMBbreIr8FQETQnko5lWTo57ORKpvFdctfqdOr_-hknFHtg"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-amber-400 rounded-full ring-2 ring-[#0E0E13]"></span>
+</div>
+<div class="text-left">
+<div class="flex items-center gap-1.5 leading-none">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Sarah Lin</span>
+<span class="font-mono text-[11px] text-outline">@sarahlin</span>
+</div>
+<span class="text-[10px] text-amber-400 font-label-sm font-medium">Pending Review</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<button class="px-2.5 py-1.5 rounded-lg border border-outline-variant/40 text-on-surface-variant hover:text-error hover:border-error/40 hover:bg-error-container/20 font-label-md text-label-md transition-all">
+        Request Re-submission
+      </button>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/60 text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-all">
+        Save Draft
+      </button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-semibold hover:brightness-110 active:scale-[0.98] transition-all electric-glow">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Publish Grade &amp; Feedback</span>
+<span class="text-[10px] font-mono bg-white/20 px-1 py-0.5 rounded ml-1">⌘↵</span>
+</button>
+<!-- Instructor Avatar -->
+<div class="pl-2 border-l border-outline-variant/30 flex items-center gap-2">
+<img class="w-7 h-7 rounded-full object-cover border border-outline" data-alt="Close up professional portrait of Huzaifa Khan, lead AI instructor and developer with sharp focus, modern eyeglasses, warm confident smile, studio cinematic dark background with subtle violet gradient bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcRfLc9BvkDeEPYWmEwHYinzgxQVAX2B7_mGSX-T3NOFwyLTbJ5yjqUBPmcwa5xUKc2tNP7kHq96jC7BO_jUyC4lXcJDZuxJMxHU_AtAynt0lsHLchXO9Bsu6MpdM81ce47rX9ze-cZNIu5KmhkbTC0WAVisnTkIcMRAbjdBb-sgbyi9637g3CDa0RgZwet9NlA42lS4_SDMPxKgV9yJ5O1tmpJ-wZ8ZyzKajYeL6Nem7y26ysmW-LxA"/>
+</div>
+</div>
+</header>
+<!-- MAIN 3-COLUMN WORKSPACE CANVAS -->
+<main class="flex-1 flex overflow-hidden">
+<!-- ================================================================= -->
+<!-- COLUMN 1: STUDENT SUBMISSION QUEUE & LEDGER (24% Width) -->
+<!-- ================================================================= -->
+<section class="w-[24%] min-w-[310px] max-w-[380px] bg-[#0E0E13] border-r border-outline-variant/30 flex flex-col shrink-0">
+<!-- Queue Header & Filter Tabs -->
+<div class="p-3 border-b border-outline-variant/30 bg-[#12121A]">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">rule_folder</span>
+<h2 class="font-headline-sm text-[14px] leading-tight font-semibold text-on-surface">Submissions Queue</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-primary/10 text-primary border border-primary/30">48 Enrolled</span>
+</div>
+<!-- Search Bar -->
+<div class="relative mb-2.5">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">search</span>
+<input class="w-full bg-[#181824] border border-outline-variant/50 rounded-lg pl-8 pr-3 py-1.5 text-[12px] text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Filter students or repo..." type="text" value=""/>
+</div>
+<!-- Status Filter Pills -->
+<div class="grid grid-cols-4 gap-1 p-0.5 rounded-lg bg-surface-container-lowest border border-outline-variant/30 text-center font-label-sm text-[11px]">
+<button class="py-1 rounded text-outline hover:text-on-surface transition-colors">All (48)</button>
+<button class="py-1 rounded bg-surface-container-high text-primary font-semibold border border-primary/20 shadow-sm">Needs (18)</button>
+<button class="py-1 rounded text-outline hover:text-on-surface transition-colors">Graded (24)</button>
+<button class="py-1 rounded text-outline hover:text-on-surface transition-colors">Flag (6)</button>
+</div>
+</div>
+<!-- Student Roster List (Scrollable) -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-1.5">
+<!-- Active Item: Sarah Lin -->
+<article class="p-2.5 rounded-xl bg-[#181824] border-2 border-primary/60 shadow-lg relative cursor-pointer group">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover ring-1 ring-primary" data-alt="Portrait avatar of Sarah Lin looking directly at camera, soft studio contrast, deep charcoal obsidian palette with soft rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWIoFR6ykQUEPCK-0yyXrh1Z6Wdx2EepD4HO9wSqsRogrBx6iJX50cz9nUfy53ejqaErvFPRlPRaYw8G-3IfsLOMB9zN7i_KwLDG1rI5XERT8UYUCPzF-2-euNOxqAOMlolG5SOzsTdv_aoOkEk9Jpev8w3aueheqcwXX507XCYMH4wsG4GDSLjwGWfXNzhVAlUhS3NMTUsWF8nIttLNRocHGALmaI9JFOgRhuZtxf-PujZGZRDg2X9Q"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-white">Sarah Lin</span>
+<span class="text-[10px] font-mono text-outline">@sarahlin</span>
+</div>
+<div class="flex items-center gap-1.5 text-[11px] text-outline">
+<span>Lab 2.4</span>
+<span>•</span>
+<span>4h ago</span>
+</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">In Review</span>
+</div>
+<!-- Metadatas -->
+<div class="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-outline-variant/30 text-[11px] font-mono">
+<div class="flex items-center justify-between px-2 py-1 rounded bg-[#12121A] border border-outline-variant/20">
+<span class="text-outline">Tests:</span>
+<span class="text-amber-400 font-semibold">3/5 (60%)</span>
+</div>
+<div class="flex items-center justify-between px-2 py-1 rounded bg-[#12121A] border border-outline-variant/20">
+<span class="text-outline">Plagiarism:</span>
+<span class="text-tertiary font-semibold">2% Safe</span>
+</div>
+</div>
+<div class="mt-1.5 flex items-center gap-1 text-[10px] text-primary/80">
+<span class="material-symbols-outlined text-[13px]">code_blocks</span>
+<span class="truncate font-mono">branch: feat/langchain-buffer</span>
+</div>
+</article>
+<!-- Queue Item 2: Marcus Vance -->
+<article class="p-2.5 rounded-xl bg-[#12121A] hover:bg-[#181824] border border-outline-variant/30 hover:border-outline transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait photo of Marcus Vance, a young Black male software developer with a focused expression, wearing a dark hoodie in an ambient modern tech studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdh1ZQi4KcHDyERQDHOpDdWxPgoep_4Isvivyp6mVZ9DopMk2dLM24hFiVwb_991QJnMRHuOUcMv8cZhl__goSdHzaKx6l_oJWcwzPsTABw4BQSIv09kHQq0pcK5R1llWnVmxWoHshrBloqfpOiPwkPyMibeQUaCLhC9T_zdGN7-lB8tFKIy9NOSD8sYbKMVnvi_nb2GjVy33YXWLpNLZJFgf4jQ5plvD8npehOmLk2W1cHYwSlrKVMw"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Marcus Vance</span>
+<span class="text-[10px] font-mono text-outline">@mvance</span>
+</div>
+<div class="text-[11px] text-outline">Lab 2.4 • Submitted 6h ago</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-medium bg-surface-container-high text-primary border border-primary/30">Needs Review</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Tests:</span>
+<span class="text-tertiary font-semibold">5/5 (100%)</span>
+</div>
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Plag:</span>
+<span class="text-tertiary">0%</span>
+</div>
+</div>
+</article>
+<!-- Queue Item 3: Elena Rostova -->
+<article class="p-2.5 rounded-xl bg-[#12121A] hover:bg-[#181824] border border-outline-variant/30 hover:border-outline transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait photo of Elena Rostova, European female AI engineer with hair tied back, confident expression, minimal studio dark gradient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByl_BTzve10iNKJDY3rn-BJKKblk92A9Jl7XsJDig542JT5J888JsWZbNcaZUDqD2N9rHmEHcugjTXN-sfuwbdcFsqR4DBt6B4rd1dM-do2shyAFzIUOEYQLNEaM3nnw4jW378lrLVkmOPsejbt0tnZIAe7bwCXmVlaVqDSMdjnrK7IYnbheFpEJwMGp2PhN41PyYzdHkRsS15L3kVw17_NukSfoEnPGrb_-sSpSOELTxD41km3VJRRA"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Elena Rostova</span>
+<span class="text-[10px] font-mono text-outline">@erostova</span>
+</div>
+<div class="text-[11px] text-outline">Lab 2.4 • Submitted 1d ago</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30">98 / 100</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Tests:</span>
+<span class="text-tertiary">5/5 (100%)</span>
+</div>
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Graded by:</span>
+<span class="text-outline-variant">HK</span>
+</div>
+</div>
+</article>
+<!-- Queue Item 4: David Finch -->
+<article class="p-2.5 rounded-xl bg-[#12121A] hover:bg-[#181824] border border-red-500/30 hover:border-red-500/60 transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Headshot of David Finch, Caucasian male with glasses, dark casual sweater, moody obsidian background lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmPqQFN-tJHmONBQ_rydOhJ-hVTv9vGVlet1bvZCvKAd7q11UJ__93bkuy_-D4Qq2066N0sA8w7q6tHjMZnJWjMnliaMhMKEj_oxGifZ0sd25lXw5_MhDY4OAkOtOiyEJlSrgRcA2mreIg-_6YWw3SBnSliKOsspS24X0e1JU69g9Vnqpv_g1vG7ppAFkdIn64SxEfvurh0JW6Z0I93Wn6_1nCWv2Is3MPVft-AeCMx4Qjq9L89oo6wA"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">David Finch</span>
+<span class="text-[10px] font-mono text-outline">@dfinch</span>
+</div>
+<div class="text-[11px] text-outline">Lab 2.4 • Submitted 1d ago</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-error/15 text-error border border-error/30 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">flag</span> Flagged
+            </span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Tests:</span>
+<span class="text-error font-semibold">2/5 (40%)</span>
+</div>
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Issue:</span>
+<span class="text-error">Build Crash</span>
+</div>
+</div>
+</article>
+<!-- Queue Item 5: Klaus Wagner -->
+<article class="p-2.5 rounded-xl bg-[#12121A] hover:bg-[#181824] border border-outline-variant/30 hover:border-outline transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2 mb-1.5">
+<div class="flex items-center gap-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait photograph of Klaus Wagner, male developer in his early thirties with clean beard, neutral dark slate background lighting with subtle cool tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeYYB51Ez9i2GUF8UqYf26fruf5U5EEL9g2er1mj8apAPPBk36LZroCamxUprxAqqWzIicjMetIApvxEUmti2R7K3tiTWxUpmbg6b2HamLGh7zzl12mn8MEi9jBQfuYo2aPIgKPO6h12Sn5Zo67VD0QOnpQdjGo_akyYIBQxZjrA_QEi4z9N3S8Wd2mbbV9K1QT-F8HpyFaMY-EABw5LJcN8LgjGnqc-wzYNPeNosYXJhg2RSMFpvx9w"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Klaus Wagner</span>
+<span class="text-[10px] font-mono text-outline">@kwagner</span>
+</div>
+<div class="text-[11px] text-outline">Lab 2.4 • Submitted 2d ago</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-tertiary/15 text-tertiary border border-tertiary/30">86 / 100</span>
+</div>
+<div class="grid grid-cols-2 gap-1.5 mt-2 pt-2 border-t border-outline-variant/20 text-[11px] font-mono">
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Tests:</span>
+<span class="text-tertiary">4/5 (80%)</span>
+</div>
+<div class="flex items-center justify-between px-2 py-0.5 rounded bg-[#0E0E13]">
+<span class="text-outline">Status:</span>
+<span class="text-outline">Completed</span>
+</div>
+</div>
+</article>
+</div>
+<!-- Batch Actions Sticky Footer -->
+<div class="p-3 border-t border-outline-variant/30 bg-[#12121A] flex flex-col gap-2">
+<button class="w-full flex items-center justify-center gap-2 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-md text-label-md transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]">auto_awesome</span>
+<span>Auto-grade Passing Tests (12)</span>
+</button>
+<button class="w-full flex items-center justify-center gap-2 py-1.5 rounded-lg text-outline hover:text-on-surface font-label-sm text-label-sm transition-colors">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export Gradebook CSV</span>
+</button>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- COLUMN 2: CODE DIFF & INLINE ANNOTATION VIEWER (48% Width) -->
+<!-- ================================================================= -->
+<section class="w-[48%] flex-1 bg-[#0A0A0F] border-r border-outline-variant/30 flex flex-col overflow-hidden">
+<!-- Diff Utility Header -->
+<div class="h-12 bg-[#12121A] border-b border-outline-variant/30 px-4 flex items-center justify-between shrink-0">
+<!-- Changed File Tabs -->
+<div class="flex items-center gap-1 overflow-x-auto custom-scrollbar text-xs font-mono">
+<span class="text-outline pr-2 font-sans font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">difference</span> Files (3):
+          </span>
+<button class="px-2.5 py-1 rounded-md bg-[#1E1E2E] border border-primary/40 text-primary flex items-center gap-1.5 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>inngest/functions.ts</span>
+<span class="text-[10px] text-tertiary">(+24, -8)</span>
+</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-[#181824] text-on-surface-variant flex items-center gap-1.5 transition-colors">
+<span>agent/stream-pipeline.ts</span>
+<span class="text-[10px] text-tertiary">(+14, -2)</span>
+</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-[#181824] text-on-surface-variant flex items-center gap-1.5 transition-colors">
+<span>components/AgentFeed.tsx</span>
+<span class="text-[10px] text-tertiary">(+45, -12)</span>
+</button>
+</div>
+<!-- Git Commit Info -->
+<div class="flex items-center gap-2 pl-2">
+<a class="flex items-center gap-1.5 text-[11px] font-mono text-outline hover:text-primary transition-colors bg-[#181824] px-2 py-1 rounded border border-outline-variant/40" href="#">
+<span class="material-symbols-outlined text-[14px]">commit</span>
+<span>8f3a91c</span>
+<span class="text-on-surface truncate max-w-[140px] font-sans">feat: redis buffer draining</span>
+</a>
+</div>
+</div>
+<!-- Diff File Sub-Bar -->
+<div class="bg-[#101017] px-4 py-1.5 border-b border-outline-variant/20 flex items-center justify-between text-[11px] text-outline font-mono">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[14px]">terminal</span>
+<span class="text-on-surface">src/inngest/functions.ts</span>
+<span class="text-outline">• TypeScript • 78 lines</span>
+</div>
+<div class="flex items-center gap-3">
+<label class="flex items-center gap-1.5 cursor-pointer text-on-surface-variant hover:text-on-surface">
+<input checked="" class="rounded bg-[#12121A] border-outline-variant text-primary focus:ring-0 w-3.5 h-3.5" type="checkbox"/>
+<span class="font-sans text-[11px]">Side-by-side annotations</span>
+</label>
+<span class="text-outline">|</span>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors font-sans">
+<span class="material-symbols-outlined text-[14px]">open_in_new</span> Open in GitHub
+          </button>
+</div>
+</div>
+<!-- Code Diff Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto custom-scrollbar font-mono text-[12px] leading-relaxed bg-[#0A0A0F]">
+<!-- Automated Test Failure Callout Bar -->
+<div class="mx-3 my-2.5 p-3 rounded-xl bg-red-950/30 border border-red-500/40 flex items-start gap-3">
+<div class="p-1 rounded bg-red-500/20 text-red-400 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-red-300 font-semibold font-sans text-[12px]">Failed Test #4: Redis pub/sub backpressure buffer flush</span>
+<span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-red-900/60 text-red-200 border border-red-700/50">AssertionError</span>
+</div>
+<p class="text-red-200/80 text-[11px] font-mono mt-1">
+              AssertionError: expected buffer size &lt;= 65536 bytes (64KB), but received 86016 bytes (84KB) during stream chunk ingestion.
+            </p>
+<div class="mt-1.5 flex items-center gap-2">
+<button class="text-[11px] text-primary hover:underline font-sans flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">play_arrow</span> Re-run isolated test
+              </button>
+<span class="text-outline">•</span>
+<span class="text-[11px] text-outline font-sans">Target location: inngest/functions.ts:24</span>
+</div>
+</div>
+</div>
+<!-- Diff Table Container -->
+<table class="w-full border-collapse">
+<tbody>
+<!-- Line 14 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">14</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2"><span class="text-[#8B5CF6]">export const</span> <span class="text-primary">processStreamEvent</span> = inngest.createFunction(</td>
+</tr>
+<!-- Line 15 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">15</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  { id: <span class="text-emerald-400">"agent-llm-token-pipeline"</span>, concurrency: 5 },</td>
+</tr>
+<!-- Line 16 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">16</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  { event: <span class="text-emerald-400">"ai/stream.chunk"</span> },</td>
+</tr>
+<!-- Line 17 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">17</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  <span class="text-[#8B5CF6]">async</span> ({ event, step }) =&gt; {</td>
+</tr>
+<!-- Line 18 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">18</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">    <span class="text-[#8B5CF6]">const</span> { streamId, chunk, sequenceIndex } = event.data;</td>
+</tr>
+<!-- Line 19 Deleted (-) -->
+<tr class="bg-red-950/20 border-l-2 border-red-500 hover:bg-red-900/30">
+<td class="w-10 text-right pr-3 select-none text-red-400/70 text-[11px]">19</td>
+<td class="w-6 text-center select-none text-red-400 font-bold">-</td>
+<td class="py-0.5 text-red-200/90 pl-2">    <span class="text-outline/60">// Simple buffer push without flow control</span></td>
+</tr>
+<!-- Line 20 Deleted (-) -->
+<tr class="bg-red-950/20 border-l-2 border-red-500 hover:bg-red-900/30">
+<td class="w-10 text-right pr-3 select-none text-red-400/70 text-[11px]">20</td>
+<td class="w-6 text-center select-none text-red-400 font-bold">-</td>
+<td class="py-0.5 text-red-200/90 pl-2">    redisBuffer.push(chunk);</td>
+</tr>
+<!-- Line 21 Added (+) -->
+<tr class="bg-emerald-950/25 border-l-2 border-emerald-500 hover:bg-emerald-900/30">
+<td class="w-10 text-right pr-3 select-none text-emerald-400/70 text-[11px]">21</td>
+<td class="w-6 text-center select-none text-emerald-400 font-bold">+</td>
+<td class="py-0.5 text-emerald-200 pl-2">    <span class="text-[#8B5CF6]">const</span> parser = <span class="text-[#8B5CF6]">new</span> <span class="text-primary">StringOutputParser</span>();</td>
+</tr>
+<!-- Line 22 Added (+) Target for Annotation -->
+<tr class="bg-emerald-950/25 border-l-2 border-emerald-500 hover:bg-emerald-900/30">
+<td class="w-10 text-right pr-3 select-none text-emerald-400/70 text-[11px]">22</td>
+<td class="w-6 text-center select-none text-emerald-400 font-bold">+</td>
+<td class="py-0.5 text-emerald-200 pl-2 font-medium bg-emerald-500/10">    redis.xadd(<span class="text-emerald-300">'agent-stream'</span>, <span class="text-emerald-300">'*'</span>, <span class="text-emerald-300">'chunk'</span>, chunk);</td>
+</tr>
+<!-- INLINE INSTRUCTOR ANNOTATION CARD (Pinned to Line 22) -->
+<tr>
+<td class="p-3 bg-[#101017]" colspan="3">
+<div class="ml-10 rounded-xl bg-[#181824] border border-[#3B82F6]/60 p-3.5 shadow-2xl space-y-3">
+<!-- Annotation Header -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<img class="w-6 h-6 rounded-full object-cover ring-1 ring-primary" data-alt="Portrait photo of Huzaifa Khan instructor badge, crisp lighting, deep obsidian tech background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA5sZ_H0tOb0HUbkM9lmC5_EwekHHMb_xPvA84v6TqJ-8O7NpV22IhLNSBkddj8_5Y4SzdeYIA2jP-phxLobV8-UQpwwWVfw7hgWfBmKIi6NFFrV3CPKWTFBP9495-8tqkEFADeVF9iRGNGeI-6BmGTa6NpRmrgHqz0l-XSDhsT3JGNxBymkTKorF_bPNbzXjYTIgT9q9Vm-jz4jByJQsXgdAwcUhmOXSatt8eAodCmgLN_LwJO5TVHQ"/>
+<span class="text-on-surface font-label-md text-label-md font-semibold">Huzaifa Khan (Instructor)</span>
+<span class="px-1.5 py-0.5 rounded bg-primary/20 text-primary text-[10px] font-mono">Line 22</span>
+</div>
+<div class="flex items-center gap-2 text-[11px] text-tertiary">
+<span class="material-symbols-outlined text-[14px]">visibility</span>
+<span>Visible to Student • Shared in Rubric</span>
+</div>
+</div>
+<!-- Comment Body -->
+<div class="text-[12px] text-on-surface font-sans leading-relaxed">
+<p>
+                      Great use of LangChain LCEL parser here! However, notice that without awaiting the Redis stream drain event or using backpressure checks, high-frequency concurrent LLM tokens will cause Redis buffer spikes (as flagged in Test #4). Check out Inngest's <code class="text-primary font-mono bg-[#12121A] px-1 py-0.5 rounded">step.run</code> async generator pattern to handle stream backpressure gracefully.
+                    </p>
+</div>
+<!-- Code Suggestion Block -->
+<div class="rounded-lg bg-[#0E0E13] border border-outline-variant/40 p-2.5 space-y-1.5">
+<div class="flex items-center justify-between text-[11px] font-sans text-outline">
+<span class="flex items-center gap-1 font-medium text-on-surface">
+<span class="material-symbols-outlined text-primary text-[14px]">lightbulb</span> Suggested Change:
+                      </span>
+<button class="flex items-center gap-1 px-2 py-0.5 rounded bg-primary/20 hover:bg-primary/30 text-primary text-[11px] font-medium transition-colors">
+<span class="material-symbols-outlined text-[13px]">add_task</span> Insert Suggestion
+                      </button>
+</div>
+<div class="font-mono text-[11px] text-emerald-300 bg-[#12121A] p-2 rounded border border-emerald-500/20">
+<span class="text-outline">// Await stream insertion to balance publisher pressure</span><br/>
+<span class="text-[#8B5CF6]">await</span> redis.xadd(<span class="text-emerald-400">'agent-stream'</span>, <span class="text-emerald-400">'*'</span>, <span class="text-emerald-400">'chunk'</span>, chunk);
+                    </div>
+</div>
+<!-- Annotation Quick Action Bar -->
+<div class="flex items-center justify-between pt-1 text-[11px] font-sans">
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-[#12121A] hover:bg-[#1E1E2E] text-on-surface-variant hover:text-on-surface border border-outline-variant/30 transition-colors">
+                        Add Rubric Anchor
+                      </button>
+<button class="px-2 py-1 rounded hover:bg-[#1E1E2E] text-outline hover:text-on-surface transition-colors">
+                        Add Thread Reply
+                      </button>
+</div>
+<span class="text-outline text-[10px]">Saved automatically</span>
+</div>
+</div>
+</td>
+</tr>
+<!-- Line 23 Added (+) -->
+<tr class="bg-emerald-950/25 border-l-2 border-emerald-500 hover:bg-emerald-900/30">
+<td class="w-10 text-right pr-3 select-none text-emerald-400/70 text-[11px]">23</td>
+<td class="w-6 text-center select-none text-emerald-400 font-bold">+</td>
+<td class="py-0.5 text-emerald-200 pl-2">    <span class="text-[#8B5CF6]">return</span> { acknowledged: <span class="text-amber-400">true</span>, chunkId: sequenceIndex };</td>
+</tr>
+<!-- Line 24 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">24</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  }</td>
+</tr>
+<!-- Line 25 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">25</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">);</td>
+</tr>
+<!-- Line 26 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">26</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2"></td>
+</tr>
+<!-- Line 27 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">27</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2"><span class="text-outline/60">// Export batch processing agent job</span></td>
+</tr>
+<!-- Line 28 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">28</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2"><span class="text-[#8B5CF6]">export const</span> <span class="text-primary">flushStreamBuffer</span> = inngest.createFunction(</td>
+</tr>
+<!-- Line 29 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">29</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  { id: <span class="text-emerald-400">"flush-stream-buffer"</span> },</td>
+</tr>
+<!-- Line 30 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">30</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  { cron: <span class="text-emerald-400">"* * * * *"</span> },</td>
+</tr>
+<!-- Line 31 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">31</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  <span class="text-[#8B5CF6]">async</span> ({ step }) =&gt; {</td>
+</tr>
+<!-- Line 32 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">32</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">    <span class="text-[#8B5CF6]">await</span> step.run(<span class="text-emerald-400">"drain-redis-backpressure"</span>, <span class="text-[#8B5CF6]">async</span> () =&gt; {</td>
+</tr>
+<!-- Line 33 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">33</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">      <span class="text-[#8B5CF6]">return</span> <span class="text-[#8B5CF6]">await</span> redis.xtrim(<span class="text-emerald-400">'agent-stream'</span>, <span class="text-emerald-400">'MAXLEN'</span>, <span class="text-amber-400">1000</span>);</td>
+</tr>
+<!-- Line 34 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">34</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">    });</td>
+</tr>
+<!-- Line 35 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">35</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">  }</td>
+</tr>
+<!-- Line 36 -->
+<tr class="hover:bg-white/[0.02]">
+<td class="w-10 text-right pr-3 select-none text-outline/40 text-[11px]">36</td>
+<td class="w-6 text-center select-none text-outline/40"></td>
+<td class="py-0.5 text-outline-variant pl-2">);</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Code Annotation Prompt Bar -->
+<div class="h-10 bg-[#12121A] border-t border-outline-variant/30 px-3 flex items-center justify-between shrink-0 text-xs font-sans text-outline">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">add_comment</span>
+<span>Click any line number to add an inline review annotation</span>
+</div>
+<div class="flex items-center gap-3">
+<span>Shortcuts: <kbd class="px-1 py-0.5 rounded bg-[#1E1E2E] text-on-surface font-mono text-[10px]">C</kbd> comment • <kbd class="px-1 py-0.5 rounded bg-[#1E1E2E] text-on-surface font-mono text-[10px]">N</kbd> next note</span>
+</div>
+</div>
+</section>
+<!-- ================================================================= -->
+<!-- COLUMN 3: RUBRIC SCORING & FINAL FEEDBACK STUDIO (28% Width) -->
+<!-- ================================================================= -->
+<section class="w-[28%] min-w-[340px] max-w-[420px] bg-[#0E0E13] flex flex-col shrink-0 overflow-hidden">
+<!-- Right Column Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-3.5 space-y-3.5">
+<!-- SCORE SUMMARY HERO CARD -->
+<div class="p-3.5 rounded-xl bg-[#12121A] border border-outline-variant/30 relative overflow-hidden">
+<div class="absolute -right-6 -top-6 w-28 h-28 bg-[#3B82F6]/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md font-medium text-outline uppercase tracking-wider">Evaluation Score</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Grade: A- (Passing)</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-xl text-headline-xl font-bold text-white tracking-tight">88</span>
+<span class="text-outline font-label-lg text-label-lg">/ 100 Pts</span>
+</div>
+<div class="text-right">
+<div class="text-[11px] font-mono text-outline">Automated Weight</div>
+<div class="text-xs font-mono text-primary font-semibold">36/60 Pts + 52/40 Rubric</div>
+</div>
+</div>
+<!-- Progress Visualizer Bar -->
+<div class="w-full bg-[#1F1F25] rounded-full h-2 mt-2.5 overflow-hidden flex">
+<div class="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-full" style="width: 88%"></div>
+</div>
+<div class="flex justify-between text-[10px] text-outline mt-1 font-mono">
+<span>Pass: 70 Pts</span>
+<span>Target: 85+ Pts</span>
+<span>Max: 100 Pts</span>
+</div>
+</div>
+<!-- INTERACTIVE WEIGHTED RUBRIC ACCORDION -->
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-[13px] font-semibold text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">assessment</span> Weighted Rubric Criteria
+            </h3>
+<span class="text-[11px] text-outline font-mono">4 Dimensions</span>
+</div>
+<!-- Criterion 1 -->
+<div class="p-2.5 rounded-lg bg-[#12121A] border border-outline-variant/30 hover:border-outline-variant transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="font-medium text-on-surface">1. Architecture &amp; Modularity (25%)</span>
+<span class="font-mono text-primary font-semibold">23 / 25</span>
+</div>
+<p class="text-[11px] text-outline leading-tight mb-2">Clean separation of Inngest functions and LangChain LCEL pipeline.</p>
+<input class="w-full h-1.5 bg-[#1F1F25] rounded-lg appearance-none cursor-pointer accent-[#3B82F6]" max="25" min="0" type="range" value="23"/>
+</div>
+<!-- Criterion 2 -->
+<div class="p-2.5 rounded-lg bg-[#181824] border border-[#3B82F6]/50 shadow-sm">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="font-medium text-white">2. Concurrency &amp; Backpressure (35%)</span>
+<span class="font-mono text-amber-400 font-semibold">28 / 35</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-tight mb-2">Solid concurrency limiting (5 workers), but Redis stream buffer lacks drain checks under load.</p>
+<input class="w-full h-1.5 bg-[#1F1F25] rounded-lg appearance-none cursor-pointer accent-amber-400" max="35" min="0" type="range" value="28"/>
+</div>
+<!-- Criterion 3 -->
+<div class="p-2.5 rounded-lg bg-[#12121A] border border-outline-variant/30 hover:border-outline-variant transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="font-medium text-on-surface">3. Code Quality, Typing &amp; Error Handling (20%)</span>
+<span class="font-mono text-primary font-semibold">19 / 20</span>
+</div>
+<p class="text-[11px] text-outline leading-tight mb-2">Strict TypeScript types and Zod schemas applied correctly.</p>
+<input class="w-full h-1.5 bg-[#1F1F25] rounded-lg appearance-none cursor-pointer accent-[#3B82F6]" max="20" min="0" type="range" value="19"/>
+</div>
+<!-- Criterion 4 -->
+<div class="p-2.5 rounded-lg bg-[#12121A] border border-outline-variant/30 hover:border-outline-variant transition-colors">
+<div class="flex items-center justify-between text-xs mb-1">
+<span class="font-medium text-on-surface">4. Student Documentation &amp; Diagram (20%)</span>
+<span class="font-mono text-primary font-semibold">18 / 20</span>
+</div>
+<p class="text-[11px] text-outline leading-tight mb-2">Clear README and architectural diagram breakdown provided.</p>
+<input class="w-full h-1.5 bg-[#1F1F25] rounded-lg appearance-none cursor-pointer accent-[#3B82F6]" max="20" min="0" type="range" value="18"/>
+</div>
+</div>
+<!-- AI INSTRUCTOR ASSISTANT CO-PILOT -->
+<div class="p-3 rounded-xl bg-gradient-to-br from-[#181824] to-[#141420] border border-[#8B5CF6]/40 relative">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[#8B5CF6] text-[18px]">smart_toy</span>
+<span class="font-label-md text-label-md font-semibold text-white">AI Instructor Co-pilot</span>
+</div>
+<span class="text-[10px] font-mono text-[#8B5CF6] bg-[#8B5CF6]/10 px-1.5 py-0.5 rounded border border-[#8B5CF6]/30">Claude 3.5 Sonnet</span>
+</div>
+<p class="text-[11px] text-on-surface-variant leading-relaxed">
+            Auto-drafted summary based on 3 passed tests, 1 memory failure, and Line 22 diff:
+            <span class="italic text-on-surface">"Highlight strong TypeScript discipline, commend modular separation, but recommend refactoring un-awaited stream appends before staging."</span>
+</p>
+<button class="mt-2.5 w-full flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-[#8B5CF6]/15 hover:bg-[#8B5CF6]/25 border border-[#8B5CF6]/40 text-[#adc6ff] text-[11px] font-medium transition-colors">
+<span class="material-symbols-outlined text-[14px]">autorenew</span>
+<span>Regenerate Feedback with AI Claude 3.5</span>
+</button>
+</div>
+<!-- INSTRUCTOR WRITTEN FEEDBACK BOX -->
+<div class="p-3 rounded-xl bg-[#12121A] border border-outline-variant/30 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-semibold text-on-surface">Written Feedback to Student</span>
+<button class="flex items-center gap-1 text-[11px] text-primary hover:underline">
+<span class="material-symbols-outlined text-[13px]">videocam</span>
+<span>Record 60s Loom Note</span>
+</button>
+</div>
+<!-- Preset Quick Feedback Tags -->
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white hover:border-primary transition-colors">+ Excellent Types</button>
+<button class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-amber-500/10 border border-amber-500/40 text-amber-300 hover:brightness-110 transition-colors">+ Needs Backpressure Fix</button>
+<button class="px-2 py-0.5 rounded-full text-[10px] font-medium bg-surface-container-high border border-outline-variant text-on-surface-variant hover:text-white hover:border-primary transition-colors">+ Fast Delivery</button>
+</div>
+<!-- Feedback Textarea -->
+<textarea class="w-full bg-[#181824] border border-outline-variant/50 rounded-lg p-2.5 text-xs text-on-surface placeholder:text-outline/70 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary leading-relaxed resize-none" rows="4">Sarah, this is stellar work on the asynchronous token streaming. Your schema definition and LCEL parser setup are rock-solid. Check line 22 on functions.ts to prevent memory spikes on large streams, then this is production ready!</textarea>
+<div class="flex items-center justify-between text-[10px] text-outline">
+<span>Supports Markdown &amp; LaTeX</span>
+<span>192 characters</span>
+</div>
+</div>
+<!-- FINAL PUBLISH CONTROLS & CHECKBOXES -->
+<div class="p-3 rounded-xl bg-[#12121A] border border-outline-variant/30 space-y-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded bg-[#181824] border-outline-variant text-[#3B82F6] focus:ring-0 w-4 h-4" type="checkbox"/>
+<span class="text-xs text-on-surface font-sans">Send email notification to student</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="rounded bg-[#181824] border-outline-variant text-[#3B82F6] focus:ring-0 w-4 h-4" type="checkbox"/>
+<span class="text-xs text-on-surface font-sans">Issue Module 2 Milestone Certificate of Mastery</span>
+</label>
+</div>
+</div>
+<!-- Right Column Sticky Footer CTA -->
+<div class="p-3.5 border-t border-outline-variant/30 bg-[#12121A] shrink-0">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-semibold hover:brightness-110 active:scale-[0.98] transition-all electric-glow">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Publish Grade &amp; Notify Student</span>
+</button>
+<div class="text-center mt-1.5">
+<span class="text-[10px] text-outline">Press <kbd class="font-mono bg-[#1F1F25] px-1 py-0.2 rounded text-on-surface-variant">⌘ + Enter</kbd> to publish immediately</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

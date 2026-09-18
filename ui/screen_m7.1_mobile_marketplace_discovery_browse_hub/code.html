@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Creator OS Marketplace - Discover</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed": "#e9ddff",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "surface-bright": "#39383e",
+            "surface-variant": "#35343a",
+            "tertiary-container": "#00a572",
+            "tertiary": "#4edea3",
+            "primary-container": "#4d8eff",
+            "surface-container-low": "#1b1b20",
+            "inverse-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "surface-dim": "#131318",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary-fixed": "#6ffbbe",
+            "primary-fixed": "#d8e2ff",
+            "inverse-on-surface": "#303036",
+            "on-primary-container": "#00285d",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-fixed-variant": "#004395",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "secondary": "#d0bcff",
+            "on-error": "#690005",
+            "surface-container-high": "#2a292f",
+            "on-error-container": "#ffdad6",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary": "#002e6a",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "on-secondary-container": "#c4abff",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-tertiary": "#003824",
+            "background": "#131318",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-fixed-variant": "#5516be",
+            "surface-container-highest": "#35343a",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "surface": "#131318",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2rem",
+            "margin-sm": "1rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: 'liga';
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .glow-primary {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .glow-violet {
+      box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Shell (375px frame emulation on large screen, 100% on mobile) -->
+<div class="w-full max-w-[375px] min-h-screen bg-surface flex flex-col relative pb-24 shadow-2xl border-x border-outline-variant/30 overflow-x-hidden">
+<!-- TopAppBar (from Shared Components JSON with execution styles applied) -->
+<header class="sticky top-0 z-40 flex justify-between items-center h-14 w-full px-margin-sm bg-surface-dim dark:bg-surface-dim border-b border-outline-variant dark:border-outline-variant backdrop-blur-md bg-opacity-95">
+<div class="flex items-center gap-2">
+<button aria-label="Storefront" class="flex items-center justify-center w-8 h-8 rounded-lg text-primary dark:text-primary hover:bg-surface-container-high dark:hover:bg-surface-container-high active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</button>
+<span class="text-headline-sm font-headline-sm text-on-surface dark:text-on-surface font-semibold tracking-tight">Marketplace</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Search" class="flex items-center justify-center w-8 h-8 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Cart" class="relative flex items-center justify-center w-8 h-8 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high hover:text-on-surface active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute top-1 right-1 w-4 h-4 rounded-full bg-primary text-on-primary text-[10px] font-bold flex items-center justify-center leading-none ring-2 ring-surface-dim">2</span>
+</button>
+</div>
+</header>
+<!-- Subheader Search Input -->
+<div class="px-margin-sm pt-3 pb-2">
+<div class="relative flex items-center w-full">
+<span class="absolute left-3 text-outline pointer-events-none flex items-center">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full h-10 pl-9 pr-10 bg-surface-container-low border border-outline-variant/40 rounded-lg text-on-surface placeholder:text-outline text-body-sm font-body-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-200" placeholder="Search 2,400+ presets, 3D assets, LUTs..." type="text"/>
+<button aria-label="Quick Filter Options" class="absolute right-2.5 p-1 rounded hover:bg-surface-container text-on-surface-variant active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-outline text-lg" data-icon="tune">tune</span>
+</button>
+</div>
+</div>
+<!-- Category Chips (Horizontal Scroll) -->
+<div class="w-full overflow-x-auto hide-scrollbar px-margin-sm py-2 flex items-center gap-2">
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-primary text-on-primary font-semibold shadow-sm active:scale-95 transition-transform duration-150">
+        All Assets
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        LUTs &amp; Color
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        3D Shaders
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        Motion Graphics
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        UI Kits
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        Sound FX
+      </button>
+<button class="shrink-0 h-6 px-3 rounded-full text-label-md font-label-md bg-surface-container-low border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150">
+        Prompt Packs
+      </button>
+</div>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col gap-5 pt-2">
+<!-- Hero / Featured Asset Showcase Card -->
+<section class="px-margin-sm">
+<div class="relative overflow-hidden rounded-xl border border-outline-variant/60 bg-surface-container-low glow-primary flex flex-col">
+<!-- Featured Image Container -->
+<div class="relative w-full h-48 overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="A dark cinematic color grading showcase frame depicting a high-contrast urban nightscape bathed in moody teal and deep obsidian shadows. Atmospheric rain reflections shimmer on asphalt with vibrant neon violet rim lighting accentuating high-end digital film emulsion aesthetics, shot on an anamorphic lens with rich optical halation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQcxAcoHCiRn1SS2KsywQqotk7CAbYaBuC7vk-yXEhybRivy4KWjg8cwHpCDBStXN7mUWGz7ZzmfDnWtg0T78Gkfk8wqD9ViHOwnoOuhCL0ekJG9wTGT3HFdb1E3INofkeFGtmzgaZpNOkwlFJw4CWDkkcTjnE-nB_7g2Jp3UJ4W0p7iBcBQR2OSh9zQ6ypczsyjuIbPUsCvA3ZoGKpAqA3jQOB5zx5z6YjY7KMCTINI-1yJPFcLSxCg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/40 to-transparent"></div>
+<!-- Badges Layer -->
+<div class="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary-container/90 text-on-primary-container text-label-sm font-label-sm uppercase backdrop-blur-md">
+<span class="material-symbols-outlined text-[12px]" data-icon="local_fire_department">local_fire_department</span>
+                Trending #1
+              </span>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-surface-container-highest/80 text-on-surface text-label-sm font-label-sm backdrop-blur-md border border-outline-variant/40">
+                Commercial Ready
+              </span>
+</div>
+<!-- Price Pill -->
+<div class="absolute top-2.5 right-2.5">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 border border-outline-variant/60 text-primary text-label-md font-label-md font-bold backdrop-blur-md shadow-md">
+                $39.00 USD
+              </span>
+</div>
+</div>
+<!-- Featured Details Container -->
+<div class="p-4 flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface leading-tight font-semibold">
+                  Obsidian Cinema LUTs v2.4
+                </h3>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="text-body-sm font-body-sm text-on-surface-variant">by Marco Sterling</span>
+<span class="material-symbols-outlined text-primary text-[14px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-2 py-1 rounded border border-outline-variant/40">
+<span class="material-symbols-outlined text-amber-400 text-[14px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm font-bold text-on-surface">4.9</span>
+<span class="text-body-sm font-body-sm text-outline text-[10px]">(420)</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2">
+              Industry standard dynamic color matrix engineered for ARRI, RED, &amp; Sony FX log workflows with pristine highlight roll-off.
+            </p>
+<!-- Actions row -->
+<div class="flex items-center gap-2 pt-1">
+<button class="flex-1 h-9 rounded-lg bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-md font-label-md flex items-center justify-center gap-1.5 border border-outline-variant/50 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="visibility">visibility</span>
+                Quick View
+              </button>
+<button class="flex-1 h-9 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-primary-container hover:brightness-110 text-label-md font-label-md font-semibold flex items-center justify-center gap-1.5 active:scale-95 transition-transform duration-150 shadow-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_shopping_cart">add_shopping_cart</span>
+                Add to Bag
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Filter & Sort Bar -->
+<section class="px-margin-sm flex items-center justify-between py-1 border-y border-outline-variant/20 bg-surface-dim/60">
+<span class="text-label-md font-label-md text-outline">
+          Showing <strong class="text-on-surface font-semibold">1,280</strong> Results
+        </span>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1 h-7 px-2.5 rounded bg-surface-container-low border border-outline-variant/40 text-label-sm font-label-sm text-on-surface active:scale-95 transition-transform">
+<span>Most Popular</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="expand_more">expand_more</span>
+</button>
+<button class="relative flex items-center gap-1 h-7 px-2.5 rounded bg-surface-container border border-outline-variant/60 text-label-sm font-label-sm text-primary font-semibold active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[14px]" data-icon="filter_list">filter_list</span>
+<span>Filters</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary ml-0.5"></span>
+</button>
+</div>
+</section>
+<!-- Curated Feed (2-Column Bento Grid) -->
+<section class="px-margin-sm">
+<div class="grid grid-cols-2 gap-3">
+<!-- Card 1: Shaders -->
+<div class="flex flex-col rounded-xl border border-outline-variant/40 bg-surface-container-low hover:border-outline-variant hover:bg-surface-container transition-all duration-150 p-2.5 group">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container-lowest mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="A procedural neon 3D shader material demonstration featuring organic fluid crystalline fractals pulsating with electric blue and deep violet luminescence. The rendering shows complex micro-refraction, subsurface scattering, and obsidian obsidian metallic finishes on abstract geometric shapes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiI7EMpa3Jg4cGcHqRyAy-0ncNl6deDtWCgAo7Xfdj0R9nNwLYO0ksKwL0rtA-NqyLOJWUmh2NzYAmRLykhNq33K8iH49hSaFFkTy-OGMjqeN9W9o2whGS0FB52bgZvPtIOQbP7Vg2OB-RJlQ8LGQ-UxRHBb8vb04_9ja1g4jK8sLuy67t2LzCHO9ASFyyxWcenzhsfnfmL1aL7n-4DbbDoRMznDwUV53x0kWSqRa1bXj5uoh19gNt-g"/>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-[10px] font-label-sm text-tertiary border border-outline-variant/30 backdrop-blur-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]" data-icon="bolt">bolt</span>
+                Instant
+              </span>
+</div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-[10px] font-label-sm px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-outline">Blender 4.0</span>
+<div class="flex items-center text-[10px] font-bold text-amber-400 gap-0.5">
+<span class="material-symbols-outlined text-[11px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.8
+              </div>
+</div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              Neon Bloom Procedural Shaders
+            </h4>
+<p class="text-body-sm font-body-sm text-outline text-[11px] truncate">by Elena Rostova</p>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">$24.00</span>
+<button aria-label="Add item to cart" class="p-1 rounded hover:bg-surface-container-high text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Film Grain -->
+<div class="flex flex-col rounded-xl border border-outline-variant/40 bg-surface-container-low hover:border-outline-variant hover:bg-surface-container transition-all duration-150 p-2.5 group">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container-lowest mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="Authentic 35mm motion picture film grain texture texture frame exhibiting subtle warm optical halation around crisp silhouettes. The background utilizes obsidian dark studio staging with nuanced micro-grain details and soft chromatic dispersion in deep violet and charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6MWmzTJgOrBG4Ktu6tB10Lgy5eRnDgY7TVW66-ib0W9mXg4dHhDvwnPrJmXI-s2pS8uguowFlCbGn7kRS9VEPohF0Mlsg6o6tDRTpo5v9GG6l_fFbQ2fiOHTpDyJzr6cxF7uIyK1ByXmhHfbqXt_nAgMOhb9gnIq0bE0tH726gE5tGvJz0N1OoFLzDXOg7yQs6U0EDvaxhGuyYUw77tU-_Sj0AbgWNZEr2JAX26RNrbqkfdTSDF-KYQ"/>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-[10px] font-label-sm text-secondary border border-outline-variant/30 backdrop-blur-sm">
+                4K Scan
+              </span>
+</div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-[10px] font-label-sm px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-outline truncate">DaVinci / Premiere</span>
+<div class="flex items-center text-[10px] font-bold text-amber-400 gap-0.5">
+<span class="material-symbols-outlined text-[11px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                5.0
+              </div>
+</div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              Analog Film Grain &amp; Halation
+            </h4>
+<p class="text-body-sm font-body-sm text-outline text-[11px] truncate">by Studio Mono</p>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">$19.00</span>
+<button aria-label="Add item to cart" class="p-1 rounded hover:bg-surface-container-high text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Card 3: SaaS Vault -->
+<div class="flex flex-col rounded-xl border border-outline-variant/40 bg-surface-container-low hover:border-outline-variant hover:bg-surface-container transition-all duration-150 p-2.5 group">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container-lowest mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="A modern dark-mode software design system interface mockup featuring nested modular dashboard components, analytical charts with glowing electric blue lines, sleek obsidian surfaces, and high-precision glassmorphic pill badges displayed in isometric perspective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOvQV1LMPfEpQtqiDDKdDGpT6FeQE8q3mYBAhxvvaQGzrhyN1gnQzOAvy-0zvfxt5RcZJnB_8YTC2oxsKlY7C3rVY4pwi5HxvrQXW2oDkFXTjqmOEX6e8Zys3GAiesbF-l3BGRusb1-0TMqb8Ix-b9hYC41PMbVY7HbRsjOuBt1V-kB93z2aaTSQhL7Jb6LvfMP1EqhOGF7FjfjJmyWcWKSwZ6dDuZi0KBo2rg3QIFpA8lbo5UG4AjIw"/>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-[10px] font-label-sm text-primary border border-outline-variant/30 backdrop-blur-sm">
+                Pro Kit
+              </span>
+</div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-[10px] font-label-sm px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-outline truncate">Next.js / Figma</span>
+<div class="flex items-center text-[10px] font-bold text-amber-400 gap-0.5">
+<span class="material-symbols-outlined text-[11px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.9
+              </div>
+</div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              SaaS UI Component Vault (Tailwind)
+            </h4>
+<p class="text-body-sm font-body-sm text-outline text-[11px] truncate">by Huzaifa K.</p>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">$49.00</span>
+<button aria-label="Add item to cart" class="p-1 rounded hover:bg-surface-container-high text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Audio SFX -->
+<div class="flex flex-col rounded-xl border border-outline-variant/40 bg-surface-container-low hover:border-outline-variant hover:bg-surface-container transition-all duration-150 p-2.5 group">
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container-lowest mb-2">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200" data-alt="An abstract 3D visual representation of sound waves and spatial acoustic frequency curves glowing in vibrant violet and neon cyan amidst a dark atmospheric studio environment. Soundwave spikes float against a minimal obsidian background with subtle particle lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQhAXFMYClV-zS1hAA3KaQih3PTzB79gWGEgeUr3kO4xFLxB7Gfp5Mn9EZohwzDK42X2smzvONmMYVQTMV7kLGbxTiy2VjkBu_r7dZeZ2f0QhrsARQx381a5trdzU-cc6EUKnXlwpgV53NGPRAUcpGLdMISPQxWu8JCx1-pTSkO8N5qODD-QSTgEIS8qgsi-RWVgPz0DK1OinUC6-pQJDr28mXJiyuHfl7AgAAAan_HFXoddpus0R8dQ"/>
+<span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-surface-container-lowest/80 text-[10px] font-label-sm text-tertiary border border-outline-variant/30 backdrop-blur-sm">
+                WAV/96k
+              </span>
+</div>
+<div class="flex items-center justify-between gap-1 mb-1">
+<span class="text-[10px] font-label-sm px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant/30 text-outline truncate">96kHz Lossless</span>
+<div class="flex items-center text-[10px] font-bold text-amber-400 gap-0.5">
+<span class="material-symbols-outlined text-[11px]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.7
+              </div>
+</div>
+<h4 class="text-body-md font-body-md font-semibold text-on-surface line-clamp-1 group-hover:text-primary transition-colors">
+              Spatial Audio Cinematic SFX
+            </h4>
+<p class="text-body-sm font-body-sm text-outline text-[11px] truncate">by SoundForge</p>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-on-surface">$29.00</span>
+<button aria-label="Add item to cart" class="p-1 rounded hover:bg-surface-container-high text-primary active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Creator Spotlight Strip -->
+<section class="px-margin-sm mb-2">
+<div class="p-3 rounded-xl border border-outline-variant/50 bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low flex items-center justify-between glow-violet">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="relative w-10 h-10 rounded-full overflow-hidden border border-outline-variant shrink-0 bg-surface-container-highest">
+<img class="w-full h-full object-cover" data-alt="A stylized portrait of a digital artist studio avatar showcasing a minimalist geometric mask glowing softly with deep purple and electric blue ambient lighting against a pitch black studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD54_1knnYWfIkjBlsbdLIUo8B5hR-YNJZZkYILMrBmWM1R3NqRcgO26QyjXzwe1wI5rtFi07Ypddf3PnEZm0T8SnhkHFmsb8vJd5IkXyznttSeXLTSgHDwaNrXA4jILUyRnnQZ9ZryFloz_JRu0Sp3jJkF5LDk_KQYQHMIQzkHrmo7r8EV-jNLMFJPayZW17Z4hauW1BD_Ta_ZR7BZGG5bijUNnw0_XnzlikDTH7W1eHkNM2C7zrrujg"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-1 ring-surface-dim"></span>
+</div>
+<div class="min-w-0">
+<div class="flex items-center gap-1">
+<span class="text-[10px] font-label-sm uppercase tracking-wider text-primary font-bold">Featured Studio</span>
+</div>
+<h5 class="text-label-lg font-label-lg text-on-surface font-semibold truncate leading-tight">Obsidian FX Lab</h5>
+<p class="text-body-sm font-body-sm text-outline text-[11px]">14.2k Active Patrons</p>
+</div>
+</div>
+<button class="shrink-0 h-7 px-3 rounded-lg bg-surface-container-highest hover:bg-surface-bright border border-outline-variant/60 text-label-sm font-label-sm text-on-surface font-semibold active:scale-95 transition-transform duration-150">
+            Follow
+          </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (from Shared Components JSON with execution styles applied) -->
+<!-- Destination 0: Discover is strictly active according to context logic -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-gutter-sm bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant dark:border-outline-variant max-w-[375px] mx-auto right-0">
+<!-- Tab 1: Discover (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-semibold active:scale-95 transition-transform duration-150 py-1 flex-1" href="#discover">
+<span class="material-symbols-outlined text-[22px]" data-icon="explore" data-weight="fill" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-label-sm font-label-sm mt-0.5">Discover</span>
+</a>
+<!-- Tab 2: Library -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-150 py-1 flex-1" href="#library">
+<span class="material-symbols-outlined text-[22px]" data-icon="collections_bookmark">collections_bookmark</span>
+<span class="text-label-sm font-label-sm mt-0.5">Library</span>
+</a>
+<!-- Tab 3: Vault -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-150 py-1 flex-1" href="#vault">
+<span class="material-symbols-outlined text-[22px]" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-label-sm font-label-sm mt-0.5">Vault</span>
+</a>
+<!-- Tab 4: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary active:scale-95 transition-transform duration-150 py-1 flex-1" href="#profile">
+<span class="material-symbols-outlined text-[22px]" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

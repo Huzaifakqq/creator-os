@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>AI App Studio - Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#003824",
+            "error-container": "#93000a",
+            "tertiary-fixed-dim": "#4edea3",
+            "tertiary-container": "#00a572",
+            "error": "#ffb4ab",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline": "#8c909f",
+            "surface": "#131318",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container": "#1f1f25",
+            "secondary-fixed": "#e9ddff",
+            "outline-variant": "#424754",
+            "on-primary": "#002e6a",
+            "on-error": "#690005",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "surface-container-highest": "#35343a",
+            "on-surface-variant": "#c2c6d6",
+            "background": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "primary-fixed": "#d8e2ff",
+            "primary-container": "#4d8eff",
+            "surface-container-high": "#2a292f",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed": "#001a42",
+            "on-error-container": "#ffdad6",
+            "surface-variant": "#35343a",
+            "inverse-surface": "#e4e1e9",
+            "surface-container-low": "#1b1b20",
+            "primary-fixed-dim": "#adc6ff",
+            "on-surface": "#e4e1e9",
+            "on-primary-fixed-variant": "#004395",
+            "secondary-container": "#571bc1",
+            "primary": "#adc6ff",
+            "surface-bright": "#39383e",
+            "surface-tint": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "on-secondary": "#3c0091",
+            "surface-dim": "#131318",
+            "on-secondary-container": "#c4abff",
+            "tertiary": "#4edea3",
+            "inverse-primary": "#005ac2"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0e0e13;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .input-glow:focus-within {
+      box-shadow: 0 0 0 1px #3B82F6, 0 0 14px rgba(59, 130, 246, 0.25);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest min-h-screen text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Wrapper (375px max centered simulation on desktop, pure responsive mobile base) -->
+<div class="mx-auto w-full max-w-[412px] min-h-screen flex flex-col bg-surface-container-lowest border-x border-outline-variant/30 relative pb-24 shadow-2xl">
+<!-- TopAppBar (Shared Component Specification) -->
+<header class="sticky top-0 z-40 bg-surface flex justify-between items-center h-14 px-margin-sm w-full border-b border-outline-variant/30 backdrop-blur-md bg-opacity-95">
+<div class="flex items-center gap-2">
+<button aria-label="Go back" class="flex items-center justify-center w-8 h-8 rounded-lg text-on-surface-variant hover:bg-surface-container-high active:scale-98 transition-all">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none flex items-center gap-1.5">
+            AI App Studio
+            <span class="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-medium bg-primary-container/20 text-primary border border-primary/30">v2.5</span>
+</h1>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">Prompt Studio Engine</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white flex items-center gap-1.5 font-label-md text-label-md font-semibold ambient-glow hover:brightness-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Run</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Studio Work Area -->
+<main class="flex-1 px-margin-sm pt-4 space-y-4 overflow-y-auto">
+<!-- Active Model & Quota Status Strip -->
+<section class="flex items-center justify-between gap-2 overflow-x-auto custom-scrollbar">
+<!-- Model Selector Pill -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 hover:border-primary/50 transition-all text-left group shrink-0">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-md text-label-md text-on-surface font-medium">Claude 3.5 Sonnet</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[16px] group-hover:text-primary transition-colors">arrow_drop_down</span>
+</button>
+<!-- Quota Strip Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-low border border-outline-variant/40 shrink-0">
+<div class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">128k / 200k tokens</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary/10 text-tertiary font-label-sm text-[10px] font-semibold tracking-wider uppercase border border-tertiary/20">Turbo</span>
+</div>
+</section>
+<!-- Main Prompt Input Box (Hero Container) -->
+<section class="bg-surface-container-low border border-outline-variant/50 rounded-xl p-3.5 input-glow transition-all duration-200">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/20 mb-2.5">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">terminal</span>
+<span class="font-label-sm text-label-sm tracking-wide uppercase font-semibold text-primary">Master Prompt Prompt</span>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors" title="Expand view">
+<span class="material-symbols-outlined text-[18px]">open_in_full</span>
+</button>
+</div>
+<div class="relative">
+<textarea class="w-full bg-transparent border-0 p-0 text-on-surface placeholder-on-surface-variant/60 font-body-md text-body-md focus:ring-0 resize-none leading-relaxed" placeholder="Describe the micro-app, workflow tool, or client portal you want to generate..." rows="4"></textarea>
+</div>
+<!-- Utility Action Bar inside prompt card -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<button class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 flex items-center gap-1 text-on-surface-variant hover:text-on-surface text-label-sm font-medium transition-all" title="Voice Input">
+<span class="material-symbols-outlined text-[15px]">mic</span>
+<span>Voice</span>
+</button>
+<button class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 flex items-center gap-1 text-on-surface-variant hover:text-on-surface text-label-sm font-medium transition-all" title="Attach Schema">
+<span class="material-symbols-outlined text-[15px]">schema</span>
+<span>Schema</span>
+</button>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-[11px]">
+<span class="material-symbols-outlined text-[14px] text-tertiary">check_circle</span>
+<span>Context synced</span>
+</div>
+</div>
+</section>
+<!-- Quick Prompt Modifiers Horizontal Carousel -->
+<section class="space-y-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant px-1 font-semibold uppercase tracking-wider">Quick Enhancers</span>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
+<button class="shrink-0 h-7 px-2.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary font-label-md text-label-md flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>+ Add Stripe Checkout</span>
+</button>
+<button class="shrink-0 h-7 px-2.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary font-label-md text-label-md flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>+ User Auth &amp; Roles</span>
+</button>
+<button class="shrink-0 h-7 px-2.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary font-label-md text-label-md flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>+ Supabase DB Schema</span>
+</button>
+<button class="shrink-0 h-7 px-2.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-primary/50 text-on-surface-variant hover:text-primary font-label-md text-label-md flex items-center gap-1 transition-all active:scale-95">
+<span class="material-symbols-outlined text-[14px]">add</span>
+<span>+ Webhook Outbound</span>
+</button>
+</div>
+</section>
+<!-- Generation Engine Parameters (Precision Instrument Card) -->
+<section class="bg-surface-container-low border border-outline-variant/40 rounded-xl p-3.5 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">tune</span>
+<span class="font-headline-sm text-[14px] font-semibold text-on-surface">Target Architecture</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded border border-outline-variant/30">Next.js 14 + App Router</span>
+</div>
+<!-- Target Switcher Tabs -->
+<div class="grid grid-cols-3 gap-1 p-1 bg-surface-container-lowest rounded-lg border border-outline-variant/20">
+<button class="py-1.5 px-2 rounded-md font-label-md text-label-md font-semibold text-primary bg-surface-container-high shadow-sm border border-primary/30 text-center transition-all">
+            Next.js App
+          </button>
+<button class="py-1.5 px-2 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface text-center transition-all">
+            React Native
+          </button>
+<button class="py-1.5 px-2 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface text-center transition-all">
+            API Micro
+          </button>
+</div>
+<!-- Tech Stack Specs Grid -->
+<div class="grid grid-cols-2 gap-2 pt-1">
+<div class="p-2 rounded-lg bg-surface-container/60 border border-outline-variant/20">
+<span class="block font-label-sm text-[10px] text-on-surface-variant uppercase font-medium">Styling &amp; UI</span>
+<span class="block font-body-sm text-body-sm text-on-surface font-medium truncate mt-0.5">Tailwind + Lucide</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container/60 border border-outline-variant/20">
+<span class="block font-label-sm text-[10px] text-on-surface-variant uppercase font-medium">State / Storage</span>
+<span class="block font-body-sm text-body-sm text-on-surface font-medium truncate mt-0.5">Zustand + Postgres</span>
+</div>
+</div>
+<!-- Temperature Slider -->
+<div class="space-y-1.5 pt-1">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Creativity / Temperature</span>
+<span class="text-primary font-mono font-semibold">0.4 (Deterministic)</span>
+</div>
+<div class="relative w-full flex items-center">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="1" min="0" step="0.1" type="range" value="0.4"/>
+</div>
+</div>
+</section>
+<!-- Quick Starter Prompt Templates Carousel -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<span class="font-headline-sm text-[14px] font-semibold text-on-surface">Starter Blueprints</span>
+<a class="font-label-sm text-label-sm text-primary hover:underline" href="#">Browse all</a>
+</div>
+<div class="flex gap-2.5 overflow-x-auto pb-1 custom-scrollbar">
+<!-- Card 1 -->
+<div class="shrink-0 w-64 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-1.5">
+<span class="w-7 h-7 rounded-lg bg-primary-container/20 border border-primary/30 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[16px]">badge</span>
+</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded font-medium bg-surface-container text-on-surface-variant">Client Flow</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Client Onboarding</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Multi-step intake, contract sign verification, and automated Stripe initial deposit.</p>
+</div>
+<!-- Card 2 -->
+<div class="shrink-0 w-64 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-1.5">
+<span class="w-7 h-7 rounded-lg bg-secondary-container/30 border border-secondary/30 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded font-medium bg-surface-container text-on-surface-variant">Asset Hub</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">Digital Asset Vault</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Paywalled download manager with signed temporary URLs and tier checking.</p>
+</div>
+<!-- Card 3 -->
+<div class="shrink-0 w-64 p-3 rounded-xl bg-surface-container-low border border-outline-variant/40 hover:border-primary/40 transition-all cursor-pointer">
+<div class="flex items-center justify-between mb-1.5">
+<span class="w-7 h-7 rounded-lg bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</span>
+<span class="text-[10px] px-1.5 py-0.5 rounded font-medium bg-surface-container text-on-surface-variant">Media AI</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate">AI Thumbnail Evaluator</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Automated clickability scoring, contrast heatmaps, and platform safe-zone checks.</p>
+</div>
+</div>
+</section>
+<!-- Recent AI Generations & Drafts -->
+<section class="space-y-2 pb-4">
+<div class="flex items-center justify-between px-1">
+<span class="font-headline-sm text-[14px] font-semibold text-on-surface">Recent App Builds</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 Projects</span>
+</div>
+<div class="space-y-2">
+<!-- Build Item 1 -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">fitness_center</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[14px] font-medium text-on-surface">Fitness Tracker Pro</h4>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-label-sm">
+<span>2h ago</span>
+<span>•</span>
+<span>3 components</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Ready
+              </span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Build Item 2 -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[20px]">receipt_long</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[14px] font-medium text-on-surface">Invoice Generator Bot</h4>
+<div class="flex items-center gap-2 text-[11px] text-on-surface-variant font-label-sm">
+<span>Yesterday</span>
+<span>•</span>
+<span>1,420 lines</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-medium bg-primary/10 text-primary border border-primary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                Building
+              </span>
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component Specification: Active tab: 'Prompt') -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 px-gutter-sm bg-surface-container-lowest border-t border-outline-variant/30 shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)]">
+<!-- Tab 1: Prompt (Active) -->
+<button class="flex flex-col items-center justify-center text-primary gap-0.5 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-label-sm text-label-sm font-semibold">Prompt</span>
+</button>
+<!-- Tab 2: Canvas -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary gap-0.5 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-label-sm text-label-sm">Canvas</span>
+</button>
+<!-- Tab 3: Code -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary gap-0.5 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[22px]">terminal</span>
+<span class="font-label-sm text-label-sm">Code</span>
+</button>
+<!-- Tab 4: Versions -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary gap-0.5 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[22px]">history</span>
+<span class="font-label-sm text-label-sm">Versions</span>
+</button>
+<!-- Tab 5: Settings -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary gap-0.5 active:scale-95 transition-all duration-150">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+</div>
+</body></html>

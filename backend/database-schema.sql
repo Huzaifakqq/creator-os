@@ -1,0 +1,1895 @@
+-- =============================================
+-- Creator OS - Complete Database Schema
+-- SQL Server 2025
+-- Rebuilt: All modules, all tables, no gaps
+-- =============================================
+
+-- =============================================
+-- 1. IDENTITY & ACCESS
+-- =============================================
+
+CREATE TABLE Tenants (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Name NVARCHAR(200) NOT NULL,
+    Slug NVARCHAR(200) NOT NULL,
+    LogoUrl NVARCHAR(500),
+    PrimaryColor NVARCHAR(7),
+    ContactEmail NVARCHAR(320),
+    [Plan] NVARCHAR(50) NOT NULL DEFAULT 'free',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    TrialEndsAt DATETIME2,
+    Settings NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT UQ_Tenants_Slug UNIQUE (Slug)
+);
+
+CREATE TABLE Users (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Email NVARCHAR(320) NOT NULL,
+    DisplayName NVARCHAR(200) NOT NULL,
+    AvatarUrl NVARCHAR(500),
+    PasswordHash NVARCHAR(500) NOT NULL,
+    PhoneNumber NVARCHAR(50),
+    TimeZone NVARCHAR(100) DEFAULT 'UTC',
+    Locale NVARCHAR(10) DEFAULT 'en',
+    EmailConfirmed BIT NOT NULL DEFAULT 0,
+    OnboardingCompleted BIT NOT NULL DEFAULT 0,
+    LastLoginAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT UQ_Users_Email UNIQUE (Email)
+);
+
+CREATE TABLE UserTenantMemberships (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Role NVARCHAR(50) NOT NULL DEFAULT 'member',
+    Permissions NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    InvitedBy UNIQUEIDENTIFIER,
+    InvitedAt DATETIME2,
+    JoinedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_UserTenantMemberships_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_UserTenantMemberships_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_UserTenantMemberships UNIQUE (UserId, TenantId)
+);
+
+CREATE TABLE RefreshTokens (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    Token NVARCHAR(500) NOT NULL,
+    ExpiresAt DATETIME2 NOT NULL,
+    RevokedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_RefreshTokens_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE UserMfaSettings (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    IsMfaEnabled BIT NOT NULL DEFAULT 0,
+    MfaType NVARCHAR(50) NOT NULL DEFAULT 'totp',
+    SecretKey NVARCHAR(256),
+    BackupCodes NVARCHAR(MAX),
+    RecoveryEmail NVARCHAR(320),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_UserMfaSettings_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE UserSessions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    DeviceInfo NVARCHAR(500),
+    IpAddress NVARCHAR(45),
+    UserAgent NVARCHAR(1000),
+    LastActiveAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    ExpiresAt DATETIME2 NOT NULL,
+    IsRevoked BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_UserSessions_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE Roles (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(500),
+    Permissions NVARCHAR(MAX) NOT NULL,
+    IsSystem BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Roles_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_Roles_TenantName UNIQUE (TenantId, Name)
+);
+
+-- =============================================
+-- 2. WORKSPACES & TEAMS
+-- =============================================
+
+CREATE TABLE Workspaces (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Slug NVARCHAR(200) NOT NULL,
+    CustomDomain NVARCHAR(253),
+    Settings NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Workspaces_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_Workspaces_TenantSlug UNIQUE (TenantId, Slug)
+);
+
+CREATE TABLE TeamMembers (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    Role NVARCHAR(50) NOT NULL DEFAULT 'member',
+    Permissions NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    InvitedBy UNIQUEIDENTIFIER,
+    InvitedAt DATETIME2,
+    JoinedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_TeamMembers_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_TeamMembers_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE TeamInvites (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Email NVARCHAR(320) NOT NULL,
+    Role NVARCHAR(50) NOT NULL,
+    Token NVARCHAR(256) NOT NULL,
+    InvitedBy UNIQUEIDENTIFIER NOT NULL,
+    ExpiresAt DATETIME2 NOT NULL,
+    AcceptedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_TeamInvites_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id) ON DELETE CASCADE
+);
+
+-- =============================================
+-- 3. APPS & WEBSITE BUILDER
+-- =============================================
+
+CREATE TABLE Apps (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    WorkspaceId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Slug NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    Type NVARCHAR(50) NOT NULL DEFAULT 'website',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    Config NVARCHAR(MAX),
+    CustomDomain NVARCHAR(253),
+    PublishedVersion INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Apps_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Apps_Workspace FOREIGN KEY (WorkspaceId) REFERENCES Workspaces(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_Apps_WorkspaceSlug UNIQUE (WorkspaceId, Slug)
+);
+
+CREATE TABLE AppVersions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    VersionNumber INT NOT NULL,
+    Config NVARCHAR(MAX) NOT NULL,
+    Changelog NVARCHAR(1000),
+    CreatedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AppVersions_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE AppComponents (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    ComponentType NVARCHAR(100) NOT NULL,
+    Config NVARCHAR(MAX) NOT NULL,
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsReusable BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AppComponents_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AppComponents_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE AppDatabases (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    TableName NVARCHAR(200) NOT NULL,
+    TableSchema NVARCHAR(MAX) NOT NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AppDatabases_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AppDatabases_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE AppLogs (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    LogLevel NVARCHAR(50) NOT NULL DEFAULT 'info',
+    Message NVARCHAR(4000) NOT NULL,
+    Source NVARCHAR(200),
+    StackTrace NVARCHAR(MAX),
+    Metadata NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AppLogs_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AppLogs_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE AppDeployments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    VersionId UNIQUEIDENTIFIER NOT NULL,
+    DeploymentUrl NVARCHAR(1000),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    DeployedAt DATETIME2,
+    RolledBackAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AppDeployments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AppDeployments_App FOREIGN KEY (AppId) REFERENCES Apps(Id),
+    CONSTRAINT FK_AppDeployments_Version FOREIGN KEY (VersionId) REFERENCES AppVersions(Id)
+);
+
+CREATE TABLE Pages (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Slug NVARCHAR(200) NOT NULL,
+    PageType NVARCHAR(50) NOT NULL DEFAULT 'custom',
+    IsPublished BIT NOT NULL DEFAULT 0,
+    PublishedVersion INT NOT NULL DEFAULT 0,
+    SeoTitle NVARCHAR(200),
+    SeoDescription NVARCHAR(500),
+    SeoImage NVARCHAR(500),
+    CustomCss NVARCHAR(MAX),
+    CustomJs NVARCHAR(MAX),
+    SortOrder INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Pages_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Pages_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_Pages_AppSlug UNIQUE (AppId, Slug)
+);
+
+CREATE TABLE PageBlocks (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    PageId UNIQUEIDENTIFIER NOT NULL,
+    BlockType NVARCHAR(100) NOT NULL,
+    Config NVARCHAR(MAX) NOT NULL,
+    SortOrder INT NOT NULL DEFAULT 0,
+    ColumnSpan INT NOT NULL DEFAULT 1,
+    IsVisible BIT NOT NULL DEFAULT 1,
+    ResponsiveConfig NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_PageBlocks_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_PageBlocks_Page FOREIGN KEY (PageId) REFERENCES Pages(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE Templates (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    Category NVARCHAR(100) NOT NULL,
+    ThumbnailUrl NVARCHAR(500),
+    Config NVARCHAR(MAX) NOT NULL,
+    IsPublic BIT NOT NULL DEFAULT 0,
+    IsPremium BIT NOT NULL DEFAULT 0,
+    PriceCents INT NOT NULL DEFAULT 0,
+    UsageCount INT NOT NULL DEFAULT 0,
+    Rating DECIMAL(3,2) DEFAULT 0,
+    RatingCount INT NOT NULL DEFAULT 0,
+    AuthorId UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Templates_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE TemplateRemixes (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    OriginalTemplateId UNIQUEIDENTIFIER NOT NULL,
+    RemixAppId UNIQUEIDENTIFIER NOT NULL,
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    LicenseType NVARCHAR(50) NOT NULL DEFAULT 'standard',
+    RoyaltyPercent DECIMAL(5,2) NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_TemplateRemixes_Template FOREIGN KEY (OriginalTemplateId) REFERENCES Templates(Id),
+    CONSTRAINT FK_TemplateRemixes_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE DomainSettings (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER,
+    Domain NVARCHAR(253) NOT NULL,
+    IsCustom BIT NOT NULL DEFAULT 0,
+    SslStatus NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    SslExpiresAt DATETIME2,
+    DnsVerificationToken NVARCHAR(128),
+    IsVerified BIT NOT NULL DEFAULT 0,
+    VerifiedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_DomainSettings_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 4. AI APP BUILDER
+-- =============================================
+
+CREATE TABLE AiGenerationSessions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER,
+    Prompt NVARCHAR(4000) NOT NULL,
+    Response NVARCHAR(MAX),
+    ModelUsed NVARCHAR(100),
+    TokensUsed INT NOT NULL DEFAULT 0,
+    CostCents INT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'completed',
+    ErrorMessage NVARCHAR(2000),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AiGenSessions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AiGenSessions_User FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+CREATE TABLE AppFeatures (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER NOT NULL,
+    FeatureName NVARCHAR(200) NOT NULL,
+    FeatureType NVARCHAR(50) NOT NULL,
+    Config NVARCHAR(MAX),
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsEnabled BIT NOT NULL DEFAULT 1,
+    ParentFeatureId UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AppFeatures_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AppFeatures_App FOREIGN KEY (AppId) REFERENCES Apps(Id) ON DELETE CASCADE
+);
+
+-- =============================================
+-- 5. COMMERCE
+-- =============================================
+
+CREATE TABLE Products (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AppId UNIQUEIDENTIFIER,
+    Name NVARCHAR(200) NOT NULL,
+    Slug NVARCHAR(200),
+    Description NVARCHAR(4000),
+    ProductType NVARCHAR(50) NOT NULL,
+    PriceCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    BillingType NVARCHAR(50) NOT NULL DEFAULT 'one_time',
+    RecurringInterval NVARCHAR(50),
+    TrialDays INT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    PublishedAt DATETIME2,
+    ThumbnailUrl NVARCHAR(500),
+    SeoTitle NVARCHAR(200),
+    SeoDescription NVARCHAR(500),
+    DigitalAssets NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Products_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE ProductVariants (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER NOT NULL,
+    VariantName NVARCHAR(200) NOT NULL,
+    PriceCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    BillingType NVARCHAR(50) NOT NULL DEFAULT 'one_time',
+    RecurringInterval NVARCHAR(50),
+    TrialDays INT NOT NULL DEFAULT 0,
+    Features NVARCHAR(MAX),
+    Quotas NVARCHAR(MAX),
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_ProductVariants_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_ProductVariants_Product FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE DigitalAssets (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER NOT NULL,
+    FileName NVARCHAR(500) NOT NULL,
+    FileUrl NVARCHAR(1000) NOT NULL,
+    FileType NVARCHAR(100),
+    FileSizeBytes BIGINT NOT NULL DEFAULT 0,
+    DownloadCount INT NOT NULL DEFAULT 0,
+    MaxDownloads INT,
+    AccessLevel NVARCHAR(50) NOT NULL DEFAULT 'purchased',
+    SortOrder INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_DigitalAssets_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_DigitalAssets_Product FOREIGN KEY (ProductId) REFERENCES Products(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE Orders (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER,
+    StripeSessionId NVARCHAR(256),
+    StripePaymentIntentId NVARCHAR(256),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    SubtotalCents BIGINT NOT NULL DEFAULT 0,
+    DiscountCents BIGINT NOT NULL DEFAULT 0,
+    TotalCents BIGINT NOT NULL DEFAULT 0,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    Source NVARCHAR(50) NOT NULL DEFAULT 'storefront',
+    Metadata NVARCHAR(MAX),
+    CompletedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Orders_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE OrderItems (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER NOT NULL,
+    ProductVariantId UNIQUEIDENTIFIER,
+    Quantity INT NOT NULL DEFAULT 1,
+    UnitPriceCents BIGINT NOT NULL,
+    TotalCents BIGINT NOT NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_OrderItems_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_OrderItems_Product FOREIGN KEY (ProductId) REFERENCES Products(Id)
+);
+
+CREATE TABLE OrderStatusHistory (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    FromStatus NVARCHAR(50),
+    ToStatus NVARCHAR(50) NOT NULL,
+    Notes NVARCHAR(1000),
+    ChangedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_OrderStatusHistory_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_OrderStatusHistory_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE Payments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    StripePaymentIntentId NVARCHAR(256),
+    StripeChargeId NVARCHAR(256),
+    AmountCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    PaymentMethod NVARCHAR(50),
+    FailureReason NVARCHAR(500),
+    RefundedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Payments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Payments_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id)
+);
+
+CREATE TABLE Refunds (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    PaymentId UNIQUEIDENTIFIER,
+    StripeRefundId NVARCHAR(256),
+    AmountCents BIGINT NOT NULL,
+    Reason NVARCHAR(500),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    ProcessedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Refunds_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Refunds_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id),
+    CONSTRAINT FK_Refunds_Payment FOREIGN KEY (PaymentId) REFERENCES Payments(Id)
+);
+
+CREATE TABLE PaymentMethods (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER NOT NULL,
+    StripePaymentMethodId NVARCHAR(256) NOT NULL,
+    Brand NVARCHAR(50),
+    Last4 NVARCHAR(4),
+    ExpiryMonth INT,
+    ExpiryYear INT,
+    IsDefault BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_PaymentMethods_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE Coupons (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Code NVARCHAR(50) NOT NULL,
+    Description NVARCHAR(500),
+    DiscountType NVARCHAR(50) NOT NULL,
+    DiscountValue BIGINT NOT NULL,
+    MinimumOrderCents BIGINT NOT NULL DEFAULT 0,
+    MaximumDiscountCents BIGINT,
+    UsageLimit INT,
+    UsedCount INT NOT NULL DEFAULT 0,
+    PerUserLimit INT NOT NULL DEFAULT 1,
+    AppliesTo NVARCHAR(50) NOT NULL DEFAULT 'all',
+    AppliesToProductIds NVARCHAR(MAX),
+    StartsAt DATETIME2 NOT NULL,
+    ExpiresAt DATETIME2,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Coupons_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT UQ_Coupons_TenantCode UNIQUE (TenantId, Code)
+);
+
+CREATE TABLE Subscriptions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER NOT NULL,
+    ProductVariantId UNIQUEIDENTIFIER,
+    StripeSubscriptionId NVARCHAR(256),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CurrentPeriodStart DATETIME2 NOT NULL,
+    CurrentPeriodEnd DATETIME2 NOT NULL,
+    CancelAt DATETIME2,
+    CanceledAt DATETIME2,
+    TrialStart DATETIME2,
+    TrialEnd DATETIME2,
+    Metadata NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Subscriptions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Subscriptions_Product FOREIGN KEY (ProductId) REFERENCES Products(Id)
+);
+
+CREATE TABLE Invoices (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    InvoiceNumber NVARCHAR(50) NOT NULL,
+    CustomerEmail NVARCHAR(320),
+    CustomerName NVARCHAR(200),
+    LineItems NVARCHAR(MAX) NOT NULL,
+    SubtotalCents BIGINT NOT NULL,
+    TaxCents BIGINT NOT NULL DEFAULT 0,
+    TotalCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    StripeInvoiceId NVARCHAR(256),
+    PaidAt DATETIME2,
+    DueDate DATETIME2,
+    PdfUrl NVARCHAR(1000),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Invoices_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 6. MARKETPLACE
+-- =============================================
+
+CREATE TABLE MarketplaceCategories (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    Name NVARCHAR(100) NOT NULL,
+    Slug NVARCHAR(100) NOT NULL,
+    Description NVARCHAR(500),
+    Icon NVARCHAR(100),
+    ParentCategoryId UNIQUEIDENTIFIER,
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    ListingCount INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT UQ_Categories_Slug UNIQUE (Slug)
+);
+
+CREATE TABLE MarketplaceListings (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(4000),
+    ShortDescription NVARCHAR(500),
+    Category NVARCHAR(100) NOT NULL,
+    Tags NVARCHAR(1000),
+    ThumbnailUrl NVARCHAR(500),
+    GalleryUrls NVARCHAR(MAX),
+    PriceCents BIGINT NOT NULL,
+    OriginalPriceCents BIGINT,
+    LicenseType NVARCHAR(50) NOT NULL DEFAULT 'standard',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    RejectionReason NVARCHAR(1000),
+    ReviewedBy UNIQUEIDENTIFIER,
+    ReviewedAt DATETIME2,
+    FeaturedAt DATETIME2,
+    TotalSales INT NOT NULL DEFAULT 0,
+    TotalRevenueCents BIGINT NOT NULL DEFAULT 0,
+    Rating DECIMAL(3,2) DEFAULT 0,
+    RatingCount INT NOT NULL DEFAULT 0,
+    Version NVARCHAR(50) NOT NULL DEFAULT '1.0',
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Listings_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Listings_Product FOREIGN KEY (ProductId) REFERENCES Products(Id)
+);
+
+CREATE TABLE MarketplaceListingMetrics (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    ListingId UNIQUEIDENTIFIER NOT NULL,
+    Date DATE NOT NULL,
+    ViewCount INT NOT NULL DEFAULT 0,
+    ClickCount INT NOT NULL DEFAULT 0,
+    AddToCartCount INT NOT NULL DEFAULT 0,
+    PurchaseCount INT NOT NULL DEFAULT 0,
+    RevenueCents BIGINT NOT NULL DEFAULT 0,
+    Source NVARCHAR(50) NOT NULL DEFAULT 'direct',
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_ListingMetrics_Listing FOREIGN KEY (ListingId) REFERENCES MarketplaceListings(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_ListingMetrics UNIQUE (ListingId, Date, Source)
+);
+
+CREATE TABLE MarketplaceReviews (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ListingId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER NOT NULL,
+    Rating INT NOT NULL,
+    Title NVARCHAR(200),
+    Comment NVARCHAR(2000),
+    IsVerifiedPurchase BIT NOT NULL DEFAULT 0,
+    IsVisible BIT NOT NULL DEFAULT 1,
+    HelpfulCount INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Reviews_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Reviews_Listing FOREIGN KEY (ListingId) REFERENCES MarketplaceListings(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_Reviews_ListingCustomer UNIQUE (ListingId, CustomerId)
+);
+
+CREATE TABLE Attribution (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    Source NVARCHAR(50) NOT NULL,
+    SourceId UNIQUEIDENTIFIER,
+    AffiliateId UNIQUEIDENTIFIER,
+    ListingId UNIQUEIDENTIFIER,
+    ReferralCode NVARCHAR(100),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Attribution_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Attribution_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id)
+);
+
+-- =============================================
+-- 7. COURSES
+-- =============================================
+
+CREATE TABLE Courses (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProductId UNIQUEIDENTIFIER,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(4000),
+    ThumbnailUrl NVARCHAR(500),
+    Difficulty NVARCHAR(50) NOT NULL DEFAULT 'beginner',
+    EstimatedHours DECIMAL(5,1),
+    EnrollmentCount INT NOT NULL DEFAULT 0,
+    CompletionRate DECIMAL(5,2) DEFAULT 0,
+    AverageRating DECIMAL(3,2) DEFAULT 0,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    CertificateEnabled BIT NOT NULL DEFAULT 0,
+    CertificateTemplate NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Courses_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE CourseModules (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CourseId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CourseModules_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CourseModules_Course FOREIGN KEY (CourseId) REFERENCES Courses(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE CourseLessons (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ModuleId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(2000),
+    LessonType NVARCHAR(50) NOT NULL,
+    Content NVARCHAR(MAX),
+    VideoUrl NVARCHAR(1000),
+    VideoDurationSeconds INT,
+    AttachmentUrls NVARCHAR(MAX),
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsFreePreview BIT NOT NULL DEFAULT 0,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    EstimatedMinutes INT,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CourseLessons_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CourseLessons_Module FOREIGN KEY (ModuleId) REFERENCES CourseModules(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE CourseEnrollments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CourseId UNIQUEIDENTIFIER NOT NULL,
+    StudentId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    ProgressPercent DECIMAL(5,2) NOT NULL DEFAULT 0,
+    LastAccessedLessonId UNIQUEIDENTIFIER,
+    LastAccessedAt DATETIME2,
+    CompletedAt DATETIME2,
+    CertificateIssuedAt DATETIME2,
+    CertificateUrl NVARCHAR(1000),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CourseEnrollments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CourseEnrollments_Course FOREIGN KEY (CourseId) REFERENCES Courses(Id),
+    CONSTRAINT FK_CourseEnrollments_Student FOREIGN KEY (StudentId) REFERENCES Users(Id),
+    CONSTRAINT UQ_CourseEnrollments UNIQUE (CourseId, StudentId)
+);
+
+CREATE TABLE LessonProgress (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    EnrollmentId UNIQUEIDENTIFIER NOT NULL,
+    LessonId UNIQUEIDENTIFIER NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'not_started',
+    Score DECIMAL(5,2),
+    TimeSpentSeconds INT NOT NULL DEFAULT 0,
+    CompletedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_LessonProgress_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_LessonProgress_Enrollment FOREIGN KEY (EnrollmentId) REFERENCES CourseEnrollments(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_LessonProgress_Lesson FOREIGN KEY (LessonId) REFERENCES CourseLessons(Id),
+    CONSTRAINT UQ_LessonProgress UNIQUE (EnrollmentId, LessonId)
+);
+
+CREATE TABLE CourseQuizzes (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    LessonId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Questions NVARCHAR(MAX) NOT NULL,
+    PassingScore DECIMAL(5,2) NOT NULL DEFAULT 60,
+    MaxAttempts INT NOT NULL DEFAULT 3,
+    TimeLimitMinutes INT,
+    ShuffleQuestions BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CourseQuizzes_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CourseQuizzes_Lesson FOREIGN KEY (LessonId) REFERENCES CourseLessons(Id)
+);
+
+CREATE TABLE QuizAttempts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    QuizId UNIQUEIDENTIFIER NOT NULL,
+    StudentId UNIQUEIDENTIFIER NOT NULL,
+    Answers NVARCHAR(MAX) NOT NULL,
+    Score DECIMAL(5,2) NOT NULL,
+    Passed BIT NOT NULL DEFAULT 0,
+    TimeTakenSeconds INT,
+    AttemptNumber INT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_QuizAttempts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_QuizAttempts_Quiz FOREIGN KEY (QuizId) REFERENCES CourseQuizzes(Id),
+    CONSTRAINT FK_QuizAttempts_Student FOREIGN KEY (StudentId) REFERENCES Users(Id)
+);
+
+CREATE TABLE CourseAssignments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    LessonId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Instructions NVARCHAR(4000),
+    DueDate DATETIME2,
+    MaxScore DECIMAL(5,2),
+    SubmissionTypes NVARCHAR(500),
+    MaxFileSizeMB INT NOT NULL DEFAULT 50,
+    AllowLateSubmission BIT NOT NULL DEFAULT 0,
+    LatePenaltyPercent DECIMAL(5,2),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CourseAssignments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CourseAssignments_Lesson FOREIGN KEY (LessonId) REFERENCES CourseLessons(Id)
+);
+
+CREATE TABLE AssignmentSubmissions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AssignmentId UNIQUEIDENTIFIER NOT NULL,
+    StudentId UNIQUEIDENTIFIER NOT NULL,
+    SubmissionData NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'submitted',
+    Score DECIMAL(5,2),
+    Feedback NVARCHAR(4000),
+    GradedBy UNIQUEIDENTIFIER,
+    GradedAt DATETIME2,
+    SubmittedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AssignmentSubmissions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AssignmentSubmissions_Assignment FOREIGN KEY (AssignmentId) REFERENCES CourseAssignments(Id),
+    CONSTRAINT FK_AssignmentSubmissions_Student FOREIGN KEY (StudentId) REFERENCES Users(Id)
+);
+
+CREATE TABLE CohortGradingSheets (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CourseId UNIQUEIDENTIFIER NOT NULL,
+    InstructorId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    RubricConfig NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CohortGrading_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CohortGrading_Course FOREIGN KEY (CourseId) REFERENCES Courses(Id)
+);
+
+-- =============================================
+-- 8. COACHING
+-- =============================================
+
+CREATE TABLE CoachingSlots (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CoachId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    DurationMinutes INT NOT NULL DEFAULT 60,
+    PriceCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    SessionType NVARCHAR(50) NOT NULL DEFAULT 'video',
+    MaxParticipants INT NOT NULL DEFAULT 1,
+    RecurringPattern NVARCHAR(50),
+    AvailableDays NVARCHAR(100),
+    AvailableTimeSlots NVARCHAR(MAX),
+    TimeZone NVARCHAR(100) NOT NULL DEFAULT 'UTC',
+    BufferMinutes INT NOT NULL DEFAULT 15,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CoachingSlots_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CoachingSlots_Coach FOREIGN KEY (CoachId) REFERENCES Users(Id)
+);
+
+CREATE TABLE CoachingBookings (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    SlotId UNIQUEIDENTIFIER NOT NULL,
+    ClientId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER,
+    SessionDate DATETIME2 NOT NULL,
+    SessionTime NVARCHAR(10) NOT NULL,
+    DurationMinutes INT NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'confirmed',
+    MeetingUrl NVARCHAR(1000),
+    Notes NVARCHAR(4000),
+    IntakeFormData NVARCHAR(MAX),
+    ReminderSent BIT NOT NULL DEFAULT 0,
+    CancellationReason NVARCHAR(500),
+    CanceledAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CoachingBookings_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CoachingBookings_Slot FOREIGN KEY (SlotId) REFERENCES CoachingSlots(Id),
+    CONSTRAINT FK_CoachingBookings_Client FOREIGN KEY (ClientId) REFERENCES Users(Id)
+);
+
+CREATE TABLE CoachingSessionNotes (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    BookingId UNIQUEIDENTIFIER NOT NULL,
+    AuthorId UNIQUEIDENTIFIER NOT NULL,
+    NoteType NVARCHAR(50) NOT NULL DEFAULT 'general',
+    Content NVARCHAR(MAX) NOT NULL,
+    Attachments NVARCHAR(MAX),
+    IsPrivate BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CoachingNotes_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CoachingNotes_Booking FOREIGN KEY (BookingId) REFERENCES CoachingBookings(Id) ON DELETE CASCADE
+);
+
+-- =============================================
+-- 9. MEMBERSHIPS & COMMUNITY
+-- =============================================
+
+CREATE TABLE MembershipTiers (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProductVariantId UNIQUEIDENTIFIER,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    PriceCents BIGINT NOT NULL,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    BillingInterval NVARCHAR(50) NOT NULL DEFAULT 'monthly',
+    Features NVARCHAR(MAX),
+    AccessRules NVARCHAR(MAX),
+    Color NVARCHAR(7),
+    IconUrl NVARCHAR(500),
+    MemberCount INT NOT NULL DEFAULT 0,
+    SortOrder INT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_MembershipTiers_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE MemberSubscriptions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    TierId UNIQUEIDENTIFIER NOT NULL,
+    MemberId UNIQUEIDENTIFIER NOT NULL,
+    SubscriptionId UNIQUEIDENTIFIER,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CurrentPeriodEnd DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_MemberSubscriptions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_MemberSubscriptions_Tier FOREIGN KEY (TierId) REFERENCES MembershipTiers(Id),
+    CONSTRAINT FK_MemberSubscriptions_Member FOREIGN KEY (MemberId) REFERENCES Users(Id),
+    CONSTRAINT UQ_MemberSubs UNIQUE (TierId, MemberId)
+);
+
+CREATE TABLE CommunitySpaces (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    SpaceType NVARCHAR(50) NOT NULL DEFAULT 'feed',
+    IconUrl NVARCHAR(500),
+    RequiredTierId UNIQUEIDENTIFIER,
+    MemberCount INT NOT NULL DEFAULT 0,
+    PostCount INT NOT NULL DEFAULT 0,
+    IsPublic BIT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    SortOrder INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CommunitySpaces_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CommunitySpaces_Tier FOREIGN KEY (RequiredTierId) REFERENCES MembershipTiers(Id)
+);
+
+CREATE TABLE CommunityPosts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    SpaceId UNIQUEIDENTIFIER NOT NULL,
+    AuthorId UNIQUEIDENTIFIER NOT NULL,
+    PostType NVARCHAR(50) NOT NULL DEFAULT 'text',
+    Title NVARCHAR(300),
+    Content NVARCHAR(4000) NOT NULL,
+    MediaUrls NVARCHAR(MAX),
+    IsPinned BIT NOT NULL DEFAULT 0,
+    IsAnnouncement BIT NOT NULL DEFAULT 0,
+    LikeCount INT NOT NULL DEFAULT 0,
+    CommentCount INT NOT NULL DEFAULT 0,
+    ViewCount INT NOT NULL DEFAULT 0,
+    IsEdited BIT NOT NULL DEFAULT 0,
+    IsDeleted BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CommunityPosts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CommunityPosts_Space FOREIGN KEY (SpaceId) REFERENCES CommunitySpaces(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_CommunityPosts_Author FOREIGN KEY (AuthorId) REFERENCES Users(Id)
+);
+
+CREATE TABLE CommunityComments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    PostId UNIQUEIDENTIFIER NOT NULL,
+    ParentCommentId UNIQUEIDENTIFIER,
+    AuthorId UNIQUEIDENTIFIER NOT NULL,
+    Content NVARCHAR(4000) NOT NULL,
+    MediaUrls NVARCHAR(MAX),
+    LikeCount INT NOT NULL DEFAULT 0,
+    IsEdited BIT NOT NULL DEFAULT 0,
+    IsDeleted BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CommunityComments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CommunityComments_Post FOREIGN KEY (PostId) REFERENCES CommunityPosts(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_CommunityComments_Author FOREIGN KEY (AuthorId) REFERENCES Users(Id)
+);
+
+CREATE TABLE DirectMessages (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    SenderId UNIQUEIDENTIFIER NOT NULL,
+    ReceiverId UNIQUEIDENTIFIER NOT NULL,
+    Content NVARCHAR(4000) NOT NULL,
+    MediaType NVARCHAR(50),
+    MediaUrl NVARCHAR(1000),
+    IsRead BIT NOT NULL DEFAULT 0,
+    ReadAt DATETIME2,
+    IsDeleted BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_DirectMessages_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_DirectMessages_Sender FOREIGN KEY (SenderId) REFERENCES Users(Id),
+    CONSTRAINT FK_DirectMessages_Receiver FOREIGN KEY (ReceiverId) REFERENCES Users(Id)
+);
+
+-- =============================================
+-- 10. CRM & LEADS
+-- =============================================
+
+CREATE TABLE CrmContacts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ContactType NVARCHAR(50) NOT NULL DEFAULT 'lead',
+    Email NVARCHAR(320),
+    Phone NVARCHAR(50),
+    FirstName NVARCHAR(100),
+    LastName NVARCHAR(100),
+    Company NVARCHAR(200),
+    AvatarUrl NVARCHAR(500),
+    Source NVARCHAR(100),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'new',
+    Score INT NOT NULL DEFAULT 0,
+    LifetimeValueCents BIGINT NOT NULL DEFAULT 0,
+    LastContactedAt DATETIME2,
+    ConvertedAt DATETIME2,
+    CustomFields NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CrmContacts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE CrmTags (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(100) NOT NULL,
+    Color NVARCHAR(7),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_CrmTags_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT UQ_CrmTags UNIQUE (TenantId, Name)
+);
+
+CREATE TABLE CrmContactTags (
+    ContactId UNIQUEIDENTIFIER NOT NULL,
+    TagId UNIQUEIDENTIFIER NOT NULL,
+    CONSTRAINT PK_CrmContactTags PRIMARY KEY (ContactId, TagId),
+    CONSTRAINT FK_CrmContactTags_Contact FOREIGN KEY (ContactId) REFERENCES CrmContacts(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_CrmContactTags_Tag FOREIGN KEY (TagId) REFERENCES CrmTags(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE CrmSegments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(500),
+    FilterRules NVARCHAR(MAX) NOT NULL,
+    ContactCount INT NOT NULL DEFAULT 0,
+    IsDynamic BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CrmSegments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE CrmActivities (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ContactId UNIQUEIDENTIFIER NOT NULL,
+    ActivityType NVARCHAR(50) NOT NULL,
+    Subject NVARCHAR(300),
+    Description NVARCHAR(4000),
+    Direction NVARCHAR(20),
+    DurationSeconds INT,
+    Metadata NVARCHAR(MAX),
+    CreatedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_CrmActivities_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_CrmActivities_Contact FOREIGN KEY (ContactId) REFERENCES CrmContacts(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE DealPipelines (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Stages NVARCHAR(MAX) NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_DealPipelines_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE Deals (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    PipelineId UNIQUEIDENTIFIER NOT NULL,
+    ContactId UNIQUEIDENTIFIER,
+    Title NVARCHAR(200) NOT NULL,
+    ValueCents BIGINT NOT NULL DEFAULT 0,
+    Currency NVARCHAR(3) NOT NULL DEFAULT 'USD',
+    Stage NVARCHAR(100) NOT NULL,
+    Probability INT NOT NULL DEFAULT 0,
+    ExpectedCloseDate DATETIME2,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'open',
+    Notes NVARCHAR(4000),
+    CreatedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Deals_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Deals_Pipeline FOREIGN KEY (PipelineId) REFERENCES DealPipelines(Id),
+    CONSTRAINT FK_Deals_Contact FOREIGN KEY (ContactId) REFERENCES CrmContacts(Id)
+);
+
+-- =============================================
+-- 11. EMAIL & MARKETING
+-- =============================================
+
+CREATE TABLE EmailLists (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(500),
+    SubscriberCount INT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_EmailLists_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE EmailSubscribers (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ListId UNIQUEIDENTIFIER NOT NULL,
+    ContactId UNIQUEIDENTIFIER,
+    Email NVARCHAR(320) NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    SubscribedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UnsubscribedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_EmailSubscribers_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_EmailSubscribers_List FOREIGN KEY (ListId) REFERENCES EmailLists(Id) ON DELETE CASCADE,
+    CONSTRAINT UQ_EmailSubscribers UNIQUE (ListId, Email)
+);
+
+CREATE TABLE EmailCampaigns (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ListId UNIQUEIDENTIFIER,
+    Name NVARCHAR(200) NOT NULL,
+    Subject NVARCHAR(300),
+    PreviewText NVARCHAR(200),
+    HtmlContent NVARCHAR(MAX),
+    JsonContent NVARCHAR(MAX),
+    CampaignType NVARCHAR(50) NOT NULL DEFAULT 'broadcast',
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    ScheduledAt DATETIME2,
+    SentAt DATETIME2,
+    TotalSent INT NOT NULL DEFAULT 0,
+    TotalOpened INT NOT NULL DEFAULT 0,
+    TotalClicked INT NOT NULL DEFAULT 0,
+    TotalBounced INT NOT NULL DEFAULT 0,
+    TotalUnsubscribed INT NOT NULL DEFAULT 0,
+    OpenRate DECIMAL(5,2) DEFAULT 0,
+    ClickRate DECIMAL(5,2) DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_EmailCampaigns_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE EmailSequences (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(500),
+    TriggerType NVARCHAR(100) NOT NULL,
+    TriggerConfig NVARCHAR(MAX),
+    Steps NVARCHAR(MAX) NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    EnrolledCount INT NOT NULL DEFAULT 0,
+    CompletedCount INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_EmailSequences_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE EmailSequenceEnrollments (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    SequenceId UNIQUEIDENTIFIER NOT NULL,
+    ContactId UNIQUEIDENTIFIER NOT NULL,
+    CurrentStep INT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    NextSendAt DATETIME2,
+    CompletedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_EmailSeqEnrollments_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_EmailSeqEnrollments_Sequence FOREIGN KEY (SequenceId) REFERENCES EmailSequences(Id) ON DELETE CASCADE,
+    CONSTRAINT FK_EmailSeqEnrollments_Contact FOREIGN KEY (ContactId) REFERENCES CrmContacts(Id)
+);
+
+CREATE TABLE EmailEvents (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    CampaignId UNIQUEIDENTIFIER,
+    SubscriberId UNIQUEIDENTIFIER,
+    EventType NVARCHAR(50) NOT NULL,
+    Metadata NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_EmailEvents_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE EmailTemplates (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER,
+    Name NVARCHAR(200) NOT NULL,
+    Category NVARCHAR(100) NOT NULL,
+    ThumbnailUrl NVARCHAR(500),
+    HtmlContent NVARCHAR(MAX),
+    JsonContent NVARCHAR(MAX),
+    IsSystem BIT NOT NULL DEFAULT 0,
+    UsageCount INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_EmailTemplates_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE EmailSuppressionList (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Email NVARCHAR(320) NOT NULL,
+    Reason NVARCHAR(50) NOT NULL,
+    SuppressedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_EmailSuppression_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT UQ_EmailSuppression UNIQUE (TenantId, Email)
+);
+
+CREATE TABLE ContentDrafts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    DraftType NVARCHAR(100) NOT NULL,
+    Title NVARCHAR(300),
+    Content NVARCHAR(MAX) NOT NULL,
+    Platform NVARCHAR(50),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    AiModelUsed NVARCHAR(100),
+    TokensUsed INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_ContentDrafts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_ContentDrafts_User FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+-- =============================================
+-- 12. AI AGENTS
+-- =============================================
+
+CREATE TABLE AiAgents (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AgentType NVARCHAR(100) NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    SystemPrompt NVARCHAR(MAX) NOT NULL,
+    Capabilities NVARCHAR(MAX),
+    ModelProvider NVARCHAR(100) NOT NULL DEFAULT 'openai',
+    ModelName NVARCHAR(100) NOT NULL DEFAULT 'gpt-4o',
+    MonthlyCreditLimit INT NOT NULL DEFAULT 1000,
+    CreditsUsed INT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    RequiresApproval BIT NOT NULL DEFAULT 0,
+    ApprovalTypes NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AiAgents_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE AiAgentPermissions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    AgentId UNIQUEIDENTIFIER NOT NULL,
+    PermissionType NVARCHAR(100) NOT NULL,
+    RequiresApproval BIT NOT NULL DEFAULT 1,
+    AutoApproveBelowCents BIGINT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AiAgentPermissions_Agent FOREIGN KEY (AgentId) REFERENCES AiAgents(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE AiAgentTasks (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AgentId UNIQUEIDENTIFIER NOT NULL,
+    TaskType NVARCHAR(100) NOT NULL,
+    InputData NVARCHAR(MAX) NOT NULL,
+    OutputData NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    RequiresApproval BIT NOT NULL DEFAULT 0,
+    ApprovedBy UNIQUEIDENTIFIER,
+    ApprovedAt DATETIME2,
+    RejectionReason NVARCHAR(500),
+    TokensUsed INT NOT NULL DEFAULT 0,
+    CostCents INT NOT NULL DEFAULT 0,
+    ErrorMessage NVARCHAR(2000),
+    StartedAt DATETIME2,
+    CompletedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AiAgentTasks_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AiAgentTasks_Agent FOREIGN KEY (AgentId) REFERENCES AiAgents(Id)
+);
+
+CREATE TABLE AiAgentAuditLogs (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    AgentId UNIQUEIDENTIFIER NOT NULL,
+    TaskId UNIQUEIDENTIFIER,
+    Action NVARCHAR(200) NOT NULL,
+    EntityType NVARCHAR(100),
+    EntityId UNIQUEIDENTIFIER,
+    OldValue NVARCHAR(MAX),
+    NewValue NVARCHAR(MAX),
+    Metadata NVARCHAR(MAX),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AiAgentAuditLogs_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AiAgentAuditLogs_Agent FOREIGN KEY (AgentId) REFERENCES AiAgents(Id)
+);
+
+-- =============================================
+-- 13. ANALYTICS
+-- =============================================
+
+CREATE TABLE AnalyticsEvents (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    EventType NVARCHAR(100) NOT NULL,
+    EntityType NVARCHAR(100),
+    EntityId UNIQUEIDENTIFIER,
+    UserId UNIQUEIDENTIFIER,
+    SessionId NVARCHAR(100),
+    Metadata NVARCHAR(MAX),
+    Source NVARCHAR(100),
+    DeviceType NVARCHAR(50),
+    CountryCode NVARCHAR(2),
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AnalyticsEvents_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE CustomReports (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    ReportType NVARCHAR(100) NOT NULL,
+    QueryConfig NVARCHAR(MAX) NOT NULL,
+    ScheduleConfig NVARCHAR(MAX),
+    LastRunAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_CustomReports_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE AbTests (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    TestType NVARCHAR(100) NOT NULL,
+    TargetEntity NVARCHAR(100) NOT NULL,
+    TargetEntityId UNIQUEIDENTIFIER NOT NULL,
+    Variants NVARCHAR(MAX) NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'draft',
+    WinnerVariantId UNIQUEIDENTIFIER,
+    StartedAt DATETIME2,
+    EndedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AbTests_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 14. AFFILIATES
+-- =============================================
+
+CREATE TABLE AffiliatePrograms (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    CommissionType NVARCHAR(50) NOT NULL DEFAULT 'percentage',
+    CommissionValue DECIMAL(10,2) NOT NULL,
+    CookieDays INT NOT NULL DEFAULT 30,
+    MinimumPayoutCents BIGINT NOT NULL DEFAULT 5000,
+    AllowedPromotionMethods NVARCHAR(500),
+    TermsUrl NVARCHAR(500),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AffiliatePrograms_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE AffiliateMembers (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ProgramId UNIQUEIDENTIFIER NOT NULL,
+    AffiliateId UNIQUEIDENTIFIER NOT NULL,
+    CustomCommissionRate DECIMAL(5,2),
+    Tier NVARCHAR(50) NOT NULL DEFAULT 'standard',
+    TotalEarningsCents BIGINT NOT NULL DEFAULT 0,
+    PendingPayoutCents BIGINT NOT NULL DEFAULT 0,
+    TotalReferrals INT NOT NULL DEFAULT 0,
+    TotalConversions INT NOT NULL DEFAULT 0,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_AffiliateMembers_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AffiliateMembers_Program FOREIGN KEY (ProgramId) REFERENCES AffiliatePrograms(Id),
+    CONSTRAINT FK_AffiliateMembers_Affiliate FOREIGN KEY (AffiliateId) REFERENCES Users(Id),
+    CONSTRAINT UQ_AffiliateMembers UNIQUE (ProgramId, AffiliateId)
+);
+
+CREATE TABLE AffiliateLinks (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    MemberId UNIQUEIDENTIFIER NOT NULL,
+    Code NVARCHAR(100) NOT NULL,
+    TargetUrl NVARCHAR(1000) NOT NULL,
+    ClickCount INT NOT NULL DEFAULT 0,
+    ConversionCount INT NOT NULL DEFAULT 0,
+    RevenueCents BIGINT NOT NULL DEFAULT 0,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AffiliateLinks_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AffiliateLinks_Member FOREIGN KEY (MemberId) REFERENCES AffiliateMembers(Id),
+    CONSTRAINT UQ_AffiliateLinks_Code UNIQUE (Code)
+);
+
+CREATE TABLE AffiliateConversions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    LinkId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER NOT NULL,
+    CommissionCents BIGINT NOT NULL,
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    ApprovedAt DATETIME2,
+    PaidAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AffiliateConversions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AffiliateConversions_Link FOREIGN KEY (LinkId) REFERENCES AffiliateLinks(Id),
+    CONSTRAINT FK_AffiliateConversions_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id)
+);
+
+CREATE TABLE AffiliatePayouts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    MemberId UNIQUEIDENTIFIER NOT NULL,
+    AmountCents BIGINT NOT NULL,
+    PayoutMethod NVARCHAR(50) NOT NULL,
+    PayoutReference NVARCHAR(256),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'pending',
+    PeriodStart DATETIME2 NOT NULL,
+    PeriodEnd DATETIME2 NOT NULL,
+    ProcessedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_AffiliatePayouts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_AffiliatePayouts_Member FOREIGN KEY (MemberId) REFERENCES AffiliateMembers(Id)
+);
+
+-- =============================================
+-- 15. NOTIFICATIONS
+-- =============================================
+
+CREATE TABLE Notifications (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(300) NOT NULL,
+    Message NVARCHAR(1000) NOT NULL,
+    NotificationType NVARCHAR(100) NOT NULL,
+    EntityType NVARCHAR(100),
+    EntityId UNIQUEIDENTIFIER,
+    ActionUrl NVARCHAR(1000),
+    IsRead BIT NOT NULL DEFAULT 0,
+    ReadAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_Notifications_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Notifications_User FOREIGN KEY (UserId) REFERENCES Users(Id)
+);
+
+CREATE TABLE NotificationPreferences (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    EmailEnabled BIT NOT NULL DEFAULT 1,
+    PushEnabled BIT NOT NULL DEFAULT 1,
+    InAppEnabled BIT NOT NULL DEFAULT 1,
+    OrderUpdates BIT NOT NULL DEFAULT 1,
+    SubscriptionUpdates BIT NOT NULL DEFAULT 1,
+    AgentActivity BIT NOT NULL DEFAULT 1,
+    Marketing BIT NOT NULL DEFAULT 0,
+    CommunityUpdates BIT NOT NULL DEFAULT 1,
+    WeeklyDigest BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_NotifPrefs_User FOREIGN KEY (UserId) REFERENCES Users(Id) ON DELETE CASCADE
+);
+
+-- =============================================
+-- 16. BILLING & PLATFORM
+-- =============================================
+
+CREATE TABLE PlatformSubscriptions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    PlanName NVARCHAR(100) NOT NULL,
+    StripeSubscriptionId NVARCHAR(256),
+    StripeCustomerId NVARCHAR(256),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    MonthlyPriceCents BIGINT NOT NULL DEFAULT 0,
+    TransactionFeePercent DECIMAL(5,2) NOT NULL DEFAULT 5.0,
+    MarketplaceFeePercent DECIMAL(5,2) NOT NULL DEFAULT 15.0,
+    AiCreditsMonthly INT NOT NULL DEFAULT 100,
+    StorageGbMonthly INT NOT NULL DEFAULT 1,
+    EmailSendsMonthly INT NOT NULL DEFAULT 500,
+    CurrentPeriodStart DATETIME2,
+    CurrentPeriodEnd DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_PlatformSubs_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE Disputes (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    OrderId UNIQUEIDENTIFIER NOT NULL,
+    CustomerId UNIQUEIDENTIFIER NOT NULL,
+    Reason NVARCHAR(500) NOT NULL,
+    Description NVARCHAR(4000),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'open',
+    Resolution NVARCHAR(1000),
+    RefundAmountCents BIGINT NOT NULL DEFAULT 0,
+    ResolvedBy UNIQUEIDENTIFIER,
+    ResolvedAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Disputes_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_Disputes_Order FOREIGN KEY (OrderId) REFERENCES Orders(Id)
+);
+
+-- =============================================
+-- 17. INTEGRATIONS & WEBHOOKS
+-- =============================================
+
+CREATE TABLE Integrations (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Provider NVARCHAR(100) NOT NULL,
+    DisplayName NVARCHAR(200),
+    AuthType NVARCHAR(50) NOT NULL,
+    AccessToken NVARCHAR(2000),
+    RefreshToken NVARCHAR(2000),
+    ApiKey NVARCHAR(500),
+    Config NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'active',
+    LastSyncAt DATETIME2,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Integrations_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE Webhooks (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Url NVARCHAR(1000) NOT NULL,
+    Secret NVARCHAR(256),
+    Events NVARCHAR(500) NOT NULL,
+    IsActive BIT NOT NULL DEFAULT 1,
+    LastTriggeredAt DATETIME2,
+    LastStatus INT,
+    FailureCount INT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_Webhooks_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE WebhookDeliveries (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    WebhookId UNIQUEIDENTIFIER NOT NULL,
+    Event NVARCHAR(200) NOT NULL,
+    Payload NVARCHAR(MAX) NOT NULL,
+    ResponseStatusCode INT,
+    ResponseBody NVARCHAR(MAX),
+    Status NVARCHAR(50) NOT NULL DEFAULT 'success',
+    AttemptCount INT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_WebhookDeliveries_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_WebhookDeliveries_Webhook FOREIGN KEY (WebhookId) REFERENCES Webhooks(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE ApiKeys (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    KeyHash NVARCHAR(256) NOT NULL,
+    KeyPrefix NVARCHAR(10) NOT NULL,
+    Permissions NVARCHAR(MAX),
+    RateLimit INT NOT NULL DEFAULT 1000,
+    LastUsedAt DATETIME2,
+    ExpiresAt DATETIME2,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_ApiKeys_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 18. SECURITY & AUDIT
+-- =============================================
+
+CREATE TABLE SecurityAuditLogs (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    UserId UNIQUEIDENTIFIER,
+    Action NVARCHAR(200) NOT NULL,
+    EntityType NVARCHAR(100),
+    EntityId UNIQUEIDENTIFIER,
+    IpAddress NVARCHAR(45),
+    UserAgent NVARCHAR(1000),
+    Metadata NVARCHAR(MAX),
+    RiskLevel NVARCHAR(50) NOT NULL DEFAULT 'low',
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_SecurityAuditLogs_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+CREATE TABLE UserConsents (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    UserId UNIQUEIDENTIFIER NOT NULL,
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    ConsentType NVARCHAR(100) NOT NULL,
+    IsGranted BIT NOT NULL,
+    ConsentText NVARCHAR(2000),
+    IpAddress NVARCHAR(45),
+    GrantedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    RevokedAt DATETIME2,
+    CONSTRAINT FK_UserConsents_User FOREIGN KEY (UserId) REFERENCES Users(Id),
+    CONSTRAINT FK_UserConsents_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 19. LIVE SESSIONS
+-- =============================================
+
+CREATE TABLE LiveSessions (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    HostId UNIQUEIDENTIFIER NOT NULL,
+    Title NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    SessionType NVARCHAR(50) NOT NULL,
+    StreamUrl NVARCHAR(1000),
+    StreamKey NVARCHAR(256),
+    MaxViewers INT NOT NULL DEFAULT 100,
+    CurrentViewers INT NOT NULL DEFAULT 0,
+    IsLive BIT NOT NULL DEFAULT 0,
+    ScheduledAt DATETIME2,
+    StartedAt DATETIME2,
+    EndedAt DATETIME2,
+    RecordingUrl NVARCHAR(1000),
+    ChatEnabled BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_LiveSessions_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT FK_LiveSessions_Host FOREIGN KEY (HostId) REFERENCES Users(Id)
+);
+
+-- =============================================
+-- 20. USAGE & LIMITS
+-- =============================================
+
+CREATE TABLE UsageMeters (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    MeterType NVARCHAR(100) NOT NULL,
+    PeriodStart DATETIME2 NOT NULL,
+    PeriodEnd DATETIME2 NOT NULL,
+    UsedAmount BIGINT NOT NULL DEFAULT 0,
+    QuotaAmount BIGINT NOT NULL,
+    AlertThresholdPercent INT NOT NULL DEFAULT 80,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_UsageMeters_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id),
+    CONSTRAINT UQ_UsageMeters UNIQUE (TenantId, MeterType, PeriodStart)
+);
+
+CREATE TABLE UsageAlerts (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    MeterType NVARCHAR(100) NOT NULL,
+    ThresholdPercent INT NOT NULL DEFAULT 80,
+    AlertEmail NVARCHAR(320),
+    AlertWebhookUrl NVARCHAR(1000),
+    LastTriggeredAt DATETIME2,
+    IsActive BIT NOT NULL DEFAULT 1,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_UsageAlerts_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 21. PLATFORM SETTINGS
+-- =============================================
+
+CREATE TABLE PlatformSettings (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    SettingKey NVARCHAR(200) NOT NULL,
+    SettingValue NVARCHAR(MAX),
+    Description NVARCHAR(1000),
+    IsEncrypted BIT NOT NULL DEFAULT 0,
+    UpdatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT UQ_PlatformSettings_Key UNIQUE (SettingKey)
+);
+
+-- =============================================
+-- 22. LEAD MAGNETS & FUNNELS
+-- =============================================
+
+CREATE TABLE LeadMagnets (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200) NOT NULL,
+    Description NVARCHAR(1000),
+    AssetType NVARCHAR(50) NOT NULL,
+    AssetUrl NVARCHAR(1000),
+    LandingPageConfig NVARCHAR(MAX),
+    ThankYouPageConfig NVARCHAR(MAX),
+    FormFields NVARCHAR(MAX),
+    TotalDownloads INT NOT NULL DEFAULT 0,
+    ConversionRate DECIMAL(5,2) DEFAULT 0,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    UpdatedAt DATETIME2,
+    CONSTRAINT FK_LeadMagnets_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- 23. PRICING CALCULATOR
+-- =============================================
+
+CREATE TABLE PricingCalculations (
+    Id UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
+    TenantId UNIQUEIDENTIFIER NOT NULL,
+    Name NVARCHAR(200),
+    Config NVARCHAR(MAX) NOT NULL,
+    ResultData NVARCHAR(MAX),
+    CreatedBy UNIQUEIDENTIFIER,
+    CreatedAt DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT FK_PricingCalc_Tenant FOREIGN KEY (TenantId) REFERENCES Tenants(Id)
+);
+
+-- =============================================
+-- INDEXES
+-- =============================================
+
+-- Tenants
+CREATE INDEX IX_Tenants_Slug ON Tenants(Slug);
+CREATE INDEX IX_Tenants_Status ON Tenants(Status);
+
+-- Users
+CREATE INDEX IX_Users_Email ON Users(Email);
+
+-- Memberships
+CREATE INDEX IX_UserTenantMemberships_UserId ON UserTenantMemberships(UserId);
+CREATE INDEX IX_UserTenantMemberships_TenantId ON UserTenantMemberships(TenantId);
+
+-- Workspaces
+CREATE INDEX IX_Workspaces_TenantId ON Workspaces(TenantId);
+
+-- Apps
+CREATE INDEX IX_Apps_TenantId ON Apps(TenantId);
+CREATE INDEX IX_Apps_WorkspaceId ON Apps(WorkspaceId);
+CREATE INDEX IX_Apps_Status ON Apps(Status);
+
+-- Pages
+CREATE INDEX IX_Pages_AppId ON Pages(AppId);
+CREATE INDEX IX_Pages_TenantId ON Pages(TenantId);
+
+-- Page Blocks
+CREATE INDEX IX_PageBlocks_PageId ON PageBlocks(PageId);
+CREATE INDEX IX_PageBlocks_TenantId ON PageBlocks(TenantId);
+
+-- Products
+CREATE INDEX IX_Products_TenantId ON Products(TenantId);
+CREATE INDEX IX_Products_ProductType ON Products(ProductType);
+CREATE INDEX IX_Products_IsPublished ON Products(IsPublished);
+
+-- Orders
+CREATE INDEX IX_Orders_TenantId ON Orders(TenantId);
+CREATE INDEX IX_Orders_CustomerId ON Orders(CustomerId);
+CREATE INDEX IX_Orders_Status ON Orders(Status);
+CREATE INDEX IX_Orders_CreatedAt ON Orders(CreatedAt);
+
+-- Order Items
+CREATE INDEX IX_OrderItems_OrderId ON OrderItems(OrderId);
+
+-- Subscriptions
+CREATE INDEX IX_Subscriptions_TenantId ON Subscriptions(TenantId);
+CREATE INDEX IX_Subscriptions_CustomerId ON Subscriptions(CustomerId);
+CREATE INDEX IX_Subscriptions_Status ON Subscriptions(Status);
+
+-- Marketplace
+CREATE INDEX IX_Listings_TenantId ON MarketplaceListings(TenantId);
+CREATE INDEX IX_Listings_Status ON MarketplaceListings(Status);
+CREATE INDEX IX_Listings_Category ON MarketplaceListings(Category);
+CREATE INDEX IX_Listings_Rating ON MarketplaceListings(Rating);
+
+-- Courses
+CREATE INDEX IX_Courses_TenantId ON Courses(TenantId);
+
+-- Enrollments
+CREATE INDEX IX_CourseEnrollments_CourseId ON CourseEnrollments(CourseId);
+CREATE INDEX IX_CourseEnrollments_StudentId ON CourseEnrollments(StudentId);
+
+-- CRM
+CREATE INDEX IX_CrmContacts_TenantId ON CrmContacts(TenantId);
+CREATE INDEX IX_CrmContacts_Email ON CrmContacts(Email);
+CREATE INDEX IX_CrmContacts_Status ON CrmContacts(Status);
+
+-- Email
+CREATE INDEX IX_EmailCampaigns_TenantId ON EmailCampaigns(TenantId);
+CREATE INDEX IX_EmailCampaigns_Status ON EmailCampaigns(Status);
+
+-- AI Agents
+CREATE INDEX IX_AiAgentTasks_TenantId ON AiAgentTasks(TenantId);
+CREATE INDEX IX_AiAgentTasks_AgentId ON AiAgentTasks(AgentId);
+CREATE INDEX IX_AiAgentTasks_Status ON AiAgentTasks(Status);
+
+-- Analytics
+CREATE INDEX IX_AnalyticsEvents_TenantId ON AnalyticsEvents(TenantId);
+CREATE INDEX IX_AnalyticsEvents_EventType ON AnalyticsEvents(EventType);
+CREATE INDEX IX_AnalyticsEvents_CreatedAt ON AnalyticsEvents(CreatedAt);
+
+-- Affiliates
+CREATE INDEX IX_AffiliateLinks_Code ON AffiliateLinks(Code);
+CREATE INDEX IX_AffiliateConversions_LinkId ON AffiliateConversions(LinkId);
+
+-- Notifications
+CREATE INDEX IX_Notifications_UserId ON Notifications(UserId);
+CREATE INDEX IX_Notifications_IsRead ON Notifications(IsRead);
+
+-- Audit Logs
+CREATE INDEX IX_SecurityAuditLogs_TenantId ON SecurityAuditLogs(TenantId);
+CREATE INDEX IX_SecurityAuditLogs_UserId ON SecurityAuditLogs(UserId);
+CREATE INDEX IX_SecurityAuditLogs_CreatedAt ON SecurityAuditLogs(CreatedAt);
+
+-- Usage
+CREATE INDEX IX_UsageMeters_TenantId ON UsageMeters(TenantId);
+
+-- Disputes
+CREATE INDEX IX_Disputes_TenantId ON Disputes(TenantId);
+CREATE INDEX IX_Disputes_Status ON Disputes(Status);

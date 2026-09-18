@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Email Verification</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "on-surface-variant": "#c2c6d6",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-container": "#c4abff",
+            "on-tertiary-fixed-variant": "#005236",
+            "background": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary": "#003824",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-container": "#00311f",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#303036",
+            "primary-container": "#4d8eff",
+            "tertiary-container": "#00a572",
+            "outline-variant": "#424754",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "surface-dim": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#131318",
+            "error": "#ffb4ab",
+            "on-error": "#690005",
+            "surface-container": "#1f1f25",
+            "surface-container-lowest": "#0e0e13",
+            "on-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-fixed": "#001a42",
+            "primary": "#adc6ff",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary": "#002e6a",
+            "inverse-primary": "#005ac2",
+            "surface-container-highest": "#35343a",
+            "tertiary": "#4edea3",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed-dim": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "on-primary-container": "#00285d",
+            "on-background": "#e4e1e9",
+            "surface-container-high": "#2a292f",
+            "outline": "#8c909f",
+            "secondary-container": "#571bc1"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem"
+          },
+          fontFamily: {
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "mono": ["'JetBrains Mono'", "monospace"]
+          },
+          fontSize: {
+            "headline-md": ["22px", { lineHeight: "30px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "headline-xl-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.015em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" }],
+            "body-sm": ["12px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "400" }],
+            "headline-sm": ["18px", { lineHeight: "26px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "headline-xl": ["36px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }],
+            "body-md": ["14px", { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+            "display-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "display-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes pulse-cursor {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .animate-cursor {
+      animation: pulse-cursor 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .obsidian-bg {
+      background-color: #0A0A0F;
+    }
+    .obsidian-card {
+      background-color: #12121A;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#050508] text-on-surface flex items-center justify-center min-h-screen p-0 sm:p-6 antialiased selection:bg-primary-container selection:text-white">
+<!-- Mobile Frame Prototype Container (375px by 812px canvas representation) -->
+<div class="relative w-full max-w-[375px] h-[812px] obsidian-bg rounded-[44px] overflow-hidden shadow-[0_24px_64px_-12px_rgba(0,0,0,0.9)] border border-[#1E1E2E] flex flex-col justify-between">
+<!-- Background Ambient Glow Accents -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 left-1/2 -translate-x-1/2 w-72 h-72 bg-secondary-container/10 rounded-full blur-[90px] pointer-events-none"></div>
+<!-- Top Safe Area + iOS Status Bar -->
+<div class="relative z-20 w-full pt-3 px-7 flex justify-between items-center select-none">
+<span class="font-headline-sm text-label-sm font-semibold tracking-tight text-white">9:41</span>
+<div class="flex items-center space-x-1.5 text-white">
+<span class="material-symbols-outlined text-[15px]">signal_cellular_4_bar</span>
+<span class="material-symbols-outlined text-[15px]">wifi</span>
+<span class="material-symbols-outlined text-[18px]">battery_full</span>
+</div>
+</div>
+<!-- Top Navigation Anchor (Shared Component: TopAppBar Linear/Task Mode) -->
+<!-- Notice: Destination navigation tabs suppressed per Semantic Shell rules for transactional verification flow -->
+<header class="relative z-20 flex justify-between items-center w-full px-margin-sm h-14 bg-transparent">
+<button aria-label="Back" class="w-10 h-10 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-semibold flex items-center gap-1.5">
+<span>Creator OS</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary inline-block"></span>
+</div>
+<button class="text-label-md font-label-md text-on-surface-variant hover:text-on-surface px-space-xs py-1 transition-colors duration-150 active:scale-95" type="button">
+        Skip
+      </button>
+</header>
+<!-- Main Scrollable Content Zone -->
+<main class="relative z-10 flex-1 px-margin-sm flex flex-col justify-start pt-3">
+<!-- Ambient Mail Badge Core -->
+<div class="flex justify-center mb-6">
+<div class="relative flex items-center justify-center">
+<!-- Multi-tier luminescence aura -->
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] blur-xl opacity-40 scale-125"></div>
+<div class="relative w-20 h-20 rounded-full obsidian-card border border-[#2A2A3E] shadow-[0_12px_32px_-4px_rgba(0,0,0,0.6)] flex items-center justify-center">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#3B82F6]/20 to-[#8B5CF6]/20 border border-[#3B82F6]/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[28px]" style="font-variation-settings: 'FILL' 1;">mark_email_unread</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Header Typography Cluster -->
+<div class="text-center px-space-xs mb-8">
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-white tracking-tight mb-2">
+          Check your email
+        </h1>
+<p class="text-body-md font-body-md text-[#9CA3AF] max-w-[280px] mx-auto leading-relaxed">
+          We sent a 6-digit verification code to <span class="font-medium text-white tracking-tight">user@email.com</span>
+</p>
+</div>
+<!-- 6-Digit Code Instrument Array -->
+<div class="flex justify-between items-center gap-1.5 px-0 mb-6">
+<!-- Box 1: Filled -->
+<div class="w-12 h-14 rounded-xl obsidian-card border border-[#1E1E2E] flex items-center justify-center shadow-inner transition-all">
+<span class="font-mono text-2xl font-bold text-white">8</span>
+</div>
+<!-- Box 2: Filled -->
+<div class="w-12 h-14 rounded-xl obsidian-card border border-[#1E1E2E] flex items-center justify-center shadow-inner transition-all">
+<span class="font-mono text-2xl font-bold text-white">4</span>
+</div>
+<!-- Box 3: Filled -->
+<div class="w-12 h-14 rounded-xl obsidian-card border border-[#1E1E2E] flex items-center justify-center shadow-inner transition-all">
+<span class="font-mono text-2xl font-bold text-white">2</span>
+</div>
+<!-- Box 4: Filled -->
+<div class="w-12 h-14 rounded-xl obsidian-card border border-[#1E1E2E] flex items-center justify-center shadow-inner transition-all">
+<span class="font-mono text-2xl font-bold text-white">9</span>
+</div>
+<!-- Box 5: Active with glowing blue cursor outline -->
+<div class="relative w-12 h-14 rounded-xl obsidian-card border-2 border-[#3B82F6] shadow-[0_0_12px_rgba(59,130,246,0.35)] flex items-center justify-center transition-all bg-[#181824]">
+<div class="w-0.5 h-6 bg-primary animate-cursor rounded-full"></div>
+</div>
+<!-- Box 6: Empty state -->
+<div class="w-12 h-14 rounded-xl obsidian-card border border-[#1E1E2E] flex items-center justify-center transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant/40"></span>
+</div>
+</div>
+<!-- Countdown & Timer Module -->
+<div class="flex flex-col items-center justify-center space-y-2 mb-8">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#12121A] border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[14px] text-[#9CA3AF]">schedule</span>
+<span class="font-mono text-body-sm font-body-sm text-[#9CA3AF]">Resend code in <span class="text-white font-medium">0:45</span></span>
+</div>
+<button class="text-label-md font-label-md text-outline cursor-not-allowed opacity-60 transition-opacity" disabled="" type="button">
+          Resend code
+        </button>
+</div>
+<!-- Primary Action CTA -->
+<div class="w-full mb-6">
+<button class="w-full h-11 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg font-semibold flex items-center justify-center gap-2 shadow-[0_0_24px_-4px_rgba(59,130,246,0.4)] hover:brightness-105 active:scale-[0.98] transition-all" type="button">
+<span>Verify &amp; Proceed</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Studio Security Hint Card -->
+<div class="w-full obsidian-card border border-[#1E1E2E] rounded-xl p-3.5 flex items-start gap-3 mb-4">
+<div class="p-1 rounded-md bg-primary-container/20 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<div class="flex-1">
+<div class="text-label-sm font-label-sm text-white font-medium mb-0.5">Two-Factor Authentication</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[11px] leading-tight">
+            Protecting your Creator OS spaces, API tokens, and production deployments.
+          </p>
+</div>
+</div>
+</main>
+<!-- Support Auxiliary Footer -->
+<footer class="relative z-20 pb-8 px-margin-sm flex flex-col items-center justify-center gap-3 text-center">
+<p class="text-body-sm font-body-sm text-[#9CA3AF]">
+        Didn't receive code? 
+        <span class="block mt-0.5">
+<a class="text-white hover:underline transition-all" href="#">Check spam folder</a>
+<span class="text-outline-variant mx-1">•</span>
+<a class="text-primary hover:underline transition-all" href="#">Contact Support</a>
+</span>
+</p>
+<!-- iOS Native Home Indicator -->
+<div class="w-32 h-1 bg-white/20 rounded-full mx-auto mt-2"></div>
+</footer>
+</div>
+</body></html>

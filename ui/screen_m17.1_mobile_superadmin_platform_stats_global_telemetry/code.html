@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=375, height=812, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS - Superadmin Telemetry</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "inverse-on-surface": "#303036",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "surface-bright": "#39383e",
+            "on-secondary-fixed": "#23005c",
+            "inverse-primary": "#005ac2",
+            "secondary-container": "#571bc1",
+            "secondary": "#d0bcff",
+            "surface-container": "#1f1f25",
+            "on-surface-variant": "#c2c6d6",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "primary-container": "#4d8eff",
+            "on-primary-container": "#00285d",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#35343a",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "on-primary-fixed-variant": "#004395",
+            "background": "#131318",
+            "on-error": "#690005",
+            "on-secondary": "#3c0091",
+            "surface-variant": "#35343a",
+            "surface-container-low": "#1b1b20",
+            "surface-container-lowest": "#0e0e13",
+            "outline": "#8c909f",
+            "surface-tint": "#adc6ff",
+            "surface-container-high": "#2a292f",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary": "#adc6ff",
+            "tertiary": "#4edea3",
+            "on-primary": "#002e6a",
+            "surface": "#131318",
+            "tertiary-container": "#00a572",
+            "on-secondary-container": "#c4abff",
+            "outline-variant": "#424754",
+            "on-tertiary-container": "#00311f",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-surface": "#e4e1e9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "gutter-sm": "1rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "margin": "2rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e13;
+      color: #e4e1e9;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Frame Enclosure (375x812px viewport standard) -->
+<div class="relative w-full max-w-[375px] min-h-[812px] h-screen bg-surface-container-lowest overflow-hidden flex flex-col shadow-2xl">
+<!-- TopAppBar (Anchored Shared Component) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-sm h-14 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant">
+<div class="flex items-center gap-2">
+<div class="flex items-center justify-center w-8 h-8 rounded-lg bg-surface-container border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="admin_panel_settings">admin_panel_settings</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm tracking-tight text-on-surface">Creator OS</span>
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+            M17.1 <span class="inline-block w-1 h-1 rounded-full bg-outline"></span> Telemetry
+          </span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<!-- Live System Beacon -->
+<div class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-tertiary-container/15 border border-tertiary/30">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-tertiary">99.99%</span>
+</div>
+<!-- Trailing action -->
+<button aria-label="Control settings" class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+</button>
+</div>
+</header>
+<!-- Main Scrollable Body Area -->
+<main class="flex-1 overflow-y-auto custom-scroll pt-16 pb-20 px-margin-sm space-y-space-md">
+<!-- Edge Mesh Global Health Banner -->
+<section class="rounded-xl p-3.5 bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-low border border-outline-variant relative overflow-hidden shadow-sm">
+<div class="absolute -right-6 -bottom-6 w-24 h-24 bg-primary/10 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary"></span>
+</span>
+<span class="text-label-lg font-label-lg text-on-surface font-semibold tracking-tight">Global Edge Mesh: Healthy</span>
+</div>
+<button aria-label="Refresh node health" class="text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="refresh">refresh</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-2 pt-1 border-t border-outline-variant/50">
+<div class="flex items-baseline gap-1.5">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Global Latency:</span>
+<span class="text-label-md font-label-md text-tertiary font-bold">14ms</span>
+<span class="text-[10px] text-outline">avg</span>
+</div>
+<div class="flex items-baseline gap-1.5 justify-end">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Active Regions:</span>
+<span class="text-label-md font-label-md text-primary font-bold">42/42</span>
+<span class="text-[10px] text-tertiary">POPs</span>
+</div>
+</div>
+</section>
+<!-- Primary KPI Bento Grid -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="text-label-md font-label-md text-outline uppercase tracking-wider">Telemetry Core Metrics</h2>
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-0.5">
+            Live Stream <span class="material-symbols-outlined text-xs" data-icon="sensors">sensors</span>
+</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5">
+<!-- KPI 1: Global ARR -->
+<div class="col-span-1 rounded-xl p-3 bg-surface-container-low border border-outline-variant relative overflow-hidden flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm">Global ARR</span>
+<span class="material-symbols-outlined text-sm text-primary" data-icon="payments">payments</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-bold">$14.2M</div>
+</div>
+<div class="mt-2 flex items-center justify-between">
+<span class="text-[10px] font-medium text-tertiary bg-tertiary/10 px-1.5 py-0.5 rounded border border-tertiary/20 flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[10px]" data-icon="trending_up">trending_up</span> +22.4%
+              </span>
+<!-- Sparkline SVG -->
+<svg class="w-12 h-5 stroke-tertiary fill-none" stroke-width="2" viewbox="0 0 48 20">
+<path d="M0 16 Q 12 12, 20 14 T 34 6 T 48 2"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 2: Active Tenants -->
+<div class="col-span-1 rounded-xl p-3 bg-surface-container-low border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm">Active Tenants</span>
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="domain">domain</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-bold">3,420</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px]">
+<span class="text-outline truncate">Enterprise &amp; Pro</span>
+<span class="text-tertiary font-medium">+184</span>
+</div>
+</div>
+<!-- KPI 3: Total Creators & Users -->
+<div class="col-span-1 rounded-xl p-3 bg-surface-container-low border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm">Network Creators</span>
+<span class="material-symbols-outlined text-sm text-primary" data-icon="hub">hub</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-bold">482.9k</div>
+</div>
+<div class="mt-2 text-[10px] text-outline flex items-center gap-1 truncate">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              Distributed cross 42 nodes
+            </div>
+</div>
+<!-- KPI 4: AI Compute Load -->
+<div class="col-span-1 rounded-xl p-3 bg-surface-container-low border border-outline-variant flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-outline mb-1">
+<span class="text-label-sm font-label-sm">AI Token Load</span>
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="neurology">neurology</span>
+</div>
+<div class="text-headline-sm font-headline-sm text-on-surface tracking-tight font-bold">84.2M</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px]">
+<span class="text-outline">Efficiency</span>
+<span class="text-tertiary font-medium">92.4%</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Live System Health Status Matrix -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="text-label-md font-label-md text-outline uppercase tracking-wider">Subsystem Matrix</h2>
+<span class="text-label-sm font-label-sm text-outline">5 Systems Monitored</span>
+</div>
+<div class="space-y-2">
+<!-- Card 1: API Gateway -->
+<div class="rounded-xl p-3 bg-surface-container-low border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-base" data-icon="dns">dns</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md text-on-surface font-semibold leading-snug">API Gateway &amp; Edge Routers</h3>
+<p class="text-body-sm font-body-sm text-outline">12ms p95 • 0 reported errors</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+                100% Uptime
+              </span>
+</div>
+</div>
+<!-- Card 2: PostgreSQL Cluster -->
+<div class="rounded-xl p-3 bg-surface-container-low border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-secondary">
+<span class="material-symbols-outlined text-base" data-icon="storage">storage</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md text-on-surface font-semibold leading-snug">PostgreSQL Cluster &amp; Shards</h3>
+<p class="text-body-sm font-body-sm text-outline">34% read replica load • Master sync OK</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+                Operational
+              </span>
+</div>
+</div>
+<!-- Card 3: Redis Cache Clusters -->
+<div class="rounded-xl p-3 bg-surface-container-low border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-primary">
+<span class="material-symbols-outlined text-base" data-icon="memory">memory</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md text-on-surface font-semibold leading-snug">Redis Cache Clusters</h3>
+<p class="text-body-sm font-body-sm text-outline">4.2 GB / 8 GB allocated memory pool</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-label-sm font-label-sm">
+                99.98% Hit
+              </span>
+</div>
+</div>
+<!-- Card 4: Vector Database & AI Inference -->
+<div class="rounded-xl p-3 bg-surface-container-low border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-tertiary">
+<span class="material-symbols-outlined text-base" data-icon="psychology">psychology</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md text-on-surface font-semibold leading-snug">Vector DB &amp; AI Inference</h3>
+<p class="text-body-sm font-body-sm text-outline">84ms inference avg • Embeddings sync</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+                Operational
+              </span>
+</div>
+</div>
+<!-- Card 5: Webhook Delivery Queue -->
+<div class="rounded-xl p-3 bg-surface-container-low border border-outline-variant hover:border-primary/40 transition-colors">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2.5">
+<div class="p-1.5 rounded-lg bg-surface-container border border-outline-variant text-primary-fixed-dim">
+<span class="material-symbols-outlined text-base" data-icon="alt_route">alt_route</span>
+</div>
+<div>
+<h3 class="text-body-md font-body-md text-on-surface font-semibold leading-snug">Webhook Delivery Queue</h3>
+<p class="text-body-sm font-body-sm text-outline">1,420 jobs/min • 0 Dead Letter queue</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+                Clean
+              </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Action Safeguards -->
+<section class="space-y-2 pb-2">
+<div class="flex items-center justify-between px-0.5">
+<h2 class="text-label-md font-label-md text-outline uppercase tracking-wider">Superadmin Safeguards</h2>
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="shield">shield</span> L4 Clearance
+          </span>
+</div>
+<div class="grid grid-cols-1 gap-2">
+<!-- Button 1: Purge Edge Cache -->
+<button class="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-primary/40 active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-primary" data-icon="cached">cached</span>
+<span class="text-label-lg font-label-lg text-on-surface font-medium">Purge Edge Cache</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline bg-surface-container-high px-2 py-0.5 rounded border border-outline-variant">
+              Propagates ~2s
+            </span>
+</button>
+<!-- Button 2: Circuit Breaker Overview -->
+<button class="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-primary/40 active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-tertiary" data-icon="bolt">bolt</span>
+<span class="text-label-lg font-label-lg text-on-surface font-medium">Circuit Breaker Overview</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-sm font-label-sm text-tertiary">All Closed (Norm)</span>
+</div>
+</button>
+<!-- Button 3: Incident Mode Simulator -->
+<button class="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 active:scale-[0.99] transition-all" type="button">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="warning">warning</span>
+<span class="text-label-lg font-label-lg text-on-surface font-medium">Incident Mode Simulator</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Docked BottomNavBar (Anchored Shared Component) -->
+<!-- Active tab: 'Telemetry' (Exact match to current page) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-margin-sm py-space-xs bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant">
+<!-- Item 1: Telemetry (Active) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary dark:text-primary font-label-sm bg-primary/10 rounded-lg px-2.5 py-1.5 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="monitoring">monitoring</span>
+<span>Telemetry</span>
+</a>
+<!-- Item 2: Tenants -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-sm px-2.5 py-1.5 hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="corporate_fare">corporate_fare</span>
+<span>Tenants</span>
+</a>
+<!-- Item 3: Approvals -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-sm px-2.5 py-1.5 hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="verified_user">verified_user</span>
+<span>Approvals</span>
+</a>
+<!-- Item 4: Circuit -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-sm px-2.5 py-1.5 hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+<span>Circuit</span>
+</a>
+<!-- Item 5: Settings -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant font-label-sm px-2.5 py-1.5 hover:text-on-surface dark:hover:text-on-surface hover:bg-surface-container active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+</body></html>

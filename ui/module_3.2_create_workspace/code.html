@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Create a New Workspace — Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#6ffbbe",
+            "surface-tint": "#adc6ff",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary": "#002e6a",
+            "on-tertiary-container": "#00311f",
+            "surface-container": "#1f1f25",
+            "tertiary-container": "#00a572",
+            "surface-bright": "#39383e",
+            "error-container": "#93000a",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed-variant": "#5516be",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "background": "#0A0A0F",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed": "#23005c",
+            "secondary-fixed-dim": "#d0bcff",
+            "outline": "#8c909f",
+            "primary": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "secondary-fixed": "#e9ddff",
+            "inverse-primary": "#005ac2",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-container": "#571bc1",
+            "on-surface": "#e4e1e9",
+            "on-error-container": "#ffdad6",
+            "outline-variant": "#1E1E2E",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-highest": "#35343a",
+            "secondary": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#181824",
+            "on-tertiary": "#003824",
+            "on-secondary": "#3c0091",
+            "surface-dim": "#0A0A0F",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#12121A",
+            "surface": "#12121A",
+            "on-primary-fixed-variant": "#004395"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #1E1E2E;
+      border-radius: 9999px;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .primary-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+    .primary-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 18px rgba(59, 130, 246, 0.45);
+    }
+    .preset-radio:checked + label {
+      border-color: #3B82F6;
+      background: #181824;
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.25);
+    }
+    .preset-radio:checked + label .preset-badge {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      color: #FFFFFF;
+      border-color: transparent;
+    }
+    .preset-radio:checked + label .preset-dot {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-white">
+<!-- Fixed Side Navigation -->
+<aside aria-label="Main Navigation" class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 border-r border-outline-variant bg-surface dark:bg-surface shadow-none">
+<div class="w-64 h-full flex flex-col justify-between p-4 bg-surface dark:bg-surface">
+<!-- Nav Header & Workspace Switcher -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between px-2 pt-1">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-headline-sm text-headline-sm font-bold shadow-sm">
+              C
+            </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight leading-none">Creator OS</span>
+<span class="font-body-sm text-body-sm text-outline mt-1">Acme Studios</span>
+</div>
+</div>
+<button class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container transition-colors" title="Workspace Settings" type="button">
+<span class="material-symbols-outlined text-[18px]">unfold_more</span>
+</button>
+</div>
+<!-- CTA Action -->
+<button class="w-full flex items-center justify-center gap-2 primary-gradient-btn text-white py-2 px-3 rounded-lg font-label-md text-label-md transition-all duration-150 active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Project</span>
+</button>
+<!-- Nav Items Cluster with isolated scroll -->
+<nav class="flex flex-col gap-0.5 overflow-y-auto max-h-[calc(100vh-280px)] custom-scrollbar pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-medium border border-[#2A2A3E]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-label-md text-label-md font-semibold">Workspaces</span>
+<span class="ml-auto w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+</a>
+<!-- 3. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant dark:text-on-surface-variant hover:bg-surface-container dark:hover:bg-surface-container hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Navigation Items -->
+<div class="pt-4 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Top Sticky Navigation Bar -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant bg-surface/90 backdrop-blur-md w-full flex items-center justify-between px-6 pl-72 transition-all">
+<!-- Left: Global Search / Context -->
+<div class="flex items-center gap-4 w-96">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-8 pl-9 pr-8 bg-background border border-outline-variant rounded-md text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search resources, workspaces, or tools..." type="text"/>
+<kbd class="absolute right-2.5 top-1/2 -translate-y-1/2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant text-outline">⌘K</kbd>
+</div>
+</div>
+<!-- Right Utility Cluster -->
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-1.5 px-2.5 py-1 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg text-body-sm font-body-sm transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">help</span>
+<span class="font-label-md text-label-md">Quick Help</span>
+</button>
+<div class="h-4 w-px bg-outline-variant"></div>
+<button aria-label="Notifications" class="relative p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-primary"></span>
+</button>
+<!-- User Profile Dropdown Pill -->
+<div class="flex items-center gap-2 pl-1 cursor-pointer">
+<div class="w-7 h-7 rounded-full bg-gradient-to-tr from-secondary-container to-primary flex items-center justify-center text-xs font-bold text-white shadow-inner" title="Huzaifa Khan Avatar HK">
+          HK
+        </div>
+<div class="hidden sm:flex flex-col text-left">
+<span class="font-label-sm text-label-sm leading-none text-on-surface font-semibold">Huzaifa Khan</span>
+<span class="font-body-sm text-[10px] text-outline leading-tight">Admin</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="ml-64 flex-1 flex flex-col items-center justify-start px-8 py-8 relative">
+<!-- Subtle Ambient Glow Background in Canvas -->
+<div class="absolute top-12 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<!-- Centered Form Container (Max 3XL) -->
+<div class="w-full max-w-3xl flex flex-col gap-6">
+<!-- Breadcrumbs & Navigation Header -->
+<div class="flex flex-col gap-2">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-outline font-label-md text-label-md">
+<a class="hover:text-on-surface transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">folder_shared</span>
+<span>Workspaces</span>
+</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-medium">New Workspace</span>
+</nav>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-1">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Create a New Workspace</h1>
+<p class="font-body-md text-body-md text-outline mt-1 max-w-xl">
+              Set up an isolated workspace for a new brand, client agency project, or subsidiary venture.
+            </p>
+</div>
+<div class="flex items-center gap-2 self-start sm:self-auto">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-label-sm bg-surface-container border border-outline-variant text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+              Multi-Tenant Isolated
+            </span>
+</div>
+</div>
+</div>
+<!-- Main Form Card Container -->
+<form class="bg-[#12121A] border border-[#1E1E2E] rounded-xl p-6 sm:p-8 flex flex-col gap-8 shadow-2xl relative" onsubmit="event.preventDefault();">
+<!-- SECTION 1 & 2: Name & Subdomain -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Workspace Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="ws-name">
+<span>Workspace Name <span class="text-primary">*</span></span>
+<span class="text-[11px] font-normal text-outline">Unique entity title</span>
+</label>
+<input class="w-full h-10 px-3.5 bg-background border border-[#1E1E2E] rounded-md text-body-md font-body-md text-white placeholder:text-outline/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" id="ws-name" placeholder="e.g. Apex Media Labs" required="" type="text" value="Apex Media Labs"/>
+<p class="font-body-sm text-body-sm text-outline">This will appear across your invoices, dashboards, and internal team emails.</p>
+</div>
+<!-- Workspace Slug / Subdomain -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="ws-slug">
+<span>Workspace Subdomain <span class="text-primary">*</span></span>
+<span class="text-[11px] font-label-sm text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> Available
+              </span>
+</label>
+<div class="flex items-center rounded-md border border-[#1E1E2E] bg-background focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all overflow-hidden h-10">
+<span class="px-2.5 text-outline text-body-sm font-mono border-r border-[#1E1E2E] select-none bg-surface-container/50">https://</span>
+<input class="flex-1 px-3 bg-transparent border-0 text-white font-mono text-body-md placeholder:text-outline/40 focus:ring-0 focus:outline-none" id="ws-slug" placeholder="slug" required="" type="text" value="apexmedia"/>
+<span class="px-2.5 text-outline text-body-sm font-mono border-l border-[#1E1E2E] select-none bg-surface-container/50">.creatoros.app</span>
+</div>
+<!-- Live Preview Slug Badge -->
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-label-sm text-[11px] text-outline">Live address:</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-primary text-[11px] font-mono border border-outline-variant/60">
+<span class="material-symbols-outlined text-[12px]">link</span>
+                https://apexmedia.creatoros.app
+              </span>
+</div>
+</div>
+</div>
+<!-- SECTION 3: Workspace Description -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="ws-desc">
+<span>Workspace Description</span>
+<span class="text-[11px] font-normal text-outline">Optional • 140 chars max</span>
+</label>
+<textarea class="w-full px-3.5 py-2.5 bg-background border border-[#1E1E2E] rounded-md text-body-md font-body-md text-white placeholder:text-outline/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none" id="ws-desc" placeholder="Brief purpose, client portfolio summary, or internal venture goals..." rows="2">Flagship video production house, brand licensing arm, and high-ticket membership community.</textarea>
+</div>
+<div class="h-px bg-[#1E1E2E] w-full"></div>
+<!-- SECTION 4: Icon & Brand Mark Upload -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block">Workspace Icon &amp; Brand Mark</span>
+<span class="font-body-sm text-body-sm text-outline">Used in navigation headers, browser favicons, and customer portal sign-ins.</span>
+</div>
+<!-- Toggle Generator -->
+<div class="flex items-center gap-2 bg-background p-1 rounded-lg border border-[#1E1E2E]">
+<button class="px-2.5 py-1 text-xs font-label-md rounded bg-surface-container text-white shadow-sm transition-all" type="button">Custom Upload</button>
+<button class="px-2.5 py-1 text-xs font-label-md rounded text-outline hover:text-white transition-all" type="button">Initials Avatar</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-4 items-center mt-1">
+<!-- Current Avatar Preview -->
+<div class="flex flex-col items-center justify-center p-4 bg-background border border-[#1E1E2E] rounded-xl text-center gap-2">
+<div class="relative group">
+<div class="w-16 h-16 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-600 to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg ring-2 ring-primary/20">
+                  AM
+                </div>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center text-[10px] font-bold border-2 border-[#12121A]">
+<span class="material-symbols-outlined text-[12px]">done</span>
+</div>
+</div>
+<span class="text-[11px] font-label-sm text-outline">Default Initials</span>
+</div>
+<!-- Drag & Drop Upload Zone -->
+<div class="sm:col-span-3 border border-dashed border-[#2A2A3E] hover:border-primary/60 hover:bg-surface-container/30 transition-all rounded-xl p-5 flex flex-col items-center justify-center text-center cursor-pointer group">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform mb-2">
+<span class="material-symbols-outlined text-[22px]">cloud_upload</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">
+<span class="text-primary hover:underline font-semibold">Click to upload</span> or drag and drop artwork
+              </p>
+<p class="font-body-sm text-body-sm text-outline mt-0.5">Supports SVG, PNG, or JPG (Aspect ratio 1:1, max 5MB)</p>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#1E1E2E] w-full"></div>
+<!-- SECTION 5: Primary Workspace Focus / Template Preset -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-semibold block">Primary Workspace Focus</span>
+<span class="font-body-sm text-body-sm text-outline">Pre-configures standard pipelines, default CRM schemas, and pre-installed toolkits.</span>
+</div>
+<span class="text-xs font-mono text-outline/80">Preset: Select 1 of 4</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 mt-1">
+<!-- Preset 1 -->
+<div class="relative">
+<input checked="" class="preset-radio peer hidden" id="focus_commerce" name="workspace_focus" type="radio"/>
+<label class="flex flex-col p-4 rounded-xl border border-[#1E1E2E] bg-background hover:border-outline transition-all cursor-pointer h-full select-none group" for="focus_commerce">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary preset-dot transition-all opacity-0 scale-50"></div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-white font-semibold mb-1">Digital Products &amp; Commerce</span>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+                  Engineered for software licenses, digital download checkouts, Stripe billing, and instant license key provisioning.
+                </p>
+<div class="mt-3 pt-2 border-t border-[#1E1E2E]/60 flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">eCommerce</span>
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Stripe Connect</span>
+</div>
+</label>
+</div>
+<!-- Preset 2 -->
+<div class="relative">
+<input class="preset-radio peer hidden" id="focus_academy" name="workspace_focus" type="radio"/>
+<label class="flex flex-col p-4 rounded-xl border border-[#1E1E2E] bg-background hover:border-outline transition-all cursor-pointer h-full select-none group" for="focus_academy">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">school</span>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary preset-dot transition-all opacity-0 scale-50"></div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-white font-semibold mb-1">Online Academy &amp; Community</span>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+                  Multi-tier video curriculums, student progression analytics, gated community discussions, and automated certifications.
+                </p>
+<div class="mt-3 pt-2 border-t border-[#1E1E2E]/60 flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">LMS</span>
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Forums</span>
+</div>
+</label>
+</div>
+<!-- Preset 3 -->
+<div class="relative">
+<input class="preset-radio peer hidden" id="focus_agency" name="workspace_focus" type="radio"/>
+<label class="flex flex-col p-4 rounded-xl border border-[#1E1E2E] bg-background hover:border-outline transition-all cursor-pointer h-full select-none group" for="focus_agency">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-tertiary group-hover:bg-tertiary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">business_center</span>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary preset-dot transition-all opacity-0 scale-50"></div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-white font-semibold mb-1">Creative Agency Client</span>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+                  Strict guest-client portal roles, intake project kanbans, deliverable proofing flows, and unified retainer invoicing.
+                </p>
+<div class="mt-3 pt-2 border-t border-[#1E1E2E]/60 flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Client Portals</span>
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Proofing</span>
+</div>
+</label>
+</div>
+<!-- Preset 4 -->
+<div class="relative">
+<input class="preset-radio peer hidden" id="focus_ai" name="workspace_focus" type="radio"/>
+<label class="flex flex-col p-4 rounded-xl border border-[#1E1E2E] bg-background hover:border-outline transition-all cursor-pointer h-full select-none group" for="focus_ai">
+<div class="flex items-start justify-between mb-2">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<div class="w-5 h-5 rounded-full border border-outline-variant flex items-center justify-center group-hover:border-primary">
+<div class="w-2.5 h-2.5 rounded-full bg-primary preset-dot transition-all opacity-0 scale-50"></div>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-white font-semibold mb-1">AI Autonomous Lab</span>
+<p class="font-body-sm text-body-sm text-outline leading-relaxed">
+                  Headless API agents, generative media batch jobs, LLM fine-tuning pipelines, and vector token usage monitoring.
+                </p>
+<div class="mt-3 pt-2 border-t border-[#1E1E2E]/60 flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">AI Pipelines</span>
+<span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Vector DB</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="h-px bg-[#1E1E2E] w-full"></div>
+<!-- SECTION 6 & 7: Custom Domain & Data Isolation Region -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Custom Domain (Optional) -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5" for="custom-domain">
+<span>Custom Domain</span>
+<span class="text-xs font-normal text-outline">(Optional)</span>
+</label>
+<!-- Info Tooltip trigger -->
+<div class="group relative flex items-center cursor-help" title="Can be verified and configured later in Workspace Settings">
+<span class="material-symbols-outlined text-outline text-[16px]">info</span>
+<div class="absolute right-0 bottom-full mb-2 hidden group-hover:flex flex-col w-56 p-2 rounded bg-surface-container-high border border-[#2A2A3E] text-[11px] text-on-surface-variant shadow-xl z-20">
+                  Can be verified and configured later in Workspace Settings via automated DNS CNAME validation.
+                </div>
+</div>
+</div>
+<input class="w-full h-10 px-3.5 bg-background border border-[#1E1E2E] rounded-md text-body-md font-body-md text-white placeholder:text-outline/40 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-mono" id="custom-domain" placeholder="e.g. studio.yourdomain.com" type="text"/>
+<p class="font-body-sm text-body-sm text-outline">You can configure SSL certificates and DNS routing anytime.</p>
+</div>
+<!-- Data Isolation & Region -->
+<div class="flex flex-col gap-2">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="ws-region">
+<span>Data Isolation &amp; Region <span class="text-primary">*</span></span>
+<span class="text-[11px] font-normal text-tertiary">Dedicated Cluster</span>
+</label>
+<div class="relative">
+<select class="w-full h-10 pl-3.5 pr-9 bg-background border border-[#1E1E2E] rounded-md text-body-md font-body-md text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all appearance-none cursor-pointer" id="ws-region">
+<option selected="" value="us-east">US East (N. Virginia) — Primary Low Latency</option>
+<option value="eu-central">EU (Frankfurt) — GDPR High Compliance</option>
+<option value="ap-east">AP (Tokyo) — Asia-Pacific Edge Optimized</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">PostgreSQL tenant schema will be provisioned in this region.</p>
+</div>
+</div>
+<!-- System Architecture Reassurance Notice -->
+<div class="flex items-start gap-3 p-4 rounded-lg bg-surface-container/60 border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">verified_user</span>
+<div class="flex flex-col">
+<span class="text-xs font-label-md text-on-surface font-semibold">Security &amp; Architecture Guarantee</span>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">
+              Each workspace includes its own Stripe connect account, member roles, isolated database schema, and custom storage bucket.
+            </p>
+</div>
+</div>
+<!-- Card Footer Actions -->
+<div class="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 pt-4 border-t border-[#1E1E2E]">
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-lg border border-transparent text-outline hover:text-white hover:bg-surface-container transition-all font-label-lg text-label-lg" type="button">
+            Cancel
+          </button>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="w-full sm:w-auto primary-gradient-btn px-6 py-2.5 rounded-lg text-white font-label-lg text-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg transition-all duration-150 active:scale-[0.98]" type="submit">
+<span>Create Workspace</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+<!-- Footer Help Meta -->
+<div class="flex items-center justify-between px-2 text-outline font-body-sm text-body-sm pb-12">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary"></span> System Status: 99.99% Operational</span>
+<span>•</span>
+<a class="hover:text-on-surface transition-colors" href="#">Workspace API Docs</a>
+</div>
+<span>Creator OS v4.8 Enterprise</span>
+</div>
+</div>
+</main>
+<script>
+    // Live sub-domain preview interactive sync
+    const nameInput = document.getElementById('ws-name');
+    const slugInput = document.getElementById('ws-slug');
+    
+    if(nameInput && slugInput) {
+      nameInput.addEventListener('input', (e) => {
+        const val = e.target.value;
+        const sanitized = val.toLowerCase().replace(/[^a-z0-9]/g, '');
+        slugInput.value = sanitized;
+      });
+    }
+  </script>
+</body></html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register — Creator OS</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#8c909f",
+            "on-background": "#e4e1e9",
+            "background": "#131318",
+            "primary": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-dim": "#131318",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "surface-bright": "#39383e",
+            "surface-container-low": "#1b1b20",
+            "primary-container": "#4d8eff",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-container": "#c4abff",
+            "surface-container-highest": "#35343a",
+            "surface-container": "#1f1f25",
+            "error": "#ffb4ab",
+            "secondary-container": "#571bc1",
+            "error-container": "#93000a",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary": "#002e6a",
+            "surface-tint": "#adc6ff",
+            "inverse-on-surface": "#303036",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary-fixed-variant": "#004395",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-container": "#00a572",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "inverse-primary": "#005ac2",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-fixed-variant": "#005236",
+            "outline-variant": "#424754",
+            "on-secondary-fixed": "#23005c",
+            "on-surface": "#e4e1e9",
+            "on-tertiary-container": "#00311f",
+            "secondary-fixed": "#e9ddff",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "tertiary-fixed-dim": "#4edea3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem",
+            "margin": "2rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "label-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-primary selection:text-on-primary font-body-md text-body-md relative overflow-x-hidden">
+<!-- Ambient Luminescent Glow Background -->
+<div aria-hidden="true" class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[720px] h-[540px] bg-primary-container/15 rounded-full blur-[140px]"></div>
+<div class="absolute top-[40%] left-[30%] -translate-x-1/2 w-[520px] h-[480px] bg-secondary-container/20 rounded-full blur-[130px]"></div>
+<div class="absolute bottom-[-10%] right-[20%] w-[480px] h-[420px] bg-primary/10 rounded-full blur-[120px]"></div>
+</div>
+<!-- Minimal Top Header for Authentication Context -->
+<header class="relative z-20 w-full max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<a class="flex items-center gap-2.5 group transition-transform duration-150 active:scale-[0.98]" href="#">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-container to-secondary-container p-0.5 shadow-[0_0_16px_rgba(59,130,246,0.35)] flex items-center justify-center">
+<div class="w-full h-full bg-surface-container-lowest rounded-[6px] flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[18px]" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</a>
+<div class="flex items-center gap-3">
+<span class="text-label-md font-label-md text-on-surface-variant hidden sm:inline">Already have an account?</span>
+<a class="px-3.5 py-1.5 rounded-lg border border-outline-variant/40 bg-surface-container-low hover:bg-surface-container hover:border-primary/40 text-on-surface text-label-md font-label-md transition-all duration-150" href="#">
+        Sign In
+      </a>
+</div>
+</header>
+<!-- Main Register Container -->
+<main class="relative z-10 flex-1 flex items-center justify-center px-4 py-8 sm:py-12">
+<div class="w-full max-w-[480px]">
+<!-- Top Badge -->
+<div class="flex justify-center mb-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>14-day free trial • No credit card required</span>
+</div>
+</div>
+<!-- Registration Card -->
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container-low/90 backdrop-blur-xl p-6 sm:p-8 shadow-[0_24px_64px_-12px_rgba(0,0,0,0.85)]">
+<!-- Header Text -->
+<div class="text-center mb-6">
+<h1 class="text-headline-lg font-headline-lg text-on-surface mb-2 tracking-tight">Create your account</h1>
+<p class="text-body-md font-body-md text-on-surface-variant">Join 45,000+ creators building scalable digital businesses</p>
+</div>
+<!-- Google OAuth Secondary Action -->
+<button class="w-full flex items-center justify-center gap-3 h-10 px-4 rounded-lg bg-surface-container border border-outline-variant/40 hover:border-primary/40 hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg transition-all duration-150 active:scale-[0.98] mb-5 group" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+<!-- Divider -->
+<div class="relative flex items-center justify-center mb-6">
+<div class="w-full border-t border-outline-variant/30"></div>
+<span class="absolute bg-surface-container-low px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">or</span>
+</div>
+<!-- Registration Form -->
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Full Name Field -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5" for="full-name">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">person</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-md bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-body-md font-body-md placeholder:text-outline focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all duration-150" id="full-name" name="name" placeholder="Your full name" required="" type="text" value="Huzaifa Khan"/>
+</div>
+</div>
+<!-- Work Email Field -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5" for="email">Work Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">mail</span>
+<input class="w-full h-10 pl-9 pr-3 rounded-md bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-body-md font-body-md placeholder:text-outline focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all duration-150" id="email" name="email" placeholder="name@company.com" required="" type="email" value="you@domain.com"/>
+</div>
+</div>
+<!-- Password Field -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">lock</span>
+<input class="w-full h-10 pl-9 pr-10 rounded-md bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-body-md font-body-md placeholder:text-outline focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all duration-150" id="password" name="password" placeholder="Create password" required="" type="password" value="StudioGrade_2025!"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors duration-150 flex items-center justify-center p-0.5" id="togglePasswordBtn" type="button">
+<span class="material-symbols-outlined text-[18px]" id="eyeIcon">visibility</span>
+</button>
+</div>
+<!-- 4-Segment Password Strength Indicator -->
+<div class="mt-2.5">
+<div class="grid grid-cols-4 gap-1.5 mb-1.5">
+<div class="h-1 rounded-full bg-tertiary"></div>
+<div class="h-1 rounded-full bg-tertiary"></div>
+<div class="h-1 rounded-full bg-tertiary"></div>
+<div class="h-1 rounded-full bg-secondary"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-outline">Strength: <strong class="text-tertiary font-medium">Strong</strong></span>
+<span class="text-outline">Min 8 chars, 1 symbol</span>
+</div>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5" for="confirm-password">Confirm Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">lock</span>
+<input class="w-full h-10 pl-9 pr-10 rounded-md bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-body-md font-body-md placeholder:text-outline focus:border-primary-container focus:ring-1 focus:ring-primary-container outline-none transition-all duration-150" id="confirm-password" name="confirm_password" placeholder="Confirm password" required="" type="password" value="StudioGrade_2025!"/>
+<!-- Match Checkmark Indicator -->
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center justify-center text-tertiary" title="Passwords match">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Terms Agreement Checkbox -->
+<div class="pt-1">
+<label class="flex items-start gap-2.5 cursor-pointer select-none">
+<div class="relative flex items-center mt-0.5">
+<input checked="" class="w-4 h-4 rounded bg-surface-container-lowest border-outline-variant/60 text-primary-container focus:ring-0 focus:ring-offset-0 transition duration-150" id="terms" type="checkbox"/>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant leading-tight">
+                I agree to Creator OS <a class="text-primary hover:underline underline-offset-2" href="#">Terms of Service</a> and <a class="text-primary hover:underline underline-offset-2" href="#">Privacy Policy</a>
+</span>
+</label>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-2">
+<button class="w-full h-10 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container hover:brightness-110 text-white font-label-lg text-label-lg tracking-tight shadow-[0_0_20px_rgba(59,130,246,0.35)] transition-all duration-150 active:scale-[0.98] flex items-center justify-center gap-2 group" type="submit">
+<span>Create Account</span>
+<span class="material-symbols-outlined text-[18px] transition-transform duration-150 group-hover:translate-x-0.5">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Bottom Switcher Text -->
+<div class="mt-6 text-center text-body-sm font-body-sm text-on-surface-variant">
+          Already have an account? 
+          <a class="text-primary font-medium hover:underline underline-offset-4 ml-1" href="#">Sign in</a>
+</div>
+</div>
+</div>
+</main>
+<!-- Minimal Footer according to JSON Schema Blueprint -->
+<footer class="relative z-10 w-full py-6 px-6 max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-outline-variant/30 text-label-sm font-label-sm text-on-surface-variant">
+<div>
+<span>© 2025 Creator OS Inc. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-6">
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Privacy Policy</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Terms of Service</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Status</a>
+<a class="hover:text-on-surface transition-colors duration-150" href="#">Support</a>
+</div>
+</footer>
+<!-- Inline Script for Password Visibility Micro-interaction -->
+<script>
+    const toggleBtn = document.getElementById('togglePasswordBtn');
+    const pwdInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('eyeIcon');
+
+    if (toggleBtn && pwdInput && eyeIcon) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = pwdInput.type === 'password';
+        pwdInput.type = isPassword ? 'text' : 'password';
+        eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+  </script>
+</body></html>

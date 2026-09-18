@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Course Quiz, Rubric &amp; Certificate Designer Studio - Creator OS</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&amp;family=Playfair+Display:ital,wght@1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "surface-container-highest": "#35343a",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "outline": "#8c909f",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed-variant": "#004395",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "tertiary": "#4edea3",
+            "on-secondary-fixed": "#23005c",
+            "surface-container-high": "#2a292f",
+            "on-secondary": "#3c0091",
+            "on-surface": "#e4e1e9",
+            "surface-container": "#1f1f25",
+            "error-container": "#93000a",
+            "on-primary": "#002e6a",
+            "inverse-surface": "#e4e1e9",
+            "background": "#131318",
+            "surface-bright": "#39383e",
+            "primary-container": "#4d8eff",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary": "#003824",
+            "on-surface-variant": "#c2c6d6",
+            "primary-fixed": "#d8e2ff",
+            "inverse-primary": "#005ac2",
+            "tertiary-fixed": "#6ffbbe",
+            "surface": "#131318",
+            "on-tertiary-fixed": "#002113",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "tertiary-container": "#00a572",
+            "surface-container-low": "#1b1b20",
+            "surface-variant": "#35343a",
+            "surface-dim": "#131318",
+            "error": "#ffb4ab",
+            "primary": "#adc6ff",
+            "tertiary-fixed-dim": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "secondary-container": "#571bc1",
+            "on-secondary-container": "#c4abff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xs": "0.25rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .font-certificate { font-family: 'Cinzel', serif; }
+    .font-signature { font-family: 'Playfair Display', cursive; }
+    .guilloche-bg {
+      background-image: radial-gradient(circle at 50% 50%, rgba(218, 165, 32, 0.05) 0%, transparent 60%),
+                        radial-gradient(circle at 0% 0%, rgba(77, 142, 255, 0.04) 0%, transparent 50%),
+                        repeating-radial-gradient(rgba(218, 165, 32, 0.03) 0, rgba(218, 165, 32, 0.03) 2px, transparent 2px, transparent 16px);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.45);
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(139, 92, 246, 0.6);
+    }
+    .gold-shimmer {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border-image: linear-gradient(135deg, #BF953F, #FCF6BA, #AA771C, #5a3e10) 1;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md text-body-md antialiased min-w-[1440px] overflow-x-hidden selection:bg-primary selection:text-on-primary">
+<!-- TOP APP BAR -->
+<header class="sticky top-0 z-50 flex items-center justify-between h-14 px-gutter w-full bg-surface-container-low border-b border-outline-variant shadow-sm backdrop-blur-md">
+<!-- Left Cluster: Brand & Breadcrumb Search -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center shadow-[0_0_12px_rgba(77,142,255,0.4)]">
+<span class="material-symbols-outlined text-on-primary-container text-[20px]" data-icon="auto_fix_high">auto_fix_high</span>
+</span>
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<!-- Search Bar -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline" data-icon="search">search</span>
+<input class="w-full bg-[#12121A] border border-outline-variant rounded-lg pl-9 pr-3 py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-outline/60 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-150" placeholder="Search modules, rubrics, tokens..." type="text"/>
+</div>
+<!-- Global Navigation Links -->
+<nav class="flex items-center gap-6 ml-2">
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">Marketplace</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">Performance</a>
+<a class="text-on-surface-variant font-label-lg text-label-lg hover:text-on-surface hover:bg-surface-container-highest/50 px-2 py-1 rounded transition-colors duration-150" href="#">Cohorts</a>
+<a class="text-primary border-b-2 border-primary font-label-lg text-label-lg pb-1" href="#">Studio</a>
+</nav>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Tenant Switcher -->
+<button class="flex items-center gap-2 bg-[#181824] border border-outline-variant hover:border-primary/50 px-2.5 py-1.5 rounded-lg text-label-md font-label-md text-on-surface transition-all duration-150">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Elena Film School (US-East)</span>
+<span class="material-symbols-outlined text-[16px] text-outline" data-icon="unfold_more">unfold_more</span>
+</button>
+<!-- Primary Action -->
+<button class="flex items-center gap-1.5 btn-gradient px-3.5 py-1.5 rounded-lg text-label-md font-label-md text-white transition-all duration-150 active:scale-98">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Create New</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant mx-1"></div>
+<!-- Icon Actions -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Help">
+<span class="material-symbols-outlined text-[20px]" data-icon="help">help</span>
+</button>
+<button class="p-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150" title="Settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+<!-- Avatar -->
+<div class="w-8 h-8 rounded-full border border-primary/40 overflow-hidden ml-1">
+<img class="w-full h-full object-cover" data-alt="High-resolution circular portrait of instructor Elena Vance wearing dark minimalist studio attire with subtle cinematic warm key lighting in an editing suite, looking directly at the camera with confident professional poise." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHuh-74Ia-tGcwWEmwpy4M3UTj0y6AOZNlVlySB-SsiPZQk1FhfFTE7bk3CzrR2dWcON2m9B4HZwgX2UJN59CxH0nl4eB9bcjGYEmCsxjcouMPdBcL9nav4nDYUm89TyjC2Jcj7cXIdvh3mgSIZ5tiQXnHOMsrMICwa8KkEyRe1oE85yYxC1fPSngWlzf_0t-ld7rQkNTkZLcl6v1uhOwYvvfmsVizhCkbZ4HuHpy1p0Ed9PX-xRM6Ug"/>
+</div>
+</div>
+</header>
+<!-- SIDE NAVIGATION DOCKED LEFT -->
+<aside class="fixed top-14 left-0 bottom-0 w-64 flex flex-col justify-between p-space-md bg-surface-container-lowest border-r border-outline-variant z-40">
+<div>
+<!-- Workspace Brand & Header -->
+<div class="flex items-center gap-3 px-2 py-3 border-b border-outline-variant/60 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate">Studio Enterprise</span>
+<span class="text-body-sm font-body-sm text-outline truncate">Creator Production Suite</span>
+</div>
+</div>
+<!-- Nav Items -->
+<nav class="space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="storefront">storefront</span>
+<span>Marketplace Hub</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="analytics">analytics</span>
+<span>Listing Analytics</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+<span>Featured Showcase</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2.5 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="groups">groups</span>
+<span>Cohort Roster</span>
+</a>
+<a class="flex items-center gap-3 bg-surface-container text-primary border-l-2 border-primary font-label-md text-label-md px-3 py-2.5 rounded-r-lg transition-all duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span>Quiz &amp; Certificate Studio</span>
+</a>
+</nav>
+<!-- Quick CTA in Nav -->
+<div class="mt-8 px-2">
+<button class="w-full flex items-center justify-center gap-2 bg-[#181824] hover:bg-[#1E1E2E] border border-outline-variant hover:border-primary/40 text-on-surface py-2 rounded-lg text-label-md font-label-md transition-all duration-150">
+<span class="material-symbols-outlined text-[18px] text-tertiary" data-icon="publish">publish</span>
+<span>Publish Asset</span>
+</button>
+</div>
+</div>
+<!-- Footer Nav -->
+<div class="border-t border-outline-variant/60 pt-3 space-y-1">
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low font-label-md text-label-md px-3 py-2 rounded-lg transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+<span>Settings</span>
+</a>
+<div class="pt-2 px-3">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>CREATOR-OS v8.7.4</span>
+<span class="flex items-center gap-1 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+            Sync OK
+          </span>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN STUDIO CANVAS -->
+<main class="ml-64 pt-14 min-h-screen bg-[#0B0B11] flex flex-col">
+<!-- SUBHEADER WORKSPACE NAVIGATION -->
+<div class="px-8 pt-5 pb-0 bg-surface-container-lowest border-b border-outline-variant flex flex-col gap-4">
+<!-- Breadcrumb & Workflow Metadata -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2 text-label-md font-label-md text-outline">
+<span>Evaluation &amp; Credential Studio</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold bg-surface-container px-2.5 py-0.5 rounded border border-outline-variant/60 flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+              Color Mastery 2025
+            </span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 border border-primary/30 text-primary">ACES 1.3 Certified</span>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container-high text-outline">Draft v3.2</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="cloud_done">cloud_done</span>
+            Auto-saved 2m ago
+          </span>
+<button class="bg-[#181824] hover:bg-[#1E1E2E] border border-outline-variant text-on-surface px-3 py-1.5 rounded-lg text-label-md font-label-md flex items-center gap-1.5 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="history">history</span>
+            Version History
+          </button>
+<button class="btn-gradient text-white px-4 py-1.5 rounded-lg text-label-md font-label-md flex items-center gap-2 transition-all duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="rocket_launch">rocket_launch</span>
+            Publish Certificate Template &amp; Save Rules
+          </button>
+</div>
+</div>
+<!-- Studio Workflow Tabs -->
+<div class="flex items-center gap-8 border-t border-outline-variant/40 pt-1">
+<button class="flex items-center gap-2 py-3 px-1 text-on-surface-variant hover:text-on-surface text-label-lg font-label-lg border-b-2 border-transparent transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="quiz">quiz</span>
+<span>Quiz &amp; Knowledge Checks</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.2 rounded-full bg-surface-container-high text-outline">12 Qs</span>
+</button>
+<button class="flex items-center gap-2 py-3 px-1 text-on-surface-variant hover:text-on-surface text-label-lg font-label-lg border-b-2 border-transparent transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="table_chart">table_chart</span>
+<span>Grading Rubric Matrix</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.2 rounded-full bg-surface-container-high text-outline">3 Weighted</span>
+</button>
+<button class="flex items-center gap-2 py-3 px-1 text-primary text-label-lg font-label-lg border-b-2 border-primary font-semibold transition-all">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Verifiable Certificate Designer</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.2 rounded-full bg-primary/20 text-primary border border-primary/30">Active</span>
+</button>
+<button class="flex items-center gap-2 py-3 px-1 text-on-surface-variant hover:text-on-surface text-label-lg font-label-lg border-b-2 border-transparent transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="receipt_long">receipt_long</span>
+<span>Issuance Logs</span>
+<span class="ml-1 text-[11px] px-1.5 py-0.2 rounded-full bg-surface-container-high text-outline">48 Issued</span>
+</button>
+</div>
+</div>
+<!-- 3-COLUMN WORKSPACE: LEFT CUSTOMIZER | CENTER LIVE CANVAS | RIGHT INSPECTOR -->
+<div class="flex-1 grid grid-cols-12 gap-0 overflow-hidden h-[calc(100vh-124px)]">
+<!-- ==============================================
+           LEFT COLUMN: CERTIFICATE CUSTOMIZER (3 cols)
+      =============================================== -->
+<aside class="col-span-3 bg-[#101017] border-r border-outline-variant flex flex-col h-full overflow-y-auto custom-scrollbar p-5 space-y-6">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center justify-between">
+<span>Certificate Blueprint</span>
+<span class="text-label-sm font-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded border border-tertiary/20">SVG &amp; PDF Vector</span>
+</h2>
+<p class="text-body-sm font-body-sm text-outline mt-1">Configure layout geometry, dynamic tags, and forensic cryptographic watermarks.</p>
+</div>
+<!-- 1. Layout Template Selector -->
+<div class="space-y-2.5">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider flex items-center justify-between">
+<span>Layout Template</span>
+<span class="text-primary hover:underline cursor-pointer">Preview Grid</span>
+</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center gap-1.5 p-2.5 rounded-lg border-2 border-primary bg-surface-container-high/60 text-center transition-all">
+<span class="material-symbols-outlined text-primary text-[22px]" data-icon="aspect_ratio">aspect_ratio</span>
+<span class="text-[11px] font-medium text-on-surface">Executive Modern</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 p-2.5 rounded-lg border border-outline-variant bg-[#14141E] hover:border-outline text-center transition-all">
+<span class="material-symbols-outlined text-outline text-[22px]" data-icon="school">school</span>
+<span class="text-[11px] font-medium text-on-surface-variant">Classic Academic</span>
+</button>
+<button class="flex flex-col items-center gap-1.5 p-2.5 rounded-lg border border-outline-variant bg-[#14141E] hover:border-outline text-center transition-all">
+<span class="material-symbols-outlined text-outline text-[22px]" data-icon="blur_on">blur_on</span>
+<span class="text-[11px] font-medium text-on-surface-variant">Cyber Minimalist</span>
+</button>
+</div>
+</div>
+<!-- 2. Dynamic Token Tags (Drag and drop) -->
+<div class="space-y-2.5">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Dynamic Token Tags</label>
+<span class="text-label-sm font-label-sm text-outline">Drag to Canvas</span>
+</div>
+<p class="text-[11px] text-outline leading-tight">These tokens inject verified metadata directly into the vector certificate upon automated rubric validation.</p>
+<div class="flex flex-wrap gap-1.5 pt-1">
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="drag_indicator">drag_indicator</span>
+<span>{{student.name}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="drag_indicator">drag_indicator</span>
+<span>{{course.title}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="drag_indicator">drag_indicator</span>
+<span>{{cohort.id}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-primary" data-icon="drag_indicator">drag_indicator</span>
+<span>{{completion.date}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-secondary" data-icon="draw">draw</span>
+<span>{{instructor.signature}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-tertiary" data-icon="qr_code_2">qr_code_2</span>
+<span>{{verification.qr_code}}</span>
+</div>
+<div class="cursor-grab active:cursor-grabbing inline-flex items-center gap-1.5 px-2.5 py-1 bg-surface-container border border-outline-variant hover:border-primary/60 rounded-full text-label-sm font-label-sm text-on-surface transition-all" draggable="true">
+<span class="material-symbols-outlined text-[13px] text-primary-container" data-icon="enhanced_encryption">enhanced_encryption</span>
+<span>{{merkle.root_hash}}</span>
+</div>
+</div>
+</div>
+<!-- 3. Border Styling & Foil Watermark -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/50">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Border &amp; Foil Finish</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer border border-primary/80 bg-surface-container-high/40 rounded-lg p-2 flex flex-col items-center gap-1 text-center">
+<input checked="" class="hidden" name="foil" type="radio"/>
+<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-600 via-yellow-300 to-amber-500 shadow-md"></div>
+<span class="text-[11px] font-medium text-on-surface">Gold Metallic</span>
+</label>
+<label class="cursor-pointer border border-outline-variant hover:border-outline bg-[#14141E] rounded-lg p-2 flex flex-col items-center gap-1 text-center">
+<input class="hidden" name="foil" type="radio"/>
+<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-blue-500 via-teal-300 to-indigo-600"></div>
+<span class="text-[11px] font-medium text-on-surface-variant">Holo Cobalt</span>
+</label>
+<label class="cursor-pointer border border-outline-variant hover:border-outline bg-[#14141E] rounded-lg p-2 flex flex-col items-center gap-1 text-center">
+<input class="hidden" name="foil" type="radio"/>
+<div class="w-6 h-6 rounded-full bg-gradient-to-tr from-gray-400 via-slate-100 to-zinc-500"></div>
+<span class="text-[11px] font-medium text-on-surface-variant">Deep Platinum</span>
+</label>
+</div>
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-outline">Guilloche Pattern Opacity</span>
+<span class="text-on-surface font-semibold">18%</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer" max="100" min="0" type="range" value="18"/>
+</div>
+</div>
+<!-- 4. Issuer Signature Pad -->
+<div class="space-y-2 pt-2 border-t border-outline-variant/50">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Issuer Signature Pad</label>
+<span class="text-[11px] text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="check_circle">check_circle</span>
+              PGP Verified
+            </span>
+</div>
+<div class="border border-dashed border-outline-variant rounded-xl p-3 bg-[#14141E] flex flex-col items-center justify-center relative group">
+<div class="text-center font-signature text-2xl text-amber-200/90 tracking-wider rotate-[-2deg] my-1">
+              Elena Vance
+            </div>
+<div class="text-[11px] font-medium text-outline">Elena Vance, Lead Colorist &amp; Director</div>
+<div class="text-[9px] text-outline/60 font-mono">SHA-256: 8f9b...41e2 (Hardware Key Authenticated)</div>
+<div class="absolute inset-0 bg-[#0E0E13]/85 rounded-xl opacity-0 group-hover:opacity-100 flex items-center justify-center gap-2 transition-all">
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded border border-outline-variant">Re-sign</button>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface text-label-sm font-label-sm px-2.5 py-1 rounded border border-outline-variant">Replace Key</button>
+</div>
+</div>
+</div>
+<!-- 5. Passing Grade Threshold Requirement -->
+<div class="space-y-2.5 pt-2 border-t border-outline-variant/50">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Issuance Grade Gate</label>
+<div class="bg-[#14141E] border border-outline-variant rounded-lg p-3 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-body-sm font-body-sm text-on-surface">Min. Rubric Score</span>
+<span class="px-2 py-0.5 bg-primary/20 text-primary border border-primary/40 font-mono text-label-md font-label-md rounded">&gt;= 85%</span>
+</div>
+<input class="w-full accent-primary h-1.5 bg-surface-container-high rounded-lg appearance-none cursor-pointer" max="100" min="60" type="range" value="85"/>
+<div class="flex items-center gap-2 text-[11px] text-outline">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="info">info</span>
+<span>Enforces quiz score + instructor rubric average.</span>
+</div>
+</div>
+</div>
+<div class="pt-2">
+<button class="w-full py-2 bg-[#181824] hover:bg-[#1E1E2E] border border-outline-variant text-on-surface rounded-lg text-label-md font-label-md flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="settings_backup_restore">settings_backup_restore</span>
+<span>Reset to Default Layout</span>
+</button>
+</div>
+</aside>
+<!-- ==============================================
+           CENTER COLUMN: LIVE INTERACTIVE CANVASES (6 cols)
+      =============================================== -->
+<section class="col-span-6 bg-[#08080D] flex flex-col h-full border-r border-outline-variant relative overflow-hidden">
+<!-- Canvas Viewport Controls Bar -->
+<div class="h-12 px-6 border-b border-outline-variant/60 bg-[#0E0E14] flex items-center justify-between shrink-0">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="brush">brush</span>
+              Vector Render Preview (300 DPI Print / WebGL Display)
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex items-center bg-[#181824] rounded-lg border border-outline-variant px-1.5 py-0.5">
+<button class="p-1 text-outline hover:text-on-surface transition-colors" title="Zoom Out">
+<span class="material-symbols-outlined text-[16px]" data-icon="remove">remove</span>
+</button>
+<span class="text-label-sm font-label-sm text-on-surface px-2 font-mono">100%</span>
+<button class="p-1 text-outline hover:text-on-surface transition-colors" title="Zoom In">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+</button>
+</div>
+<button class="p-1.5 bg-[#181824] hover:bg-[#1E1E2E] text-outline hover:text-on-surface rounded border border-outline-variant transition-colors" title="Toggle Grid Overlay">
+<span class="material-symbols-outlined text-[16px]" data-icon="grid_4x4">grid_4x4</span>
+</button>
+<button class="p-1.5 bg-[#181824] hover:bg-[#1E1E2E] text-outline hover:text-on-surface rounded border border-outline-variant transition-colors" title="Inspect Fullscreen">
+<span class="material-symbols-outlined text-[16px]" data-icon="fullscreen">fullscreen</span>
+</button>
+<button class="flex items-center gap-1 px-2.5 py-1 bg-surface-container-high hover:bg-surface-bright border border-outline-variant text-label-sm font-label-sm text-on-surface rounded transition-colors">
+<span class="material-symbols-outlined text-[15px]" data-icon="file_download">file_download</span>
+              Export PDF
+            </button>
+</div>
+</div>
+<!-- Canvas Background Container -->
+<div class="flex-1 overflow-auto custom-scrollbar p-8 flex items-center justify-center bg-[radial-gradient(#181824_1px,transparent_1px)] [background-size:16px_16px]">
+<!-- LUXURY CERTIFICATE CARD PREVIEW (16:10 ratio) -->
+<div class="w-[660px] h-[440px] bg-[#0E0E16] rounded-2xl shadow-[0_24px_80px_-16px_rgba(0,0,0,0.95)] border-2 border-[#AA771C]/60 p-5 relative flex flex-col justify-between overflow-hidden group select-none transition-transform duration-300 hover:scale-[1.008]">
+<!-- Guilloche Pattern Overlay -->
+<div class="absolute inset-0 guilloche-bg pointer-events-none opacity-40"></div>
+<!-- Metallic Corner Accents -->
+<div class="absolute top-2 left-2 w-8 h-8 border-t-2 border-l-2 border-[#FCF6BA]"></div>
+<div class="absolute top-2 right-2 w-8 h-8 border-t-2 border-r-2 border-[#FCF6BA]"></div>
+<div class="absolute bottom-2 left-2 w-8 h-8 border-b-2 border-l-2 border-[#FCF6BA]"></div>
+<div class="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-[#FCF6BA]"></div>
+<!-- Double Inner Frame Border -->
+<div class="absolute inset-3 border border-[#AA771C]/30 rounded-xl pointer-events-none"></div>
+<div class="absolute inset-4 border border-[#FCF6BA]/15 rounded-lg pointer-events-none"></div>
+<!-- Header Section of Certificate -->
+<div class="relative z-10 text-center pt-2">
+<div class="flex items-center justify-center gap-2 mb-1">
+<span class="w-6 h-6 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-200 flex items-center justify-center text-[#0B0B11] font-bold text-xs shadow-[0_0_12px_rgba(251,245,183,0.6)]">
+                  C
+                </span>
+<span class="font-certificate tracking-[0.25em] text-xs text-amber-200/90 font-bold uppercase">Creator OS Master Registry</span>
+</div>
+<h1 class="font-certificate text-2xl font-bold tracking-[0.15em] text-white uppercase drop-shadow">Certificate of Distinguished Mastery</h1>
+<p class="text-[11px] text-outline-variant font-label-md tracking-wider uppercase mt-0.5 text-gray-400">Issued by The Academy of Motion Color Science</p>
+</div>
+<!-- Student Name Section (Hero) -->
+<div class="relative z-10 text-center my-auto py-2">
+<span class="text-[11px] uppercase tracking-[0.2em] text-[#C2C6D6] font-medium">This credential formally certifies that</span>
+<div class="relative inline-block mt-1">
+<h2 class="text-3xl font-certificate font-bold tracking-wide gold-shimmer uppercase px-6">
+                  Elena Vance
+                </h2>
+<div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-[#BF953F] to-transparent mx-auto mt-1"></div>
+</div>
+<p class="text-xs text-gray-300 max-w-md mx-auto mt-2 leading-relaxed font-serif italic">
+                has satisfied all rigorous performance criteria, thesis rubric standards, and laboratory grading for
+              </p>
+<h3 class="text-base font-semibold text-white tracking-wide mt-1 font-sans">
+                Mastery in Color Grading &amp; ACES Pipelines
+              </h3>
+<div class="inline-flex items-center gap-2 mt-1.5">
+<span class="px-2 py-0.5 bg-[#181824] border border-[#BF953F]/40 text-[#FCF6BA] text-[10px] font-mono rounded">Grade: 96.4% (Honors)</span>
+<span class="px-2 py-0.5 bg-[#181824] border border-outline-variant text-gray-300 text-[10px] font-mono rounded">Cohort: #ACES-2025-Q1</span>
+</div>
+</div>
+<!-- Footer: Crest, Signatures & Cryptographic Security Elements -->
+<div class="relative z-10 grid grid-cols-3 items-end pt-2 border-t border-outline-variant/40">
+<!-- Left: Instructor Signature -->
+<div class="text-left pl-2">
+<div class="font-signature text-xl text-amber-200/95 -mb-1">Elena Vance</div>
+<div class="w-32 h-[1px] bg-outline-variant mb-1"></div>
+<div class="text-[10px] font-semibold text-white tracking-wider">Elena Vance</div>
+<div class="text-[9px] text-outline">Lead Colorist &amp; Master Fellow</div>
+</div>
+<!-- Center: Embossed Creator OS Holographic Crest -->
+<div class="flex flex-col items-center justify-center pb-1">
+<div class="w-14 h-14 rounded-full bg-gradient-to-br from-[#BF953F] via-[#FCF6BA] to-[#AA771C] p-0.5 shadow-[0_0_18px_rgba(252,246,186,0.35)] flex items-center justify-center">
+<div class="w-full h-full rounded-full bg-[#0E0E16] flex flex-col items-center justify-center p-1 text-center border border-[#AA771C]/50">
+<span class="material-symbols-outlined text-amber-300 text-[20px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="text-[6px] tracking-[0.1em] text-amber-200 font-bold uppercase">VERIFIED</span>
+</div>
+</div>
+<span class="text-[8px] font-mono text-outline mt-1">DATE: 2025-05-18</span>
+</div>
+<!-- Right: Cryptographic QR Code & Merkle Root Hash -->
+<div class="flex items-end justify-end gap-2 pr-2">
+<div class="text-right">
+<div class="text-[9px] font-mono text-tertiary flex items-center justify-end gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                    ON-CHAIN
+                  </div>
+<div class="text-[8px] font-mono text-outline max-w-[110px] truncate" title="0x9f41cb83a9d201e74fa35b">
+                    HASH: 0x9f41...fa35b
+                  </div>
+<div class="text-[8px] text-gray-400">Scan to authenticate</div>
+</div>
+<!-- QR Code Box Simulation -->
+<div class="w-11 h-11 bg-white p-1 rounded-sm shadow-sm flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-black text-[34px] leading-none" data-icon="qr_code_2">qr_code_2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Live State Micro-Bar -->
+<div class="h-10 bg-[#12121A] border-t border-outline-variant px-6 flex items-center justify-between text-xs text-outline shrink-0">
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-primary" data-icon="check_circle">check_circle</span>
+              Dynamic Tokens Bound: 7/7
+            </span>
+<span>Dimensions: 3508 x 2480 px (A4 Landscape)</span>
+<span>Color Profile: Display P3 / Rec.709</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="code">code</span>
+              View SVG Code
+            </button>
+<span>|</span>
+<button class="hover:text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="refresh">refresh</span>
+              Reload Preview
+            </button>
+</div>
+</div>
+</section>
+<!-- ==============================================
+           RIGHT COLUMN: RUBRIC INSPECTOR & ISSUANCE RULES (3 cols)
+      =============================================== -->
+<aside class="col-span-3 bg-[#101017] flex flex-col h-full overflow-y-auto custom-scrollbar p-5 space-y-6">
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface flex items-center justify-between">
+<span>Rubric &amp; Rules</span>
+<span class="text-label-sm font-label-sm text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">Automated</span>
+</h2>
+<p class="text-body-sm font-body-sm text-outline mt-1">Define rigorous assessment weights and downstream credential syndication pipelines.</p>
+</div>
+<!-- 1. Grading Rubric Matrix Breakdown -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Evaluation Rubric Matrix</label>
+<span class="text-label-sm font-label-sm text-tertiary font-mono">100% Allocated</span>
+</div>
+<div class="space-y-2">
+<!-- Criterion 1: Technical Accuracy -->
+<div class="bg-[#14141E] border border-outline-variant hover:border-primary/40 rounded-xl p-3 space-y-2 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Technical Accuracy</span>
+</div>
+<span class="font-mono text-label-md font-label-md text-primary font-bold">40%</span>
+</div>
+<p class="text-[11px] text-outline leading-tight">Correct ACES IDT/ODT setup, linear exposure preservation, and clean waveform balance.</p>
+<div class="flex items-center justify-between text-[11px] pt-1 text-outline">
+<span>Quiz auto-score mapped</span>
+<span class="text-on-surface font-medium">Cap: 40 pts</span>
+</div>
+</div>
+<!-- Criterion 2: Color Harmony -->
+<div class="bg-[#14141E] border border-outline-variant hover:border-secondary/40 rounded-xl p-3 space-y-2 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Color Harmony</span>
+</div>
+<span class="font-mono text-label-md font-label-md text-secondary font-bold">30%</span>
+</div>
+<p class="text-[11px] text-outline leading-tight">Palette separation, memory color fidelity (skin tones), complementary contrast ratio.</p>
+<div class="flex items-center justify-between text-[11px] pt-1 text-outline">
+<span>Blind peer review avg</span>
+<span class="text-on-surface font-medium">Cap: 30 pts</span>
+</div>
+</div>
+<!-- Criterion 3: Delivery Specs -->
+<div class="bg-[#14141E] border border-outline-variant hover:border-tertiary/40 rounded-xl p-3 space-y-2 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="text-label-md font-label-md text-on-surface font-semibold">Delivery Specs</span>
+</div>
+<span class="font-mono text-label-md font-label-md text-tertiary font-bold">30%</span>
+</div>
+<p class="text-[11px] text-outline leading-tight">IMF container formatting, ProRes 4444 XQ metadata tags, zero clipping in Rec.2020.</p>
+<div class="flex items-center justify-between text-[11px] pt-1 text-outline">
+<span>Automated media analyzer</span>
+<span class="text-on-surface font-medium">Cap: 30 pts</span>
+</div>
+</div>
+</div>
+<button class="w-full py-1.5 border border-dashed border-outline-variant hover:border-outline text-outline hover:text-on-surface text-label-sm font-label-sm rounded-lg flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="add_circle">add_circle</span>
+<span>Add Grading Dimension</span>
+</button>
+</div>
+<!-- 2. Automatic Dispatch & Syndication Rules -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/50">
+<label class="text-label-sm font-label-sm text-on-surface uppercase tracking-wider">Automated Dispatch Rules</label>
+<div class="space-y-2.5">
+<!-- Badgr / Credly Toggle -->
+<div class="flex items-start justify-between p-3 bg-[#14141E] border border-outline-variant rounded-xl">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5" data-icon="sync_alt">sync_alt</span>
+<div>
+<div class="text-label-md font-label-md text-on-surface font-medium">Auto-sync to Badgr / Credly</div>
+<div class="text-[11px] text-outline">Publishes Open Badges v3.0 standard payload with verifiable issuer signing.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-2">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- PDF Email Dispatch -->
+<div class="flex items-start justify-between p-3 bg-[#14141E] border border-outline-variant rounded-xl">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5" data-icon="mark_email_read">mark_email_read</span>
+<div>
+<div class="text-label-md font-label-md text-on-surface font-medium">Dispatch Email with Signed PDF</div>
+<div class="text-[11px] text-outline">Transmits high-res vector PDF attachment and immutable verification link directly to graduate.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-2">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Webhook Trigger -->
+<div class="flex items-start justify-between p-3 bg-[#14141E] border border-outline-variant rounded-xl">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary text-[20px] mt-0.5" data-icon="webhook">webhook</span>
+<div>
+<div class="text-label-md font-label-md text-on-surface font-medium">Custom Webhook Event</div>
+<div class="text-[11px] text-outline">Triggers `credential.issued` event to external LMS, Discord role bot, or CRM.</div>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0 ml-2">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- 3. Final Call to Action -->
+<div class="pt-4 border-t border-outline-variant/50 space-y-2">
+<button class="w-full btn-gradient py-3 px-4 rounded-xl text-label-md font-label-md text-white font-semibold flex items-center justify-center gap-2 transition-all active:scale-98">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+<span>Publish Certificate Template &amp; Save Rules</span>
+</button>
+<p class="text-center text-[11px] text-outline">Changes apply instantly to active cohort #ACES-2025-Q1 graduates.</p>
+</div>
+</aside>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS - Certificate &amp; Achievement Showcase</title>
+<!-- Google Fonts: Inter & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@1,600;1,700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "on-tertiary": "#003824",
+            "on-tertiary-container": "#00311f",
+            "on-primary-fixed-variant": "#004395",
+            "outline": "#8c909f",
+            "secondary-container": "#571bc1",
+            "surface-tint": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-container-low": "#1b1b20",
+            "background": "#131318",
+            "on-secondary-container": "#c4abff",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-bright": "#39383e",
+            "surface-dim": "#131318",
+            "tertiary": "#4edea3",
+            "surface-container-high": "#2a292f",
+            "on-primary-container": "#00285d",
+            "inverse-on-surface": "#303036",
+            "inverse-primary": "#005ac2",
+            "primary-container": "#4d8eff",
+            "on-tertiary-fixed": "#002113",
+            "surface": "#131318",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "on-error": "#690005",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "on-surface": "#e4e1e9",
+            "surface-container-highest": "#35343a",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed": "#23005c",
+            "error-container": "#93000a",
+            "primary": "#adc6ff",
+            "surface-container-lowest": "#0e0e13",
+            "surface-variant": "#35343a",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "on-secondary": "#3c0091",
+            "error": "#ffb4ab",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary-fixed": "#001a42",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-surface-variant": "#c2c6d6",
+            "on-primary": "#002e6a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "signature": ["'Playfair Display'", "serif"],
+            "mono": ["'JetBrains Mono'", "monospace"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm-mobile": ["17px", { "lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .cert-radial-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.15) 0%, rgba(13, 13, 19, 0) 70%);
+    }
+    .holo-sheen {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(245, 158, 11, 0.04) 25%, rgba(110, 251, 190, 0.06) 50%, rgba(173, 198, 255, 0.08) 75%, rgba(255, 255, 255, 0.03) 100%);
+    }
+    .noise-pattern {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 0);
+      background-size: 16px 16px;
+    }
+    .gold-shimmer-border {
+      box-shadow: 0 0 20px -4px rgba(245, 158, 11, 0.22), inset 0 0 12px rgba(245, 158, 11, 0.05);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Container (390px canonical width constraint) -->
+<main class="w-full max-w-[390px] min-h-screen bg-surface-container-lowest flex flex-col relative pb-28 overflow-x-hidden border-x border-outline-variant/30">
+<!-- 1. iOS Status Bar -->
+<header class="w-full pt-3 px-6 pb-2 flex justify-between items-center text-on-surface text-label-sm font-label-sm tracking-tight z-50 select-none bg-surface/90 backdrop-blur-md">
+<span class="font-semibold text-on-surface tracking-normal">9:41</span>
+<div class="flex items-center space-x-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">signal_cellular_alt</span>
+<span class="text-[10px] font-bold tracking-wider">5G</span>
+<span class="material-symbols-outlined text-[17px] -rotate-90">battery_full</span>
+</div>
+</header>
+<!-- TopAppBar (from Shared Components JSON) -->
+<!-- Content: Certificate of Completion, leading: arrow_back, trailing: share -->
+<section class="bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline-variant flat no shadows docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center h-14 w-full px-4 max-w-md mx-auto">
+<button aria-label="Go Back" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform text-on-surface">
+<span class="material-symbols-outlined text-primary dark:text-primary text-[22px]">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<h1 class="text-headline-sm-mobile font-headline-sm-mobile text-on-surface dark:text-on-surface font-semibold tracking-tight">
+            Certificate of Completion
+          </h1>
+<span class="text-[11px] font-label-sm text-outline tracking-wide uppercase">Cinematography Masterclass 2026</span>
+</div>
+<button aria-label="Share Credential" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95 transition-transform text-on-surface">
+<span class="material-symbols-outlined text-primary dark:text-primary text-[22px]">share</span>
+</button>
+</div>
+</section>
+<!-- Scrollable Workspace Canvas Content -->
+<div class="px-4 pt-4 space-y-4 flex-1">
+<!-- 2. Celebration Hero Header Banner -->
+<section class="relative rounded-xl p-4 overflow-hidden border border-outline-variant/40 bg-surface-container cert-radial-glow">
+<div class="absolute -right-6 -top-6 w-28 h-28 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="absolute -left-6 -bottom-6 w-28 h-28 bg-tertiary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-center space-x-2 mb-2.5">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-amber-400 text-[14px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Course Completed • Honors Distinction</span>
+</div>
+</div>
+<h2 class="text-headline-md font-headline-md text-on-surface leading-tight tracking-tight mb-2">
+          Mastery in Advanced Cinematography &amp; Color Grading
+        </h2>
+<!-- Student Metas -->
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/30 text-label-md">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest border border-primary/40 flex items-center justify-center text-primary font-bold text-label-sm shadow-inner">
+              MK
+            </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface">Marcus Kane</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-bold bg-primary-container text-on-primary-container">PRO</span>
+</div>
+<p class="text-[11px] text-on-surface-variant">Cohort '25 • Oct 24, 2025</p>
+</div>
+</div>
+<!-- Cumulative Grade Seal -->
+<div class="flex flex-col items-end">
+<div class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary-container/30 border border-tertiary-fixed-dim/40 text-tertiary-fixed text-label-sm font-bold">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Score 94/100 (A+)</span>
+</div>
+<span class="text-[10px] text-outline font-mono mt-0.5">VERIFIED AUDIT</span>
+</div>
+</div>
+</section>
+<!-- 3. Interactive Digital Certificate Card (Centerpiece) -->
+<section class="relative rounded-xl border border-amber-500/40 bg-gradient-to-b from-surface-container-high via-surface-container to-surface-container-lowest p-5 shadow-2xl gold-shimmer-border overflow-hidden noise-pattern">
+<!-- Hologram Sheen Overlay -->
+<div class="absolute inset-0 holo-sheen pointer-events-none"></div>
+<!-- Corner Ornaments -->
+<div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-amber-400/50"></div>
+<div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-amber-400/50"></div>
+<div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-amber-400/50"></div>
+<div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-amber-400/50"></div>
+<!-- Certificate Header Crest -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-11 h-11 rounded-xl bg-surface-container-highest/80 border border-amber-400/40 flex items-center justify-center shadow-lg mb-2.5">
+<span class="material-symbols-outlined text-amber-400 text-[26px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<span class="text-[10px] tracking-[0.25em] font-bold text-amber-300/90 uppercase font-mono">Creator OS Certified Masterclass Credential</span>
+<div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-amber-400/60 to-transparent my-2"></div>
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">This is honorarily conferred to</p>
+</div>
+<!-- Recipient Name -->
+<div class="relative z-10 text-center py-2">
+<h3 class="text-[25px] leading-tight font-headline-lg font-bold tracking-tight text-on-surface bg-gradient-to-r from-on-surface via-primary-fixed to-amber-200 bg-clip-text text-transparent">
+            Marcus Kane
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 px-2 leading-relaxed">
+            for successful mastery in 48 Hours of Intensive Lab Curriculum &amp; Practicum: <span class="text-on-surface font-medium">Anamorphic Lighting, Arri LogC4 Workflows, and DaVinci Resolve Color Science</span>.
+          </p>
+</div>
+<!-- Dual Instructor Signatures -->
+<div class="relative z-10 grid grid-cols-2 gap-3 pt-4 my-2 border-t border-outline-variant/30">
+<div class="text-center">
+<div class="font-signature text-amber-200/90 text-lg italic tracking-wider h-7 flex items-center justify-center">
+              Sarah Lin
+            </div>
+<div class="w-24 h-px bg-outline-variant/60 mx-auto my-1"></div>
+<p class="text-[11px] font-semibold text-on-surface leading-none">Sarah Lin</p>
+<p class="text-[9px] text-outline tracking-tight">Lead DP &amp; Masterclass Instructor</p>
+</div>
+<div class="text-center">
+<div class="font-signature text-amber-200/90 text-lg italic tracking-wider h-7 flex items-center justify-center">
+              Alex Vance
+            </div>
+<div class="w-24 h-px bg-outline-variant/60 mx-auto my-1"></div>
+<p class="text-[11px] font-semibold text-on-surface leading-none">Alex Vance</p>
+<p class="text-[9px] text-outline tracking-tight">Creator OS CTO / Head of Academy</p>
+</div>
+</div>
+<!-- Cryptographic Ledger Footer -->
+<div class="relative z-10 mt-3 pt-3 border-t border-dashed border-outline-variant/40 bg-surface-container-lowest/60 rounded-lg p-2.5 flex items-center justify-between">
+<div class="space-y-1">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-tertiary-fixed text-[14px]" style="font-variation-settings: 'FILL' 1;">security</span>
+<span class="text-[10px] font-mono text-tertiary-fixed font-bold tracking-tight">VERIFIED ON-CHAIN PROOF</span>
+</div>
+<p class="text-[10px] font-mono text-on-surface-variant">ID: <span class="text-on-surface font-semibold">COS-CERT-2025-8849-MK</span></p>
+<p class="text-[9px] font-mono text-outline">Root: 0x7f8a3c91e5...3b219e4</p>
+</div>
+<!-- Micro QR Code Container -->
+<div class="w-12 h-12 bg-white p-1 rounded-md shadow flex flex-col items-center justify-center" title="Scan to verify signature">
+<div class="w-full h-full border border-surface-container-highest grid grid-cols-4 grid-rows-4 gap-0.5 p-0.5 bg-black">
+<div class="bg-white col-span-2 row-span-2"></div>
+<div class="bg-white col-span-1"></div>
+<div class="bg-white col-span-1 row-span-2"></div>
+<div class="bg-white col-span-1"></div>
+<div class="bg-white col-span-2 row-span-2"></div>
+<div class="bg-white col-span-1"></div>
+<div class="bg-white col-span-1"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Quick Social Share & Verification Trays -->
+<section class="space-y-2">
+<h4 class="text-label-sm font-label-sm text-outline tracking-wider uppercase px-1">Social Distribution &amp; Wallets</h4>
+<div class="grid grid-cols-3 gap-2">
+<!-- LinkedIn -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container border border-outline-variant/40 hover:border-primary transition-all active:scale-95 group">
+<div class="w-8 h-8 rounded-lg bg-[#0A66C2]/20 border border-[#0A66C2]/40 flex items-center justify-center text-[#70B5F9] mb-1.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[19px]">post_add</span>
+</div>
+<span class="text-[11px] font-label-sm text-on-surface font-medium">Add to LinkedIn</span>
+</button>
+<!-- Copy Link -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container border border-outline-variant/40 hover:border-primary transition-all active:scale-95 group" onclick="navigator.clipboard &amp;&amp; navigator.clipboard.writeText('https://verify.creator-os.network/cert/COS-CERT-2025-8849-MK')">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary mb-1.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[19px]">link</span>
+</div>
+<span class="text-[11px] font-label-sm text-on-surface font-medium">Copy Public URL</span>
+</button>
+<!-- Apple Wallet -->
+<button class="flex flex-col items-center justify-center p-2.5 rounded-xl bg-surface-container border border-outline-variant/40 hover:border-primary transition-all active:scale-95 group">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest border border-outline-variant flex items-center justify-center text-amber-300 mb-1.5 group-hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[19px]">wallet</span>
+</div>
+<span class="text-[11px] font-label-sm text-on-surface font-medium">Apple Wallet</span>
+</button>
+</div>
+</section>
+<!-- 5. Skills & Competencies Verified (Badges) -->
+<section class="bg-surface-container rounded-xl p-3.5 border border-outline-variant/40 space-y-2.5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface">Verified Competencies</h4>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary font-mono">5 / 5 ACCREDITED</span>
+</div>
+<div class="flex flex-wrap gap-1.5">
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">4:1 Key-to-Fill Contrast</span>
+<span class="text-outline text-[10px] ml-0.5">Mastered</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">Arri LogC4 Color Curves</span>
+<span class="text-outline text-[10px] ml-0.5">Mastered</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">DaVinci Resolve Node Graphs</span>
+<span class="text-outline text-[10px] ml-0.5">Mastered</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span class="text-on-surface">Anamorphic Lens Character</span>
+<span class="text-outline text-[10px] ml-0.5">Mastered</span>
+</div>
+<div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high border border-outline-variant/50 text-[11px]">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="text-on-surface">Opus Live Stage Critique</span>
+<span class="text-outline text-[10px] ml-0.5">Met</span>
+</div>
+</div>
+</section>
+<!-- 6. Cohort Performance & Analytics Bento Card -->
+<section class="bg-surface-container rounded-xl p-3.5 border border-outline-variant/40 space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">query_stats</span>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface">Cohort Performance Audit</h4>
+</div>
+<span class="text-[11px] text-outline font-mono">FALL 2025</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<!-- Rank -->
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30 flex flex-col">
+<span class="text-[10px] text-outline uppercase font-mono">Cohort Rank</span>
+<span class="text-headline-sm font-headline-sm text-primary mt-1 font-bold">Top 3%</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Rank #2 of 64</span>
+</div>
+<!-- Total Hours -->
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30 flex flex-col">
+<span class="text-[10px] text-outline uppercase font-mono">Logged</span>
+<span class="text-headline-sm font-headline-sm text-tertiary-fixed mt-1 font-bold">48.5h</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">100% Attended</span>
+</div>
+<!-- Assignments -->
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-outline-variant/30 flex flex-col">
+<span class="text-[10px] text-outline uppercase font-mono">Projects</span>
+<span class="text-headline-sm font-headline-sm text-secondary mt-1 font-bold">12/12</span>
+<span class="text-[10px] text-on-surface-variant mt-0.5">Passed Perfect</span>
+</div>
+</div>
+<!-- Instructor Praise Quote Snippet -->
+<div class="p-3 rounded-lg bg-surface-container-low/80 border-l-2 border-primary border-t border-r border-b border-outline-variant/30">
+<div class="flex items-center gap-1.5 mb-1">
+<span class="material-symbols-outlined text-amber-300 text-[14px]">format_quote</span>
+<span class="text-[11px] font-bold text-on-surface">Sarah Lin’s Practicum Critique:</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant italic pl-1 leading-snug">
+            “Marcus demonstrated exceptional mastery over dynamic range highlight roll-off and nuanced skin tone retention under high-contrast tungsten lighting.”
+          </p>
+</div>
+</section>
+</div>
+<!-- 7. BottomNavBar (From Shared Components JSON) -->
+<!-- Content: Download PDF, Transcript with icons: download, description -->
+<!-- JSON specified: destination_count: 2, labels: ["Download PDF", "Transcript"] -->
+<nav aria-label="Certificate Actions" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface-container dark:bg-surface-container border-t border-outline-variant dark:border-outline-variant shadow-lg dark:shadow-none">
+<div class="w-full max-w-[390px] mx-auto flex items-center justify-between gap-3">
+<!-- Download PDF (Active Destination mapping primary action) -->
+<button aria-label="Download PDF Certificate" class="flex-1 flex flex-col items-center justify-center bg-primary-container dark:bg-primary-container text-on-primary-container dark:text-on-primary-container rounded-xl px-5 py-1.5 hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors duration-150 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">download</span>
+<span class="text-label-sm font-label-sm font-semibold tracking-tight mt-0.5">Download PDF</span>
+</button>
+<!-- Transcript (Secondary Destination) -->
+<button aria-label="Academic Transcript" class="flex-1 flex flex-col items-center justify-center text-on-surface-variant dark:text-on-surface-variant px-5 py-1.5 rounded-xl hover:bg-surface-bright dark:hover:bg-surface-bright transition-colors duration-150 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">description</span>
+<span class="text-label-sm font-label-sm font-medium tracking-tight mt-0.5">Transcript</span>
+</button>
+</div>
+</nav>
+</main>
+</body></html>

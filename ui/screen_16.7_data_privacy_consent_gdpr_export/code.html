@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Data Privacy, Consent &amp; GDPR Export</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "secondary": "#d0bcff",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#003824",
+            "surface": "#131318",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed": "#001a42",
+            "on-surface-variant": "#c2c6d6",
+            "on-background": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "on-error": "#690005",
+            "secondary-container": "#571bc1",
+            "on-primary": "#002e6a",
+            "primary": "#adc6ff",
+            "tertiary": "#4edea3",
+            "error-container": "#93000a",
+            "background": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-surface": "#e4e1e9",
+            "outline": "#8c909f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 3px;
+    }
+    .glow-accent {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .obsidian-card {
+      background-color: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+  </style>
+</head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased flex h-screen overflow-hidden select-none">
+<!-- SHARED COMPONENT: SideNavBar (Desktop Sidebar) -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-low border-r border-outline-variant">
+<div class="flex flex-col h-full justify-between p-space-md">
+<!-- Header / Logo & Tenant Switcher -->
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between px-space-xs pt-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary-container shadow-md">
+<span class="material-symbols-outlined text-lg" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</h1>
+<span class="text-label-sm font-label-sm text-outline block -mt-1">Enterprise Suite</span>
+</div>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+</div>
+<!-- Tenant Workspace Selector (Acme Studios) -->
+<div class="bg-surface-container-lowest p-2 rounded-lg border border-outline-variant flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-2 overflow-hidden">
+<div class="w-6 h-6 rounded bg-secondary-container text-secondary flex items-center justify-center font-label-md font-bold text-xs">AS</div>
+<div class="truncate">
+<span class="text-label-md font-label-md text-on-surface font-semibold block truncate">Acme Studios</span>
+<span class="text-label-sm font-label-sm text-outline block">Production Tenant</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- CTA as mandated in JSON -->
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-primary border border-outline-variant hover:border-primary py-2 px-space-md rounded-lg flex items-center justify-center gap-2 text-label-md font-label-md transition-all duration-150">
+<span class="material-symbols-outlined text-sm" data-icon="rocket_launch">rocket_launch</span>
+<span>Deploy Project</span>
+</button>
+<!-- Navigation Tabs: Exact JSON labels & icons, Privacy & GDPR actively selected -->
+<nav class="flex flex-col gap-1 mt-space-sm">
+<div class="text-label-sm font-label-sm text-outline px-space-xs py-1 tracking-wider uppercase font-semibold">Workspace Settings</div>
+<!-- Tab 1: Overview -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="space_dashboard">space_dashboard</span>
+<span>Overview</span>
+</a>
+<!-- Tab 2: Security & Sessions -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="shield">shield</span>
+<span>Security &amp; Sessions</span>
+</a>
+<!-- Tab 3: Notifications -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+<span>Notifications</span>
+</a>
+<!-- Tab 4: Privacy & GDPR (ACTIVE) -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-primary bg-surface-container border-l-2 border-primary font-medium hover:bg-surface-container-high transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg text-primary" data-icon="privacy_tip">privacy_tip</span>
+<span>Privacy &amp; GDPR</span>
+</a>
+<!-- Tab 5: API & Integrations -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="webhook">webhook</span>
+<span>API &amp; Integrations</span>
+</a>
+</nav>
+</div>
+<!-- Footer navigation tabs from JSON -->
+<div class="flex flex-col gap-1 pt-space-md border-t border-outline-variant">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Right Primary Canvas Container -->
+<div class="ml-64 flex-1 flex flex-col h-screen overflow-hidden bg-[#0A0A0F]">
+<!-- SHARED COMPONENT: TopNavBar (Utility Header) -->
+<header class="sticky top-0 right-0 w-full h-14 z-20 bg-surface border-b border-outline-variant flex items-center justify-between px-space-lg">
+<!-- Left search & Breadcrumbs -->
+<div class="flex items-center gap-space-lg">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg pl-9 pr-3 py-1.5 text-body-sm font-body-sm text-on-surface placeholder-outline focus:outline-none focus:border-primary transition-colors" placeholder="Search compliance &amp; logs..." type="text"/>
+</div>
+<nav class="hidden md:flex items-center gap-2 text-label-md font-label-md text-outline">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Settings</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Compliance &amp; Legal</span>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Data Privacy &amp; GDPR</span>
+</nav>
+</div>
+<!-- Navigation Links from JSON & Compliance Badge & Actions -->
+<div class="flex items-center gap-space-md">
+<!-- Live Regulatory Engine Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>GDPR &amp; CCPA Certified Engine</span>
+</div>
+<!-- Links from JSON -->
+<div class="hidden lg:flex items-center gap-4 text-label-md font-label-md border-r border-outline-variant pr-space-md text-on-surface-variant">
+<a class="hover:text-on-surface transition-colors" href="#">Docs</a>
+<a class="hover:text-on-surface transition-colors" href="#">API Status</a>
+<a class="hover:text-on-surface transition-colors" href="#">Help</a>
+</div>
+<!-- Trailing actions: Switch Org, Upgrade Plan, Profile Avatar -->
+<div class="flex items-center gap-2">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant px-3 py-1.5 rounded-lg text-label-md font-label-md transition-colors">
+            Switch Org
+          </button>
+<button class="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:brightness-110 text-white font-label-md font-label-md px-3.5 py-1.5 rounded-lg shadow-sm glow-accent transition-all">
+            Upgrade Plan
+          </button>
+<div class="flex items-center gap-1 border-l border-outline-variant pl-space-sm ml-space-xs">
+<button class="p-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface-container rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full border border-primary/40 overflow-hidden ml-1 p-0.5 bg-surface-container">
+<img class="w-full h-full object-cover rounded-full" data-alt="A polished studio portrait of a digital workspace manager with subtle blue-purple ambient lighting in a sleek obsidian tech office environment. Sharp focus, professional minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSRwSLrMSM3XdatmJYRNFcXlGttglmWN0wvNsTuqSfu2duGZwtHBIDAeFPSn7IXbSf4u1RHpExDwNk4yL3e6t5Ak_teQZ2UKBdHsY1hUPv_AqFoDFd-a5ybztLUrscsoY8DSzIqUWOIe09PLFrw8G9feG3AmdewAsrh8wnEmKB8m6FRXgJErE1zA7EHPepr7JFVEQ_w2LQUINEtnBGMyv69VsM4STuoeTQT1a1CrV13f5ZC28QfW-Hjg"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Scrollable Content Canvas -->
+<main class="flex-1 overflow-y-auto custom-scrollbar p-space-lg space-y-space-lg">
+<!-- Studio Header -->
+<section class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant pb-space-lg">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="policy">policy</span>
+<h1 class="text-headline-lg font-headline-lg text-on-surface font-bold tracking-tight">Data Privacy, Consent &amp; Compliance Studio</h1>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-4xl">
+            Manage subscriber consent frameworks, subject access requests (SAR), automated data retention policies, and complete archive exports.
+          </p>
+</div>
+<div class="flex items-center gap-3 self-start md:self-auto">
+<div class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="verified_user">verified_user</span>
+<span>DPO Audited: Oct 2026</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid Primary Canvas -->
+<div class="grid grid-cols-12 gap-space-lg">
+<!-- SECTION 1: Customer Data Export & Portability (GDPR Article 20) (8 cols) -->
+<section class="col-span-12 lg:col-span-8 obsidian-card rounded-xl p-space-lg space-y-space-lg shadow-xl">
+<div class="flex items-start justify-between border-b border-outline-variant pb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">Article 20 Compliance</span>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Customer Data Export &amp; Portability</h2>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Generate verified, cryptographically signed customer data archives for external portability.</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="cloud_download">cloud_download</span>
+</div>
+<!-- Export Configuration -->
+<div class="space-y-space-md">
+<div>
+<label class="text-label-md font-label-md text-on-surface font-medium block mb-2">1. Select Data Scope Entities</label>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5">
+<label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 cursor-pointer transition-colors">
+<input checked="" class="rounded border-outline bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Contacts &amp; CRM Dossiers</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 cursor-pointer transition-colors">
+<input checked="" class="rounded border-outline bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Order &amp; Invoicing Ledger</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 cursor-pointer transition-colors">
+<input checked="" class="rounded border-outline bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Course Progress &amp; Submissions</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 cursor-pointer transition-colors">
+<input checked="" class="rounded border-outline bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Community Posts &amp; Chat</span>
+</label>
+<label class="flex items-center gap-2.5 p-2.5 rounded-lg bg-surface-container-low border border-outline-variant hover:border-primary/50 cursor-pointer transition-colors">
+<input class="rounded border-outline bg-surface-container text-primary-container focus:ring-0 focus:ring-offset-0" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">AI Prompt Logs</span>
+</label>
+<div class="flex items-center justify-center p-2 rounded-lg bg-surface-container-lowest border border-dashed border-outline-variant text-label-sm font-label-sm text-outline">
+<span>+ All Custom Schemas Included</span>
+</div>
+</div>
+</div>
+<!-- Format Selector & Security Options -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div>
+<label class="text-label-md font-label-md text-on-surface font-medium block mb-2">2. Archive Export Format</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center py-2.5 px-2 rounded-lg bg-primary-container/15 border border-primary text-on-surface font-label-md font-label-md transition-all">
+<span class="text-xs text-primary font-bold">JSON</span>
+<span class="text-label-sm font-label-sm text-outline">API-Ready</span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 px-2 rounded-lg bg-surface-container-low border border-outline-variant hover:border-outline text-on-surface font-label-md font-label-md transition-all">
+<span class="text-xs font-semibold">CSV</span>
+<span class="text-label-sm font-label-sm text-outline">Spreadsheet</span>
+</button>
+<button class="flex flex-col items-center justify-center py-2.5 px-2 rounded-lg bg-surface-container-low border border-outline-variant hover:border-outline text-on-surface font-label-md font-label-md transition-all">
+<span class="text-xs font-semibold">ZIP Bundle</span>
+<span class="text-label-sm font-label-sm text-outline">Complete Raw</span>
+</button>
+</div>
+</div>
+<div>
+<label class="text-label-md font-label-md text-on-surface font-medium block mb-2">3. Archive Cryptographic Shield</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2 text-outline text-base" data-icon="lock">lock</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-md pl-9 pr-3 py-1.5 text-body-sm font-body-sm text-on-surface focus:border-[#3B82F6] focus:outline-none" type="password" value="••••••••••••••••"/>
+</div>
+<div class="flex items-center gap-1.5 mt-1.5 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span>
+<span>Enforced with SHA-256 integrity hash verification</span>
+</div>
+</div>
+</div>
+<!-- Big CTA -->
+<button class="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:brightness-105 active:scale-[0.99] text-white font-label-lg font-label-lg font-semibold flex items-center justify-center gap-2 shadow-lg glow-accent transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="bolt">bolt</span>
+<span>⚡ Request Full Workspace Archive (Ready in ~15 mins)</span>
+</button>
+</div>
+<!-- Past Archive Downloads Table -->
+<div class="pt-space-sm">
+<h3 class="text-label-md font-label-md font-semibold text-on-surface uppercase tracking-wider text-outline mb-3">Past Archive Downloads</h3>
+<div class="overflow-x-auto rounded-lg border border-outline-variant">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container-lowest text-outline text-label-sm font-label-sm uppercase border-b border-outline-variant">
+<tr>
+<th class="px-4 py-2.5">File Name &amp; Scope</th>
+<th class="px-4 py-2.5">Archive Size</th>
+<th class="px-4 py-2.5">Generated Timestamp</th>
+<th class="px-4 py-2.5">Availability</th>
+<th class="px-4 py-2.5 text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-[#12121A]">
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-primary font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-outline" data-icon="folder_zip">folder_zip</span>
+                      archive_full_q3_2026.zip
+                    </td>
+<td class="px-4 py-3 text-on-surface-variant">1.84 GB</td>
+<td class="px-4 py-3 text-on-surface-variant">Oct 1, 2026</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container/30 text-error border border-error/30">Expires in 4 days</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="px-3 py-1 rounded bg-surface-container border border-outline-variant hover:border-primary text-primary text-label-sm font-label-sm transition-all inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+<span>Download (ZIP)</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-primary font-medium flex items-center gap-2">
+<span class="material-symbols-outlined text-base text-outline" data-icon="table_chart">table_chart</span>
+                      crm_contacts_gdpr_export.csv
+                    </td>
+<td class="px-4 py-3 text-on-surface-variant">42.1 MB</td>
+<td class="px-4 py-3 text-on-surface-variant">Sep 15, 2026</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-surface-container text-outline">Permanent Log</span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="px-3 py-1 rounded bg-surface-container border border-outline-variant hover:border-primary text-primary text-label-sm font-label-sm transition-all inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs" data-icon="download">download</span>
+<span>Download (CSV)</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- SECTION 3: Cookie Banner & Consent Framework (4 cols) -->
+<section class="col-span-12 lg:col-span-4 obsidian-card rounded-xl p-space-lg space-y-space-md shadow-xl flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between border-b border-outline-variant pb-space-md">
+<div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-secondary/15 text-secondary border border-secondary/30">ePrivacy Directive</span>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface mt-1">Cookie &amp; Consent Framework</h2>
+<p class="text-body-sm font-body-sm text-outline">Front-facing storefront tracking and visitor compliance controls.</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="cookie">cookie</span>
+</div>
+<!-- Master Toggle -->
+<div class="p-3 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-between">
+<div class="pr-2">
+<span class="text-body-sm font-body-sm font-semibold text-on-surface block">Enable Geolocation Banner</span>
+<span class="text-label-sm font-label-sm text-outline block">Auto-detects EU/UK visitors for mandatory consent prompts.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</label>
+</div>
+<!-- Default Consent Mode Selector -->
+<div>
+<label class="text-label-md font-label-md text-on-surface font-medium block mb-2">Default Enforcement Mode</label>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-2.5 rounded-lg border border-primary bg-primary/5 cursor-pointer">
+<div class="flex items-center gap-2">
+<input checked="" class="text-primary focus:ring-0" name="consent_mode" type="radio"/>
+<div>
+<span class="text-body-sm font-body-sm text-on-surface font-semibold block">Strict Opt-In (EU/UK/CA)</span>
+<span class="text-label-sm font-label-sm text-outline block">Zero trackers fire before explicit confirmation.</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="gavel">gavel</span>
+</label>
+<label class="flex items-center justify-between p-2.5 rounded-lg border border-outline-variant hover:border-outline cursor-pointer bg-surface-container-low">
+<div class="flex items-center gap-2">
+<input class="text-primary focus:ring-0" name="consent_mode" type="radio"/>
+<div>
+<span class="text-body-sm font-body-sm text-on-surface font-medium block">Notice with Opt-Out (US/Global)</span>
+<span class="text-label-sm font-label-sm text-outline block">Compliant with CCPA / VCDPA standard guidelines.</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="public">public</span>
+</label>
+</div>
+</div>
+<!-- Cookie Categories -->
+<div>
+<label class="text-label-md font-label-md text-on-surface font-medium block mb-2">Granular Category Status</label>
+<div class="space-y-2">
+<!-- Essential -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="lock">lock</span>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Essential Cookies</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline bg-surface px-2 py-0.5 rounded border border-outline-variant">Locked Active</span>
+</div>
+<!-- Performance -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-base" data-icon="monitoring">monitoring</span>
+<span class="text-body-sm font-body-sm text-on-surface font-medium">Performance &amp; Analytics</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary bg-tertiary/10 px-2 py-0.5 rounded border border-tertiary/20">Active</span>
+</div>
+<!-- Marketing -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low border border-outline-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-base" data-icon="campaign">campaign</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Marketing &amp; Retargeting</span>
+</div>
+<span class="text-label-sm font-label-sm text-outline bg-surface px-2 py-0.5 rounded border border-outline-variant">Inactive</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-lowest border border-outline-variant/60 text-label-sm font-label-sm text-outline flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="info">info</span>
+<span>Banner changes deploy automatically via Edge CDN caches.</span>
+</div>
+</section>
+<!-- SECTION 2: Right to Be Forgotten & Subject Access Requests (SAR) (7 cols) -->
+<section class="col-span-12 lg:col-span-7 obsidian-card rounded-xl p-space-lg space-y-space-md shadow-xl">
+<div class="flex items-start justify-between border-b border-outline-variant pb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container/30 text-error border border-error/30">Article 17 &amp; 15</span>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Right to Be Forgotten &amp; Subject Access Requests (SAR)</h2>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-0.5">Audit, approve, or execute complete user identity expungement protocols.</p>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="delete_sweep">delete_sweep</span>
+</div>
+<!-- Lookup Search -->
+<div class="flex gap-2">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-lg" data-icon="person_search">person_search</span>
+<input class="w-full bg-[#12121A] border border-[#1E1E2E] rounded-lg pl-9 pr-3 py-2 text-body-sm font-body-sm text-on-surface placeholder-outline focus:border-primary focus:outline-none" placeholder="Look up contact email (e.g. user@domain.com) or UUID for GDPR erasure..." type="text"/>
+</div>
+<button class="px-4 py-2 bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface text-label-md font-label-md rounded-lg flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="search">search</span>
+<span>Find Subject</span>
+</button>
+</div>
+<!-- SAR Queue Table -->
+<div class="overflow-x-auto rounded-lg border border-outline-variant">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead class="bg-surface-container-lowest text-outline text-label-sm font-label-sm uppercase border-b border-outline-variant">
+<tr>
+<th class="px-4 py-2.5">Request ID</th>
+<th class="px-4 py-2.5">Data Subject</th>
+<th class="px-4 py-2.5">Action Type</th>
+<th class="px-4 py-2.5">Status &amp; Timeline</th>
+<th class="px-4 py-2.5 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-[#12121A]">
+<!-- Item 1: Elena Rostova -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-primary font-semibold">#SAR-1048</td>
+<td class="px-4 py-3">
+<span class="text-on-surface font-medium block">elena.rostova@soundcraft.de</span>
+<span class="text-label-sm font-label-sm text-outline">Submitted 2 days ago</span>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-error-container/20 text-error border border-error/30 font-medium">Full Data Erasure</span>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary-fixed-dim">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed-dim"></span>
+                      Pending 30-day Grace Period
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<div class="flex items-center justify-end gap-1.5">
+<button class="px-2.5 py-1 rounded bg-error-container/30 hover:bg-error-container text-error border border-error/40 text-label-sm font-label-sm transition-colors">
+                        Execute Deletion
+                      </button>
+<button class="px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface text-label-sm font-label-sm transition-colors">
+                        Audit Details
+                      </button>
+</div>
+</td>
+</tr>
+<!-- Item 2: David Kalu -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="px-4 py-3 font-mono text-xs text-primary font-semibold">#SAR-1042</td>
+<td class="px-4 py-3">
+<span class="text-on-surface font-medium block">david.kalu@archlight.agency</span>
+<span class="text-label-sm font-label-sm text-outline">Processed Sep 28</span>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20 font-medium">Personal Data Export</span>
+</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Completed
+                    </span>
+</td>
+<td class="px-4 py-3 text-right">
+<button class="px-2.5 py-1 rounded bg-surface-container border border-outline-variant hover:border-primary text-on-surface text-label-sm font-label-sm transition-all inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="description">description</span>
+<span>Download Log</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- SECTION 4: Automated Data Retention Lifecycle (5 cols) -->
+<section class="col-span-12 lg:col-span-5 obsidian-card rounded-xl p-space-lg space-y-space-md shadow-xl flex flex-col justify-between">
+<div class="space-y-space-md">
+<div class="flex items-start justify-between border-b border-outline-variant pb-space-md">
+<div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-tertiary/10 text-tertiary border border-tertiary/20">Retention Engine</span>
+<h2 class="text-headline-sm font-headline-sm font-semibold text-on-surface mt-1">Automated Retention Lifecycle</h2>
+<p class="text-body-sm font-body-sm text-outline">Configure automated pseudonymization &amp; purge triggers.</p>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="history_toggle_off">history_toggle_off</span>
+</div>
+<!-- Retention Rules Controls -->
+<div class="space-y-4">
+<!-- Slider 1: Inactive Contacts -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="text-on-surface font-medium">Inactive Contact Anonymization</span>
+<span class="text-primary font-mono text-xs font-semibold">24 months</span>
+</div>
+<input class="w-full accent-[#3B82F6] bg-surface-variant rounded h-1.5 cursor-pointer" max="48" min="6" type="range" value="24"/>
+<div class="flex justify-between text-label-sm font-label-sm text-outline">
+<span>6 mos</span>
+<span>Anonymize inactive leads after 24 months</span>
+<span>48 mos</span>
+</div>
+</div>
+<!-- Rule 2: AI Conversations -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<div>
+<div class="text-body-sm font-body-sm font-semibold text-on-surface">AI Conversation Logs Retention</div>
+<div class="text-label-sm font-label-sm text-outline">Retain prompt inputs for 90 days</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container border border-outline-variant text-label-sm font-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+<span>90 Days</span>
+</div>
+</div>
+<!-- Rule 3: Server Audit Logs -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant flex items-center justify-between">
+<div>
+<div class="text-body-sm font-body-sm font-semibold text-on-surface">Immutable Server Audit Logs</div>
+<div class="text-label-sm font-label-sm text-outline">Retained 365 days (Enterprise SOC-2 policy)</div>
+</div>
+<div class="flex items-center gap-1 px-2 py-0.5 rounded bg-tertiary/10 border border-tertiary/30 text-tertiary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="lock_clock">lock_clock</span>
+<span>SOC-2 Locked</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom compliance statement -->
+<div class="pt-2 border-t border-outline-variant/60 flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>Automated Cron: Daily at 02:00 UTC</span>
+<span class="text-tertiary flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Service Active
+            </span>
+</div>
+</section>
+</div>
+<!-- Bottom Sticky Action Bar -->
+<footer class="sticky bottom-0 z-20 -mx-space-lg -mb-space-lg px-space-lg py-3.5 bg-surface/90 backdrop-blur-md border-t border-outline-variant flex items-center justify-between shadow-2xl">
+<div class="flex items-center gap-3">
+<div class="w-2 h-2 rounded-full bg-tertiary animate-ping"></div>
+<span class="text-body-sm font-body-sm text-on-surface-variant">
+            Workspace Policy Hash: <span class="font-mono text-xs text-primary font-semibold">SHA256: 7f83b165...e2a8</span> (Last synced 3m ago)
+          </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high text-label-md font-label-md transition-colors">
+            Discard Unsaved Revisions
+          </button>
+<!-- Gradient Save Button as requested -->
+<button class="px-6 py-2 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:brightness-110 active:scale-[0.98] text-white font-label-md font-label-md font-semibold flex items-center gap-2 shadow-lg glow-accent transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="save">save</span>
+<span>Save Privacy Policies</span>
+</button>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

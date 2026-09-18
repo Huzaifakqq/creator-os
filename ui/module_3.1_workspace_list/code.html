@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Workspaces</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed": "#6ffbbe",
+            "surface-tint": "#adc6ff",
+            "error": "#ffb4ab",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary": "#002e6a",
+            "on-tertiary-container": "#00311f",
+            "surface-container": "#1f1f25",
+            "tertiary-container": "#00a572",
+            "surface-bright": "#39383e",
+            "error-container": "#93000a",
+            "primary-container": "#4d8eff",
+            "on-secondary-fixed-variant": "#5516be",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "background": "#131318",
+            "tertiary": "#4edea3",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "on-background": "#e4e1e9",
+            "on-secondary-fixed": "#23005c",
+            "secondary-fixed-dim": "#d0bcff",
+            "outline": "#8c909f",
+            "primary": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "secondary-fixed": "#e9ddff",
+            "inverse-primary": "#005ac2",
+            "on-surface-variant": "#c2c6d6",
+            "secondary-container": "#571bc1",
+            "on-surface": "#e4e1e9",
+            "on-error-container": "#ffdad6",
+            "outline-variant": "#424754",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-container-highest": "#35343a",
+            "secondary": "#d0bcff",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "on-tertiary": "#003824",
+            "on-secondary": "#3c0091",
+            "surface-dim": "#131318",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#1b1b20",
+            "surface": "#131318",
+            "on-primary-fixed-variant": "#004395"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "2rem",
+            "space-md": "1rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .ambient-glow-primary {
+      box-shadow: 0 0 24px -4px rgba(77, 142, 255, 0.35);
+    }
+    .ambient-glow-purple {
+      box-shadow: 0 0 20px -2px rgba(139, 92, 246, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- ================= SIDE NAVIGATION BAR ================= -->
+<aside aria-label="Main Navigation" class="fixed top-0 left-0 h-screen w-64 flex flex-col z-40 border-r border-outline-variant bg-surface shadow-none">
+<div class="w-64 h-full flex flex-col justify-between p-4 bg-surface">
+<!-- Top Brand & Header Section -->
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-2 py-1">
+<div aria-label="Acme Studios Workspace Logo" class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant flex items-center justify-center font-headline-sm text-headline-sm font-bold text-primary shadow-sm">
+            AS
+          </div>
+<div class="flex flex-col overflow-hidden">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight truncate">Creator OS</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Acme Studios</span>
+</div>
+</div>
+<!-- Create Action CTA -->
+<button class="w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium shadow-sm hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          New Project
+        </button>
+<!-- Navigation Tabs Cluster -->
+<nav aria-label="Workspace Destinations" class="flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-280px)] custom-scrollbar pr-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<!-- 2. Workspaces (ACTIVE TAB) -->
+<a aria-current="page" class="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-medium active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">folder_shared</span>
+<span class="font-label-md text-label-md">Workspaces</span>
+</a>
+<!-- 3. Website Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">web</span>
+<span class="font-label-md text-label-md">Website Builder</span>
+</a>
+<!-- 4. App Builder -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">developer_mode</span>
+<span class="font-label-md text-label-md">App Builder</span>
+</a>
+<!-- 5. Commerce -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+<span class="font-label-md text-label-md">Commerce</span>
+</a>
+<!-- 6. Marketplace -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">storefront</span>
+<span class="font-label-md text-label-md">Marketplace</span>
+</a>
+<!-- 7. Courses -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">school</span>
+<span class="font-label-md text-label-md">Courses</span>
+</a>
+<!-- 8. Memberships -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span class="font-label-md text-label-md">Memberships</span>
+</a>
+<!-- 9. Coaching -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_kabaddi</span>
+<span class="font-label-md text-label-md">Coaching</span>
+</a>
+<!-- 10. CRM -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">contact_page</span>
+<span class="font-label-md text-label-md">CRM</span>
+</a>
+<!-- 11. Email -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span class="font-label-md text-label-md">Email</span>
+</a>
+<!-- 12. AI Agents -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span>
+<span class="font-label-md text-label-md">AI Agents</span>
+</a>
+<!-- 13. Analytics -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<!-- 14. Affiliates -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">handshake</span>
+<span class="font-label-md text-label-md">Affiliates</span>
+</a>
+<!-- 15. Settings -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+</div>
+<!-- SideNav Footer Utilities -->
+<div class="pt-3 border-t border-outline-variant flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="font-label-md text-label-md">Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">support</span>
+<span class="font-label-md text-label-md">Help Center</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- ================= TOP NAVIGATION BAR ================= -->
+<header class="sticky top-0 right-0 h-14 z-30 border-b border-outline-variant shadow-none w-full flex items-center justify-between px-6 pl-70 bg-surface">
+<!-- Left: Search Bar -->
+<div class="flex items-center gap-4 flex-1 max-w-md">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-[38px] pl-9 pr-4 rounded-md bg-surface-container-low border border-outline-variant text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search resources, workspaces, domains..." type="text"/>
+<span class="absolute right-2.5 top-1/2 -translate-y-1/2 font-label-sm text-label-sm text-outline border border-outline-variant px-1.5 py-0.5 rounded bg-surface">⌘K</span>
+</div>
+</div>
+<!-- Right: Secondary Action & Trailing Cluster -->
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">help_outline</span>
+        Quick Help
+      </button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<!-- Notification Action -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 relative active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<!-- Help Action -->
+<button class="w-9 h-9 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<!-- User Profile -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant">
+<div aria-label="Huzaifa Khan Avatar HK" class="w-8 h-8 rounded-full bg-gradient-to-tr from-secondary-container to-primary-container text-white font-label-md text-label-md font-bold flex items-center justify-center ring-1 ring-outline-variant">
+          HK
+        </div>
+<div class="hidden lg:flex flex-col text-left">
+<span class="font-label-md text-label-md font-medium text-on-surface leading-tight">Huzaifa Khan</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant leading-tight">Admin &amp; Owner</span>
+</div>
+</div>
+</div>
+</header>
+<!-- ================= MAIN WORKSPACE CANVAS ================= -->
+<main class="ml-64 flex-1 flex flex-col p-8 space-y-6 max-w-[1440px]">
+<!-- Breadcrumbs Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Dashboard</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span aria-current="location" class="text-on-surface font-medium">Workspaces</span>
+</nav>
+<!-- Header Section with Controls -->
+<section class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-2 border-b border-outline-variant">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Workspaces</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Switch between client accounts, creative studios, and multi-tenant environments.
+        </p>
+</div>
+<!-- Controls & Primary Action -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Search filter input -->
+<div class="relative min-w-[240px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">filter_list</span>
+<input class="w-full h-[38px] pl-9 pr-3 rounded-lg bg-surface-container-low border border-outline-variant text-on-surface placeholder:text-outline font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container" placeholder="Filter workspaces..." type="text"/>
+</div>
+<!-- View Toggle (Grid / List) -->
+<div class="flex items-center bg-surface-container-low p-0.5 rounded-lg border border-outline-variant">
+<button class="flex items-center justify-center p-1.5 rounded-md bg-surface-container-high text-primary shadow-sm" title="Grid View">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button class="flex items-center justify-center p-1.5 rounded-md text-on-surface-variant hover:text-on-surface transition-colors" title="List View">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+<!-- Create Workspace Primary Button -->
+<button class="flex items-center gap-2 px-4 h-[40px] rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg text-label-lg font-medium shadow-md ambient-glow-primary hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[20px]">add</span>
+          + Create Workspace
+        </button>
+</div>
+</section>
+<!-- ================= WORKSPACE CARDS GRID ================= -->
+<section aria-label="Workspace Grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 (Active): Acme Studios -->
+<article class="relative rounded-xl border border-primary/40 bg-[#12121A] p-6 flex flex-col justify-between shadow-xl ambient-glow-purple transition-all duration-200 group">
+<!-- Top header row inside card -->
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#3B82F6] text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-md">
+              AS
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Acme Studios</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 border border-secondary-container text-secondary text-[11px] font-label-sm font-semibold tracking-wide uppercase">
+                  Current
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">acme-studios.creatoros.app</p>
+</div>
+</div>
+<!-- Status Pill -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#181824] border border-[#1E1E2E]">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Active</span>
+</div>
+</div>
+<!-- Metrics Row inside card -->
+<div class="grid grid-cols-3 gap-3 py-5 my-4 border-y border-outline-variant/40">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Apps</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">14 active</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Team</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">6 members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">MRR</span>
+<span class="font-label-lg text-label-lg font-semibold text-tertiary mt-0.5">$8,940</span>
+</div>
+</div>
+<!-- Actions Row -->
+<div class="flex items-center gap-3 pt-1">
+<button class="flex-1 h-[38px] px-4 rounded-lg bg-surface-container-high border border-outline-variant text-primary font-label-md text-label-md font-medium hover:bg-surface-variant hover:text-on-surface transition-colors duration-150 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+            Manage Workspace
+          </button>
+<button class="w-[38px] h-[38px] rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" title="Workspace Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Horizon Digital -->
+<article class="rounded-xl border border-outline-variant bg-[#12121A] p-6 flex flex-col justify-between hover:border-primary/40 hover:bg-[#181824] transition-all duration-200 group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#3B82F6] to-[#1D4ED8] text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-md">
+              HD
+            </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Horizon Digital</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">horizon-agency.creatoros.app</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#181824] border border-[#1E1E2E]">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Active</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 py-5 my-4 border-y border-outline-variant/40">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Apps</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">8 apps</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Team</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">4 members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">MRR</span>
+<span class="font-label-lg text-label-lg font-semibold text-tertiary mt-0.5">$3,210</span>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<button class="flex-1 h-[38px] px-4 rounded-lg bg-[#181824] border border-outline-variant text-on-surface font-label-md text-label-md font-medium hover:border-primary hover:text-primary transition-colors duration-150 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+            Switch Workspace
+          </button>
+<button class="w-[38px] h-[38px] rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" title="Workspace Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Neural Studio AI -->
+<article class="rounded-xl border border-outline-variant bg-[#12121A] p-6 flex flex-col justify-between hover:border-primary/40 hover:bg-[#181824] transition-all duration-200 group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#8B5CF6] to-[#6366F1] text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-md">
+              NS
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Neural Studio AI</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-primary-container text-[11px] font-label-sm font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">link</span>
+                  Domain
+                </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 flex items-center gap-1">
+<span>neuralstudio.ai</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#181824] border border-[#1E1E2E]">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Active</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 py-5 my-4 border-y border-outline-variant/40">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Apps</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">19 apps</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Team</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">11 members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">MRR</span>
+<span class="font-label-lg text-label-lg font-semibold text-tertiary mt-0.5">$14,800</span>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<button class="flex-1 h-[38px] px-4 rounded-lg bg-[#181824] border border-outline-variant text-on-surface font-label-md text-label-md font-medium hover:border-primary hover:text-primary transition-colors duration-150 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+            Switch Workspace
+          </button>
+<button class="w-[38px] h-[38px] rounded-lg bg-surface-container-low border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" title="Workspace Settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+</button>
+</div>
+</article>
+<!-- Card 4: Creator Academy -->
+<article class="rounded-xl border border-outline-variant bg-[#12121A] p-6 flex flex-col justify-between hover:border-primary/40 hover:bg-[#181824] transition-all duration-200 group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#F59E0B] to-[#D97706] text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-md">
+              CA
+            </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">Creator Academy</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">academy.creatoros.app</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#181824] border border-[#1E1E2E]">
+<span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_#4edea3]"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-medium">Active</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 py-5 my-4 border-y border-outline-variant/40">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Modules</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">5 courses</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Team</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">3 members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">MRR</span>
+<span class="font-label-lg text-label-lg font-semibold text-tertiary mt-0.5">$1,450</span>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<button class="w-full h-[38px] px-4 rounded-lg bg-[#181824] border border-outline-variant text-on-surface font-label-md text-label-md font-medium hover:border-primary hover:text-primary transition-colors duration-150 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+            Switch Workspace
+          </button>
+</div>
+</article>
+<!-- Card 5: SynthLabs Sandbox -->
+<article class="rounded-xl border border-outline-variant bg-[#12121A] p-6 flex flex-col justify-between hover:border-primary/40 hover:bg-[#181824] transition-all duration-200 group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#4B5563] to-[#1F2937] text-white font-headline-sm text-headline-sm font-bold flex items-center justify-center shadow-md">
+              SL
+            </div>
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface tracking-tight">SynthLabs Sandbox</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">synthlabs-staging.creatoros.app</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#181824] border border-[#1E1E2E]">
+<span class="w-2 h-2 rounded-full bg-[#F97316] shadow-[0_0_8px_rgba(249,115,22,0.6)]"></span>
+<span class="font-label-sm text-label-sm text-[#F97316] font-medium">Staging / Dev</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-3 py-5 my-4 border-y border-outline-variant/40">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Apps</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">2 apps</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Team</span>
+<span class="font-label-lg text-label-lg font-semibold text-on-surface mt-0.5">2 members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline">Environment</span>
+<span class="font-label-lg text-label-lg font-semibold text-outline mt-0.5">Staging Sandbox</span>
+</div>
+</div>
+<div class="flex items-center gap-3 pt-1">
+<button class="w-full h-[38px] px-4 rounded-lg bg-[#181824] border border-outline-variant text-on-surface font-label-md text-label-md font-medium hover:border-primary hover:text-primary transition-colors duration-150 flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+            Switch Workspace
+          </button>
+</div>
+</article>
+<!-- Card 6: Dotted Dashed Card for Creation -->
+<article class="rounded-xl border-2 border-dashed border-outline-variant/80 hover:border-primary-container bg-surface-container-lowest/50 hover:bg-surface-container-low/50 p-6 flex flex-col items-center justify-center text-center transition-all duration-200 cursor-pointer group min-h-[240px]">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant flex items-center justify-center text-primary-container group-hover:scale-110 group-hover:bg-primary-container group-hover:text-on-primary transition-all duration-200">
+<span class="material-symbols-outlined text-[24px]">add</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-4 tracking-tight">
+          + Create New Workspace
+        </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[280px] mt-2">
+          Spin up an isolated multi-tenant environment with custom domain, team permissions, and billing in seconds.
+        </p>
+</article>
+</section>
+<!-- ================= BOTTOM SECTION: RESOURCE QUOTAS ================= -->
+<section class="mt-4 rounded-xl border border-outline-variant bg-[#12121A] p-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-4 border-b border-outline-variant/50">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Resource Quotas Overview</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Aggregated multi-tenant allocations across your current Pro plan license.</p>
+</div>
+<a class="inline-flex items-center gap-1.5 font-label-md text-label-md text-primary hover:text-surface-tint font-medium group transition-colors" href="#">
+<span>Upgrade Plan</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Quota Bars Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Quota 1: Workspaces -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Active Workspaces</span>
+<span class="text-on-surface font-semibold">5 / 10 allowed</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] w-1/2"></div>
+</div>
+<span class="text-outline text-[11px] font-label-sm">50% capacity consumed</span>
+</div>
+<!-- Quota 2: Team Seats -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Team Seats</span>
+<span class="text-on-surface font-semibold">16 / 25 used</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] w-[64%]"></div>
+</div>
+<span class="text-outline text-[11px] font-label-sm">9 seats remaining in pool</span>
+</div>
+<!-- Quota 3: Custom Domains -->
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant font-medium">Custom Domains</span>
+<span class="text-on-surface font-semibold">3 / 5 used</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] w-[60%]"></div>
+</div>
+<span class="text-outline text-[11px] font-label-sm">2 SSL domains available</span>
+</div>
+</div>
+</section>
+</main>
+</body></html>

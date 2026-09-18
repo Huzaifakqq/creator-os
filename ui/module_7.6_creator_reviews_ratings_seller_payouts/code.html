@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Marketplace Seller Analytics, Reviews &amp; Payouts</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-error-container": "#ffdad6",
+            "tertiary-fixed": "#6ffbbe",
+            "surface-container": "#1f1f25",
+            "surface-container-low": "#1b1b20",
+            "on-background": "#e4e1e9",
+            "on-primary-fixed-variant": "#004395",
+            "background": "#131318",
+            "tertiary": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-error": "#690005",
+            "inverse-surface": "#e4e1e9",
+            "error-container": "#93000a",
+            "tertiary-container": "#00a572",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "surface-bright": "#39383e",
+            "surface-container-lowest": "#0e0e13",
+            "on-secondary-container": "#c4abff",
+            "secondary-fixed": "#e9ddff",
+            "on-surface": "#e4e1e9",
+            "surface-container-high": "#2a292f",
+            "surface-variant": "#35343a",
+            "on-primary": "#002e6a",
+            "on-secondary": "#3c0091",
+            "on-secondary-fixed-variant": "#5516be",
+            "outline-variant": "#424754",
+            "surface-dim": "#131318",
+            "on-tertiary-container": "#00311f",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-fixed": "#23005c",
+            "primary-container": "#4d8eff",
+            "surface": "#131318",
+            "inverse-primary": "#005ac2",
+            "on-tertiary": "#003824",
+            "secondary-container": "#571bc1",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary-fixed": "#001a42",
+            "inverse-on-surface": "#303036",
+            "primary-fixed-dim": "#adc6ff",
+            "surface-tint": "#adc6ff",
+            "surface-container-highest": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "on-primary-container": "#00285d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "gutter": "1.5rem",
+            "gutter-sm": "1rem",
+            "space-sm": "0.5rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .custom-gradient-cta {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.35);
+    }
+    .custom-gradient-cta:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(59, 130, 246, 0.5);
+    }
+    .obsidian-card {
+      background: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .obsidian-card-hover:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+      background: #181824;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex min-h-screen overflow-x-hidden selection:bg-primary-container selection:text-on-primary">
+<!-- Left SideNavBar (Shared Component from JSON) -->
+<aside class="fixed top-0 left-0 h-screen w-64 border-r border-outline-variant/30 flex flex-col justify-between bg-surface z-50">
+<div class="w-64 h-full flex flex-col justify-between py-4 px-3">
+<!-- SideNav Header -->
+<div>
+<div class="flex items-center gap-3 px-3 py-2 mb-4">
+<div class="w-9 h-9 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-xl" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight leading-none">Obsidian Studio</h1>
+<span class="font-label-sm text-label-sm text-primary tracking-wide">Enterprise Tier</span>
+</div>
+</div>
+<!-- CTA from JSON -->
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 mb-5 rounded-lg custom-gradient-cta text-white font-label-lg text-label-lg active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+<span>Create Asset</span>
+</button>
+<!-- Navigation Tabs (Marketplace is active) -->
+<nav class="space-y-1">
+<!-- 1: Dashboard -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2: Studio -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="auto_videocam">auto_videocam</span>
+<span>Studio</span>
+</a>
+<!-- 3: Analytics -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="monitoring">monitoring</span>
+<span>Analytics</span>
+</a>
+<!-- 4: Marketplace (ACTIVE TAB - mapped strictly to current page context) -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-container-high text-primary font-medium border-l-2 border-primary font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="storefront" data-weight="fill" style="font-variation-settings: 'FILL' 1;">storefront</span>
+<span>Marketplace</span>
+</a>
+<!-- 5: Audience -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="group">group</span>
+<span>Audience</span>
+</a>
+<!-- 6: Settings -->
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer SideNav Actions -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help_outline">help_outline</span>
+<span>Help &amp; Support</span>
+</a>
+<a class="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/50 font-normal font-label-lg text-label-lg active:scale-[0.98] transition-all" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="logout">logout</span>
+<span>Log out</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Wrapper (Pushed right by 256px for SideNavBar) -->
+<div class="flex-1 ml-64 flex flex-col min-w-0 bg-[#0A0A0F]">
+<!-- TopNavBar (Shared Component from JSON + Injected Prompt specs) -->
+<header class="flex justify-between items-center w-full px-6 h-14 sticky top-0 z-40 backdrop-blur-md bg-surface-container-low/90 border-b border-outline-variant/30 shadow-sm">
+<!-- Search Bar on Left as per JSON -->
+<div class="flex items-center gap-4 flex-1 max-w-md">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold tracking-tight">Creator OS</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface-container-high text-primary border border-outline-variant/40 uppercase">v7.6</span>
+</div>
+<div class="relative w-full max-w-xs">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-lg" data-icon="search">search</span>
+<input class="w-full h-8 pl-9 pr-3 rounded-lg bg-[#12121A] border border-[#1E1E2E] text-on-surface text-body-sm font-body-sm placeholder-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all" placeholder="Search orders, reviews, payouts..." type="text"/>
+</div>
+</div>
+<!-- Trailing Controls & User Identity -->
+<div class="flex items-center gap-3">
+<!-- Tax 1099 Button -->
+<button class="h-8 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary hover:bg-[#1E1E2E] text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="receipt_long">receipt_long</span>
+<span>Export Tax 1099</span>
+</button>
+<!-- Stripe Connect CTA -->
+<button class="h-8 px-3 rounded-lg custom-gradient-cta text-white font-label-md text-label-md flex items-center gap-1.5 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance">account_balance</span>
+<span>Manage Stripe Connect</span>
+</button>
+<!-- Icon Actions: notifications, tune (from JSON) -->
+<div class="flex items-center gap-1 border-l border-outline-variant/30 pl-3">
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all relative">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary ring-2 ring-surface"></span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="tune">tune</span>
+</button>
+</div>
+<!-- User Profile Avatar: Huzaifa Khan -->
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/30">
+<img class="w-8 h-8 rounded-full border border-primary/40 object-cover" data-alt="Close up photographic portrait of a modern software designer and creator named Huzaifa Khan wearing a dark minimalist crewneck in a softly lit ambient studio with blue and violet neon rim light reflections." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMOo4Mc6JP8t8VIcVm2DkwJwFsdKJQCcF5h8oJs-a0_BsYzJcPkXvkFyV4-jPX5vacluGlwJAqPxfikkvT28JnjFHI42oLI8MgyNJZL-dNgmQvizIbZdOmQDb3o9LGxk8SIiEsYvTTUuq6sBbfRbzRzss9kLsin_KTliAqC3oKI5Kf-O7XVIkavs4dji3btO4LyZRxCvtjFYe6_tCK6DYKJ7Nx7zJiqiJTspOaFZi8IoDIl95ddmDtug"/>
+<div class="text-left hidden lg:block">
+<div class="font-label-md text-label-md text-on-surface font-medium leading-tight">Huzaifa Khan</div>
+<div class="text-[10px] text-tertiary-fixed-dim leading-none">Verified Seller</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-space-xl space-y-6 max-w-[1400px] mx-auto w-full">
+<!-- Breadcrumbs & Header Section -->
+<section class="space-y-3">
+<nav class="flex items-center gap-2 text-body-sm font-body-sm text-outline">
+<span class="hover:text-on-surface transition-colors cursor-pointer">Marketplace</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface transition-colors cursor-pointer">Creator Studio</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-medium">Earnings &amp; Feedback</span>
+</nav>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">Marketplace Seller Analytics, Reviews &amp; Payouts</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Monitor buyer feedback, track marketplace commission payouts, and respond to verified customer reviews.</p>
+</div>
+<!-- Time Range Selector & Statement Export -->
+<div class="flex items-center gap-2.5 self-start md:self-auto">
+<div class="relative">
+<button class="h-9 px-3.5 rounded-lg bg-[#12121A] border border-[#1E1E2E] hover:border-primary/50 text-on-surface font-label-md text-label-md flex items-center gap-2 transition-all">
+<span class="material-symbols-outlined text-base text-outline" data-icon="calendar_today">calendar_today</span>
+<span>Last 30 Days</span>
+<span class="material-symbols-outlined text-base text-outline" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+</div>
+<button class="h-9 px-3.5 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-base text-primary" data-icon="download">download</span>
+<span>Export Statement (CSV)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Top Telemetry Cards (4 stats) -->
+<section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="obsidian-card rounded-xl p-5 relative overflow-hidden group obsidian-card-hover transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Marketplace Gross</span>
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg" data-icon="payments">payments</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">$18,940.00</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-body-sm font-body-sm">
+<span class="text-tertiary-fixed-dim font-medium flex items-center">
+<span class="material-symbols-outlined text-sm mr-0.5" data-icon="trending_up">trending_up</span>+24.6%
+            </span>
+<span class="text-outline">vs last period</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Stat Card 2 -->
+<div class="obsidian-card rounded-xl p-5 relative overflow-hidden group obsidian-card-hover transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Net Seller Payouts</span>
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-lg" data-icon="account_balance_wallet">account_balance_wallet</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">$17,046.00</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-body-sm font-body-sm">
+<span class="text-primary font-medium">90% seller split</span>
+<span class="text-outline">($1,894 platform fee)</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-tertiary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Stat Card 3 -->
+<div class="obsidian-card rounded-xl p-5 relative overflow-hidden group obsidian-card-hover transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Average Review Rating</span>
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-amber-400">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">4.94 ★</span>
+<span class="text-xs text-amber-400/90 font-medium">Exceptional</span>
+</div>
+<div class="mt-2 text-body-sm font-body-sm text-outline">
+            Based on 148 verified buyer reviews
+          </div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<!-- Stat Card 4 -->
+<div class="obsidian-card rounded-xl p-5 relative overflow-hidden group obsidian-card-hover transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Installations</span>
+<div class="w-7 h-7 rounded-md bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="hub">hub</span>
+</div>
+</div>
+<div class="mt-3 flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">612 Deployments</span>
+</div>
+<div class="mt-2 flex items-center gap-1.5 text-body-sm font-body-sm">
+<span class="text-tertiary-fixed-dim font-medium">98.4% uptime</span>
+<span class="text-outline">retention metric</span>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-secondary to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</section>
+<!-- Main Two-Column Layout (60% Reviews & Feedback / 40% Payout Ledger & Rating Breakdown) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- Left Section - Reviews & Community Feedback (7 cols ~ 60%) -->
+<section class="lg:col-span-7 space-y-5">
+<!-- Rating Breakdown Header Card -->
+<div class="obsidian-card rounded-xl p-5 space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#1E1E2E]">
+<div class="flex items-center gap-4">
+<div class="text-center sm:text-left">
+<div class="font-display-lg text-display-lg font-bold text-on-surface leading-none">4.9</div>
+<div class="flex items-center gap-0.5 text-amber-400 mt-1">
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" data-icon="star_half" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<div class="text-[11px] text-outline mt-0.5">148 total reviews</div>
+</div>
+<!-- Star percentage bars -->
+<div class="flex-1 min-w-[180px] space-y-1.5 text-body-sm font-body-sm pl-4 border-l border-[#1E1E2E]">
+<!-- 5 Star -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-outline w-10">5 Stars</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-gradient-to-r from-primary to-secondary" style="width: 92%"></div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium w-8 text-right">92%</span>
+</div>
+<!-- 4 Star -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-outline w-10">4 Stars</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary/70" style="width: 6%"></div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium w-8 text-right">6%</span>
+</div>
+<!-- 3 Star -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-outline w-10">3 Stars</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-outline" style="width: 2%"></div>
+</div>
+<span class="text-xs text-on-surface-variant font-medium w-8 text-right">2%</span>
+</div>
+<!-- 2 Star -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-outline w-10">2 Stars</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-outline/40" style="width: 0%"></div>
+</div>
+<span class="text-xs text-outline w-8 text-right">0%</span>
+</div>
+<!-- 1 Star -->
+<div class="flex items-center gap-2">
+<span class="text-xs text-outline w-10">1 Star</span>
+<div class="flex-1 h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-outline/40" style="width: 0%"></div>
+</div>
+<span class="text-xs text-outline w-8 text-right">0%</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end justify-center">
+<span class="px-2.5 py-1 rounded-full text-xs font-medium bg-tertiary/10 text-tertiary border border-tertiary/30">
+                  99.2% Positive Sentiment
+                </span>
+<span class="text-[11px] text-outline mt-1">Verified Stripe checkouts</span>
+</div>
+</div>
+<!-- Filter Pills -->
+<div class="flex flex-wrap items-center gap-2 pt-1">
+<button class="px-3 py-1 rounded-full text-xs font-medium bg-primary/15 text-primary border border-primary/40 flex items-center gap-1.5 transition-all">
+<span>All Reviews</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary/20 text-[10px]">148</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-medium bg-[#181824] text-on-surface-variant border border-[#1E1E2E] hover:border-outline hover:text-on-surface flex items-center gap-1.5 transition-all">
+<span>Unreplied</span>
+<span class="px-1.5 py-0.2 rounded-full bg-error-container text-on-error-container text-[10px]">3</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-medium bg-[#181824] text-on-surface-variant border border-[#1E1E2E] hover:border-outline hover:text-on-surface flex items-center gap-1.5 transition-all">
+<span>5 Stars</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-outline text-[10px]">136</span>
+</button>
+<button class="px-3 py-1 rounded-full text-xs font-medium bg-[#181824] text-on-surface-variant border border-[#1E1E2E] hover:border-outline hover:text-on-surface flex items-center gap-1.5 transition-all">
+<span>Feature Requests</span>
+<span class="px-1.5 py-0.2 rounded-full bg-surface-container text-outline text-[10px]">9</span>
+</button>
+</div>
+</div>
+<!-- Customer Review List (3 high-detail review cards) -->
+<div class="space-y-4">
+<!-- Card 1: Marcus Vance -->
+<div class="obsidian-card rounded-xl p-5 space-y-3.5 transition-all hover:border-[#2A2A3E]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-on-primary font-bold text-sm">
+                    MV
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Marcus Vance</span>
+<span class="text-xs text-outline font-normal">(Apex Media)</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/30">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                        Verified Buyer
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-xs text-outline mt-0.5">
+<span>Purchased: <strong class="text-on-surface-variant font-medium">Apex SaaS Starter Kit</strong></span>
+<span>•</span>
+<span>3 days ago</span>
+</div>
+</div>
+</div>
+<!-- Stars -->
+<div class="flex items-center gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Review Text -->
+<p class="font-body-md text-body-md text-on-surface leading-relaxed pl-13">
+                “Saved us at least 4 weeks of engineering. The Stripe Connect and multi-tenant Neon integration worked out of the box.”
+              </p>
+<!-- Seller Response Box -->
+<div class="ml-4 pl-4 border-l-2 border-primary/50 bg-[#181824]/70 rounded-r-lg p-3 space-y-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-xs font-semibold text-primary">Reply from Huzaifa (Creator)</span>
+<span class="text-[10px] text-outline">2 days ago</span>
+</div>
+<button class="text-outline hover:text-on-surface text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+<span>Edit</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                  “Thanks Marcus! Glad the multi-tenant scaffolding accelerated your launch.”
+                </p>
+</div>
+</div>
+<!-- Card 2: Sarah Miller -->
+<div class="obsidian-card rounded-xl p-5 space-y-3.5 transition-all hover:border-[#2A2A3E]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-gradient-to-br from-secondary to-primary-container flex items-center justify-center text-white font-bold text-sm">
+                    SM
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Sarah Miller</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/30">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                        Verified Buyer
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-xs text-outline mt-0.5">
+<span>Purchased: <strong class="text-on-surface-variant font-medium">Autonomous Growth Agent</strong></span>
+<span>•</span>
+<span>5 days ago</span>
+</div>
+</div>
+</div>
+<!-- Stars -->
+<div class="flex items-center gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<!-- Review Text -->
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                “The LinkedIn &amp; Twitter automated scheduling workflow is pure magic. Incredible craftsmanship.”
+              </p>
+<!-- Action Bar / Prompt Reply -->
+<div class="flex items-center justify-between pt-1">
+<span class="text-xs text-outline">License: Commercial Multi-Seat</span>
+<button class="h-8 px-3 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-primary font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="reply">reply</span>
+<span>Reply to Sarah</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Elena Rostova -->
+<div class="obsidian-card rounded-xl p-5 space-y-3.5 transition-all hover:border-[#2A2A3E]">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#1F1F2A] border border-[#2A2A3E] flex items-center justify-center text-primary font-bold text-sm">
+                    ER
+                  </div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg text-on-surface font-semibold">Elena Rostova</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/30">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                        Verified Buyer
+                      </span>
+</div>
+<div class="flex items-center gap-2 text-xs text-outline mt-0.5">
+<span>Purchased: <strong class="text-on-surface-variant font-medium">NextSaaS AI Boilerplate</strong></span>
+<span>•</span>
+<span>1 week ago</span>
+</div>
+</div>
+</div>
+<!-- Stars: 4 Stars -->
+<div class="flex items-center gap-0.5 text-amber-400">
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base text-outline/40" data-icon="star">star</span>
+</div>
+</div>
+<!-- Review Text -->
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                “Super clean architecture. Would love to see Supabase Vector documentation expanded in v2.5.”
+              </p>
+<!-- Status: Pending Creator Response -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1E1E2E]">
+<div class="flex items-center gap-1.5 text-xs text-amber-300">
+<span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+<span class="font-medium">Pending Creator Response</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-7 px-2.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-medium transition-all">
+                    Tag: Feature Request
+                  </button>
+<button class="h-7 px-3 rounded custom-gradient-cta text-white text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="chat_bubble">chat_bubble</span>
+                    Respond Now
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Section - Payouts & Stripe Connect Ledger (5 cols ~ 40%) -->
+<section class="lg:col-span-5 space-y-5">
+<!-- Stripe Payout Schedule Card -->
+<div class="obsidian-card rounded-xl p-5 relative overflow-hidden">
+<div class="flex items-center justify-between pb-3 border-b border-[#1E1E2E]">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-[#635BFF]/15 border border-[#635BFF]/30 flex items-center justify-center text-[#635BFF]">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">Stripe Payout Schedule</h3>
+<span class="text-[11px] text-outline">Direct Express Deposit</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-tertiary/10 text-tertiary border border-tertiary/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Ready for processing
+              </span>
+</div>
+<div class="mt-4 space-y-3">
+<div>
+<span class="text-xs text-on-surface-variant font-label-md">Next Automated Payout</span>
+<div class="flex items-baseline gap-2 mt-0.5">
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface tracking-tight">$3,420.00</span>
+<span class="text-xs text-outline">USD</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-[#181824] border border-[#1E1E2E] space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-outline">Scheduled Execution:</span>
+<span class="font-medium text-on-surface">Oct 28, 2024 (00:00 UTC)</span>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-outline">Receiving Account:</span>
+<div class="flex items-center gap-1 font-medium text-on-surface">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="account_balance">account_balance</span>
+<span>Chase Checking (****8921)</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-xs">
+<span class="text-outline">Estimated Clearing:</span>
+<span class="text-tertiary-fixed-dim font-medium">Instant ACH (2-4 hrs)</span>
+</div>
+</div>
+<button class="w-full h-9 rounded-lg bg-[#181824] border border-[#1E1E2E] hover:border-primary text-primary font-label-md text-label-md flex items-center justify-center gap-2 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="currency_exchange">currency_exchange</span>
+<span>Request Early Instant Payout (1% fee)</span>
+</button>
+</div>
+</div>
+<!-- Recent Payouts Table -->
+<div class="obsidian-card rounded-xl p-5 space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold text-sm">Recent Payout Ledger</h3>
+<span class="text-[11px] text-outline">Cleared Stripe transfers</span>
+</div>
+<a class="text-xs text-primary hover:underline flex items-center gap-0.5" href="#">
+                View All <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<div class="divide-y divide-[#1E1E2E] text-body-sm font-body-sm">
+<!-- Item 1: Oct 21 -->
+<div class="py-3 flex items-center justify-between hover:bg-[#181824]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span>$4,850.00</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-tertiary/15 text-tertiary">Paid</span>
+</div>
+<div class="text-[11px] text-outline">
+                      Oct 21, 2024 • 42 sales
+                    </div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-mono text-outline">#tr_9012</div>
+<div class="text-[10px] text-primary hover:underline cursor-pointer">Receipt ↗</div>
+</div>
+</div>
+<!-- Item 2: Oct 14 -->
+<div class="py-3 flex items-center justify-between hover:bg-[#181824]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span>$5,120.00</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-tertiary/15 text-tertiary">Paid</span>
+</div>
+<div class="text-[11px] text-outline">
+                      Oct 14, 2024 • 46 sales
+                    </div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-mono text-outline">#tr_8841</div>
+<div class="text-[10px] text-primary hover:underline cursor-pointer">Receipt ↗</div>
+</div>
+</div>
+<!-- Item 3: Oct 07 -->
+<div class="py-3 flex items-center justify-between hover:bg-[#181824]/50 px-2 rounded-lg transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary/10 border border-tertiary/30 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span>$3,656.00</span>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-semibold bg-tertiary/15 text-tertiary">Paid</span>
+</div>
+<div class="text-[11px] text-outline">
+                      Oct 07, 2024 • 31 sales
+                    </div>
+</div>
+</div>
+<div class="text-right">
+<div class="text-xs font-mono text-outline">#tr_7719</div>
+<div class="text-[10px] text-primary hover:underline cursor-pointer">Receipt ↗</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Marketplace Top Seller Badge Card -->
+<div class="rounded-xl p-5 border border-primary/40 bg-gradient-to-br from-[#12121A] via-[#181824] to-[#1d1d2e] relative overflow-hidden shadow-lg">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3B82F6] to-[#8B5CF6] flex items-center justify-center text-white shadow-md">
+<span class="material-symbols-outlined text-2xl" data-icon="military_tech">military_tech</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-primary/20 text-primary uppercase tracking-wider">
+                  Tier 1 Recognition
+                </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-bold text-sm">Top 5% Creator OS Elite Seller</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-normal">
+                  Your shop benefits from an exclusive <strong class="text-primary font-medium">10% marketplace fee</strong> (standard tier is 20%), plus priority index placement in the global Creator OS store.
+                </p>
+</div>
+</div>
+<!-- Metric Progress to preserve badge -->
+<div class="mt-4 pt-3 border-t border-[#1E1E2E]/80 space-y-2">
+<div class="flex items-center justify-between text-xs">
+<span class="text-outline">Monthly Retention Threshold</span>
+<span class="text-tertiary font-medium">4.94 / 4.80 Min Required</span>
+</div>
+<div class="h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="h-full rounded-full bg-tertiary" style="width: 96%"></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

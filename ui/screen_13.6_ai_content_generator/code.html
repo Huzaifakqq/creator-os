@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — AI Content Generator</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#002113",
+            "surface-container-highest": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-primary": "#002e6a",
+            "error-container": "#93000a",
+            "error": "#ffb4ab",
+            "secondary": "#d0bcff",
+            "on-secondary-fixed": "#23005c",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-surface-variant": "#c2c6d6",
+            "primary": "#adc6ff",
+            "outline": "#8c909f",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-lowest": "#0e0e13",
+            "primary-container": "#4d8eff",
+            "tertiary-fixed-dim": "#4edea3",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed-variant": "#5516be",
+            "primary-fixed-dim": "#adc6ff",
+            "outline-variant": "#424754",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "inverse-surface": "#e4e1e9",
+            "secondary-fixed": "#e9ddff",
+            "surface-container": "#1f1f25",
+            "surface-variant": "#35343a",
+            "primary-fixed": "#d8e2ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-bright": "#39383e",
+            "inverse-on-surface": "#303036",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "on-tertiary-fixed-variant": "#005236",
+            "tertiary": "#4edea3",
+            "on-secondary-container": "#c4abff",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "background": "#131318",
+            "on-tertiary-container": "#00311f",
+            "inverse-primary": "#005ac2",
+            "surface-dim": "#131318",
+            "surface-tint": "#adc6ff",
+            "on-background": "#e4e1e9",
+            "secondary-container": "#571bc1",
+            "surface": "#131318"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "display-lg-mobile": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #424754;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<!-- APP SHELL WRAPPER -->
+<div class="flex h-screen w-full overflow-hidden bg-surface-container-lowest">
+<!-- SHARED COMPONENT: SideNavBar (AI Agents Active) -->
+<aside class="fixed left-0 top-0 h-screen w-64 z-50 flex flex-col p-space-md bg-surface-container-lowest dark:bg-surface-container-lowest border-r border-outline-variant dark:border-outline-variant justify-between select-none">
+<!-- Top Section / Brand & Tabs -->
+<div class="flex flex-col gap-space-md">
+<!-- Header Profile / Tenant Switcher -->
+<div class="flex items-center gap-space-sm p-space-xs rounded-lg bg-surface-container-low border border-outline-variant/40">
+<div class="h-9 w-9 rounded-lg bg-gradient-to-tr from-primary-container to-secondary-container flex items-center justify-center text-on-surface font-headline-sm font-bold shadow-sm">
+            A
+          </div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface truncate leading-tight">Acme Media Studio</span>
+<span class="text-label-sm font-label-sm text-primary tracking-wide">Enterprise Tier</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">unfold_more</span>
+</div>
+<!-- Create Agent CTA Button -->
+<button class="flex items-center justify-center gap-space-xs w-full py-2.5 px-space-md rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-surface font-label-md text-label-md font-semibold shadow-sm hover:brightness-110 active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]">add</span>
+          Create Agent
+        </button>
+<!-- Navigation Tab Items -->
+<nav class="flex flex-col gap-1 mt-1">
+<!-- 1. Dashboard -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- 2. AI Agents (ACTIVE) -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-surface-container-high dark:bg-surface-container-high text-primary dark:text-primary font-label-md text-label-md border-l-2 border-primary active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span class="font-semibold">AI Agents</span>
+</a>
+<!-- 3. Prompt Studio -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">terminal</span>
+<span>Prompt Studio</span>
+</a>
+<!-- 4. Task Queues -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+<span>Task Queues</span>
+</a>
+<!-- 5. Token Analytics -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span>Token Analytics</span>
+</a>
+<!-- 6. Integrations -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+<span>Integrations</span>
+</a>
+<!-- 7. Settings -->
+<a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<!-- Footer Utility Links -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/40 pt-space-sm">
+<a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">vital_signs</span>
+<span>Telemetry Status</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+</a>
+<a class="flex items-center gap-space-sm px-space-md py-space-xs rounded-lg text-on-surface-variant dark:text-on-surface-variant font-label-md text-label-md hover:bg-surface-container hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Workspace Docs</span>
+</a>
+</div>
+</aside>
+<!-- MAIN VIEW AREA (Offset by sidebar width 256px) -->
+<div class="flex-1 ml-64 flex flex-col h-screen min-w-0 bg-surface-container-lowest">
+<!-- SHARED COMPONENT: TopNavBar -->
+<header class="sticky top-0 z-40 flex items-center justify-between h-14 w-full px-space-lg bg-surface-container-low dark:bg-surface-container-low border-b border-outline-variant dark:border-outline-variant">
+<!-- Left: Brand + Breadcrumbs -->
+<div class="flex items-center gap-space-md">
+<span class="text-headline-sm font-headline-sm text-on-surface dark:text-on-surface tracking-tight font-semibold">Creator OS</span>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<nav class="flex items-center gap-1.5 text-label-md font-label-md text-on-surface-variant">
+<span>AI Studio</span>
+<span class="text-outline text-xs">/</span>
+<span>Content Engine</span>
+<span class="text-outline text-xs">/</span>
+<span class="text-on-surface font-semibold">AI Content Generator</span>
+</nav>
+</div>
+<!-- Center / Search & Model Selector Pill -->
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/60 text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-on-surface font-medium">Claude 3.5 Sonnet / GPT-4o Multi-model</span>
+<span class="text-outline">|</span>
+<span class="text-primary font-mono font-semibold">412,850 tokens left</span>
+</div>
+</div>
+<!-- Right: Actions & User Meta -->
+<div class="flex items-center gap-space-sm">
+<!-- Notification Icon -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-150 relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-primary rounded-full"></span>
+</button>
+<!-- Tune Icon -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+<!-- Help Icon -->
+<button class="p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors duration-150">
+<span class="material-symbols-outlined text-[20px]">help</span>
+</button>
+<div class="h-4 w-[1px] bg-outline-variant mx-1"></div>
+<!-- Quick Action -->
+<button class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high transition-all">
+            Quick Action
+          </button>
+<!-- Trailing Primary Action -->
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-md text-label-md font-medium hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+            Deploy New Agent
+          </button>
+<!-- Profile Avatar -->
+<div class="relative ml-1 cursor-pointer">
+<img class="h-8 w-8 rounded-full border border-outline-variant object-cover" data-alt="Close up photographic studio portrait of a technology entrepreneur with subtle rim lighting against a minimalist dark slate studio background, hyper-detailed skin texture, wearing modern minimalist techwear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBucMX-AO0mlSfAMYKWsA0csnIhQEJtGOGv3R2_2PrLu5QD2aZVsJZOrsD3REDkhxbCRk_S9MHS2Rc_wzHAvfWOZ48MtEy6dhQrj0bYh2TSGKs4wLySmdM_JEs8teuMMuX-ZXzOkYSZByN16QUMbqt75oChe7t1zXu5lJsneQzOJ8GyvTDv4ToMI4ndUu3_zgJBZBNiiKCFd6G7Y_K96arVChvELZdQWUJ-wAavJJoSGEs1bnLabYONyA"/>
+<span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-tertiary ring-2 ring-surface-container-low" title="Enterprise Status Verified"></span>
+</div>
+</div>
+</header>
+<!-- 3-PANEL STUDIO CANVAS -->
+<main class="flex-1 flex min-h-0 overflow-hidden bg-background">
+<!-- ============================================== -->
+<!-- PANEL 1: Left Configuration Panel (approx 330px) -->
+<!-- ============================================== -->
+<section class="w-80 flex-shrink-0 flex flex-col border-r border-outline-variant bg-surface-container-low overflow-y-auto custom-scrollbar p-space-md gap-space-md">
+<!-- Panel Header -->
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_awesome</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Generator Config</h2>
+</div>
+<span class="text-label-sm font-label-sm px-2 py-0.5 rounded bg-surface-container-high text-outline">v2.4 Engine</span>
+</div>
+<!-- Content Type Selector Cards (5 Types) -->
+<div class="flex flex-col gap-2">
+<label class="text-label-md font-label-md text-on-surface font-medium flex items-center justify-between">
+<span>Content Format</span>
+<span class="text-label-sm text-primary">Blog Post Selected</span>
+</label>
+<div class="grid grid-cols-2 gap-2">
+<!-- 1. Blog Post (Active) -->
+<button class="flex flex-col items-start p-2.5 rounded-xl bg-surface-container-high border-2 border-primary-container text-left relative overflow-hidden group shadow-[0_0_16px_rgba(59,130,246,0.2)]">
+<div class="flex items-center justify-between w-full mb-1">
+<span class="material-symbols-outlined text-primary text-[20px]">article</span>
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+</div>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Blog Post</span>
+<span class="text-label-sm text-on-surface-variant text-[10px]">Long-form SEO</span>
+</button>
+<!-- 2. Social Media -->
+<button class="flex flex-col items-start p-2.5 rounded-xl bg-surface-container border border-outline-variant hover:border-outline hover:bg-surface-container-high text-left transition-all">
+<span class="material-symbols-outlined text-outline text-[20px] mb-1">share</span>
+<span class="text-label-md font-label-md font-medium text-on-surface">Social Media</span>
+<span class="text-label-sm text-outline text-[10px]">Threads &amp; Posts</span>
+</button>
+<!-- 3. Email Newsletter -->
+<button class="flex flex-col items-start p-2.5 rounded-xl bg-surface-container border border-outline-variant hover:border-outline hover:bg-surface-container-high text-left transition-all">
+<span class="material-symbols-outlined text-outline text-[20px] mb-1">mail</span>
+<span class="text-label-md font-label-md font-medium text-on-surface">Email News</span>
+<span class="text-label-sm text-outline text-[10px]">Broadcasts</span>
+</button>
+<!-- 4. Ad Copy -->
+<button class="flex flex-col items-start p-2.5 rounded-xl bg-surface-container border border-outline-variant hover:border-outline hover:bg-surface-container-high text-left transition-all">
+<span class="material-symbols-outlined text-outline text-[20px] mb-1">campaign</span>
+<span class="text-label-md font-label-md font-medium text-on-surface">Ad Copy</span>
+<span class="text-label-sm text-outline text-[10px]">PPC &amp; Paid</span>
+</button>
+<!-- 5. Product Description (Span 2) -->
+<button class="col-span-2 flex items-center justify-between p-2.5 rounded-xl bg-surface-container border border-outline-variant hover:border-outline hover:bg-surface-container-high text-left transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">shopping_bag</span>
+<div>
+<span class="text-label-md font-label-md font-medium text-on-surface block">Product Description</span>
+<span class="text-label-sm text-outline text-[10px] block">High conversion e-commerce listings</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Topic & Prompt Textarea -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="text-label-md font-label-md text-on-surface font-medium">Topic &amp; Core Angle</label>
+<span class="text-label-sm text-outline">128 chars</span>
+</div>
+<textarea class="w-full bg-surface-container border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg p-2.5 text-body-sm text-on-surface placeholder:text-outline/60 focus:outline-none resize-none transition-all leading-relaxed" placeholder="Enter target premise or detailed briefing..." rows="4">10 Proven Strategies to Scale a Digital Product Store from $0 to $50k/mo using Creator OS Multi-Tenant Architecture</textarea>
+</div>
+<!-- Tone Selector Chips -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium">Brand Voice &amp; Tone</label>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/15 border border-primary/40 text-primary font-semibold">Professional</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:border-outline transition-all">Casual</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface transition-all">Friendly</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface transition-all">Persuasive</button>
+<button class="px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface transition-all">Technical</button>
+</div>
+</div>
+<!-- Target Length Segmented Pill Buttons -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium">Article Depth</label>
+<div class="grid grid-cols-3 p-1 rounded-lg bg-surface-container border border-outline-variant text-center">
+<button class="py-1 text-label-sm text-on-surface-variant rounded hover:text-on-surface transition-colors">Short (100w)</button>
+<button class="py-1 text-label-sm text-on-surface-variant rounded hover:text-on-surface transition-colors">Medium (300w)</button>
+<button class="py-1 text-label-sm font-semibold text-white bg-primary-container rounded shadow-sm">Long (500+w)</button>
+</div>
+</div>
+<!-- Target Keywords Tags Container -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium">Primary Focus Keywords</label>
+<div class="flex flex-wrap gap-1.5 p-2 rounded-lg bg-surface-container border border-outline-variant min-h-[42px] items-center">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-label-sm text-on-surface border border-outline-variant">
+                SaaS
+                <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-label-sm text-on-surface border border-outline-variant">
+                Creator Economy
+                <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-label-sm text-on-surface border border-outline-variant">
+                Stripe Connect
+                <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-label-sm text-on-surface border border-outline-variant">
+                Automation
+                <button class="text-outline hover:text-on-surface"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</span>
+</div>
+</div>
+<!-- Model Switcher Selector Pill -->
+<div class="flex flex-col gap-1.5">
+<label class="text-label-md font-label-md text-on-surface font-medium">Inference Engine</label>
+<div class="grid grid-cols-2 gap-1.5 p-1 bg-surface-container rounded-lg border border-outline-variant">
+<button class="flex items-center justify-center gap-1 py-1.5 px-2 rounded-md bg-surface-container-high text-on-surface text-label-sm font-medium border border-primary/30 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary">psychology</span>
+                Claude 3.5 Sonnet
+              </button>
+<button class="flex items-center justify-center gap-1 py-1.5 px-2 rounded-md text-outline hover:text-on-surface text-label-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">code_blocks</span>
+                GPT-4o (Structured)
+              </button>
+</div>
+</div>
+<!-- Primary Action Button -->
+<div class="pt-2 mt-auto">
+<button class="w-full py-3 px-4 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-lg font-semibold flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+<span>Generate Content (350 tokens)</span>
+</button>
+<p class="text-center text-label-sm text-outline mt-2">Estimated generation speed: 2.4s • Ready</p>
+</div>
+</section>
+<!-- ============================================== -->
+<!-- PANEL 2: Center Content Output & Editor (approx 780px) -->
+<!-- ============================================== -->
+<section class="flex-1 flex flex-col min-w-0 bg-background border-r border-outline-variant">
+<!-- Editor Header Control Bar -->
+<header class="p-space-md border-b border-outline-variant bg-surface-container-lowest/80 backdrop-blur-md flex flex-col gap-3">
+<!-- Top Line: Document Meta & Key Metrics -->
+<div class="flex items-center justify-between gap-4">
+<div class="min-w-0 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="px-2 py-0.5 rounded-full text-label-sm bg-primary/15 border border-primary/30 text-primary font-medium">Live Render</span>
+<span class="text-label-sm text-outline">Saved to Drafts 1m ago</span>
+</div>
+<h1 class="text-headline-md font-headline-md font-bold text-on-surface truncate tracking-tight">
+                  10 Proven Strategies to Scale a Digital Product Store to $50k/mo
+                </h1>
+</div>
+<!-- Metric Badges Group -->
+<div class="flex items-center gap-2 flex-shrink-0">
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container border border-outline-variant text-label-sm">
+<span class="material-symbols-outlined text-outline text-[16px]">menu_book</span>
+<span class="text-on-surface font-semibold">842</span>
+<span class="text-outline">words</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-surface-container border border-outline-variant text-label-sm">
+<span class="material-symbols-outlined text-outline text-[16px]">schedule</span>
+<span class="text-on-surface font-semibold">4 min</span>
+<span class="text-outline">read</span>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-tertiary-container/20 border border-tertiary/40 text-label-sm">
+<span class="material-symbols-outlined text-tertiary text-[16px]">insights</span>
+<span class="text-tertiary font-bold">SEO 94/100</span>
+</div>
+</div>
+</div>
+<!-- Action Toolbar Buttons -->
+<div class="flex items-center justify-between pt-2 border-t border-outline-variant/40">
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-label-md font-label-md text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+                  Copy Markdown
+                </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant hover:border-primary text-label-md font-label-md text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+                  Edit in Canvas
+                </button>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-white font-label-md font-medium hover:brightness-110 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[16px]">bookmark_add</span>
+                  Save to Library
+                </button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant text-on-surface font-label-md font-medium hover:bg-surface-variant transition-all">
+<span class="material-symbols-outlined text-[16px]">send</span>
+                  Export to Blog
+                </button>
+</div>
+</div>
+</header>
+<!-- Formatted Content Reader Canvas -->
+<div class="flex-1 overflow-y-auto p-space-xl custom-scrollbar space-y-6">
+<!-- Article Header Display -->
+<div class="border-b border-outline-variant/60 pb-6">
+<div class="flex items-center gap-2 text-label-md text-primary font-medium mb-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+                Strategic Playbook • Architecture &amp; Growth
+              </div>
+<h1 class="text-headline-xl font-headline-xl font-bold text-on-surface leading-tight tracking-tight">
+                10 Proven Strategies to Scale a Digital Product Store to $50k/mo
+              </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-3 leading-relaxed">
+                Scaling beyond the initial five-figure threshold requires shifting from manual asset delivery to high-velocity automation, multi-tenant workspace distribution, and programmatic monetization funnels.
+              </p>
+</div>
+<!-- Article Body Section 1 -->
+<div class="space-y-3">
+<h2 class="text-headline-lg font-headline-lg font-semibold text-on-surface tracking-tight">
+                1. Decouple Asset Storage with Edge-Cached Fulfillment
+              </h2>
+<p class="text-body-md font-body-md text-on-surface/90 leading-relaxed">
+                Traditional WooCommerce and Shopify stores suffer from aggressive bandwidth throttling when delivering multi-gigabyte digital media bundles (LUT packs, 3D assets, audio sample kits). By leveraging global edge distribution networks paired with signed expiring URLs, latency drops to sub-40ms worldwide while eliminating delivery failure chargebacks.
+              </p>
+<!-- Metric Callout Block -->
+<div class="p-4 rounded-xl bg-surface-container border border-outline-variant/80 flex items-start gap-3 my-4">
+<div class="p-2 rounded-lg bg-primary/20 text-primary mt-0.5">
+<span class="material-symbols-outlined text-[22px]">trending_up</span>
+</div>
+<div>
+<h4 class="text-label-lg font-label-lg font-bold text-on-surface">Key Takeaway: Conversion Acceleration</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 leading-normal">
+                    Automated checkout sequences integrated with instantaneous edge-fulfilled delivery convert <span class="text-tertiary font-semibold">34% higher</span> than traditional email delivery flows, substantially reducing drop-offs at purchase conclusion.
+                  </p>
+</div>
+</div>
+</div>
+<!-- Article Body Section 2 -->
+<div class="space-y-3">
+<h2 class="text-headline-lg font-headline-lg font-semibold text-on-surface tracking-tight">
+                2. Implement Frictionless Multi-Tier Upsells via Stripe Connect
+              </h2>
+<p class="text-body-md font-body-md text-on-surface/90 leading-relaxed">
+                The fastest bridge from $10k to $50k monthly recurring revenue isn't tripling top-of-funnel traffic—it is expanding the Average Order Value (AOV) through contextual one-click post-purchase bumps.
+              </p>
+<!-- Curated Callout Quote Box with Gradient Left Border -->
+<blockquote class="p-4 rounded-r-xl bg-surface-container-high/60 border-l-4 border-l-primary-container text-on-surface font-body-md italic leading-relaxed my-4">
+                "Top creators treat single transactions as beginning accounts. A customer purchasing a $29 Lightroom preset collection should instantaneously be offered an exclusive $149 cohort video breakdown before reaching the confirmation receipt."
+              </blockquote>
+<!-- High-Fidelity Bullet Points -->
+<ul class="space-y-2.5 pt-2">
+<li class="flex items-start gap-2.5 text-body-md font-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+<span><strong class="text-on-surface font-medium">Dynamic Bundling:</strong> Automatically calculate catalog affinities based on past 90-day basket associations.</span>
+</li>
+<li class="flex items-start gap-2.5 text-body-md font-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+<span><strong class="text-on-surface font-medium">Zero-Redirect Checkouts:</strong> Eliminate modal redirects that trigger high cart abandonments on mobile devices.</span>
+</li>
+<li class="flex items-start gap-2.5 text-body-md font-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">check_circle</span>
+<span><strong class="text-on-surface font-medium">Automated Dunning Retries:</strong> Recover up to 12% of lost recurring digital access revenue using smart card auto-updaters.</span>
+</li>
+</ul>
+</div>
+<!-- Article Body Section 3 Preview -->
+<div class="space-y-3 pt-2">
+<h2 class="text-headline-lg font-headline-lg font-semibold text-on-surface tracking-tight">
+                3. Deploy Autonomous Customer Retention Agents
+              </h2>
+<p class="text-body-md font-body-md text-on-surface/90 leading-relaxed">
+                By equipping dedicated AI agents with access to real-time product documentation and community telemetry, support turnaround drops from 6 hours to 12 seconds, virtually extinguishing refund dispute escalations.
+              </p>
+</div>
+</div>
+<!-- Bottom Quick Action Toolbar -->
+<footer class="p-space-md border-t border-outline-variant bg-surface-container-lowest flex items-center justify-between gap-2">
+<div class="flex items-center gap-1.5 overflow-x-auto custom-scrollbar py-1">
+<span class="text-label-sm text-outline mr-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">magic_button</span> Quick Refine:
+              </span>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant hover:border-primary text-on-surface whitespace-nowrap transition-all">
+                Make it more concise
+              </button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant hover:border-primary text-on-surface whitespace-nowrap transition-all">
+                Add FAQ section
+              </button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant hover:border-primary text-on-surface whitespace-nowrap transition-all">
+                Translate to Spanish
+              </button>
+<button class="px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container border border-outline-variant hover:border-primary text-on-surface whitespace-nowrap transition-all">
+                Generate 5 Twitter hooks from this
+              </button>
+</div>
+<button class="p-1.5 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container transition-colors flex-shrink-0">
+<span class="material-symbols-outlined text-[20px]">more_horiz</span>
+</button>
+</footer>
+</section>
+<!-- ============================================== -->
+<!-- PANEL 3: Right Generation History Panel (approx 310px) -->
+<!-- ============================================== -->
+<section class="w-80 flex-shrink-0 flex flex-col bg-surface-container-low overflow-hidden">
+<!-- History Header & Search -->
+<div class="p-space-md border-b border-outline-variant flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">history</span>
+<h3 class="text-headline-sm font-headline-sm font-semibold text-on-surface">Generation History</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm bg-surface-container-high text-on-surface-variant font-medium">14</span>
+</div>
+<!-- Search History Input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 bg-surface-container border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-lg text-body-sm text-on-surface placeholder:text-outline/60 focus:outline-none transition-all" placeholder="Search archive..." type="text"/>
+</div>
+<!-- Filter Categories -->
+<div class="flex items-center gap-1 border-b border-outline-variant/40 pb-1 text-label-sm font-label-sm">
+<button class="px-2 py-1 text-primary font-semibold border-b-2 border-primary -mb-[5px]">All</button>
+<button class="px-2 py-1 text-outline hover:text-on-surface transition-colors">Blog</button>
+<button class="px-2 py-1 text-outline hover:text-on-surface transition-colors">Social</button>
+<button class="px-2 py-1 text-outline hover:text-on-surface transition-colors">Email</button>
+</div>
+</div>
+<!-- History Item Cards List -->
+<div class="flex-1 overflow-y-auto p-space-sm space-y-2 custom-scrollbar">
+<!-- Item 1: Email Sequence -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-secondary-container/40 text-on-secondary-container">Email</span>
+<span class="text-label-sm text-outline">14m ago</span>
+</div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Black Friday 48h Email Sequence
+              </h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2 mt-1">
+                High urgency scarcity sequence targeting dormant subscriber segments with dynamic tiered discounts.
+              </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-label-sm text-outline">
+<span>480 words</span>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Load into Editor">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Copy Content">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Social Hooks -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-primary-container/20 text-primary">Social</span>
+<span class="text-label-sm text-outline">2h ago</span>
+</div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Course Launch LinkedIn Carousel Hooks
+              </h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2 mt-1">
+                10 swipeable slides outlining common pitfalls when migrating from Webflow to headless Shopify storefronts.
+              </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-label-sm text-outline">
+<span>320 words</span>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Load into Editor">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Copy Content">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: Product Description -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-tertiary-container/30 text-tertiary">Product</span>
+<span class="text-label-sm text-outline">Yesterday</span>
+</div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                LUT Masterclass Product Description
+              </h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2 mt-1">
+                Cinematic grading workflow pack for Sony FX3 users with custom camera profiles and REC.709 conversion tables.
+              </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-label-sm text-outline">
+<span>210 words</span>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Load into Editor">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Copy Content">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4: Blog Longform -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-primary-container/20 text-primary">Blog</span>
+<span class="text-label-sm text-outline">2 days ago</span>
+</div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Why Filmmakers are Switching to ACES 1.3
+              </h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2 mt-1">
+                Color science deep dive breaking down color gamut compression algorithms and high-dynamic-range display consistency.
+              </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-label-sm text-outline">
+<span>1,120 words</span>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Load into Editor">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Copy Content">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5: Onboarding Broadcast -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant hover:border-secondary/40 hover:bg-surface-container-high transition-all cursor-pointer group">
+<div class="flex items-center justify-between mb-1.5">
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-secondary-container/40 text-on-secondary-container">Email</span>
+<span class="text-label-sm text-outline">3 days ago</span>
+</div>
+<h4 class="text-label-md font-label-md font-semibold text-on-surface group-hover:text-primary transition-colors line-clamp-1">
+                Cohort 4 Onboarding Welcome Broadcast
+              </h4>
+<p class="text-label-sm text-on-surface-variant line-clamp-2 mt-1">
+                Orientation logistics, private Discord token gating links, and scheduled weekly live office hours breakdown.
+              </p>
+<div class="flex items-center justify-between mt-2.5 pt-2 border-t border-outline-variant/40 text-label-sm text-outline">
+<span>350 words</span>
+<div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Load into Editor">
+<span class="material-symbols-outlined text-[16px]">file_open</span>
+</button>
+<button class="p-1 hover:text-on-surface rounded hover:bg-surface-container-highest" title="Copy Content">
+<span class="material-symbols-outlined text-[16px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Pinned Snippets Manager Link -->
+<div class="p-space-sm border-t border-outline-variant bg-surface-container-lowest">
+<button class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant text-label-sm font-label-sm text-on-surface transition-all">
+<span class="material-symbols-outlined text-[16px]">snippet_folder</span>
+<span>Manage Prompt Snippets (28)</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+</div>
+</body></html>

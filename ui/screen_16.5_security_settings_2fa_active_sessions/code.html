@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Security Settings &amp; Device Sessions</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-fixed-dim": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "secondary": "#d0bcff",
+            "tertiary-fixed-dim": "#4edea3",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-on-surface": "#303036",
+            "surface-container-high": "#2a292f",
+            "on-secondary-fixed": "#23005c",
+            "tertiary-fixed": "#6ffbbe",
+            "outline-variant": "#424754",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#003824",
+            "surface": "#131318",
+            "surface-container": "#1f1f25",
+            "on-primary-fixed": "#001a42",
+            "on-surface-variant": "#c2c6d6",
+            "on-background": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "on-primary-container": "#00285d",
+            "surface-tint": "#adc6ff",
+            "on-error-container": "#ffdad6",
+            "on-secondary-container": "#c4abff",
+            "on-surface": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "primary-fixed-dim": "#adc6ff",
+            "on-tertiary-container": "#00311f",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-tertiary-fixed": "#002113",
+            "surface-bright": "#39383e",
+            "on-primary-fixed-variant": "#004395",
+            "surface-container-low": "#1b1b20",
+            "inverse-primary": "#005ac2",
+            "error": "#ffb4ab",
+            "surface-container-highest": "#35343a",
+            "on-error": "#690005",
+            "secondary-container": "#571bc1",
+            "on-primary": "#002e6a",
+            "primary": "#adc6ff",
+            "tertiary": "#4edea3",
+            "error-container": "#93000a",
+            "background": "#131318",
+            "on-secondary-fixed-variant": "#5516be",
+            "inverse-surface": "#e4e1e9",
+            "outline": "#8c909f"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "0.25rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.35);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #0A0A0F;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #1E1E2E;
+      border-radius: 4px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #2A2A3E;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface antialiased flex h-screen overflow-hidden">
+<!-- ========================================================================= -->
+<!-- SHARED COMPONENT: SideNavBar (desktop_sidebar)                            -->
+<!-- ========================================================================= -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-low border-r border-outline-variant">
+<div class="flex flex-col h-full justify-between p-space-md">
+<!-- Top Workspace Cluster -->
+<div class="space-y-4">
+<!-- Logo & Header -->
+<div class="flex items-center space-x-3 px-2 py-1.5">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-container to-secondary flex items-center justify-center text-on-primary-container font-bold text-headline-sm shadow-sm">
+<span class="material-symbols-outlined text-headline-sm" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-none">Creator OS</div>
+<div class="text-label-md font-label-md text-on-surface-variant leading-tight mt-0.5">Enterprise Suite</div>
+</div>
+</div>
+<!-- Tenant Switcher Dropdown (Workspace) -->
+<div class="p-2 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-between cursor-pointer hover:bg-surface-container-high transition-colors">
+<div class="flex items-center space-x-2 truncate">
+<span class="w-5 h-5 rounded bg-primary-container/20 text-primary flex items-center justify-center text-label-sm font-label-sm font-bold">AS</span>
+<div class="text-label-md font-label-md text-on-surface font-semibold truncate">Acme Studios Enterprise</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-base" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Navigation Tabs -->
+<nav class="space-y-1">
+<!-- Overview -->
+<a class="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-base" data-icon="space_dashboard">space_dashboard</span>
+<span>Overview</span>
+</a>
+<!-- Security & Sessions (ACTIVE) -->
+<div class="space-y-1">
+<a class="w-full flex items-center justify-between px-3 py-2 rounded-lg text-label-md font-label-md text-primary bg-surface-container border-l-2 border-primary font-medium transition-colors" href="#">
+<div class="flex items-center space-x-3">
+<span class="material-symbols-outlined text-base" data-icon="shield" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span>Security &amp; Sessions</span>
+</div>
+<span class="material-symbols-outlined text-sm text-primary" data-icon="expand_less">expand_less</span>
+</a>
+<!-- Submenu Items -->
+<div class="pl-7 pr-2 py-1 space-y-1 border-l border-outline-variant/30 ml-4">
+<a class="block px-2 py-1.5 rounded text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-colors" href="#">
+                Account Settings
+              </a>
+<a class="block px-2 py-1.5 rounded text-label-md font-label-md text-primary font-medium bg-surface-container-high/40 transition-colors" href="#">
+                Security &amp; 2FA
+              </a>
+<a class="block px-2 py-1.5 rounded text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-colors" href="#">
+                Notifications
+              </a>
+<a class="block px-2 py-1.5 rounded text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-colors" href="#">
+                Privacy &amp; GDPR
+              </a>
+<a class="block px-2 py-1.5 rounded text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/50 transition-colors" href="#">
+                API &amp; Webhooks
+              </a>
+</div>
+</div>
+<!-- Notifications -->
+<a class="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-base" data-icon="notifications">notifications</span>
+<span>Notifications</span>
+</a>
+<!-- Privacy & GDPR -->
+<a class="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-base" data-icon="privacy_tip">privacy_tip</span>
+<span>Privacy &amp; GDPR</span>
+</a>
+<!-- API & Integrations -->
+<a class="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-label-md font-label-md text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-base" data-icon="webhook">webhook</span>
+<span>API &amp; Integrations</span>
+</a>
+</nav>
+</div>
+<!-- Footer Nav Cluster & CTA -->
+<div class="space-y-4 pt-4 border-t border-outline-variant/40">
+<button class="w-full py-2.5 px-3 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white font-label-md text-label-md font-medium hover:brightness-105 active:scale-95 transition-all shadow-md flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-base" data-icon="rocket_launch">rocket_launch</span>
+<span>Deploy Project</span>
+</button>
+<div class="space-y-1">
+<a class="w-full flex items-center space-x-3 px-3 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-base" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="w-full flex items-center space-x-3 px-3 py-1.5 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" href="#">
+<span class="material-symbols-outlined text-base" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</div>
+</aside>
+<!-- ========================================================================= -->
+<!-- MAIN WORKSPACE CONTAINER (Left offset 16rem = 256px for persistent side)  -->
+<!-- ========================================================================= -->
+<div class="flex-1 flex flex-col ml-64 min-w-0 bg-[#0A0A0F]">
+<!-- ======================================================================= -->
+<!-- SHARED COMPONENT: TopNavBar (utility_header)                            -->
+<!-- ======================================================================= -->
+<header class="sticky top-0 right-0 w-full h-14 z-20 bg-surface border-b border-outline-variant flex items-center justify-between px-space-lg">
+<!-- Breadcrumb & Left Title Cluster -->
+<div class="flex items-center space-x-4">
+<nav class="flex items-center space-x-2 text-label-md font-label-md text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer">Settings</span>
+<span class="text-outline-variant">/</span>
+<span class="hover:text-on-surface cursor-pointer">Account &amp; Security</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-semibold">Security &amp; 2FA</span>
+</nav>
+<!-- Compliance Security Badge -->
+<div class="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/10 border border-tertiary/30 text-tertiary">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+<span>● SOC-2 Type II Compliant</span>
+</div>
+</div>
+<!-- Trailing Action Controls & Profile Avatar -->
+<div class="flex items-center space-x-3">
+<!-- Quick Action: Audit Log -->
+<button class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high hover:border-outline transition-colors active:scale-95">
+<span class="material-symbols-outlined text-base" data-icon="history">history</span>
+<span>Audit Log</span>
+</button>
+<div class="h-4 w-px bg-outline-variant/60 mx-1"></div>
+<!-- Utility Icons -->
+<button class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-base" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Help Center">
+<span class="material-symbols-outlined text-base" data-icon="help">help</span>
+</button>
+<button class="w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" title="Switch Theme">
+<span class="material-symbols-outlined text-base" data-icon="dark_mode">dark_mode</span>
+</button>
+<!-- Profile Avatar & Info -->
+<div class="flex items-center space-x-2 pl-2 border-l border-outline-variant/50">
+<img class="w-8 h-8 rounded-full border border-outline object-cover" data-alt="A portrait headshot of a female technology operations director wearing an architecturally styled dark charcoal blazer in a modern studio environment with moody blue and purple ambient rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfV58RBmB9cr0SlcNaXSbO6E9-jbnInji6R33L6FMkLyg17SOzV6cH1GXY_IzJFvpbR5YlsWv_5LoHhWkHWuD17tK8SWp7sXR3x7kJ0THoaI7L-8kfnEA3A1urmHBy4dA7IKgdz22MI7yV2CreMbSJr0MHob8nzQ4Krvqrv66vmev8sL9kRLK1KkUGLNlX24EdC5ZGNXlCjj6RWcIbL3-JOEVubNuz7y7b5pck39orhN2pwbECK2Ulog"/>
+<div class="hidden xl:block text-left leading-none">
+<div class="text-label-md font-label-md text-on-surface font-semibold">Elena Vance</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Security Admin</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ======================================================================= -->
+<!-- SCROLLABLE CANVAS WORKSPACE                                            -->
+<!-- ======================================================================= -->
+<main class="flex-1 overflow-y-auto custom-scroll p-8 bg-[#0A0A0F]">
+<div class="max-w-6xl mx-auto space-y-8 pb-16">
+<!-- Page Title & Header Info -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[#1E1E2E] pb-6">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface tracking-tight">Security Settings &amp; Device Sessions</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+              Manage two-factor authentication methods, active login sessions, IP safeguards, and enterprise security policies.
+            </p>
+</div>
+<div class="flex items-center space-x-3">
+<span class="text-label-md font-label-md text-on-surface-variant">Last policy review: <strong class="text-on-surface">Yesterday, 18:42 UTC</strong></span>
+</div>
+</div>
+<!-- ===================================================================== -->
+<!-- SECTION 1: TWO-FACTOR AUTHENTICATION (2FA) CONFIGURATION            -->
+<!-- ===================================================================== -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="lock_clock">lock_clock</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Two-Factor Authentication (2FA)</h2>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Mandated by Acme Corp Enterprise Tier</span>
+</div>
+<!-- Master Status Banner -->
+<div class="p-4 rounded-xl bg-[#12121A] border border-[#1E1E2E] flex items-center justify-between relative overflow-hidden">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 border border-tertiary/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-headline-sm" data-icon="verified_user" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<h3 class="text-label-lg font-label-lg text-on-surface font-semibold">2FA is Enabled</h3>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary/30">Active &amp; Enforced</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Your account has cryptographic second-factor validation activated for all dashboard entrypoints.</p>
+</div>
+</div>
+<div class="hidden sm:flex items-center text-label-sm font-label-sm text-on-surface-variant">
+              Policy ID: <span class="font-mono text-primary ml-1.5">SEC-2024-X9</span>
+</div>
+</div>
+<!-- Method Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- Method 1: Authenticator App (TOTP) -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="smartphone">smartphone</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/30 font-medium">Primary Active</span>
+</div>
+<div class="mt-4">
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Authenticator App</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">TOTP apps like 1Password, Google Authenticator, or Bitwarden generate 6-digit sync keys.</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Synced to: <strong class="text-on-surface">iPhone 15</strong></span>
+<button class="px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high transition-all active:scale-95">
+                  Reconfigure App
+                </button>
+</div>
+</div>
+<!-- Method 2: Hardware Security Keys (FIDO2) -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl" data-icon="key">key</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface border border-outline-variant font-medium">Registered (2 Keys)</span>
+</div>
+<div class="mt-4">
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Hardware Security Keys</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Physical WebAuthn and FIDO2 keys (e.g. YubiKey 5C, Apple Touch ID hardware enclave).</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<div class="flex items-center space-x-1.5 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="check_circle">check_circle</span>
+<span>YubiKey 5C NFC</span>
+</div>
+<button class="px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high transition-all active:scale-95">
+                  Add New Key
+                </button>
+</div>
+</div>
+<!-- Method 3: Backup Recovery Codes -->
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] flex flex-col justify-between hover:border-primary/40 transition-colors">
+<div>
+<div class="flex items-start justify-between">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary-fixed-dim">
+<span class="material-symbols-outlined text-xl" data-icon="pin">pin</span>
+</div>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface-variant border border-outline-variant font-medium">Emergency Access</span>
+</div>
+<div class="mt-4">
+<h4 class="text-label-lg font-label-lg text-on-surface font-semibold">Backup Recovery Codes</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Single-use emergency recovery passcodes when primary hardware devices are unreachable.</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-on-surface font-medium">8 of 10 codes remaining</span>
+<div class="flex items-center space-x-2">
+<button class="px-2.5 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-on-surface hover:bg-surface-container-high transition-all active:scale-95">
+                    View Codes
+                  </button>
+<button class="p-1.5 rounded-md bg-surface-container border border-outline-variant text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all active:scale-95" title="Regenerate Codes">
+<span class="material-symbols-outlined text-base" data-icon="restart_alt">restart_alt</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 2: ACTIVE SESSIONS & LOGGED-IN DEVICES                      -->
+<!-- ===================================================================== -->
+<section class="space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="devices">devices</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Active Sessions &amp; Logged-in Devices</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Currently authorized devices with signed access tokens to your enterprise workspace.</p>
+</div>
+<!-- Danger Styled Action -->
+<button class="inline-flex items-center space-x-2 px-3.5 py-2 rounded-lg bg-error-container/20 border border-error/30 text-error hover:bg-error-container/30 transition-all duration-150 active:scale-95 self-start sm:self-auto text-label-md font-label-md">
+<span class="material-symbols-outlined text-base" data-icon="gpp_bad">gpp_bad</span>
+<span>Revoke All Other Sessions</span>
+</button>
+</div>
+<!-- Sessions List / Table Container -->
+<div class="rounded-xl bg-[#12121A] border border-[#1E1E2E] overflow-hidden">
+<div class="divide-y divide-[#1E1E2E]">
+<!-- Session 1: Current Session -->
+<div class="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-low/40 hover:bg-[#181824] transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="laptop_mac">laptop_mac</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2">
+<span class="text-label-lg font-label-lg font-semibold text-on-surface">Chrome on macOS Sonoma</span>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-container/20 text-tertiary border border-tertiary/30 font-semibold flex items-center space-x-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-ping"></span>
+<span>Current Active Session</span>
+</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span>San Francisco, CA, USA</span>
+</span>
+<span class="font-mono text-outline">172.56.21.89</span>
+<span class="text-xs">Client Hash: <span class="font-mono text-outline">8f92..3a1c</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 self-end md:self-center">
+<span class="text-label-sm font-label-sm text-tertiary font-medium">Active right now</span>
+<div class="w-20 text-right">
+<span class="text-label-sm font-label-sm text-on-surface-variant italic">Self Device</span>
+</div>
+</div>
+</div>
+<!-- Session 2: iOS Mobile App -->
+<div class="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#181824] transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="phone_iphone">phone_iphone</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg font-medium text-on-surface">Creator OS Mobile iOS App</span>
+<span class="text-label-sm font-label-sm text-outline">iPhone 15 Pro</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span>San Francisco, CA</span>
+</span>
+<span class="font-mono text-outline">172.56.21.90</span>
+<span class="text-xs">OAuth Token: <span class="font-mono text-outline">Bearer v2</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 self-end md:self-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Last active 42m ago</span>
+<button class="px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-error hover:bg-error-container/20 hover:border-error/40 transition-all active:scale-95">
+                    Revoke
+                  </button>
+</div>
+</div>
+<!-- Session 3: iPadOS Safari -->
+<div class="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#181824] transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="tablet_mac">tablet_mac</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg font-medium text-on-surface">Safari on iPadOS 17</span>
+<span class="text-label-sm font-label-sm text-outline">Austin Hub Session</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span>Austin, TX, USA</span>
+</span>
+<span class="font-mono text-outline">73.189.44.12</span>
+<span class="text-xs">Via VPN: <span class="text-tertiary">Cloudflare WARP</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 self-end md:self-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Last active 3 days ago</span>
+<button class="px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-error hover:bg-error-container/20 hover:border-error/40 transition-all active:scale-95">
+                    Revoke
+                  </button>
+</div>
+</div>
+<!-- Session 4: Windows 11 Firefox -->
+<div class="p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-[#181824] transition-colors">
+<div class="flex items-start space-x-3.5">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant mt-0.5">
+<span class="material-symbols-outlined text-xl" data-icon="desktop_windows">desktop_windows</span>
+</div>
+<div>
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg font-medium text-on-surface">Firefox on Windows 11</span>
+<span class="text-label-sm font-label-sm text-outline">Desktop Workstation</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-body-sm font-body-sm text-on-surface-variant mt-1">
+<span class="flex items-center space-x-1">
+<span class="material-symbols-outlined text-xs" data-icon="location_on">location_on</span>
+<span>London, UK</span>
+</span>
+<span class="font-mono text-outline">86.12.99.14</span>
+<span class="text-xs">Location Tag: <span class="font-mono text-outline">UK-LON-02</span></span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4 self-end md:self-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Last active 12 days ago</span>
+<button class="px-3 py-1.5 rounded-md bg-surface-container border border-outline-variant text-label-md font-label-md text-error hover:bg-error-container/20 hover:border-error/40 transition-all active:scale-95">
+                    Revoke
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- SECTION 3: ADVANCED ACCOUNT SAFEGUARDS                              -->
+<!-- ===================================================================== -->
+<section class="space-y-4">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-primary text-headline-sm" data-icon="admin_panel_settings">admin_panel_settings</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Advanced Account Safeguards</h2>
+</div>
+<div class="p-space-lg rounded-xl bg-[#12121A] border border-[#1E1E2E] space-y-6">
+<!-- Timeout Dropdown Control -->
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-[#1E1E2E] gap-4">
+<div>
+<label class="text-label-lg font-label-lg text-on-surface font-medium block">Session Timeout Inactivity Lock</label>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Automatically trigger an authenticated lock screen and require biometric or PIN re-entry.</p>
+</div>
+<div class="w-full md:w-80">
+<div class="relative">
+<select class="w-full h-10 rounded-md bg-[#181824] border border-[#1E1E2E] text-on-surface text-body-md font-body-md px-3 pr-8 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary appearance-none cursor-pointer">
+<option selected="">Auto-lock after 30 minutes of inactivity</option>
+<option>Auto-lock after 15 minutes of inactivity</option>
+<option>Auto-lock after 1 hour of inactivity</option>
+<option>Auto-lock after 4 hours of inactivity</option>
+<option>Never (Not recommended for Enterprise)</option>
+</select>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-2.5 top-2.5 pointer-events-none text-lg" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Toggle Row 1: Destructive Actions Reauth -->
+<div class="flex items-center justify-between py-2">
+<div class="pr-6">
+<span class="text-label-lg font-label-lg text-on-surface font-medium block">
+                  Require re-authentication for destructive actions
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 block">
+                  Forces TOTP verification before issuing payouts, deleting custom domains, or generating production API master keys.
+                </span>
+</div>
+<!-- Checkbox Toggle -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+<!-- Toggle Row 2: New Device Login Emails -->
+<div class="flex items-center justify-between py-2 border-t border-[#1E1E2E]">
+<div class="pr-6">
+<span class="text-label-lg font-label-lg text-on-surface font-medium block">
+                  New device login email notifications
+                </span>
+<span class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 block">
+                  Instantly receive an alert email specifying geographic coordinates, IP address, and browser fingerprint when a new login occurs.
+                </span>
+</div>
+<!-- Checkbox Toggle -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+<!-- Toggle Row 3: Strict IP Geofencing -->
+<div class="flex items-center justify-between py-2 border-t border-[#1E1E2E]">
+<div class="pr-6">
+<div class="flex items-center space-x-2">
+<span class="text-label-lg font-label-lg text-on-surface font-medium">Strict IP Geofencing</span>
+<span class="px-2 py-0.2 rounded text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">US &amp; UK Only</span>
+</div>
+<span class="text-body-sm font-body-sm text-on-surface-variant mt-0.5 block">
+                  Restrict enterprise administrative logins strictly to authorized network CIDR blocks originating from United States &amp; United Kingdom gateways.
+                </span>
+</div>
+<!-- Checkbox Toggle -->
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-[#3B82F6] peer-checked:to-[#8B5CF6]"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- ===================================================================== -->
+<!-- BOTTOM ACTIONS BAR                                                  -->
+<!-- ===================================================================== -->
+<div class="pt-4 border-t border-[#1E1E2E] flex items-center justify-between">
+<div class="text-body-sm font-body-sm text-on-surface-variant flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-base text-tertiary" data-icon="lock">lock</span>
+<span>All modifications are recorded in the SOC-2 immutable audit ledger.</span>
+</div>
+<div class="flex items-center space-x-3">
+<button class="px-4 py-2 rounded-lg bg-[#181824] border border-[#1E1E2E] text-on-surface text-label-md font-label-md font-medium hover:bg-[#1E1E2E] hover:border-outline-variant transition-colors active:scale-95">
+              Discard Changes
+            </button>
+<button class="px-5 py-2 rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white text-label-md font-label-md font-medium shadow-md hover:brightness-105 active:scale-95 transition-all ambient-glow flex items-center space-x-2">
+<span class="material-symbols-outlined text-base" data-icon="check">check</span>
+<span>Save Security Preferences</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

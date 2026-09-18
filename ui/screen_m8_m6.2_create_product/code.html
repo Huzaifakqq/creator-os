@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Creator OS — Create New Product</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-variant": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary": "#002e6a",
+            "tertiary": "#4edea3",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "background": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "primary": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-primary": "#005ac2",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "surface": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "secondary-fixed": "#e9ddff",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-fixed": "#002113",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    /* Obsidian aesthetic layer tokens & ambient luminescence */
+    body {
+      background-color: #0A0A0F;
+      color: #e4e1e9;
+      font-family: 'Inter', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .obsidian-card {
+      background: #12121A;
+      border: 1px solid #1E1E2E;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .obsidian-card-active {
+      background: #151624;
+      border-color: #3B82F6;
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.28), inset 0 0 16px -8px rgba(59, 130, 246, 0.15);
+    }
+
+    .btn-gradient-primary {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.4);
+      transition: filter 0.15s ease, transform 0.1s ease;
+    }
+    .btn-gradient-primary:active {
+      transform: scale(0.98);
+      filter: brightness(0.95);
+    }
+
+    .radio-dot-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+    }
+
+    /* Ambient atmospheric glow in canvas background */
+    .ambient-glow-top {
+      background: radial-gradient(circle at 50% -20%, rgba(59, 130, 246, 0.15), transparent 70%);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="min-h-screen bg-surface-container-lowest flex justify-center selection:bg-primary-container selection:text-on-primary-container">
+<!-- Mobile Viewport Constraint: 375px nominal wrapper -->
+<div class="w-full max-w-[375px] min-h-[812px] flex flex-col bg-[#0A0A0F] relative overflow-x-hidden ambient-glow-top">
+<!-- TopAppBar: Linear task flow -> suppressed bottom nav bar to protect canvas focus -->
+<header class="sticky top-0 z-40 w-full h-14 bg-surface-container-lowest/80 backdrop-blur-md flex items-center justify-between px-4">
+<button aria-label="Cancel and close" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+<div class="flex flex-col items-center justify-center">
+<span class="text-label-sm font-label-sm tracking-wider uppercase text-primary font-semibold">Step 1 of 3</span>
+<h1 class="text-headline-sm font-headline-sm font-semibold tracking-tight text-on-surface">Create New Product</h1>
+</div>
+<div class="w-9 flex items-center justify-end">
+<button class="w-7 h-7 rounded-full bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+</header>
+<!-- Progress Indicator Bar -->
+<div class="w-full h-0.5 bg-surface-container-high relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1/3 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]"></div>
+</div>
+<!-- Main Content Flow -->
+<main class="flex-1 px-4 pt-5 pb-28 flex flex-col gap-4">
+<!-- Section Header -->
+<section class="space-y-1.5">
+<h2 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">What are you creating?</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+          Choose the product format to configure pricing, media delivery, and checkout access rules.
+        </p>
+</section>
+<!-- 4 Selectable Vertical Product Type Cards -->
+<div aria-label="Select Product Type" class="flex flex-col gap-3 mt-1" role="radiogroup">
+<!-- Card 1: Selected (Digital Product & Asset) -->
+<div aria-checked="true" class="obsidian-card obsidian-card-active rounded-xl p-3.5 relative cursor-pointer group active:scale-[0.99] transition-transform" role="radio" tabindex="0">
+<div class="flex items-start justify-between gap-2.5">
+<!-- Icon Container with Neon Glow -->
+<div class="w-10 h-10 rounded-lg bg-blue-950/60 border border-blue-500/40 flex items-center justify-center text-[#3B82F6] shadow-[0_0_16px_rgba(59,130,246,0.35)] shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]" data-icon="cloud_download" data-weight="fill" style="font-variation-settings: 'FILL' 1;">cloud_download</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight text-[15px]">Digital Asset or File</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide uppercase bg-blue-500/15 border border-blue-500/30 text-primary shrink-0">Instant Delivery</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 leading-tight">
+                Sell ebooks, LUTs, presets, video templates, 3D models, or software files with secure CDN downloads.
+              </p>
+</div>
+<!-- Radio Indicator: Filled Gradient Check Circle -->
+<div class="w-5 h-5 rounded-full radio-dot-gradient flex items-center justify-center shrink-0 mt-1 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+<span class="material-symbols-outlined text-[14px] text-white font-bold" data-icon="check">check</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Online Course & Masterclass -->
+<div aria-checked="false" class="obsidian-card hover:border-[#8B5CF6]/50 rounded-xl p-3.5 relative cursor-pointer group active:scale-[0.99] transition-all" role="radio" tabindex="0">
+<div class="flex items-start justify-between gap-2.5">
+<!-- Icon Container -->
+<div class="w-10 h-10 rounded-lg bg-[#181824] border border-[#2A2A3E] group-hover:border-purple-500/40 group-hover:shadow-[0_0_14px_rgba(139,92,246,0.3)] flex items-center justify-center text-purple-400 shrink-0 mt-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px]" data-icon="school">school</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight text-[15px]">Course or Cohort</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide uppercase bg-purple-500/10 border border-purple-500/30 text-secondary shrink-0">LMS &amp; Video</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 leading-tight">
+                Video chapters, downloadable handouts, assignments, quizzes, and automated completion certificates.
+              </p>
+</div>
+<!-- Radio Indicator: Empty Outline -->
+<div class="w-5 h-5 rounded-full border border-outline/60 shrink-0 mt-1 flex items-center justify-center group-hover:border-purple-400 transition-colors"></div>
+</div>
+</div>
+<!-- Card 3: Community & Membership Tier -->
+<div aria-checked="false" class="obsidian-card hover:border-emerald-500/40 rounded-xl p-3.5 relative cursor-pointer group active:scale-[0.99] transition-all" role="radio" tabindex="0">
+<div class="flex items-start justify-between gap-2.5">
+<!-- Icon Container -->
+<div class="w-10 h-10 rounded-lg bg-[#181824] border border-[#2A2A3E] group-hover:border-emerald-500/40 group-hover:shadow-[0_0_14px_rgba(78,222,163,0.25)] flex items-center justify-center text-tertiary shrink-0 mt-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px]" data-icon="groups">groups</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight text-[15px]">Subscription Membership</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide uppercase bg-emerald-500/10 border border-emerald-500/30 text-tertiary shrink-0">Recurring MRR</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 leading-tight">
+                Exclusive channels, Discord role sync, gated live stages, and recurring monthly or annual billing.
+              </p>
+</div>
+<!-- Radio Indicator: Empty Outline -->
+<div class="w-5 h-5 rounded-full border border-outline/60 shrink-0 mt-1 flex items-center justify-center group-hover:border-emerald-400 transition-colors"></div>
+</div>
+</div>
+<!-- Card 4: 1-on-1 Coaching & Mentorship -->
+<div aria-checked="false" class="obsidian-card hover:border-amber-500/40 rounded-xl p-3.5 relative cursor-pointer group active:scale-[0.99] transition-all" role="radio" tabindex="0">
+<div class="flex items-start justify-between gap-2.5">
+<!-- Icon Container -->
+<div class="w-10 h-10 rounded-lg bg-[#181824] border border-[#2A2A3E] group-hover:border-amber-500/40 group-hover:shadow-[0_0_14px_rgba(245,158,11,0.25)] flex items-center justify-center text-amber-400 shrink-0 mt-0.5 transition-all">
+<span class="material-symbols-outlined text-[22px]" data-icon="video_camera_front">video_camera_front</span>
+</div>
+<div class="flex-1 min-w-0 pr-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold tracking-tight text-[15px]">Coaching Sessions</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-label-sm tracking-wide uppercase bg-amber-500/10 border border-amber-500/30 text-amber-300 shrink-0">Calendar Sync</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-2 leading-tight">
+                Bookable video calls, custom intake questionnaires, calendar slot management, and session notes.
+              </p>
+</div>
+<!-- Radio Indicator: Empty Outline -->
+<div class="w-5 h-5 rounded-full border border-outline/60 shrink-0 mt-1 flex items-center justify-center group-hover:border-amber-400 transition-colors"></div>
+</div>
+</div>
+</div>
+<!-- Quick Configuration Preview Note -->
+<div class="mt-2 rounded-lg bg-surface-container-lowest/60 border border-outline-variant/20 p-3 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5" data-icon="auto_awesome">auto_awesome</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-tight">
+          Instant checkout links and embeddable widgets generated automatically upon configuration.
+        </p>
+</div>
+</main>
+<!-- Sticky Bottom Footer with Action Button -->
+<footer class="fixed bottom-0 left-0 right-0 max-w-[375px] mx-auto z-50 p-4 bg-[#0A0A0F]/90 backdrop-blur-xl border-t border-outline-variant/20">
+<div class="flex flex-col gap-2">
+<button class="btn-gradient-primary w-full h-11 rounded-lg font-label-lg text-white font-medium flex items-center justify-center gap-2 shadow-lg" type="button">
+<span>Continue to Product Details</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<div class="flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant px-1 pt-0.5">
+<span class="text-[11px] font-label-sm">Saved as Draft</span>
+<span class="text-[11px] font-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary inline-block"></span>
+            Cloud Autosync Active
+          </span>
+</div>
+</div>
+</footer>
+</div>
+<!-- Interactive Radio Toggle Behavior -->
+<script>
+    document.querySelectorAll('[role="radio"]').forEach((card) => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('[role="radio"]').forEach((c) => {
+          c.setAttribute('aria-checked', 'false');
+          c.classList.remove('obsidian-card-active');
+          const indicator = c.querySelector('.radio-dot-gradient');
+          if (indicator) {
+            indicator.className = 'w-5 h-5 rounded-full border border-outline/60 shrink-0 mt-1 flex items-center justify-center transition-colors';
+            indicator.innerHTML = '';
+          }
+        });
+
+        card.setAttribute('aria-checked', 'true');
+        card.classList.add('obsidian-card-active');
+        const emptyDot = card.querySelector('.w-5.h-5');
+        if (emptyDot) {
+          emptyDot.className = 'w-5 h-5 rounded-full radio-dot-gradient flex items-center justify-center shrink-0 mt-1 shadow-[0_0_10px_rgba(59,130,246,0.5)]';
+          emptyDot.innerHTML = '<span class="material-symbols-outlined text-[14px] text-white font-bold" data-icon="check">check</span>';
+        }
+      });
+    });
+  </script>
+</body></html>

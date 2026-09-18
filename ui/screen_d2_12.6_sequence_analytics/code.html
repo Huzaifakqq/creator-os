@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Sequence Analytics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container-low": "#1b1b20",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed": "#002113",
+            "on-surface": "#e4e1e9",
+            "on-error": "#690005",
+            "tertiary": "#4edea3",
+            "secondary-fixed-dim": "#d0bcff",
+            "on-tertiary": "#003824",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container": "#1f1f25",
+            "on-error-container": "#ffdad6",
+            "inverse-on-surface": "#303036",
+            "surface-dim": "#131318",
+            "primary-fixed": "#d8e2ff",
+            "tertiary-fixed": "#6ffbbe",
+            "secondary-container": "#571bc1",
+            "error": "#ffb4ab",
+            "on-background": "#e4e1e9",
+            "surface-variant": "#35343a",
+            "on-primary-fixed": "#001a42",
+            "surface-container-highest": "#35343a",
+            "on-primary": "#002e6a",
+            "outline-variant": "#424754",
+            "on-surface-variant": "#c2c6d6",
+            "surface": "#131318",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-container-lowest": "#0e0e13",
+            "primary": "#adc6ff",
+            "primary-container": "#4d8eff",
+            "surface-tint": "#adc6ff",
+            "inverse-primary": "#005ac2",
+            "error-container": "#93000a",
+            "secondary": "#d0bcff",
+            "surface-bright": "#39383e",
+            "outline": "#8c909f",
+            "background": "#131318",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-container": "#00285d",
+            "surface-container-high": "#2a292f",
+            "tertiary-container": "#00a572",
+            "secondary-fixed": "#e9ddff",
+            "inverse-surface": "#e4e1e9",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-tertiary-fixed-variant": "#005236"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-xl": "2rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Inter"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "display-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "label-lg": ["Inter"],
+            "headline-md": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0e0e13;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #2a292f;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden min-h-screen">
+<!-- Desktop SideNavBar Component (Docked Drawer) -->
+<aside class="fixed top-0 left-0 h-full w-64 z-40 flex flex-col justify-between p-4 bg-surface-container-lowest border-r border-outline-variant/30 select-none">
+<!-- Top Brand & Tenant -->
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-3 px-2 pt-1">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high border border-outline-variant/40 flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-primary" data-icon="auto_mode">auto_mode</span>
+</div>
+<div class="flex flex-col">
+<span class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight">Creator OS</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Broadcast Studio</span>
+</div>
+</div>
+<!-- Action Button -->
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-primary font-label-lg font-medium shadow-sm hover:brightness-110 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="add_circle">add_circle</span>
+<span>New Campaign</span>
+</button>
+<!-- Primary Nav Items -->
+<nav class="flex flex-col gap-1">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Audience -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Audience</span>
+</a>
+<!-- Content Studio -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="video_library">video_library</span>
+<span>Content Studio</span>
+</a>
+<!-- Email Marketing -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+<span>Email Marketing</span>
+</a>
+<!-- Automations (Active Intent - Sequence Analytics Context) -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-surface-container-high text-primary font-label-md font-medium border border-primary/20 shadow-sm transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="auto_mode">auto_mode</span>
+<span>Automations</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="query_stats">query_stats</span>
+<span>Analytics</span>
+</a>
+</nav>
+</div>
+<!-- Footer System Links -->
+<div class="flex flex-col gap-2 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-tertiary" data-icon="verified">verified</span>
+<div class="flex flex-col">
+<span>Deliverability Health</span>
+<span class="text-[10px] text-tertiary">99.4% Inboxing score</span>
+</div>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-surface-variant font-label-md font-medium hover:bg-surface-container hover:text-on-surface transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<!-- Profile Card -->
+<div class="flex items-center gap-3 p-2 mt-1 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<img class="w-8 h-8 rounded-full object-cover border border-outline-variant/40" data-alt="Close up of a professional creative director in a high-tech studio environment with soft blue rim lighting, wearing minimalist dark attire, shot in a sleek contemporary aesthetic with obsidian tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7Wsx8hFl0Bp7ukrnbVQyRYx8mg6JcDMsR1rJEMifLVSF1fMLw12sKM7FgON95fVHVuP7x0zEwH4ZT55LdIfiO2NHEo_sx4LRvBT50FjdJW1VlVilI46iLeVZXotBhfSUX6qE4WkVKx9XyNJqG4jLgxitzbuPm9FU7JUWrZH_RBrogfo3h54SVGFVL3QqvLifAlGQ9y19anP2LRYKBpb-gh2QOk6guC_bzw_E5mlHMNQyqxlqAggo1Ug"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="text-label-md font-label-md text-on-surface truncate">Devon Vance</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant truncate">Executive Tier</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer text-sm" data-icon="tune">tune</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Sticky Header) -->
+<header class="sticky top-0 right-0 z-30 flex items-center justify-between px-6 h-14 w-full pl-70 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 text-label-md font-label-md text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer">Email Marketing</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer">Automation Sequences</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface font-semibold text-primary">High-Ticket Creator Onboarding Funnel</span>
+</div>
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-3">
+<!-- Date Range Filter -->
+<div class="flex items-center gap-2 bg-surface-container-low border border-outline-variant/40 px-3 py-1.5 rounded-lg text-label-md font-label-md text-on-surface cursor-pointer hover:border-outline transition-colors">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="calendar_month">calendar_month</span>
+<span>Last 30 Days (Oct 1 - Oct 31)</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="arrow_drop_down">arrow_drop_down</span>
+</div>
+<!-- Deliverability Secondary Badge Action -->
+<div class="flex items-center gap-1.5 bg-surface-container-high border border-outline-variant/30 px-2.5 py-1.5 rounded-lg text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[15px]" data-icon="verified">verified</span>
+<span>99.4% Deliverability</span>
+</div>
+<!-- Export Funnel CSV Button -->
+<button class="flex items-center gap-1.5 bg-surface-container-low border border-outline-variant/40 text-on-surface px-3 py-1.5 rounded-lg text-label-md font-label-md hover:bg-surface-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Export Funnel CSV</span>
+</button>
+<!-- Edit Automation Workflow Button -->
+<button class="flex items-center gap-2 bg-gradient-to-r from-primary-container to-secondary-container text-on-primary px-3.5 py-1.5 rounded-lg text-label-md font-label-md font-semibold hover:brightness-110 shadow-sm active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-[16px]" data-icon="edit_note">edit_note</span>
+<span>Edit Automation Workflow</span>
+</button>
+<!-- Utility Icons -->
+<div class="flex items-center gap-1 ml-2 border-l border-outline-variant/30 pl-2">
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications">notifications</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="help">help</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Workspace Canvas -->
+<main class="ml-64 p-8 min-h-[calc(100vh-56px)] bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<!-- Sequence Header Card -->
+<section class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 relative overflow-hidden shadow-sm">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-3 flex-wrap">
+<h1 class="text-headline-lg font-headline-lg text-on-surface font-semibold tracking-tight">
+                High-Ticket Creator Onboarding &amp; Conversion Drip
+              </h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary/10 border border-tertiary/30 text-tertiary">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                Active &amp; Enrolling
+              </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-3xl">
+              7-step automated nurturing sequence triggered on new course registration. Guides leads toward 1-on-1 mentorship enrollment with targeted deliverability triggers and dynamic delays.
+            </p>
+<div class="flex items-center gap-5 text-label-sm font-label-sm text-on-surface-variant/80 mt-1">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="calendar_today">calendar_today</span>
+                Created: Sep 12, 2026
+              </span>
+<span>•</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]" data-icon="history">history</span>
+                Last modified: Oct 28, 2026
+              </span>
+<span>•</span>
+<span class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[14px]" data-icon="bolt">bolt</span>
+                Trigger: Webhook [Course.Enrollment.Created]
+              </span>
+</div>
+</div>
+<!-- Secondary Quick Filters in Header -->
+<div class="flex items-center gap-3 bg-surface-container/60 p-2 rounded-lg border border-outline-variant/30 shrink-0">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface text-label-md font-label-md cursor-pointer">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="filter_alt">filter_alt</span>
+<span>Cohort: All Cohort Leads</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Compare Baseline Toggle -->
+<label class="flex items-center gap-2 px-2.5 py-1.5 cursor-pointer select-none">
+<input checked="" class="rounded border-outline-variant/50 bg-surface text-primary focus:ring-0 focus:ring-offset-0 w-4 h-4 cursor-pointer" type="checkbox"/>
+<span class="text-label-md font-label-md text-on-surface-variant">Compare Baseline</span>
+</label>
+</div>
+</div>
+</section>
+<!-- Stats Row (4 KPI Cards) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- KPI 1 -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between relative overflow-hidden group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Total Enrolled Subscribers</span>
+<div class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="group_add">group_add</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-display-lg-mobile md:text-headline-xl font-headline-xl text-on-surface font-semibold tracking-tight">14,820</div>
+<div class="flex items-center gap-1.5 mt-2 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+<span>+14.2% MoM</span>
+<span class="text-on-surface-variant ml-1 font-normal">vs. preceding 30d</span>
+</div>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between relative overflow-hidden group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Currently Active in Drip</span>
+<div class="p-2 rounded-lg bg-surface-container-high text-secondary">
+<span class="material-symbols-outlined text-[18px]" data-icon="hourglass_top">hourglass_top</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-display-lg-mobile md:text-headline-xl font-headline-xl text-on-surface font-semibold tracking-tight">3,410</div>
+<div class="flex items-center gap-1.5 mt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="linear_scale">linear_scale</span>
+<span>Across Steps 2–6 (Pipelined)</span>
+</div>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between relative overflow-hidden group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Funnel Completion Rate</span>
+<div class="p-2 rounded-lg bg-surface-container-high text-tertiary">
+<span class="material-symbols-outlined text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-display-lg-mobile md:text-headline-xl font-headline-xl text-on-surface font-semibold tracking-tight">68.4%</div>
+<div class="flex items-center gap-1.5 mt-2 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span>
+<span>+26.4% delta</span>
+<span class="text-on-surface-variant ml-1 font-normal">Industry: 42.0%</span>
+</div>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between relative overflow-hidden group hover:border-primary/40 transition-colors">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Avg. Time to Complete</span>
+<div class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[18px]" data-icon="schedule">schedule</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="text-display-lg-mobile md:text-headline-xl font-headline-xl text-on-surface font-semibold tracking-tight">14.2 Days</div>
+<div class="flex items-center gap-1.5 mt-2 text-label-sm font-label-sm text-tertiary">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified">verified</span>
+<span>Optimal pacing</span>
+<span class="text-on-surface-variant ml-1 font-normal">(Target: 14.0d)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Drop-Off Funnel Visualization Section -->
+<section class="p-6 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col gap-6 shadow-sm">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant/20 pb-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Subscriber Retention Funnel Flow</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Step-by-step conversion retention and attrition decay rate from trigger intake to ultimate program conversion.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm text-error flex items-center gap-1 bg-error-container/20 border border-error/30 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[14px]" data-icon="warning">warning</span>
+              Critical Drop: Step 2 → 3 (-10.2%)
+            </span>
+</div>
+</div>
+<!-- Funnel Stepped Graphic (Progressive Horizontal Bars) -->
+<div class="grid grid-cols-1 md:grid-cols-7 gap-2.5 items-end pt-4 pb-2">
+<!-- Step 1 Bar -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface">
+<span class="font-bold text-primary">100%</span>
+<span class="text-on-surface-variant">14,820</span>
+</div>
+<div class="h-44 w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-primary">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-primary-container/5"></div>
+<div class="relative z-10 text-[10px] text-primary font-semibold">Base Volume</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Step 1</span>
+<span class="text-[11px] text-on-surface-variant truncate">Welcome Pack</span>
+</div>
+</div>
+<!-- Step 2 Bar -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface">
+<span class="font-bold text-primary">93.9%</span>
+<span class="text-on-surface-variant">13,920</span>
+</div>
+<div class="h-[165px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-primary">
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-primary-container/5"></div>
+<div class="relative z-10 text-[10px] text-on-surface-variant">-6.1% drop</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Step 2</span>
+<span class="text-[11px] text-on-surface-variant truncate">48h Delay Wait</span>
+</div>
+</div>
+<!-- Step 3 Bar (Highlighted Drop-Off Zone) -->
+<div class="flex flex-col gap-2 group relative">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-error">
+<span class="font-bold">83.7%</span>
+<span class="text-on-surface-variant">12,410</span>
+</div>
+<div class="h-[147px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-error ring-1 ring-error/40">
+<div class="absolute inset-0 bg-gradient-to-t from-error-container/30 to-error-container/5"></div>
+<div class="relative z-10 text-[10px] text-error font-bold">-10.2% drop</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-error truncate">Step 3</span>
+<span class="text-[11px] text-on-surface-variant truncate">Case Study $50k</span>
+</div>
+</div>
+<!-- Step 4 Bar -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface">
+<span class="font-bold text-secondary">75.5%</span>
+<span class="text-on-surface-variant">11,200</span>
+</div>
+<div class="h-[132px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-secondary">
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container/20 to-secondary-container/5"></div>
+<div class="relative z-10 text-[10px] text-on-surface-variant">-8.2% drop</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Step 4</span>
+<span class="text-[11px] text-on-surface-variant truncate">Branch Split</span>
+</div>
+</div>
+<!-- Step 5 Bar -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface">
+<span class="font-bold text-secondary">70.8%</span>
+<span class="text-on-surface-variant">10,500</span>
+</div>
+<div class="h-[124px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-secondary">
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container/20 to-secondary-container/5"></div>
+<div class="relative z-10 text-[10px] text-on-surface-variant">-4.7% drop</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Step 5</span>
+<span class="text-[11px] text-on-surface-variant truncate">Private Demo</span>
+</div>
+</div>
+<!-- Step 6 Bar -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface">
+<span class="font-bold text-tertiary">66.6%</span>
+<span class="text-on-surface-variant">9,880</span>
+</div>
+<div class="h-[117px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-tertiary">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/20 to-tertiary/5"></div>
+<div class="relative z-10 text-[10px] text-on-surface-variant">-4.2% drop</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-on-surface truncate">Step 6</span>
+<span class="text-[11px] text-on-surface-variant truncate">Strategy Slot</span>
+</div>
+</div>
+<!-- Goal Conversion -->
+<div class="flex flex-col gap-2 group">
+<div class="flex justify-between items-center text-label-sm font-label-sm text-tertiary">
+<span class="font-bold">68.4%</span>
+<span class="text-on-surface font-semibold">10,136</span>
+</div>
+<div class="h-[120px] w-full bg-surface-container-high rounded-t-lg relative overflow-hidden flex flex-col justify-end p-2 border-t-2 border-tertiary ring-1 ring-tertiary/40">
+<div class="absolute inset-0 bg-gradient-to-t from-tertiary/30 via-tertiary/10 to-transparent"></div>
+<div class="relative z-10 text-[10px] text-tertiary font-bold">Total Converted</div>
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm font-semibold text-tertiary truncate">Goal Achieved</span>
+<span class="text-[11px] text-on-surface-variant truncate">Mentorship App</span>
+</div>
+</div>
+</div>
+<!-- Funnel Summary Insight Bar -->
+<div class="p-3.5 rounded-lg bg-surface-container border border-outline-variant/30 flex items-center justify-between text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="insights">insights</span>
+<span><strong class="text-on-surface">Sequence Drop Analysis:</strong> 10.2% of users drop off at Step 3 (Case Study). Optimizing subject line preview text or reducing body length is projected to recover approximately ~750 high-ticket leads.</span>
+</div>
+<button class="text-primary hover:underline font-label-md font-medium text-xs whitespace-nowrap">View Deep Attribution →</button>
+</div>
+</section>
+<!-- Step-by-Step Performance Table Section -->
+<section class="rounded-xl bg-surface-container-low border border-outline-variant/30 overflow-hidden shadow-sm">
+<div class="p-5 border-b border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="table_chart">table_chart</span>
+<h2 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Step-by-Step Execution Performance</h2>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Showing all 6 steps</span>
+</div>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/30 bg-surface-container/50 text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-3.5 px-5">Step Name &amp; Sequence Order</th>
+<th class="py-3.5 px-4">Step Type</th>
+<th class="py-3.5 px-4">Triggered / Sent</th>
+<th class="py-3.5 px-4">Open Rate</th>
+<th class="py-3.5 px-4">CTR</th>
+<th class="py-3.5 px-4">Drop-off Rate</th>
+<th class="py-3.5 px-5 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-md font-body-md">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface">1</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 1: Welcome &amp; Studio Asset Pack</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Sends immediately after webhook fire</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="mail">mail</span>
+                    Email
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">14,820</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">78.2%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">11,589 opens</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">38.4%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">5,690 clicks</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="text-tertiary font-medium">6.1%</span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">Inspect Email</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">A/B Test</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface">2</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 2: 48h Delay / Wait Period</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Buffer interval before case study delivery</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary/10 text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="hourglass_empty">hourglass_empty</span>
+                    Delay
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">13,920</td>
+<td class="py-4 px-4 text-on-surface-variant">N/A</td>
+<td class="py-4 px-4 text-on-surface-variant">N/A</td>
+<td class="py-4 px-4">
+<span class="text-on-surface-variant font-medium">0.0%</span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">Modify Delay</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (High Drop) -->
+<tr class="hover:bg-surface-container transition-colors bg-error-container/5">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-error-container/20 border border-error/30 flex items-center justify-center text-label-sm font-bold text-error">3</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 3: Case Study: 0 to $50k/mo</span>
+<span class="text-body-sm font-body-sm text-error">Contains primary student monetization narrative</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="mail">mail</span>
+                    Email
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">12,410</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">64.5%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">8,004 opens</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">24.1%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">2,990 clicks</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-label-sm font-semibold bg-error/15 text-error border border-error/30">
+                    10.2% High Drop-off
+                  </span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary text-label-sm font-label-sm font-medium hover:brightness-110 shadow-sm transition-all">Inspect Email</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">A/B Test Variant</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface">4</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 4: Branch Condition: Opened Case Study?</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Diverts unengaged users to alternative subject drip</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary-container/30 text-secondary border border-secondary/40">
+<span class="material-symbols-outlined text-[14px]" data-icon="call_split">call_split</span>
+                    Condition
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">11,200</td>
+<td class="py-4 px-4 text-on-surface-variant">N/A</td>
+<td class="py-4 px-4 text-on-surface-variant">N/A</td>
+<td class="py-4 px-4">
+<span class="text-tertiary font-medium">8.2%</span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">Edit Logic</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface">5</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 5: Invitation: Private Group Demo</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Webinar room reserve call-to-action</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="mail">mail</span>
+                    Email
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">10,500</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">71.8%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">7,539 opens</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">31.2%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">3,276 clicks</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="text-tertiary font-medium">4.7%</span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">Inspect Email</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">A/B Test Variant</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-surface-container transition-colors">
+<td class="py-4 px-5">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-md bg-surface-container-high flex items-center justify-center text-label-sm font-bold text-on-surface">6</span>
+<div class="flex flex-col">
+<span class="font-medium text-on-surface">Step 6: Final Call: 1-on-1 Strategy Slot</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Direct calendar invite for high-ticket close</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-primary/10 text-primary border border-primary/20">
+<span class="material-symbols-outlined text-[14px]" data-icon="mail">mail</span>
+                    Email
+                  </span>
+</td>
+<td class="py-4 px-4 text-on-surface font-semibold">9,880</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">81.4%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">8,042 opens</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<div class="flex flex-col">
+<span class="text-on-surface font-medium">42.8%</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">4,228 clicks</span>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="text-tertiary font-medium">4.2%</span>
+</td>
+<td class="py-4 px-5 text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">Inspect Email</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-label-sm font-label-sm text-on-surface hover:border-outline transition-colors">A/B Test Variant</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Individual Email Performance & Diagnostic Cards -->
+<section class="flex flex-col gap-4 mb-8">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-on-surface font-semibold">Individual Email Diagnostics</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Granular analysis on best and worst performing creative assets inside the sequence.</p>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Automated Recommendations Active</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Diagnostic Card 1: Top Performer (Step 1) -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between gap-5 relative overflow-hidden group hover:border-tertiary/40 transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-14 rounded border border-outline-variant/30 object-cover" data-alt="A clean modern digital newsletter template layout preview shown on a high resolution screen, displaying sleek dark UI branding with violet accent headers and high contrast body typography, studio quality product presentation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsSSW6Zk6xm3UDePugPTYUNwnECiPNytaRNY9YZdiWQmWZfuTjdCV1x5-F9uR3x_LDu2iF_-x_raXN0_yOG0vH4807pgGTw1dVPTHPYE_EnhZCFtzPzgyDurnGRSzoTB3ILvgurmOVbwAJB1PiLeVKDdK0vZVW8XH0qP4M1lMSs-Z6_UDEGZzFs7k-maS1ty8iUkgq677WfnZRysF4PSRfVqyPunoCAajMbj7wAGlKurotJzbrBVMU-Q"/>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider font-semibold">Top Open Rate</span>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface line-clamp-1">Welcome &amp; Studio Assets</h4>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Step 1 Email</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-tertiary" data-icon="star">star</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/20">
+<div class="text-[11px] text-on-surface-variant">Subject Line:</div>
+<div class="text-body-sm font-body-sm text-on-surface font-medium truncate">"Your creator assets have arrived [Download Pack]"</div>
+</div>
+<div class="grid grid-cols-2 gap-3 py-1 border-y border-outline-variant/20">
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Open Rate</span>
+<span class="text-headline-sm font-headline-sm text-tertiary font-semibold">78.2%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Click-to-Open (CTOR)</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">49.1%</span>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-tertiary/90 bg-tertiary/10 p-2.5 rounded-lg border border-tertiary/20">
+<span class="material-symbols-outlined text-[16px] mt-0.5 shrink-0" data-icon="check_circle">check_circle</span>
+<p class="text-xs">Exemplary subject delivery with 99.8% sender reputation. Zero optimization needed.</p>
+</div>
+</div>
+<!-- Diagnostic Card 2: Highest Drop-off (Step 3) -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between gap-5 relative overflow-hidden group hover:border-error/40 transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-14 rounded border border-outline-variant/30 object-cover" data-alt="A mockup thumbnail of a video documentary case study email layout with dark charcoal textures and a bold glowing thumbnail callout, demonstrating creator software workflows and earnings analytics graphs in an executive obsidian theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwqJb2XnuRTiAv2Q6oR9d57PShnE6wWkbdjVyEc3CUcotcMWwQH45lhmxsd2BU-73CJpv4WaM70ckGxbTrXKOix7Fr_oc0wYY0KkHD8XMhN18x2uztohs_4xOnUxdRyBh225-ejL7btMlorGhJ4DprSo_Icn-kTGvnXi4RMjlbqIp66OphLeLZqNz9bDPPjH5-gyMH0KFAWVhjpdRAmqG5FpxTr39jm7P6QEPMrlDEXb-B0eqlfSG7BQ"/>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-error uppercase tracking-wider font-semibold">Needs Attention</span>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface line-clamp-1">Case Study: 0 to $50k/mo</h4>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Step 3 Email</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-error" data-icon="error">error</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/20">
+<div class="text-[11px] text-on-surface-variant">Subject Line:</div>
+<div class="text-body-sm font-body-sm text-on-surface font-medium truncate">"How Elena made $52k in 30 days (Full Breakdown)"</div>
+</div>
+<div class="grid grid-cols-2 gap-3 py-1 border-y border-outline-variant/20">
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Open Rate</span>
+<span class="text-headline-sm font-headline-sm text-error font-semibold">64.5%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Click-to-Open (CTOR)</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">37.3%</span>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-error/90 bg-error/10 p-2.5 rounded-lg border border-error/20">
+<span class="material-symbols-outlined text-[16px] mt-0.5 shrink-0" data-icon="lightbulb">lightbulb</span>
+<p class="text-xs"><strong class="text-error">Tip:</strong> Subject triggers spam filters on Yahoo/Outlook. Test removing monetary values from preview text.</p>
+</div>
+</div>
+<!-- Diagnostic Card 3: Top Conversion Driver (Step 6) -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between gap-5 relative overflow-hidden group hover:border-primary/40 transition-all">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-center gap-3">
+<img class="w-12 h-14 rounded border border-outline-variant/30 object-cover" data-alt="An executive consultation booking calendar UI preview rendered on a mobile and tablet screen frame, minimal dark mode aesthetic with purple gradient highlighted buttons and soft ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUgVt-cefVorlIDAm-uT5PLE7vw13kIENHNsD_Pzvy__e69qgN55U7qaXfdKGOPqn2yTwIRvXpcvrcSi1rlkc0yBZ1bq5iF0N-lKIMBkpAdaI7jZ88pMDbZlM3Nu-toUD-sUyF6yCKlmBTj4H35Cj3csTZmx9XZ3SNjgA8KGOazhKDK7iIFFpP6X6jwoAgtruLjA3uncQe4mUUM7WSht2KXyub-yYnnCZGBh5w-lJKu6qtkmjQ9ZOh8A"/>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-semibold">Highest Conversion</span>
+<h4 class="text-label-lg font-label-lg font-semibold text-on-surface line-clamp-1">Final Call: 1-on-1 Slot</h4>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Step 6 Email</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="emoji_events">emoji_events</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container border border-outline-variant/20">
+<div class="text-[11px] text-on-surface-variant">Subject Line:</div>
+<div class="text-body-sm font-body-sm text-on-surface font-medium truncate">"Devon, ready to scale your media brand this quarter?"</div>
+</div>
+<div class="grid grid-cols-2 gap-3 py-1 border-y border-outline-variant/20">
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Open Rate</span>
+<span class="text-headline-sm font-headline-sm text-primary font-semibold">81.4%</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[11px] text-on-surface-variant">Click-to-Open (CTOR)</span>
+<span class="text-headline-sm font-headline-sm text-on-surface font-semibold">52.5%</span>
+</div>
+</div>
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-primary/90 bg-primary/10 p-2.5 rounded-lg border border-primary/20">
+<span class="material-symbols-outlined text-[16px] mt-0.5 shrink-0" data-icon="verified">verified</span>
+<p class="text-xs">Exceptional hyper-personalized greeting token drives 52.5% booking CTR on desktop clients.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Website Templates</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error": "#ffb4ab",
+            "on-surface-variant": "#c2c6d6",
+            "on-error-container": "#ffdad6",
+            "tertiary-container": "#00a572",
+            "surface-container-high": "#2a292f",
+            "surface-container": "#1f1f25",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface-variant": "#35343a",
+            "tertiary-fixed": "#6ffbbe",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-primary": "#002e6a",
+            "tertiary": "#4edea3",
+            "surface-container-highest": "#35343a",
+            "inverse-on-surface": "#303036",
+            "on-secondary-fixed": "#23005c",
+            "on-secondary-container": "#c4abff",
+            "surface-container-lowest": "#0e0e13",
+            "on-background": "#e4e1e9",
+            "on-tertiary": "#003824",
+            "on-surface": "#e4e1e9",
+            "on-secondary": "#3c0091",
+            "secondary-container": "#571bc1",
+            "background": "#131318",
+            "on-primary-fixed": "#001a42",
+            "error-container": "#93000a",
+            "surface-dim": "#131318",
+            "primary": "#adc6ff",
+            "secondary-fixed-dim": "#d0bcff",
+            "inverse-primary": "#005ac2",
+            "on-error": "#690005",
+            "surface-container-low": "#1b1b20",
+            "surface-bright": "#39383e",
+            "surface": "#131318",
+            "primary-fixed-dim": "#adc6ff",
+            "on-primary-fixed-variant": "#004395",
+            "on-tertiary-container": "#00311f",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-primary-container": "#00285d",
+            "primary-fixed": "#d8e2ff",
+            "secondary": "#d0bcff",
+            "outline": "#8c909f",
+            "inverse-surface": "#e4e1e9",
+            "primary-container": "#4d8eff",
+            "secondary-fixed": "#e9ddff",
+            "surface-tint": "#adc6ff",
+            "on-tertiary-fixed": "#002113",
+            "outline-variant": "#424754"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "margin-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "gutter-sm": "1rem"
+          },
+          "fontFamily": {
+            "label-lg": ["Inter"],
+            "headline-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "headline-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-sm": ["Inter"],
+            "label-md": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+            "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "headline-xl-mobile": ["26px", {"lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+            "headline-xl": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "headline-md": ["22px", {"lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600"}],
+            "headline-sm": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+            "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 20px -4px rgba(59, 130, 246, 0.4);
+    }
+    .btn-gradient:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 24px -2px rgba(59, 130, 246, 0.6);
+    }
+    .glass-card {
+      background: #12121A;
+      border: 1px solid #1E1E2E;
+    }
+    .ambient-glow-purple {
+      box-shadow: 0 0 28px -6px rgba(139, 92, 246, 0.25);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile Container Mockup (375px constraint on desktop, fluid on mobile) -->
+<div class="w-full max-w-[375px] min-h-[812px] bg-[#0A0A0F] relative flex flex-col pb-24 shadow-2xl overflow-x-hidden border-x border-[#1E1E2E]/40">
+<!-- TopAppBar adhering to Shared Components JSON -->
+<header class="bg-surface-container-lowest/80 dark:bg-surface-container-lowest/80 backdrop-blur-md docked full-width top-0 sticky z-40 shadow-sm">
+<div class="flex items-center justify-between h-14 px-4 w-full">
+<!-- Back action to maintain navigational safety while retaining app title -->
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5">
+<span class="text-headline-sm font-headline-sm font-semibold tracking-tight text-on-surface dark:text-on-surface">Website Templates</span>
+</div>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high dark:hover:bg-surface-container-high transition-colors duration-150 active:scale-95">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+</div>
+</header>
+<!-- Canvas Base Content -->
+<main class="flex-1 px-4 pt-4 pb-6 flex flex-col gap-5">
+<!-- Headline & Subtitle -->
+<section class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#181824] border border-[#2A2A3E] text-primary">Templates v2.4</span>
+<span class="flex h-1.5 w-1.5 rounded-full bg-tertiary"></span>
+</div>
+<h1 class="text-headline-xl-mobile font-headline-xl-mobile text-on-surface tracking-tight">
+          Choose a template
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+          Start with an ultra-fast, conversion-optimized layout or build from scratch.
+        </p>
+</section>
+<!-- Category Filter Pills (Horizontal Scroll) -->
+<section class="-mx-4 px-4 overflow-x-auto no-scrollbar flex items-center gap-2 py-1">
+<!-- Active Pill -->
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md text-white font-medium btn-gradient transition-transform active:scale-95 flex items-center gap-1.5">
+<span>All</span>
+<span class="px-1.5 py-0.2 text-[10px] bg-white/20 rounded-full">24</span>
+</button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#12121A] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors active:scale-95 flex items-center gap-1.5">
+<span>Course Launch</span>
+<span class="text-[11px] text-outline">8</span>
+</button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#12121A] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors active:scale-95 flex items-center gap-1.5">
+<span>Coaching &amp; Mentorship</span>
+<span class="text-[11px] text-outline">5</span>
+</button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#12121A] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors active:scale-95 flex items-center gap-1.5">
+<span>Digital Assets &amp; LUTs</span>
+<span class="text-[11px] text-outline">6</span>
+</button>
+<button class="flex-shrink-0 px-3.5 py-1.5 rounded-full text-label-md font-label-md bg-[#12121A] border border-[#1E1E2E] text-on-surface-variant hover:text-on-surface hover:border-outline transition-colors active:scale-95 flex items-center gap-1.5">
+<span>Community &amp; Membership</span>
+<span class="text-[11px] text-outline">5</span>
+</button>
+</section>
+<!-- Template 1: Masterclass Pro -->
+<article class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden transition-all duration-200 hover:border-primary/40 group">
+<!-- Featured Badge -->
+<div class="absolute top-6 left-6 z-10 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0A0A0F]/80 backdrop-blur-md border border-[#3B82F6]/50 shadow-md">
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-[11px] font-semibold text-primary tracking-wide uppercase">Featured</span>
+</div>
+<!-- Thumbnail Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-[#181824] border border-[#1E1E2E]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A cinematic, high-contrast dark mode creator landing page mockup displayed on a modern device screen. Deep obsidian blacks blend with subtle royal blue and electric violet ambient luminescence. The interface features an integrated wide-angle 4K video player module, live student enrollment metric gauges, and a glowing conversion checkout button. Designed for professional digital educators with ultra-clean, studio-grade aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKhzQBFrddpLu8Z4-EuULwOP9kVaGgmV2sZO2C6Edocnf7p-wO68E4-uNHpQbCmu990mCFYmBDZgMsKtclXQYKZrDmCJAOIAQlczPtNzgOeh3G75pU7RjXvSSy0WHRU2LsIBtZBcyvOKQQpUYNLHa_FZvCMB8MiHMS-UIHzLYKkZqDZCzNinGoPwQLGjmvNelOk67Pkg2aXTb1imz-luRPDxasdqo87JSEvNehAKqVZkZyTIpf9qCipg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-[#0A0A0F]/90 backdrop-blur-md border border-[#1E1E2E] flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px] text-tertiary">stay_current_portrait</span>
+<span>Mobile-Ready</span>
+</div>
+</div>
+<!-- Content Details -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-semibold uppercase tracking-wider text-primary">Course Launch</span>
+<span class="text-[#2A2A3E]">•</span>
+<div class="flex items-center gap-0.5 text-amber-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">4.9</span>
+<span class="text-label-sm font-label-sm text-outline">(340)</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-outline">v3.2</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight flex items-center justify-between">
+            Masterclass Pro
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+            Designed for premium film, design, and 3D creators with built-in curriculum previews and video locker.
+          </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="px-3.5 h-10 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface bg-[#181824] border border-[#1E1E2E] hover:border-[#3B82F6] transition-colors duration-150 flex items-center justify-center gap-1.5 active:scale-98">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Live Preview</span>
+</button>
+<button class="flex-1 h-10 rounded-lg text-label-md font-label-md font-semibold text-white btn-gradient flex items-center justify-center gap-1.5 active:scale-98 transition-all">
+<span>Use Template</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Template 2: Obsidian Creator Studio -->
+<article class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden transition-all duration-200 hover:border-secondary/40 group">
+<!-- Thumbnail Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-[#181824] border border-[#1E1E2E]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="An ultra-minimalist obsidian brutalist digital marketplace portfolio showcase on an OLED screen. Monochromatic dark carbon foundation highlighted with sharp 1px neon purple border grids, featuring modular digital asset download cards, typography-driven product headers, and a rapid payment drawer sheet. Sleek studio atmosphere emphasizing high-performance asset sales for digital artists." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADSlcJqwq7ULWrn0ke29mGMNACdTz7SwadurjY95qPbcPjEN_iQo7C8WOQk85_8qIIsTiPHs3C6Kx74BSTSTj2DAEoERiwNSxCzOVPwkwSQmmB-wjVATOgSIn4WmSjQoFkKPULDa0o0HMTjqLVnA1lyiF1IBpDqWWGOeBu5yLQAdihHlgSMtstqjip68ogbFK8ZUxpaiHHusVlXGMMvq2j3sF2CyhJJ37WsWhaAxAzA1Q8VTEVcn_gJg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-[#0A0A0F]/90 backdrop-blur-md border border-[#1E1E2E] flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px] text-primary">bolt</span>
+<span>Instant Pay</span>
+</div>
+</div>
+<!-- Content Details -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-semibold uppercase tracking-wider text-secondary">Digital Assets</span>
+<span class="text-[#2A2A3E]">•</span>
+<div class="flex items-center gap-0.5 text-amber-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">4.8</span>
+<span class="text-label-sm font-label-sm text-outline">(192)</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-outline">v2.1</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">
+            Obsidian Creator Studio
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+            Clean brutalist dark aesthetic with instantaneous Stripe checkout modal and instant secure downloads.
+          </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="px-3.5 h-10 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface bg-[#181824] border border-[#1E1E2E] hover:border-[#8B5CF6] transition-colors duration-150 flex items-center justify-center gap-1.5 active:scale-98">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Live Preview</span>
+</button>
+<button class="flex-1 h-10 rounded-lg text-label-md font-label-md font-semibold text-white btn-gradient flex items-center justify-center gap-1.5 active:scale-98 transition-all">
+<span>Use Template</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Template 3: Nexus Membership Hub -->
+<article class="glass-card rounded-xl p-4 flex flex-col gap-3 relative overflow-hidden transition-all duration-200 hover:border-tertiary/40 group">
+<!-- Thumbnail Preview -->
+<div class="relative w-full h-44 rounded-lg overflow-hidden bg-[#181824] border border-[#1E1E2E]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" data-alt="A modern membership portal interface shown on dark UI canvas featuring glassmorphic subscription tier cards and Discord live activity integration feed. Deep matte obsidian surfaces accented by mint-cyan active indicators and subtle violet ambient glows around pricing matrices. Ultra clean typography with enterprise creator polish, tailored for exclusive communities and patron ecosystems." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8OwYUSbj9w-8uCMIJako7clPJdVXVDzst7A1DDMipZ_kEXmYFR68m3cf-yc5MoRdWxr4uqq_LVz22LYX6Gd31TKGaKnbP_vTakc1mflx6FFDVpaF7HY54c_pVL6nYuhZiusAucShz_lsXyf5AB2mC3rgYphRLeLqggHDuOR-4KURu1Ow5wAlWiVd7DAtrT8mTsj1fYd4uXbZ8NjIfot7N-0r4UyLsMkcKxO5bH38o69Ofpz1qWo8Rtw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#12121A] via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded-md bg-[#0A0A0F]/90 backdrop-blur-md border border-[#1E1E2E] flex items-center gap-1 text-label-sm font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[13px] text-secondary">forum</span>
+<span>Discord Sync</span>
+</div>
+</div>
+<!-- Content Details -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-semibold uppercase tracking-wider text-tertiary">Community</span>
+<span class="text-[#2A2A3E]">•</span>
+<div class="flex items-center gap-0.5 text-amber-300">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface font-semibold">5.0</span>
+<span class="text-label-sm font-label-sm text-outline">(88)</span>
+</div>
+</div>
+<span class="text-[11px] font-mono text-outline">v1.9</span>
+</div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface tracking-tight">
+            Nexus Membership Hub
+          </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+            Subscription-first landing page with discord sync preview and recurring tier tables built for community leaders.
+          </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center gap-2 pt-1">
+<button class="px-3.5 h-10 rounded-lg text-label-md font-label-md text-on-surface-variant hover:text-on-surface bg-[#181824] border border-[#1E1E2E] hover:border-tertiary transition-colors duration-150 flex items-center justify-center gap-1.5 active:scale-98">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Live Preview</span>
+</button>
+<button class="flex-1 h-10 rounded-lg text-label-md font-label-md font-semibold text-white btn-gradient flex items-center justify-center gap-1.5 active:scale-98 transition-all">
+<span>Use Template</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Bottom Custom Branding Callout Banner -->
+<section class="rounded-xl p-4 bg-[#181824] border border-[#2A2A3E] flex items-center justify-between gap-3 relative overflow-hidden">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary flex-shrink-0 border border-[#1E1E2E]">
+<span class="material-symbols-outlined text-[22px]">code_blocks</span>
+</div>
+<div class="flex flex-col">
+<span class="text-label-md font-label-md text-on-surface font-semibold">Need custom branding?</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Import existing Figma or MJML layout.</span>
+</div>
+</div>
+<button class="h-8 px-3 rounded-md bg-[#1E1E2E] hover:bg-[#2A2A3E] border border-outline-variant/50 text-label-sm font-label-sm text-on-surface flex items-center gap-1 active:scale-95 transition-all">
+<span>Import</span>
+<span class="material-symbols-outlined text-[14px]">upload</span>
+</button>
+</section>
+</main>
+<!-- Bottom Navigation Bar adhering to Shared Components JSON -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around h-16 px-2 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-lg shadow-lg">
+<div class="w-full max-w-[375px] mx-auto flex items-center justify-around">
+<!-- Workspaces (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="grid_view">grid_view</span>
+<span class="text-label-sm font-label-sm">Workspaces</span>
+</a>
+<!-- Templates (Active according to Screen M6 context) -->
+<a class="flex flex-col items-center justify-center gap-1 text-primary dark:text-primary hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="web" style="font-variation-settings: 'FILL' 1;">web</span>
+<span class="text-label-sm font-label-sm font-semibold">Templates</span>
+</a>
+<!-- Editor (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-label-sm font-label-sm">Editor</span>
+</a>
+<!-- Catalog (Inactive) -->
+<a class="flex flex-col items-center justify-center gap-1 text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-150 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-sm font-label-sm">Catalog</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

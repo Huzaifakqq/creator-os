@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Module 16.8 — Mobile Audio Stage &amp; Live Room View | Creator OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary": "#003824",
+            "on-error-container": "#ffdad6",
+            "on-tertiary-container": "#00311f",
+            "error": "#ffb4ab",
+            "on-tertiary-fixed-variant": "#005236",
+            "secondary-fixed-dim": "#d0bcff",
+            "surface-bright": "#39383e",
+            "secondary-container": "#571bc1",
+            "on-secondary-fixed": "#23005c",
+            "on-error": "#690005",
+            "primary-container": "#4d8eff",
+            "on-primary-container": "#00285d",
+            "error-container": "#93000a",
+            "primary-fixed": "#d8e2ff",
+            "surface-container-low": "#1b1b20",
+            "outline": "#8c909f",
+            "on-secondary": "#3c0091",
+            "background": "#131318",
+            "secondary": "#d0bcff",
+            "secondary-fixed": "#e9ddff",
+            "surface-container-highest": "#35343a",
+            "surface-dim": "#131318",
+            "surface-variant": "#35343a",
+            "on-surface-variant": "#c2c6d6",
+            "on-secondary-fixed-variant": "#5516be",
+            "on-background": "#e4e1e9",
+            "outline-variant": "#424754",
+            "surface-container-lowest": "#0e0e13",
+            "surface": "#131318",
+            "inverse-surface": "#e4e1e9",
+            "on-primary-fixed-variant": "#004395",
+            "tertiary-fixed": "#6ffbbe",
+            "on-surface": "#e4e1e9",
+            "primary-fixed-dim": "#adc6ff",
+            "tertiary-container": "#00a572",
+            "primary": "#adc6ff",
+            "on-secondary-container": "#c4abff",
+            "tertiary": "#4edea3",
+            "on-tertiary-fixed": "#002113",
+            "inverse-on-surface": "#303036",
+            "surface-tint": "#adc6ff",
+            "surface-container-high": "#2a292f",
+            "on-primary-fixed": "#001a42",
+            "tertiary-fixed-dim": "#4edea3",
+            "inverse-primary": "#005ac2",
+            "surface-container": "#1f1f25",
+            "on-primary": "#002e6a"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "label-sm": ["Inter"],
+            "headline-lg": ["Inter"]
+          },
+          "fontSize": {
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(78, 222, 163, 0.6); }
+      70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(78, 222, 163, 0); }
+      100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(78, 222, 163, 0); }
+    }
+
+    @keyframes float-reaction-1 {
+      0% { transform: translateY(0) scale(0.7) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 0.85; }
+      100% { transform: translateY(-190px) translateX(-20px) scale(1.15) rotate(-12deg); opacity: 0; }
+    }
+
+    @keyframes float-reaction-2 {
+      0% { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+      25% { opacity: 1; }
+      85% { opacity: 0.9; }
+      100% { transform: translateY(-220px) translateX(15px) scale(1.2) rotate(14deg); opacity: 0; }
+    }
+
+    @keyframes soundbar {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
+    }
+
+    .animate-pulse-speaker {
+      animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .reaction-bubble-1 {
+      animation: float-reaction-1 4.2s ease-in-out infinite;
+    }
+    .reaction-bubble-2 {
+      animation: float-reaction-2 3.6s ease-in-out infinite 1.4s;
+    }
+    .reaction-bubble-3 {
+      animation: float-reaction-1 3.9s ease-in-out infinite 2.2s;
+    }
+    .bar-1 { animation: soundbar 0.8s ease-in-out infinite; }
+    .bar-2 { animation: soundbar 1.1s ease-in-out infinite 0.2s; }
+    .bar-3 { animation: soundbar 0.7s ease-in-out infinite 0.4s; }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0A0A0F] text-on-surface font-body-md antialiased min-h-screen flex justify-center selection:bg-primary selection:text-on-primary">
+<!-- Mobile 390px Viewport Frame -->
+<div class="relative w-full max-w-[390px] min-h-screen bg-[#0E0E13] flex flex-col shadow-2xl overflow-hidden pb-28">
+<!-- Top Ambient Atmospheric Glow -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[340px] h-[220px] bg-gradient-to-b from-secondary-container/20 via-primary-container/10 to-transparent blur-3xl pointer-events-none -z-0"></div>
+<!-- 1. iOS Status Bar -->
+<div class="relative z-50 w-full px-7 pt-3 pb-1 flex justify-between items-center text-on-surface text-[14px] font-semibold tracking-tight select-none">
+<span>9:41</span>
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="signal_cellular_4_bar">signal_cellular_4_bar</span>
+<span class="text-[11px] font-bold text-on-surface tracking-wider">5G</span>
+<span class="material-symbols-outlined text-[20px] text-on-surface rotate-90" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Top Navigation Bar (Shared TopAppBar Implementation) -->
+<header class="sticky top-0 z-40 bg-surface-container-lowest/80 backdrop-blur-md shadow-sm border-b border-outline-variant/40">
+<div class="flex justify-between items-center w-full px-4 h-14 max-w-lg mx-auto">
+<button aria-label="Minimize room" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">
+<span class="material-symbols-outlined text-primary" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex flex-col items-center max-w-[210px] text-center">
+<span class="text-headline-sm font-headline-sm font-semibold text-on-surface truncate tracking-tight">Creator OS Live Stage</span>
+<span class="text-[10px] font-medium text-on-surface-variant/80 tracking-wider truncate">Acme Studios • Masterclass Cohort</span>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="Share room" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant" data-icon="share">share</span>
+</button>
+<button aria-label="Room settings" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Canvas Workspace -->
+<main class="relative z-10 px-4 pt-3 flex flex-col gap-4">
+<!-- Live Room Header Card -->
+<section class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-4 shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between gap-2 mb-2.5">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-container/40 border border-error/30 text-error text-[11px] font-semibold tracking-wide">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span>LIVE AUDIO STAGE</span>
+</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-medium tracking-wide">
+            ROOM #409
+          </span>
+</div>
+<h1 class="text-headline-sm font-headline-sm text-on-surface font-bold tracking-tight mb-1">
+          Lighting Masterclass Q&amp;A with Sarah Lin
+        </h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-snug mb-3.5">
+          Anamorphic falloff ratios, key lights in DaVinci 19 &amp; live portfolio critiques
+        </p>
+<!-- Telemetry Pill Cluster -->
+<div class="flex flex-wrap items-center gap-2">
+<div class="inline-flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border border-outline-variant/20 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="headphones">headphones</span>
+<span>128 Listening</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border border-outline-variant/20 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="mic">mic</span>
+<span>4 on Stage</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-surface-container px-2.5 py-1 rounded-full border border-outline-variant/20 text-on-surface text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="schedule">schedule</span>
+<span>42:15 Elapsed</span>
+</div>
+<div class="inline-flex items-center gap-1 bg-secondary-container/30 px-2.5 py-1 rounded-full border border-secondary/20 text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[13px]" data-icon="lock">lock</span>
+<span>Cohort Exclusive</span>
+</div>
+</div>
+</section>
+<!-- 2. Pinned Resource / Active Screen Sharing Card -->
+<section class="bg-gradient-to-r from-[#181824] to-[#12121A] border border-primary-container/30 rounded-xl p-3 relative flex items-center gap-3 shadow-md">
+<!-- Preview Thumbnail -->
+<div class="w-14 h-14 rounded-lg bg-surface-container-high border border-outline-variant/40 overflow-hidden flex-shrink-0 relative group">
+<img class="w-full h-full object-cover brightness-90 group-hover:scale-105 transition-transform" data-alt="A professional studio lighting setup visual diagram displayed on a dark high-tech monitor in a professional film grading suite with glowing cyan and indigo accent lights, clean vector nodes and cinematic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpLpEe53csROxHR9FakQfxqUPl9e3GoR5xNbcIXdvZotPMx_qrmihTHursJfnM4KfTIw4ntJpBTtmC50RFYTbBGFBFNgludsooEq8JdGw_Yc9uDZ87R4mNSyK_dnXJhZ7Ai02c8aRREwMRqJib2pTIUCUFH0ScML9zuVil9gpNbFoV-pQdinQW-4_kPAsq9Fbro1lTKQP5810vgZxUWmY0-mkkRkV2QTMHvcGzMjbuhkU3DRVLRswxFQ"/>
+<div class="absolute inset-0 bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="attach_file">attach_file</span>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-1.5 text-primary text-[10px] font-semibold uppercase tracking-wider mb-0.5">
+<span class="material-symbols-outlined text-[13px]" data-icon="push_pin">push_pin</span>
+<span>Pinned Resource</span>
+</div>
+<h4 class="text-body-sm font-body-sm font-medium text-on-surface truncate">
+            Arri LogC4 Contrast LUT Pack &amp; Node Tree v2
+          </h4>
+<p class="text-[11px] text-on-surface-variant truncate">Shared by Sarah Lin • 4.8 MB ZIP</p>
+</div>
+<button class="px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 hover:border-primary text-primary text-[11px] font-medium flex items-center gap-1 active:scale-95 transition-all shadow-sm">
+<span>Get</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="download">download</span>
+</button>
+</section>
+<!-- 3. Stage Speakers Grid (4 Speakers) -->
+<section class="space-y-2.5">
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md font-semibold text-on-surface uppercase tracking-wider">Stage (4 Speakers)</span>
+<div class="flex items-end gap-[2px] h-3">
+<span class="w-[2px] bg-tertiary rounded-full bar-1"></span>
+<span class="w-[2px] bg-tertiary rounded-full bar-2"></span>
+<span class="w-[2px] bg-tertiary rounded-full bar-3"></span>
+</div>
+</div>
+<span class="text-[11px] text-tertiary font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            High-Definition Opus 96k
+          </span>
+</div>
+<!-- 2x2 Bento Stage Grid -->
+<div class="grid grid-cols-2 gap-2.5">
+<!-- Speaker 1: Active Speaker / Host (Sarah Lin) -->
+<div class="bg-[#181824] border-2 border-tertiary/60 rounded-xl p-3 flex flex-col items-center text-center relative shadow-lg overflow-hidden">
+<div class="absolute -top-6 -right-6 w-20 h-20 bg-tertiary/10 rounded-full blur-xl pointer-events-none"></div>
+<!-- Avatar with Speaking Ring -->
+<div class="relative mb-2.5 mt-1">
+<div class="w-20 h-20 rounded-full p-[3px] animate-pulse-speaker bg-gradient-to-tr from-tertiary to-primary">
+<img class="w-full h-full object-cover rounded-full" data-alt="Close-up portrait of Sarah Lin, a female Asian director of photography with focused creative expression, wearing dark minimalist studio attire in a soft cinematic ambient room with subtle blue rim lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk1XViwvhQtabBXWzLHnr7s8fSBmBmbgdtGehzWOLom_tUkmI7qiAcYlduGWU6-7aftekW41wj7PmGoN-i2joPsAS-IbL6J9Hgp6LQrsxHGRwCXwVfyxpUYEY_ImkEGWBw2GAqqf4NSawTvyUm3nWYrcID5VV9snpeLUi6ixG7PPJU-RqNLrf1tzm_SUGDqaGfIDfYiwLi_EvVSYPc-Cq5X0x4xMC27OjlQErWnIl1F3EL9OjkSYTPFw"/>
+</div>
+<!-- Mic On Badge with Waves -->
+<div class="absolute bottom-0 right-0 w-6 h-6 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center border-2 border-[#181824] shadow-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="mic">mic</span>
+</div>
+</div>
+<!-- Name & Roles -->
+<div class="w-full">
+<span class="text-body-md font-body-md font-semibold text-on-surface block truncate">Sarah Lin</span>
+<p class="text-[11px] text-on-surface-variant truncate mb-1.5">Lead Instructor &amp; DP</p>
+<div class="flex items-center justify-center gap-1">
+<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary tracking-wider">HOST</span>
+<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container tracking-wider">INSTRUCTOR</span>
+</div>
+</div>
+<!-- Live Transcript Snippet -->
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 w-full text-left">
+<p class="text-[10px] text-tertiary italic line-clamp-2 leading-tight bg-tertiary/5 p-1 rounded">
+                “...meter the negative fill before adjusting key intensity...”
+              </p>
+</div>
+</div>
+<!-- Speaker 2: Co-Host / Moderator (Alex Vance) -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col items-center text-center relative shadow-sm">
+<div class="relative mb-2.5 mt-1">
+<div class="w-16 h-16 rounded-full p-[2px] bg-outline-variant/50">
+<img class="w-full h-full object-cover rounded-full" data-alt="Portrait of Alex Vance, a male tech founder and media supervisor with smart glasses and subtle smile, captured in a clean dark studio space with obsidian wall panels and subtle violet accent lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMFgTobmSCr6hEpprO6oHfMgNXa0Ah1iTLcd4abl0FRaiWkW1sC02XXjmCDOL1JcS-HXyYNjVgLTPhyM8AcZXyy204qaAu1wLgB7rr00uRTFa_7r2jbnkUe8rVWL_hrsOYrM101Ek7o4-WoAOwpPxo5cV3MODz--6YgrfdUDVYuCKnkj3zA0ooTXg66nym1swo9Vg_G1PuAM3dNRKFl7St3cmqvJ6WXXyBURy6tD1VH3FFTzF_Gh24nw"/>
+</div>
+<div class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-surface-container-highest text-tertiary border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]" data-icon="mic">mic</span>
+</div>
+</div>
+<div class="w-full">
+<span class="text-body-md font-body-md font-semibold text-on-surface block truncate">Alex Vance</span>
+<p class="text-[11px] text-on-surface-variant truncate mb-1.5">Creator OS • CTO</p>
+<div class="flex items-center justify-center">
+<span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-surface-variant text-on-surface-variant tracking-wider border border-outline-variant/40">MODERATOR</span>
+</div>
+</div>
+</div>
+<!-- Speaker 3: Invited Pro Speaker (Marcus Kane) -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col items-center text-center relative shadow-sm">
+<div class="relative mb-2.5 mt-1">
+<div class="w-16 h-16 rounded-full p-[2px] bg-outline-variant/50">
+<img class="w-full h-full object-cover rounded-full" data-alt="Portrait of Marcus Kane, a seasoned cinematographer with salt-and-pepper beard, wearing a charcoal wool sweater in a minimalist camera equipment prep bay with soft tungsten practical lamps." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh39t3j06i6Dz9c4YjMbqR94a80esbMphYYPKzRD29lpmVwh4sbS4I6j_iS-qcIOkacRPSwB1HTE8_8jLgmhM6PC9S1uIp5R0RhmjRaVsISPmbKirlc6duy53P8Wp5vSpXAocTtpI-V4tM8O_4xP8Z1n_M2rNmG0iHW7ZeRjgYSMfgNPiuU2HbgMePcKRamTD5mbHQ3uM20yaEM15shOATNKtDnH3MzQ1mNXgLR-Pw7SHEhn0ZSi8ZDA"/>
+</div>
+<div class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-surface-container-highest text-tertiary border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]" data-icon="mic">mic</span>
+</div>
+</div>
+<div class="w-full">
+<span class="text-body-md font-body-md font-semibold text-on-surface block truncate">Marcus Kane</span>
+<p class="text-[11px] text-on-surface-variant truncate mb-1.5">Gaffer &amp; Cinematographer</p>
+<div class="flex items-center justify-center">
+<span class="text-[9px] font-medium px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant tracking-wider">SPEAKER</span>
+</div>
+</div>
+</div>
+<!-- Speaker 4: Invited Guest (Elena Rostova - Muted) -->
+<div class="bg-[#12121A] border border-outline-variant/30 rounded-xl p-3 flex flex-col items-center text-center relative shadow-sm opacity-90">
+<div class="relative mb-2.5 mt-1">
+<div class="w-16 h-16 rounded-full p-[2px] bg-outline-variant/30">
+<img class="w-full h-full object-cover rounded-full grayscale-[25%]" data-alt="Portrait of Elena Rostova, a young woman lighting technician with short dyed hair and headphones, sitting in an edit bay surrounded by color calibrated reference displays in dark ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL5BT-XomdZIxBkWlUtH_Ho4xLYMxhp9865Jw2261YR2IeYhz0QnEajQHxQRjVq_FA9qSLnrxx2GSyk9oZrVOe-WPx-vvAhhj1K5SVIu0B4FllHS2j4sk52XY4sdA9Oyr_tSKvJbDsFywA-ZHBTy_2D5y5UK7Tv0KEL--lnUN2ZVSlwov9FykL_uMklxkAVKZ1SrNRh3OqRftwtlMpoiqAxqoX5-s1Qq-dRvcLUZkZz7cApZ9zex9h3Q"/>
+</div>
+<div class="absolute bottom-0 right-0 w-5 h-5 rounded-full bg-error-container text-error border border-error/40 flex items-center justify-center">
+<span class="material-symbols-outlined text-[13px]" data-icon="mic_off">mic_off</span>
+</div>
+</div>
+<div class="w-full">
+<span class="text-body-md font-body-md font-semibold text-on-surface block truncate">Elena Rostova</span>
+<p class="text-[11px] text-on-surface-variant truncate mb-1.5">Virtual Lighting Tech</p>
+<div class="flex items-center justify-center">
+<span class="text-[9px] font-medium px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant tracking-wider">SPEAKER</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Hand Raised / Next Up Queue Banner -->
+<section class="bg-surface-container-high/70 border border-primary/30 rounded-xl p-3 flex items-center justify-between gap-2 shadow-sm">
+<div class="flex items-center gap-2.5 min-w-0">
+<div class="w-8 h-8 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]" data-icon="front_hand">front_hand</span>
+</div>
+<div class="min-w-0">
+<div class="text-body-sm font-body-sm font-semibold text-on-surface truncate">
+              3 listeners in queue
+            </div>
+<p class="text-[11px] text-on-surface-variant truncate">
+              David M., Chloe T., James W.
+            </p>
+</div>
+</div>
+<button class="px-2.5 py-1.5 rounded-lg bg-primary-container text-on-primary-container text-label-sm font-label-sm font-semibold active:scale-95 transition-transform flex-shrink-0">
+          Invite
+        </button>
+</section>
+<!-- 5. Audience Section: Followed by Speakers -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<span class="text-label-md font-label-md font-semibold text-on-surface-variant uppercase tracking-wider">Followed by Speakers (8)</span>
+<span class="text-[11px] text-primary">View all</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center">
+<!-- Listener 1 -->
+<div class="bg-[#12121A] border border-outline-variant/20 rounded-xl p-2 flex flex-col items-center">
+<div class="w-11 h-11 rounded-full overflow-hidden mb-1 relative">
+<img class="w-full h-full object-cover" data-alt="Avatar headshot of David Miller, an indie filmmaker with warm studio lighting and neutral expressions against dark obsidian background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtl4BA7aRE4BrR-onjFHq8xOZx3r4DHtd28xgtC5MIuZf2GH6NZfEKk76VszpNhAMnPyLIcpxHMKtnfhun10vMGCYyqX6liHk9TZMggZN5826ZVU9S4rrJvbBEiImeqY2_auRm8v4X590pxh7DePQ576eNn8SXPtk_G3VfWVn_ZfewSr3M0a8Ud-NR-npq2GYTjHtRm7WvTPUmQoZtyA_te2YLETYZ75kAnbW3c601fQkt4GHR6l-o4g"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-surface-container-highest rounded-full border border-[#12121A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[9px] text-on-surface-variant" data-icon="mic_off">mic_off</span>
+</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface truncate w-full">David M.</span>
+<span class="text-[9px] text-tertiary">✋ Hand up</span>
+</div>
+<!-- Listener 2 -->
+<div class="bg-[#12121A] border border-outline-variant/20 rounded-xl p-2 flex flex-col items-center">
+<div class="w-11 h-11 rounded-full overflow-hidden mb-1 relative">
+<img class="w-full h-full object-cover" data-alt="Avatar portrait of Chloe Tanaka, a Japanese 3D artist and lighting designer, smiling softly in modern creative studio setting with subtle blue backlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqSi8I3jnUNCs5fNOChq3NLI99NAVAqYh5NxCuFrMpsrYelirLkyBPd7IWvGNSR75eOEY-fy6e0wzjuo_F4ZDwPn5Hi98tR7Bh_NHldk6rSLC-Am_w1ZqkWJwVUmfDODSeewdY2ZJW9OCNKKsa3YNvqn8wBwSACO-m5-gdLbSXZx-IkYaUZYGcXmJluU_3DXZ7V7nARg4zhVtSneuWYtda1NPBRHKaye5u9DXvcsln_8pc7Vjo1JzM-g"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-surface-container-highest rounded-full border border-[#12121A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[9px] text-on-surface-variant" data-icon="mic_off">mic_off</span>
+</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface truncate w-full">Chloe T.</span>
+<span class="text-[9px] text-secondary">Cohort '25</span>
+</div>
+<!-- Listener 3 -->
+<div class="bg-[#12121A] border border-outline-variant/20 rounded-xl p-2 flex flex-col items-center">
+<div class="w-11 h-11 rounded-full overflow-hidden mb-1 relative">
+<img class="w-full h-full object-cover" data-alt="Headshot of James Wright, a documentary colorist in his 30s with headphones around his neck against a sleek dark studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATkDy2olQ6REWt-kSWr2vDUPWUb4C1AGNavYyfh_5DeroOC6PoqSMgDCT20saPC6-JN9FUdUqUGS7xV8HuMIlz69_50DOd7n_f3AvZxH2QxYuRtTgs7ub3Q1B4rNnfgcDubyPg3JCweJpzGBj8xM7jktP3JGm_rN0PyC_--54AgjSsr5zx88RwEhYtO320slQxiT-GphDwTMctD6zu4Ys_dWZ4Wc5gRqOnAZekfjl-dQY6KdwvHRcQSg"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-surface-container-highest rounded-full border border-[#12121A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[9px] text-on-surface-variant" data-icon="mic_off">mic_off</span>
+</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface truncate w-full">James W.</span>
+<span class="text-[9px] text-on-surface-variant">Pro</span>
+</div>
+<!-- Listener 4 -->
+<div class="bg-[#12121A] border border-outline-variant/20 rounded-xl p-2 flex flex-col items-center">
+<div class="w-11 h-11 rounded-full overflow-hidden mb-1 relative">
+<img class="w-full h-full object-cover" data-alt="Portrait of Maya Patel, a visual effects supervisor wearing glasses with soft rim lighting in dark studio." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABo3dyaCCmUfJ-YLC6qJySAt0AB6bR4cwCuWvFKtkXilZwyj_gtNd2c9e4b-qHdWf69J00CaYrSmXjOBTnj3VYSmbEJrYqfRN6vJI9MiYBxqxzfFOYPHyF0q-PymDWWs9HG_yX929YDMMkoY0sSEERg7iAukBNtr-1lBT8laakp6TEi7eCdx4MGJZmgjuVARKqbvooHz5HLLgYW356_7XSeHAahOI-DPkj1jESJQ_b-PbsHs1nkTVg-w"/>
+<span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-surface-container-highest rounded-full border border-[#12121A] flex items-center justify-center">
+<span class="material-symbols-outlined text-[9px] text-on-surface-variant" data-icon="mic_off">mic_off</span>
+</span>
+</div>
+<span class="text-[11px] font-medium text-on-surface truncate w-full">Maya P.</span>
+<span class="text-[9px] text-on-surface-variant">VFX Lead</span>
+</div>
+</div>
+</section>
+<!-- 6. Audience: Others in the Room -->
+<section class="space-y-2 pb-4">
+<div class="flex items-center justify-between px-1">
+<span class="text-label-md font-label-md font-semibold text-on-surface-variant uppercase tracking-wider">Others in the Room (116)</span>
+<span class="text-[11px] text-outline">Search</span>
+</div>
+<div class="grid grid-cols-6 gap-2 pt-1">
+<!-- Mini Avatars with Initial Fallbacks & Pictures -->
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-[12px] font-bold text-primary">
+              TL
+            </div>
+<span class="text-[10px] text-on-surface-variant truncate w-full text-center mt-0.5">Tom L.</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-secondary-container/40 border border-secondary/20 flex items-center justify-center text-[12px] font-bold text-secondary">
+              KR
+            </div>
+<span class="text-[10px] text-on-surface-variant truncate w-full text-center mt-0.5">Kai R.</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Micro avatar portrait of a creative professional with neon studio rim light in dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzzM1kTbdl8Jlwja2sHP0MAsv5pfNtR24Jb3IH0FTJQgzLKSyW0-AMAHSIYPD4wxukTmuxVLUVNhcoTQ1trrmh5Y-Yns3sPOt5gDhUMSkI8EfLakBVFe6_1p_586OE105wjhXYGbodlOLqdYgnr06Ot2d5aphk7tI9u7jnZcyngELHpMs3n-olzB_syu206pVTwPTth1RAbO-5pqrH_nFO4az5ZKWdwB62VXjVMEjpX2dN8lGNBBKxOA"/>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate w-full text-center mt-0.5">Sofia B.</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant/30 flex items-center justify-center text-[12px] font-bold text-tertiary">
+              NW
+            </div>
+<span class="text-[10px] text-on-surface-variant truncate w-full text-center mt-0.5">Noah W.</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="Headshot of a modern digital artist in dark ambient lighting environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDzAzSnMV_BEwDsGtqbcrEHeBpm7PbhqGFP4-1BuuYTBOWdw0Ix7HLTZLJ7P-Pg5HU8GBL4sBHXSg8zTfPGq64MBhu0B8Ifkdi2ni5bIc2SCzIsXO6bHI5jwMHGm0R3x1dAOGju59KQ08R9N_ilBEr8dEZAdWOh5Y0IIH5iJbNTnJunDPpRdTJtv54SW_I3GH0-676_TpIeBmzjQvp9NpMYcdkBNtVlA2-pBJRNLPE-eFszytu_tjZnQ"/>
+</div>
+<span class="text-[10px] text-on-surface-variant truncate w-full text-center mt-0.5">Zoe K.</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-10 h-10 rounded-full bg-surface-variant border border-outline-variant/30 flex items-center justify-center text-[11px] font-semibold text-on-surface-variant">
+              +111
+            </div>
+<span class="text-[10px] text-outline truncate w-full text-center mt-0.5">More</span>
+</div>
+</div>
+</section>
+</main>
+<!-- 7. Live Flying Emoji Reactions Floating Overlay (Bottom-Right) -->
+<div class="fixed bottom-24 right-6 pointer-events-none z-30 flex flex-col items-center space-y-1">
+<div class="reaction-bubble-1 text-2xl filter drop-shadow-md">💡</div>
+<div class="reaction-bubble-2 text-2xl filter drop-shadow-md">🔥</div>
+<div class="reaction-bubble-3 text-2xl filter drop-shadow-md">👏</div>
+</div>
+<!-- 8. Fixed Bottom Audio Stage Control Dock (Exact JSON BottomNavBar Specifications) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 max-w-lg mx-auto bg-surface-container-low/95 backdrop-blur-lg border-t border-outline-variant/30 shadow-lg">
+<!-- Action 1: Leave (Styled as Inactive / Exit Action) -->
+<button aria-label="Leave room" class="flex flex-col items-center justify-center text-error hover:bg-surface-container-highest/50 rounded-xl px-3 py-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="logout">logout</span>
+<span class="text-label-sm font-label-sm mt-0.5">Leave</span>
+</button>
+<!-- Action 2: React (Active Navigation / Interactive Tool) -->
+<button aria-label="Add reaction" class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-3 py-1.5 active:scale-95 transition-transform shadow-md">
+<span class="material-symbols-outlined text-[22px]" data-icon="add_reaction">add_reaction</span>
+<span class="text-label-sm font-label-sm mt-0.5">React</span>
+</button>
+<!-- Action 3: Hand (Raise Hand Queue) -->
+<button aria-label="Raise hand" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-xl px-3 py-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="front_hand">front_hand</span>
+<span class="text-label-sm font-label-sm mt-0.5">Hand</span>
+</button>
+<!-- Action 4: Mic (Mute/Unmute state) -->
+<button aria-label="Toggle microphone" class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest/50 rounded-xl px-3 py-1.5 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[22px]" data-icon="mic_off">mic_off</span>
+<span class="text-label-sm font-label-sm mt-0.5">Mic</span>
+</button>
+</nav>
+</div>
+</body></html>

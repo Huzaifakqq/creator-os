@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator OS — Security Settings &amp; Sessions</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Inter Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-container": "#00311f",
+            "on-surface": "#e4e1e9",
+            "secondary-fixed-dim": "#d0bcff",
+            "tertiary": "#4edea3",
+            "surface-tint": "#adc6ff",
+            "on-error": "#690005",
+            "on-surface-variant": "#c2c6d6",
+            "surface-container": "#1f1f25",
+            "primary": "#adc6ff",
+            "tertiary-fixed": "#6ffbbe",
+            "on-background": "#e4e1e9",
+            "tertiary-container": "#00a572",
+            "on-primary-container": "#00285d",
+            "surface-bright": "#39383e",
+            "on-secondary-fixed": "#23005c",
+            "on-primary": "#002e6a",
+            "surface-container-lowest": "#0e0e13",
+            "inverse-surface": "#e4e1e9",
+            "outline-variant": "#424754",
+            "inverse-on-surface": "#303036",
+            "on-tertiary-fixed": "#002113",
+            "on-secondary-fixed-variant": "#5516be",
+            "tertiary-fixed-dim": "#4edea3",
+            "surface": "#131318",
+            "surface-dim": "#131318",
+            "surface-container-high": "#2a292f",
+            "error-container": "#93000a",
+            "surface-container-low": "#1b1b20",
+            "error": "#ffb4ab",
+            "surface-variant": "#35343a",
+            "primary-fixed-dim": "#adc6ff",
+            "secondary-fixed": "#e9ddff",
+            "outline": "#8c909f",
+            "on-primary-fixed-variant": "#004395",
+            "secondary-container": "#571bc1",
+            "inverse-primary": "#005ac2",
+            "on-primary-fixed": "#001a42",
+            "on-secondary": "#3c0091",
+            "on-tertiary-fixed-variant": "#005236",
+            "on-tertiary": "#003824",
+            "on-secondary-container": "#c4abff",
+            "on-error-container": "#ffdad6",
+            "background": "#131318",
+            "secondary": "#d0bcff",
+            "primary-container": "#4d8eff",
+            "surface-container-highest": "#35343a",
+            "primary-fixed": "#d8e2ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "margin-sm": "1rem",
+            "space-xl": "2rem",
+            "gutter-sm": "1rem",
+            "gutter": "1.5rem",
+            "margin": "2rem"
+          },
+          "fontFamily": {
+            "body-sm": ["Inter"],
+            "display-lg-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-sm": ["Inter"],
+            "headline-md": ["Inter"],
+            "display-lg": ["Inter"],
+            "headline-xl-mobile": ["Inter"],
+            "headline-lg": ["Inter"],
+            "label-lg": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-md": ["Inter"],
+            "headline-xl": ["Inter"],
+            "label-sm": ["Inter"]
+          },
+          "fontSize": {
+            "body-sm": ["12px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "headline-lg": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+            "headline-xl": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-gradient-btn {
+      background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%);
+      box-shadow: 0 0 16px rgba(59, 130, 246, 0.35);
+    }
+    .custom-gradient-btn:hover {
+      filter: brightness(1.08);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    .ambient-glow {
+      box-shadow: 0 0 24px -4px rgba(59, 130, 246, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen flex antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Fixed Left Sidebar (Shared Component Anchor) -->
+<aside class="fixed top-0 left-0 h-screen w-64 flex flex-col z-30 bg-surface-container-low border-r border-outline-variant">
+<div class="flex flex-col h-full justify-between p-space-md">
+<!-- Top Section -->
+<div class="space-y-space-md">
+<!-- Workspace Switcher & Branding Header -->
+<div class="flex items-center justify-between p-space-xs rounded-lg hover:bg-surface-container-high transition-colors duration-150 cursor-pointer">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-lg bg-surface-variant border border-outline-variant flex items-center justify-center text-primary font-headline-sm">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="deployed_code">deployed_code</span>
+</div>
+<div>
+<div class="text-headline-sm font-headline-sm font-bold text-on-surface tracking-tight leading-none">Creator OS</div>
+<div class="text-label-sm font-label-sm text-outline mt-0.5">Enterprise Suite</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]" data-icon="unfold_more">unfold_more</span>
+</div>
+<!-- Tenant Active Context Pill -->
+<div class="flex items-center justify-between px-2.5 py-1.5 rounded-lg bg-surface border border-outline-variant">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-label-md font-label-md text-on-surface font-medium">Acme Studios</span>
+</div>
+<span class="text-label-sm font-label-sm px-1.5 py-0.5 rounded bg-surface-container-high text-primary border border-outline-variant">Enterprise</span>
+</div>
+<!-- CTA Deploy Project -->
+<button class="w-full h-10 custom-gradient-btn text-white rounded-lg flex items-center justify-center gap-2 font-label-lg transition-transform duration-100 ease-out active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+<span>Deploy Project</span>
+</button>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<!-- Overview -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="space_dashboard">space_dashboard</span>
+<span>Overview</span>
+</a>
+<!-- Security & Sessions (ACTIVE with notification dot) -->
+<a class="flex items-center justify-between px-3 py-2 rounded-lg text-primary bg-surface-container border-l-2 border-primary font-medium text-label-md font-label-md" href="#">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px]" data-icon="shield">shield</span>
+<span>Security &amp; Sessions</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</a>
+<!-- Notifications -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications">notifications</span>
+<span>Notifications</span>
+</a>
+<!-- Privacy & GDPR -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="privacy_tip">privacy_tip</span>
+<span>Privacy &amp; GDPR</span>
+</a>
+<!-- API & Integrations -->
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="webhook">webhook</span>
+<span>API &amp; Integrations</span>
+</a>
+</nav>
+</div>
+<!-- Bottom / Footer Navigation -->
+<div class="pt-space-md border-t border-outline-variant space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors duration-150 text-label-md font-label-md" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="headset_mic">headset_mic</span>
+<span>Support</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Canvas Wrapper -->
+<div class="ml-64 flex-1 flex flex-col min-w-0">
+<!-- Top Utility Navigation Bar (Shared Component Anchor) -->
+<header class="sticky top-0 right-0 w-full h-14 z-20 bg-surface border-b border-outline-variant flex items-center justify-between px-space-lg">
+<!-- Left: Breadcrumb / Search -->
+<div class="flex items-center gap-6">
+<nav class="flex items-center gap-2 text-label-md font-label-md text-outline">
+<span class="hover:text-on-surface cursor-pointer">Settings</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="hover:text-on-surface cursor-pointer">Security &amp; Authentication</span>
+<span class="material-symbols-outlined text-[14px]" data-icon="chevron_right">chevron_right</span>
+<span class="text-primary font-semibold">Security Settings</span>
+</nav>
+<!-- Search input field -->
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[16px] text-outline" data-icon="search">search</span>
+<input class="w-full h-9 bg-surface-container-low border border-outline-variant rounded-[6px] pl-9 pr-3 text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Search security configurations..." type="text"/>
+</div>
+</div>
+<!-- Right Trailing Cluster -->
+<div class="flex items-center gap-3">
+<!-- SOC-2 Compliance Badge -->
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container border border-outline-variant text-tertiary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" data-icon="verified_user">verified_user</span>
+<span>SOC-2 Type II Certified</span>
+</div>
+<!-- Revoke All Sessions secondary button -->
+<button class="h-8 px-3 rounded-[8px] bg-surface-container border border-outline-variant text-on-surface hover:bg-surface-container-high hover:border-outline text-label-md font-label-md transition-colors duration-150">
+          Revoke All Sessions
+        </button>
+<!-- Export Security Audit button -->
+<button class="h-8 px-3 rounded-[8px] bg-surface-container-high border border-outline-variant text-primary hover:bg-surface-container-highest text-label-md font-label-md flex items-center gap-1.5 transition-colors duration-150">
+<span class="material-symbols-outlined text-[16px]" data-icon="file_download">file_download</span>
+<span>Export Security Audit</span>
+</button>
+<div class="h-5 w-px bg-outline-variant mx-1"></div>
+<!-- Utility Action Icons -->
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[18px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Dark Mode">
+<span class="material-symbols-outlined text-[18px]" data-icon="dark_mode">dark_mode</span>
+</button>
+<!-- Profile Avatar -->
+<div class="w-8 h-8 rounded-full bg-secondary-container border border-outline-variant flex items-center justify-center text-secondary font-semibold text-label-md">
+          AS
+        </div>
+</div>
+</header>
+<!-- Page Content Container -->
+<main class="p-space-xl max-w-7xl w-full mx-auto space-y-space-xl">
+<!-- Page Header -->
+<div class="space-y-1">
+<h1 class="text-headline-xl font-headline-xl text-on-surface tracking-tight">Security Settings, 2FA &amp; Active Sessions</h1>
+<p class="text-body-md font-body-md text-outline">Configure enterprise multi-factor authentication, monitor active sessions, and review recent login audit events.</p>
+</div>
+<!-- Bento / Section Grid Stack -->
+<div class="space-y-space-lg">
+<!-- SECTION 1: Two-Factor Authentication (2FA) Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="flex items-center justify-between pb-space-sm border-b border-outline-variant">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="shield">shield</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Two-Factor Authentication (2FA)</h2>
+<p class="text-body-sm font-body-sm text-outline">Protect your workspace from unauthorized access by requiring an authenticator code (TOTP) or hardware security key at login.</p>
+</div>
+</div>
+<!-- Status Badge -->
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-container/20 border border-tertiary-container text-tertiary text-label-sm font-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Enabled (Authenticator App)
+            </span>
+</div>
+<!-- Actions & Hardware Key Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg pt-space-xs">
+<!-- Sub-card: TOTP & Recovery -->
+<div class="bg-surface border border-outline-variant rounded-lg p-space-md flex flex-col justify-between">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<span class="text-label-lg font-label-lg text-on-surface">Authenticator App (TOTP)</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline">Configured via mobile authenticator (e.g. Google Authenticator, 1Password).</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant">
+<a class="text-label-md font-label-md text-primary hover:underline flex items-center gap-1" href="#">
+<span>View Recovery Codes</span>
+<span class="text-label-sm font-label-sm text-outline">(8 remaining)</span>
+</a>
+<div class="flex items-center gap-2">
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors">
+                    Configure Authenticator
+                  </button>
+<button class="h-9 px-3 rounded-lg bg-error-container/20 border border-error-container/40 text-error hover:bg-error-container/30 text-label-md font-label-md transition-colors">
+                    Disable 2FA
+                  </button>
+</div>
+</div>
+</div>
+<!-- Sub-card: Hardware Security Key (WebAuthn / FIDO2) -->
+<div class="bg-surface border border-outline-variant rounded-lg p-space-md flex flex-col justify-between">
+<div class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="vpn_key">vpn_key</span>
+<span class="text-label-lg font-label-lg text-on-surface">Hardware Security Key (WebAuthn / FIDO2)</span>
+</div>
+<span class="material-symbols-outlined text-tertiary text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex items-center gap-2 text-body-sm font-body-sm text-on-surface">
+<span class="font-medium">YubiKey 5C NFC</span>
+<span class="text-outline">• Registered Oct 12, 2025</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-4 border-t border-outline-variant">
+<span class="text-label-sm font-label-sm text-outline">Hardware-bound cryptographic isolation</span>
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-outline-variant hover:bg-surface-container-high text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="add">add</span>
+<span>Add Security Key</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION 2: Active Sessions Table Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="devices">devices</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Active Sessions</h2>
+<p class="text-body-sm font-body-sm text-outline">Manage and terminate client access tokens across your desktop, laptop, and mobile devices.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-outline-variant text-on-surface text-label-sm font-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+                3 Active Devices
+              </span>
+<button class="h-9 px-3 rounded-lg bg-surface-container border border-error/40 text-error hover:bg-error-container/20 text-label-md font-label-md transition-colors flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="logout">logout</span>
+<span>Revoke All Other Sessions</span>
+</button>
+</div>
+</div>
+<!-- Active Sessions Table -->
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant text-label-sm font-label-sm text-outline">
+<th class="px-4 py-3">Device &amp; Browser</th>
+<th class="px-4 py-3">Location</th>
+<th class="px-4 py-3">IP Address</th>
+<th class="px-4 py-3">Status / Activity</th>
+<th class="px-4 py-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-low text-body-sm font-body-sm">
+<!-- Row 1: Current Session -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[20px]" data-icon="laptop_mac">laptop_mac</span>
+<div>
+<div class="font-medium text-on-surface">MacBook Pro 16" <span class="text-outline font-normal">(Sonoma 14.5)</span></div>
+<div class="text-outline text-label-sm">Chrome 129.0</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3.5 text-on-surface">San Francisco, CA, USA</td>
+<td class="px-4 py-3.5 font-mono text-outline">192.0.2.45</td>
+<td class="px-4 py-3.5">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Current Device
+                    </span>
+</td>
+<td class="px-4 py-3.5 text-right">
+<span class="text-label-sm font-label-sm text-outline italic">Active Now</span>
+</td>
+</tr>
+<!-- Row 2: iPhone -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="smartphone">smartphone</span>
+<div>
+<div class="font-medium text-on-surface">iPhone 16 Pro <span class="text-outline font-normal">(iOS 18.1)</span></div>
+<div class="text-outline text-label-sm">Creator OS Mobile App</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3.5 text-on-surface">San Francisco, CA, USA</td>
+<td class="px-4 py-3.5 font-mono text-outline">198.51.100.12</td>
+<td class="px-4 py-3.5 text-outline">Last active: 12 minutes ago</td>
+<td class="px-4 py-3.5 text-right">
+<button class="px-2.5 py-1 rounded bg-surface border border-outline-variant text-error hover:bg-error-container/20 text-label-sm font-label-sm transition-colors">
+                      Revoke
+                    </button>
+</td>
+</tr>
+<!-- Row 3: iPad -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-[20px]" data-icon="tablet_mac">tablet_mac</span>
+<div>
+<div class="font-medium text-on-surface">iPad Pro 12.9"</div>
+<div class="text-outline text-label-sm">Safari 18.0</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3.5 text-on-surface">Los Angeles, CA, USA</td>
+<td class="px-4 py-3.5 font-mono text-outline">203.0.113.88</td>
+<td class="px-4 py-3.5 text-outline">Last active: 3 days ago</td>
+<td class="px-4 py-3.5 text-right">
+<button class="px-2.5 py-1 rounded bg-surface border border-outline-variant text-error hover:bg-error-container/20 text-label-sm font-label-sm transition-colors">
+                      Revoke
+                    </button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 3: Login History & Audit Table Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="history">history</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Recent Login Activity</h2>
+<p class="text-body-sm font-body-sm text-outline">Audited security log of authentication requests, SSO flows, and security barrier triggers.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<!-- Date filter dropdown -->
+<div class="relative">
+<select class="h-9 bg-surface border border-outline-variant rounded-lg pl-3 pr-8 text-label-md font-label-md text-on-surface focus:outline-none focus:border-primary appearance-none cursor-pointer">
+<option>Last 30 Days</option>
+<option>Last 7 Days</option>
+<option>Last 90 Days</option>
+<option>Custom Range</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[16px] text-outline pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Download CSV button -->
+<button class="h-9 px-3 rounded-lg bg-surface border border-outline-variant hover:bg-surface-container-high text-on-surface text-label-md font-label-md flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px]" data-icon="download">download</span>
+<span>Download CSV Log</span>
+</button>
+</div>
+</div>
+<!-- Audit Table -->
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant text-label-sm font-label-sm text-outline">
+<th class="px-4 py-3">Date &amp; Time</th>
+<th class="px-4 py-3">Event Type</th>
+<th class="px-4 py-3">IP Address</th>
+<th class="px-4 py-3">Location</th>
+<th class="px-4 py-3">Device &amp; Browser</th>
+<th class="px-4 py-3">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-low text-body-sm font-body-sm">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3 font-medium text-on-surface">Today, 09:14 AM</td>
+<td class="px-4 py-3">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="passkey">passkey</span>
+                      SSO Passwordless Login
+                    </span>
+</td>
+<td class="px-4 py-3 font-mono text-outline">192.0.2.45</td>
+<td class="px-4 py-3 text-on-surface">San Francisco, US</td>
+<td class="px-4 py-3 text-outline">Chrome / macOS</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Success
+                    </span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3 font-medium text-on-surface">Oct 30, 2026, 11:22 PM</td>
+<td class="px-4 py-3">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="token">token</span>
+                      Mobile App Token Refresh
+                    </span>
+</td>
+<td class="px-4 py-3 font-mono text-outline">198.51.100.12</td>
+<td class="px-4 py-3 text-on-surface">San Francisco, US</td>
+<td class="px-4 py-3 text-outline">iOS App</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Success
+                    </span>
+</td>
+</tr>
+<!-- Row 3: Blocked -->
+<tr class="hover:bg-surface-container transition-colors duration-150 bg-error-container/5">
+<td class="px-4 py-3 font-medium text-on-surface">Oct 28, 2026, 03:41 AM</td>
+<td class="px-4 py-3">
+<span class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[16px] text-error" data-icon="error">error</span>
+                      Failed Password Attempt
+                    </span>
+</td>
+<td class="px-4 py-3 font-mono text-outline">89.208.29.14</td>
+<td class="px-4 py-3 text-on-surface">Frankfurt, DE</td>
+<td class="px-4 py-3 text-outline">Firefox / Windows</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container/40 text-error text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                      Blocked by WAF
+                    </span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3 font-medium text-on-surface">Oct 25, 2026, 08:30 AM</td>
+<td class="px-4 py-3">
+<span class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="pin">pin</span>
+                      2FA TOTP Verified
+                    </span>
+</td>
+<td class="px-4 py-3 font-mono text-outline">192.0.2.45</td>
+<td class="px-4 py-3 text-on-surface">San Francisco, US</td>
+<td class="px-4 py-3 text-outline">Chrome / macOS</td>
+<td class="px-4 py-3">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-tertiary-container/20 text-tertiary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                      Success
+                    </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- SECTION 4: API Keys & Personal Access Tokens Card -->
+<div class="bg-surface-container-low border border-outline-variant rounded-xl p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="key">key</span>
+</div>
+<div>
+<h2 class="text-headline-sm font-headline-sm text-on-surface">Personal Access Tokens &amp; CLI Keys</h2>
+<p class="text-body-sm font-body-sm text-outline">Manage fine-grained authorization credentials for automated pipelines, webhooks, and local CLI tools.</p>
+</div>
+</div>
+<!-- Generate New API Key Button -->
+<button class="h-10 px-4 custom-gradient-btn text-white rounded-lg flex items-center gap-2 font-label-lg transition-transform duration-100 ease-out active:scale-95">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+<span>Generate New API Key</span>
+</button>
+</div>
+<!-- Tokens Table -->
+<div class="border border-outline-variant rounded-lg overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface border-b border-outline-variant text-label-sm font-label-sm text-outline">
+<th class="px-4 py-3">Key Name</th>
+<th class="px-4 py-3">Token Mask</th>
+<th class="px-4 py-3">Permissions / Scope</th>
+<th class="px-4 py-3">Created Date</th>
+<th class="px-4 py-3">Last Used</th>
+<th class="px-4 py-3 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant bg-surface-container-low text-body-sm font-body-sm">
+<!-- Token 1 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="terminal">terminal</span>
+                      CLI Deployer Key
+                    </div>
+</td>
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-2">
+<code class="px-2 py-0.5 rounded bg-surface border border-outline-variant font-mono text-label-sm text-on-surface">cos_live_9f82••••••••3a7b</code>
+<button class="text-outline hover:text-on-surface" title="Copy token">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-4 py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-surface border border-outline-variant text-label-sm font-label-sm text-primary">Full Access</span>
+</td>
+<td class="px-4 py-3.5 text-outline">Sep 10, 2026</td>
+<td class="px-4 py-3.5 text-on-surface font-medium">2h ago</td>
+<td class="px-4 py-3.5 text-right">
+<button class="w-8 h-8 rounded-lg hover:bg-error-container/20 text-outline hover:text-error transition-colors inline-flex items-center justify-center" title="Delete Key">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Token 2 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="sync_alt">sync_alt</span>
+                      Zapier Sync Webhook
+                    </div>
+</td>
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-2">
+<code class="px-2 py-0.5 rounded bg-surface border border-outline-variant font-mono text-label-sm text-on-surface">cos_live_21c8••••••••9e12</code>
+<button class="text-outline hover:text-on-surface" title="Copy token">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-4 py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-surface border border-outline-variant text-label-sm font-label-sm text-secondary">Read &amp; Write CRM</span>
+</td>
+<td class="px-4 py-3.5 text-outline">Aug 14, 2026</td>
+<td class="px-4 py-3.5 text-on-surface font-medium">Yesterday</td>
+<td class="px-4 py-3.5 text-right">
+<button class="w-8 h-8 rounded-lg hover:bg-error-container/20 text-outline hover:text-error transition-colors inline-flex items-center justify-center" title="Delete Key">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+<!-- Token 3 -->
+<tr class="hover:bg-surface-container transition-colors duration-150">
+<td class="px-4 py-3.5">
+<div class="font-medium text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-tertiary" data-icon="query_stats">query_stats</span>
+                      Read-Only Analytics Pipeline
+                    </div>
+</td>
+<td class="px-4 py-3.5">
+<div class="flex items-center gap-2">
+<code class="px-2 py-0.5 rounded bg-surface border border-outline-variant font-mono text-label-sm text-on-surface">cos_live_44b1••••••••77a0</code>
+<button class="text-outline hover:text-on-surface" title="Copy token">
+<span class="material-symbols-outlined text-[16px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-4 py-3.5">
+<span class="px-2 py-0.5 rounded-full bg-surface border border-outline-variant text-label-sm font-label-sm text-outline">Read Only</span>
+</td>
+<td class="px-4 py-3.5 text-outline">Jun 02, 2026</td>
+<td class="px-4 py-3.5 text-outline">Oct 20, 2026</td>
+<td class="px-4 py-3.5 text-right">
+<button class="w-8 h-8 rounded-lg hover:bg-error-container/20 text-outline hover:text-error transition-colors inline-flex items-center justify-center" title="Delete Key">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
